@@ -2,18 +2,18 @@ const express = require('express');
 const simpleOauth = require('simple-oauth2');
 const axios = require('axios');
 
-/* Your app config */
-const clientId = 'NhgVthF314WOj29y';
-const clientSecret = 'P6EcYRMmYqlqwacNjDTEswDukJMotkysWdzAGOGjgVbRXGlv5kJsCrXwIq6pnbfg';
-const redirectUri = 'http://localhost:3000/callback';
+/* --- Fill in your app config here --- */
+const clientId = '';
+const clientSecret = '';
+const redirectUri = '';
 const scopes = ['game:read', 'preference:read'];
-/* End of your app config */
+/* --- End of your app config --- */
 
-/* Lichess config */
+/* --- Lichess config --- */
 const tokenHost = 'https://oauth.lichess.org';
 const authorizePath = '/oauth/authorize';
 const tokenPath = '/oauth';
-/* End of lichess config */
+/* --- End of lichess config --- */
 
 const state = Math.random().toString(36).substring(2);
 
@@ -29,9 +29,7 @@ const oauth2 = simpleOauth.create({
   },
 });
 
-// Authorization uri definition
-const authorizationUri =
-`${tokenHost}${authorizePath}?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&state=${state}`;
+const authorizationUri = `${tokenHost}${authorizePath}?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&state=${state}`;
 
 const app = express();
 
@@ -48,6 +46,7 @@ app.get('/callback', async (req, res) => {
       code: req.query.code,
       redirect_uri: redirectUri
     });
+    console.log(result);
     const token = oauth2.accessToken.create(result);
     const userPrefs = await getUserPrefs(token.token);
     res.send(`<h1>Success!</h1>Your lichess preferences: <pre>${JSON.stringify(userPrefs.data)}</pre>`);
