@@ -2,11 +2,21 @@ const express = require('express');
 const simpleOauth = require('simple-oauth2');
 const axios = require('axios');
 
+/* Create your lichess OAuth app on https://lichess.org/account/oauth/app/create
+ * Homepage URL: http://localhost:3000
+ * Callback URL: http://localhost:3000/callback
+ */
+
 /* --- Fill in your app config here --- */
 const clientId = '';
 const clientSecret = '';
-const redirectUri = '';
-const scopes = ['game:read', 'preference:read'];
+const redirectUri = 'http://localhost:3000/callback';
+// uncomment the scopes you need
+const scopes = [
+  // 'game:read',
+  'preference:read',
+  // 'preference:write',
+  ];
 /* --- End of your app config --- */
 
 /* --- Lichess config --- */
