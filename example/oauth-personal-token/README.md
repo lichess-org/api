@@ -1,4 +1,4 @@
-# Lichess OAuth API with personal tokens
+# Lichess OAuth API with a personal token
 
 You can make OAuth requests without going through the authorization code flow.
 
