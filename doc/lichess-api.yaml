@@ -159,7 +159,11 @@ components:
   securitySchemes:
     oauth:
       type: oauth2
-      description: This API uses OAuth 2 with the Authorization Code flow. [More info](https://api.example.com/docs/auth)
+      description: |
+        This API uses OAuth 2 with the Authorization Code flow. [More info](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2)
+        - [NodeJS example of an application](https://github.com/lichess-org/api/tree/master/example/oauth) that uses Lichess OAuth API.
+        - [Create a Lichess OAuth app](https://lichess.org/account/oauth/app)
+        - [Generate a personal API token](https://lichess.org/account/oauth/token)
       flows:
         authorizationCode:
           authorizationUrl: https://oauth.lichess.org/oauth/authorize
