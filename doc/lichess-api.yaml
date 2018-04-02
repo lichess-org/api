@@ -15,7 +15,7 @@ paths:
         - oauth: []
       description: |
         Public informations about the logged in user.
-      operationId: /account/me
+      operationId: account/me
       responses:
         200:
           content:
@@ -28,14 +28,95 @@ paths:
         - oauth: ["preference:read"]
       description: |
         Read the preferences of the logged in user.
+
         See https://github.com/ornicar/lila/blob/master/modules/pref/src/main/Pref.scala
-      operationId: /account/preferences
+      operationId: account/preferences
       responses:
         200:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserPreferences'
+  /games/export/mine:
+    get:
+      security:
+        - oauth: ["game:read"]
+      description: |
+        Download all your games in PGN format. Optionally specify a start and end timestamps for partial exports.
+
+        Games are sorted by reverse chronological order (most recent first)
+
+        We recommend streaming the response, for it can be very long.
+        https://lichess.org/@/german11 for instance has more than 250,000 games.
+      operationId: games/export/mine
+      parameters:
+        - in: query
+          name: since
+          description: Download games played since this timestamp.
+          schema:
+            type: integer
+            minimum: 1356998400070
+        - in: query
+          name: until
+          description: Download games played until this timestamp.
+          schema:
+            type: integer
+            minimum: 1356998400070
+        - in: query
+          name: max
+          description: How many games to download. Leave empty to download all games.
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        200:
+          content:
+            application/x-chess-pgn:
+              example: |
+                [Event "Rated Blitz game"]
+                [Site "https://lichess.org/fY44h4OY"]
+                [Date "2018.03.29"]
+                [Round "-"]
+                [White "pveldman"]
+                [Black "thibault"]
+                [Result "1-0"]
+                [UTCDate "2018.03.29"]
+                [UTCTime "01:38:15"]
+                [WhiteElo "1610"]
+                [BlackElo "1601"]
+                [WhiteRatingDiff "+10"]
+                [BlackRatingDiff "-10"]
+                [Variant "Standard"]
+                [TimeControl "180+0"]
+                [ECO "C62"]
+                [Opening "Ruy Lopez: Steinitz Defense"]
+                [Termination "Normal"]
+                [Event "U1700 SuperBlitz Arena"]
+
+                1. e4 { [%clk 0:03:00] } e5 { [%clk 0:03:00] } 2. Nf3 { [%clk 0:02:59] } Nc6 { [%clk 0:02:58] } 3. Bb5 { [%clk 0:02:57] } d6 { [%clk 0:02:55] } 4. h3 { [%clk 0:02:54] } Nf6 { [%clk 0:02:52] } 5. Bxc6+ { [%clk 0:02:52] } bxc6 { [%clk 0:02:49] } 6. d3 { [%clk 0:02:51] } Be7 { [%clk 0:02:46] } 7. O-O { [%clk 0:02:47] } O-O { [%clk 0:02:45] } 8. b3 { [%clk 0:02:45] } d5 { [%clk 0:02:45] } 9. exd5 { [%clk 0:02:33] } cxd5 { [%clk 0:02:40] } 10. Nxe5 { [%clk 0:02:31] } Qd6 { [%clk 0:02:38] } 1-0
+
+
+                [Event "Rated Blitz game"]
+                [Site "https://lichess.org/zoYu3nlQ"]
+                [Date "2018.03.29"]
+                [Round "-"]
+                [White "thibault"]
+                [Black "pveldman"]
+                [Result "0-1"]
+                [UTCDate "2018.03.29"]
+                [UTCTime "01:33:15"]
+                [WhiteElo "1611"]
+                [BlackElo "1599"]
+                [WhiteRatingDiff "-10"]
+                [BlackRatingDiff "+11"]
+                [Variant "Standard"]
+                [TimeControl "180+0"]
+                [ECO "C37"]
+                [Opening "King's Gambit Accepted, King's Knight Gambit"]
+                [Termination "Normal"]
+
+                1. e4 { [%clk 0:03:00] } e5 { [%clk 0:03:00] } 2. f4 { [%clk 0:03:00] } exf4 { [%clk 0:02:58] } 3. Nf3 { [%clk 0:02:57] } g5 { [%clk 0:02:56] } 4. Bc4 { [%clk 0:02:57] } d6 { [%clk 0:02:53] } 5. O-O { [%clk 0:02:53] } 0-1
+
 components:
   schemas:
     UserPublicInfo:
@@ -143,7 +224,7 @@ components:
           "zen":0,
           "moveEvent":2
         }
-}
+    }
 
     Error:
       required:
