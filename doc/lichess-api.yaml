@@ -23,7 +23,7 @@ paths:
   /account/me:
     get:
       security:
-        - oauth: []
+        - OAuth2: []
       description: |
         Public informations about the logged in user.
       operationId: account/me
@@ -36,7 +36,7 @@ paths:
   /account/preferences:
     get:
       security:
-        - oauth: ["preference:read"]
+        - OAuth2: ["preference:read"]
       description: |
         Read the preferences of the logged in user.
 
@@ -51,7 +51,7 @@ paths:
   /games/export/mine:
     get:
       security:
-        - oauth: ["game:read"]
+        - OAuth2: ["game:read"]
       description: |
         Download all your games in PGN format. Optionally specify a start and end timestamps for partial exports.
 
@@ -249,13 +249,18 @@ components:
           type: string
 
   securitySchemes:
-    "OAuth authorization code":
+    OAuth2:
       type: oauth2
-      description: |
-        The authorization aode flow allows your users to **login with lichess**.
-        - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth)
-        - [Create a Lichess OAuth app](https://lichess.org/account/oauth/app)
-        - [About authorization code flow]( [More info](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2)
+      description: "### Authorization Code Flow\n\
+        \ The authorization code flow allows your users to **login with lichess**.\n\
+        \ - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth)\n\
+        \ - [Create a Lichess OAuth app](https://lichess.org/account/oauth/app)\n\
+        \ - [About authorization code flow]( [More info](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2)\n\
+        \n### Personal API Token\n\
+        \ Personal API tokens allow you to quickly interact with Lichess OAuth API.\n\
+        \ - `curl https://lichess.org/account/me -H \"Authorization: Bearer <token>\"`\n\
+        \ - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth)\n\
+        \ - [Generate a personal API token](https://lichess.org/account/oauth/token)"
       flows:
         authorizationCode:
           authorizationUrl: https://oauth.lichess.org/oauth/authorize
@@ -263,11 +268,4 @@ components:
           scopes:
             "game:read": Download all your games
             "preference:read": Read your preferences
-    "OAuth personal token":
-      type: http
-      scheme: bearer
-      description: |
-        Personal tokens allow you to quickly interact with Lichess OAuth API.
-        - `curl https://lichess.org/account/me -H "Authorization: Bearer <token>"`
-        - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth)
-        - [Generate a personal API token](https://lichess.org/account/oauth/token)
+            "preference:write": Write your preferences
