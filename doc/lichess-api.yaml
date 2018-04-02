@@ -7,6 +7,7 @@ info:
   \ or in the #lichess IRC channel on freenode.\n\
   \ - [Contribute to this documentation on Github](https://github.com/lichess-org/api).\n\
   \ - Check out [lichess widgets to embed in your website](https://lichess.org/developers).\n\
+  \ - [Download all lichess games](https://database.lichess.org/)\n\
   \ ## Endpoint\n\
   \ `https://lichess.org`\n\
   \ ## Rate limiting\n\
