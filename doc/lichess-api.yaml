@@ -1,0 +1,170 @@
+openapi: "3.0.0"
+info:
+  version: 2.0.0
+  title: Lichess.org
+  description: HTTP endpoints to the Lichess API. This is a Work In Progress.
+  termsOfService: https://lichess.org/terms-of-service
+  contact:
+    url: https://lichess.org/developers
+servers:
+  - url: https://lichess.org
+paths:
+  /account/me:
+    get:
+      security: 
+        - oauth: []
+      description: |
+        Public informations about the logged in user.
+      operationId: /account/me
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPublicInfo'
+  /account/preferences:
+    get:
+      security: 
+        - oauth: ["preference:read"]
+      description: |
+        Read the preferences of the logged in user.
+        See https://github.com/ornicar/lila/blob/master/modules/pref/src/main/Pref.scala
+      operationId: /account/preferences
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreferences'
+components:
+  schemas:
+    UserPublicInfo:
+      example: {
+        "id": "thibault",
+        "username": "thibault",
+        "online": true,
+        "createdAt": 1290415680000,
+        "seenAt": 1522636452014,
+        "profile": {
+            "bio": "Free bugs!",
+            "country": "EC",
+            "firstName": "Thibault",
+            "lastName": "Duplessis",
+            "links": "github.com/ornicar\r\ntwitter.com/ornicar",
+            "location": "On the road"
+        },
+        "nbFollowers": 2735,
+        "nbFollowing": 299,
+        "completionRate": 97,
+        "count": {
+            "ai": 531,
+            "all": 9265,
+            "bookmark": 71,
+            "draw": 340,
+            "drawH": 331,
+            "import": 66,
+            "loss": 4480,
+            "lossH": 4207,
+            "me": 0,
+            "playing": 6,
+            "rated": 7157,
+            "win": 4440,
+            "winH": 4378
+        },
+        "language": "en-GB",
+        "patron": true,
+        "perfs": {
+            "blitz": {
+                "games": 2945,
+                "prog": -22,
+                "rating": 1609,
+                "rd": 60
+            },
+            "bullet": {
+                "games": 2324,
+                "prog": -9,
+                "rating": 1602,
+                "rd": 61
+            },
+            "chess960": {
+                "games": 347,
+                "prog": 84,
+                "rating": 1554,
+                "rd": 66
+            },
+            "puzzle": {
+                "games": 2248,
+                "prog": -67,
+                "rating": 1737,
+                "rd": 63
+            },
+        },
+        "playTime": {
+            "total": 3296897,
+            "tv": 12134
+        },
+        "playing": "https://lichess.org/ZGcyzmfB/white",
+    }
+
+    UserPreferences:
+      example: {  
+        "prefs":{  
+          "dark":true,
+          "transp":false,
+          "bgImg":"http://media.blizzard.com/sc2/media/wallpapers/wall080/wall080-1920x1080.jpg",
+          "is3d":false,
+          "theme":"wood2",
+          "pieceSet":"go",
+          "theme3d":"Light-Wood",
+          "pieceSet3d":"Staunton",
+          "soundSet":"silent",
+          "blindfold":0,
+          "autoQueen":2,
+          "autoThreefold":2,
+          "takeback":3,
+          "clockTenths":1,
+          "clockBar":true,
+          "clockSound":true,
+          "premove":true,
+          "animation":2,
+          "captured":true,
+          "follow":true,
+          "highlight":true,
+          "destination":true,
+          "coords":2,
+          "replay":2,
+          "challenge":3,
+          "message":3,
+          "coordColor":1,
+          "submitMove":0,
+          "confirmResign":1,
+          "insightShare":2,
+          "keyboardMove":0,
+          "zen":0,
+          "moveEvent":2
+        }
+}
+
+    Error:
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+
+  securitySchemes:
+    oauth:
+      type: oauth2
+      description: This API uses OAuth 2 with the Authorization Code flow. [More info](https://api.example.com/docs/auth)
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.lichess.org/oauth/authorize
+          tokenUrl: https://oauth.lichess.org/oauth
+          scopes:
+            "game:read": Download all your games
+            "preference:read": Read your preferences
+            "preference:write": Write your preferences
