@@ -1,8 +1,15 @@
 openapi: "3.0.0"
 info:
   version: 2.0.0
-  title: Lichess.org
-  description: HTTP endpoints to the Lichess API. This is a Work In Progress.
+  title: Lichess.org API reference
+  description: "\n\n# Introduction\nWelcome to the reference for the Lichess API!\n\
+  \ ## Endpoint\n\
+  \ `https://lichess.org`\n\
+  \ ## Rate limiting\n\
+  \ All requests are rate limited using various strategies,\
+  \ to ensure the API remains responsive for everyone.\n\
+  \ Only make one request at a time. If you get a 429 response,\n\
+  \ wait one minute before making more requests."
   termsOfService: https://lichess.org/terms-of-service
   contact:
     url: https://lichess.org/developers
@@ -242,7 +249,9 @@ components:
       type: oauth2
       description: |
         This API uses OAuth 2 with the Authorization Code flow. [More info](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2)
-        - [NodeJS example of an application](https://github.com/lichess-org/api/tree/master/example/oauth) that uses Lichess OAuth API.
+        - Examples:
+          - [Using authorization code flow](https://github.com/lichess-org/api/tree/master/example/oauth) (login with lichess)
+          - [Using a personal token](https://github.com/lichess-org/api/tree/master/example/oauth)
         - [Create a Lichess OAuth app](https://lichess.org/account/oauth/app)
         - [Generate a personal API token](https://lichess.org/account/oauth/token)
       flows:
