@@ -1,7 +1,7 @@
 {
-  "name": "example",
+  "name": "oauth-personal-token-example",
   "version": "1.0.0",
-  "description": "",
+  "description": "Lichess OAuth personal token example",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,10 +11,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "express": "^4.16"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "simple-oauth2": "^1.5.2"
+    "axios": "^0.18.0"
   }
 }

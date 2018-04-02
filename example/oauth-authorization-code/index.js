@@ -14,7 +14,7 @@ const redirectUri = 'http://localhost:3000/callback';
 // uncomment the scopes you need
 const scopes = [
   // 'game:read',
-  'preference:read',
+  // 'preference:read',
   // 'preference:write',
   ];
 /* --- End of your app config --- */
@@ -58,8 +58,8 @@ app.get('/callback', async (req, res) => {
     });
     console.log(result);
     const token = oauth2.accessToken.create(result);
-    const userPrefs = await getUserPrefs(token.token);
-    res.send(`<h1>Success!</h1>Your lichess preferences: <pre>${JSON.stringify(userPrefs.data)}</pre>`);
+    const userInfo = await getUserInfo(token.token);
+    res.send(`<h1>Success!</h1>Your lichess user info: <pre>${JSON.stringify(userInfo.data)}</pre>`);
   } catch(error) {
     console.error('Access Token Error', error.message);
     res.status(500).json('Authentication failed');
@@ -74,11 +74,9 @@ app.listen(3000, () => {
   console.log('Express server started on port 3000');
 });
 
-function getUserPrefs(token) {
-  return axios.get('/account/preferences', {
+function getUserInfo(token) {
+  return axios.get('/account/me', {
     baseURL: 'https://lichess.org/',
-    headers: {
-      'Authorization': 'Bearer ' + token.access_token
-    }
+    headers: { 'Authorization': 'Bearer ' + token.access_token }
   });
 }

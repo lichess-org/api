@@ -1,8 +1,8 @@
 # Lichess OAuth2 API example application
 
-## How to
+## Run this example
 
-1. Create a lichess OAuth app at https://lichess.org/account/oauth/app
+1. Create a Lichess OAuth app at https://lichess.org/account/oauth/app
   - Homepage URL: http://localhost:3000
   - Callback URL: http://localhost:3000/callback
 2. Edit index.js with your app config
