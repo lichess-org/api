@@ -11,7 +11,7 @@ servers:
 paths:
   /account/me:
     get:
-      security: 
+      security:
         - oauth: []
       description: |
         Public informations about the logged in user.
@@ -24,7 +24,7 @@ paths:
                 $ref: '#/components/schemas/UserPublicInfo'
   /account/preferences:
     get:
-      security: 
+      security:
         - oauth: ["preference:read"]
       description: |
         Read the preferences of the logged in user.
@@ -107,8 +107,8 @@ components:
     }
 
     UserPreferences:
-      example: {  
-        "prefs":{  
+      example: {
+        "prefs":{
           "dark":true,
           "transp":false,
           "bgImg":"http://media.blizzard.com/sc2/media/wallpapers/wall080/wall080-1920x1080.jpg",
