@@ -2,7 +2,11 @@ openapi: "3.0.0"
 info:
   version: 2.0.0
   title: Lichess.org API reference
-  description: "\n\n# Introduction\nWelcome to the reference for the Lichess API!\n\
+  description: "\n\n# Introduction\nWelcome to the reference for the Lichess API!\n\n\
+  \ - Get help in the [lichess developers discord channel](https://discord.gg/pw6Efvk),\
+  \ or in the #lichess IRC channel on freenode.\n\
+  \ - [Contribute to this documentation on Github](https://github.com/lichess-org/api).\n\
+  \ - Check out [lichess widgets to embed in your website](https://lichess.org/developers).\n\
   \ ## Endpoint\n\
   \ `https://lichess.org`\n\
   \ ## Rate limiting\n\
