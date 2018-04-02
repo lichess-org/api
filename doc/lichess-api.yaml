@@ -14,9 +14,8 @@ info:
   \ to ensure the API remains responsive for everyone.\n\
   \ Only make one request at a time. If you get a 429 response,\n\
   \ wait one minute before making more requests."
-  termsOfService: https://lichess.org/terms-of-service
   contact:
-    url: https://lichess.org/developers
+    url: https://lichess.org
 servers:
   - url: https://lichess.org
 paths:
