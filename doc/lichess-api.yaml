@@ -16,8 +16,9 @@ info:
   \ ## Rate limiting\n\
   \ All requests are rate limited using various strategies,\
   \ to ensure the API remains responsive for everyone.\n\
-  \ Only make one request at a time. If you get a 429 response,\n\
-  \ wait one minute before making more requests."
+  \ Only make one request at a time.\n\
+  \ If you receive an HTTP response with a [429 status](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#429),\
+  \ please wait a full minute before resuming API usage."
   contact:
     url: https://lichess.org
 servers:
@@ -28,7 +29,8 @@ paths:
       operationId: apiUsersStatus
       summary: Real-time users status
       description: |
-        Read the `online` and `playing` flags of several users.
+        Read the `online`, `playing` and `streaming` flags of several users.
+        JSONP is available.
 
         This API is very fast and cheap on lichess side.
         So you can call it quite often (like once every 5 seconds).
@@ -92,8 +94,7 @@ paths:
       summary: Get user public data
       description: |
         Read public data of a user.
-
-        See https://lichess.org/@/thibault.
+        JSONP is available.
       parameters:
         - in: path
           name: username
@@ -113,8 +114,7 @@ paths:
       summary: Get user activity
       description: |
         Read data to generate the activity feed of a user.
-
-        See https://lichess.org/@/thibault.
+        JSONP is available.
       parameters:
         - in: path
           name: username
