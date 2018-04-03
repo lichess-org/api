@@ -1,0 +1,22 @@
+{
+  "name": "lichess-doc",
+  "version": "1.0.0",
+  "description": "Lichess HTTP API documentation",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --mode=production --config webpack.config.js"
+  },
+  "keywords": [
+    "lichess",
+    "api"
+  ],
+  "author": "Thibault Duplessis",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13"
+  },
+  "dependencies": {
+    "swagger-ui": "^3.13.2"
+  }
+}
