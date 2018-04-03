@@ -38,7 +38,7 @@ paths:
           description: User IDs separated by commas
           schema:
             type: string
-          example: cyrilmarcelin,chess-network
+          example: lukhas,chess-network
       responses:
         200:
           content:
@@ -54,29 +54,47 @@ paths:
                       type: string
                     title:
                       type: string
+                      nullable: true
                     online:
                       type: boolean
+                      nullable: true
                     playing:
                       type: boolean
+                      nullable: true
+                    streaming:
+                      type: boolean
+                      nullable: true
                     patron:
                       type: boolean
-              example: [
-                {
-                  "id": "cyrilmarcelin",
-                  "name": "CyrilMarcelin",
-                  "title": "GM",
-                  "online": true,
-                  "playing": true
-                },
-                {
-                  "id": "chess-network",
-                  "name": "Chess-Network",
-                  "title": "NM",
-                  "online": false,
-                  "playing": false,
-                  "patron": true
-                }
-              ]
+                      nullable: true
+                example: [
+                  {
+                    "id": "lukhas",
+                    "name": "Lukhas"
+                  },
+                  {
+                    "id": "chess-network",
+                    "name": "Chess-Network",
+                    "title": "NM",
+                    "online": true,
+                    "playing": true,
+                    "streaming": true,
+                    "patron": true
+                  }
+                ]
+
+  /api/user/<username>/activity:
+    get:
+      operationId: apiUserActivity
+      summary: |
+        Read data to generate the activity feed of a user.
+        See https://lichess.org/@/thibault
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+
   /account/me:
     get:
       operationId: accountMe
