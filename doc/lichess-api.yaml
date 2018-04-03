@@ -20,6 +20,62 @@ info:
 servers:
   - url: https://lichess.org
 paths:
+  /api/users/status:
+    get:
+      summary: Real-time users status
+      description: |
+        Read the `online` and `playing` flags of several users.
+
+        This API is very fast and cheap on lichess side.
+        So you can call it quite often (like once every 5 seconds).
+
+        Use it to track players and know when they're connected on lichess and playing games.
+      parameters:
+        - in: query
+          name: ids
+          required: true
+          description: User IDs separated by commas
+          schema:
+            type: string
+          example: cyrilmarcelin,chess-network
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties: 
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    title:
+                      type: string
+                    online:
+                      type: boolean
+                    playing:
+                      type: boolean
+                    patron:
+                      type: boolean
+              example: [
+                {
+                  "id": "cyrilmarcelin",
+                  "name": "CyrilMarcelin",
+                  "title": "GM",
+                  "online": true,
+                  "playing": true
+                },
+                {
+                  "id": "chess-network",
+                  "name": "Chess-Network",
+                  "title": "NM",
+                  "online": false,
+                  "playing": false,
+                  "patron": true
+                }
+              ]
   /account/me:
     get:
       summary: Get profile
