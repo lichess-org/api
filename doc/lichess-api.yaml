@@ -307,9 +307,8 @@ paths:
 
         The game stream is throttled, depending on who is making the request:
           - Anonymous request: 10 games per second
-          - Cookie authenticated request: 20 games per second
-          - OAuth2 authenticated request: 20 games per second
-          - Your own games: 50 games per second
+          - [OAuth2 authenticated](#section/Authentication) request: 20 games per second
+          - Authenticated, downloading your own games: 50 games per second
       parameters:
         - in: path
           name: username
