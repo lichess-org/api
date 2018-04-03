@@ -23,6 +23,30 @@ info:
     url: https://lichess.org
 servers:
   - url: https://lichess.org
+tags:
+- name: Users
+  description: Access registered users on Lichess.
+- name: Games
+  description: Access games played on Lichess.
+- name: Preferences
+  description: Access your preferences.
+- name: JSONP
+  description: |
+    Requests available as JSONP.
+    ```javascript
+    $.ajax({
+      url:'https://lichess.org/api/users/status',
+      data: { ids: 'aliquantus,chess-network' },
+      dataType:'jsonp',
+      jsonp:'callback',
+      success: function(data) {
+        console.debug(JSON.stringify(data.list));
+      }
+    });
+    ```
+- name: OAuth
+  description: |
+    Requests taking advantage of OAuth authentication.
 paths:
   /api/users/status:
     get:
@@ -36,6 +60,9 @@ paths:
         So you can call it quite often (like once every 5 seconds).
 
         Use it to track players and know when they're connected on lichess and playing games.
+      tags:
+      - Users
+      - JSONP
       parameters:
         - in: query
           name: ids
@@ -95,6 +122,9 @@ paths:
       description: |
         Read public data of a user.
         JSONP is available.
+      tags:
+      - Users
+      - JSONP
       parameters:
         - in: path
           name: username
@@ -115,6 +145,9 @@ paths:
       description: |
         Read data to generate the activity feed of a user.
         JSONP is available.
+      tags:
+      - Users
+      - JSONP
       parameters:
         - in: path
           name: username
@@ -136,6 +169,9 @@ paths:
         - OAuth2: []
       description: |
         Public informations about the logged in user.
+      tags:
+      - Users
+      - OAuth
       responses:
         200:
           content:
@@ -146,6 +182,9 @@ paths:
     get:
       operationId: accountPreferences
       summary: Get my preferences
+      tags:
+      - Preferences
+      - OAuth
       security:
         - OAuth2: ["preference:read"]
       description: |
@@ -163,6 +202,9 @@ paths:
     get:
       operationId: accountKid
       summary: Get my kid mode status
+      tags:
+      - Preferences
+      - OAuth
       security:
         - OAuth2: ["preference:read"]
       description: |
@@ -182,6 +224,9 @@ paths:
     post:
       operationId: accountKidPost
       summary: Set my kid mode status
+      tags:
+      - Preferences
+      - OAuth
       security:
         - OAuth2: ["preference:write"]
       description: |
@@ -209,6 +254,8 @@ paths:
       summary: Export one game
       description: |
         Download one game in PGN format. Only finished games can be downloaded.
+      tags:
+      - Games
       parameters:
         - in: path
           name: gameId
@@ -247,6 +294,9 @@ paths:
     get:
       operationId: gamesExportMine
       summary: Export my games
+      tags:
+      - Games
+      - OAuth
       security:
         - OAuth2: ["game:read"]
       description: |
