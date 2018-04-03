@@ -1,0 +1,682 @@
+[
+  {
+    "interval": {
+      "start": 1503100800,
+      "end": 1503187200
+    },
+    "games": {
+      "bullet": {
+        "win": 0,
+        "loss": 1,
+        "draw": 0,
+        "rp": {
+          "before": 1619,
+          "after": 1615
+        }
+      }
+    },
+    "puzzles": {
+      "score": {
+        "win": 1,
+        "loss": 0,
+        "draw": 0,
+        "rp": {
+          "before": 1641,
+          "after": 1641
+        }
+      }
+    },
+    "tournaments": {
+      "nb": 1,
+      "best": [
+        {
+          "tournament": {
+            "id": "VtgU6IWP",
+            "name": "Hourly Bullet Arena"
+          },
+          "nbGames": 1,
+          "score": 0,
+          "rank": 56,
+          "rankPercent": 82
+        }
+      ]
+    },
+    "practice": [
+      {
+        "url": "/practice/-/overloaded-pieces/o734CNqp",
+        "name": "Overloaded Pieces",
+        "nbPositions": 1
+      }
+    ],
+    "correspondenceMoves": {
+      "nb": 7,
+      "games": [
+        {
+          "id": "FoA24Xgm",
+          "color": "black",
+          "url": "/FoA24Xgm/black",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": true,
+          "opponent": {
+            "user": "wixkid",
+            "rating": 1775
+          }
+        },
+        {
+          "id": "YdaQfiVN",
+          "color": "black",
+          "url": "/YdaQfiVN/black",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": false,
+          "opponent": {
+            "user": "kickdarkness",
+            "rating": 2008
+          }
+        },
+        {
+          "id": "sgJmN0Tp",
+          "color": "white",
+          "url": "/sgJmN0Tp/white",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": false,
+          "opponent": {
+            "user": "gerobum",
+            "rating": 1831
+          }
+        }
+      ]
+    },
+    "correspondenceEnds": {
+      "score": {
+        "win": 1,
+        "loss": 1,
+        "draw": 0,
+        "rp": {
+          "before": 1895,
+          "after": 1873
+        }
+      },
+      "games": [
+        {
+          "id": "FoA24Xgm",
+          "color": "black",
+          "url": "/FoA24Xgm/black",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": true,
+          "opponent": {
+            "user": "wixkid",
+            "rating": 1775
+          }
+        },
+        {
+          "id": "DkYfPA76",
+          "color": "white",
+          "url": "/DkYfPA76/white",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": true,
+          "opponent": {
+            "user": "d3partures",
+            "rating": 1743
+          }
+        }
+      ]
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "sicknsolo",
+          "victress",
+          "adityaprakash17",
+          "anonymous_enemy"
+        ]
+      },
+      "out": {
+        "ids": [
+          "lonerdruid"
+        ]
+      }
+    },
+    "teams": [
+      {
+        "url": "/team/lichess-stars",
+        "name": "Lichess Stars"
+      }
+    ],
+    "posts": [
+      {
+        "topicUrl": "/forum/lichess-feedback/new-study-visibility-mode-unlisted",
+        "topicName": "New study visibility mode: unlisted",
+        "posts": [
+          {
+            "url": "/forum/redirect/post/OvPsDw1I",
+            "text": "It's like private, except people who know the study URL can still access it.\r\n\r\nYep, just like with youtube videos."
+          },
+          {
+            "url": "/forum/redirect/post/p8zOwutq",
+            "text": "The \"My private studies\" folder is currently bugged out, the fix will come in a few hours.\r\n\r\nCan you show me a study chapter where symbols don't appear?"
+          }
+        ]
+      },
+      {
+        "topicUrl": "/forum/general-chess-discussion/yeah-but-lichess-is-full-of-commies",
+        "topicName": "\"Yeah, but lichess is full of commies\"",
+        "posts": [
+          {
+            "url": "/forum/redirect/post/eaFQzRQ2",
+            "text": "I'm not communist either. Hello :)"
+          },
+          {
+            "url": "/forum/redirect/post/G35OInLP",
+            "text": "@NeverBeenTimid Quite simply, not everything has to be about money...\r\n\r\nIt should go without saying; but in case it doesn't, we have lichess to remind us.\r\n\r\nI want to believe that exploiting workers and lying to consumers is not the only way to build something. I want to show that a community, bound by a common passion for chess, with a touch of humanism, is capable of building great things. I reject investment, paywalls, advertisements, proprietary software, user tracking: these things are no"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "interval": {
+      "start": 1503014400,
+      "end": 1503100800
+    },
+    "games": {
+      "blitz": {
+        "win": 1,
+        "loss": 1,
+        "draw": 0,
+        "rp": {
+          "before": 1681,
+          "after": 1690
+        }
+      },
+      "bullet": {
+        "win": 2,
+        "loss": 0,
+        "draw": 0,
+        "rp": {
+          "before": 1619,
+          "after": 1619
+        }
+      },
+      "classical": {
+        "win": 0,
+        "loss": 1,
+        "draw": 0,
+        "rp": {
+          "before": 1811,
+          "after": 1811
+        }
+      }
+    },
+    "tournaments": {
+      "nb": 3,
+      "best": [
+        {
+          "tournament": {
+            "id": "Ri7eoNg5",
+            "name": "Dubois Arena"
+          },
+          "nbGames": 2,
+          "score": 5,
+          "rank": 1,
+          "rankPercent": 20
+        },
+        {
+          "tournament": {
+            "id": "HJA80s7w",
+            "name": "STL Rapid & Blitz Day 5"
+          },
+          "nbGames": 1,
+          "score": 2,
+          "rank": 387,
+          "rankPercent": 50
+        },
+        {
+          "tournament": {
+            "id": "WhfhjujR",
+            "name": "Hourly SuperBlitz Arena"
+          },
+          "nbGames": 1,
+          "score": 0,
+          "rank": 95,
+          "rankPercent": 86
+        }
+      ]
+    },
+    "correspondenceMoves": {
+      "nb": 2,
+      "games": [
+        {
+          "id": "FoA24Xgm",
+          "color": "black",
+          "url": "/FoA24Xgm/black",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": true,
+          "opponent": {
+            "user": "wixkid",
+            "rating": 1775
+          }
+        }
+      ]
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "saviter",
+          "mattrenfer",
+          "amenhotep_-_iv"
+        ]
+      }
+    },
+    "posts": [
+      {
+        "topicUrl": "/forum/lichess-feedback/study-moves-not-showing-",
+        "topicName": "''Study'' moves not showing ?",
+        "posts": [
+          {
+            "url": "/forum/redirect/post/HQdvhx6O",
+            "text": "Which study are you on?"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "interval": {
+      "start": 1502928000,
+      "end": 1503014400
+    },
+    "correspondenceMoves": {
+      "nb": 8,
+      "games": [
+        {
+          "id": "FoA24Xgm",
+          "color": "black",
+          "url": "/FoA24Xgm/black",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": true,
+          "opponent": {
+            "user": "wixkid",
+            "rating": 1775
+          }
+        },
+        {
+          "id": "sgJmN0Tp",
+          "color": "white",
+          "url": "/sgJmN0Tp/white",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": false,
+          "opponent": {
+            "user": "gerobum",
+            "rating": 1831
+          }
+        },
+        {
+          "id": "DEvU83fu",
+          "color": "black",
+          "url": "/DEvU83fu/black",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": true,
+          "opponent": {
+            "user": "carlsenforever",
+            "rating": 2038
+          }
+        },
+        {
+          "id": "DkYfPA76",
+          "color": "white",
+          "url": "/DkYfPA76/white",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": true,
+          "opponent": {
+            "user": "d3partures",
+            "rating": 1743
+          }
+        }
+      ]
+    },
+    "correspondenceEnds": {
+      "score": {
+        "win": 0,
+        "loss": 1,
+        "draw": 0,
+        "rp": {
+          "before": 1911,
+          "after": 1904
+        }
+      },
+      "games": [
+        {
+          "id": "DEvU83fu",
+          "color": "black",
+          "url": "/DEvU83fu/black",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": true,
+          "opponent": {
+            "user": "carlsenforever",
+            "rating": 2038
+          }
+        }
+      ]
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "lesauteurdeclasse"
+        ]
+      }
+    },
+    "posts": [
+      {
+        "topicUrl": "/forum/lichess-feedback/bad-changes-to-gameboard-canvas-on-mobile",
+        "topicName": "Bad changes to gameboard canvas on mobile",
+        "posts": [
+          {
+            "url": "/forum/redirect/post/jSa2XPpo",
+            "text": "Is it better now?"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "interval": {
+      "start": 1502841600,
+      "end": 1502928000
+    },
+    "games": {
+      "blitz": {
+        "win": 0,
+        "loss": 0,
+        "draw": 1,
+        "rp": {
+          "before": 1684,
+          "after": 1681
+        }
+      }
+    },
+    "correspondenceMoves": {
+      "nb": 12,
+      "games": [
+        {
+          "id": "DEvU83fu",
+          "color": "black",
+          "url": "/DEvU83fu/black",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": true,
+          "opponent": {
+            "user": "carlsenforever",
+            "rating": 2038
+          }
+        },
+        {
+          "id": "DkYfPA76",
+          "color": "white",
+          "url": "/DkYfPA76/white",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": true,
+          "opponent": {
+            "user": "d3partures",
+            "rating": 1743
+          }
+        },
+        {
+          "id": "sgJmN0Tp",
+          "color": "white",
+          "url": "/sgJmN0Tp/white",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": false,
+          "opponent": {
+            "user": "gerobum",
+            "rating": 1831
+          }
+        },
+        {
+          "id": "FoA24Xgm",
+          "color": "black",
+          "url": "/FoA24Xgm/black",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": true,
+          "opponent": {
+            "user": "wixkid",
+            "rating": 1775
+          }
+        }
+      ]
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "rvleander",
+          "mmichael"
+        ]
+      },
+      "out": {
+        "ids": [
+          "wolfram_ep"
+        ]
+      }
+    },
+    "posts": [
+      {
+        "topicUrl": "/forum/lichess-feedback/keyboard-input-changed-today-maybe-a-bug",
+        "topicName": "Keyboard input changed today, maybe a bug.",
+        "posts": [
+          {
+            "url": "/forum/redirect/post/nD4mZjFN",
+            "text": "That was a bug, it's now fixed! Thanks for the report @TheZyrax "
+          }
+        ]
+      },
+      {
+        "topicUrl": "/forum/lichess-feedback/learnpractice-stopped-saving-my-progress",
+        "topicName": "Learn/Practice stopped saving my progress",
+        "posts": [
+          {
+            "url": "/forum/redirect/post/wWacFp3p",
+            "text": "We're on it. Thanks for the bug report."
+          },
+          {
+            "url": "/forum/redirect/post/cOYiuEgz",
+            "text": "It's now fixed. Sorry for the inconvenience."
+          }
+        ]
+      },
+      {
+        "topicUrl": "/forum/lichess-feedback/help-translate-lichess",
+        "topicName": "Help translate Lichess",
+        "posts": [
+          {
+            "url": "/forum/redirect/post/8dzjnLRV",
+            "text": "Are you a native speaker of a non-english language? You can help making lichess better! No technical skills required.\r\n\r\nHead to https://crowdin.com/project/lichess and start suggesting translations! You can also vote for your favourite translations.\r\n\r\nlichess is a non-profit association, and the result of volunteer collaboration of the Internet chess community. We believe that together, we can achieve great things - for chess, for humanity, for freedom! And now we need your help, more than eve"
+          },
+          {
+            "url": "/forum/redirect/post/omISXRjU",
+            "text": "@Wolfram_EP Thank you for stepping in.\r\n\r\nFor now, we chose not to translate variant names such as Bullet, Blitz, Chess960, Crazyhouse, etc. They're like proper nouns. We might change our minds about it later on, but for now they're not supposed to be translated.\r\n\r\nI think lichess has good support for russian pluralization, can you confirm? https://github.com/ornicar/lila/blob/40e2dfbb18735f3f55dd796d5f8017ea39cb8f10/modules/i18n/src/main/I18nQuantity.scala#L44-L50\r\n\r\nHowever crowdin got it wro"
+          },
+          {
+            "url": "/forum/redirect/post/jG6jM9qO",
+            "text": "I can't seem to be able to fix Russian pluralization on crowdin. Could you please send them an email asking if they can fix it on their side? Thanks."
+          },
+          {
+            "url": "/forum/redirect/post/Xpcdpm2Y",
+            "text": "Ah, thank you, that helps.\r\n\r\nI changed lichess code to match crowdin: https://github.com/ornicar/lila/commit/7a1cbabe5fc27e779c0ab419b3a6bd85fb2bd76b\r\n\r\nAbout transliteration: yes, you're right. I now realize that, for instance, in french, we transliterate russian city names.\r\nDo you think the word \"Lichess\" should be transliterated as well?\r\n\r\nWould you like to be lichess russian translation manager on crowdin? It's quite a big responsibility, because we have thousands of russian speaking play"
+          },
+          {
+            "url": "/forum/redirect/post/WiILZb1M",
+            "text": "Thanks. You're now a proofreader on Crowdin. It means you can decide which Russian translation is correct, and add/edit contexts.\r\n\r\nSeriousness is the only commitment I can ask for. I do not expect that you will do all the work. This is an open source project, people put in the time they want and can, and we only look at what has been done, never at what more could have been done.\r\n\r\nSo yeah, no pressure. We can also name other Russian proofreaders when we find them."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "interval": {
+      "start": 1502755200,
+      "end": 1502841600
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "area11",
+          "reisui",
+          "gr4ndma",
+          "theclassicalking",
+          "outrunyoutoo"
+        ]
+      }
+    }
+  },
+  {
+    "interval": {
+      "start": 1502668800,
+      "end": 1502755200
+    },
+    "correspondenceMoves": {
+      "nb": 8,
+      "games": [
+        {
+          "id": "DEvU83fu",
+          "color": "black",
+          "url": "/DEvU83fu/black",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": true,
+          "opponent": {
+            "user": "carlsenforever",
+            "rating": 2038
+          }
+        },
+        {
+          "id": "FoA24Xgm",
+          "color": "black",
+          "url": "/FoA24Xgm/black",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": true,
+          "opponent": {
+            "user": "wixkid",
+            "rating": 1775
+          }
+        },
+        {
+          "id": "lWbgq0Gh",
+          "color": "black",
+          "url": "/lWbgq0Gh/black",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": true,
+          "opponent": {
+            "user": "passat17",
+            "rating": 1701
+          }
+        },
+        {
+          "id": "sgJmN0Tp",
+          "color": "white",
+          "url": "/sgJmN0Tp/white",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": false,
+          "opponent": {
+            "user": "gerobum",
+            "rating": 1831
+          }
+        }
+      ]
+    },
+    "correspondenceEnds": {
+      "score": {
+        "win": 1,
+        "loss": 0,
+        "draw": 0,
+        "rp": {
+          "before": 1907,
+          "after": 1915
+        }
+      },
+      "games": [
+        {
+          "id": "lWbgq0Gh",
+          "color": "black",
+          "url": "/lWbgq0Gh/black",
+          "variant": "standard",
+          "speed": "correspondence",
+          "perf": "correspondence",
+          "rated": true,
+          "opponent": {
+            "user": "passat17",
+            "rating": 1701
+          }
+        }
+      ]
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "lionnessebim1"
+        ]
+      }
+    }
+  },
+  {
+    "interval": {
+      "start": 1502582400,
+      "end": 1502668800
+    },
+    "games": {
+      "blitz": {
+        "win": 1,
+        "loss": 0,
+        "draw": 0,
+        "rp": {
+          "before": 1681,
+          "after": 1684
+        }
+      }
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "lesourd",
+          "marcolom",
+          "kn89",
+          "naeroon"
+        ]
+      }
+    }
+  }
+]

@@ -2,6 +2,9 @@ openapi: "3.0.0"
 info:
   version: 2.0.0
   title: Lichess.org API reference
+  x-logo:
+    url: https://lichess1.org/assets/favicon.192.png
+    backgroundColor: #ffffff
   description: "\n\n# Introduction\nWelcome to the reference for the Lichess API!\n\n\
   \ - Get help in the [lichess developers discord channel](https://discord.gg/pw6Efvk),\
   \ or in the #lichess IRC channel on freenode.\n\
@@ -38,7 +41,7 @@ paths:
           description: User IDs separated by commas
           schema:
             type: string
-          example: cyrilmarcelin,chess-network
+          example: aliquantus,chess-network
       responses:
         200:
           content:
@@ -54,29 +57,56 @@ paths:
                       type: string
                     title:
                       type: string
+                      nullable: true
                     online:
                       type: boolean
+                      nullable: true
                     playing:
                       type: boolean
+                      nullable: true
+                    streaming:
+                      type: boolean
+                      nullable: true
                     patron:
                       type: boolean
-              example: [
-                {
-                  "id": "cyrilmarcelin",
-                  "name": "CyrilMarcelin",
-                  "title": "GM",
-                  "online": true,
-                  "playing": true
-                },
-                {
-                  "id": "chess-network",
-                  "name": "Chess-Network",
-                  "title": "NM",
-                  "online": false,
-                  "playing": false,
-                  "patron": true
-                }
-              ]
+                      nullable: true
+                example: [
+                  {
+                    "id": "aliquantus",
+                    "name": "Aliquantus"
+                  },
+                  {
+                    "id": "chess-network",
+                    "name": "Chess-Network",
+                    "title": "NM",
+                    "online": true,
+                    "playing": true,
+                    "streaming": true,
+                    "patron": true
+                  }
+                ]
+
+  /api/user/{username}/activity:
+    get:
+      operationId: apiUserActivity
+      summary: Get user activity
+      description: |
+        Read data to generate the activity feed of a user.
+
+        See https://lichess.org/@/thibault.
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              example:
+                https://gist.github.com/ornicar/0ee2d2427cb74ed1a35e86f5ba09fabc
+
   /account/me:
     get:
       operationId: accountMe
