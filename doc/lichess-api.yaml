@@ -298,7 +298,7 @@ paths:
       - Games
       - OAuth
       description: |
-        Download all your games in PGN format. Optionally specify a start and end timestamps for partial exports.
+        Download all games of any user in PGN format. Optionally specify a start and end timestamps for partial exports.
 
         Games are sorted by reverse chronological order (most recent first)
 
