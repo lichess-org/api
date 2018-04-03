@@ -311,6 +311,11 @@ paths:
           - OAuth2 authenticated request: 20 games per second
           - Your own games: 50 games per second
       parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+          required: true
         - in: query
           name: since
           description: Download games played since this timestamp.
