@@ -69,8 +69,8 @@ paths:
                       nullable: true
                 example: [
                   {
-                    "id": "lukhas",
-                    "name": "Lukhas"
+                    "id": "aliquantus",
+                    "name": "Aliquantus"
                   },
                   {
                     "id": "chess-network",
