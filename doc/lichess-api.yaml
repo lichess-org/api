@@ -10,7 +10,7 @@ info:
   \ or in the #lichess IRC channel on freenode.\n\
   \ - [Contribute to this documentation on Github](https://github.com/lichess-org/api).\n\
   \ - Check out [lichess widgets to embed in your website](https://lichess.org/developers).\n\
-  \ - [Download all lichess games](https://database.lichess.org/)\n\
+  \ - [Download all lichess rated games](https://database.lichess.org/)\n\
   \n## Endpoint\n\
   \ `https://lichess.org`\n\
   \ ## Rate limiting\n\
@@ -86,6 +86,27 @@ paths:
                   }
                 ]
 
+  /api/user/{username}:
+    get:
+      operationId: apiUser
+      summary: Get user public data
+      description: |
+        Read public data of a user.
+
+        See https://lichess.org/@/thibault.
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPublicInfo'
+
   /api/user/{username}/activity:
     get:
       operationId: apiUserActivity
@@ -110,7 +131,7 @@ paths:
   /account/me:
     get:
       operationId: accountMe
-      summary: Get profile
+      summary: Get my profile
       security:
         - OAuth2: []
       description: |
@@ -124,7 +145,7 @@ paths:
   /account/preferences:
     get:
       operationId: accountPreferences
-      summary: Get preferences
+      summary: Get my preferences
       security:
         - OAuth2: ["preference:read"]
       description: |
@@ -141,7 +162,7 @@ paths:
   /account/kid:
     get:
       operationId: accountKid
-      summary: Get kid mode status
+      summary: Get my kid mode status
       security:
         - OAuth2: ["preference:read"]
       description: |
@@ -160,7 +181,7 @@ paths:
                   kid: false
     post:
       operationId: accountKidPost
-      summary: Set kid mode status
+      summary: Set my kid mode status
       security:
         - OAuth2: ["preference:write"]
       description: |
@@ -181,10 +202,51 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
+
+  /game/export/{gameId}.pgn:
+    get:
+      operationId: gamePng
+      summary: Export one game
+      description: |
+        Download one game in PGN format. Only finished games can be downloaded.
+      parameters:
+        - in: path
+          name: gameId
+          description: The game ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          content:
+            application/x-chess-pgn:
+              example: |
+                [Event "Rated Blitz game"]
+                [Site "https://lichess.org/fY44h4OY"]
+                [Date "2018.03.29"]
+                [Round "-"]
+                [White "pveldman"]
+                [Black "thibault"]
+                [Result "1-0"]
+                [UTCDate "2018.03.29"]
+                [UTCTime "01:38:15"]
+                [WhiteElo "1610"]
+                [BlackElo "1601"]
+                [WhiteRatingDiff "+10"]
+                [BlackRatingDiff "-10"]
+                [Variant "Standard"]
+                [TimeControl "180+0"]
+                [ECO "C62"]
+                [Opening "Ruy Lopez: Steinitz Defense"]
+                [Termination "Normal"]
+                [Event "U1700 SuperBlitz Arena"]
+
+                1. e4 { [%clk 0:03:00] } e5 { [%clk 0:03:00] } 2. Nf3 { [%clk 0:02:59] } Nc6 { [%clk 0:02:58] } 3. Bb5 { [%clk 0:02:57] } d6 { [%clk 0:02:55] } 4. h3 { [%clk 0:02:54] } Nf6 { [%clk 0:02:52] } 5. Bxc6+ { [%clk 0:02:52] } bxc6 { [%clk 0:02:49] } 6. d3 { [%clk 0:02:51] } Be7 { [%clk 0:02:46] } 7. O-O { [%clk 0:02:47] } O-O { [%clk 0:02:45] } 8. b3 { [%clk 0:02:45] } d5 { [%clk 0:02:45] } 9. exd5 { [%clk 0:02:33] } cxd5 { [%clk 0:02:40] } 10. Nxe5 { [%clk 0:02:31] } Qd6 { [%clk 0:02:38] } 1-0
+
   /games/export/mine:
     get:
       operationId: gamesExportMine
-      summary: Export games
+      summary: Export my games
       security:
         - OAuth2: ["game:read"]
       description: |
@@ -269,6 +331,8 @@ components:
         "id": "thibault",
         "username": "thibault",
         "online": true,
+        "playing": "https://lichess.org/abcdefgh",
+        "streaming": "https://lichess.org/streamer/thibault",
         "createdAt": 1290415680000,
         "seenAt": 1522636452014,
         "profile": {
@@ -328,9 +392,8 @@ components:
         "playTime": {
             "total": 3296897,
             "tv": 12134
-        },
-        "playing": "https://lichess.org/ZGcyzmfB/white",
-    }
+        }
+      }
 
     UserPreferences:
       example: {
