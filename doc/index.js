@@ -8,5 +8,7 @@ SwaggerUI({
     SwaggerUI.presets.apis,
     SwaggerUI.SwaggerUIStandalonePreset
   ],
-  layout: "StandaloneLayout"
+  defaultModelsExpandDepth: -1,
+  // layout: "StandaloneLayout"
+  layout: "BaseLayout"
 });

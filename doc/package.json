@@ -4,7 +4,8 @@
   "description": "Lichess HTTP API documentation",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --mode=production --config webpack.config.js"
+    "prod": "webpack --mode=production --config webpack.config.js",
+    "dev": "webpack --mode=development --config webpack.config.js"
   },
   "keywords": [
     "lichess",
