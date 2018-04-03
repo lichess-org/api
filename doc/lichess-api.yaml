@@ -22,6 +22,7 @@ servers:
 paths:
   /api/users/status:
     get:
+      operationId: apiUsersStatus
       summary: Real-time users status
       description: |
         Read the `online` and `playing` flags of several users.
@@ -78,6 +79,7 @@ paths:
               ]
   /account/me:
     get:
+      operationId: accountMe
       summary: Get profile
       security:
         - OAuth2: []
@@ -91,6 +93,7 @@ paths:
                 $ref: '#/components/schemas/UserPublicInfo'
   /account/preferences:
     get:
+      operationId: accountPreferences
       summary: Get preferences
       security:
         - OAuth2: ["preference:read"]
@@ -107,6 +110,7 @@ paths:
                 $ref: '#/components/schemas/UserPreferences'
   /account/kid:
     get:
+      operationId: accountKid
       summary: Get kid mode status
       security:
         - OAuth2: ["preference:read"]
@@ -125,6 +129,7 @@ paths:
                 example:
                   kid: false
     post:
+      operationId: accountKidPost
       summary: Set kid mode status
       security:
         - OAuth2: ["preference:write"]
@@ -148,6 +153,7 @@ paths:
                 $ref: '#/components/schemas/Ok'
   /games/export/mine:
     get:
+      operationId: gamesExportMine
       summary: Export games
       security:
         - OAuth2: ["game:read"]
