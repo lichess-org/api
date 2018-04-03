@@ -290,15 +290,13 @@ paths:
 
                 1. e4 { [%clk 0:03:00] } e5 { [%clk 0:03:00] } 2. Nf3 { [%clk 0:02:59] } Nc6 { [%clk 0:02:58] } 3. Bb5 { [%clk 0:02:57] } d6 { [%clk 0:02:55] } 4. h3 { [%clk 0:02:54] } Nf6 { [%clk 0:02:52] } 5. Bxc6+ { [%clk 0:02:52] } bxc6 { [%clk 0:02:49] } 6. d3 { [%clk 0:02:51] } Be7 { [%clk 0:02:46] } 7. O-O { [%clk 0:02:47] } O-O { [%clk 0:02:45] } 8. b3 { [%clk 0:02:45] } d5 { [%clk 0:02:45] } 9. exd5 { [%clk 0:02:33] } cxd5 { [%clk 0:02:40] } 10. Nxe5 { [%clk 0:02:31] } Qd6 { [%clk 0:02:38] } 1-0
 
-  /games/export/mine:
+  /games/export/{username}:
     get:
-      operationId: gamesExportMine
-      summary: Export my games
+      operationId: gamesExportUsername
+      summary: Export games of a user
       tags:
       - Games
       - OAuth
-      security:
-        - OAuth2: ["game:read"]
       description: |
         Download all your games in PGN format. Optionally specify a start and end timestamps for partial exports.
 
@@ -306,6 +304,12 @@ paths:
 
         We recommend streaming the response, for it can be very long.
         https://lichess.org/@/german11 for instance has more than 250,000 games.
+
+        The game stream is throttled, depending on who is making the request:
+          - Anonymous request: 10 games per second
+          - Cookie authenticated request: 20 games per second
+          - OAuth2 authenticated request: 20 games per second
+          - Your own games: 50 games per second
       parameters:
         - in: query
           name: since
