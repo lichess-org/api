@@ -47,7 +47,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: 
+                  properties:
                     id:
                       type: string
                     name:
