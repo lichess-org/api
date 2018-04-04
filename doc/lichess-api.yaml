@@ -321,18 +321,42 @@ paths:
           schema:
             type: integer
             minimum: 1356998400070
+            default: Account creation date
         - in: query
           name: until
           description: Download games played until this timestamp.
           schema:
             type: integer
             minimum: 1356998400070
+            default: Now
         - in: query
           name: max
           description: How many games to download. Leave empty to download all games.
           schema:
             type: integer
             minimum: 1
+            default: Infinite
+        - in: query
+          name: moves
+          description: Include the PGN moves.
+          schema:
+            type: boolean
+            default: true
+        - in: query
+          name: tags
+          description: Include the PGN tags.
+          schema:
+            type: boolean
+            default: true
+        - in: query
+          name: clocks
+          description: |
+            Include clock comments in the PGN moves.
+
+            Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+          schema:
+            type: boolean
+            default: false
       responses:
         200:
           content:
