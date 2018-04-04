@@ -34,7 +34,7 @@ tags:
   description: Access your preferences.
 - name: JSONP
   description: |
-    Requests available as JSONP.
+    Requests available as `JSONP`.
     ```javascript
     $.ajax({
       url:'https://lichess.org/api/users/status',
@@ -56,7 +56,7 @@ paths:
       summary: Real-time users status
       description: |
         Read the `online`, `playing` and `streaming` flags of several users.
-        JSONP is available.
+        `JSONP` is available.
 
         This API is very fast and cheap on lichess side.
         So you can call it quite often (like once every 5 seconds).
@@ -123,7 +123,7 @@ paths:
       summary: Get user public data
       description: |
         Read public data of a user.
-        JSONP is available.
+        `JSONP` is available.
       tags:
       - Users
       - JSONP
@@ -146,7 +146,7 @@ paths:
       summary: Get user activity
       description: |
         Read data to generate the activity feed of a user.
-        JSONP is available.
+        `JSONP` is available.
       tags:
       - Users
       - JSONP
@@ -162,6 +162,33 @@ paths:
             application/json:
               example:
                 https://gist.github.com/ornicar/0ee2d2427cb74ed1a35e86f5ba09fabc
+
+  /api/users:
+    post:
+      operationId: apiUsers
+      summary: Get users by ID
+      tags:
+      - Users
+      description: |
+        Get several users by their IDs. Users are returned in the order same order as the IDs.
+        
+        The method is `POST` so a longer list of IDs can be sent in the request body.
+      requestBody:
+        description: User IDs separated by commas.
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+            example: "aliquantus,chess-network,lovlas"
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
 
   /account/me:
     get:
@@ -180,6 +207,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserExtended'
+
   /account/preferences:
     get:
       operationId: accountPreferences
@@ -419,8 +447,6 @@ paths:
         Members are sorted by reverse chronological order of joining the team (most recent first).
 
         **Members are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
-
-        Each member JSON object is a 
       parameters:
         - in: path
           name: teamId
@@ -441,13 +467,12 @@ paths:
             application/x-ndjson:
               schema:
                 $ref: '#/components/schemas/UserExtended'
-                type: array
 
 components:
   schemas:
     User:
       example: {
-        "id": "thibault",
+        "id": "georges",
         "username": "Georges",
         "title": "NM",
         "online": true,
