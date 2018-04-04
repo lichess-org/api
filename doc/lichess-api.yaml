@@ -28,6 +28,8 @@ tags:
   description: Access registered users on Lichess.
 - name: Games
   description: Access games played on Lichess.
+- name: Teams
+  description: Access Lichess teams and their members.
 - name: Preferences
   description: Access your preferences.
 - name: JSONP
@@ -136,7 +138,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserPublicInfo'
+                $ref: '#/components/schemas/UserExtended'
 
   /api/user/{username}/activity:
     get:
@@ -177,7 +179,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserPublicInfo'
+                $ref: '#/components/schemas/UserExtended'
   /account/preferences:
     get:
       operationId: accountPreferences
@@ -406,15 +408,51 @@ paths:
 
                 1. e4 { [%clk 0:03:00] } e5 { [%clk 0:03:00] } 2. f4 { [%clk 0:03:00] } exf4 { [%clk 0:02:58] } 3. Nf3 { [%clk 0:02:57] } g5 { [%clk 0:02:56] } 4. Bc4 { [%clk 0:02:57] } d6 { [%clk 0:02:53] } 5. O-O { [%clk 0:02:53] } 0-1
 
+  /team/{teamId}/users:
+    get:
+      operationId: teamIdUsers
+      summary: Get members of a team
+      tags:
+      - Users
+      - Teams
+      description: |
+        Members are sorted by reverse chronological order of joining the team (most recent first).
+
+        **Members are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+
+        Each member JSON object is a 
+      parameters:
+        - in: path
+          name: teamId
+          schema:
+            type: string
+            example: "coders"
+          required: true
+        - in: query
+          name: max
+          description: How many members to get. Leave empty to get all members of the team.
+          schema:
+            type: integer
+            minimum: 1
+            default: Infinite
+      responses:
+        200:
+          content:
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/UserExtended'
+                type: array
+
 components:
   schemas:
-    UserPublicInfo:
+    User:
       example: {
         "id": "thibault",
-        "username": "thibault",
+        "username": "Georges",
+        "title": "NM",
         "online": true,
-        "playing": "https://lichess.org/abcdefgh",
-        "streaming": "https://lichess.org/streamer/thibault",
+        "playing": true,
+        "streaming": false,
         "createdAt": 1290415680000,
         "seenAt": 1522636452014,
         "profile": {
@@ -425,26 +463,7 @@ components:
             "links": "github.com/ornicar\r\ntwitter.com/ornicar",
             "location": "On the road"
         },
-        "nbFollowers": 2735,
-        "nbFollowing": 299,
-        "completionRate": 97,
-        "count": {
-            "ai": 531,
-            "all": 9265,
-            "bookmark": 71,
-            "draw": 340,
-            "drawH": 331,
-            "import": 66,
-            "loss": 4480,
-            "lossH": 4207,
-            "me": 0,
-            "playing": 6,
-            "rated": 7157,
-            "win": 4440,
-            "winH": 4378
-        },
         "language": "en-GB",
-        "patron": true,
         "perfs": {
             "blitz": {
                 "games": 2945,
@@ -471,6 +490,83 @@ components:
                 "rd": 63
             },
         },
+        "patron": true,
+        "disabled" : false,
+        "engine" : false,
+        "booster" : false,
+        "playTime": {
+            "total": 3296897,
+            "tv": 12134
+        }
+      }
+
+    UserExtended:
+      example: {
+        "id": "georges",
+        "username": "Georges",
+        "title": "NM",
+        "online": true,
+        "playing": true,
+        "streaming": false,
+        "createdAt": 1290415680000,
+        "seenAt": 1522636452014,
+        "profile": {
+            "bio": "Free bugs!",
+            "country": "EC",
+            "firstName": "Thibault",
+            "lastName": "Duplessis",
+            "links": "github.com/ornicar\r\ntwitter.com/ornicar",
+            "location": "On the road"
+        },
+        "nbFollowers": 2735,
+        "nbFollowing": 299,
+        "completionRate": 97,
+        "language": "en-GB",
+        "count": {
+            "ai": 531,
+            "all": 9265,
+            "bookmark": 71,
+            "draw": 340,
+            "drawH": 331,
+            "import": 66,
+            "loss": 4480,
+            "lossH": 4207,
+            "me": 0,
+            "playing": 6,
+            "rated": 7157,
+            "win": 4440,
+            "winH": 4378
+        },
+        "perfs": {
+            "blitz": {
+                "games": 2945,
+                "prog": -22,
+                "rating": 1609,
+                "rd": 60
+            },
+            "bullet": {
+                "games": 2324,
+                "prog": -9,
+                "rating": 1602,
+                "rd": 61
+            },
+            "chess960": {
+                "games": 347,
+                "prog": 84,
+                "rating": 1554,
+                "rd": 66
+            },
+            "puzzle": {
+                "games": 2248,
+                "prog": -67,
+                "rating": 1737,
+                "rd": 63
+            },
+        },
+        "patron": true,
+        "disabled" : false,
+        "engine" : false,
+        "booster" : false,
         "playTime": {
             "total": 3296897,
             "tv": 12134
