@@ -12,7 +12,7 @@ info:
   \ - Check out [lichess widgets to embed in your website](https://lichess.org/developers).\n\
   \ - [Download all lichess rated games](https://database.lichess.org/)\n\
   \n## Endpoint\n\
-  \ `https://lichess.org`\n\
+  \ All requests go to `https://lichess.org`. Language subdomains are deprecated and will be discontinued.\n\
   \ ## Rate limiting\n\
   \ All requests are rate limited using various strategies,\
   \ to ensure the API remains responsive for everyone.\n\
@@ -171,7 +171,7 @@ paths:
       - Users
       description: |
         Get several users by their IDs. Users are returned in the order same order as the IDs.
-        
+
         The method is `POST` so a longer list of IDs can be sent in the request body.
       requestBody:
         description: User IDs separated by commas.
