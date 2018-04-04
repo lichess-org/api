@@ -436,6 +436,24 @@ paths:
 
                 1. e4 { [%clk 0:03:00] } e5 { [%clk 0:03:00] } 2. f4 { [%clk 0:03:00] } exf4 { [%clk 0:02:58] } 3. Nf3 { [%clk 0:02:57] } g5 { [%clk 0:02:56] } 4. Bc4 { [%clk 0:02:57] } d6 { [%clk 0:02:53] } 5. O-O { [%clk 0:02:53] } 0-1
 
+  /api/tournament:
+    get:
+      operationId: apiTournament
+      summary: Get current tournaments
+      tags:
+      - Tournaments
+      description: |
+        Get recently finished, ongoing, and upcoming tournaments.
+
+        This API is used to display the [Lichess tournament schedule](https://lichess.org/tournament).
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tournament'
   /team/{teamId}/users:
     get:
       operationId: teamIdUsers
@@ -636,6 +654,46 @@ components:
           "moveEvent":2
         }
     }
+
+    Tournament:
+      example: {
+        "id": "QITRjufu",
+        "fullName": "U1700 SuperBlitz Arena",
+        "clock": {
+            "increment": 0,
+            "limit": 180
+        },
+        "minutes": 57,
+        "rated": true,
+        "createdBy": "lichess",
+        "system": "arena",
+        "secondsToStart": 0,
+        "startsAt": 1522803600000,
+        "finishesAt": 1522807020000,
+        "hasMaxRating": true,
+        "nbPlayers": 154,
+        "status": 30,
+        "perf": {
+            "icon": ")",
+            "key": "blitz",
+            "name": "Blitz",
+            "position": 1
+        },
+        "schedule": {
+            "freq": "hourly",
+            "speed": "superblitz"
+        },
+        "variant": {
+            "key": "standard",
+            "name": "Standard",
+            "short": "Std"
+        },
+        "winner": {
+            "id": "camerun10",
+            "name": "camerun10",
+            "title": null
+        }
+      }
 
     Ok:
       properties:
