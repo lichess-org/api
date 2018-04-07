@@ -138,7 +138,7 @@ paths:
 
   /player/top/{nb}/{perfType}:
     get:
-      operationId: player
+      operationId: playerTopNbPerfType
       summary: Get one leaderboard
       tags:
       - Users
