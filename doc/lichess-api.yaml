@@ -53,7 +53,7 @@ paths:
   /api/users/status:
     get:
       operationId: apiUsersStatus
-      summary: Real-time users status
+      summary: Get real-time users status
       description: |
         Read the `online`, `playing` and `streaming` flags of several users.
         `JSONP` is available.
@@ -116,6 +116,32 @@ paths:
                     "patron": true
                   }
                 ]
+
+  /player:
+    get:
+      operationId: player
+      summary: Get all top 10
+      tags:
+      - Users
+      description: |
+        Get the top 10 players for each time control and variant.
+
+        See https://lichess.org/player.
+      parameters:
+        - in: header
+          name: Accept
+          schema:
+            type: string
+            default: application/vnd.lichess.v3+json
+          required: true
+      responses:
+        200:
+          content:
+            application/vnd.lichess.v3+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Leaderboards'
 
   /api/user/{username}:
     get:
@@ -614,6 +640,60 @@ components:
             "total": 3296897,
             "tv": 12134
         }
+      }
+
+    Leaderboards:
+      example: {
+        "bullet": [
+          {
+            "id": "bahadirozen",
+            "username": "BahadirOzen",
+            "perfs": {
+              "bullet": {
+                "rating": 3018,
+                "progress": 18
+              }
+            },
+            "online": true,
+            "title": "FM"
+          },
+          {
+            "id": "penguingim1",
+            "username": "penguingim1",
+            "perfs": {
+              "bullet": {
+                "rating": 2983,
+                "progress": -36
+              }
+            },
+            "title": "GM",
+            "online": true,
+            "patron": true
+          },
+          {
+            "id": "night-king96",
+            "username": "Night-King96",
+            "perfs": {
+              "bullet": {
+                "rating": 2958,
+                "progress": 35
+              }
+            },
+            "title": "GM"
+          },
+        ],
+        "blitz": [],
+        "rapid": [],
+        "classical": [],
+        "ultraBullet": [],
+        "chess960": [],
+        "crazyhouse": [],
+        "antichess": [],
+        "atomic": [],
+        "horde": [],
+        "kingOfTheHill": [],
+        "racingKings": [],
+        "threeCheck": []
       }
 
     UserPreferences:
