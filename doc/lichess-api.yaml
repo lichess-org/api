@@ -124,24 +124,66 @@ paths:
       tags:
       - Users
       description: |
-        Get the top 10 players for each time control and variant.
+        Get the top 10 players for each speed and variant.
 
         See https://lichess.org/player.
       parameters:
-        - in: header
-          name: Accept
+        - $ref: '#/components/parameters/lichess'
+      responses:
+        200:
+          content:
+            application/vnd.lichess.v3+json:
+              schema:
+                $ref: '#/components/schemas/Top10s'
+
+  /player/top/{nb}/{perfType}:
+    get:
+      operationId: player
+      summary: Get one leaderboard
+      tags:
+      - Users
+      description: |
+        Get the leaderboard for a single speed or variant.
+
+        See https://lichess.org/player/top/200/bullet.
+      parameters:
+        - $ref: '#/components/parameters/lichess'
+        - in: path
+          name: nb
+          summary: How many users to fetch
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+            example: 100
+          required: true
+        - in: path
+          name: perfType
+          summary: The speed or variant
           schema:
             type: string
-            default: application/vnd.lichess.v3+json
+            example: bullet
+            enum:
+              - bullet
+              - blitz
+              - rapid
+              - classical
+              - ultraBullet
+              - chess960
+              - crazyhouse
+              - antichess
+              - atomic
+              - horde
+              - kingOfTheHill
+              - racingKings
+              - threeCheck
           required: true
       responses:
         200:
           content:
             application/vnd.lichess.v3+json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Leaderboards'
+                $ref: '#/components/schemas/Leaderboard'
 
   /api/user/{username}:
     get:
@@ -513,6 +555,14 @@ paths:
                 $ref: '#/components/schemas/UserExtended'
 
 components:
+  parameters:
+    lichess:
+      in: header
+      name: Accept
+      schema:
+        type: string
+        default: application/vnd.lichess.v3+json
+      required: true
   schemas:
     User:
       example: {
@@ -642,7 +692,7 @@ components:
         }
       }
 
-    Leaderboards:
+    Top10s:
       example: {
         "bullet": [
           {
@@ -694,6 +744,48 @@ components:
         "kingOfTheHill": [],
         "racingKings": [],
         "threeCheck": []
+      }
+
+    Leaderboard:
+      example: {
+        "users": [
+          {
+            "id": "bahadirozen",
+            "username": "BahadirOzen",
+            "perfs": {
+              "bullet": {
+                "rating": 3018,
+                "progress": 18
+              }
+            },
+            "online": true,
+            "title": "FM"
+          },
+          {
+            "id": "penguingim1",
+            "username": "penguingim1",
+            "perfs": {
+              "bullet": {
+                "rating": 2983,
+                "progress": -36
+              }
+            },
+            "title": "GM",
+            "online": true,
+            "patron": true
+          },
+          {
+            "id": "night-king96",
+            "username": "Night-King96",
+            "perfs": {
+              "bullet": {
+                "rating": 2958,
+                "progress": 35
+              }
+            },
+            "title": "GM"
+          },
+        ]
       }
 
     UserPreferences:
