@@ -6,11 +6,11 @@ var fs = require('fs')
 var stringifyObject = require('stringify-object');
 var SwaggerSnippet = require('swagger-snippet')
 
-if(process.argv[2] != 'skip-pre-bundle')
-        {
-        console.log("first bundle combined file to ensure it is up to date");
-        exec('swagger-repo bundle -o ./web_deploy/swagger.json'); //this wants a single dot
-        }
+// if(process.argv[2] != 'skip-pre-bundle')
+//         {
+//         console.log("first bundle combined file to ensure it is up to date");
+//         exec('swagger-repo bundle -o ./web_deploy/swagger.json'); //this wants a single dot
+//         }
 
 //now load that file
 var SwaggerFile = require('./lichess-api.yaml');
