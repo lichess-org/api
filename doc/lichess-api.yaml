@@ -143,7 +143,7 @@ paths:
       tags:
       - Users
       description: |
-        Get the leaderboard for a single speed or variant.
+        Get the leaderboard for a single speed or variant (a.k.a. `perfType`).
 
         See https://lichess.org/player/top/200/bullet.
       parameters:
