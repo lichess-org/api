@@ -151,7 +151,7 @@ paths:
         - $ref: '#/components/parameters/lichess'
         - in: path
           name: nb
-          summary: How many users to fetch
+          description: How many users to fetch
           schema:
             type: integer
             minimum: 1
@@ -160,7 +160,7 @@ paths:
           required: true
         - in: path
           name: perfType
-          summary: The speed or variant
+          description: The speed or variant
           schema:
             type: string
             example: bullet
