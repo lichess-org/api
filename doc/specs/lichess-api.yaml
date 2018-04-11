@@ -930,3 +930,4 @@ components:
             "game:read": Download all your games
             "preference:read": Read your preferences
             "preference:write": Write your preferences
+            "email:read": Read your email address
