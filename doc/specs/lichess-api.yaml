@@ -24,14 +24,14 @@ info:
 servers:
   - url: https://lichess.org
 tags:
+- name: Account
+  description: Read and write account informations and preferences.
 - name: Users
   description: Access registered users on Lichess.
 - name: Games
   description: Access games played on Lichess.
 - name: Teams
   description: Access Lichess teams and their members.
-- name: Preferences
-  description: Access your preferences.
 - name: JSONP
   description: |
     Requests available as `JSONP`.
@@ -268,7 +268,7 @@ paths:
       description: |
         Public informations about the logged in user.
       tags:
-      - Users
+      - Account
       - OAuth
       responses:
         200:
@@ -277,12 +277,34 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserExtended'
 
+  /account/email:
+    get:
+      operationId: accountEmail
+      summary: Get my email address
+      tags:
+      - Account
+      - OAuth
+      security:
+        - OAuth2: ["email:read"]
+      description: |
+        Read the email address of the logged in user.
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  email:
+                    type: string
+                example:
+                  email: abathur@mail.org
+
   /account/preferences:
     get:
-      operationId: accountPreferences
+      operationId: account
       summary: Get my preferences
       tags:
-      - Preferences
+      - Account
       - OAuth
       security:
         - OAuth2: ["preference:read"]
@@ -297,12 +319,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserPreferences'
+
   /account/kid:
     get:
       operationId: accountKid
       summary: Get my kid mode status
       tags:
-      - Preferences
+      - Account
       - OAuth
       security:
         - OAuth2: ["preference:read"]
@@ -324,7 +347,7 @@ paths:
       operationId: accountKidPost
       summary: Set my kid mode status
       tags:
-      - Preferences
+      - Account
       - OAuth
       security:
         - OAuth2: ["preference:write"]
