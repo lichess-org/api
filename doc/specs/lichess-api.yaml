@@ -63,8 +63,10 @@ paths:
 
         Use it to track players and know when they're connected on lichess and playing games.
       tags:
-      - Users
-      - JSONP
+        - Users
+        - JSONP
+      security:
+        - None: []
       parameters:
         - in: query
           name: ids
@@ -122,7 +124,9 @@ paths:
       operationId: player
       summary: Get all top 10
       tags:
-      - Users
+        - Users
+      security:
+        - None: []
       description: |
         Get the top 10 players for each speed and variant.
 
@@ -141,7 +145,9 @@ paths:
       operationId: playerTopNbPerfType
       summary: Get one leaderboard
       tags:
-      - Users
+        - Users
+      security:
+        - None: []
       description: |
         Get the leaderboard for a single speed or variant (a.k.a. `perfType`).
         There is no leaderboard for correspondence or puzzles.
@@ -194,8 +200,10 @@ paths:
         Read public data of a user.
         `JSONP` is available.
       tags:
-      - Users
-      - JSONP
+        - Users
+        - JSONP
+      security:
+        - None: []
       parameters:
         - in: path
           name: username
@@ -217,8 +225,10 @@ paths:
         Read data to generate the activity feed of a user.
         `JSONP` is available.
       tags:
-      - Users
-      - JSONP
+        - Users
+        - JSONP
+      security:
+        - None: []
       parameters:
         - in: path
           name: username
@@ -237,7 +247,9 @@ paths:
       operationId: apiUsers
       summary: Get users by ID
       tags:
-      - Users
+        - Users
+      security:
+        - None: []
       description: |
         Get several users by their IDs. Users are returned in the order same order as the IDs.
 
@@ -263,13 +275,13 @@ paths:
     get:
       operationId: accountMe
       summary: Get my profile
-      security:
-        - OAuth2: []
       description: |
         Public informations about the logged in user.
       tags:
-      - Account
-      - OAuth
+        - Account
+        - OAuth
+      security:
+        - OAuth2: []
       responses:
         200:
           content:
@@ -281,13 +293,13 @@ paths:
     get:
       operationId: accountEmail
       summary: Get my email address
-      tags:
-      - Account
-      - OAuth
-      security:
-        - OAuth2: ["email:read"]
       description: |
         Read the email address of the logged in user.
+      tags:
+        - Account
+        - OAuth
+      security:
+        - OAuth2: ["email:read"]
       responses:
         200:
           content:
@@ -303,16 +315,16 @@ paths:
     get:
       operationId: account
       summary: Get my preferences
-      tags:
-      - Account
-      - OAuth
-      security:
-        - OAuth2: ["preference:read"]
       description: |
         Read the preferences of the logged in user.
 
         - https://lichess.org/account/preferences
         - https://github.com/ornicar/lila/blob/master/modules/pref/src/main/Pref.scala
+      tags:
+        - Account
+        - OAuth
+      security:
+        - OAuth2: ["preference:read"]
       responses:
         200:
           content:
@@ -324,15 +336,15 @@ paths:
     get:
       operationId: accountKid
       summary: Get my kid mode status
-      tags:
-      - Account
-      - OAuth
-      security:
-        - OAuth2: ["preference:read"]
       description: |
         Read the kid mode status of the logged in user.
 
         - https://lichess.org/account/kid
+      tags:
+        - Account
+        - OAuth
+      security:
+        - OAuth2: ["preference:read"]
       responses:
         200:
           content:
@@ -346,15 +358,15 @@ paths:
     post:
       operationId: accountKidPost
       summary: Set my kid mode status
-      tags:
-      - Account
-      - OAuth
-      security:
-        - OAuth2: ["preference:write"]
       description: |
         Set the kid mode status of the logged in user.
 
         - https://lichess.org/account/kid
+      tags:
+        - Account
+        - OAuth
+      security:
+        - OAuth2: ["preference:write"]
       parameters:
         - in: query
           name: v
@@ -377,7 +389,9 @@ paths:
       description: |
         Download one game in PGN format. Only finished games can be downloaded.
       tags:
-      - Games
+        - Games
+      security:
+        - None: []
       parameters:
         - in: path
           name: gameId
@@ -416,9 +430,6 @@ paths:
     get:
       operationId: gamesExportUsername
       summary: Export games of a user
-      tags:
-      - Games
-      - OAuth
       description: |
         Download all games of any user in PGN format. Optionally specify a start and end timestamps for partial exports.
 
@@ -431,6 +442,11 @@ paths:
           - Anonymous request: 10 games per second
           - [OAuth2 authenticated](#section/Authentication) request: 20 games per second
           - Authenticated, downloading your own games: 50 games per second
+      tags:
+        - Games
+        - OAuth
+      security:
+        - None: []
       parameters:
         - in: path
           name: username
@@ -532,12 +548,14 @@ paths:
     get:
       operationId: apiTournament
       summary: Get current tournaments
-      tags:
-      - Tournaments
       description: |
         Get recently finished, ongoing, and upcoming tournaments.
 
         This API is used to display the [Lichess tournament schedule](https://lichess.org/tournament).
+      tags:
+        - Tournaments
+      security:
+        - None: []
       responses:
         200:
           content:
@@ -550,13 +568,15 @@ paths:
     get:
       operationId: teamIdUsers
       summary: Get members of a team
-      tags:
-      - Users
-      - Teams
       description: |
         Members are sorted by reverse chronological order of joining the team (most recent first).
 
         **Members are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+      tags:
+        - Users
+        - Teams
+      security:
+        - None: []
       parameters:
         - in: path
           name: teamId
@@ -931,3 +951,7 @@ components:
             "preference:read": Read your preferences
             "preference:write": Write your preferences
             "email:read": Read your email address
+    None:
+      description: "No authorization required.\n\
+        \ For requests that don't need an authenticated user."
+      type: none
