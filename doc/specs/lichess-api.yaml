@@ -614,7 +614,7 @@ paths:
       tags:
         - Chess Bot
       security:
-        - None: []
+        - OAuth2: ["bot:play"]
       parameters:
         - in: path
           name: gameId
@@ -642,7 +642,7 @@ paths:
       tags:
         - Chess Bot
       security:
-        - None: []
+        - OAuth2: ["bot:play"]
       parameters:
         - in: path
           name: gameId
@@ -1104,7 +1104,7 @@ components:
             "preference:read": Read your preferences
             "preference:write": Write your preferences
             "email:read": Read your email address
-            "bot:play": Play bot moves
+            "bot:play": Play bot moves. Only for bot accounts
     None:
       description: "No authorization required.\n\
         \ For requests that don't need an authenticated user."
