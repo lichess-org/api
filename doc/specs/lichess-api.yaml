@@ -32,6 +32,8 @@ tags:
   description: Access games played on Lichess.
 - name: Teams
   description: Access Lichess teams and their members.
+- name: Bot
+  description: Play as a chess engine (only for Bot accounts).
 - name: JSONP
   description: |
     Requests available as `JSONP`.
@@ -598,6 +600,99 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserExtended'
 
+  /bot/game/{gameId}:
+    get:
+      operationId: botGame
+      summary: Get bot game data
+      description: |
+        Read full data, immutable and state, of a game being played by a bot.
+
+        Only the `state` field is will vary over time. All other fields are immutable.
+
+        **Do NOT poll this endpoint!**. Use it only once to get the initial game data;
+        then use the [Stream bot game state](#operation/botGameStream) endpoint to get real-time updates.
+      tags:
+        - Bot
+      security:
+        - None: []
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BotGameFull'
+
+  /bot/game/{gameId}/stream:
+    get:
+      operationId: botGameStream
+      summary: Stream bot game state
+      description: |
+        Stream the state of a game being played by a bot.
+
+        Use this endpoint to get updates about the game in real-time, with a single request.
+
+        Each line is a JSON object containing information about the game current state.
+      tags:
+        - Bot
+      security:
+        - None: []
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BotGameState'
+
+  /bot/game/{gameId}/move/{move}:
+    post:
+      operationId: botGameMove
+      summary: Make a bot move
+      description: |
+        Make a move in a game being played by a bot.
+      tags:
+        - Bot
+      security:
+        - OAuth2: ["bot:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+        - in: path
+          name: move
+          required: true
+          description: The move to play, in UCI format
+          schema:
+            type: string
+            example: "e2e4"
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
 components:
   parameters:
     lichess:
@@ -911,6 +1006,67 @@ components:
         }
       }
 
+    BotGameState:
+      type: object
+      properties:
+        moves:
+          type: string
+          description: Current moves in UCI format
+        wtime:
+          type: integer
+          description: Integer of milliseconds White has left on the clock
+        btime:
+          type: integer
+          description: Integer of milliseconds Black has left on the clock
+        winc:
+          type: integer
+          description: Integer of White Fisher increment.
+        binc:
+          type: integer
+          description: Integer of Black Fisher increment.
+      example: {
+        "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3 e8g8",
+        "wtime": 7598040,
+        "btime": 8395220,
+        "winc": 10000,
+        "binc": 10000
+      }
+
+    BotGameFull:
+      example: {
+        "id": "5IrD6Gzz",
+        "rated": true,
+        "variant": {
+          "key": "standard",
+          "name": "Standard",
+          "short": "Std"
+        },
+        "speed": "classical",
+        "perf": "classical",
+        "createdAt": 1523825103562,
+        "white": {
+          "id": "kingscrusher-youtub3",
+          "name": "kingscrusher-youtub3",
+          "provisional": true,
+          "rating": 1500,
+          "title": null
+        },
+        "black": {
+          "id": "thibault",
+          "name": "thibault",
+          "rating": 1812,
+          "title": "FM"
+        },
+        "initialFen": "startpos",
+        "state": {
+          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3 e8g8",
+          "wtime": 7598040,
+          "btime": 8395220,
+          "winc": 10000,
+          "binc": 10000
+        }
+      }
+
     Ok:
       properties:
         ok:
@@ -919,15 +1075,12 @@ components:
         ok: true
 
     Error:
-      required:
-        - code
-        - message
       properties:
-        code:
-          type: integer
-          format: int32
-        message:
+        error:
           type: string
+          description: The cause of the error.
+      example:
+        error: "This request is invalid because [...]"
 
   securitySchemes:
     OAuth2:
@@ -951,6 +1104,7 @@ components:
             "preference:read": Read your preferences
             "preference:write": Write your preferences
             "email:read": Read your email address
+            "bot:play": Play bot moves
     None:
       description: "No authorization required.\n\
         \ For requests that don't need an authenticated user."
