@@ -32,7 +32,7 @@ tags:
   description: Access games played on Lichess.
 - name: Teams
   description: Access Lichess teams and their members.
-- name: Bot
+- name: Chess Bot
   description: Play as a chess engine (only for Bot accounts).
 - name: JSONP
   description: |
@@ -612,7 +612,7 @@ paths:
         **Do NOT poll this endpoint!**. Use it only once to get the initial game data;
         then use the [Stream bot game state](#operation/botGameStream) endpoint to get real-time updates.
       tags:
-        - Bot
+        - Chess Bot
       security:
         - None: []
       parameters:
@@ -640,7 +640,7 @@ paths:
 
         Each line is a JSON object containing information about the game current state.
       tags:
-        - Bot
+        - Chess Bot
       security:
         - None: []
       parameters:
@@ -664,7 +664,7 @@ paths:
       description: |
         Make a move in a game being played by a bot.
       tags:
-        - Bot
+        - Chess Bot
       security:
         - OAuth2: ["bot:play"]
       parameters:
