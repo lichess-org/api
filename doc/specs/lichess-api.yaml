@@ -629,34 +629,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /bot/game/{gameId}:
-    get:
-      operationId: botGame
-      summary: Get game data
-      description: |
-        Read full data, immutable and state, of a game being played by a bot.
-
-        Only the `state` field is will vary over time. All other fields are immutable.
-
-        You may never need this. Consider using [Stream bot game state](#operation/botGameStream) instead.
-      tags:
-        - Chess Bot
-      security:
-        - OAuth2: ["bot:play"]
-      parameters:
-        - in: path
-          name: gameId
-          schema:
-            type: string
-            example: "5IrD6Gzz"
-          required: true
-      responses:
-        200:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BotGameFull'
-
   /bot/game/stream/{gameId}:
     get:
       operationId: botGameStream
@@ -1105,41 +1077,6 @@ components:
           "binc": 10000
         }
       ]
-
-    BotGameFull:
-      example: {
-        "id": "5IrD6Gzz",
-        "rated": true,
-        "variant": {
-          "key": "standard",
-          "name": "Standard",
-          "short": "Std"
-        },
-        "speed": "classical",
-        "perf": "classical",
-        "createdAt": 1523825103562,
-        "white": {
-          "id": "lovlas",
-          "name": "lovlas",
-          "provisional": false,
-          "rating": 2500,
-          "title": "IM"
-        },
-        "black": {
-          "id": "leela",
-          "name": "leela",
-          "rating": 2390,
-          "title": null
-        },
-        "initialFen": "startpos",
-        "state": {
-          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3 e8g8",
-          "wtime": 7598040,
-          "btime": 8395220,
-          "winc": 10000,
-          "binc": 10000
-        }
-      }
 
     Ok:
       properties:
