@@ -632,7 +632,7 @@ paths:
   /bot/game/{gameId}:
     get:
       operationId: botGame
-      summary: Get bot game data
+      summary: Get game data
       description: |
         Read full data, immutable and state, of a game being played by a bot.
 
@@ -660,7 +660,7 @@ paths:
   /bot/game/stream/{gameId}:
     get:
       operationId: botGameStream
-      summary: Stream bot game state
+      summary: Stream game state
       description: |
         Stream the state of a game being played by a bot.
 
@@ -670,7 +670,7 @@ paths:
 
         The first line contains the full game data.
 
-        Each following line is a only contains information about the game current state.
+        Each following line only contains the game current state.
       tags:
         - Chess Bot
       security:
