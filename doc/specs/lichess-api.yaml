@@ -33,7 +33,7 @@ tags:
 - name: Teams
   description: Access Lichess teams and their members.
 - name: Chess Bot
-  description: Play as a chess engine (only for Bot accounts).
+  description: Play as a chess engine (only for [Bot accounts](#operation/botAccountTransform)).
 - name: JSONP
   description: |
     Requests available as `JSONP`.
@@ -600,6 +600,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserExtended'
 
+  /bot/account/transform:
+    post:
+      operationId: botAccountTransform
+      summary: Transform to bot account
+      description: |
+        Transform a lichess player account into a bot account.
+
+        Only bot accounts can use the bot API.
+
+        The account **cannot have played any game** before becoming a bot account.
+
+        The transformation is **irreversible**. The account will only be able to play bot games.
+      tags:
+        - Chess Bot
+      security:
+        - OAuth2: ["bot:play"]
+      parameters:
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /bot/game/{gameId}:
     get:
       operationId: botGame
@@ -1104,7 +1133,7 @@ components:
             "preference:read": Read your preferences
             "preference:write": Write your preferences
             "email:read": Read your email address
-            "bot:play": Play bot moves. Only for bot accounts
+            "bot:play": Play bot moves. Only for [Bot accounts](#operation/botAccountTransform)
     None:
       description: "No authorization required.\n\
         \ For requests that don't need an authenticated user."
