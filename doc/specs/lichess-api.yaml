@@ -566,6 +566,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Tournament'
+
   /team/{teamId}/users:
     get:
       operationId: teamIdUsers
@@ -605,13 +606,12 @@ paths:
       operationId: botAccountUpgrade
       summary: Upgrade to bot account
       description: |
-        Upgrade a lichess player account into a bot account.
+        Upgrade a lichess player account into a bot account. Only bot accounts can use the bot API.
 
-        Only bot accounts can use the bot API.
+        The account **cannot have played any game** before becoming a bot account. The upgrade is **irreversible**. The account will only be able to play bot games.
 
-        The account **cannot have played any game** before becoming a bot account.
-
-        The upgrade is **irreversible**. The account will only be able to play bot games.
+        To know if an account has already been upgraded, use the [Get my profile API](#operation/accountMe)
+        and look for the `bot` boolean flag.
       tags:
         - Chess Bot
       security:
