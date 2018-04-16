@@ -638,8 +638,7 @@ paths:
 
         Only the `state` field is will vary over time. All other fields are immutable.
 
-        **Do NOT poll this endpoint!**. Use it only once to get the initial game data;
-        then use the [Stream bot game state](#operation/botGameStream) endpoint to get real-time updates.
+        You may never need this. Consider using [Stream bot game state](#operation/botGameStream) instead.
       tags:
         - Chess Bot
       security:
@@ -658,7 +657,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BotGameFull'
 
-  /bot/game/{gameId}/stream:
+  /bot/game/stream/{gameId}:
     get:
       operationId: botGameStream
       summary: Stream bot game state
@@ -667,7 +666,9 @@ paths:
 
         Use this endpoint to get updates about the game in real-time, with a single request.
 
-        Each line is a JSON object containing information about the game current state.
+        The first line contains the full game data.
+
+        Each following line is a JSON object containing information about the game current state.
       tags:
         - Chess Bot
       security:
@@ -1053,13 +1054,55 @@ components:
         binc:
           type: integer
           description: Integer of Black Fisher increment.
-      example: {
-        "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3 e8g8",
-        "wtime": 7598040,
-        "btime": 8395220,
-        "winc": 10000,
-        "binc": 10000
-      }
+      example: [
+        {
+          "id": "5IrD6Gzz",
+          "rated": true,
+          "variant": {
+            "key": "standard",
+            "name": "Standard",
+            "short": "Std"
+          },
+          "speed": "classical",
+          "perf": "classical",
+          "createdAt": 1523825103562,
+          "white": {
+            "id": "lovlas",
+            "name": "lovlas",
+            "provisional": false,
+            "rating": 2500,
+            "title": "IM"
+          },
+          "black": {
+            "id": "leela",
+            "name": "leela",
+            "rating": 2390,
+            "title": null
+          },
+          "initialFen": "startpos",
+          "state": {
+            "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7",
+            "wtime": 7598040,
+            "btime": 8395220,
+            "winc": 10000,
+            "binc": 10000
+          }
+        },
+        {
+          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
+          "wtime": 7598040,
+          "btime": 8395220,
+          "winc": 10000,
+          "binc": 10000
+        },
+        {
+          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3 e8g8",
+          "wtime": 7598040,
+          "btime": 8395220,
+          "winc": 10000,
+          "binc": 10000
+        }
+      ]
 
     BotGameFull:
       example: {
@@ -1074,17 +1117,17 @@ components:
         "perf": "classical",
         "createdAt": 1523825103562,
         "white": {
-          "id": "kingscrusher-youtub3",
-          "name": "kingscrusher-youtub3",
-          "provisional": true,
-          "rating": 1500,
-          "title": null
+          "id": "lovlas",
+          "name": "lovlas",
+          "provisional": false,
+          "rating": 2500,
+          "title": "IM"
         },
         "black": {
-          "id": "thibault",
-          "name": "thibault",
-          "rating": 1812,
-          "title": "FM"
+          "id": "leela",
+          "name": "leela",
+          "rating": 2390,
+          "title": null
         },
         "initialFen": "startpos",
         "state": {
