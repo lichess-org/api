@@ -664,7 +664,7 @@ paths:
   /bot/game/{gameId}/move/{move}:
     post:
       operationId: botGameMove
-      summary: Make a bot move
+      summary: Make a move
       description: |
         Make a move in a game being played by a bot.
       tags:
@@ -1115,7 +1115,7 @@ components:
             "preference:read": Read your preferences
             "preference:write": Write your preferences
             "email:read": Read your email address
-            "bot:play": Play bot moves. Only for [Bot accounts](#operation/botAccountTransform)
+            "bot:play": Play chess bot moves. Only for [Bot accounts](#operation/botAccountTransform)
     None:
       description: "No authorization required.\n\
         \ For requests that don't need an authenticated user."
