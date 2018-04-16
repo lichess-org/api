@@ -33,7 +33,9 @@ tags:
 - name: Teams
   description: Access Lichess teams and their members.
 - name: Chess Bot
-  description: Play as a chess engine (only for [Bot accounts](#operation/botAccountUpgrade)).
+  description: "Play as a chess engine (only for [Bot accounts](#operation/botAccountUpgrade)).\n\n\
+  \ See [lichess-uci-bot](https://github.com/careless25/lichess-uci-bot), a python program interfacing
+  \ this API with UCI engines."
 - name: JSONP
   description: |
     Requests available as `JSONP`.
