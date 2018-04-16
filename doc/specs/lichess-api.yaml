@@ -666,9 +666,11 @@ paths:
 
         Use this endpoint to get updates about the game in real-time, with a single request.
 
+        Each line is a JSON object.
+
         The first line contains the full game data.
 
-        Each following line is a JSON object containing information about the game current state.
+        Each following line is a only contains information about the game current state.
       tags:
         - Chess Bot
       security:
