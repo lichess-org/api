@@ -751,7 +751,36 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/NotFound'
+
+  /challenge/{challengeId}/decline:
+    post:
+      operationId: challengeDecline
+      summary: Decline a challenge
+      description: |
+        Decline an incoming challenge.
+      tags:
+        - Chess Bot
+      security:
+        - OAuth2: []
+      parameters:
+        - in: path
+          name: challengeId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
 
 components:
   parameters:
@@ -1153,6 +1182,13 @@ components:
           description: The cause of the error.
       example:
         error: "This request is invalid because [...]"
+
+    NotFound:
+      properties:
+        error:
+          type: string
+      example:
+        error: "Not found."
 
   securitySchemes:
     OAuth2:
