@@ -699,6 +699,29 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/stream/event:
+    get:
+      operationId: apiStreamEvent
+      summary: Stream incoming events
+      description: "\n
+      \ Stream the events reaching a lichess user in real time.\n\n
+      \ Each line is a JSON object containing a `type` field. Possible values are:\n
+      \ - `challenge` Incoming challenge\n
+      \ - `startGame` Start of a game\n\n
+      \n
+      \ When the stream opens, all current challenges and games are sent."
+      tags:
+        - Chess Bot
+      security:
+        - OAuth2: []
+      responses:
+        200:
+          content:
+            text/plain:
+              example: |
+                {"type":"challenge","challenge":{"id":"7pGLxJ4F","status":"created","challenger":{"id":"lovlas","name":"Lovlas","title":"IM","rating":2506,"patron":true,"online":true,"lag":24},"destUser":{"id":"thibot","name":"thibot","title":null,"rating":1500,"provisional":true,"online":true,"lag":45},"variant":{"key":"standard","name":"Standard","short":"Std"},"rated":true,"timeControl":{"type":"clock","limit":300,"increment":25,"show":"5+25"},"color":"random","perf":{"icon":"#","name":"Rapid"}}}
+                {"type":"gameStart","game":{"id":"1lsvP62l"}}
+
 components:
   parameters:
     lichess:
@@ -1079,6 +1102,11 @@ components:
           "binc": 10000
         }
       ]
+
+    StreamEvents:
+      example: |
+        {"type":"challenge","challenge":{"id":"7pGLxJ4F","status":"created","challenger":{"id":"lovlas","name":"Lovlas","title":"IM","rating":2506,"patron":true,"online":true,"lag":24},"destUser":{"id":"thibot","name":"thibot","title":null,"rating":1500,"provisional":true,"online":true,"lag":45},"variant":{"key":"standard","name":"Standard","short":"Std"},"rated":true,"timeControl":{"type":"clock","limit":300,"increment":25,"show":"5+25"},"color":"random","perf":{"icon":"#","name":"Rapid"}}}
+        {"type":"gameStart","game":{"id":"1lsvP62l"}}
 
     Ok:
       properties:
