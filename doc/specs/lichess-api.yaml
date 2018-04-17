@@ -722,6 +722,37 @@ paths:
                 {"type":"challenge","challenge":{"id":"7pGLxJ4F","status":"created","challenger":{"id":"lovlas","name":"Lovlas","title":"IM","rating":2506,"patron":true,"online":true,"lag":24},"destUser":{"id":"thibot","name":"thibot","title":null,"rating":1500,"provisional":true,"online":true,"lag":45},"variant":{"key":"standard","name":"Standard","short":"Std"},"rated":true,"timeControl":{"type":"clock","limit":300,"increment":25,"show":"5+25"},"color":"random","perf":{"icon":"#","name":"Rapid"}}}
                 {"type":"gameStart","game":{"id":"1lsvP62l"}}
 
+  /challenge/{challengeId}/accept:
+    post:
+      operationId: challengeAccept
+      summary: Accept a challenge
+      description: |
+        Accept an incoming challenge. The resulting game ID will be the same as the challenge ID.
+
+        You should receive a `gameStart` event on the [incoming events stream](#operation/apiStreamEvent).
+      tags:
+        - Chess Bot
+      security:
+        - OAuth2: []
+      parameters:
+        - in: path
+          name: challengeId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
 components:
   parameters:
     lichess:
