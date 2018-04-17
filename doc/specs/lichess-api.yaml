@@ -35,7 +35,9 @@ tags:
 - name: Chess Bot
   description: "Play as a chess engine (only for [Bot accounts](#operation/botAccountUpgrade)).\n\n\
   \ See [lichess-uci-bot](https://github.com/careless25/lichess-uci-bot), a python program interfacing
-  \ this API with UCI engines."
+  \ this API with UCI engines.\n
+  \n
+  \ **This API is in ALPHA stage**. It will change and breack compatibility."
 - name: JSONP
   description: |
     Requests available as `JSONP`.
@@ -727,7 +729,7 @@ paths:
       operationId: challengeAccept
       summary: Accept a challenge
       description: |
-        Accept an incoming challenge. The resulting game ID will be the same as the challenge ID.
+        Accept an incoming challenge.
 
         You should receive a `gameStart` event on the [incoming events stream](#operation/apiStreamEvent).
       tags:
