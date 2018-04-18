@@ -37,7 +37,7 @@ tags:
   \ See [lichess-uci-bot](https://github.com/careless25/lichess-uci-bot), a python program interfacing
   \ this API with UCI engines.\n
   \n
-  \ **This API is in ALPHA stage**. It will change and breack compatibility."
+  \ **This API is in ALPHA stage**. It will change and break compatibility."
 - name: JSONP
   description: |
     Requests available as `JSONP`.
