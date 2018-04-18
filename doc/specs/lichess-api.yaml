@@ -690,16 +690,14 @@ paths:
     get:
       operationId: botGameStream
       summary: Stream game state
-      description: |
-        Stream the state of a game being played by a bot.
-
-        Use this endpoint to get updates about the game in real-time, with a single request.
-
-        Each line is a JSON object.
-
-        The first line contains the full game data.
-
-        Each following line only contains the game current state.
+      description: "\
+      \ Stream the state of a game being played by a bot.\n\
+      \nUse this endpoint to get updates about the game in real-time, with a single request.\n\
+      \nEach line is a JSON object containing a `type` field. Possible values are:\n
+      \ - `gameFull` Full game data. All values are immutable, except for the `state` field.\n
+      \ - `gameState` Current state of the game. Immutable values not included.\n
+      \ - `chatLine` Chat message sent by a user (or the bot itself) in the `room` \"player\" or \"spectator\".\n\n
+      \nThe first line is always of type `gameFull`."
       tags:
         - Chess Bot
       security:
