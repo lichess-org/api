@@ -614,8 +614,9 @@ paths:
 
         The account **cannot have played any game** before becoming a bot account. The upgrade is **irreversible**. The account will only be able to play bot games.
 
-        To know if an account has already been upgraded, use the [Get my profile API](#operation/accountMe)
-        and look for the `bot` boolean flag.
+        To know if an account has already been upgraded, use the [Get my profile API](#operation/accountMe):
+        the `title` field should be set to `BOT`. Or, just browse to [lichess.org](https://lichess.org),
+        you should see a cute robot face.
       tags:
         - Chess Bot
       security:
