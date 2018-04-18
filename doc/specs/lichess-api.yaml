@@ -1179,6 +1179,10 @@ components:
             "name": "Standard",
             "short": "Std"
           },
+          "clock": {
+            "initial": 1200000,
+            "increment": 10000
+          },
           "speed": "classical",
           "perf": "classical",
           "createdAt": 1523825103562,
