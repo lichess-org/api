@@ -605,6 +605,58 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserExtended'
 
+  /streamer/live:
+    get:
+      operationId: streamerLive
+      summary: Get live streamers
+      description: |
+        Get basic info about currently streaming users.
+
+        `JSONP` is available.
+
+        This API is very fast and cheap on lichess side.
+        So you can call it quite often (like once every 5 seconds).
+      tags:
+        - Users
+        - JSONP
+      security:
+        - None: []
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    title:
+                      type: string
+                      nullable: true
+                    online:
+                      type: boolean
+                      nullable: true
+                    patron:
+                      type: boolean
+                      nullable: true
+                example: [
+                  {
+                    "id": "aliquantus",
+                    "name": "Aliquantus"
+                  },
+                  {
+                    "id": "chess-network",
+                    "name": "Chess-Network",
+                    "title": "NM",
+                    "playing": true,
+                    "patron": true
+                  }
+                ]
+
   /bot/account/upgrade:
     post:
       operationId: botAccountUpgrade
