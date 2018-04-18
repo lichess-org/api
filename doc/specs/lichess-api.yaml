@@ -1153,23 +1153,27 @@ components:
     BotGameState:
       type: object
       properties:
-        moves:
-          type: string
-          description: Current moves in UCI format
-        wtime:
-          type: integer
-          description: Integer of milliseconds White has left on the clock
-        btime:
-          type: integer
-          description: Integer of milliseconds Black has left on the clock
-        winc:
-          type: integer
-          description: Integer of White Fisher increment.
-        binc:
-          type: integer
-          description: Integer of Black Fisher increment.
+        state:
+          type: object
+          properties:
+            moves:
+              type: string
+              description: Current moves in UCI format
+            wtime:
+              type: integer
+              description: Integer of milliseconds White has left on the clock
+            btime:
+              type: integer
+              description: Integer of milliseconds Black has left on the clock
+            winc:
+              type: integer
+              description: Integer of White Fisher increment.
+            binc:
+              type: integer
+              description: Integer of Black Fisher increment.
       example: [
         {
+          "type": "gameFull",
           "id": "5IrD6Gzz",
           "rated": true,
           "variant": {
@@ -1195,6 +1199,7 @@ components:
           },
           "initialFen": "startpos",
           "state": {
+            "type": "gameState",
             "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7",
             "wtime": 7598040,
             "btime": 8395220,
@@ -1203,6 +1208,7 @@ components:
           }
         },
         {
+          "type": "gameState",
           "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
           "wtime": 7598040,
           "btime": 8395220,
@@ -1210,11 +1216,16 @@ components:
           "binc": 10000
         },
         {
-          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3 e8g8",
-          "wtime": 7598040,
-          "btime": 8395220,
-          "winc": 10000,
-          "binc": 10000
+          "type": "chatLine",
+          "username": "thibault",
+          "text": "Good luck, have fun",
+          "room": "player"
+        },
+        {
+          "type": "chatLine",
+          "username": "lovlas",
+          "text": "!eval",
+          "room": "spectator"
         }
       ]
 
