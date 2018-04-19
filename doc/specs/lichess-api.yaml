@@ -34,7 +34,7 @@ tags:
   description: Access Lichess teams and their members.
 - name: Chess Bot
   description: "Play as a chess engine (only for [Bot accounts](#operation/botAccountUpgrade)).\n\n\
-  \ See [lichess-uci-bot](https://github.com/careless25/lichess-uci-bot), a python program interfacing
+  \ See [lichess-bot](https://github.com/careless25/lichess-bot), a python program interfacing
   \ this API with UCI engines.\n
   \n
   \ **This API is in ALPHA stage**. It will change and break compatibility."
