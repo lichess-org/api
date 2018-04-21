@@ -488,7 +488,13 @@ paths:
           schema:
             type: integer
             minimum: 1
-            default: Infinite
+            default: null
+        - in: query
+          name: rated
+          description: Only rated (`true`) or casual (`false`) games
+          schema:
+            type: boolean
+            default: null
         - in: query
           name: moves
           description: Include the PGN moves.
