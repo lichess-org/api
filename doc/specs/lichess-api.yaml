@@ -491,10 +491,31 @@ paths:
             default: null
         - in: query
           name: rated
-          description: Only rated (`true`) or casual (`false`) games
+          description: "[Filter] Only rated (`true`) or casual (`false`) games"
           schema:
             type: boolean
             default: null
+        - in: query
+          name: perfType
+          description: "[Filter] Only games in this speed or variant"
+          schema:
+            type: string
+            default: null
+            enum:
+              - bullet
+              - blitz
+              - rapid
+              - classical
+              - correspondence
+              - ultraBullet
+              - chess960
+              - crazyhouse
+              - antichess
+              - atomic
+              - horde
+              - kingOfTheHill
+              - racingKings
+              - threeCheck
         - in: query
           name: moves
           description: Include the PGN moves.
