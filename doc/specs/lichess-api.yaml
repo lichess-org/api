@@ -36,11 +36,11 @@ tags:
   description: "Play on Lichess as a chess engine.\n
   \ Only works with [Bot accounts](#operation/botAccountUpgrade).\n\n\
   \n## Features\n\
-  \ - Stream incoming game moves\n\
-  \ - Play chess moves\n\
-  \ - Read and write in the player and spectator chats\n\
-  \ - Receive and accept challenges\n\
-  \ - Abort unplayed games\n\
+  \ - [Stream incoming chess moves](#operation/botGameStream)\n\
+  \ - [Play chess moves](#operation/botGameMove)\n\
+  \ - [Read](#operation/botGameStream) and [write](#operation/botGameChat) in the player and spectator chats\n\
+  \ - [Receive](#operation/apiStreamEvent) and [accept](#operation/challengeAccept) (or [decline](#operation/challengeDecline)) challenges\n\
+  \ - [Abort](#operation/botGameAbort) unplayed games\n\
   \n## Integrations\n\
   \ - [Python3 lichess-bot](https://github.com/careless25/lichess-bot) (official)\n\
   \ - Yours? Please make [an issue or pull request](https://github.com/lichess-org/api).\n\
