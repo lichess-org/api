@@ -33,11 +33,20 @@ tags:
 - name: Teams
   description: Access Lichess teams and their members.
 - name: Chess Bot
-  description: "Play as a chess engine (only for [Bot accounts](#operation/botAccountUpgrade)).\n\n\
-  \ See [lichess-bot](https://github.com/careless25/lichess-bot), a python program interfacing
-  \ this API with UCI engines.\n
-  \n
-  \ **This API is in ALPHA stage**. It will change and break compatibility."
+  description: "Play on Lichess as a chess engine.\n
+  \ Only works with [Bot accounts](#operation/botAccountUpgrade).\n\n\
+  \n## Features\n\
+  \ - Stream incoming game moves\n\
+  \ - Play chess moves\n\
+  \ - Read and write in the player and spectator chats\n\
+  \ - Receive and accept challenges\n\
+  \ - Abort unplayed games\n\
+  \n## Integrations\n\
+  \ - [Python3 lichess-bot](https://github.com/careless25/lichess-bot) (official)\n\
+  \ - Yours? Please make [an issue or pull request](https://github.com/lichess-org/api).\n\
+  \n## Links\n\
+  \ - Join the [Lichess Bots team](https://lichess.org/team/lichess-bots) with your bot account\n\
+  \ - [Get help in the discord channel](https://discord.gg/quwueFd)"
 - name: JSONP
   description: |
     Requests available as `JSONP`.
