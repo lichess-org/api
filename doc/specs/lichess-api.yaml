@@ -520,6 +520,15 @@ paths:
               - racingKings
               - threeCheck
         - in: query
+          name: color
+          description: "[Filter] Only games played as this color."
+          schema:
+            type: string
+            default: null
+            enum:
+              - white
+              - black
+        - in: query
           name: moves
           description: Include the PGN moves.
           schema:
