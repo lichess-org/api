@@ -187,11 +187,11 @@ paths:
             type: string
             example: bullet
             enum:
+              - ultraBullet
               - bullet
               - blitz
               - rapid
               - classical
-              - ultraBullet
               - chess960
               - crazyhouse
               - antichess
@@ -498,17 +498,19 @@ paths:
             default: null
         - in: query
           name: perfType
-          description: "[Filter] Only games in this speed or variant"
+          description: "[Filter] Only games in these speeds or variants.\n
+          \nMultiple perf types can be specified, separated by a comma.\n
+          \nExample: blitz,rapid,classical"
           schema:
             type: string
             default: null
             enum:
+              - ultraBullet
               - bullet
               - blitz
               - rapid
               - classical
               - correspondence
-              - ultraBullet
               - chess960
               - crazyhouse
               - antichess
