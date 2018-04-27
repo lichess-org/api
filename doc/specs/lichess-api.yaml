@@ -49,20 +49,6 @@ tags:
   \ - Join the [Lichess Bots team](https://lichess.org/team/lichess-bots) with your bot account\n\
   \ - [Get help in the discord channel](https://discord.gg/quwueFd)\n\
   \ - Watch [Lichess Bot TV](https://lichess.org/tv/bot)"
-- name: JSONP
-  description: |
-    Requests available as `JSONP`.
-    ```javascript
-    $.ajax({
-      url:'https://lichess.org/api/users/status',
-      data: { ids: 'aliquantus,chess-network' },
-      dataType:'jsonp',
-      jsonp:'callback',
-      success: function(data) {
-        console.debug(JSON.stringify(data.list));
-      }
-    });
-    ```
 - name: OAuth
   description: |
     Requests taking advantage of OAuth authentication.
@@ -73,7 +59,6 @@ paths:
       summary: Get real-time users status
       description: |
         Read the `online`, `playing` and `streaming` flags of several users.
-        `JSONP` is available.
 
         This API is very fast and cheap on lichess side.
         So you can call it quite often (like once every 5 seconds).
@@ -81,7 +66,6 @@ paths:
         Use it to track players and know when they're connected on lichess and playing games.
       tags:
         - Users
-        - JSONP
       security:
         - None: []
       parameters:
@@ -215,10 +199,8 @@ paths:
       summary: Get user public data
       description: |
         Read public data of a user.
-        `JSONP` is available.
       tags:
         - Users
-        - JSONP
       security:
         - None: []
       parameters:
@@ -240,10 +222,8 @@ paths:
       summary: Get user activity
       description: |
         Read data to generate the activity feed of a user.
-        `JSONP` is available.
       tags:
         - Users
-        - JSONP
       security:
         - None: []
       parameters:
@@ -661,13 +641,10 @@ paths:
       description: |
         Get basic info about currently streaming users.
 
-        `JSONP` is available.
-
         This API is very fast and cheap on lichess side.
         So you can call it quite often (like once every 5 seconds).
       tags:
         - Users
-        - JSONP
       security:
         - None: []
       responses:
