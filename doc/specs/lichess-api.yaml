@@ -1408,7 +1408,7 @@ components:
         \ - [About authorization code flow]( [More info](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2)\n\
         \n### Personal API Token\n\
         \ Personal API tokens allow you to quickly interact with Lichess OAuth API.\n\
-        \ - `curl https://lichess.org/account/me -H \"Authorization: Bearer <token>\"`\n\
+        \ - `curl https://lichess.org/api/account -H \"Authorization: Bearer <token>\"`\n\
         \ - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth-personal-token)\n\
         \ - [Generate a personal API token](https://lichess.org/account/oauth/token)"
       flows:
