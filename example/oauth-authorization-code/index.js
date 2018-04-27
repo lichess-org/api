@@ -72,7 +72,7 @@ app.get('/callback', async (req, res) => {
 app.listen(3000, () => console.log('Express server started on port 3000'));
 
 function getUserInfo(token) {
-  return axios.get('/account/me', {
+  return axios.get('/api/account', {
     baseURL: 'https://lichess.org/',
     headers: { 'Authorization': 'Bearer ' + token.access_token }
   });

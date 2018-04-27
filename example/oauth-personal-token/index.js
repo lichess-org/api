@@ -3,7 +3,7 @@ const axios = require('axios');
 /* Create your personal token on https://lichess.org/account/oauth/token */
 const personalToken = '';
 
-axios.get('/account/me', {
+axios.get('/api/account', {
   baseURL: 'https://lichess.org/',
   headers: { 'Authorization': 'Bearer ' + personalToken }
 }).then(
