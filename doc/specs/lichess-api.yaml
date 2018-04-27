@@ -510,6 +510,12 @@ paths:
               - white
               - black
         - in: query
+          name: analysed
+          description: "[Filter] Only games with or without a computer analysis available"
+          schema:
+            type: boolean
+            default: null
+        - in: query
           name: moves
           description: Include the PGN moves.
           schema:
@@ -527,6 +533,15 @@ paths:
             Include clock comments in the PGN moves.
 
             Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: evals
+          description: |
+            Include analysis evaluation comments in the PGN, when availabel.
+
+            Example: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
           schema:
             type: boolean
             default: false
