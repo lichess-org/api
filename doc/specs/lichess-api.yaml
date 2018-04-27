@@ -288,7 +288,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/User'
 
-  /account/me:
+  /api/account:
     get:
       operationId: accountMe
       summary: Get my profile
@@ -306,7 +306,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserExtended'
 
-  /account/email:
+  /api/account/email:
     get:
       operationId: accountEmail
       summary: Get my email address
@@ -328,7 +328,7 @@ paths:
                 example:
                   email: abathur@mail.org
 
-  /account/preferences:
+  /api/account/preferences:
     get:
       operationId: account
       summary: Get my preferences
@@ -349,7 +349,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserPreferences'
 
-  /account/kid:
+  /api/account/kid:
     get:
       operationId: accountKid
       summary: Get my kid mode status
@@ -706,7 +706,7 @@ paths:
                   }
                 ]
 
-  /bot/account/upgrade:
+  /api/bot/account/upgrade:
     post:
       operationId: botAccountUpgrade
       summary: Upgrade to bot account
@@ -758,7 +758,7 @@ paths:
                 {"type":"challenge","challenge":{"id":"7pGLxJ4F","status":"created","challenger":{"id":"lovlas","name":"Lovlas","title":"IM","rating":2506,"patron":true,"online":true,"lag":24},"destUser":{"id":"thibot","name":"thibot","title":null,"rating":1500,"provisional":true,"online":true,"lag":45},"variant":{"key":"standard","name":"Standard","short":"Std"},"rated":true,"timeControl":{"type":"clock","limit":300,"increment":25,"show":"5+25"},"color":"random","perf":{"icon":"#","name":"Rapid"}}}
                 {"type":"gameStart","game":{"id":"1lsvP62l"}}
 
-  /bot/game/stream/{gameId}:
+  /api/bot/game/stream/{gameId}:
     get:
       operationId: botGameStream
       summary: Stream game state
@@ -788,7 +788,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BotGameState'
 
-  /bot/game/{gameId}/move/{move}:
+  /api/bot/game/{gameId}/move/{move}:
     post:
       operationId: botGameMove
       summary: Make a move
@@ -824,7 +824,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /bot/game/{gameId}/chat:
+  /api/bot/game/{gameId}/chat:
     post:
       operationId: botGameChat
       summary: Write in the chat
@@ -872,7 +872,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /bot/game/{gameId}/abort:
+  /api/bot/game/{gameId}/abort:
     post:
       operationId: botGameAbort
       summary: Abort a game
@@ -901,7 +901,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /challenge/{challengeId}/accept:
+  /api/challenge/{challengeId}/accept:
     post:
       operationId: challengeAccept
       summary: Accept a challenge
@@ -932,7 +932,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NotFound'
 
-  /challenge/{challengeId}/decline:
+  /api/challenge/{challengeId}/decline:
     post:
       operationId: challengeDecline
       summary: Decline a challenge
@@ -1393,7 +1393,7 @@ components:
         \ The authorization code flow allows your users to **login with lichess**.\n\
         \ - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth-authorization-code)\n\
         \ - [Create a Lichess OAuth app](https://lichess.org/account/oauth/app)\n\
-        \ - [About authorization code flow](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2#grant-type-authorization-code)\n\
+        \ - [About authorization code flow]( [More info](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2)\n\
         \n### Personal API Token\n\
         \ Personal API tokens allow you to quickly interact with Lichess OAuth API.\n\
         \ - `curl https://lichess.org/account/me -H \"Authorization: Bearer <token>\"`\n\
