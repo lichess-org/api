@@ -40,7 +40,7 @@ tags:
   \ - [Play chess moves](#operation/botGameMove)\n\
   \ - [Read](#operation/botGameStream) and [write](#operation/botGameChat) in the player and spectator chats\n\
   \ - [Receive](#operation/apiStreamEvent) and [accept](#operation/challengeAccept) (or [decline](#operation/challengeDecline)) challenges\n\
-  \ - [Abort](#operation/botGameAbort) unplayed games\n\
+  \ - [Abort](#operation/botGameAbort) and [resign](#operation/botGameResign) games\n\
   \n## Integrations\n\
   \ - [Python3 lichess-bot](https://github.com/careless25/lichess-bot) (official)\n\
   \ - [JavaScript bot-o-tron](https://github.com/tailuge/bot-o-tron)\n\
