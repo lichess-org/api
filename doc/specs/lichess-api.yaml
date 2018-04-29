@@ -889,7 +889,36 @@ paths:
       operationId: botGameAbort
       summary: Abort a game
       description: |
-        Aboort a game being played by a bot.
+        Abort a game being played by a bot.
+      tags:
+        - Chess Bot
+      security:
+        - OAuth2: ["bot:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/bot/game/{gameId}/resign:
+    post:
+      operationId: botGameResign
+      summary: Resign a game
+      description: |
+        Resign a game being played by a bot.
       tags:
         - Chess Bot
       security:
