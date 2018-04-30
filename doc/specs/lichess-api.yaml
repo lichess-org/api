@@ -755,7 +755,7 @@ paths:
       \ Stream the events reaching a lichess user in real time.\n\n
       \ Each line is a JSON object containing a `type` field. Possible values are:\n
       \ - `challenge` Incoming challenge\n
-      \ - `startGame` Start of a game\n\n
+      \ - `gameStart` Start of a game\n\n
       \n
       \ When the stream opens, all current challenges and games are sent."
       tags:
