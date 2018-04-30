@@ -1439,6 +1439,7 @@ components:
         \ Personal API tokens allow you to quickly interact with Lichess OAuth API.\n\
         \ - `curl https://lichess.org/api/account -H \"Authorization: Bearer <token>\"`\n\
         \ - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth-personal-token)\n\
+        \ - [NodeJS Passport strategy for login with Lichess OAuth2](https://www.npmjs.com/package/passport-lichess)\n\
         \ - [Generate a personal API token](https://lichess.org/account/oauth/token)"
       flows:
         authorizationCode:
