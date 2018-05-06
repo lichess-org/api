@@ -428,7 +428,7 @@ paths:
       operationId: gamesExportUsername
       summary: Export games of a user
       description: |
-        Download all games of any user in PGN format. Optionally specify a start and end timestamps for partial exports.
+        Download all games of any user in PGN or [ndjson](http://ndjson.org/) format.
 
         Games are sorted by reverse chronological order (most recent first)
 
@@ -539,9 +539,18 @@ paths:
         - in: query
           name: evals
           description: |
-            Include analysis evaluation comments in the PGN, when availabel.
+            Include analysis evaluation comments in the PGN, when available.
 
             Example: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: opening
+          description: |
+            Include the opening name.
+
+            Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
           schema:
             type: boolean
             default: false
@@ -593,6 +602,10 @@ paths:
                 [Termination "Normal"]
 
                 1. e4 { [%clk 0:03:00] } e5 { [%clk 0:03:00] } 2. f4 { [%clk 0:03:00] } exf4 { [%clk 0:02:58] } 3. Nf3 { [%clk 0:02:57] } g5 { [%clk 0:02:56] } 4. Bc4 { [%clk 0:02:57] } d6 { [%clk 0:02:53] } 5. O-O { [%clk 0:02:53] } 0-1
+
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/Game'
 
   /tv/channels:
     get:
@@ -1012,6 +1025,46 @@ components:
         default: application/vnd.lichess.v3+json
       required: true
   schemas:
+    Game:
+      example: {
+        "id": "q7ZvsdUF",
+        "rated": true,
+        "variant": "standard",
+        "speed": "blitz",
+        "perf": "blitz",
+        "createdAt": 1514505150384,
+        "lastMoveAt": 1514505592843,
+        "status": "draw",
+        "players": {
+          "white": {
+            "user": {
+              "id": "lance5500",
+              "name": "Lance5500",
+              "title": "LM",
+              "patron": true
+              },
+            "rating": 2389,
+            "ratingDiff": 4
+          },
+          "black": {
+            "id": "Gramatik",
+            "name": "gramatik",
+            "rating": 2498,
+            "ratingDiff": -4
+          }
+        },
+        "opening": {
+          "eco":"D31",
+          "name":"Semi-Slav Defense: Marshall Gambit",
+          "ply":7
+        },
+        "moves": "d4 d5 c4 c6 Nc3 e6 e4 Nd7 exd5 cxd5 cxd5 exd5 Nxd5 Nb6 Bb5+ Bd7 Qe2+ Ne7 Nxb6 Qxb6 Bxd7+ Kxd7 Nf3 Qa6 Ne5+ Ke8 Qf3 f6 Nd3 Qc6 Qe2 Kf7 O-O Kg8 Bd2 Re8 Rac1 Nf5 Be3 Qe6 Rfe1 g6 b3 Bd6 Qd2 Kf7 Bf4 Qd7 Bxd6 Nxd6 Nc5 Rxe1+ Rxe1 Qc6 f3 Re8 Rxe8 Nxe8 Kf2 Nc7 Qb4 b6 Qc4+ Nd5 Nd3 Qe6 Nb4 Ne7 Qxe6+ Kxe6 Ke3 Kd6 g3 h6 Kd3 h5 Nc2 Kd5 a3 Nc6 Ne3+ Kd6 h4 Nd8 g4 Ne6 Ke4 Ng7 Nc4+ Ke6 d5+ Kd7 a4 g5 gxh5 Nxh5 hxg5 fxg5 Kf5 Nf4 Ne3 Nh3 Kg4 Ng1 Nc4 Kc7 Nd2 Kd6 Kxg5 Kxd5 f4 Nh3+ Kg4 Nf2+ Kf3 Nd3 Ke3 Nc5 Kf3 Ke6 Ke3 Kf5 Kd4 Ne6+ Kc4",
+        "clock": {
+          "initial": 300,
+          "increment": 3,
+          "totalTime": 420
+        }
+      }
     User:
       example: {
         "id": "georges",
