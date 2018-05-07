@@ -490,6 +490,7 @@ paths:
       parameters:
         - in: path
           name: username
+          description: The user name.
           schema:
             type: string
           required: true
@@ -514,6 +515,11 @@ paths:
             type: integer
             minimum: 1
             default: null
+        - in: query
+          name: vs
+          description: "[Filter] Only rated played against this opponent"
+          schema:
+            type: string
         - in: query
           name: rated
           description: "[Filter] Only rated (`true`) or casual (`false`) games"
