@@ -517,7 +517,7 @@ paths:
             default: null
         - in: query
           name: vs
-          description: "[Filter] Only rated played against this opponent"
+          description: "[Filter] Only games played against this opponent"
           schema:
             type: string
         - in: query
