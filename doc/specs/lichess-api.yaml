@@ -379,12 +379,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Ok'
 
-  /game/export/{gameId}.pgn:
+  /game/export/{gameId}:
     get:
       operationId: gamePng
       summary: Export one game
       description: |
-        Download one game in PGN format. Only finished games can be downloaded.
+        Download one game in PGN or JSON format. Only finished games can be downloaded.
       tags:
         - Games
       security:
@@ -396,6 +396,45 @@ paths:
           required: true
           schema:
             type: string
+        - in: query
+          name: moves
+          description: Include the PGN moves.
+          schema:
+            type: boolean
+            default: true
+        - in: query
+          name: tags
+          description: Include the PGN tags.
+          schema:
+            type: boolean
+            default: true
+        - in: query
+          name: clocks
+          description: |
+            Include clock comments in the PGN moves, when available.
+
+            Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+          schema:
+            type: boolean
+            default: true
+        - in: query
+          name: evals
+          description: |
+            Include analysis evaluation comments in the PGN, when available.
+
+            Example: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+          schema:
+            type: boolean
+            default: true
+        - in: query
+          name: opening
+          description: |
+            Include the opening name.
+
+            Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
+          schema:
+            type: boolean
+            default: true
       responses:
         200:
           content:
@@ -422,6 +461,10 @@ paths:
                 [Event "U1700 SuperBlitz Arena"]
 
                 1. e4 { [%clk 0:03:00] } e5 { [%clk 0:03:00] } 2. Nf3 { [%clk 0:02:59] } Nc6 { [%clk 0:02:58] } 3. Bb5 { [%clk 0:02:57] } d6 { [%clk 0:02:55] } 4. h3 { [%clk 0:02:54] } Nf6 { [%clk 0:02:52] } 5. Bxc6+ { [%clk 0:02:52] } bxc6 { [%clk 0:02:49] } 6. d3 { [%clk 0:02:51] } Be7 { [%clk 0:02:46] } 7. O-O { [%clk 0:02:47] } O-O { [%clk 0:02:45] } 8. b3 { [%clk 0:02:45] } d5 { [%clk 0:02:45] } 9. exd5 { [%clk 0:02:33] } cxd5 { [%clk 0:02:40] } 10. Nxe5 { [%clk 0:02:31] } Qd6 { [%clk 0:02:38] } 1-0
+
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
 
   /games/export/{username}:
     get:
@@ -530,7 +573,7 @@ paths:
         - in: query
           name: clocks
           description: |
-            Include clock comments in the PGN moves.
+            Include clock comments in the PGN moves, when available.
 
             Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
           schema:
