@@ -717,13 +717,6 @@ paths:
             type: string
             example: "coders"
           required: true
-        - in: query
-          name: max
-          description: How many members to get. Leave empty to get all members of the team.
-          schema:
-            type: integer
-            minimum: 1
-            default: Infinite
       responses:
         200:
           content:
