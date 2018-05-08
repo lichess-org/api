@@ -49,6 +49,8 @@ tags:
   \ - Join the [Lichess Bots team](https://lichess.org/team/lichess-bots) with your bot account\n\
   \ - [Get help in the discord channel](https://discord.gg/quwueFd)\n\
   \ - Watch [Lichess Bot TV](https://lichess.org/tv/bot)"
+- name: Tournaments
+  description: Access tournaments played on Lichess.
 - name: OAuth
   description: |
     Requests taking advantage of OAuth authentication.
