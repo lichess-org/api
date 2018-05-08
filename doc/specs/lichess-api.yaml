@@ -672,7 +672,7 @@ paths:
         Stream the games played between a list of users, in real time.
         Only games where **both players** are part of the list are included.
 
-        Each line is a game JSON object.
+        **Games are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
 
         The method is `POST` so a longer list of IDs can be sent in the request body.
       tags:
