@@ -818,11 +818,14 @@ paths:
       description: |
         Upgrade a lichess player account into a bot account. Only bot accounts can use the bot API.
 
-        The account **cannot have played any game** before becoming a bot account. The upgrade is **irreversible**. The account will only be able to play bot games.
+        The account **cannot have played any game** before becoming a bot account. The upgrade is **irreversible**. The account will only be able to play as a bot.
+
+        To upgrade an account to bot, use the [official lichess-bot client](https://github.com/careless25/lichess-bot), or follow these steps:
+        - Create an [API access token](https://lichess.org/account/oauth/token/create) with "Play bot moves" permission.
+        - `curl -d '' https://lichess.org/api/bot/account/upgrade -H "Authorization: Bearer <yourTokenHere>"`
 
         To know if an account has already been upgraded, use the [Get my profile API](#operation/accountMe):
-        the `title` field should be set to `BOT`. Or, just browse to [lichess.org](https://lichess.org),
-        you should see a cute robot face.
+        the `title` field should be set to `BOT`.
       tags:
         - Chess Bot
       security:
