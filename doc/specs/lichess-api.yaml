@@ -664,6 +664,36 @@ paths:
               schema:
                 $ref: '#/components/schemas/GameJson'
 
+  /api/stream/games-by-users:
+    post:
+      operationId: gamesByUsers
+      summary: Stream current games
+      description: |
+        Stream the games played between a list of users, in real time.
+        Only games where **both players** are part of the list are included.
+
+        Each line is a game JSON object.
+
+        The method is `POST` so a longer list of IDs can be sent in the request body.
+      tags:
+        - Games
+      security:
+        - None: []
+      requestBody:
+        description: User IDs separated by commas.
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+            example: aliquantus,chess-network,lovlas
+      responses:
+        200:
+          content:
+            application/x-ndjson:
+              schema:
+                example: {"id":"A5fcMO3k","rated":true,"variant":"standard","speed":"bullet","perf":"bullet","createdAt":1525789431889,"status":20,"clock":{"initial":60,"increment":0,"totalTime":60},"players":{"white":{"userId":"kastorcito","rating":2617},"black":{"userId":"er_or","rating":2288}}}
+
   /tv/channels:
     get:
       operationId: tvChannels
