@@ -745,6 +745,119 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Tournament'
+    post:
+      operationId: apiTournamentPost
+      summary: Create a new tournament
+      description: |
+        Create a public or private tournament to your taste.
+
+        You can create up to 2 tournaments per day.
+      tags:
+        - Tournaments
+      security:
+        - OAuth2: ["tournament:write"]
+      requestBody:
+        description: Parameters of the tournament
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                # "position" -> nonEmptyText,
+                # "conditions" -> optional(Condition.DataForm.all),
+                # "berserkable" -> boolean
+                name:
+                  type: string
+                  description: The tournament name. Leave empty to get a random Grandmaster name
+                clockTime:
+                  type: number
+                  description: Clock initial time in minutes
+                  example: 2
+                  minimum: 0
+                  maximum: 60
+                  enum:
+                    - 0
+                    - 0.25
+                    - 0.5
+                    - 0.75
+                    - 1
+                    - 1.5
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    - 6
+                    - 7
+                clockIncrement:
+                  type: number
+                  description: Clock increment in seconds
+                  example: 1
+                  minimum: 0
+                  maximum: 60
+                minutes:
+                  type: number
+                  description: How long the tournament lasts, in minutes
+                  example: 60
+                  minimum: 0
+                  maximum: 360
+                waitMinutes:
+                  type: number
+                  description: How long to wait before starting the tournament, in minutes
+                  minimum: 0
+                  maximum: 360
+                  default: 5
+                variant:
+                  type: string
+                  description: The variant to use in tournament games
+                  enum:
+                    - standard
+                    - chess960
+                    - crazyhouse
+                    - antichess
+                    - atomic
+                    - horde
+                    - kingOfTheHill
+                    - racingKings
+                    - threeCheck
+                  default: standard
+                mode:
+                  type: string
+                  description: Whether games are casual or rated
+                  enum:
+                    - casual
+                    - rated
+                  default: rated
+                berserkable:
+                  type: boolean
+                  description: Whether the players can use berserk
+                  default: true
+                # "conditions.titled":
+                #   type: boolean
+                #   description: Whether to require a title to enter the tournament
+                #   default: false
+                private:
+                  type: boolean
+                  description: Protect entry with a password
+                  default: false
+                password:
+                  type: string
+                  description: Password required to enter the tournament. Only if private is `true`
+              required:
+                - clockTime
+                - clockIncrement
+                - minutes
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tournament'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
   /team/{teamId}/users:
     get:
@@ -1620,6 +1733,7 @@ components:
             "preference:read": Read your preferences
             "preference:write": Write your preferences
             "email:read": Read your email address
+            "tournament:write": Create tournaments
             "bot:play": Play chess bot moves. Only for [Bot accounts](#operation/botAccountUpgrade)
     None:
       description: "No authorization required.\n\
