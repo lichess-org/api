@@ -751,6 +751,8 @@ paths:
       description: |
         Create a public or private tournament to your taste.
 
+        This endpoint mirrors the form on https://lichess.org/tournament/new.
+
         You can create up to 2 tournaments per day.
       tags:
         - Tournaments
