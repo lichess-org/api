@@ -956,7 +956,6 @@ paths:
         - Chess Bot
       security:
         - OAuth2: ["bot:play"]
-      parameters:
       responses:
         200:
           content:
