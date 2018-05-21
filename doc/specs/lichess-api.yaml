@@ -705,6 +705,35 @@ paths:
               schema:
                 example: {"id":"A5fcMO3k","rated":true,"variant":"standard","speed":"bullet","perf":"bullet","createdAt":1525789431889,"status":20,"clock":{"initial":60,"increment":0,"totalTime":60},"players":{"white":{"userId":"kastorcito","rating":2617},"black":{"userId":"er_or","rating":2288}}}
 
+  /api/account/playing:
+    get:
+      operationId: apiAccountPlaying
+      summary: Get ongoing games
+      description: |
+        Get the ongoing games of the current user.
+        Real-time and correspondence games are included.
+        The most urgent games are listed first.
+      tags:
+        - Games
+        - OAuth
+      security:
+        - OAuth2: []
+      parameters:
+        - in: query
+          name: nb
+          description: Max number of games to fetch
+          schema:
+            type: number
+            default: 9
+            minimum: 1
+            maximum: 50
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                example: {"nowPlaying":[{"fullId":"knbD9FPUqhra","gameId":"knbD9FPU","fen":"rnbqkbnr/pp3pp1/8/3p3p/1PpPp3/P1P1P3/5PPP/RNBQKBNR","color":"white","lastMove":"c5c4","variant":{"key":"standard","name":"Standard"},"speed":"correspondence","perf":"correspondence","rated":true,"opponent":{"id":"thibot","username":"BOT thibot","rating":1500},"isMyTurn":true}]}
+
   /tv/channels:
     get:
       operationId: tvChannels
