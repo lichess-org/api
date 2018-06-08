@@ -317,7 +317,7 @@ paths:
       description: |
         Read the preferences of the logged in user.
 
-        - https://lichess.org/account/preferences
+        - https://lichess.org/account/preferences/game-display
         - https://github.com/ornicar/lila/blob/master/modules/pref/src/main/Pref.scala
       tags:
         - Account
