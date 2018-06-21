@@ -13,14 +13,14 @@ info:
   \ - [Download all lichess rated games](https://database.lichess.org/)\n\
   \n## Endpoint\n\
   \ All requests go to `https://lichess.org`. Language subdomains are deprecated and will be discontinued.\n\
-  \ ## Rate limiting\n\
+  \n## Clients\n\
+  \ - [Python](https://github.com/rhgrant10/berserk).\n\
+  \n## Rate limiting\n\
   \ All requests are rate limited using various strategies,\
   \ to ensure the API remains responsive for everyone.\n\
   \ Only make one request at a time.\n\
   \ If you receive an HTTP response with a [429 status](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#429),\
   \ please wait a full minute before resuming API usage."
-  contact:
-    url: https://lichess.org
 servers:
   - url: https://lichess.org
 tags:
