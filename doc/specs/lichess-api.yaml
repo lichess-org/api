@@ -383,7 +383,7 @@ paths:
 
   /game/export/{gameId}:
     get:
-      operationId: gamePng
+      operationId: gamePgn
       summary: Export one game
       description: |
         Download one game in PGN or JSON format. Only finished games can be downloaded.
@@ -452,7 +452,7 @@ paths:
             application/x-chess-pgn:
               schema:
                 $ref: '#/components/schemas/GamePgn'
-            application/x-ndjson:
+            application/json:
               schema:
                 $ref: '#/components/schemas/GameJson'
 
