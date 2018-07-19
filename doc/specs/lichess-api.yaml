@@ -28,6 +28,8 @@ tags:
   description: Read and write account informations and preferences.
 - name: Users
   description: Access registered users on Lichess.
+- name: Relations
+  description: Access relations between users.
 - name: Games
   description: Access games played on Lichess.
 - name: Teams
@@ -977,6 +979,54 @@ paths:
                     "patron": true
                   }
                 ]
+
+  /api/user/{username}/following:
+    get:
+      operationId: apiUserFollowing
+      summary: Get users followed by a user
+      description: |
+        **Users are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+      tags:
+        - Relations
+      security:
+        - None: []
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+            example: "thibault"
+          required: true
+      responses:
+        200:
+          content:
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/UserExtended'
+
+  /api/user/{username}/followers:
+    get:
+      operationId: apiUserFollowers
+      summary: Get users who follow a user
+      description: |
+        **Users are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+      tags:
+        - Relations
+      security:
+        - None: []
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+            example: "thibault"
+          required: true
+      responses:
+        200:
+          content:
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/UserExtended'
 
   /api/bot/account/upgrade:
     post:
