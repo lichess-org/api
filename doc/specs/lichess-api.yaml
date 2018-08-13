@@ -36,6 +36,7 @@ tags:
   description: Access Lichess teams and their members.
 - name: Chess Bot
   description: "Play on Lichess as a chess engine.\n
+  \ Read the [blog post announcement of lichess bots](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots).\n\n
   \ Only works with [Bot accounts](#operation/botAccountUpgrade).\n\n\
   \n## Features\n\
   \ - [Stream incoming chess moves](#operation/botGameStream)\n\
