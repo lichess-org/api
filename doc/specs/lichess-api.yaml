@@ -1817,7 +1817,7 @@ components:
         \ - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth-authorization-code)\n\
         \ - [NodeJS Passport strategy to login with Lichess OAuth2](https://www.npmjs.com/package/passport-lichess)\n\
         \ - [Create a Lichess OAuth app](https://lichess.org/account/oauth/app)\n\
-        \ - [About authorization code flow]( [More info](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2)\n\
+        \ - [About authorization code flow](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2#grant-type-authorization-code)\n\
         \n### Personal API Token\n\
         \ Personal API tokens allow you to quickly interact with Lichess OAuth API.\n\
         \ - `curl https://lichess.org/api/account -H \"Authorization: Bearer <token>\"`\n\
