@@ -855,10 +855,13 @@ paths:
                   maximum: 360
                 waitMinutes:
                   type: number
-                  description: How long to wait before starting the tournament, in minutes
+                  description: How long to wait before starting the tournament, from now, in minutes
                   minimum: 0
                   maximum: 360
                   default: 5
+                startDate:
+                  type: integer
+                  description: Timestamp to start the tournament at a given date and time. Overrides the `waitMinutes` setting
                 variant:
                   type: string
                   description: The variant to use in tournament games
