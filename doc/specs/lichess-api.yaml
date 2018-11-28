@@ -744,7 +744,7 @@ paths:
           name: nb
           description: Max number of games to fetch
           schema:
-            type: number
+            type: integer
             default: 9
             minimum: 1
             maximum: 50
@@ -842,19 +842,19 @@ paths:
                     - 6
                     - 7
                 clockIncrement:
-                  type: number
+                  type: integer
                   description: Clock increment in seconds
                   example: 1
                   minimum: 0
                   maximum: 60
                 minutes:
-                  type: number
+                  type: integer
                   description: How long the tournament lasts, in minutes
                   example: 60
                   minimum: 0
                   maximum: 360
                 waitMinutes:
-                  type: number
+                  type: integer
                   description: How long to wait before starting the tournament, from now, in minutes
                   minimum: 0
                   maximum: 360
@@ -1009,7 +1009,7 @@ paths:
           name: nb
           description: Max number of players to fetch
           schema:
-            type: number
+            type: integer
             minimum: 1
       responses:
         200:
