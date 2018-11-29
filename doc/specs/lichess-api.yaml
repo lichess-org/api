@@ -876,13 +876,10 @@ paths:
                     - racingKings
                     - threeCheck
                   default: standard
-                mode:
-                  type: string
-                  description: Whether games are casual or rated
-                  enum:
-                    - casual
-                    - rated
-                  default: rated
+                rated:
+                  type: boolean
+                  description: Games are rated and impact players ratings
+                  default: true
                 position:
                   type: string
                   description: Custom initial position (in FEN) for all games of the tournament. Must be one of [these positions](https://github.com/ornicar/scalachess/blob/ab61b7e6d8d4ab602f6366b29b0e5715717e8944/src/main/scala/StartingPosition.scala#L25)
@@ -895,13 +892,9 @@ paths:
                 #   type: boolean
                 #   description: Whether to require a title to enter the tournament
                 #   default: false
-                private:
-                  type: boolean
-                  description: Protect entry with a password
-                  default: false
                 password:
                   type: string
-                  description: Password required to enter the tournament. Only if private is `true`
+                  description: Make the tournament private, and restrict access with a password
               required:
                 - clockTime
                 - clockIncrement
