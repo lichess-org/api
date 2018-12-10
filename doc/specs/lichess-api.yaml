@@ -399,7 +399,7 @@ paths:
       parameters:
         - in: path
           name: gameId
-          description: The game ID.
+          description: The game ID (8 characters).
           required: true
           schema:
             type: string
