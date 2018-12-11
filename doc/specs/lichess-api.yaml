@@ -34,6 +34,8 @@ tags:
   description: Access games played on Lichess.
 - name: Teams
   description: Access Lichess teams and their members.
+- name: Challenges
+  description: Send and receive challenges to play.
 - name: Chess Bot
   description: "Play on Lichess as a chess engine.\n
   \ Read the [blog post announcement of lichess bots](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots).\n\n
@@ -42,7 +44,7 @@ tags:
   \ - [Stream incoming chess moves](#operation/botGameStream)\n\
   \ - [Play chess moves](#operation/botGameMove)\n\
   \ - [Read](#operation/botGameStream) and [write](#operation/botGameChat) in the player and spectator chats\n\
-  \ - [Receive](#operation/apiStreamEvent) and [accept](#operation/challengeAccept) (or [decline](#operation/challengeDecline)) challenges\n\
+  \ - [Receive](#operation/apiStreamEvent), [create](#operation/challengeCreate) and [accept](#operation/challengeAccept) (or [decline](#operation/challengeDecline)) challenges\n\
   \ - [Abort](#operation/botGameAbort) and [resign](#operation/botGameResign) games\n\
   \n## Integrations\n\
   \ - [Python3 lichess-bot](https://github.com/careless25/lichess-bot) (official)\n\
@@ -816,9 +818,6 @@ paths:
             schema:
               type: object
               properties:
-                # "position" -> nonEmptyText,
-                # "conditions" -> optional(Condition.DataForm.all),
-                # "berserkable" -> boolean
                 name:
                   type: string
                   description: The tournament name. Leave empty to get a random Grandmaster name
@@ -1183,6 +1182,7 @@ paths:
       \ When the stream opens, all current challenges and games are sent."
       tags:
         - Chess Bot
+        - Challenges
       security:
         - OAuth2: []
       responses:
@@ -1365,6 +1365,95 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/challenge/{username}:
+    post:
+      operationId: challengeCreate
+      summary: Create a challenge
+      description: |
+        Challenge someone to play. The targeted player can choose to accept or decline.
+
+        If the challenge is accepted, you will be notified on the [event stream](#operation/apiStreamEvent)
+        that a new game has started. The game ID will be the same as the challenge ID.
+      tags:
+        - Challenges
+      security:
+        - OAuth2: []
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+            example: "LeelaChess"
+          required: true
+      requestBody:
+        description: Parameters of the challenge
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                rated:
+                  type: boolean
+                  description: Game is rated and impacts players ratings
+                'clock.limit':
+                  type: number
+                  description: Clock initial time in seconds. If empty, a correspondence game is created.
+                  example: 300
+                  minimum: 0
+                  maximum: 10800
+                'clock.increment':
+                  type: integer
+                  description: Clock increment in seconds. If empty, a correspondence game is created.
+                  example: 1
+                  minimum: 0
+                  maximum: 60
+                days:
+                  type: integer
+                  description: Days per move, for correspondence games. Clock settings must be omitted.
+                  example: 5
+                  minimum: 1
+                  maximum: 15
+                color:
+                  type: string
+                  description: Which color you get to play
+                  enum:
+                    - random
+                    - white
+                    - black
+                  default: 'random'
+                variant:
+                  type: string
+                  description: The variant of the game
+                  enum:
+                    - standard
+                    - chess960
+                    - crazyhouse
+                    - antichess
+                    - atomic
+                    - horde
+                    - kingOfTheHill
+                    - racingKings
+                    - threeCheck
+                  default: standard
+                position:
+                  type: string
+                  description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated.
+                  default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+              required:
+                - rated
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChallengeJson'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /api/challenge/{challengeId}/accept:
     post:
       operationId: challengeAccept
@@ -1374,7 +1463,7 @@ paths:
 
         You should receive a `gameStart` event on the [incoming events stream](#operation/apiStreamEvent).
       tags:
-        - Chess Bot
+        - Challenges
       security:
         - OAuth2: []
       parameters:
@@ -1403,7 +1492,7 @@ paths:
       description: |
         Decline an incoming challenge.
       tags:
-        - Chess Bot
+        - Challenges
       security:
         - OAuth2: []
       parameters:
@@ -1435,6 +1524,46 @@ components:
         default: application/vnd.lichess.v3+json
       required: true
   schemas:
+    ChallengeJson:
+      example: {
+        "id": "VU0nyvsW",
+        "color": "random",
+        "direction": "out",
+        "timeControl": {
+          "increment": 2,
+          "limit": 300,
+          "show": "5+2",
+          "type": "clock"
+        },
+        "variant": {
+          "key": "standard",
+          "name": "Standard",
+          "short": "Std"
+        },
+        "challenger": {
+          "id": "thibot",
+          "name": "thibot",
+          "online": true,
+          "provisional": false,
+          "rating": 1940,
+          "title": "BOT"
+        },
+        "destUser": {
+          "id": "leelachess",
+          "name": "LeelaChess",
+          "online": true,
+          "provisional": true,
+          "rating": 2670,
+          "title": "BOT"
+        },
+        "perf": {
+          "icon": ";",
+          "name": "Correspondence"
+        },
+        "rated": true,
+        "speed": "blitz",
+        "status": "created"
+      }
     GameJson:
       example: {
         "id": "q7ZvsdUF",
