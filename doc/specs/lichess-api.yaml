@@ -1184,7 +1184,7 @@ paths:
         - Chess Bot
         - Challenges
       security:
-        - OAuth2: []
+        - OAuth2: ["challenge:read", "bot:play"]
       responses:
         200:
           content:
@@ -1377,7 +1377,7 @@ paths:
       tags:
         - Challenges
       security:
-        - OAuth2: []
+        - OAuth2: ["challenge:write", "bot:play"]
       parameters:
         - in: path
           name: username
@@ -1465,7 +1465,7 @@ paths:
       tags:
         - Challenges
       security:
-        - OAuth2: []
+        - OAuth2: ["challenge:write", "bot:play"]
       parameters:
         - in: path
           name: challengeId
@@ -1494,7 +1494,7 @@ paths:
       tags:
         - Challenges
       security:
-        - OAuth2: []
+        - OAuth2: ["challenge:write", "bot:play"]
       parameters:
         - in: path
           name: challengeId
@@ -2061,12 +2061,13 @@ components:
           authorizationUrl: https://oauth.lichess.org/oauth/authorize
           tokenUrl: https://oauth.lichess.org/oauth
           scopes:
-            "game:read": Download all your games
             "preference:read": Read your preferences
             "preference:write": Write your preferences
             "email:read": Read your email address
+            "challenge:read": Read incoming challenges
+            "challenge:write": Create, accept, decline challenges
             "tournament:write": Create tournaments
-            "bot:play": Play chess bot moves. Only for [Bot accounts](#operation/botAccountUpgrade)
+            "bot:play": Play as a bot. Only for [Bot accounts](#operation/botAccountUpgrade)
     None:
       description: "No authorization required.\n\
         \ For requests that don't need an authenticated user."
