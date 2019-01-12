@@ -1090,6 +1090,52 @@ paths:
                   }
                 ]
 
+  /api/users/titled:
+    get:
+      operationId: usersTitled
+      summary: Get titled users
+      description: |
+        Get users by title. Several titles can be specified.
+
+        **Users are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+      tags:
+        - Users
+      security:
+        - None: []
+      parameters:
+        - in: query
+          name: titles
+          required: true
+          description: Titles separated by commas.
+          schema:
+            type: string
+            enum:
+            - GM
+            - WGM
+            - IM
+            - WIM
+            - FM
+            - WFM
+            - NM
+            - CM
+            - WCM
+            - WNM
+            - LM
+            - BOT
+          example: GM,WGM
+        - in: query
+          name: online
+          description: "[Filter] Only online players"
+          schema:
+            type: boolean
+            default: false
+      responses:
+        200:
+          content:
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/UserLight'
+
   /api/user/{username}/following:
     get:
       operationId: apiUserFollowing
@@ -1681,7 +1727,14 @@ components:
             "tv": 12134
         }
       }
-
+    UserLight:
+      example: {
+        "id": "chess-network",
+        "name": "Chess-Network",
+        "title": "NM",
+        "playing": true,
+        "patron": true
+      }
     UserExtended:
       example: {
         "id": "georges",
