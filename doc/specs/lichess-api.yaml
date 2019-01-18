@@ -14,7 +14,8 @@ info:
   \n## Endpoint\n\
   \ All requests go to `https://lichess.org`. Language subdomains are deprecated and will be discontinued.\n\
   \n## Clients\n\
-  \ - [Python](https://github.com/rhgrant10/berserk).\n\
+  \ - [Python general API](https://github.com/rhgrant10/berserk).\n\
+  \ - [Python Lichess Bot](https://github.com/careless25/lichess-bot)\n\
   \n## Rate limiting\n\
   \ All requests are rate limited using various strategies,\
   \ to ensure the API remains responsive for everyone.\n\
