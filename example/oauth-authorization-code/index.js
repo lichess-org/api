@@ -3,14 +3,15 @@ const simpleOauth = require('simple-oauth2');
 const axios = require('axios');
 
 /* Create your lichess OAuth app on https://lichess.org/account/oauth/app/create
- * Homepage URL: http://localhost:3000
- * Callback URL: http://localhost:3000/callback
+ * Homepage URL: http://localhost:8087
+ * Callback URL: http://localhost:8087/callback
  */
 
 /* --- Fill in your app config here --- */
+const port = 8087;
 const clientId = '';
 const clientSecret = '';
-const redirectUri = 'http://localhost:3000/callback';
+const redirectUri = `http://localhost:${port}/callback`;
 // uncomment the scopes you need
 // list of scopes: https://lichess.org/api#section/Authentication
 const scopes = [
@@ -69,7 +70,7 @@ app.get('/callback', async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log('Express server started on port 3000'));
+app.listen(port, () => console.log(`Express server started on port ${port}`));
 
 function getUserInfo(token) {
   return axios.get('/api/account', {
