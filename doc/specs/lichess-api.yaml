@@ -226,6 +226,32 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserExtended'
 
+  /api/user/{username}/rating-history:
+    get:
+      operationId: apiUserRatingHistory
+      summary: Get rating history of a user
+      description: |
+        Read rating history of a user, for all perf types.
+        There is at most one entry per day.
+        Format of an entry is `[year, month, day, rating]`.
+        `month` starts at zero (January).
+      tags:
+        - Users
+      security:
+        - None: []
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RatingHistory'
+
   /api/user/{username}/activity:
     get:
       operationId: apiUserActivity
@@ -1808,6 +1834,9 @@ components:
             "tv": 12134
         }
       }
+
+    RatingHistory:
+      example: [{"name":"Bullet","points":[[2011,0,8,1472],[2011,0,9,1332],[2011,8,12,1314]]},{"name":"Blitz","points":[[2011,7,29,1332]]}]
 
     Top10s:
       example: {
