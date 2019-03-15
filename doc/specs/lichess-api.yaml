@@ -50,6 +50,7 @@ tags:
   \n## Integrations\n\
   \ - [Python3 lichess-bot](https://github.com/careless25/lichess-bot) (official)\n\
   \ - [JavaScript bot-o-tron](https://github.com/tailuge/bot-o-tron)\n\
+  \ - [Golang lichess-bot](https://github.com/dolegi/lichess-bot)\n\
   \ - Yours? Please make [an issue or pull request](https://github.com/lichess-org/api).\n\
   \n## Links\n\
   \ - Join the [Lichess Bots team](https://lichess.org/team/lichess-bots) with your bot account\n\
