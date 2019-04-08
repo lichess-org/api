@@ -1303,6 +1303,8 @@ paths:
       summary: Make a move
       description: |
         Make a move in a game being played by a bot.
+
+        The bot can also indicate whether or not it agrees to a draw.
       tags:
         - Chess Bot
       security:
@@ -1321,6 +1323,11 @@ paths:
           schema:
             type: string
             example: "e2e4"
+        - in: query
+          name: offeringDraw
+          description: Whether the bot agree to a draw
+          schema:
+            type: boolean
       responses:
         200:
           content:
