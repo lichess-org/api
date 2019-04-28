@@ -300,20 +300,6 @@ paths:
             type: string
           required: true
         - in: query
-          name: since
-          description: Download activity since this timestamp.
-          schema:
-            type: integer
-            minimum: 1356998400070
-            default: Account creation date
-        - in: query
-          name: until
-          description: Download activity until this timestamp.
-          schema:
-            type: integer
-            minimum: 1356998400070
-            default: Now
-        - in: query
           name: max
           description: How many entries to download. Leave empty to download all activity.
           schema:
@@ -1898,7 +1884,6 @@ components:
       example: {
         "id": 70232,
         "date": 1514505150384,
-        "win": true,
         "rating": "1982",
         "ratingDiff": 5,
         "puzzleRating": 1877
