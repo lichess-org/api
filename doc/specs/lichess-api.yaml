@@ -276,6 +276,57 @@ paths:
               example:
                 https://gist.github.com/ornicar/0ee2d2427cb74ed1a35e86f5ba09fabc
 
+
+  /api/user/{username}/puzzle-activity:
+    get:
+      operationId: apiUserPuzzleActivity
+      summary: Get puzzle activity of a user
+      description: |
+        Download all puzzle training of any user in [ndjson](http://ndjson.org/) format.
+
+        Puzzle activity is sorted by reverse chronological order (most recent first)
+
+        We recommend streaming the response, for it can be very long.
+      tags:
+        - Users
+        - OAuth
+      security:
+        - OAuth2: ["puzzle:read"]
+      parameters:
+        - in: path
+          name: username
+          description: The user name.
+          schema:
+            type: string
+          required: true
+        - in: query
+          name: since
+          description: Download activity since this timestamp.
+          schema:
+            type: integer
+            minimum: 1356998400070
+            default: Account creation date
+        - in: query
+          name: until
+          description: Download activity until this timestamp.
+          schema:
+            type: integer
+            minimum: 1356998400070
+            default: Now
+        - in: query
+          name: max
+          description: How many entries to download. Leave empty to download all activity.
+          schema:
+            type: integer
+            minimum: 1
+            default: null
+      responses:
+        200:
+          content:
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/PuzzleRoundJson'
+
   /api/users:
     post:
       operationId: apiUsers
@@ -501,7 +552,7 @@ paths:
         Games are sorted by reverse chronological order (most recent first)
 
         We recommend streaming the response, for it can be very long.
-        https://lichess.org/@/german11 for instance has more than 250,000 games.
+        https://lichess.org/@/german11 for instance has more than 320,000 games.
 
         The game stream is throttled, depending on who is making the request:
           - Anonymous request: 10 games per second
@@ -1841,6 +1892,16 @@ components:
             "total": 3296897,
             "tv": 12134
         }
+      }
+
+    PuzzleRoundJson:
+      example: {
+        "id": 70232,
+        "date": 1514505150384,
+        "win": true,
+        "rating": "1982",
+        "ratingDiff": 5,
+        "puzzleRating": 1877
       }
 
     RatingHistory:
