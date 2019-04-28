@@ -280,9 +280,9 @@ paths:
   /api/user/{username}/puzzle-activity:
     get:
       operationId: apiUserPuzzleActivity
-      summary: Get puzzle activity of a user
+      summary: Get your puzzle activity
       description: |
-        Download all puzzle training of any user in [ndjson](http://ndjson.org/) format.
+        Download your puzzle training [ndjson](http://ndjson.org/) format.
 
         Puzzle activity is sorted by reverse chronological order (most recent first)
 
@@ -293,12 +293,6 @@ paths:
       security:
         - OAuth2: ["puzzle:read"]
       parameters:
-        - in: path
-          name: username
-          description: The user name.
-          schema:
-            type: string
-          required: true
         - in: query
           name: max
           description: How many entries to download. Leave empty to download all activity.
