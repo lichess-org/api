@@ -694,7 +694,7 @@ paths:
 
         Games are sorted by reverse chronological order (most recent first)
 
-        The method is `POST` so a longer list of IDs can be sent in the request body.
+        The method is `POST` so a longer list of IDs can be sent in the request body. At most 300 IDs can be submitted.
       tags:
         - Games
       security:
