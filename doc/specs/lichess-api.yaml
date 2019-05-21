@@ -50,6 +50,7 @@ tags:
   \n## Integrations\n\
   \ - [Python3 lichess-bot](https://github.com/careless25/lichess-bot) (official)\n\
   \ - [JavaScript bot-o-tron](https://github.com/tailuge/bot-o-tron)\n\
+  \ - [Golang lichess-bot](https://github.com/dolegi/lichess-bot)\n\
   \ - Yours? Please make [an issue or pull request](https://github.com/lichess-org/api).\n\
   \n## Links\n\
   \ - Join the [Lichess Bots team](https://lichess.org/team/lichess-bots) with your bot account\n\
@@ -274,6 +275,37 @@ paths:
             application/json:
               example:
                 https://gist.github.com/ornicar/0ee2d2427cb74ed1a35e86f5ba09fabc
+
+
+  /api/user/{username}/puzzle-activity:
+    get:
+      operationId: apiUserPuzzleActivity
+      summary: Get your puzzle activity
+      description: |
+        Download your puzzle training [ndjson](http://ndjson.org/) format.
+
+        Puzzle activity is sorted by reverse chronological order (most recent first)
+
+        We recommend streaming the response, for it can be very long.
+      tags:
+        - Users
+        - OAuth
+      security:
+        - OAuth2: ["puzzle:read"]
+      parameters:
+        - in: query
+          name: max
+          description: How many entries to download. Leave empty to download all activity.
+          schema:
+            type: integer
+            minimum: 1
+            default: null
+      responses:
+        200:
+          content:
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/PuzzleRoundJson'
 
   /api/users:
     post:
@@ -500,7 +532,7 @@ paths:
         Games are sorted by reverse chronological order (most recent first)
 
         We recommend streaming the response, for it can be very long.
-        https://lichess.org/@/german11 for instance has more than 250,000 games.
+        https://lichess.org/@/german11 for instance has more than 320,000 games.
 
         The game stream is throttled, depending on who is making the request:
           - Anonymous request: 10 games per second
@@ -1302,6 +1334,8 @@ paths:
       summary: Make a move
       description: |
         Make a move in a game being played by a bot.
+
+        The bot can also indicate whether or not it agrees to a draw.
       tags:
         - Chess Bot
       security:
@@ -1320,6 +1354,11 @@ paths:
           schema:
             type: string
             example: "e2e4"
+        - in: query
+          name: offeringDraw
+          description: Whether the bot agree to a draw
+          schema:
+            type: boolean
       responses:
         200:
           content:
@@ -1833,6 +1872,15 @@ components:
             "total": 3296897,
             "tv": 12134
         }
+      }
+
+    PuzzleRoundJson:
+      example: {
+        "id": 70232,
+        "date": 1514505150384,
+        "rating": "1982",
+        "ratingDiff": 5,
+        "puzzleRating": 1877
       }
 
     RatingHistory:

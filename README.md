@@ -1,8 +1,7 @@
 # Lichess API doc & examples
 
 - [API documentation](https://lichess.org/api)
-
-- [OAuth app example](https://github.com/lichess-org/api/tree/master/example)
+- [OAuth app example](https://github.com/lichess-org/api/tree/master/example/oauth-authorization-code)
 
 ## Contribute
 
