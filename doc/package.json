@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "shelljs": "^0.8.1",
-    "stringify-object": "^3.2.2",
-    "swagger-snippet": "^0.5.1"
-  }
-}
