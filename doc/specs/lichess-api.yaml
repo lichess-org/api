@@ -953,6 +953,20 @@ paths:
                 password:
                   type: string
                   description: Make the tournament private, and restrict access with a password
+                conditions.teamMember.teamId:
+                  type: string
+                  description: |
+                    Restrict entry to members of a team. 
+
+                    The teamId is the last part of a team URL, e.g. https://lichess.org/team/coders has teamId = `coders`.
+
+                    Leave empty to let everyone join the tournament.
+                conditions.minRating.rating:
+                  type: integer
+                  description: Minimum rating to join. Leave empty to let everyone join the tournament.
+                conditions.maxRating.rating:
+                  type: integer
+                  description: Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
               required:
                 - clockTime
                 - clockIncrement
