@@ -1166,6 +1166,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
+  /team/{teamId}/kick/{userId}:
+    post:
+      operationId: teamIdKickUserId
+      summary: Kick a user from your team
+      description: |
+        Kick a member out of one of your teams.
+        - https://lichess.org/team
+      tags:
+        - Teams
+        - OAuth
+      security:
+        - OAuth2: ["team:write"]
+      parameters:
+        - in: path
+          name: teamId
+          schema:
+            type: string
+            example: "coders"
+          required: true
+        - in: path
+          name: userId
+          schema:
+            type: string
+            example: "neio"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
 
   /streamer/live:
     get:
