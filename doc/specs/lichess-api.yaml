@@ -956,7 +956,7 @@ paths:
                 conditions.teamMember.teamId:
                   type: string
                   description: |
-                    Restrict entry to members of a team. 
+                    Restrict entry to members of a team.
 
                     The teamId is the last part of a team URL, e.g. https://lichess.org/team/coders has teamId = `coders`.
 
@@ -1087,6 +1087,36 @@ paths:
               schema:
                 example: {"rank":4,"score":389,"rating":2618,"username":"opperwezen","title":"IM","performance":2423}
 
+  /api/user/{username}/tournament/created:
+    get:
+      operationId: apiUserNameTournamentCreated
+      summary: Get tournaments created by a user
+      description: |
+        Get all tournaments created by a given user.
+
+        Tournaments are sorted by reverse chronological order of start date (last starting first).
+
+        **Tournaments are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+      tags:
+        - Tournaments
+      security:
+        - None: []
+      parameters:
+        - in: query
+          name: nb
+          description: Max number of tournaments to fetch
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tournament'
+
   /team/{teamId}/users:
     get:
       operationId: teamIdUsers
@@ -1113,6 +1143,7 @@ paths:
             application/x-ndjson:
               schema:
                 $ref: '#/components/schemas/UserExtended'
+
   /team/{teamId}/join:
     post:
       operationId: teamIdJoin
@@ -1141,6 +1172,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
+
   /team/{teamId}/quit:
     post:
       operationId: teamIdQuit
@@ -1166,6 +1198,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
+
   /team/{teamId}/kick/{userId}:
     post:
       operationId: teamIdKickUserId
