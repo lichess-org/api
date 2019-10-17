@@ -58,6 +58,8 @@ tags:
   \ - Watch [Lichess Bot TV](https://lichess.org/tv/bot)"
 - name: Tournaments
   description: Access tournaments played on Lichess.
+- name: Simuls
+  description: Access simuls played on Lichess.
 - name: OAuth
   description: |
     Requests taking advantage of OAuth authentication.
@@ -1116,6 +1118,25 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Tournament'
+
+  /api/simul:
+    get:
+      operationId: apiSimul
+      summary: Get current simuls
+      description: |
+        Get recently finished, ongoing, and upcoming simuls.
+      tags:
+        - Simuls
+      security:
+        - None: []
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Simul'
 
   /team/{teamId}/users:
     get:
@@ -2190,6 +2211,32 @@ components:
             "name": "camerun10",
             "title": null
         }
+      }
+
+    Simul:
+      example: {
+          "fullName": "GM ChessWeeb simul",
+          "host": {
+              "id": "chessweeb",
+              "name": "ChessWeeb",
+              "rating": 1500,
+              "title": "GM"
+          },
+          "id": "pDGbxhUe",
+          "isCreated": false,
+          "isFinished": true,
+          "isRunning": false,
+          "name": "GM ChessWeeb",
+          "nbApplicants": 0,
+          "nbPairings": 24,
+          "text": "",
+          "variants": [
+              {
+                  "icon": "+",
+                  "key": "standard",
+                  "name": "Standard"
+              }
+          ]
       }
 
     BotGameState:
