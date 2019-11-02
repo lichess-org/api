@@ -14,7 +14,7 @@
     "express": "^4.16"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "simple-oauth2": "^1.5.2"
   }
 }
