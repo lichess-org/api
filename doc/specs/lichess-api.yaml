@@ -3,7 +3,7 @@ info:
   version: 2.0.0
   title: Lichess.org API reference
   x-logo:
-    url: https://lichess1.org/assets/logo/lichess-padded.svg
+    url: https://lichess1.org/assets/logo/lichess-padded-12.svg
     backgroundColor: #ffffff
   description: "\n\n# Introduction\nWelcome to the reference for the Lichess API!\n\n\
   \ - Get help in the [lichess developers discord channel](https://discord.gg/pw6Efvk),\
