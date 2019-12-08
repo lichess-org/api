@@ -284,7 +284,7 @@ paths:
       operationId: apiUserPuzzleActivity
       summary: Get your puzzle activity
       description: |
-        Download your puzzle training [ndjson](http://ndjson.org/) format.
+        Download your puzzle activity in [ndjson](http://ndjson.org/) format.
 
         Puzzle activity is sorted by reverse chronological order (most recent first)
 
@@ -1431,7 +1431,7 @@ paths:
       operationId: apiStreamEvent
       summary: Stream incoming events
       description: "\n
-      \ Stream the events reaching a lichess user in real time.\n\n
+      \ Stream the events reaching a lichess user in real time as [ndjson](http://ndjson.org/).\n\n
       \ Each line is a JSON object containing a `type` field. Possible values are:\n
       \ - `challenge` Incoming challenge\n
       \ - `gameStart` Start of a game\n\n
@@ -1455,7 +1455,7 @@ paths:
       operationId: botGameStream
       summary: Stream game state
       description: "\
-      \ Stream the state of a game being played by a bot.\n\
+      \ Stream the state of a game being played by a bot as [ndjson](http://ndjson.org/).\n\
       \nUse this endpoint to get updates about the game in real-time, with a single request.\n\
       \nEach line is a JSON object containing a `type` field. Possible values are:\n
       \ - `gameFull` Full game data. All values are immutable, except for the `state` field.\n
