@@ -1121,6 +1121,80 @@ paths:
                 items:
                   $ref: '#/components/schemas/Tournament'
 
+  /broadcast/new:
+    post:
+      operationId: apiBroadcastCreate
+      summary: Create your broadcast
+      description: |
+        Create a new broadcast to relay external games.
+        This endpoint accepts the same form data as the [web form](https://lichess.org/broadcast/new).
+      tags:
+        - Broadcasts
+        - OAuth
+      security:
+        - OAuth2: ["study:write"]
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: |
+                    Name of the broadcast. Length must be between 3 and 80 characters.
+
+                    Example: `Sinquefield Cup - Round 10`
+                description:
+                  type: string
+                  description: |
+                    Short description of the broadcast. Length must be between 3 and 400 characters.
+
+                    Example: `An 11 round classical tournament featuring the 9 highest rated players in the world. Including Carlsen, Caruana, Ding, Aronian, Nakamura and more.`
+                syncUrl:
+                  type: string
+                  description: |
+                    URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
+
+                    Example: `http://myserver.org/myevent/round-10/games.pgn`
+                markdown:
+                  type: string
+                  description: Optional long description of the broadcast. Markdown is supported. Length must be less than 20,000 characters.
+                credit:
+                  type: string
+                  description: Optional short text to give credit to the source provider.
+                startsAt:
+                  type: integer
+                  description: |
+                    Timestamp of broadcast start. Leave empty to manually start the broadcast.
+
+                    Example: `1356998400070`
+                  schema:
+                    type: integer
+                    minimum: 1356998400070
+                official:
+                  type: boolean
+                  description: For Lichess internal usage only. You are not allowed to use this flag. If you do it, we will have to call the police.
+                throttle:
+                  type: integer
+                  description: For Lichess internal usage only. You are not allowed to use this flag. If you do it, chess24 will display ads on your broadcast.
+              required:
+                - name
+                - description
+                - syncUrl
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Broadcast'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /broadcast/{slug}/{broadcastId}:
     get:
       operationId: apiBroadcastGet
@@ -1183,7 +1257,6 @@ paths:
           schema:
             type: string
       requestBody:
-        description: What to post and where
         required: true
         content:
           application/x-www-form-urlencoded:
@@ -1667,7 +1740,6 @@ paths:
             example: "5IrD6Gzz"
           required: true
       requestBody:
-        description: What to post and where
         required: true
         content:
           application/x-www-form-urlencoded:
@@ -2373,7 +2445,6 @@ components:
             "markdown": "Starts August 16th at 18:00 UTC\r\n\r\n| Player                 | Federation | Rating |\r\n|------------------------|------------|--------|\r\n| Carlsen Magnus         | NOR        | 2882   |\r\n| Caruana Fabiano        | USA        | 2818   |\r\n| Ding Liren             | CHN        | 2805   |\r\n| Giri Anish             | NED        | 2779   |\r\n| Vachier-Lagrave Maxime | FRA        | 2778   |\r\n| So Wesley              | USA        | 2776   |\r\n| Nepomniachtchi Ian     | RUS        | 2774   |\r\n| Aronian Levon          | ARM        | 2765   |\r\n| Mamedyarov Shakhriyar  | AZE        | 2764   |\r\n| Anand Viswanathan      | IND        | 2756   |\r\n| Karjakin Sergey        | RUS        | 2750   |\r\n| Nakamura Hikaru        | USA        | 2743   |\r\nStreams: __[Saint Louis Chess Club,](google.com)__ __[GM Jon Speelman](google.com)__\r\n__[Follow the Lichess Youtube for round reports](google.com)__",
             "markup": "<p>Starts August 16th at 18:00 UTC</p>\n<table class=\"slist\">\n<thead>\n<tr><th>Player</th><th>Federation</th><th>Rating</th></tr>\n</thead>\n<tbody>\n<tr><td>Carlsen Magnus</td><td>NOR</td><td>2882</td></tr>\n<tr><td>Caruana Fabiano</td><td>USA</td><td>2818</td></tr>\n<tr><td>Ding Liren</td><td>CHN</td><td>2805</td></tr>\n<tr><td>Giri Anish</td><td>NED</td><td>2779</td></tr>\n<tr><td>Vachier-Lagrave Maxime</td><td>FRA</td><td>2778</td></tr>\n<tr><td>So Wesley</td><td>USA</td><td>2776</td></tr>\n<tr><td>Nepomniachtchi Ian</td><td>RUS</td><td>2774</td></tr>\n<tr><td>Aronian Levon</td><td>ARM</td><td>2765</td></tr>\n<tr><td>Mamedyarov Shakhriyar</td><td>AZE</td><td>2764</td></tr>\n<tr><td>Anand Viswanathan</td><td>IND</td><td>2756</td></tr>\n<tr><td>Karjakin Sergey</td><td>RUS</td><td>2750</td></tr>\n<tr><td>Nakamura Hikaru</td><td>USA</td><td>2743</td></tr>\n</tbody>\n</table>\n<p>Streams: <strong><a href=\"google.com\">Saint Louis Chess Club,</a></strong> <strong><a href=\"google.com\">GM Jon Speelman</a></strong><br />\n<strong><a href=\"google.com\">Follow the Lichess Youtube for round reports</a></strong></p>\n",
             "name": "Sinquefield Cup - Round 10",
-            "official": true,
             "ownerId": "broadcaster",
             "slug": "sinquefield-cup-round-10",
             "startedAt": 1566928867494,
