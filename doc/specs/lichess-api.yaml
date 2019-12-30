@@ -61,7 +61,7 @@ tags:
 - name: Simuls
   description: Access simuls played on Lichess.
 - name: Broadcasts
-  description: Access events broadcasted on Lichess.
+  description: Access your events broadcasted on Lichess.
 - name: OAuth
   description: |
     Requests taking advantage of OAuth authentication.
@@ -1124,7 +1124,7 @@ paths:
   /broadcast/new:
     post:
       operationId: broadcastCreate
-      summary: Create your broadcast
+      summary: Create a broadcast
       description: |
         Create a new broadcast to relay external games.
         This endpoint accepts the same form data as the [web form](https://lichess.org/broadcast/new).
