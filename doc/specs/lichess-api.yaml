@@ -1173,7 +1173,7 @@ paths:
                   description: For Lichess internal usage only. You are not allowed to use this flag. If you do it, we will have to call the police.
                 throttle:
                   type: integer
-                  description: For Lichess internal usage only. You are not allowed to use this flag. If you do it, chess24 will display ads on your broadcast.
+                  description: For Lichess internal usage only. You are not allowed to use this flag. If you do it, chess24 will [display ads on your broadcast](https://i.imgur.com/B47wT5P.jpg).
               required:
                 - name
                 - description
