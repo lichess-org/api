@@ -61,7 +61,7 @@ tags:
 - name: Simuls
   description: Access simuls played on Lichess.
 - name: Broadcasts
-  description: Access your events broadcasted on Lichess.
+  description: Broadcast chess events on Lichess.
 - name: OAuth
   description: |
     Requests taking advantage of OAuth authentication.
