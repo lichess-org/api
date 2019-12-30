@@ -1320,7 +1320,7 @@ paths:
                 $ref: '#/components/schemas/Error'
 
   /broadcast/{slug}/{broadcastId}/push:
-    get:
+    post:
       operationId: broadcastPush
       summary: Push PGN to your broadcast
       description: |
