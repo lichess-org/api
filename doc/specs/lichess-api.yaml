@@ -61,7 +61,12 @@ tags:
 - name: Simuls
   description: Access simuls played on Lichess.
 - name: Broadcasts
-  description: Broadcast chess events on Lichess.
+  description: |
+    Relay chess events on Lichess.
+    [Official broadcasts](https://lichess.org/broadcast) are maintained by Lichess,
+    but you can create your own broadcasts to cover any live game or chess event.
+    You will need to publish PGN on a public URL so that Lichess can pull updates from it.
+    Alternatively, you can push PGN updates to Lichess using this API.
 - name: OAuth
   description: |
     Requests taking advantage of OAuth authentication.
@@ -1530,52 +1535,6 @@ paths:
                     "patron": true
                   }
                 ]
-
-  /api/users/titled:
-    get:
-      operationId: usersTitled
-      summary: Get titled users
-      description: |
-        Get users by title. Several titles can be specified.
-
-        **Users are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
-      tags:
-        - Users
-      security:
-        - None: []
-      parameters:
-        - in: query
-          name: titles
-          required: true
-          description: Titles separated by commas.
-          schema:
-            type: string
-            enum:
-            - GM
-            - WGM
-            - IM
-            - WIM
-            - FM
-            - WFM
-            - NM
-            - CM
-            - WCM
-            - WNM
-            - LM
-            - BOT
-          example: GM,WGM
-        - in: query
-          name: online
-          description: "[Filter] Only online players"
-          schema:
-            type: boolean
-            default: false
-      responses:
-        200:
-          content:
-            application/x-ndjson:
-              schema:
-                $ref: '#/components/schemas/UserLight'
 
   /api/user/{username}/following:
     get:
