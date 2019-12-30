@@ -12,7 +12,7 @@ info:
   \ - Check out [lichess widgets to embed in your website](https://lichess.org/developers).\n\
   \ - [Download all lichess rated games](https://database.lichess.org/)\n\
   \n## Endpoint\n\
-  \ All requests go to `https://lichess.org`. Language subdomains are deprecated and will be discontinued.\n\
+  \ All requests go to `https://lichess.org`.\n\
   \n## Clients\n\
   \ - [Python general API](https://github.com/rhgrant10/berserk).\n\
   \ - [Python Lichess Bot](https://github.com/careless25/lichess-bot)\n\
@@ -65,8 +65,6 @@ tags:
 - name: OAuth
   description: |
     Requests taking advantage of OAuth authentication.
-- name: Deprecated
-  description: Endpoints you should not be using anymore
 paths:
   /api/users/status:
     get:
@@ -678,16 +676,6 @@ paths:
             application/x-ndjson:
               schema:
                 $ref: '#/components/schemas/GameJson'
-
-  /games/export/{username}:
-    get:
-      operationId: gamesExportUsername
-      deprecated: true
-      summary: Export games of a user
-      description: |
-        See [/api/games/user/{username}](https://lichess.org/api#operation/apiGamesUser)
-      tags:
-        - Deprecated
 
   /games/export/_ids:
     post:
