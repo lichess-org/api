@@ -1123,7 +1123,7 @@ paths:
 
   /broadcast/new:
     post:
-      operationId: apiBroadcastCreate
+      operationId: broadcastCreate
       summary: Create your broadcast
       description: |
         Create a new broadcast to relay external games.
@@ -1198,7 +1198,7 @@ paths:
 
   /broadcast/{slug}/{broadcastId}:
     get:
-      operationId: apiBroadcastGet
+      operationId: broadcastGet
       summary: Get your broadcast
       description: |
         Get information about a broadcast that you created.
@@ -1231,7 +1231,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Broadcast'
     post:
-      operationId: apiBroadcastUpdate
+      operationId: broadcastUpdate
       summary: Update your broadcast
       description: |
         Update information about a broadcast that you created.
@@ -1321,7 +1321,7 @@ paths:
 
   /broadcast/{slug}/{broadcastId}/push:
     get:
-      operationId: apiBroadcastPush
+      operationId: broadcastPush
       summary: Push PGN to your broadcast
       description: |
         Update your broadcast with new PGN.
