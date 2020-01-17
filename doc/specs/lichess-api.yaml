@@ -984,6 +984,9 @@ paths:
                 conditions.maxRating.rating:
                   type: integer
                   description: Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
+                conditions.nbRatedGame.nb:
+                  type: integer
+                  description: Minimum number of rated games required to join.
               required:
                 - clockTime
                 - clockIncrement
