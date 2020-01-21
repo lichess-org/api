@@ -660,6 +660,12 @@ paths:
             type: boolean
             default: true
         - in: query
+          name: pgnInJson
+          description: Include the full PGN within the JSON response, in a `pgn` field.
+          schema:
+            type: boolean
+            default: false
+        - in: query
           name: tags
           description: Include the PGN tags.
           schema:
