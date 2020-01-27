@@ -79,6 +79,10 @@ tags:
   description: |
     Access Lichess studies.
     https://lichess.org/study
+- name: Messenging
+  description: |
+    Private messages with other players.
+    https://lichess.org/inbox
 - name: Broadcasts
   description: |
     Relay chess events on Lichess.
@@ -2066,6 +2070,47 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotFound'
+
+  /inbox/{username}:
+    post:
+      operationId: inboxUsername
+      summary: Send a private message
+      description: |
+        Send a private message to another player.
+      tags:
+        - Messenging
+      security:
+        - OAuth2: ["msg:write"]
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+            example: "someplayer"
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                  example: "Thank you for the game!"
+              required:
+                - text
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
 components:
   parameters:
