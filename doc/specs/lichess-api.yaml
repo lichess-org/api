@@ -79,7 +79,7 @@ tags:
   description: |
     Access Lichess studies.
     https://lichess.org/study
-- name: Messenging
+- name: Messaging
   description: |
     Private messages with other players.
     https://lichess.org/inbox
@@ -2078,7 +2078,7 @@ paths:
       description: |
         Send a private message to another player.
       tags:
-        - Messenging
+        - Messaging
       security:
         - OAuth2: ["msg:write"]
       parameters:
