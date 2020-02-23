@@ -15,9 +15,8 @@ const redirectUri = `http://localhost:${port}/callback`;
 // uncomment the scopes you need
 // list of scopes: https://lichess.org/api#section/Authentication
 const scopes = [
-  // 'game:read',
   // 'preference:read',
-  // 'preference:write',
+  // 'challenge:read',
   ];
 /* --- End of your app config --- */
 
