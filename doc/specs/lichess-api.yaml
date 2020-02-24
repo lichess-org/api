@@ -49,10 +49,15 @@ tags:
     Send and receive challenges to play.
 - name: Chess Bot
   description: "Play on Lichess with an API.\n
-  \ Read the [blog post announcement of lichess bots](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots).\n\n\
-  \ Some types of games require upgrading to a [Bot account](#operation/botAccountUpgrade):\n\
-  \ - Rated games: Rapid time control or faster\n\
-  \ - Casual games: Blitz time control or faster\n\
+  Read the [blog post announcement of lichess bots](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots).\n\n\
+  You MUST upgrade to a [Bot account](#operation/botAccountUpgrade) to play:\n\
+  - Engine games, centaur games, or any game which moves are decided or assisted by a program\n\
+  - Rated games in Rapid time control or faster\n\
+  - Casual games in Blitz time control or faster\n\n\
+You MAY use a normal Lichess account to play games\n\
+where moves are decided entirely by a single person without assistance.\n\
+The games must be slower than or equal to Classical time control if rated, and Rapid time control if casual.\n\n\
+Using any form of assistance without a [Bot account](#operation/botAccountUpgrade) will result in a ban.\n\n\
   \n## Features\n\
   \ - [Stream incoming chess moves](#operation/botGameStream)\n\
   \ - [Play chess moves](#operation/botGameMove)\n\
