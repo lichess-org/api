@@ -49,8 +49,10 @@ tags:
     Send and receive challenges to play.
 - name: Chess Bot
   description: "Play on Lichess with an API.\n
-  \ Read the [blog post announcement of lichess bots](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots).\n\n
-  \ Only works with [Bot accounts](#operation/botAccountUpgrade).\n\n\
+  \ Read the [blog post announcement of lichess bots](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots).\n\n\
+  \ Some types of games require upgrading to a [Bot account](#operation/botAccountUpgrade):\n\
+  \ - Rated games: Rapid time control or faster\n\
+  \ - Casual games: Blitz time control or faster\n\
   \n## Features\n\
   \ - [Stream incoming chess moves](#operation/botGameStream)\n\
   \ - [Play chess moves](#operation/botGameMove)\n\
@@ -1696,7 +1698,7 @@ paths:
       operationId: botAccountUpgrade
       summary: Upgrade to bot account
       description: |
-        Upgrade a lichess player account into a bot account. Only bot accounts can use the bot API.
+        Upgrade a Lichess player account into a bot account. Bot accounts can play all types of games with the API.
 
         The account **cannot have played any game** before becoming a bot account. The upgrade is **irreversible**. The account will only be able to play as a bot.
 
@@ -2747,7 +2749,7 @@ components:
             "challenge:read": Read incoming challenges
             "challenge:write": Create, accept, decline challenges
             "tournament:write": Create tournaments
-            "bot:play": Play as a bot. Only for [Bot accounts](#operation/botAccountUpgrade)
+            "bot:play": Play games with the [bot API](#tag/Chess-Bot)
     None:
       description: "No authorization required.\n\
         \ For requests that don't need an authenticated user."
