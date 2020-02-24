@@ -14,8 +14,8 @@ info:
   \n## Endpoint\n\
   \ All requests go to `https://lichess.org`.\n\
   \n## Clients\n\
-  \ - [Python general API](https://github.com/rhgrant10/berserk).\n\
-  \ - [Python Lichess Bot](https://github.com/careless25/lichess-bot)\n\
+  - [Python general API](https://github.com/rhgrant10/berserk)\n\
+  - [Python Lichess Bot](https://github.com/careless25/lichess-bot)\n\
   \n## Rate limiting\n\
   \ All requests are rate limited using various strategies,\
   \ to ensure the API remains responsive for everyone.\n\
@@ -47,22 +47,39 @@ tags:
 - name: Challenges
   description: |
     Send and receive challenges to play.
-- name: Chess Bot
-  description: "Play on Lichess with an API.\n
+- name: Board
+  description: "Play on Lichess with physical boards and third-party clients.\n
+  \ Works with normal Lichess accounts. Engine play or assistance is forbidden.\n\n\
+  \n### Features\n\
+  \ - [Stream incoming chess moves](#operation/boardGameStream)\n\
+  \ - [Play chess moves](#operation/boardGameMove)\n\
+  \ - [Read](#operation/boardGameStream) and [write](#operation/boardGameChat) in the player and spectator chats\n\
+  \ - [Receive](#operation/apiStreamEvent), [create](#operation/challengeCreate) and [accept](#operation/challengeAccept) (or [decline](#operation/challengeDecline)) challenges\n\
+  \ - [Abort](#operation/boardGameAbort) and [resign](#operation/boardGameResign) games\n\
+  \ - Compatible with normal Lichess accounts\n\
+  \n### Restrictions\n\
+  \ - Casual games: Rapid, Classical and Correspondence only\n\
+  \ - Rated games: Classical and Correspondence only\n\
+  \ - Engine assistance is forbidden"
+- name: Bot
+  description: "Play on Lichess as a bot. Allows engine play.\n
   \ Read the [blog post announcement of lichess bots](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots).\n\n
   \ Only works with [Bot accounts](#operation/botAccountUpgrade).\n\n\
-  \n## Features\n\
+  \n### Features\n\
   \ - [Stream incoming chess moves](#operation/botGameStream)\n\
   \ - [Play chess moves](#operation/botGameMove)\n\
   \ - [Read](#operation/botGameStream) and [write](#operation/botGameChat) in the player and spectator chats\n\
   \ - [Receive](#operation/apiStreamEvent), [create](#operation/challengeCreate) and [accept](#operation/challengeAccept) (or [decline](#operation/challengeDecline)) challenges\n\
   \ - [Abort](#operation/botGameAbort) and [resign](#operation/botGameResign) games\n\
-  \n## Integrations\n\
+  \ - Engine assistance is allowed\n\
+  \n### Restrictions\n\
+  \ - Bots can only play challenge games:  pools and tournaments are off-limits\n\
+  \n### Integrations\n\
   \ - [Python3 lichess-bot](https://github.com/careless25/lichess-bot) (official)\n\
   \ - [JavaScript bot-o-tron](https://github.com/tailuge/bot-o-tron)\n\
   \ - [Golang lichess-bot](https://github.com/dolegi/lichess-bot)\n\
   \ - Yours? Please make [an issue or pull request](https://github.com/lichess-org/api).\n\
-  \n## Links\n\
+  \n### Links\n\
   \ - Join the [Lichess Bots team](https://lichess.org/team/lichess-bots) with your bot account\n\
   \ - [Get help in the discord channel](https://discord.gg/quwueFd)\n\
   \ - Watch [Lichess Bot TV](https://lichess.org/tv/bot)"
@@ -1691,23 +1708,48 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserExtended'
 
+  /api/stream/event:
+    get:
+      operationId: apiStreamEvent
+      summary: Stream incoming events
+      description: "\n
+      \ Stream the events reaching a lichess user in real time as [ndjson](http://ndjson.org/).\n\n
+      \ Each line is a JSON object containing a `type` field. Possible values are:\n
+      \ - `challenge` Incoming challenge\n
+      \ - `gameStart` Start of a game\n\n
+      \n
+      \ When the stream opens, all current challenges and games are sent."
+      tags:
+        - Challenges
+        - Board
+        - Bot
+      security:
+        - OAuth2: ["challenge:read", "bot:play", "board:play"]
+      responses:
+        200:
+          content:
+            text/plain:
+              example: |
+                {"type":"challenge","challenge":{"id":"7pGLxJ4F","status":"created","challenger":{"id":"lovlas","name":"Lovlas","title":"IM","rating":2506,"patron":true,"online":true,"lag":24},"destUser":{"id":"thibot","name":"thibot","title":null,"rating":1500,"provisional":true,"online":true,"lag":45},"variant":{"key":"standard","name":"Standard","short":"Std"},"rated":true,"timeControl":{"type":"clock","limit":300,"increment":25,"show":"5+25"},"color":"random","perf":{"icon":"#","name":"Rapid"}}}
+                {"type":"gameStart","game":{"id":"1lsvP62l"}}
+
   /api/bot/account/upgrade:
     post:
       operationId: botAccountUpgrade
-      summary: Upgrade to bot account
+      summary: Upgrade to Bot account
       description: |
-        Upgrade a lichess player account into a bot account. Only bot accounts can use the bot API.
+        Upgrade a lichess player account into a Bot account. Only Bot accounts can use the Bot API.
 
-        The account **cannot have played any game** before becoming a bot account. The upgrade is **irreversible**. The account will only be able to play as a bot.
+        The account **cannot have played any game** before becoming a Bot account. The upgrade is **irreversible**. The account will only be able to play as a Bot.
 
-        To upgrade an account to bot, use the [official lichess-bot client](https://github.com/careless25/lichess-bot), or follow these steps:
+        To upgrade an account to Bot, use the [official lichess-bot client](https://github.com/careless25/lichess-bot), or follow these steps:
         - Create an [API access token](https://lichess.org/account/oauth/token/create) with "Play bot moves" permission.
         - `curl -d '' https://lichess.org/api/bot/account/upgrade -H "Authorization: Bearer <yourTokenHere>"`
 
         To know if an account has already been upgraded, use the [Get my profile API](#operation/accountMe):
         the `title` field should be set to `BOT`.
       tags:
-        - Chess Bot
+        - Bot
       security:
         - OAuth2: ["bot:play"]
       responses:
@@ -1722,36 +1764,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /api/stream/event:
-    get:
-      operationId: apiStreamEvent
-      summary: Stream incoming events
-      description: "\n
-      \ Stream the events reaching a lichess user in real time as [ndjson](http://ndjson.org/).\n\n
-      \ Each line is a JSON object containing a `type` field. Possible values are:\n
-      \ - `challenge` Incoming challenge\n
-      \ - `gameStart` Start of a game\n\n
-      \n
-      \ When the stream opens, all current challenges and games are sent."
-      tags:
-        - Chess Bot
-        - Challenges
-      security:
-        - OAuth2: ["challenge:read", "bot:play"]
-      responses:
-        200:
-          content:
-            text/plain:
-              example: |
-                {"type":"challenge","challenge":{"id":"7pGLxJ4F","status":"created","challenger":{"id":"lovlas","name":"Lovlas","title":"IM","rating":2506,"patron":true,"online":true,"lag":24},"destUser":{"id":"thibot","name":"thibot","title":null,"rating":1500,"provisional":true,"online":true,"lag":45},"variant":{"key":"standard","name":"Standard","short":"Std"},"rated":true,"timeControl":{"type":"clock","limit":300,"increment":25,"show":"5+25"},"color":"random","perf":{"icon":"#","name":"Rapid"}}}
-                {"type":"gameStart","game":{"id":"1lsvP62l"}}
-
   /api/bot/game/stream/{gameId}:
     get:
       operationId: botGameStream
-      summary: Stream game state
+      summary: Stream Bot game state
       description: "\
-      \ Stream the state of a game being played by a bot as [ndjson](http://ndjson.org/).\n\
+      \ Stream the state of a game being played with the Bot API, as [ndjson](http://ndjson.org/).\n\
       \nUse this endpoint to get updates about the game in real-time, with a single request.\n\
       \nEach line is a JSON object containing a `type` field. Possible values are:\n
       \ - `gameFull` Full game data. All values are immutable, except for the `state` field.\n
@@ -1759,7 +1777,7 @@ paths:
       \ - `chatLine` Chat message sent by a user (or the bot itself) in the `room` \"player\" or \"spectator\".\n\n
       \nThe first line is always of type `gameFull`."
       tags:
-        - Chess Bot
+        - Bot
       security:
         - OAuth2: ["bot:play"]
       parameters:
@@ -1779,13 +1797,13 @@ paths:
   /api/bot/game/{gameId}/move/{move}:
     post:
       operationId: botGameMove
-      summary: Make a move
+      summary: Make a Bot move
       description: |
-        Make a move in a game being played by a bot.
+        Make a move in a game being played with the Bot API.
 
-        The bot can also indicate whether or not it agrees to a draw.
+        The move can also contain a draw offer/agreement.
       tags:
-        - Chess Bot
+        - Bot
       security:
         - OAuth2: ["bot:play"]
       parameters:
@@ -1804,7 +1822,7 @@ paths:
             example: "e2e4"
         - in: query
           name: offeringDraw
-          description: Whether the bot agree to a draw
+          description: Whether to accept (or agree to) a draw
           schema:
             type: boolean
       responses:
@@ -1824,9 +1842,9 @@ paths:
       operationId: botGameChat
       summary: Write in the chat
       description: |
-        Post a message to the player or spectator chat, in a game being played by a bot.
+        Post a message to the player or spectator chat, in a game being played with the Bot API.
       tags:
-        - Chess Bot
+        - Bot
       security:
         - OAuth2: ["bot:play"]
       parameters:
@@ -1871,9 +1889,9 @@ paths:
       operationId: botGameAbort
       summary: Abort a game
       description: |
-        Abort a game being played by a bot.
+        Abort a game being played with the Bot API.
       tags:
-        - Chess Bot
+        - Bot
       security:
         - OAuth2: ["bot:play"]
       parameters:
@@ -1900,11 +1918,189 @@ paths:
       operationId: botGameResign
       summary: Resign a game
       description: |
-        Resign a game being played by a bot.
+        Resign a game being played with the Bot API.
       tags:
-        - Chess Bot
+        - Bot
       security:
         - OAuth2: ["bot:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/board/game/stream/{gameId}:
+    get:
+      operationId: boardGameStream
+      summary: Stream Board game state
+      description: "\
+      \ Stream the state of a game being played with the Board API, as [ndjson](http://ndjson.org/).\n\
+      \nUse this endpoint to get updates about the game in real-time, with a single request.\n\
+      \nEach line is a JSON object containing a `type` field. Possible values are:\n
+      \ - `gameFull` Full game data. All values are immutable, except for the `state` field.\n
+      \ - `gameState` Current state of the game. Immutable values not included.\n
+      \ - `chatLine` Chat message sent by a user in the `room` \"player\" or \"spectator\".\n\n
+      \nThe first line is always of type `gameFull`."
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BotGameState'
+
+  /api/board/game/{gameId}/move/{move}:
+    post:
+      operationId: boardGameMove
+      summary: Make a Board move
+      description: |
+        Make a move in a game being played with the Board API.
+
+        The move can also contain a draw offer/agreement.
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+        - in: path
+          name: move
+          required: true
+          description: The move to play, in UCI format
+          schema:
+            type: string
+            example: "e2e4"
+        - in: query
+          name: offeringDraw
+          description: Whether to accept (or agree to) a draw
+          schema:
+            type: boolean
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/board/game/{gameId}/chat:
+    post:
+      operationId: boardGameChat
+      summary: Write in the chat
+      description: |
+        Post a message to the player or spectator chat, in a game being played with the Board API.
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                room:
+                  type: string
+                  enum:
+                  - player
+                  - spectator
+                text:
+                  type: string
+                  example: "Thank you for the game!"
+              required:
+                - room
+                - text
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/board/game/{gameId}/abort:
+    post:
+      operationId: boardGameAbort
+      summary: Abort a game
+      description: |
+        Abort a game being played with the Board API.
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/board/game/{gameId}/resign:
+    post:
+      operationId: boardGameResign
+      summary: Resign a game
+      description: |
+        Resign a game being played with the Board API.
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
       parameters:
         - in: path
           name: gameId
@@ -1936,7 +2132,7 @@ paths:
       tags:
         - Challenges
       security:
-        - OAuth2: ["challenge:write", "bot:play"]
+        - OAuth2: ["challenge:write", "bot:play", "board:play"]
       parameters:
         - in: path
           name: username
@@ -2024,7 +2220,7 @@ paths:
       tags:
         - Challenges
       security:
-        - OAuth2: ["challenge:write", "bot:play"]
+        - OAuth2: ["challenge:write", "bot:play", "board:play"]
       parameters:
         - in: path
           name: challengeId
@@ -2053,7 +2249,7 @@ paths:
       tags:
         - Challenges
       security:
-        - OAuth2: ["challenge:write", "bot:play"]
+        - OAuth2: ["challenge:write", "bot:play", "board:play"]
       parameters:
         - in: path
           name: challengeId
@@ -2747,7 +2943,8 @@ components:
             "challenge:read": Read incoming challenges
             "challenge:write": Create, accept, decline challenges
             "tournament:write": Create tournaments
-            "bot:play": Play as a bot. Only for [Bot accounts](#operation/botAccountUpgrade)
+            "board:play": Play with the Board API
+            "bot:play": Play with the Bot API. Only for [Bot accounts](#operation/botAccountUpgrade)
     None:
       description: "No authorization required.\n\
         \ For requests that don't need an authenticated user."
