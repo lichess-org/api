@@ -44,9 +44,6 @@ tags:
   description: |
     Access Lichess teams and their members.
     https://lichess.org/team
-- name: Challenges
-  description: |
-    Send and receive challenges to play.
 - name: Board
   description: "Play on Lichess with physical boards and third-party clients.\n
   \ Works with normal Lichess accounts. Engine play or assistance is forbidden.\n\n\
@@ -60,7 +57,12 @@ tags:
   \n### Restrictions\n\
   \ - Casual games: Rapid, Classical and Correspondence only\n\
   \ - Rated games: Classical and Correspondence only\n\
-  \ - Engine assistance is forbidden"
+  \ - Engine assistance is forbidden\n\n
+  \n### Definition of Rapid and Classical\n
+  \ The **estimated duration** of a game is: `(clock initial time) + 40 * (clock increment)`.\n\n
+  \ For instance, the estimated duration of a 5+3 game is `5 * 60 + 40 * 3` = 420 seconds.\n\n
+  \ - Rapid games have an estimated duration >= 480s (8 minutes) and < 1500s (25 minutes)\n
+  \ - Classical games have an estimated duration > 1500s (25 minutes)"
 - name: Bot
   description: "Play on Lichess as a bot. Allows engine play.\n
   \ Read the [blog post announcement of lichess bots](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots).\n\n
@@ -83,6 +85,9 @@ tags:
   \ - Join the [Lichess Bots team](https://lichess.org/team/lichess-bots) with your bot account\n\
   \ - [Get help in the discord channel](https://discord.gg/quwueFd)\n\
   \ - Watch [Lichess Bot TV](https://lichess.org/tv/bot)"
+- name: Challenges
+  description: |
+    Send and receive challenges to play.
 - name: Tournaments
   description: |
     Access tournaments played on Lichess.
@@ -1720,9 +1725,9 @@ paths:
       \n
       \ When the stream opens, all current challenges and games are sent."
       tags:
-        - Challenges
         - Board
         - Bot
+        - Challenges
       security:
         - OAuth2: ["challenge:read", "bot:play", "board:play"]
       responses:
@@ -1732,6 +1737,253 @@ paths:
               example: |
                 {"type":"challenge","challenge":{"id":"7pGLxJ4F","status":"created","challenger":{"id":"lovlas","name":"Lovlas","title":"IM","rating":2506,"patron":true,"online":true,"lag":24},"destUser":{"id":"thibot","name":"thibot","title":null,"rating":1500,"provisional":true,"online":true,"lag":45},"variant":{"key":"standard","name":"Standard","short":"Std"},"rated":true,"timeControl":{"type":"clock","limit":300,"increment":25,"show":"5+25"},"color":"random","perf":{"icon":"#","name":"Rapid"}}}
                 {"type":"gameStart","game":{"id":"1lsvP62l"}}
+
+  /api/board/seek:
+    post:
+      operationId: apiBoardSeek
+      summary: Create a seek
+      description: "\n
+      \ Create a public seek, to start a game with a random player.\n\n
+      \ The response is streamed but doesn't contain any information. **Keep the connection open to keep the seek active**.\n\n
+      \ If the client closes the connection, the seek is canceled.\n\n
+      \ If the seek is accepted, or expires, the server closes the connection.\n\n
+      \ **Make sure to also have an [Event stream](#operation/apiStreamEvent) open**, to be notified when a game starts.\n
+      \ We recommend opening the [Event stream](#operation/apiStreamEvent) first, then the seek stream. This way,\n
+      \ you won't miss the game event if the seek is accepted immediately."
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
+      requestBody:
+        description: Parameters of the seek
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                rated:
+                  type: boolean
+                  description: Whether the game is rated and impacts players ratings.
+                  example: true
+                  default: false
+                time:
+                  type: number
+                  description: Clock initial time in minutes.
+                  example: 15
+                  minimum: 0
+                  maximum: 180
+                increment:
+                  type: integer
+                  description: Clock increment in seconds.
+                  example: 15
+                  minimum: 0
+                  maximum: 180
+                variant:
+                  type: string
+                  description: The variant of the game.
+                  enum:
+                    - standard
+                    - chess960
+                    - crazyhouse
+                    - antichess
+                    - atomic
+                    - horde
+                    - kingOfTheHill
+                    - racingKings
+                    - threeCheck
+                  default: standard
+              required:
+                - time
+                - increment
+      responses:
+        200:
+          content:
+            text/plain:
+              example: ""
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/board/game/stream/{gameId}:
+    get:
+      operationId: boardGameStream
+      summary: Stream Board game state
+      description: "\
+      \ Stream the state of a game being played with the Board API, as [ndjson](http://ndjson.org/).\n\
+      \nUse this endpoint to get updates about the game in real-time, with a single request.\n\
+      \nEach line is a JSON object containing a `type` field. Possible values are:\n
+      \ - `gameFull` Full game data. All values are immutable, except for the `state` field.\n
+      \ - `gameState` Current state of the game. Immutable values not included.\n
+      \ - `chatLine` Chat message sent by a user in the `room` \"player\" or \"spectator\".\n\n
+      \nThe first line is always of type `gameFull`."
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BotGameState'
+
+  /api/board/game/{gameId}/move/{move}:
+    post:
+      operationId: boardGameMove
+      summary: Make a Board move
+      description: |
+        Make a move in a game being played with the Board API.
+
+        The move can also contain a draw offer/agreement.
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+        - in: path
+          name: move
+          required: true
+          description: The move to play, in UCI format
+          schema:
+            type: string
+            example: "e2e4"
+        - in: query
+          name: offeringDraw
+          description: Whether to accept (or agree to) a draw
+          schema:
+            type: boolean
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/board/game/{gameId}/chat:
+    post:
+      operationId: boardGameChat
+      summary: Write in the chat
+      description: |
+        Post a message to the player or spectator chat, in a game being played with the Board API.
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                room:
+                  type: string
+                  enum:
+                  - player
+                  - spectator
+                text:
+                  type: string
+                  example: "Thank you for the game!"
+              required:
+                - room
+                - text
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/board/game/{gameId}/abort:
+    post:
+      operationId: boardGameAbort
+      summary: Abort a game
+      description: |
+        Abort a game being played with the Board API.
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/board/game/{gameId}/resign:
+    post:
+      operationId: boardGameResign
+      summary: Resign a game
+      description: |
+        Resign a game being played with the Board API.
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
   /api/bot/account/upgrade:
     post:
@@ -1923,184 +2175,6 @@ paths:
         - Bot
       security:
         - OAuth2: ["bot:play"]
-      parameters:
-        - in: path
-          name: gameId
-          schema:
-            type: string
-            example: "5IrD6Gzz"
-          required: true
-      responses:
-        200:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Ok'
-        400:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-  /api/board/game/stream/{gameId}:
-    get:
-      operationId: boardGameStream
-      summary: Stream Board game state
-      description: "\
-      \ Stream the state of a game being played with the Board API, as [ndjson](http://ndjson.org/).\n\
-      \nUse this endpoint to get updates about the game in real-time, with a single request.\n\
-      \nEach line is a JSON object containing a `type` field. Possible values are:\n
-      \ - `gameFull` Full game data. All values are immutable, except for the `state` field.\n
-      \ - `gameState` Current state of the game. Immutable values not included.\n
-      \ - `chatLine` Chat message sent by a user in the `room` \"player\" or \"spectator\".\n\n
-      \nThe first line is always of type `gameFull`."
-      tags:
-        - Board
-      security:
-        - OAuth2: ["board:play"]
-      parameters:
-        - in: path
-          name: gameId
-          schema:
-            type: string
-            example: "5IrD6Gzz"
-          required: true
-      responses:
-        200:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BotGameState'
-
-  /api/board/game/{gameId}/move/{move}:
-    post:
-      operationId: boardGameMove
-      summary: Make a Board move
-      description: |
-        Make a move in a game being played with the Board API.
-
-        The move can also contain a draw offer/agreement.
-      tags:
-        - Board
-      security:
-        - OAuth2: ["board:play"]
-      parameters:
-        - in: path
-          name: gameId
-          schema:
-            type: string
-            example: "5IrD6Gzz"
-          required: true
-        - in: path
-          name: move
-          required: true
-          description: The move to play, in UCI format
-          schema:
-            type: string
-            example: "e2e4"
-        - in: query
-          name: offeringDraw
-          description: Whether to accept (or agree to) a draw
-          schema:
-            type: boolean
-      responses:
-        200:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Ok'
-        400:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-  /api/board/game/{gameId}/chat:
-    post:
-      operationId: boardGameChat
-      summary: Write in the chat
-      description: |
-        Post a message to the player or spectator chat, in a game being played with the Board API.
-      tags:
-        - Board
-      security:
-        - OAuth2: ["board:play"]
-      parameters:
-        - in: path
-          name: gameId
-          schema:
-            type: string
-            example: "5IrD6Gzz"
-          required: true
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              properties:
-                room:
-                  type: string
-                  enum:
-                  - player
-                  - spectator
-                text:
-                  type: string
-                  example: "Thank you for the game!"
-              required:
-                - room
-                - text
-      responses:
-        200:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Ok'
-        400:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-  /api/board/game/{gameId}/abort:
-    post:
-      operationId: boardGameAbort
-      summary: Abort a game
-      description: |
-        Abort a game being played with the Board API.
-      tags:
-        - Board
-      security:
-        - OAuth2: ["board:play"]
-      parameters:
-        - in: path
-          name: gameId
-          schema:
-            type: string
-            example: "5IrD6Gzz"
-          required: true
-      responses:
-        200:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Ok'
-        400:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-  /api/board/game/{gameId}/resign:
-    post:
-      operationId: boardGameResign
-      summary: Resign a game
-      description: |
-        Resign a game being played with the Board API.
-      tags:
-        - Board
-      security:
-        - OAuth2: ["board:play"]
       parameters:
         - in: path
           name: gameId
