@@ -2914,6 +2914,12 @@ components:
             binc:
               type: integer
               description: Integer of Black Fisher increment.
+            status:
+              type: string
+              description: Game status code. https://github.com/ornicar/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
+            status:
+              type: string
+              description: Color of the winner, if any
       example: [
         {
           "type": "gameFull",
@@ -2953,7 +2959,8 @@ components:
             "wtime": 7598040,
             "btime": 8395220,
             "winc": 10000,
-            "binc": 10000
+            "binc": 10000,
+            "status": "started"
           }
         },
         {
@@ -2962,7 +2969,8 @@ components:
           "wtime": 7598040,
           "btime": 8395220,
           "winc": 10000,
-          "binc": 10000
+          "binc": 10000,
+          "status": "started"
         },
         {
           "type": "chatLine",
@@ -2975,6 +2983,16 @@ components:
           "username": "lovlas",
           "text": "!eval",
           "room": "spectator"
+        },
+        {
+          "type": "gameState",
+          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
+          "wtime": 7598040,
+          "btime": 8395220,
+          "winc": 10000,
+          "binc": 10000,
+          "status": "resign",
+          "winner": "black"
         }
       ]
 
