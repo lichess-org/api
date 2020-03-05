@@ -1793,6 +1793,19 @@ paths:
                     - racingKings
                     - threeCheck
                   default: standard
+                color:
+                  type: string
+                  description: The color to play. Better left empty to automatically get 50% white.
+                  enum:
+                    - random
+                    - white
+                    - black
+                  default: random
+                ratingRange:
+                  type: string
+                  description: |
+                    The rating range of potential opponents. Better left empty.
+                    Example: 1500-1800
               required:
                 - time
                 - increment
