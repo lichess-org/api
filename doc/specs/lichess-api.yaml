@@ -1998,6 +1998,43 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/board/game/{gameId}/draw/{accept}:
+    post:
+      operationId: boardGameDraw
+      summary: Handle draw offers
+      description: |
+        Create/accept/decline draw offers.
+        - `yes`: Offer a draw, or accept the opponent's draw offer.
+        - `no`: Decline a draw offer from the opponent.
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+        - in: path
+          name: accept
+          schema:
+            type: boolean
+            example: "yes"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /api/bot/account/upgrade:
     post:
       operationId: botAccountUpgrade
