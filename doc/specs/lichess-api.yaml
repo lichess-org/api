@@ -15,7 +15,9 @@ info:
   \ All requests go to `https://lichess.org`.\n\
   \n## Clients\n\
   - [Python general API](https://github.com/rhgrant10/berserk)\n\
+  - [Python general API - async](https://pypi.org/project/async-lichess-sdk)\n\
   - [Python Lichess Bot](https://github.com/careless25/lichess-bot)\n\
+  - [Python Board API for Certabo](https://github.com/haklein/certabo-lichess)\n\
   \n## Rate limiting\n\
   \ All requests are rate limited using various strategies,\
   \ to ensure the API remains responsive for everyone.\n\
@@ -1829,7 +1831,7 @@ paths:
       \nUse this endpoint to get updates about the game in real-time, with a single request.\n\
       \nEach line is a JSON object containing a `type` field. Possible values are:\n
       \ - `gameFull` Full game data. All values are immutable, except for the `state` field.\n
-      \ - `gameState` Current state of the game. Immutable values not included.\n
+      \ - `gameState` Current state of the game. Immutable values not included. Sent when a move is played, a draw is offered, or when the game ends.\n
       \ - `chatLine` Chat message sent by a user in the `room` \"player\" or \"spectator\".\n\n
       \nThe first line is always of type `gameFull`."
       tags:
