@@ -193,7 +193,7 @@ paths:
       tags:
         - Users
       security:
-        - None: []
+        - SameOrigin: []
       description: |
         Get the top 10 players for each speed and variant.
 
@@ -214,7 +214,7 @@ paths:
       tags:
         - Users
       security:
-        - None: []
+        - SameOrigin: []
       description: |
         Get the leaderboard for a single speed or variant (a.k.a. `perfType`).
         There is no leaderboard for correspondence or puzzles.
@@ -755,7 +755,7 @@ paths:
       tags:
         - Games
       security:
-        - None: []
+        - SameOrigin: []
       requestBody:
         description: Game IDs separated by commas.
         required: true
@@ -893,7 +893,7 @@ paths:
       tags:
         - Games
       security:
-        - None: []
+        - SameOrigin: []
       responses:
         200:
           content:
@@ -1200,7 +1200,7 @@ paths:
       tags:
         - Studies
       security:
-        - None: []
+        - SameOrigin: []
       parameters:
         - in: path
           name: studyId
@@ -1230,7 +1230,7 @@ paths:
       tags:
         - Studies
       security:
-        - None: []
+        - SameOrigin: []
       parameters:
         - in: path
           name: studyId
@@ -1332,6 +1332,7 @@ paths:
         - OAuth
       security:
         - OAuth2: ["study:read"]
+        - SameOrigin: []
       parameters:
         - in: path
           name: slug
@@ -1455,6 +1456,7 @@ paths:
         - OAuth
       security:
         - OAuth2: ["study:write"]
+        - SameOrigin: []
       parameters:
         - in: path
           name: slug
@@ -1517,6 +1519,7 @@ paths:
         - Teams
       security:
         - None: []
+        - SameOrigin: []
       parameters:
         - in: path
           name: teamId
@@ -1546,6 +1549,7 @@ paths:
         - OAuth
       security:
         - OAuth2: ["team:write"]
+        - SameOrigin: []
       parameters:
         - in: path
           name: teamId
@@ -1572,6 +1576,7 @@ paths:
         - OAuth
       security:
         - OAuth2: ["team:write"]
+        - SameOrigin: []
       parameters:
         - in: path
           name: teamId
@@ -1598,6 +1603,7 @@ paths:
         - OAuth
       security:
         - OAuth2: ["team:write"]
+        - SameOrigin: []
       parameters:
         - in: path
           name: teamId
@@ -1631,6 +1637,7 @@ paths:
         - Users
       security:
         - None: []
+        - SameOrigin: []
       responses:
         200:
           content:
@@ -2405,6 +2412,7 @@ paths:
         - Messaging
       security:
         - OAuth2: ["msg:write"]
+        - SameOrigin: []
       parameters:
         - in: path
           name: username
@@ -3089,6 +3097,12 @@ components:
             "tournament:write": Create tournaments
             "board:play": Play with the Board API
             "bot:play": Play with the Bot API. Only for [Bot accounts](#operation/botAccountUpgrade)
+    SameOrigin:
+      description: "CORS is not supported on this endpoint.\n\
+        \ If you need it, please\n\
+        \ [make an issue](https://github.com/ornicar/lila/issues/new)\n\
+        \ to request it."
+      type: none
     None:
       description: "No authorization required.\n\
         \ For requests that don't need an authenticated user."
