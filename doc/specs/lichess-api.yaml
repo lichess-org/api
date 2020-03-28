@@ -1506,7 +1506,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Simul'
 
-  /team/{teamId}/users:
+  /api/team/{teamId}/users:
     get:
       operationId: teamIdUsers
       summary: Get members of a team
@@ -1518,7 +1518,7 @@ paths:
         - Users
         - Teams
       security:
-        - SameOrigin: []
+        - None: []
       parameters:
         - in: path
           name: teamId
