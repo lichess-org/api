@@ -1332,7 +1332,7 @@ paths:
         - OAuth
       security:
         - OAuth2: ["study:read"]
-        - SameOrigin: []
+          SameOrigin: []
       parameters:
         - in: path
           name: slug
@@ -1456,7 +1456,7 @@ paths:
         - OAuth
       security:
         - OAuth2: ["study:write"]
-        - SameOrigin: []
+          SameOrigin: []
       parameters:
         - in: path
           name: slug
@@ -1518,7 +1518,6 @@ paths:
         - Users
         - Teams
       security:
-        - None: []
         - SameOrigin: []
       parameters:
         - in: path
@@ -1549,7 +1548,7 @@ paths:
         - OAuth
       security:
         - OAuth2: ["team:write"]
-        - SameOrigin: []
+          SameOrigin: []
       parameters:
         - in: path
           name: teamId
@@ -1576,7 +1575,7 @@ paths:
         - OAuth
       security:
         - OAuth2: ["team:write"]
-        - SameOrigin: []
+          SameOrigin: []
       parameters:
         - in: path
           name: teamId
@@ -1603,7 +1602,7 @@ paths:
         - OAuth
       security:
         - OAuth2: ["team:write"]
-        - SameOrigin: []
+          SameOrigin: []
       parameters:
         - in: path
           name: teamId
@@ -1637,7 +1636,7 @@ paths:
         - Users
       security:
         - None: []
-        - SameOrigin: []
+          SameOrigin: []
       responses:
         200:
           content:
@@ -2412,7 +2411,7 @@ paths:
         - Messaging
       security:
         - OAuth2: ["msg:write"]
-        - SameOrigin: []
+          SameOrigin: []
       parameters:
         - in: path
           name: username
