@@ -2261,6 +2261,9 @@ paths:
 
         If the challenge is accepted, you will be notified on the [event stream](#operation/apiStreamEvent)
         that a new game has started. The game ID will be the same as the challenge ID.
+
+        If you also have an OAuth token with `challenge:write` scope for the receiving user,
+        you can make them accept the challenge immediately by setting the `acceptByToken` field.
       tags:
         - Challenges
       security:
@@ -2327,8 +2330,9 @@ paths:
                   type: string
                   description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated.
                   default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
-              required:
-                - rated
+                acceptByToken:
+                  type: string
+                  description: Immediately accept the challenge and create the game. Pass in an OAuth token (with the `challenge:write` scope) for the receiving user.
       responses:
         200:
           content:
