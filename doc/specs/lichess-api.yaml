@@ -55,16 +55,11 @@ tags:
   \ - [Read](#operation/boardGameStream) and [write](#operation/boardGameChat) in the player and spectator chats\n\
   \ - [Receive](#operation/apiStreamEvent), [create](#operation/challengeCreate) and [accept](#operation/challengeAccept) (or [decline](#operation/challengeDecline)) challenges\n\
   \ - [Abort](#operation/boardGameAbort) and [resign](#operation/boardGameResign) games\n\
-  \ - Compatible with normal Lichess accounts\n\
+  \ - Compatible with normal Lichess accounts\n\n
   \n### Restrictions\n\
-  \ - Casual games: Rapid, Classical and Correspondence only\n\
-  \ - Rated games: Classical and Correspondence only\n\
-  \ - Engine assistance is forbidden\n\n
-  \n### Definition of Rapid and Classical\n
-  \ The **estimated duration** of a game is: `(clock initial time) + 40 * (clock increment)`.\n\n
-  \ For instance, the estimated duration of a 5+3 game is `5 * 60 + 40 * 3` = 420 seconds.\n\n
-  \ - Rapid games have an estimated duration >= 480s (8 minutes) and < 1500s (25 minutes)\n
-  \ - Classical games have an estimated duration > 1500s (25 minutes)"
+  \ - Engine assistance is strictly forbidden\n\
+  \ - Casual games: [Rapid, Classical and Correspondence](https://lichess.org/faq#time-controls) only\n\
+  \ - Rated games: [Estimated duration](https://lichess.org/faq#time-controls) >= 1200. That includes Classical, Correspondence, and some Rapid time controls such as 15+10 and 20+0."
 - name: Bot
   description: "Play on Lichess as a bot. Allows engine play.\n
   \ Read the [blog post announcement of lichess bots](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots).\n\n
