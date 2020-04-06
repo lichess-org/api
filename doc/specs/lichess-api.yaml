@@ -44,7 +44,7 @@ tags:
     https://lichess.org/games
 - name: Teams
   description: |
-    Access Lichess teams and their members.
+    Access and manage Lichess teams and their members.
     https://lichess.org/team
 - name: Board
   description: "Play on Lichess with physical boards and third-party clients.\n
@@ -1622,6 +1622,47 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
+
+  /team/{teamId}/pm-all:
+    post:
+      operationId: teamIdPmAll
+      summary: Message all members
+      description: |
+        Send a private message to all members of a team.
+        You must own the team.
+      tags:
+        - Teams
+        - OAuth
+      security:
+        - OAuth2: ["team:write"]
+      parameters:
+        - in: path
+          name: teamId
+          schema:
+            type: string
+            example: "coders"
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: The message to send to all your team members.
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
   /streamer/live:
     get:
