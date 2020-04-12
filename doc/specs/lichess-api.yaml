@@ -2628,19 +2628,21 @@ components:
         "players": {
           "white": {
             "user": {
-              "id": "lance5500",
               "name": "Lance5500",
               "title": "LM",
-              "patron": true
-              },
+              "patron": true,
+              "id": "lance5500"
+            },
             "rating": 2389,
-            "ratingDiff": 4
+            "ratingDiff": 4,
           },
           "black": {
-            "id": "Gramatik",
-            "name": "gramatik",
+            "user": {
+              "name": "TryingHard87",
+              "id": "tryinghard87"
+            },
             "rating": 2498,
-            "ratingDiff": -4
+            "ratingDiff": -4,
           }
         },
         "opening": {
