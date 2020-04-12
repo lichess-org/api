@@ -1501,6 +1501,85 @@ paths:
                 items:
                   $ref: '#/components/schemas/Simul'
 
+  /api/team/{teamId}:
+    get:
+      operationId: teamShow
+      summary: Get a single team
+      description: Infos about a team
+      tags:
+        - Teams
+      security:
+        - None: []
+      parameters:
+        - in: path
+          name: teamId
+          schema:
+            type: string
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+
+  /api/team/all:
+    get:
+      operationId: teamAll
+      summary: Get popular teams
+      description: |
+        Paginator of the most popular teams.
+      tags:
+        - Teams
+      security:
+        - None: []
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: number
+            example: 1
+            default: 1
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+
+  /api/team/search:
+    get:
+      operationId: teamSearch
+      summary: Search teams
+      description: |
+        Paginator of team search results for a keyword.
+      tags:
+        - Teams
+      security:
+        - None: []
+      parameters:
+        - in: query
+          name: text
+          schema:
+            type: string
+            example: coders
+        - in: query
+          name: page
+          schema:
+            type: number
+            example: 1
+            default: 1
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+
   /api/team/{teamId}/users:
     get:
       operationId: teamIdUsers
@@ -2980,6 +3059,20 @@ components:
             }
         },
         "url": "https://lichess.org/broadcast/sinquefield-cup-round-10/wje0786Q"
+      }
+
+    Team:
+      example: {
+        "id": "coders",
+        "name": "Coders",
+        "leader": {
+            "id": "thibault",
+            "name": "thibault",
+            "patron": true,
+            "title": "GM"
+        },
+        "description": "There are 10 kinds of people in the world: those who understand binary, and the others.\r\n\r\nIf you want to join the team, prove (briefly) that you can code in the request message!",
+        "open": false
       }
 
     BotGameState:
