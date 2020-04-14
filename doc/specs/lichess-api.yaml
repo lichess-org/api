@@ -1616,7 +1616,6 @@ paths:
         If the team join policy requires a confirmation,
         and the team owner is not the oAuth app owner,
         then the call fails with `403 Forbidden`.
-        - https://lichess.org/team
       tags:
         - Teams
         - OAuth
