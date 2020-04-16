@@ -3296,6 +3296,7 @@ components:
       description: "### Authorization Code Flow\n\
         \ The authorization code flow allows your users to **login with lichess**.\n\
         \ - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth-authorization-code)\n\
+        \ - [Flask/PYthon example](https://github.com/lakinwecker/lichess-oauth-flask)\n\
         \ - [NodeJS Passport strategy to login with Lichess OAuth2](https://www.npmjs.com/package/passport-lichess)\n\
         \ - [Create a Lichess OAuth app](https://lichess.org/account/oauth/app)\n\
         \ - [About authorization code flow](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2#grant-type-authorization-code)\n\
