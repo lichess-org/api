@@ -2524,7 +2524,7 @@ paths:
                     - racingKings
                     - threeCheck
                   default: standard
-                position:
+                fen:
                   type: string
                   description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated.
                   default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
