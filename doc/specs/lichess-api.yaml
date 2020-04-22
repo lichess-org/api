@@ -1094,6 +1094,10 @@ paths:
                 #   type: boolean
                 #   description: Whether to require a title to enter the tournament
                 #   default: false
+                hasChat:
+                  type: boolean
+                  description: Whether the players can discuss in a chat
+                  default: true
                 password:
                   type: string
                   description: Make the tournament private, and restrict access with a password
