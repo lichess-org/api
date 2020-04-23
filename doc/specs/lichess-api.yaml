@@ -2610,6 +2610,87 @@ paths:
               schema:
                 $ref: '#/components/schemas/NotFound'
 
+  /api/challenge/ai:
+    post:
+      operationId: challengeAi
+      summary: Challenge the AI
+      description: |
+        Start a game with Lichess AI.
+
+        You will be notified on the [event stream](#operation/apiStreamEvent) that a new game has started.
+      tags:
+        - Challenges
+      security:
+        - OAuth2: ["challenge:write", "bot:play", "board:play"]
+      requestBody:
+        description: Parameters of the game
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                level:
+                  type: number
+                  description: AI strength
+                  minimum: 1
+                  maximum: 8
+                'clock.limit':
+                  type: number
+                  description: Clock initial time in seconds. If empty, a correspondence game is created.
+                  example: 300
+                  minimum: 0
+                  maximum: 10800
+                'clock.increment':
+                  type: integer
+                  description: Clock increment in seconds. If empty, a correspondence game is created.
+                  example: 1
+                  minimum: 0
+                  maximum: 60
+                days:
+                  type: integer
+                  description: Days per move, for correspondence games. Clock settings must be omitted.
+                  example: 5
+                  minimum: 1
+                  maximum: 15
+                color:
+                  type: string
+                  description: Which color you get to play
+                  enum:
+                    - random
+                    - white
+                    - black
+                  default: 'random'
+                variant:
+                  type: string
+                  description: The variant of the game
+                  enum:
+                    - standard
+                    - chess960
+                    - crazyhouse
+                    - antichess
+                    - atomic
+                    - horde
+                    - kingOfTheHill
+                    - racingKings
+                    - threeCheck
+                  default: standard
+                fen:
+                  type: string
+                  description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated.
+                  default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameJson'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /inbox/{username}:
     post:
       operationId: inboxUsername
