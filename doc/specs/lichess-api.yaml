@@ -1637,6 +1637,32 @@ paths:
                 items:
                   $ref: '#/components/schemas/Team'
 
+  /api/team/of/{username}:
+    get:
+      operationId: teamOfUsername
+      summary: Teams of a player
+      description: |
+        All the teams a player is a member of.
+      tags:
+        - Teams
+      security:
+        - None: []
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+            example: "thibault"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+
   /api/team/search:
     get:
       operationId: teamSearch
@@ -3235,12 +3261,14 @@ components:
       example: {
         "id": "coders",
         "name": "Coders",
-        "leader": {
+        "leaders": [
+          {
             "id": "thibault",
             "name": "thibault",
-            "patron": true,
-            "title": "GM"
-        },
+            "patron": true
+          }
+        ],
+        "nbMembers": 3129,
         "description": "There are 10 kinds of people in the world: those who understand binary, and the others.\r\n\r\nIf you want to join the team, prove (briefly) that you can code in the request message!",
         "open": false
       }
