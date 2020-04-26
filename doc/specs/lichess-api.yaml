@@ -1008,7 +1008,7 @@ paths:
 
         This endpoint mirrors the form on https://lichess.org/tournament/new.
 
-        You can create up to 10 public tournaments per day, or 20 private tournaments.
+        You can create up to 12 public tournaments per day, or 24 private tournaments.
       tags:
         - Tournaments
       security:
