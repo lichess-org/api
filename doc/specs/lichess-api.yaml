@@ -2725,6 +2725,10 @@ paths:
         Create a challenge that any 2 players can join.
 
         Share the URL of the challenge. the first 2 players to click it will be paired for a game.
+
+        The response body also contains `whiteUrl` and `blackUrl`.
+        You can control which color each player gets by giving them these URLs,
+        instead of the main challenge URL.
       tags:
         - Challenges
       security:
