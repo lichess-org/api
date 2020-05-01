@@ -2729,6 +2729,9 @@ paths:
         The response body also contains `whiteUrl` and `blackUrl`.
         You can control which color each player gets by giving them these URLs,
         instead of the main challenge URL.
+
+        To directly pair 2 known players, use [this endpoint](#operation/challengeCreate) instead,
+        with the `acceptByToken` parameter.
       tags:
         - Challenges
       security:
