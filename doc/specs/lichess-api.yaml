@@ -85,11 +85,15 @@ tags:
 - name: Challenges
   description: |
     Send and receive challenges to play.
-- name: Tournaments
+- name: Arena tournaments
   description: |
-    Access tournaments played on Lichess.
-    [Official tournaments](https://lichess.org/tournament) are maintained by Lichess,
-    but you can [create your own tournaments](https://lichess.org/tournament/new) as well.
+    Access Arena tournaments played on Lichess.
+    [Official Arena tournaments](https://lichess.org/tournament) are maintained by Lichess,
+    but you can [create your own Arena tournaments](https://lichess.org/tournament/new) as well.
+- name: Swiss tournaments
+  description: |
+    Access Swiss tournaments played on Lichess.
+    [Read more about Swiss tournaments.](https://lichess.org/swiss).
 - name: Simuls
   description: |
     Access simuls played on Lichess.
@@ -991,7 +995,7 @@ paths:
 
         This API is used to display the [Lichess tournament schedule](https://lichess.org/tournament).
       tags:
-        - Tournaments
+        - "Arena tournaments"
       security:
         - None: []
       responses:
@@ -1001,18 +1005,18 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Tournament'
+                  $ref: '#/components/schemas/ArenaTournament'
     post:
       operationId: apiTournamentPost
-      summary: Create a new tournament
+      summary: Create a new Arena tournament
       description: |
-        Create a public or private tournament to your taste.
+        Create a public or private Arena tournament.
 
         This endpoint mirrors the form on https://lichess.org/tournament/new.
 
         You can create up to 12 public tournaments per day, or 24 private tournaments.
       tags:
-        - Tournaments
+        - "Arena tournaments"
       security:
         - OAuth2: ["tournament:write"]
       requestBody:
@@ -1100,6 +1104,9 @@ paths:
                   type: boolean
                   description: Whether the players can discuss in a chat
                   default: true
+                description:
+                  type: string
+                  description: Anything you want to tell players about the tournament
                 password:
                   type: string
                   description: Make the tournament private, and restrict access with a password
@@ -1129,7 +1136,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Tournament'
+                $ref: '#/components/schemas/ArenaTournament'
         400:
           content:
             application/json:
@@ -1145,7 +1152,7 @@ paths:
 
         Games are sorted by reverse chronological order (most recent first)
       tags:
-        - Tournaments
+        - "Arena tournaments"
       security:
         - None: []
       parameters:
@@ -1223,7 +1230,7 @@ paths:
         due to ranking changes while the players are being streamed.
         Use on finished tournaments for guaranteed consistency.
       tags:
-        - Tournaments
+        - "Arena tournaments"
       security:
         - None: []
       parameters:
@@ -1257,7 +1264,7 @@ paths:
 
         **Tournaments are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
       tags:
-        - Tournaments
+        - "Arena tournaments"
       security:
         - None: []
       parameters:
@@ -1274,7 +1281,106 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Tournament'
+                  $ref: '#/components/schemas/ArenaTournament'
+
+  /api/swiss/new/{teamId}:
+    post:
+      operationId: apiSwissNew
+      summary: Create a new Swiss tournament
+      description: |
+        Create a Swiss tournament for your team.
+
+        This endpoint mirrors the Swiss tournament form from your team pagee.
+
+        You can create up to 12 tournaments per day.
+      tags:
+        - "Swiss tournaments"
+      security:
+        - OAuth2: ["tournament:write"]
+      parameters:
+        - in: query
+          name: teamId
+          description: ID of the team
+          schema:
+            type: string
+      requestBody:
+        description: Parameters of the tournament
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The tournament name. Leave empty to get a random Grandmaster name
+                'clock.limit':
+                  type: number
+                  description: Clock initial time in seconds
+                  example: 300
+                  minimum: 0
+                  maximum: 3600
+                'clock.increment':
+                  type: integer
+                  description: Clock increment in seconds
+                  example: 1
+                  minimum: 0
+                  maximum: 600
+                nbRounds:
+                  type: integer
+                  description: Maximum number of rounds to play
+                  minimum: 3
+                  maximum: 100
+                  default: 8
+                startsAt:
+                  type: integer
+                  description: Timestamp to start the tournament at a given date and time. By default, it starts 10 minutes after creation.
+                roundInterval:
+                  type: integer
+                  description: How long to wait between each round, in seconds
+                  minimum: 5
+                  maximum: 3600
+                  default: 60
+                variant:
+                  type: string
+                  description: The variant to use in tournament games
+                  enum:
+                    - standard
+                    - chess960
+                    - crazyhouse
+                    - antichess
+                    - atomic
+                    - horde
+                    - kingOfTheHill
+                    - racingKings
+                    - threeCheck
+                  default: standard
+                description:
+                  type: string
+                  description: Anything you want to tell players about the tournament
+                rated:
+                  type: boolean
+                  description: Games are rated and impact players ratings
+                  default: true
+                hasChat:
+                  type: boolean
+                  description: Whether the players can discuss in a chat
+                  default: true
+              required:
+                - 'clock.limit'
+                - 'clock.increment'
+                - nbRounds
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SwissTournament'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
   /study/{studyId}/{chapterId}.pgn:
     get:
@@ -3242,7 +3348,7 @@ components:
         }
     }
 
-    Tournament:
+    ArenaTournament:
       example: {
         "id": "QITRjufu",
         "fullName": "U1700 SuperBlitz Arena",
@@ -3280,6 +3386,42 @@ components:
             "name": "camerun10",
             "title": null
         }
+      }
+
+    SwissTournament:
+      example: {
+        "boards": [],
+        "canJoin": true,
+        "clock": {
+            "increment": 0,
+            "limit": 300
+        },
+        "createdBy": "thibault",
+        "greatPlayer": {
+            "name": "Wang",
+            "url": "https://wikipedia.org/wiki/Wang_Hao_(chess_player)"
+        },
+        "id": "ZmKWCOye",
+        "name": "Wang",
+        "nbOngoing": 0,
+        "nbPlayers": 0,
+        "nbRounds": 2,
+        "nextRound": {
+            "at": "2020-05-11T12:23:18.233-06:00",
+            "in": 600
+        },
+        "quote": {
+            "author": "Emanuel Lasker",
+            "text": "By what right does White, in an absolutely even position, such as after move one, when both sides have advanced 1. e4, sacrifice a pawn, whose recapture is quite uncertain, and open up his kingside to attack? And then follow up this policy by leaving the check of the black queen open? None whatever !"
+        },
+        "round": 0,
+        "standing": {
+            "page": 1,
+            "players": []
+        },
+        "startsAt": "2020-05-11T12:23:18.233-06:00",
+        "status": "created",
+        "variant": "standard"
       }
 
     Simul:
