@@ -1382,6 +1382,33 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /swiss/{id}.trf:
+    get:
+      operationId: swissTrf
+      summary: Export TRF of a Swiss tournament
+      description: |
+        Download a tournament in the Tournament Report File format, the FIDE standard.
+
+        Documentation: https://www.fide.com/FIDE/handbook/C04Annex2_TRF16.pdf
+
+        Example: https://lichess.org/swiss/j8rtJ5GL.trf
+      tags:
+        - "Swiss tournaments"
+      security:
+        - None: []
+      parameters:
+        - in: path
+          name: id
+          description: The tournament ID.
+          schema:
+            type: string
+          required: true
+      responses:
+        200:
+          content:
+            text/plain:
+              example:
+
   /api/swiss/{id}/games:
     get:
       operationId: gamesBySwiss
