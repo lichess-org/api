@@ -1337,9 +1337,12 @@ paths:
                   description: Timestamp to start the tournament at a given date and time. By default, it starts 10 minutes after creation.
                 roundInterval:
                   type: integer
-                  description: How long to wait between each round, in seconds
-                  minimum: 5
-                  maximum: 3600
+                  description: |
+                    How long to wait between each round, in seconds.
+
+                    Set to 0 to manually schedule each round from the tournament UI.
+                  minimum: 0
+                  maximum: 86400
                   default: 60
                 variant:
                   type: string
