@@ -3726,6 +3726,11 @@ components:
         \ - [NodeJS Passport strategy to login with Lichess OAuth2](https://www.npmjs.com/package/passport-lichess)\n\
         \ - [Create a Lichess OAuth app](https://lichess.org/account/oauth/app)\n\
         \ - [About authorization code flow](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2#grant-type-authorization-code)\n\
+        \n#### Real life Oauth2 Authorization Code Flow examples\n\
+        \ - [PyChess](https://github.com/gbtami/pychess-variants) ([source code](https://github.com/gbtami/pychess-variants))\n\
+        \ - [Lichess4545](https://www.lichess4545.com/) ([source code](https://github.com/cyanfish/heltour))\n\
+        \ - [English Chess Federation](https://ecf.octoknight.com/)\n\
+        \ - [Rotherham Online Chess](https://rotherhamonlinechess.azurewebsites.net/tournaments)\n\
         \n### Personal API Token\n\
         \ Personal API tokens allow you to quickly interact with Lichess OAuth API.\n\
         \ - `curl https://lichess.org/api/account -H \"Authorization: Bearer <token>\"`\n\
