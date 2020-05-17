@@ -1340,10 +1340,10 @@ paths:
                   description: |
                     How long to wait between each round, in seconds.
 
-                    Set to 0 to manually schedule each round from the tournament UI.
+                    Set to 99999999 to manually schedule each round from the tournament UI.
                   minimum: 0
                   maximum: 86400
-                  default: 60
+                  default: auto
                 variant:
                   type: string
                   description: The variant to use in tournament games
