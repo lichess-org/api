@@ -59,7 +59,11 @@ tags:
   \n### Restrictions\n\
   \ - Engine assistance is strictly forbidden\n\
   \ - Casual games: [Rapid, Classical and Correspondence](https://lichess.org/faq#time-controls) only\n\
-  \ - Rated games: [Estimated duration](https://lichess.org/faq#time-controls) >= 1200. That includes Classical, Correspondence, and some Rapid time controls such as 15+10 and 20+0."
+  \ - Rated games: [Estimated duration](https://lichess.org/faq#time-controls) >= 1200. That includes Classical, Correspondence, and some Rapid time controls such as 15+10 and 20+0.\n\
+  \n### Links\n\
+  \ - [Announcement](https://lichess.org/blog/XlRW5REAAB8AUJJ-/welcome-lichess-boards)\n\
+  \ - [Certabo support](https://github.com/haklein/certabo-lichess)\n\
+  \ - [Lichs (play from command-line)](https://github.com/Cqsi/lichs)"
 - name: Bot
   description: "Play on Lichess as a bot. Allows engine play.\n
   \ Read the [blog post announcement of lichess bots](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots).\n\n
@@ -79,6 +83,7 @@ tags:
   \ - [Golang lichess-bot](https://github.com/dolegi/lichess-bot)\n\
   \ - Yours? Please make [an issue or pull request](https://github.com/lichess-org/api).\n\
   \n### Links\n\
+  \ - [Announcement](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots)\n\
   \ - Join the [Lichess Bots team](https://lichess.org/team/lichess-bots) with your bot account\n\
   \ - [Get help in the discord channel](https://discord.gg/quwueFd)\n\
   \ - Watch [Lichess Bot TV](https://lichess.org/tv/bot)"
