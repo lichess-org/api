@@ -1370,10 +1370,15 @@ paths:
                   type: boolean
                   description: Games are rated and impact players ratings
                   default: true
-                hasChat:
-                  type: boolean
-                  description: Whether the players can discuss in a chat
-                  default: true
+                chatFor:
+                  type: number
+                  description: |
+                    Who can read and write in the chat.
+                    - 0  = No-one
+                    - 10 = Only team leaders
+                    - 20 = Only team members
+                    - 30 = All Lichess players
+                  default: 20
               required:
                 - 'clock.limit'
                 - 'clock.increment'
