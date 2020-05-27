@@ -1101,6 +1101,10 @@ paths:
                   type: boolean
                   description: Whether the players can use berserk
                   default: true
+                streakable:
+                  type: boolean
+                  description: After 2 wins, consecutive wins grant 4 points instead of 2.
+                  default: true
                 # "conditions.titled":
                 #   type: boolean
                 #   description: Whether to require a title to enter the tournament
