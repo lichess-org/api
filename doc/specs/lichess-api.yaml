@@ -1955,6 +1955,7 @@ paths:
         Join a team.
         If the team join policy requires a confirmation,
         and the team owner is not the oAuth app owner,
+        and the `message` field is not set,
         then the call fails with `403 Forbidden`.
       tags:
         - Teams
@@ -1969,6 +1970,16 @@ paths:
             type: string
             example: "coders"
           required: true
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: Optional request message, if the team is not open.
       responses:
         200:
           content:
