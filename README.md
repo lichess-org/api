@@ -9,7 +9,7 @@
 
 ```shell
 cd doc
-http-server # or `python -m SimpleHTTPServer` or any HTTP file server
+http-server # or `python -m http.server` or any HTTP file server
 ```
 
 Now open http://localhost:8080/local.html, you should see the generated API doc.
