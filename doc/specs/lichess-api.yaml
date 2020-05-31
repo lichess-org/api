@@ -1286,11 +1286,9 @@ paths:
       responses:
         200:
           content:
-            application/json:
+            application/x-ndjson:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ArenaTournament'
+                $ref: '#/components/schemas/ArenaTournament'
 
   /api/swiss/new/{teamId}:
     post:
