@@ -2967,6 +2967,8 @@ paths:
         You can control which color each player gets by giving them these URLs,
         instead of the main challenge URL.
 
+        Open challenges expire after 24h.
+
         To directly pair 2 known players, use [this endpoint](#operation/challengeCreate) instead,
         with the `acceptByToken` parameter.
       tags:
