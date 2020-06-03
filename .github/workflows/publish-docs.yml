@@ -1,0 +1,17 @@
+name: Publish documentation
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: mkdir -p public && npx redoc-cli bundle doc/specs/lichess-api.yaml --output public/index.html --cdn
+    - name: GitHub pages deploy
+      uses: maxheld83/ghpages@68f783a4f5313d776c1599e18479607e71c9c738
+      env:
+        BUILD_DIR: "public/"
+        GH_PAT: ${{ secrets.GH_PAT }}
