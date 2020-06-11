@@ -8,7 +8,7 @@ const axios = require('axios');
  */
 
 /* --- Fill in your app config here --- */
-const port = 8087;
+const port = 3000;
 const clientId = '';
 const clientSecret = '';
 const redirectUri = `http://localhost:${port}/callback`;
