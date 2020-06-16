@@ -1341,7 +1341,7 @@ paths:
                   default: 8
                 startsAt:
                   type: integer
-                  description: Timestamp to start the tournament at a given date and time. By default, it starts 10 minutes after creation.
+                  description: Timestamp in milliseconds to start the tournament at a given date and time. By default, it starts 10 minutes after creation.
                 roundInterval:
                   type: integer
                   description: |
@@ -1600,7 +1600,7 @@ paths:
                 startsAt:
                   type: integer
                   description: |
-                    Timestamp of broadcast start. Leave empty to manually start the broadcast.
+                    Timestamp in milliseconds of broadcast start. Leave empty to manually start the broadcast.
 
                     Example: `1356998400070`
                   schema:
@@ -1723,7 +1723,7 @@ paths:
                 startsAt:
                   type: integer
                   description: |
-                    Timestamp of broadcast start. Leave empty to manually start the broadcast.
+                    Timestamp in milliseconds of broadcast start. Leave empty to manually start the broadcast.
 
                     Example: `1356998400070`
                   schema:
