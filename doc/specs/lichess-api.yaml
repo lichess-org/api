@@ -1983,7 +1983,10 @@ paths:
       operationId: apiTeamArena
       summary: Get team arena tournaments
       description: |
-        Get all arena tournaments of a team, in reverse chronological order (most recent first).
+        Get all tournaments relevant to a team.
+
+        Tournaments are sorted by reverse chronological order of start date (last starting first).
+
         **Tournaments are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
       tags:
         - Teams
