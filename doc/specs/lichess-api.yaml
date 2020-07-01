@@ -1978,6 +1978,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserExtended'
 
+  /api/team/{teamId}/arena:
+    get:
+      operationId: apiTeamArena
+      summary: Get team arena tournaments
+      description: |
+        Get all arena tournaments of a team, in reverse chronological order (most recent first).
+        **Tournaments are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+      tags:
+        - Teams
+        - "Arena tournaments"
+      security:
+        - None: []
+      parameters:
+        - in: query
+          name: max
+          description: How many tournaments to download.
+          schema:
+            type: integer
+            minimum: 1
+            default: 100
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ArenaTournament'
+
   /team/{teamId}/join:
     post:
       operationId: teamIdJoin
