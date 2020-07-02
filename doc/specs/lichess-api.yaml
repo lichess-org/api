@@ -1295,6 +1295,30 @@ paths:
               schema:
                 example: {"rank":4,"score":389,"rating":2618,"username":"opperwezen","title":"IM","performance":2423,"team":"coders"}
 
+  /api/tournament/{id}/teams:
+    get:
+      operationId: teamsByTournament
+      summary: Get team standing of a team battle
+      description: |
+        Teams of a team battle tournament, with top players, sorted by rank (best first).
+      tags:
+        - "Arena tournaments"
+      security:
+        - None: []
+      parameters:
+        - in: path
+          name: id
+          description: The tournament ID.
+          schema:
+            type: string
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                example: {"id":"CdPg1ey4","teams":[{"rank":1,"id":"cat-lovers","score":842,"players":[{"user":{"name":"lizen69","id":"lizen69"},"score":54},{"user":{"name":"lizen249","id":"lizen249"}}]}]}
+
   /api/user/{username}/tournament/created:
     get:
       operationId: apiUserNameTournamentCreated
