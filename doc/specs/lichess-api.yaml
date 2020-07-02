@@ -1293,7 +1293,7 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                example: {"rank":4,"score":389,"rating":2618,"username":"opperwezen","title":"IM","performance":2423}
+                example: {"rank":4,"score":389,"rating":2618,"username":"opperwezen","title":"IM","performance":2423,"team":"coders"}
 
   /api/user/{username}/tournament/created:
     get:
