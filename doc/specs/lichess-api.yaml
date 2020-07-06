@@ -5,7 +5,7 @@ info:
   x-logo:
     url: https://lichess1.org/assets/logo/lichess-pad12.svg
     backgroundColor: #ffffff
-  description: "\n\n# Introduction\nWelcome to the reference for the Lichess API!\n\n\
+  description: "\n\n# Introduction\nWelcome to the reference for the Lichess API! Lichess is free/libre, open-source chess server powered by volunteers and donations.\n\n\
   \ - Get help in the [lichess developers discord channel](https://discord.gg/pw6Efvk),\
   \ or in the #lichess IRC channel on freenode.\n\
   \ - [Contribute to this documentation on Github](https://github.com/lichess-org/api).\n\
