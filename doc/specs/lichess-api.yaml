@@ -1613,6 +1613,33 @@ paths:
               schema:
                 $ref: '#/components/schemas/StudyPgn'
 
+  /api/broadcast:
+    get:
+      operationId: broadcastIndex
+      summary: Get official broadcasts
+      description: |
+        Get all incoming, ongoing, and finished official broadcasts.
+        The broadcasts are sorted by start date, most recent first.
+
+        **Broadcasts are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+      tags:
+        - Broadcasts
+      parameters:
+        - in: query
+          name: nb
+          description: Max number of broadcasts to fetch
+          schema:
+            type: integer
+            default: 20
+            minimum: 1
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Broadcast'
   /broadcast/new:
     post:
       operationId: broadcastCreate
@@ -3842,23 +3869,19 @@ components:
 
     Broadcast:
       example: {
-        "broadcast": {
-            "description": "An 11 round classical tournament featuring the 9 highest rated players in the world. Including Carlsen, Caruana, Ding, Aronian, Nakamura and more.\r\n\r\nStarts at 18:00 UTC",
-            "id": "wje0786Q",
-            "markdown": "Starts August 16th at 18:00 UTC\r\n\r\n| Player                 | Federation | Rating |\r\n|------------------------|------------|--------|\r\n| Carlsen Magnus         | NOR        | 2882   |\r\n| Caruana Fabiano        | USA        | 2818   |\r\n| Ding Liren             | CHN        | 2805   |\r\n| Giri Anish             | NED        | 2779   |\r\n| Vachier-Lagrave Maxime | FRA        | 2778   |\r\n| So Wesley              | USA        | 2776   |\r\n| Nepomniachtchi Ian     | RUS        | 2774   |\r\n| Aronian Levon          | ARM        | 2765   |\r\n| Mamedyarov Shakhriyar  | AZE        | 2764   |\r\n| Anand Viswanathan      | IND        | 2756   |\r\n| Karjakin Sergey        | RUS        | 2750   |\r\n| Nakamura Hikaru        | USA        | 2743   |\r\nStreams: __[Saint Louis Chess Club,](google.com)__ __[GM Jon Speelman](google.com)__\r\n__[Follow the Lichess Youtube for round reports](google.com)__",
-            "markup": "<p>Starts August 16th at 18:00 UTC</p>\n<table class=\"slist\">\n<thead>\n<tr><th>Player</th><th>Federation</th><th>Rating</th></tr>\n</thead>\n<tbody>\n<tr><td>Carlsen Magnus</td><td>NOR</td><td>2882</td></tr>\n<tr><td>Caruana Fabiano</td><td>USA</td><td>2818</td></tr>\n<tr><td>Ding Liren</td><td>CHN</td><td>2805</td></tr>\n<tr><td>Giri Anish</td><td>NED</td><td>2779</td></tr>\n<tr><td>Vachier-Lagrave Maxime</td><td>FRA</td><td>2778</td></tr>\n<tr><td>So Wesley</td><td>USA</td><td>2776</td></tr>\n<tr><td>Nepomniachtchi Ian</td><td>RUS</td><td>2774</td></tr>\n<tr><td>Aronian Levon</td><td>ARM</td><td>2765</td></tr>\n<tr><td>Mamedyarov Shakhriyar</td><td>AZE</td><td>2764</td></tr>\n<tr><td>Anand Viswanathan</td><td>IND</td><td>2756</td></tr>\n<tr><td>Karjakin Sergey</td><td>RUS</td><td>2750</td></tr>\n<tr><td>Nakamura Hikaru</td><td>USA</td><td>2743</td></tr>\n</tbody>\n</table>\n<p>Streams: <strong><a href=\"google.com\">Saint Louis Chess Club,</a></strong> <strong><a href=\"google.com\">GM Jon Speelman</a></strong><br />\n<strong><a href=\"google.com\">Follow the Lichess Youtube for round reports</a></strong></p>\n",
-            "name": "Sinquefield Cup - Round 10",
-            "ownerId": "broadcaster",
-            "slug": "sinquefield-cup-round-10",
-            "startedAt": 1566928867494,
-            "startsAt": 1566928800000,
-            "sync": {
-                "log": [],
-                "ongoing": false,
-                "url": "http://0.0.0.0/sinquefield2019/10/games.pgn"
-            }
-        },
-        "url": "https://lichess.org/broadcast/sinquefield-cup-round-10/wje0786Q"
+        "description": "An 11 round classical tournament featuring the 9 highest rated players in the world. Including Carlsen, Caruana, Ding, Aronian, Nakamura and more.\r\n\r\nStarts at 18:00 UTC",
+        "url": "https://lichess.org/broadcast/sinquefield-cup-round-10/wje0786Q",
+        "id": "wje0786Q",
+        "markup": "<p>Starts August 16th at 18:00 UTC</p>\n<table class=\"slist\">\n<thead>\n<tr><th>Player</th><th>Federation</th><th>Rating</th></tr>\n</thead>\n<tbody>\n<tr><td>Carlsen Magnus</td><td>NOR</td><td>2882</td></tr>\n<tr><td>Caruana Fabiano</td><td>USA</td><td>2818</td></tr>\n<tr><td>Ding Liren</td><td>CHN</td><td>2805</td></tr>\n<tr><td>Giri Anish</td><td>NED</td><td>2779</td></tr>\n<tr><td>Vachier-Lagrave Maxime</td><td>FRA</td><td>2778</td></tr>\n<tr><td>So Wesley</td><td>USA</td><td>2776</td></tr>\n<tr><td>Nepomniachtchi Ian</td><td>RUS</td><td>2774</td></tr>\n<tr><td>Aronian Levon</td><td>ARM</td><td>2765</td></tr>\n<tr><td>Mamedyarov Shakhriyar</td><td>AZE</td><td>2764</td></tr>\n<tr><td>Anand Viswanathan</td><td>IND</td><td>2756</td></tr>\n<tr><td>Karjakin Sergey</td><td>RUS</td><td>2750</td></tr>\n<tr><td>Nakamura Hikaru</td><td>USA</td><td>2743</td></tr>\n</tbody>\n</table>\n<p>Streams: <strong><a href=\"google.com\">Saint Louis Chess Club,</a></strong> <strong><a href=\"google.com\">GM Jon Speelman</a></strong><br />\n<strong><a href=\"google.com\">Follow the Lichess Youtube for round reports</a></strong></p>\n",
+        "name": "Sinquefield Cup - Round 10",
+        "ownerId": "broadcaster",
+        "startedAt": 1566928867494,
+        "startsAt": 1566928800000,
+        "sync": {
+            "log": [],
+            "ongoing": false,
+            "url": "http://0.0.0.0/sinquefield2019/10/games.pgn"
+        }
       }
 
     Team:
