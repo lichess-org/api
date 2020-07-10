@@ -710,6 +710,7 @@ paths:
         - OAuth
       security:
         - None: []
+        - OAuth2: []
       parameters:
         - in: path
           name: username
