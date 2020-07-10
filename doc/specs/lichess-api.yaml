@@ -802,7 +802,10 @@ paths:
             default: true
         - in: query
           name: pgnInJson
-          description: Include the full PGN within the JSON response, in a `pgn` field.
+          description:
+            Include the full PGN within the JSON response, in a `pgn` field.
+
+            The response type must be set to `application/json` by the request `Accept` header.
           schema:
             type: boolean
             default: false
