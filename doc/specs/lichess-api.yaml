@@ -1625,6 +1625,38 @@ paths:
               schema:
                 $ref: '#/components/schemas/GameJson'
 
+  /api/team/{teamId}/swiss:
+    get:
+      operationId: apiTeamSwiss
+      summary: Get team swiss tournaments
+      description: |
+        Get all swiss tournaments of a team.
+
+        Tournaments are sorted by reverse chronological order of start date (last starting first).
+
+        **Tournaments are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+      tags:
+        - Teams
+        - "Swiss tournaments"
+      security:
+        - None: []
+      parameters:
+        - in: query
+          name: max
+          description: How many tournaments to download.
+          schema:
+            type: integer
+            minimum: 1
+            default: 100
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SwissTournament'
+
   /study/{studyId}/{chapterId}.pgn:
     get:
       operationId: studyChapterPgn
@@ -2104,7 +2136,7 @@ paths:
       operationId: apiTeamArena
       summary: Get team arena tournaments
       description: |
-        Get all tournaments relevant to a team.
+        Get all arena tournaments relevant to a team.
 
         Tournaments are sorted by reverse chronological order of start date (last starting first).
 
