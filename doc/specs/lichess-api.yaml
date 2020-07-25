@@ -4162,10 +4162,10 @@ components:
             "board:play": Play with the Board API
             "bot:play": Play with the Bot API. Only for [Bot accounts](#operation/botAccountUpgrade)
     SameOrigin:
-      description: "CORS is not supported on this endpoint.\n\
-        \ If you need it, please\n\
+      description: "CORS is supported on almost all endpoints, except those tagged `SameOrigin`.\n\
+        \ If you need CORS on one of those, please\n\
         \ [make an issue](https://github.com/ornicar/lila/issues/new)\n\
-        \ to request it."
+        \ explaining your use case to request it."
       type: none
     None:
       description: "No authorization required.\n\
