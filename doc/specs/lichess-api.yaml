@@ -2813,7 +2813,7 @@ paths:
             example: "e2e4"
         - in: query
           name: offeringDraw
-          description: Whether to accept (or agree to) a draw
+          description: Whether to offer (or agree to) a draw
           schema:
             type: boolean
       responses:
