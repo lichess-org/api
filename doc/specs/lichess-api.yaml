@@ -77,6 +77,7 @@ tags:
   \ - Engine assistance is allowed\n\
   \n### Restrictions\n\
   \ - Bots can only play challenge games:  pools and tournaments are off-limits\n\
+  \ - Bots cannot play UltraBullet (¼+0) because it requires making too many requests. But 0+1 and ½+0 are allowed.\n\
   \n### Integrations\n\
   \ - [Python3 lichess-bot](https://github.com/careless25/lichess-bot) (official)\n\
   \ - [JavaScript bot-o-tron](https://github.com/tailuge/bot-o-tron)\n\
