@@ -3090,6 +3090,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/NotFound'
 
+  /api/challenge/{challengeId}/cancel:
+    post:
+      operationId: challengeCancel
+      summary: Cancel a challenge
+      description: |
+        Cancel a challenge you sent.
+      tags:
+        - Challenges
+      security:
+        - OAuth2: ["challenge:write", "bot:play", "board:play"]
+      parameters:
+        - in: path
+          name: challengeId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+
   /api/challenge/ai:
     post:
       operationId: challengeAi
