@@ -2410,8 +2410,11 @@ paths:
       description: "\n
       \ Stream the events reaching a lichess user in real time as [ndjson](http://ndjson.org/).\n\n
       \ Each line is a JSON object containing a `type` field. Possible values are:\n
-      \ - `challenge` Incoming challenge\n
-      \ - `gameStart` Start of a game\n\n
+      \ - `gameStart` Start of a game\n
+      \ - `gameFinish` Completion of a game\n
+      \ - `challenge` A player sends you a challenge\n
+      \ - `challengeCanceled` A player cancels their challenge to you\n
+      \ - `challengeDeclined` The opponent declines your challenge\n
       \n
       \ When the stream opens, all current challenges and games are sent."
       tags:
