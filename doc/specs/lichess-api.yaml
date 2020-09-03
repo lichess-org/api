@@ -3152,7 +3152,8 @@ paths:
       operationId: challengeCancel
       summary: Cancel a challenge
       description: |
-        Cancel a challenge you sent.
+        Cancel a challenge you sent, or aborts the game if the challenge was accepted, but the game was not yet played.
+        Note that the ID of a game is the same as the ID of the challenge that created it.
       tags:
         - Challenges
       security:
