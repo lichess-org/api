@@ -3603,78 +3603,215 @@ components:
         "playing": true,
         "patron": true
       }
+    Title:
+      type: string
+      enum: [GM, WGM, IM, WIM, FM, WFM, NM, CM, WCM, WNM, LM, BOT]
+      example: NM
+
+    Perf:
+      type: object
+      properties:
+        games:
+          type: integer
+          example: 2945
+        rating:
+          type: integer
+          example: 1609
+        rd:
+          type: integer
+          example: 60
+        prog:
+          type: integer
+          example: -22
+        prov:
+          type: boolean
+
+    Perfs:
+      type: object
+      properties:
+        chess960:
+          $ref: '#/components/schemas/Perf'
+        atomic:
+          $ref: '#/components/schemas/Perf'
+        racingKings:
+          $ref: '#/components/schemas/Perf'
+        ultraBullet:
+          $ref: '#/components/schemas/Perf'
+        blitz:
+          $ref: '#/components/schemas/Perf'
+        kingOfTheHill:
+          $ref: '#/components/schemas/Perf'
+        bullet:
+          $ref: '#/components/schemas/Perf'
+        correspondence:
+          $ref: '#/components/schemas/Perf'
+        horde:
+          $ref: '#/components/schemas/Perf'
+        puzzle:
+          $ref: '#/components/schemas/Perf'
+        classical:
+          $ref: '#/components/schemas/Perf'
+        rapid:
+          $ref: '#/components/schemas/Perf'
+
+    PlayTime:
+      type: object
+      properties:
+        total:
+          type: integer
+          example: 3296897
+        tv:
+          type: integer
+          example: 12134
+
+    Profile:
+      type: object
+      properties:
+        country:
+          type: string
+          example: EC
+        location:
+          type: string
+        bio:
+          type: string
+          example: Free bugs!
+        firstName:
+          type: string
+          example: Thibault
+        lastName:
+          type: string
+          example: Duplessis
+        fideRating:
+          type: integer
+          example: 1500
+        uscfRating:
+          type: integer
+          example: 1500
+        ecf:
+          type: integer
+          example: 1500
+        links:
+          type: string
+          example: "github.com/ornicar\r\ntwitter.com/ornicar"
+
+    Count:
+      type: object
+      properties:
+        all:
+          type: integer
+          example: 9265
+        rated:
+          type: integer
+          example: 7157
+        ai:
+          type: integer
+          example: 531
+        draw:
+          type: integer
+          example: 340
+        drawH:
+          type: integer
+          example: 331
+        loss:
+          type: integer
+          example: 4480
+        lossH:
+          type: integer
+          example: 4207
+        win:
+          type: integer
+          example: 4440
+        winH:
+          type: integer
+          example: 4378
+        bookmark:
+          type: integer
+          example: 71
+        playing:
+          type: integer
+          example: 6
+        import:
+          type: integer
+          example: 66
+        me:
+          type: integer
+          example: 0
+
     UserExtended:
-      example: {
-        "id": "georges",
-        "username": "Georges",
-        "title": "NM",
-        "online": true,
-        "playing": true,
-        "streaming": false,
-        "createdAt": 1290415680000,
-        "seenAt": 1522636452014,
-        "profile": {
-            "bio": "Free bugs!",
-            "country": "EC",
-            "firstName": "Thibault",
-            "lastName": "Duplessis",
-            "links": "github.com/ornicar\r\ntwitter.com/ornicar",
-            "location": "On the road"
-        },
-        "nbFollowers": 2735,
-        "nbFollowing": 299,
-        "completionRate": 97,
-        "language": "en-GB",
-        "count": {
-            "ai": 531,
-            "all": 9265,
-            "bookmark": 71,
-            "draw": 340,
-            "drawH": 331,
-            "import": 66,
-            "loss": 4480,
-            "lossH": 4207,
-            "me": 0,
-            "playing": 6,
-            "rated": 7157,
-            "win": 4440,
-            "winH": 4378
-        },
-        "perfs": {
-            "blitz": {
-                "games": 2945,
-                "prog": -22,
-                "rating": 1609,
-                "rd": 60
-            },
-            "bullet": {
-                "games": 2324,
-                "prog": -9,
-                "rating": 1602,
-                "rd": 61
-            },
-            "chess960": {
-                "games": 347,
-                "prog": 84,
-                "rating": 1554,
-                "rd": 66
-            },
-            "puzzle": {
-                "games": 2248,
-                "prog": -67,
-                "rating": 1737,
-                "rd": 63
-            },
-        },
-        "patron": true,
-        "disabled" : false,
-        "engine" : false,
-        "booster" : false,
-        "playTime": {
-            "total": 3296897,
-            "tv": 12134
-        }
-      }
+      type: object
+      properties:
+        id:
+          type: string
+          example: georges
+        username:
+          type: string
+          example: Georges
+        online:
+          type: boolean
+          example: true
+        prefs:
+          $ref: '#/components/schemas/Perfs'
+        createdAt:
+          type: integer
+          example: 1290415680000
+        disabled:
+          type: boolean
+          example: false
+        engine:
+          type: boolean
+          example: false
+        booster:
+          type: boolean
+          example: false
+        profile:
+          $ref: '#/components/schemas/Profile'
+        seenAt:
+          type: integer
+          example: 1522636452014
+        patron:
+          type: boolean
+          example: true
+        playTime:
+          $ref: '#/components/schemas/PlayTime'
+        language:
+          type: string
+          example: en-GB
+        title:
+          $ref: '#/components/schemas/Title'
+        url:
+          type: string
+          format: uri
+          example: https://lichess.org/@/georges
+        playing:
+          type: string
+          format: uri
+          example: https://lichess.org/yqfLYJ5E/black
+        nbFollowing:
+          type: integer
+          example: 299
+        nbFollowers:
+          type: integer
+          example: 2735
+        completionRate:
+          type: integer
+          example: 97
+        count:
+          $ref: '#/components/schemas/Count'
+        streaming:
+          type: boolean
+          example: false
+        followable:
+          type: boolean
+          example: true
+        following:
+          type: boolean
+          example: false
+        blocking:
+          type: boolean
+          example: false
+        followsYou:
+          type: boolean
+          example: false
 
     PuzzleRoundJson:
       example: {
