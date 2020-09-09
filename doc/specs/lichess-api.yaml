@@ -3543,60 +3543,7 @@ components:
 
         { This chapter will go over the Dragon Variation, a very common variation used by Black and it is the most aggressive variation in the Sicilian defense. }
         1. e4 c5 2. Nf3 { Simple developing move to control the d4 square } { [%csl Gd4,Gc5][%cal Gf3d4,Gc5d4] } 2... d6 { [%cal Gd6e5] } (2... e6 3. d4 cxd4 4. Nxd4 Nf6 5. e5 (5. Nc3 { [%cal Ge4e5] }) 5... Qa5+) 3. d4 { Whites want the exchange of pawns } { [%cal Gc5d4] } 3... cxd4 { [%cal Gf3d4] } 4. Nxd4 { Whites are now ahead in development but blacks still have the two central pawns whereas whites only one. } { [%csl Ge7,Gd6,Ge4] } 4... Nf6 { Blacks are now developing their knight and threatening the e4 pawn } { [%csl Ge4][%cal Gf6e4] } 5. Nc3 { The e4 pawn is now protected by the c3 knight } { [%csl Ge4,Bc3][%cal Rf6e4,Bc3e4] } 5... g6 { This is the DRAGON VARIATION. g6 allows the dark-squared bishop to develop and move to g7, controlling the long dark-squared diagonal } { [%csl Gd4] } 6. Be3 { [%cal Gd1d2,Gf2f3,Ge1c1,Gg2g4,Gh2h4,Gg4g5] } (6. Be2 Bg7 7. O-O Nc6 8. Be3 { [%cal Ge3d4] } (8. f3 Nxe4 { [%cal Gg7d4,Gc6d4] } 9. Nxc6 Qb6+ { [%cal Gb6c6,Gb6g1] } 10. Kh1 Nxc3 { [%cal Gc3d1,Gc3e2] } 11. bxc3 bxc6 { [%cal Gc8a6] }) 8... O-O 9. Nb3 a6 { [%cal Gb7b5,Gb5b4,Ge2c4] }) 6... Bg7 (6... Ng4 { [%cal Gg4e3] } 7. Bb5+ { [%cal Gb5e8,Gb8d7,Gc8d7,Gd1g4] } 7... Nc6 8. Nxc6 bxc6 9. Bxc6+ { [%cal Gc6a8] }) 7. f3 { The key opening moves for White, who attempt to castle queenside , whereas f3 strengthens the pawn structure, connecting e4 to the h2 and g2, while White also plan pushing to g4 and possibly h4. } { [%csl Bf3,Be3][%cal Rg2g4,Rh2h4,Rg4g5] } 7... O-O (7... h5 { Is operating against g4. }) 8. Qd2 { [%csl Gh6,Gg7][%cal Ge1c1,Ga1d1,Re3h6,Rd2h6] } 8... Nc6 { [%csl Gc6,Gh6][%cal Gb8c6,Ge1c1,Ga7a6,Ge3h6] } 9. g4 (9. Bh6 { [%cal Ge3d4] } 9... Bxh6 10. Qxh6 Nxd4) 9... Be6 10. Nxe6 fxe6 { [%cal Gf8f1] } 11. O-O-O Ne5 12. Be2 { [%csl Gf3][%cal Re5f3,Bd1h1,Bg1d1] } 12... Qc7 { [%csl Gc4][%cal Ge5c4,Gc4e3,Gc4d2,Bf8c8,Yc7c3] } 13. h4 Nc4 *
-    User:
-      example: {
-        "id": "georges",
-        "username": "Georges",
-        "title": "NM",
-        "online": true,
-        "playing": true,
-        "streaming": false,
-        "createdAt": 1290415680000,
-        "seenAt": 1522636452014,
-        "profile": {
-            "bio": "Free bugs!",
-            "country": "EC",
-            "firstName": "Thibault",
-            "lastName": "Duplessis",
-            "links": "github.com/ornicar\r\ntwitter.com/ornicar",
-            "location": "On the road"
-        },
-        "language": "en-GB",
-        "perfs": {
-            "blitz": {
-                "games": 2945,
-                "prog": -22,
-                "rating": 1609,
-                "rd": 60
-            },
-            "bullet": {
-                "games": 2324,
-                "prog": -9,
-                "rating": 1602,
-                "rd": 61
-            },
-            "chess960": {
-                "games": 347,
-                "prog": 84,
-                "rating": 1554,
-                "rd": 66
-            },
-            "puzzle": {
-                "games": 2248,
-                "prog": -67,
-                "rating": 1737,
-                "rd": 63
-            },
-        },
-        "patron": true,
-        "disabled" : false,
-        "engine" : false,
-        "booster" : false,
-        "playTime": {
-            "total": 3296897,
-            "tv": 12134
-        }
-      }
+
     UserLight:
       example: {
         "id": "chess-network",
@@ -3605,6 +3552,7 @@ components:
         "playing": true,
         "patron": true
       }
+
     Title:
       type: string
       enum: [GM, WGM, IM, WIM, FM, WFM, NM, CM, WCM, WNM, LM, BOT]
@@ -3739,7 +3687,7 @@ components:
           type: integer
           example: 0
 
-    UserExtended:
+    User:
       type: object
       properties:
         id:
@@ -3780,40 +3728,45 @@ components:
           example: en-GB
         title:
           $ref: '#/components/schemas/Title'
-        url:
-          type: string
-          format: uri
-          example: https://lichess.org/@/georges
-        playing:
-          type: string
-          format: uri
-          example: https://lichess.org/yqfLYJ5E/black
-        nbFollowing:
-          type: integer
-          example: 299
-        nbFollowers:
-          type: integer
-          example: 2735
-        completionRate:
-          type: integer
-          example: 97
-        count:
-          $ref: '#/components/schemas/Count'
-        streaming:
-          type: boolean
-          example: false
-        followable:
-          type: boolean
-          example: true
-        following:
-          type: boolean
-          example: false
-        blocking:
-          type: boolean
-          example: false
-        followsYou:
-          type: boolean
-          example: false
+
+    UserExtended:
+      allOf:
+        - $ref: '#/components/schemas/User'
+        - properties:
+            url:
+              type: string
+              format: uri
+              example: https://lichess.org/@/georges
+            playing:
+              type: string
+              format: uri
+              example: https://lichess.org/yqfLYJ5E/black
+            nbFollowing:
+              type: integer
+              example: 299
+            nbFollowers:
+              type: integer
+              example: 2735
+            completionRate:
+              type: integer
+              example: 97
+            count:
+              $ref: '#/components/schemas/Count'
+            streaming:
+              type: boolean
+              example: false
+            followable:
+              type: boolean
+              example: true
+            following:
+              type: boolean
+              example: false
+            blocking:
+              type: boolean
+              example: false
+            followsYou:
+              type: boolean
+              example: false
 
     PuzzleRoundJson:
       example: {
