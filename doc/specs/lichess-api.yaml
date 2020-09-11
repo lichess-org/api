@@ -4318,20 +4318,29 @@ components:
       }
 
     Team:
-      example: {
-        "id": "coders",
-        "name": "Coders",
-        "leaders": [
-          {
-            "id": "thibault",
-            "name": "thibault",
-            "patron": true
-          }
-        ],
-        "nbMembers": 3129,
-        "description": "There are 10 kinds of people in the world: those who understand binary, and the others.\r\n\r\nIf you want to join the team, prove (briefly) that you can code in the request message!",
-        "open": false
-      }
+      type: object
+      properties:
+        id:
+          type: string
+          example: coders
+        name:
+          type: string
+          example: Coders
+        description:
+          type: string
+          example: "There are 10 kinds of people in the world: those who understand binary, and the others.\r\n\r\nIf you want to join the team, prove (briefly) that you can code in the request message!"
+        open:
+          type: boolean
+          example: false
+        leader:
+          $ref: '#/components/schemas/UserLight'
+        leaders:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserLight'
+        nbMembers:
+          type: integer
+          example: 3129
 
     BotGameState:
       type: object
