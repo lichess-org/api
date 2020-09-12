@@ -3423,6 +3423,14 @@ components:
         default: application/vnd.lichess.v3+json
       required: true
   schemas:
+    Clock:
+      type: object
+      properties:
+        limit:
+          type: integer
+        increment:
+          type: integer
+
     ChallengeJson:
       example: {
         "id": "VU0nyvsW",
@@ -4071,44 +4079,101 @@ components:
           example: 1
 
     ArenaTournament:
-      example: {
-        "id": "QITRjufu",
-        "fullName": "U1700 SuperBlitz Arena",
-        "clock": {
-            "increment": 0,
-            "limit": 180
-        },
-        "minutes": 57,
-        "rated": true,
-        "createdBy": "lichess",
-        "system": "arena",
-        "secondsToStart": 0,
-        "startsAt": 1522803600000,
-        "finishesAt": 1522807020000,
-        "hasMaxRating": true,
-        "nbPlayers": 154,
-        "status": 30,
-        "perf": {
-            "icon": ")",
-            "key": "blitz",
-            "name": "Blitz",
-            "position": 1
-        },
-        "schedule": {
-            "freq": "hourly",
-            "speed": "superblitz"
-        },
-        "variant": {
-            "key": "standard",
-            "name": "Standard",
-            "short": "Std"
-        },
-        "winner": {
-            "id": "camerun10",
-            "name": "camerun10",
-            "title": null
-        }
-      }
+      type: object
+      properties:
+        id:
+          type: string
+          example: 2VoKhb8g
+        createdBy:
+          type: string
+          example: lichess
+        system:
+          type: string
+          enum: [arena]
+        minutes:
+          type: integer
+          example: 57
+        clock:
+          $ref: '#/components/schemas/Clock'
+        rated:
+          type: boolean
+          example: true
+        fullName:
+          type: string
+          example: Petrov's Defence Blitz Arena
+        nbPlayers:
+          type: integer
+          example: 156
+        variant:
+          type: object
+          properties:
+            key:
+              type: string
+              example: standard
+            short:
+              type: string
+              example: Std
+            name:
+              type: string
+              example: Standard
+        startsAt:
+          type: integer
+          example: 1599886846000
+        finishesAt:
+          type: integer
+          example: 1599890266000
+        status:
+          type: integer
+          example: 30
+        perf:
+          type: object
+          properties:
+            icon:
+              type: string
+              example: )
+            key:
+              type: string
+              example: blitz
+            name:
+              type: string
+              example: Blitz
+            position:
+              type: integer
+              example: 1
+        secondsToStart:
+          type: integer
+        hasMaxRating:
+          type: boolean
+          example: false
+        private:
+          type: boolean
+          example: false
+        position:
+          type: object
+          properties:
+            eco:
+              type: string
+              example: C43
+            name:
+              type: string
+              example: "Petrov's Defence: Steinitz Attack"
+            wikiPath:
+              type: string
+              example: "Petrov's_Defence#3.d4"
+            fen:
+              type: string
+              exapmle: "rnbqkb1r/pppp1ppp/5n2/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 1 3"
+        schedule:
+          type: object
+          properties:
+            freq:
+              type: string
+              example: hourly
+            speed:
+              type: string
+              example: blitz
+        winner:
+          $ref: '#/components/schemas/UserLight'
 
     ArenaTournamentId:
       example: {
