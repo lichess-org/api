@@ -3705,7 +3705,7 @@ components:
         online:
           type: boolean
           example: true
-        prefs:
+        perfs:
           $ref: '#/components/schemas/Perfs'
         createdAt:
           type: integer
