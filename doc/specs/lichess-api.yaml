@@ -4581,7 +4581,12 @@ components:
             "email:read": Read your email address
             "challenge:read": Read incoming challenges
             "challenge:write": Create, accept, decline challenges
+            "study:read": Read private studies and broadcasts
+            "study:write": Create, update, delete studies and broadcasts
             "tournament:write": Create tournaments
+            "puzzle:read": Read puzzle activity
+            "team:write": Join, leave, and manage teams
+            "msg:write": Send private messages to other players
             "board:play": Play with the Board API
             "bot:play": Play with the Bot API. Only for [Bot accounts](#operation/botAccountUpgrade)
     SameOrigin:
