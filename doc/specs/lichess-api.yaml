@@ -340,7 +340,6 @@ paths:
               example:
                 https://gist.github.com/ornicar/0ee2d2427cb74ed1a35e86f5ba09fabc
 
-
   /api/user/puzzle-activity:
     get:
       operationId: apiUserPuzzleActivity
@@ -2409,6 +2408,41 @@ paths:
                   }
                 ]
 
+  /api/crosstable/{user1}/{user2}:
+    get:
+      operationId: apiCrosstable
+      summary: Get crosstable
+      description: |
+        Get total number of games, and current score, of any two users.
+
+        If the `matchup` flag is provided, and the users are currently playing, also gets the current match game number and scores.
+      tags:
+        - Users
+      security:
+        - None: []
+      parameters:
+        - in: path
+          name: user1
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: user2
+          schema:
+            type: string
+          required: true
+        - in: query
+          name: matchup
+          description: Whether to get the current match data, if any
+          schema:
+            type: boolean
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Crosstable'
+
   /api/user/{username}/following:
     get:
       operationId: apiUserFollowing
@@ -3773,6 +3807,22 @@ components:
             followsYou:
               type: boolean
               example: false
+
+    Crosstable:
+      example: {
+        "users": {
+          "neio": 201.5,
+          "thibault": 144.5
+        },
+        "nbGames": 346,
+        "matchup": {
+          "users": {
+            "neio": 44,
+            "thibault": 43
+            },
+            "nbGames":87
+          }
+        }
 
     PuzzleRoundJson:
       example: {
