@@ -4290,8 +4290,8 @@ components:
         "minutes": 57,
         "createdBy": "lichess",
         "system": "arena",
-        "secondsToStart": 0, // if not yet started
-        "secondsToFinish": 36000, // if started
+        "secondsToStart": 0,
+        "secondsToFinish": 36000,
         "isFinished": true,
         "isRecentlyFinished": true,
         "pairingsClosed": true,
@@ -4312,7 +4312,7 @@ components:
           "name": "Standard",
           "short": "Std"
         },
-        "duels": [ // sample of ongoing games
+        "duels": [
           {
             "id": "0MM6q4tQ",
             "p": [
