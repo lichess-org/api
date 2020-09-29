@@ -4290,13 +4290,12 @@ components:
         "minutes": 57,
         "createdBy": "lichess",
         "system": "arena",
-        "secondsToStart": 0,
-        "secondsToFinish": 36000,
-        "isFinshed": true,
+        "secondsToStart": 0, // if not yet started
+        "secondsToFinish": 36000, // if started
+        "isFinished": true,
         "isRecentlyFinished": true,
         "pairingsClosed": true,
-        "startsAt": 1522803600000,
-        "finishesAt": 1522807020000,
+        "startsAt": "2018-04-04T01:00:00.000Z",
         "nbPlayers": 154,
         "perf": {
           "icon": ")",
@@ -4313,7 +4312,7 @@ components:
           "name": "Standard",
           "short": "Std"
         },
-        "duels": [
+        "duels": [ // sample of ongoing games
           {
             "id": "0MM6q4tQ",
             "p": [
