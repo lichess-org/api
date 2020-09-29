@@ -3389,13 +3389,11 @@ paths:
           description: OAuth token of a player
           schema:
             type: string
-            default: standard
         - in: query
           name: token2
           description: OAuth token of the other player
           schema:
             type: string
-            default: standard
       responses:
         200:
           content:
