@@ -3722,7 +3722,7 @@ components:
         uscfRating:
           type: integer
           example: 1500
-        ecf:
+        ecfRating:
           type: integer
           example: 1500
         links:
