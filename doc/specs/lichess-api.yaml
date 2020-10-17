@@ -1640,6 +1640,12 @@ paths:
       security:
         - None: []
       parameters:
+        - in: path
+          name: teamId
+          schema:
+            type: string
+          required: true
+          example: coders
         - in: query
           name: max
           description: How many tournaments to download.
