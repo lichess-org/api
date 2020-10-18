@@ -1330,9 +1330,9 @@ paths:
   /api/tournament/{id}/results:
     get:
       operationId: resultsByTournament
-      summary: Get results of a tournament
+      summary: Get results of an arena tournament
       description: |
-        Players of a tournament, with their score and performance, sorted by rank (best first).
+        Players of an arena tournament, with their score and performance, sorted by rank (best first).
 
         **Players are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
 
@@ -1554,7 +1554,7 @@ paths:
       operationId: gamesBySwiss
       summary: Export games of a Swiss tournament
       description: |
-        Download games of a tournament in PGN or [ndjson](http://ndjson.org/) format.
+        Download games of a swiss tournament in PGN or [ndjson](http://ndjson.org/) format.
 
         Games are sorted by reverse chronological order (last round first)
       tags:
@@ -1622,6 +1622,42 @@ paths:
             application/x-ndjson:
               schema:
                 $ref: '#/components/schemas/GameJson'
+
+  /api/swiss/{id}/results:
+    get:
+      operationId: resultsBySwiss
+      summary: Get results of a swiss tournament
+      description: |
+        Players of a swiss tournament, with their score and performance, sorted by rank (best first).
+
+        **Players are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+
+        If called on an ongoing tournament, results can be inconsistent
+        due to ranking changes while the players are being streamed.
+        Use on finished tournaments for guaranteed consistency.
+      tags:
+        - "Swiss tournaments"
+      security:
+        - None: []
+      parameters:
+        - in: path
+          name: id
+          description: The tournament ID.
+          schema:
+            type: string
+          required: true
+        - in: query
+          name: nb
+          description: Max number of players to fetch
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        200:
+          content:
+            application/x-ndjson:
+              schema:
+                example: {"rank":4,"score":24,"tieBreak": 77,"rating":2618,"username":"opperwezen","title":"IM","performance":2423}
 
   /api/team/{teamId}/swiss:
     get:
