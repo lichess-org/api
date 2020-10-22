@@ -13,6 +13,9 @@
     "nodemon": "^2.0.6",
     "simple-oauth2": "^4.1.0"
   },
+  "engines": {
+    "node": ">=10"
+  },
   "scripts": {
     "start": "nodemon index.js"
   }
