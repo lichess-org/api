@@ -3913,7 +3913,7 @@ components:
       example: {
         "id": 70232,
         "date": 1514505150384,
-        "rating": "1982",
+        "rating": 1982,
         "ratingDiff": 5,
         "puzzleRating": 1877
       }
