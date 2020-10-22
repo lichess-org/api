@@ -1,0 +1,377 @@
+body {
+  background: #161512 linear-gradient(to bottom, #2e2a24, #161512 116px) no-repeat;
+  color: #bababa;
+  font: 16px 'Noto Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
+}
+
+main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+a,
+a:visited {
+  color: #bababa;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em 0 3em 0;
+}
+
+.top__right * {
+  margin-left: 1em;
+}
+
+.puzzle {
+  display: flex;
+}
+
+.puzzle__ui {
+  margin-left: 2em;
+  padding: 1em 2em;
+  background: hsla(0, 0%, 90%, 0.1);
+}
+
+.puzzle__ui san {
+  margin: 0 .3ch;
+  opacity: .3;
+  font-weight: bold;
+}
+
+.puzzle__ui san.done {
+  color: hsl(88, 62%, 37%);
+  opacity: 1;
+}
+
+.puzzle__info__title em {
+  margin-left: 1em;
+  opacity: .3;
+}
+
+button {
+  border-radius: 5px;
+  background: hsla(0, 0%, 90%, 0.1);
+  color: #bababa;
+  font-size: 1em;
+  padding: .3em .7em;
+  cursor: pointer;
+}
+
+.puzzle__ui button.submit {
+  margin-top: 1em;
+  padding: 1em;
+  width: 100%;
+  color: #eaeaea;
+}
+
+.radios {
+  margin-top: 1.5em;
+}
+
+.radios strong {
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 3px;
+  opacity: .6;
+}
+
+.radios .choices {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: stretch;
+  margin-top: .3em;
+  user-select: none;
+}
+
+.radios .choices div {
+  flex: 1 1 auto;
+  display: flex;
+  align-content: stretch;
+}
+
+.radios input {
+  position: absolute;
+  left: -999999px;
+}
+
+.radios label {
+  flex: 1 1 auto;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: .6em;
+}
+
+.radios label:hover {
+  background: hsla(0, 0%, 90%, 0.1);
+}
+.radios label:active {
+  background: #0DFF92;
+  color: #fff;
+}
+
+.radios input:checked~label {
+  color: #0DFF92;
+  background: hsla(0, 0%, 90%, 0.1);
+  font-weight: bold;
+}
+
+/* chessground */
+
+.cg-wrap {
+  width: 640px;
+  height: 640px;
+  position: relative;
+  display: block;
+}
+
+@media (max-width: 1100px) {
+  .cg-wrap {
+    width: 420px;
+    height: 420px;
+  }
+}
+
+@media (max-width: 950px) {
+  .cg-wrap {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 700px) {
+  .cg-wrap {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+cg-helper {
+  position: absolute;
+  width: 12.5%;
+  padding-bottom: 12.5%;
+  display: table;
+  /* hack: round to full pixel size in chrome */
+  bottom: 0;
+}
+
+cg-container {
+  position: absolute;
+  width: 800%;
+  height: 800%;
+  display: block;
+  bottom: 0;
+}
+
+cg-board {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 0;
+  background-size: cover;
+  cursor: pointer;
+}
+
+cg-board square {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12.5%;
+  height: 12.5%;
+  pointer-events: none;
+}
+
+cg-board square.move-dest {
+  background: radial-gradient(rgba(20, 85, 30, 0.5) 22%, #208530 0, rgba(0, 0, 0, 0.3) 0, rgba(0, 0, 0, 0) 0);
+  pointer-events: auto;
+}
+
+cg-board square.premove-dest {
+  background: radial-gradient(rgba(20, 30, 85, 0.5) 22%, #203085 0, rgba(0, 0, 0, 0.3) 0, rgba(0, 0, 0, 0) 0);
+}
+
+cg-board square.oc.move-dest {
+  background: radial-gradient(transparent 0%, transparent 80%, rgba(20, 85, 0, 0.3) 80%);
+}
+
+cg-board square.oc.premove-dest {
+  background: radial-gradient(transparent 0%, transparent 80%, rgba(20, 30, 85, 0.2) 80%);
+}
+
+cg-board square.move-dest:hover {
+  background: rgba(20, 85, 30, 0.3);
+}
+
+cg-board square.premove-dest:hover {
+  background: rgba(20, 30, 85, 0.2);
+}
+
+cg-board square.last-move {
+  will-change: transform;
+  background-color: rgba(155, 199, 0, 0.41);
+}
+
+cg-board square.selected {
+  background-color: rgba(20, 85, 30, 0.5);
+}
+
+cg-board square.check {
+  background: radial-gradient(ellipse at center, rgba(255, 0, 0, 1) 0%, rgba(231, 0, 0, 1) 25%, rgba(169, 0, 0, 0) 89%, rgba(158, 0, 0, 0) 100%);
+}
+
+cg-board square.current-premove {
+  background-color: rgba(20, 30, 85, 0.5);
+}
+
+.cg-wrap piece {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12.5%;
+  height: 12.5%;
+  background-size: cover;
+  z-index: 2;
+  will-change: transform;
+  pointer-events: none;
+}
+
+cg-board piece.dragging {
+  cursor: move;
+  z-index: 9;
+}
+
+cg-board piece.anim {
+  z-index: 8;
+}
+
+cg-board piece.fading {
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.cg-wrap square.move-dest:hover {
+  background-color: rgba(20, 85, 30, 0.3);
+}
+
+.cg-wrap piece.ghost {
+  opacity: 0.3;
+}
+
+.cg-wrap svg {
+  overflow: hidden;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.6;
+}
+
+.cg-wrap svg image {
+  opacity: 0.5;
+}
+
+.cg-wrap coords {
+  position: absolute;
+  display: flex;
+  pointer-events: none;
+  opacity: 0.8;
+  font-size: 9px;
+}
+
+.cg-wrap coords.ranks {
+  right: -15px;
+  top: 0;
+  flex-flow: column-reverse;
+  height: 100%;
+  width: 12px;
+}
+
+.cg-wrap coords.ranks.black {
+  flex-flow: column;
+}
+
+.cg-wrap coords.files {
+  bottom: -16px;
+  left: 0;
+  flex-flow: row;
+  width: 100%;
+  height: 16px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.cg-wrap coords.files.black {
+  flex-flow: row-reverse;
+}
+
+.cg-wrap coords coord {
+  flex: 1 1 auto;
+}
+
+.cg-wrap coords.ranks coord {
+  transform: translateY(39%);
+}
+
+.blue .cg-wrap {
+  background-image: url('images/board/blue.svg');
+}
+
+.merida .cg-wrap piece.pawn.white {
+  background-image: url('images/pieces/merida/wP.svg');
+}
+
+.merida .cg-wrap piece.bishop.white {
+  background-image: url('images/pieces/merida/wB.svg');
+}
+
+.merida .cg-wrap piece.knight.white {
+  background-image: url('images/pieces/merida/wN.svg');
+}
+
+.merida .cg-wrap piece.rook.white {
+  background-image: url('images/pieces/merida/wR.svg');
+}
+
+.merida .cg-wrap piece.queen.white {
+  background-image: url('images/pieces/merida/wQ.svg');
+}
+
+.merida .cg-wrap piece.king.white {
+  background-image: url('images/pieces/merida/wK.svg');
+}
+
+.merida .cg-wrap piece.pawn.black {
+  background-image: url('images/pieces/merida/bP.svg');
+}
+
+.merida .cg-wrap piece.bishop.black {
+  background-image: url('images/pieces/merida/bB.svg');
+}
+
+.merida .cg-wrap piece.knight.black {
+  background-image: url('images/pieces/merida/bN.svg');
+}
+
+.merida .cg-wrap piece.rook.black {
+  background-image: url('images/pieces/merida/bR.svg');
+}
+
+.merida .cg-wrap piece.queen.black {
+  background-image: url('images/pieces/merida/bQ.svg');
+}
+
+.merida .cg-wrap piece.king.black {
+  background-image: url('images/pieces/merida/bK.svg');
+}
