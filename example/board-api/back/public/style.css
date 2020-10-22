@@ -14,109 +14,27 @@ a:visited {
   color: #bababa;
 }
 
+h2 {
+  font-weight: normal;
+  margin: 0.5em 0 1em 0;
+}
+
 .top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1em 0 3em 0;
+  margin: 1em 0 2em 0;
 }
 
 .top__right * {
   margin-left: 1em;
 }
 
-.puzzle {
-  display: flex;
-}
-
-.puzzle__ui {
-  margin-left: 2em;
+.event-log {
   padding: 1em 2em;
-  background: hsla(0, 0%, 90%, 0.1);
-}
-
-.puzzle__ui san {
-  margin: 0 .3ch;
-  opacity: .3;
-  font-weight: bold;
-}
-
-.puzzle__ui san.done {
-  color: hsl(88, 62%, 37%);
-  opacity: 1;
-}
-
-.puzzle__info__title em {
-  margin-left: 1em;
-  opacity: .3;
-}
-
-button {
-  border-radius: 5px;
-  background: hsla(0, 0%, 90%, 0.1);
-  color: #bababa;
-  font-size: 1em;
-  padding: .3em .7em;
-  cursor: pointer;
-}
-
-.puzzle__ui button.submit {
-  margin-top: 1em;
-  padding: 1em;
-  width: 100%;
-  color: #eaeaea;
-}
-
-.radios {
-  margin-top: 1.5em;
-}
-
-.radios strong {
-  text-transform: uppercase;
-  font-weight: normal;
-  letter-spacing: 3px;
-  opacity: .6;
-}
-
-.radios .choices {
-  display: flex;
-  flex-flow: row wrap;
-  align-content: stretch;
-  margin-top: .3em;
-  user-select: none;
-}
-
-.radios .choices div {
-  flex: 1 1 auto;
-  display: flex;
-  align-content: stretch;
-}
-
-.radios input {
-  position: absolute;
-  left: -999999px;
-}
-
-.radios label {
-  flex: 1 1 auto;
-  text-align: center;
-  border-radius: 5px;
-  cursor: pointer;
-  padding: .6em;
-}
-
-.radios label:hover {
-  background: hsla(0, 0%, 90%, 0.1);
-}
-.radios label:active {
-  background: #0DFF92;
-  color: #fff;
-}
-
-.radios input:checked~label {
-  color: #0DFF92;
-  background: hsla(0, 0%, 90%, 0.1);
-  font-weight: bold;
+  background: hsla(0, 0%, 90%, 0.05);
+  height: 20vh;
+  overflow-y: auto;
 }
 
 /* chessground */

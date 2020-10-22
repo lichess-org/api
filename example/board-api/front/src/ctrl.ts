@@ -1,16 +1,19 @@
 import { ServerLogin } from './types';
-import readStream from './ndjson';
+import ndjson from './ndjson';
 
 export default class Ctrl {
 
+  eventLog = Array<string>()
+
   constructor(readonly login: ServerLogin, readonly redraw: () => void) {
-    console.log(login.token);
     fetch('https://lichess.org/api/stream/event', {
       headers: { 'Authorization': `Bearer ${login.token}` }
-    }).then(readStream(this.onServerEvent));
+    }).then(ndjson(this.onServerEvent)).then(location.reload);
   }
 
   private onServerEvent = (event: any) => {
-    console.log(event);
+    this.eventLog.push(event);
+    this.eventLog = this.eventLog.slice(-300);
+    this.redraw();
   }
 }

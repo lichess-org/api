@@ -1,29 +1,27 @@
-const readStream = (processLine: ((line: any) => void)) => (response: Response) => {
+/* read an ndjson stream and call onEvent with each received object */
+const ndjson = (onEvent: ((line: any) => void)) => (response: Response) => {
   const stream = response.body!.getReader();
-  const matcher = /\r?\n/;
   const decoder = new TextDecoder();
   let buf = '';
 
-  const loop = (): Promise<void> =>
-    stream.read().then(({ done, value }) => {
-      if (done) {
-        if (buf.length > 0) return processLine(JSON.parse(buf));
-      } else {
-        const chunk = decoder.decode(value, {
-          stream: true
-        });
-        buf += chunk;
+  const handle = (str: string) => {
+    if (str) onEvent(JSON.parse(str));
+  }
 
-        const parts = buf.split(matcher);
-        buf = parts.pop() || '';
-        for (const i of parts) processLine(JSON.parse(i));
-        return loop();
-      }
-    });
+  const loop = (): Promise<void> => stream.read().then(({ done, value }) => {
 
-  return loop().then(() => {
-    console.log('the stream has completed');
+    if (done) return handle(buf);
+
+    buf += decoder.decode(value, { stream: true });
+
+    const parts = buf.split(/\r?\n/);
+    buf = parts.pop() || '';
+    parts.forEach(handle);
+
+    return loop();
   });
+
+  return loop().then(() => console.log('the stream has completed'));
 }
 
-export default readStream;
+export default ndjson;

@@ -31,6 +31,11 @@ export default function(app: Express.Express, env: Env) {
     req.session!.authId = authId;
     res.redirect('/');
   });
+
+  app.get('/logout', (req, res) => {
+    req.session!.authId = '';
+    res.redirect('/');
+  });
 }
 
 const htmlPage = (content: string) => `
