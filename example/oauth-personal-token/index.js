@@ -1,12 +1,12 @@
-const axios = require('axios');
+const fetch = require('node-fetch');
 
 /* Create your personal token on https://lichess.org/account/oauth/token */
 const personalToken = '';
 
-axios.get('/api/account', {
-  baseURL: 'https://lichess.org/',
-  headers: { 'Authorization': 'Bearer ' + personalToken }
-}).then(
-  console.log,
-  err => console.error(err.message)
-);
+fetch('https://lichess.org/api/account', {
+    headers: {
+      'Authorization': 'Bearer ' + personalToken
+    }
+  })
+  .then(res => res.json())
+  .then(console.log);
