@@ -27,4 +27,6 @@ export function start(login: ServerLogin) {
   vnode = patch(element, blueprint);
 
   redraw();
+
+  window.addEventListener('resize', () => document.body.dispatchEvent(new Event('chessground.resize')));
 };
