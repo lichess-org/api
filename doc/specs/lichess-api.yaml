@@ -3215,6 +3215,17 @@ paths:
             type: string
             example: "5IrD6Gzz"
           required: true
+      requestBody:
+        description: Details related to decline of challenge
+        required: false
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                reason:
+                  type: string
+                  description: Reason challenge was declined
       responses:
         200:
           content:
