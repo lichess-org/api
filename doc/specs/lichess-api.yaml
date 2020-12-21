@@ -1185,7 +1185,7 @@ paths:
                   default: true
                 position:
                   type: string
-                  description: Custom initial position (in FEN) for all games of the tournament. Must be a legal chess position. Only works with standard chess, not variants.
+                  description: Custom initial position (in FEN) for all games of the tournament. Must be a legal chess position. Only works with standard chess, not variants (except Chess960). Castling moves will use UCI_Chess960 notation, for example e1h1 instead of e1g1.
                 berserkable:
                   type: boolean
                   description: Whether the players can use berserk
