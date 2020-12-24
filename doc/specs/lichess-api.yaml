@@ -871,13 +871,13 @@ paths:
 
         The method is `POST` so a longer list of IDs can be sent in the request body.
 
-        300 IDs can be submitted. If the request uses OAuth2, 500 IDs can be submitted.
+        300 IDs can be submitted.
       tags:
         - Games
       security:
         - SameOrigin: []
       requestBody:
-        description: Game IDs separated by commas.
+        description: Game IDs separated by commas. Up to 300.
         required: true
         content:
           text/plain:
