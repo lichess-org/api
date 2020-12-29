@@ -10,7 +10,8 @@ info:
   \ or in the #lichess IRC channel on freenode.\n\
   \ - [Contribute to this documentation on Github](https://github.com/lichess-org/api).\n\
   \ - Check out [lichess widgets to embed in your website](https://lichess.org/developers).\n\
-  \ - [Download all lichess rated games](https://database.lichess.org/)\n\
+  \ - [Download all Lichess rated games](https://database.lichess.org/)\n\
+  \ - [Download all Lichess puzzles with themes, ratings and votes](https://database.lichess.org/#puzzles)\n\
   \n## Endpoint\n\
   \ All requests go to `https://lichess.org`.\n\
   \n## Clients\n\
