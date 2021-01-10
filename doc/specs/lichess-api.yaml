@@ -1964,94 +1964,95 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Broadcast'
-    post:
-      operationId: broadcastUpdate
-      summary: Update your broadcast
-      description: |
-        Update information about a broadcast that you created.
-        This endpoint accepts the same form data as the web form.
-        All fields must be populated with data. Missing fields will override the broadcast with empty data.
-        For instance, if you omit `startDate`, then any pre-existing start date will be removed.
-      tags:
-        - Broadcasts
-        - OAuth
-      security:
-        - OAuth2: ["study:write"]
-      parameters:
-        - in: path
-          name: slug
-          description: The broadcast slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastId` is actually used.
-          required: true
-          schema:
-            type: string
-            default: "-"
-        - in: path
-          name: broadcastId
-          description: The broadcast ID (8 characters).
-          required: true
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
+
+  /broadcast/{slug}/{broadcastId}/edit:
+      post:
+        operationId: broadcastUpdate
+        summary: Update your broadcast
+        description: |
+          Update information about a broadcast that you created.
+          This endpoint accepts the same form data as the web form.
+          All fields must be populated with data. Missing fields will override the broadcast with empty data.
+          For instance, if you omit `startDate`, then any pre-existing start date will be removed.
+        tags:
+          - Broadcasts
+          - OAuth
+        security:
+          - OAuth2: ["study:write"]
+        parameters:
+          - in: path
+            name: slug
+            description: The broadcast slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastId` is actually used.
+            required: true
             schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: |
-                    Name of the broadcast. Length must be between 3 and 80 characters.
+              type: string
+              default: "-"
+          - in: path
+            name: broadcastId
+            description: The broadcast ID (8 characters).
+            required: true
+            schema:
+              type: string
+        requestBody:
+          required: true
+          content:
+            application/x-www-form-urlencoded:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    description: |
+                      Name of the broadcast. Length must be between 3 and 80 characters.
 
-                    Example: `Sinquefield Cup - Round 10`
-                description:
-                  type: string
-                  description: |
-                    Short description of the broadcast. Length must be between 3 and 400 characters.
+                      Example: `Sinquefield Cup - Round 10`
+                  description:
+                    type: string
+                    description: |
+                      Short description of the broadcast. Length must be between 3 and 400 characters.
 
-                    Example: `An 11 round classical tournament featuring the 9 highest rated players in the world. Including Carlsen, Caruana, Ding, Aronian, Nakamura and more.`
-                syncUrl:
-                  type: string
-                  description: |
-                    URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
+                      Example: `An 11 round classical tournament featuring the 9 highest rated players in the world. Including Carlsen, Caruana, Ding, Aronian, Nakamura and more.`
+                  syncUrl:
+                    type: string
+                    description: |
+                      URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
 
-                    Example: `http://myserver.org/myevent/round-10/games.pgn`
-                markdown:
-                  type: string
-                  description: Optional long description of the broadcast. Markdown is supported. Length must be less than 20,000 characters.
-                credit:
-                  type: string
-                  description: Optional short text to give credit to the source provider.
-                startsAt:
-                  type: integer
-                  description: |
-                    Timestamp in milliseconds of broadcast start. Leave empty to manually start the broadcast.
-
-                    Example: `1356998400070`
-                  schema:
+                      Example: `http://myserver.org/myevent/round-10/games.pgn`
+                  markdown:
+                    type: string
+                    description: Optional long description of the broadcast. Markdown is supported. Length must be less than 20,000 characters.
+                  credit:
+                    type: string
+                    description: Optional short text to give credit to the source provider.
+                  startsAt:
                     type: integer
-                    minimum: 1356998400070
-                official:
-                  type: boolean
-                  description: For Lichess internal usage only. You are not allowed to use this flag. If you do it, we will have to call the police.
-                throttle:
-                  type: integer
-                  description: For Lichess internal usage only. You are not allowed to use this flag. If you do it, chess24 will display ads on your broadcast.
-              required:
-                - name
-                - description
-                - syncUrl
-      responses:
-        200:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Broadcast'
-        400:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+                    description: |
+                      Timestamp in milliseconds of broadcast start. Leave empty to manually start the broadcast.
+
+                      Example: `1356998400070`
+                    schema:
+                      type: integer
+                      minimum: 1356998400070
+                  official:
+                    type: boolean
+                    description: For Lichess internal usage only. You are not allowed to use this flag. If you do it, we will have to call the police.
+                  throttle:
+                    type: integer
+                    description: For Lichess internal usage only. You are not allowed to use this flag. If you do it, chess24 will display ads on your broadcast.
+                required:
+                  - name
+                  - description
+        responses:
+          200:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Broadcast'
+          400:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'
 
   /broadcast/{slug}/{broadcastId}/push:
     post:
