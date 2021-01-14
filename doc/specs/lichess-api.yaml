@@ -2318,7 +2318,10 @@ paths:
               properties:
                 message:
                   type: string
-                  description: Optional request message, if the team is not open.
+                  description: Optional request message, if the team requires one.
+                password:
+                  type: string
+                  description: Optional password, if the team requires one.
       responses:
         200:
           content:
