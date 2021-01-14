@@ -3959,7 +3959,7 @@ components:
         disabled:
           type: boolean
           example: false
-        engine:
+        tosViolation:
           type: boolean
           example: false
         booster:
