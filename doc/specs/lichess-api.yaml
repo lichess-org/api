@@ -3283,7 +3283,17 @@ paths:
               properties:
                 reason:
                   type: string
-                  description: Reason challenge was declined
+                  description: Reason challenge was declined. It will be translated to the player's language. See [the full list in the translation file](https://github.com/ornicar/lila/blob/43fbd61029ff3960a21fbd213944bed66325696d/translation/source/challenge.xml#L14).
+                  enum:
+                    - generic    
+                    - later      
+                    - tooFast    
+                    - tooSlow    
+                    - timeControl
+                    - rated      
+                    - casual     
+                    - standard   
+                    - variant    
       responses:
         200:
           content:
