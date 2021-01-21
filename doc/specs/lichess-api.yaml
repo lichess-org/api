@@ -44,9 +44,9 @@ tags:
     Access games played on Lichess.
     https://lichess.org/games
 - name: Puzzles
-  description: |
-    Access Lichess puzzle history and dashboard.
-    https://lichess.org/training
+  description: "Access Lichess puzzle history and dashboard. https://lichess.org/training\n\n
+  \ Our collection of puzzles is in the public domain, you can [download it here](https://database.lichess.org/#puzzles).\n\n
+  \ For a list of our puzzle themes with their description, check out the [theme translation file](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml)."
 - name: Teams
   description: |
     Access and manage Lichess teams and their members.
@@ -381,7 +381,7 @@ paths:
       description: |
         Download your [puzzle dashboard](https://lichess.org/training/dashboard/30/dashboard) as JSON.
 
-        Also includes all puzzle themes played with aggregated results.
+        Also includes all puzzle themes played, with aggregated results.
 
         Allows re-creating the [improvement/strengths](https://lichess.org/training/dashboard/30/improvementAreas) interfaces.
       tags:
@@ -392,17 +392,16 @@ paths:
       parameters:
         - in: path
           name: days
-          description: How many days to look back when aggregating puzzle results.
+          description: How many days to look back when aggregating puzzle results. 30 is sensible.
           schema:
             type: integer
             minimum: 1
-            default: 30
       responses:
         200:
           content:
-            application/x-ndjson:
+            application/json:
               schema:
-                $ref: '#/components/schemas/PuzzleRoundJson'
+                $ref: '#/components/schemas/PuzzleDashboardJson'
 
   /api/users:
     post:
@@ -4108,6 +4107,40 @@ components:
         "rating": 1982,
         "ratingDiff": 5,
         "puzzleRating": 1877
+      }
+
+    PuzzleDashboardJson:
+      example: {
+        "days": 30,
+        "global": {
+          "firstWins": 276,
+          "nb": 501,
+          "performance": 1570,
+          "puzzleRatingAvg": 1523,
+          "replayWins": 2
+        },
+        "themes": {
+          "advancedPawn": {
+            "results": {
+              "firstWins": 19,
+              "nb": 39,
+              "performance": 1438,
+              "puzzleRatingAvg": 1476,
+              "replayWins": 1
+            },
+            "theme": "Advanced pawn"
+          },
+          "anastasiaMate": {
+            "results": {
+              "firstWins": 5,
+              "nb": 6,
+              "performance": 1720,
+              "puzzleRatingAvg": 1387,
+              "replayWins": 0
+            },
+            "theme": "Anastasia's mate"
+          }
+        }
       }
 
     RatingHistory:
