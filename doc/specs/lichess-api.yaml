@@ -43,6 +43,10 @@ tags:
   description: |
     Access games played on Lichess.
     https://lichess.org/games
+- name: Puzzles
+  description: |
+    Access Lichess puzzle history and dashboard.
+    https://lichess.org/training
 - name: Teams
   description: |
     Access and manage Lichess teams and their members.
@@ -340,9 +344,9 @@ paths:
               example:
                 https://gist.github.com/ornicar/0ee2d2427cb74ed1a35e86f5ba09fabc
 
-  /api/user/puzzle-activity:
+  /api/puzzle/activity:
     get:
-      operationId: apiUserPuzzleActivity
+      operationId: apiPuzzleActivity
       summary: Get your puzzle activity
       description: |
         Download your puzzle activity in [ndjson](http://ndjson.org/) format.
@@ -351,7 +355,7 @@ paths:
 
         We recommend streaming the response, for it can be very long.
       tags:
-        - Users
+        - Puzzles
         - OAuth
       security:
         - OAuth2: ["puzzle:read"]
@@ -363,6 +367,36 @@ paths:
             type: integer
             minimum: 1
             default: null
+      responses:
+        200:
+          content:
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/PuzzleRoundJson'
+
+  /api/puzzle/dashboard/{days}:
+    get:
+      operationId: apiPuzzleDashboard
+      summary: Get your puzzle dashboard
+      description: |
+        Download your [puzzle dashboard](https://lichess.org/training/dashboard/30/dashboard) as JSON.
+
+        Also includes all puzzle themes played with aggregated results.
+
+        Allows re-creating the [improvement/strengths](https://lichess.org/training/dashboard/30/improvementAreas) interfaces.
+      tags:
+        - Puzzles
+        - OAuth
+      security:
+        - OAuth2: ["puzzle:read"]
+      parameters:
+        - in: path
+          name: days
+          description: How many days to look back when aggregating puzzle results.
+          schema:
+            type: integer
+            minimum: 1
+            default: 30
       responses:
         200:
           content:
