@@ -3294,6 +3294,8 @@ paths:
                     - casual     
                     - standard   
                     - variant    
+                    - noBot
+                    - onlyBot
       responses:
         200:
           content:
