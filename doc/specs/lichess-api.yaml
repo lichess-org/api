@@ -3915,6 +3915,16 @@ components:
         prov:
           type: boolean
 
+    StormPerf:
+      type: object
+      properties:
+        runs:
+          type: integer
+          example: 44
+        score:
+          type: integer
+          example: 61
+
     Perfs:
       type: object
       properties:
@@ -3942,6 +3952,8 @@ components:
           $ref: '#/components/schemas/Perf'
         rapid:
           $ref: '#/components/schemas/Perf'
+        storm:
+          $ref: '#/components/schemas/StormPerf'
 
     PlayTime:
       type: object
