@@ -123,14 +123,22 @@ tags:
     but you can [create your own broadcasts](https://lichess.org/broadcast/new) to cover any live game or chess event.
     You will need to publish PGN on a public URL so that Lichess can pull updates from it.
     Alternatively, you can push PGN updates to Lichess using this API.
-- name: OAuth
-  description: |
-    Requests taking advantage of OAuth authentication.
-    https://lichess.org/account/oauth/app
 - name: Analysis
   description: |
     Access Lichess cloud evaluations database.
     https://lichess.org/analysis
+- name: Opening Explorer
+  description: |
+    Lookup positions from the Lichess opening explorer.
+    https://lichess.org/analysis#explorer
+
+    **The endpoint hostname is not lichess.org but explorer.lichess.ovh.**
+
+    Also see: https://github.com/niklasf/lila-openingexplorer#http-api
+- name: OAuth
+  description: |
+    Requests taking advantage of OAuth authentication.
+    https://lichess.org/account/oauth/app
 paths:
   /api/users/status:
     get:
@@ -3737,6 +3745,191 @@ paths:
             application/json:
               example: {"fen":"rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2","knodes":13683,"depth":22,"pvs":[{"moves":"c8f5 d2d4 e7e6 g1f3 g8e7 c1e3 c7c5 d4c5 e7c6 b1c3","cp":-13},{"moves":"c7c5 c2c3 d5d4 g1f3 b8c6 c3d4 c6d4 b1c3 c8d7 f1d3","cp":-1},{"moves":"e7e6 d2d4 c7c5 c2c3 b8c6 g1f3 c8d7 b1a3 c5d4 c3d4","cp":24}]}
 
+  /master:
+    get:
+      operationId: openingExplorerMaster
+      summary: Master games
+      description: |
+        **Endpoint: https://explorer.lichess.ovh/master**
+
+        Example: `curl https://explorer.lichess.ovh/master?fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
+
+        Also see: https://github.com/niklasf/lila-openingexplorer#http-api.
+      tags:
+        - Opening Explorer
+      security:
+        - None: []
+      parameters:
+        - in: query
+          name: fen
+          required: true
+          description: FEN of the position
+          schema:
+            type: string
+          example: rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2
+        - in: query
+          name: play
+          description: |
+            Comma separated sequence of legal moves in UCI notation, starting in fen. 
+            Determines the position to be looked up.
+          schema:
+            type: string
+            default: ""
+        - in: query
+          name: moves
+          description: Number of most common moves to display
+          schema:
+            type: number
+            default: 12
+        - in: query
+          name: topGames
+          description: Number of top games to display.
+          schema:
+            type: number
+            default: 4
+            maximum: 4
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpeningExplorerJson'
+
+  /lichess:
+    get:
+      operationId: openingExplorerLichess
+      summary: Lichess games
+      description: |
+        **Endpoint: https://explorer.lichess.ovh/lichess**
+
+        Example: `curl https://explorer.lichess.ovh/lichess?variant=standard&speeds[]=blitz&speeds[]=rapid&speeds[]=classical&ratings[]=2200&ratings[]=2500&fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
+
+        Also see: https://github.com/niklasf/lila-openingexplorer#get-lichess-query-lichess-opening-database.
+      tags:
+        - Opening Explorer
+      security:
+        - None: []
+      parameters:
+        - in: query
+          name: fen
+          required: true
+          description: FEN of the position
+          schema:
+            type: string
+          example: rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2
+        - in: query
+          name: play
+          description: |
+            Comma separated sequence of legal moves in UCI notation, starting in fen. 
+            Determines the position to be looked up.
+          schema:
+            type: string
+            default: ""
+        - in: query
+          name: moves
+          description: Number of most common moves to display
+          schema:
+            type: number
+            default: 12
+        - in: query
+          name: topGames
+          description: Number of top games to display.
+          schema:
+            type: number
+            default: 4
+            maximum: 4
+        - in: query
+          name: recentGames
+          description: Number of recent games to display.
+          schema:
+            type: number
+            default: 4
+            maximum: 4
+        - in: query
+          name: variant
+          description: Variant
+          schema:
+            type: string
+            default: standard
+        - in: query
+          name: speeds[]
+          description: One or more game speeds to look for.
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - bullet
+                - blitz
+                - rapid
+                - classical
+        - in: query
+          name: ratings[]
+          description: One or more rating groups, ranging from their value to the next higher group.
+          schema:
+            type: array
+            items:
+              type: number
+              enum:
+                - 1600
+                - 1800
+                - 2000
+                - 2200
+                - 2500
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpeningExplorerJson'
+
+  /master/pgn/{gameId}:
+    get:
+      operationId: openingExplorerMasterGame
+      summary: OTB master game
+      description: |
+        **Endpoint: https://explorer.lichess.ovh/master/pgn/{gameId}**
+
+        Example: `curl https://explorer.lichess.ovh/master/pgn/aAbqI4ey`
+
+        Also see: https://github.com/niklasf/lila-openingexplorer#get-masterpgnid-fetch-one-master-game-by-id.
+      tags:
+        - Opening Explorer
+      security:
+        - None: []
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+          required: true
+      responses:
+        200:
+          content:
+            application/x-chess-pgn:
+              schema:
+                $ref: '#/components/schemas/MasterGamePgn'
+
+  /stats:
+    get:
+      operationId: openingExplorerStats
+      summary: Opening explorer stats
+      description: |
+        **Endpoint: https://explorer.lichess.ovh/stats**
+
+        Example: `curl https://explorer.lichess.ovh/stats`
+
+        Also see https://github.com/niklasf/lila-openingexplorer#get-lichess-query-lichess-opening-database.
+      tags:
+        - Opening Explorer
+      security:
+        - None: []
+      responses:
+        200:
+          content:
+            application/json:
+              example: {"master":{"games":2299868,"uniquePositions":56683918},"lichess":{"chess960":{"games":2259840,"uniquePositions":190488295},"standard":{"games":272515941,"uniquePositions":7355380242},"antichess":{"games":7818476,"uniquePositions":177073596},"horde":{"games":1027171,"uniquePositions":34843126},"atomic":{"games":3827483,"uniquePositions":70119949},"racingKings":{"games":747878,"uniquePositions":11671677},"kingOfTheHill":{"games":1345370,"uniquePositions":38511395},"crazyhouse":{"games":7540244,"uniquePositions":218945811},"threeCheck":{"games":1362591,"uniquePositions":29181473}}}
+
 components:
   parameters:
     lichess:
@@ -3862,6 +4055,19 @@ components:
         [Event "U1700 SuperBlitz Arena"]
 
         1. e4 { [%clk 0:03:00] } e5 { [%clk 0:03:00] } 2. Nf3 { [%clk 0:02:59] } Nc6 { [%clk 0:02:58] } 3. Bb5 { [%clk 0:02:57] } d6 { [%clk 0:02:55] } 4. h3 { [%clk 0:02:54] } Nf6 { [%clk 0:02:52] } 5. Bxc6+ { [%clk 0:02:52] } bxc6 { [%clk 0:02:49] } 6. d3 { [%clk 0:02:51] } Be7 { [%clk 0:02:46] } 7. O-O { [%clk 0:02:47] } O-O { [%clk 0:02:45] } 8. b3 { [%clk 0:02:45] } d5 { [%clk 0:02:45] } 9. exd5 { [%clk 0:02:33] } cxd5 { [%clk 0:02:40] } 10. Nxe5 { [%clk 0:02:31] } Qd6 { [%clk 0:02:38] } 1-0
+    MasterGamePgn:
+      example: |
+        [Event "Wch Blitz"]
+        [Site "Astana"]
+        [Date "2012.07.10"]
+        [Round "23"]
+        [White "Carlsen, Magnus"]
+        [Black "Chadaev, Nikolay"]
+        [Result "1-0"]
+        [WhiteElo "2837"]
+        [BlackElo "2580"]
+
+        1. e4 e5 2. f4 d5 3. exd5 exf4 4. Nf3 Nf6 5. c4 c6 6. d4 cxd5 7. c5 Nc6 8. Bb5 Be7 9. O-O O-O 10. Bxf4 Bg4 11. Nc3 Ne4 12. Qd3 Bf5 13. Qe3 Bf6 14. Bxc6 bxc6 15. Ne5 Bxe5 16. Bxe5 Bg6 17. Nxe4 Bxe4 18. Qg3 f6 19. Bd6 Re8 20. b4 Bg6 21. a4 a6 22. h4 Qd7 23. h5 Bxh5 24. Rxf6 Qg4 25. Qxg4 Bxg4 26. Rf4 Bh5 27. Raf1 h6 28. Be5 Ra7 29. b5 axb5 30. axb5 cxb5 31. c6 Raa8 32. c7 Kh7 33. Rb1 Be2 34. Rf7 Rg8 35. Re7 Bc4 36. Kh2 Rae8 37. Rd7 Ra8 38. Rb2 Raf8 39. g4 Ra8 40. Rf2 b4 41. Rff7 h5 42. Rxg7+ Rxg7 43. Rxg7+ 1-0
     StudyPgn:
       example: |
         [Event "♦ All about the Sicilian Defense ♦: Dragon Variation"]
@@ -4788,6 +4994,50 @@ components:
             "ongoing": false,
             "url": "http://0.0.0.0/sinquefield2019/10/games.pgn"
         }
+      }
+
+    OpeningExplorerJson:
+      example: {
+        "white": 645088,
+        "draws": 838971,
+        "black": 462332,
+        "averageRating": 2407,
+        "moves": [
+          {
+            "uci": "e2e4",
+            "san": "e4",
+            "white": 291056,
+            "draws": 376163,
+            "black": 218378,
+            "averageRating": 2401
+          },
+          {
+            "uci": "d2d4",
+            "san": "d4",
+            "white": 234074,
+            "draws": 304134,
+            "black": 159442,
+            "averageRating": 2414
+          },
+        ],
+        "topGames": [ 
+          {
+            "id": "IpY1ThET",
+            "winner": "white",
+            "white": {
+              "name": "Aronian, L.",
+              "rating": 2826
+            },
+            "black": {
+              "name": "Carlsen, M.",
+              "rating": 2872
+            },
+            "year": 2014,
+            "speed": "classical"
+          },
+        ],
+        "recentGames": [],
+        "opening": null
       }
 
     Team:
