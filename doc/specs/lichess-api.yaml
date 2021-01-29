@@ -133,8 +133,6 @@ tags:
     https://lichess.org/analysis#explorer
 
     **The endpoint hostname is not lichess.org but explorer.lichess.ovh.**
-
-    Also see: https://github.com/niklasf/lila-openingexplorer#http-api
 - name: OAuth
   description: |
     Requests taking advantage of OAuth authentication.
@@ -3753,8 +3751,6 @@ paths:
         **Endpoint: https://explorer.lichess.ovh/master**
 
         Example: `curl https://explorer.lichess.ovh/master?fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
-
-        Also see: https://github.com/niklasf/lila-openingexplorer#http-api.
       tags:
         - Opening Explorer
       security:
@@ -3770,7 +3766,7 @@ paths:
         - in: query
           name: play
           description: |
-            Comma separated sequence of legal moves in UCI notation, starting in fen. 
+            Comma separated sequence of legal moves in UCI notation, starting from the given FEN. 
             Determines the position to be looked up.
           schema:
             type: string
@@ -3783,7 +3779,7 @@ paths:
             default: 12
         - in: query
           name: topGames
-          description: Number of top games to display.
+          description: Number of top games to display
           schema:
             type: number
             default: 4
@@ -3803,8 +3799,6 @@ paths:
         **Endpoint: https://explorer.lichess.ovh/lichess**
 
         Example: `curl https://explorer.lichess.ovh/lichess?variant=standard&speeds[]=blitz&speeds[]=rapid&speeds[]=classical&ratings[]=2200&ratings[]=2500&fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
-
-        Also see: https://github.com/niklasf/lila-openingexplorer#get-lichess-query-lichess-opening-database.
       tags:
         - Opening Explorer
       security:
@@ -3820,7 +3814,7 @@ paths:
         - in: query
           name: play
           description: |
-            Comma separated sequence of legal moves in UCI notation, starting in fen. 
+            Comma separated sequence of legal moves in UCI notation, starting from the given FEN. 
             Determines the position to be looked up.
           schema:
             type: string
@@ -3833,14 +3827,14 @@ paths:
             default: 12
         - in: query
           name: topGames
-          description: Number of top games to display.
+          description: Number of top games to display
           schema:
             type: number
             default: 4
             maximum: 4
         - in: query
           name: recentGames
-          description: Number of recent games to display.
+          description: Number of recent games to display
           schema:
             type: number
             default: 4
@@ -3853,7 +3847,7 @@ paths:
             default: standard
         - in: query
           name: speeds[]
-          description: One or more game speeds to look for.
+          description: One or more game speeds to look for
           schema:
             type: array
             items:
@@ -3865,7 +3859,7 @@ paths:
                 - classical
         - in: query
           name: ratings[]
-          description: One or more rating groups, ranging from their value to the next higher group.
+          description: One or more rating groups, ranging from their value to the next higher group
           schema:
             type: array
             items:
@@ -3891,8 +3885,6 @@ paths:
         **Endpoint: https://explorer.lichess.ovh/master/pgn/{gameId}**
 
         Example: `curl https://explorer.lichess.ovh/master/pgn/aAbqI4ey`
-
-        Also see: https://github.com/niklasf/lila-openingexplorer#get-masterpgnid-fetch-one-master-game-by-id.
       tags:
         - Opening Explorer
       security:
@@ -3918,8 +3910,6 @@ paths:
         **Endpoint: https://explorer.lichess.ovh/stats**
 
         Example: `curl https://explorer.lichess.ovh/stats`
-
-        Also see https://github.com/niklasf/lila-openingexplorer#get-lichess-query-lichess-opening-database.
       tags:
         - Opening Explorer
       security:
