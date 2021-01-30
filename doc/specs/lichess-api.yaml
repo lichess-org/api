@@ -557,7 +557,8 @@ paths:
       summary: Export one game
       description: |
         Download one game in either PGN or JSON format.
-        If the game is ongoing, the 3 last moves are omitted.
+
+        Ongoing games have their last 3 moves omitted, after move 5.
       tags:
         - Games
       security:
@@ -911,6 +912,8 @@ paths:
         The method is `POST` so a longer list of IDs can be sent in the request body.
 
         300 IDs can be submitted.
+
+        Ongoing games have their last 3 moves omitted, after move 5.
       tags:
         - Games
       security:
