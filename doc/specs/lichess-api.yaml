@@ -1050,7 +1050,7 @@ paths:
               schema:
                 example: {"nowPlaying":[{"fullId":"knbD9FPUqhra","gameId":"knbD9FPU","fen":"rnbqkbnr/pp3pp1/8/3p3p/1PpPp3/P1P1P3/5PPP/RNBQKBNR","color":"white","lastMove":"c5c4","variant":{"key":"standard","name":"Standard"},"speed":"correspondence","perf":"correspondence","rated":true,"opponent":{"id":"thibot","username":"BOT thibot","rating":1500},"isMyTurn":true}]}
 
-  /tv/channels:
+  /api/tv/channels:
     get:
       operationId: tvChannels
       summary: Get current TV games
@@ -1062,7 +1062,7 @@ paths:
       tags:
         - Games
       security:
-        - SameOrigin: []
+        - None: []
       responses:
         200:
           content:
