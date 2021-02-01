@@ -95,6 +95,13 @@ tags:
 - name: Challenges
   description: |
     Send and receive challenges to play.
+
+    To create a lot of challenges, consider [bulk pairing](#operation/bulkPairingCreate) instead.
+- name: Bulk pairings
+  description: |
+    Create many games for other players.
+
+    These endpoints are intended for tournament organisers.
 - name: Arena tournaments
   description: |
     Access Arena tournaments played on Lichess.
@@ -3353,15 +3360,15 @@ paths:
                   type: string
                   description: Reason challenge was declined. It will be translated to the player's language. See [the full list in the translation file](https://github.com/ornicar/lila/blob/43fbd61029ff3960a21fbd213944bed66325696d/translation/source/challenge.xml#L14).
                   enum:
-                    - generic    
-                    - later      
-                    - tooFast    
-                    - tooSlow    
+                    - generic
+                    - later
+                    - tooFast
+                    - tooSlow
                     - timeControl
-                    - rated      
-                    - casual     
-                    - standard   
-                    - variant    
+                    - rated
+                    - casual
+                    - standard
+                    - variant
                     - noBot
                     - onlyBot
       responses:
@@ -3596,6 +3603,154 @@ paths:
               schema:
                 $ref: '#/components/schemas/Ok'
 
+  /api/bulk-pairing:
+    get:
+      operationId: bulkPairingGet
+      summary: View upcoming bulk pairings
+      description: |
+        Get a list of upcoming bulk pairings you created.
+
+        Only bulk pairings that are scheduled in the future, or that have a clock start scheduled in the future, are listed.
+
+        Bulk pairings are deleted from the server after the pairings are done and the clocks have started.
+      tags:
+        - Bulk pairings
+      security:
+        - OAuth2: ["challenge:bulk"]
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BulkPairing'
+    post:
+      operationId: bulkPairingCreate
+      summary: Create a bulk pairing
+      description: |
+        Schedule many games up to 24h in advance.
+
+        OAuth tokens are required for all paired players, with the `challenge:create` scope.
+
+        You can schedule up to 500 games every 10 minutes. [Contact us](mailto:contact@lichess.org) if you need higher limits.
+      tags:
+        - Bulk pairings
+      security:
+        - OAuth2: ["challenge:bulk"]
+      requestBody:
+        description: Parameters of the pairings
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                players:
+                  type: string
+                  description: |
+                    OAuth tokens of all the players to pair, with the syntax `tokenOfWhitePlayerInGame1:tokenOfBlackPlayerInGame1,tokenOfWhitePlayerInGame2:tokenOfBlackPlayerInGame2,...`.
+
+                    The 2 tokens of the players of a game are separated with `:`. The first token gets the white pieces. Games are separated with `,`.
+
+                    Up to 1000 tokens can be sent, for a max of 500 games.
+
+                    Each token must be included at most once.
+                  example: token1:token2,token3:token4,token5:token6
+                'clock.limit':
+                  type: number
+                  description: Clock initial time in seconds.
+                  example: 300
+                  minimum: 0
+                  maximum: 10800
+                'clock.increment':
+                  type: integer
+                  description: Clock increment in seconds.
+                  example: 1
+                  minimum: 0
+                  maximum: 60
+                pairAt:
+                  description: |
+                    Date at which the games will be created.
+                    Up to 24h in the future.
+                    Omit, or set to current date and time, to start the games immediately.
+                  schema:
+                    type: integer
+                    example: 1612289869919
+                    default: now
+                startClocksAt:
+                  description: |
+                    Date at which the clocks will be automatically started.
+                    Up to 24h in the future.
+                    Note that the clocks can start earlier than specified, if players start making moves in the game.
+                    If omitted, the clocks will not start automatically.
+                  schema:
+                    type: integer
+                    example: 1612289869919
+                rated:
+                  type: boolean
+                  description: Game is rated and impacts players ratings
+                variant:
+                  type: string
+                  description: The variant of the game
+                  enum:
+                    - standard
+                    - chess960
+                    - crazyhouse
+                    - antichess
+                    - atomic
+                    - horde
+                    - kingOfTheHill
+                    - racingKings
+                    - threeCheck
+                  default: standard
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkPairing'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/bulk-pairing/{id}:
+    delete:
+      operationId: bulkPairingDelete
+      summary: Cancel a bulk pairing
+      description: |
+        Cancel and delete a bulk pairing that is scheduled in the future.
+
+        If the games have already been created, then this does nothing.
+
+        Canceling a bulk pairing does not refund the rate limit cost of that bulk pairing.
+      tags:
+        - Bulk pairings
+      security:
+        - OAuth2: ["challenge:bulk"]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            description: The ID of the bulk pairing
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+
+
   /api/round/{gameId}/add-time/{seconds}:
     post:
       operationId: roundAddTime
@@ -3828,7 +3983,7 @@ paths:
         - in: query
           name: play
           description: |
-            Comma separated sequence of legal moves in UCI notation, starting from the given FEN. 
+            Comma separated sequence of legal moves in UCI notation, starting from the given FEN.
             Determines the position to be looked up.
           schema:
             type: string
@@ -3876,7 +4031,7 @@ paths:
         - in: query
           name: play
           description: |
-            Comma separated sequence of legal moves in UCI notation, starting from the given FEN. 
+            Comma separated sequence of legal moves in UCI notation, starting from the given FEN.
             Determines the position to be looked up.
           schema:
             type: string
@@ -4041,6 +4196,42 @@ components:
         "speed": "blitz",
         "status": "created"
       }
+
+    BulkPairing:
+      example: {
+        "bulks": [
+            {
+                "id": "RVAcwgg7",
+                "games": [
+                    {
+                        "id": "NKop9IyD",
+                        "black": "lizen1",
+                        "white": "thibault"
+                    },
+                    {
+                        "id": "KT8374ut",
+                        "black": "lizen3",
+                        "white": "lizen2"
+                    },
+                    {
+                        "id": "wInQr8Sk",
+                        "black": "lizen5",
+                        "white": "lizen4"
+                    }
+                ],
+                "variant": "standard",
+                "clock": {
+                    "increment": 0,
+                    "limit": 300
+                },
+                "pairAt": 1612289869919,
+                "pairedAt": null,
+                "rated": false,
+                "startClocksAt": 1612200422971,
+                "scheduledAt": 1612203514628
+            }
+        ]
+    }
 
     GameJson:
       example: {
@@ -4975,7 +5166,7 @@ components:
             "averageRating": 2414
           },
         ],
-        "topGames": [ 
+        "topGames": [
           {
             "id": "IpY1ThET",
             "winner": "white",
