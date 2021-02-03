@@ -3631,9 +3631,19 @@ paths:
       description: |
         Schedule many games up to 24h in advance.
 
-        OAuth tokens are required for all paired players, with the `challenge:create` scope.
+        OAuth tokens are required for all paired players, with the `challenge:write` scope.
 
         You can schedule up to 500 games every 10 minutes. [Contact us](mailto:contact@lichess.org) if you need higher limits.
+
+        The entire bulk is rejected if:
+          - a token is missing
+          - a token is present more than once
+          - a token lacks the `challenge:write` scope
+          - a user account is closed
+          - a user is paired more than once
+
+        Partial bulks are never created. Either it all fails, or it all succeeds.
+        When it fails, it does so with an error message explaining the issue.
       tags:
         - Bulk pairings
       security:
