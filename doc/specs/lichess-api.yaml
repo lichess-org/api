@@ -3629,7 +3629,7 @@ paths:
       operationId: bulkPairingCreate
       summary: Create a bulk pairing
       description: |
-        Schedule many games in bulk, up to 24h in advance.
+        Schedule many games at once, up to 24h in advance.
 
         OAuth tokens are required for all paired players, with the `challenge:write` scope.
 
@@ -3671,15 +3671,18 @@ paths:
                     Up to 1000 tokens can be sent, for a max of 500 games.
 
                     Each token must be included at most once.
+
                     Example: `token1:token2,token3:token4,token5:token6`
                 'clock.limit':
                   type: number
-                  description: Clock initial time in seconds. Example: 600
+                  description: |
+                    Clock initial time in seconds. Example: `600`
                   minimum: 0
                   maximum: 10800
                 'clock.increment':
                   type: integer
-                  description: Clock increment in seconds. Example: 5
+                  description: |
+                    Clock increment in seconds. Example: `5`
                   minimum: 0
                   maximum: 60
                 pairAt:
@@ -3687,7 +3690,7 @@ paths:
                     Date at which the games will be created.
                     Up to 24h in the future.
                     Omit, or set to current date and time, to start the games immediately.
-                    Example: 1612289869919
+                    Example: `1612289869919`
                   type: integer
                 startClocksAt:
                   description: |
@@ -3695,7 +3698,7 @@ paths:
                     Up to 24h in the future.
                     Note that the clocks can start earlier than specified, if players start making moves in the game.
                     If omitted, the clocks will not start automatically.
-                    Example: 1612289869919
+                    Example: `1612289869919`
                   type: integer
                 rated:
                   type: boolean
