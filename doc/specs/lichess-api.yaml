@@ -3671,17 +3671,15 @@ paths:
                     Up to 1000 tokens can be sent, for a max of 500 games.
 
                     Each token must be included at most once.
-                  example: token1:token2,token3:token4,token5:token6
+                    Example: `token1:token2,token3:token4,token5:token6`
                 'clock.limit':
                   type: number
-                  description: Clock initial time in seconds.
-                  example: 300
+                  description: Clock initial time in seconds. Example: 600
                   minimum: 0
                   maximum: 10800
                 'clock.increment':
                   type: integer
-                  description: Clock increment in seconds.
-                  example: 1
+                  description: Clock increment in seconds. Example: 5
                   minimum: 0
                   maximum: 60
                 pairAt:
@@ -3689,17 +3687,16 @@ paths:
                     Date at which the games will be created.
                     Up to 24h in the future.
                     Omit, or set to current date and time, to start the games immediately.
+                    Example: 1612289869919
                   type: integer
-                  example: 1612289869919
-                  default: now
                 startClocksAt:
                   description: |
                     Date at which the clocks will be automatically started.
                     Up to 24h in the future.
                     Note that the clocks can start earlier than specified, if players start making moves in the game.
                     If omitted, the clocks will not start automatically.
+                    Example: 1612289869919
                   type: integer
-                  example: 1612289869919
                 rated:
                   type: boolean
                   description: Game is rated and impacts players ratings
