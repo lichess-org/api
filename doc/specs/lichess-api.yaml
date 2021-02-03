@@ -3639,11 +3639,16 @@ paths:
           - a token is missing
           - a token is present more than once
           - a token lacks the `challenge:write` scope
-          - a user account is closed
-          - a user is paired more than once
+          - a player account is closed
+          - a player is paired more than once
+          - a bulk is already scheduled to start at the same time with the same player
+          - you have 10 scheduled bulks
+          - you have 1000 scheduled games
 
         Partial bulks are never created. Either it all fails, or it all succeeds.
         When it fails, it does so with an error message explaining the issue.
+        Failed bulks are not counted in the rate limiting, they are free.
+        Fix the issues, manually or programmatically, then retry to schedule the bulk.
       tags:
         - Bulk pairings
       security:
