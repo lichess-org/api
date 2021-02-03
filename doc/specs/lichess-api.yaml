@@ -3629,7 +3629,7 @@ paths:
       operationId: bulkPairingCreate
       summary: Create a bulk pairing
       description: |
-        Schedule many games up to 24h in advance.
+        Schedule many games in bulk, up to 24h in advance.
 
         OAuth tokens are required for all paired players, with the `challenge:write` scope.
 
