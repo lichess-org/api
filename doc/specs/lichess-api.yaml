@@ -3689,19 +3689,17 @@ paths:
                     Date at which the games will be created.
                     Up to 24h in the future.
                     Omit, or set to current date and time, to start the games immediately.
-                  schema:
-                    type: integer
-                    example: 1612289869919
-                    default: now
+                  type: integer
+                  example: 1612289869919
+                  default: now
                 startClocksAt:
                   description: |
                     Date at which the clocks will be automatically started.
                     Up to 24h in the future.
                     Note that the clocks can start earlier than specified, if players start making moves in the game.
                     If omitted, the clocks will not start automatically.
-                  schema:
-                    type: integer
-                    example: 1612289869919
+                  type: integer
+                  example: 1612289869919
                 rated:
                   type: boolean
                   description: Game is rated and impacts players ratings
