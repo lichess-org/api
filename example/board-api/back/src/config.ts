@@ -1,4 +1,7 @@
-const port = 8000;
+const port = 8076;
+const appId = 'yourAppIdHere';
+const appSecret = 'yourAppSecretHere';
+
 export const config = {
   http: {
     port: port,
@@ -13,8 +16,8 @@ export const config = {
   },
   oauth: {
     client: {
-      id: 'QUH0Q8AYGOGHEcNT',
-      secret: process.env.OAUTH_APP_SECRET!,
+      id: appId,
+      secret: appSecret,
       redirectUri: `http://localhost:${port}/oauth-callback`,
       scopes: ['board:play']
     },

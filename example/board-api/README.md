@@ -5,9 +5,10 @@ with persistent session storage,
 and playing with the Board API.
 
 1. Create a Lichess OAuth app at https://lichess.org/account/oauth/app
-  - Homepage URL: http://localhost:8087
-  - Callback URL: http://localhost:8087/callback
-2. Edit index.js to set the oauth app client id and secret
-3. Install dependencies with `yarn install`
-4. Run the webserver with `yarn start`
-5. Browse to https://localhost:8087
+  - Homepage URL: http://localhost:8076
+  - Callback URL: http://localhost:8076/oauth-callback
+2. Edit back/src/config.ts to set the oauth app client id and secret
+3. `cd back`
+4. Install dependencies with `yarn install`
+5. Run the webserver with `yarn start`
+6. Browse to http://localhost:8076
