@@ -46,7 +46,7 @@ export default function(ctrl: Ctrl): VNode {
 const chessgroundConfig = (game: Game) => {
   const color: Color = game.state.moves.length % 2 == 0 ? 'white' : 'black';
   const chess = Chess.default();
-  game.state.moves.split(' ').forEach(m => chess.play(parseUci(m)!));
+  game.state.moves.split(' ').filter(m => m).forEach(m => chess.play(parseUci(m)!));
   return {
     fen: makeBoardFen(chess.board),
     orientation: 'white' as Color,
