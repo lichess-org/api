@@ -17,4 +17,4 @@ and playing with the Board API.
   - `yarn install`
   - `yarn start`
 6. Browse to http://localhost:8076. Log in with your lichess account.
-7. Play a game vs. the computer on lichess.org. You should see them moves unfold in your app.
+7. Play a slow or untimed game vs. the computer on lichess.org. You should see them moves unfold in your app.
