@@ -41,9 +41,9 @@ a:visited {
 }
 
 .box {
-  height: 20vh;
+  height: 48%;
   overflow-y: auto;
-  margin-bottom: 1em;
+  margin-bottom: 2%;
 }
 
 .box h2 {

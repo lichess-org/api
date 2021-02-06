@@ -2,8 +2,6 @@ import { h } from 'snabbdom'
 import { VNode } from 'snabbdom/vnode';
 import { Chessground } from 'chessground';
 import Ctrl from './ctrl';
-import { Game } from './types';
-import { Chess, parseUci } from 'chessops';
 import { Color } from 'chessground/types';
 import { makeBoardFen } from 'chessops/fen';
 import { chessgroundDests } from 'chessops/compat';
@@ -23,7 +21,7 @@ export default function(ctrl: Ctrl): VNode {
           h('div.cg-wrap', {
             hook: {
               insert(vnode) {
-                ctrl.setChessground(Chessground(vnode.elm as HTMLElement, chessgroundConfig(ctrl.game!)));
+                ctrl.setChessground(Chessground(vnode.elm as HTMLElement, chessgroundConfig(ctrl)));
               }
             }
           }) :
@@ -43,10 +41,9 @@ export default function(ctrl: Ctrl): VNode {
   ]);
 }
 
-const chessgroundConfig = (game: Game) => {
-  const color: Color = game.state.moves.length % 2 == 0 ? 'white' : 'black';
-  const chess = Chess.default();
-  game.state.moves.split(' ').filter(m => m).forEach(m => chess.play(parseUci(m)!));
+const chessgroundConfig = (ctrl: Ctrl) => {
+  const color: Color = ctrl.game!.state.moves.length % 2 == 0 ? 'white' : 'black';
+  const chess = ctrl.currentChess();
   return {
     fen: makeBoardFen(chess.board),
     orientation: 'white' as Color,

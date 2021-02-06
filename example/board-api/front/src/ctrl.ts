@@ -1,6 +1,8 @@
-import { Game, ServerLogin } from './types';
+import { GameFull, GameState, ServerLogin } from './types';
 import { Api as Chessground } from 'chessground/api';
+import { makeBoardFen } from 'chessops/fen';
 import ndjson from './ndjson';
+import {Chess, parseUci} from 'chessops';
 
 const lichess = 'https://lichess.org';
 
@@ -9,7 +11,7 @@ export default class Ctrl {
   authorization: { Authorization: string };
   mainLog = Array<string>()
   gameLog = Array<string>()
-  game?: Game;
+  game?: GameFull;
   chessground?: Chessground;
 
   constructor(readonly login: ServerLogin, readonly redraw: () => void) {
@@ -36,8 +38,20 @@ export default class Ctrl {
   onGameEvent = (event: any) => {
     this.gameLog.push(event);
     this.gameLog = this.gameLog.slice(-300);
-    if (event['type'] == 'gameFull') this.game = event as Game;
+    if (event['type'] == 'gameFull') this.game = event as GameFull;
+    else if (event['type'] == 'gameState' && this.game) {
+      this.game.state = event as GameState;
+      this.chessground!.set({
+        fen: makeBoardFen(this.currentChess().board)
+      });
+    }
     this.redraw();
+  }
+
+  currentChess = () => {
+    const chess = Chess.default();
+    if (this.game) this.game.state.moves.split(' ').filter((m: string) => m).forEach((m: string) => chess.play(parseUci(m)!));
+    return chess;
   }
 
   setChessground(cg: Chessground) {

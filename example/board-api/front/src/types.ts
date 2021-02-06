@@ -3,17 +3,19 @@ export interface ServerLogin {
   token: string;
 }
 
-export interface Game {
+export interface GameState {
+  status: 'started' | 'finished';
+  moves: string;
+}
+
+export interface GameFull {
   id: string;
   perf: {
     name: string;
   };
   white: Player;
   black: Player;
-  state: {
-    status: 'started' | 'finished';
-    moves: string;
-  }
+  state: GameState;
 }
 
 export interface Player {
