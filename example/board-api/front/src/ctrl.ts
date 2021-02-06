@@ -2,7 +2,7 @@ import { Game, ServerLogin } from './types';
 import { Api as Chessground } from 'chessground/api';
 import ndjson from './ndjson';
 
-const lichess = 'http://l.org';
+const lichess = 'https://lichess.org';
 
 export default class Ctrl {
 
