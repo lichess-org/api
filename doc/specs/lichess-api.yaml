@@ -3667,6 +3667,8 @@ paths:
         When it fails, it does so with an error message explaining the issue.
         Failed bulks are not counted in the rate limiting, they are free.
         Fix the issues, manually or programmatically, then retry to schedule the bulk.
+
+        A successful bulk creation returns a JSON bulk document. Its ID can be used for further operations.
       tags:
         - Bulk pairings
       security:
@@ -3756,6 +3758,42 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+
+  /api/bulk-pairing/{id}/start-clocks:
+    post:
+      operationId: bulkPairingStartClocks
+      summary: Manually start clocks
+      description: |
+        Immediately start all clocks of the games of a bulk pairing.
+
+        This overrides the `startClocksAt` value of an existing bulk pairing.
+
+        If the games have not yet been created (`bulk.pairAt` is in the future), then this does nothing.
+
+        If the clocks have already started (`bulk.startClocksAt` is in the past), then this does nothing.
+      tags:
+        - Bulk pairings
+      security:
+        - OAuth2: ["challenge:bulk"]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            description: The ID of the bulk pairing
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
 
   /api/bulk-pairing/{id}:
     delete:
