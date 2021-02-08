@@ -136,10 +136,14 @@ tags:
     https://lichess.org/analysis
 - name: Opening Explorer
   description: |
-    Lookup positions from the Lichess opening explorer.
-    https://lichess.org/analysis#explorer
+    Lookup positions from the [Lichess opening explorer](https://lichess.org/analysis#explorer).
 
     **The endpoint hostname is not lichess.org but explorer.lichess.ovh.**
+- name: Tablebase
+  description: |
+    Lookup positions from the [Lichess tablebase server](https://lichess.org/blog/W3WeMyQAACQAdfAL/7-piece-syzygy-tablebases-are-complete).
+
+    **The endpoint hostname is not lichess.org but tablebase.lichess.ovh.**
 - name: OAuth
   description: |
     Requests taking advantage of OAuth authentication.
@@ -4028,6 +4032,8 @@ paths:
       description: |
         **Endpoint: https://explorer.lichess.ovh/lichess**
 
+        Runs https://github.com/niklasf/lila-openingexplorer.
+
         Example: `curl https://explorer.lichess.ovh/lichess?variant=standard&speeds[]=blitz&speeds[]=rapid&speeds[]=classical&ratings[]=2200&ratings[]=2500&fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
       tags:
         - Opening Explorer
@@ -4149,6 +4155,45 @@ paths:
           content:
             application/json:
               example: {"master":{"games":2299868,"uniquePositions":56683918},"lichess":{"chess960":{"games":2259840,"uniquePositions":190488295},"standard":{"games":272515941,"uniquePositions":7355380242},"antichess":{"games":7818476,"uniquePositions":177073596},"horde":{"games":1027171,"uniquePositions":34843126},"atomic":{"games":3827483,"uniquePositions":70119949},"racingKings":{"games":747878,"uniquePositions":11671677},"kingOfTheHill":{"games":1345370,"uniquePositions":38511395},"crazyhouse":{"games":7540244,"uniquePositions":218945811},"threeCheck":{"games":1362591,"uniquePositions":29181473}}}
+
+  /standard:
+    get:
+      operationId: tablebaseStandard
+      summary: Tablebase lookup
+      description: |
+        **Endpoint: https://tablebase.lichess.ovh**
+
+        Runs https://github.com/niklasf/lila-tablebase with `--sloppy-real-wdl`.
+
+        Example: `curl http://tablebase.lichess.ovh/standard?fen=4k3/6KP/8/8/8/8/7p/8_w_-_-_0_1`
+      tags:
+        - Tablebase
+      security:
+        - None: []
+      parameters:
+        - in: query
+          name: fen
+          description: FEN of the position. Underscores allowed. The halfmove clock is taken into account for WDL values.
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TablebaseJson'
+  /atomic:
+    get:
+      operationId: tablebaseAtomic
+      summary: Tablebase lookup for Atomic chess
+      tags:
+        - Tablebase
+
+  /antichess:
+    get:
+      operationId: antichessAtomic
+      summary: Tablebase lookup for Antichess
+      tags:
+        - Tablebase
+
 
 components:
   parameters:
@@ -5198,6 +5243,60 @@ components:
         "recentGames": [],
         "opening": null
       }
+
+    TablebaseJson:
+      type: object
+      properties:
+        wdl:
+          type: integer
+          description: (2) win, (1) cursed win, (0) draw, (-1) blessed loss, (-2) loss, (null) unknown
+        dtz:
+          type: integer
+          description: Distance to zeroing or null if unknown
+        dtm:
+          type: integer
+          description: Distance to mate (only for positions with not more than 5 pieces)
+        checkmate:
+          type: boolean
+        stalemate:
+          type: boolean
+        variant_win:
+          type: boolean
+          description: Only in chess variants (atomic, antichess)
+        variant_loss:
+          type: boolean
+          description: Only in chess variants
+        insufficient_material:
+          type: boolean
+        moves:
+          type: array
+          description: Information about legal moves, best first
+      example:
+        {
+          "wdl": 2,
+          "dtz": 1,
+          "dtm": 17,
+          "checkmate": false,
+          "stalemate": false,
+          "variant_win": false,
+          "variant_loss": false,
+          "insufficient_material": false,
+          "moves": [
+            {
+              "uci": "h7h8q",
+              "san": "h8=Q+",
+              "wdl": -2,
+              "dtz": -2,
+              "dtm": -16,
+              "zeroing": true,
+              "checkmate": false,
+              "stalemate": false,
+              "variant_win": false,
+              "variant_loss": false,
+              "insufficient_material": false
+            }
+          ]
+        }
 
     Team:
       type: object
