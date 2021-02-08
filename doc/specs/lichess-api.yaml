@@ -3288,6 +3288,20 @@ paths:
                     Immediately accept the challenge and create the game.
                     Pass in an OAuth token (with the `challenge:write` scope) for the receiving user.
                     On success, the response will contain a `game` field instead of a `challenge` field.
+
+                    Alternatively, consider the [bulk pairing API](#operation/bulkPairingCreate).
+                message:
+                  type: string
+                  description: |
+                    **Only if `acceptByToken` is set.**
+
+                    Message that is sent to each player, when the game is created. It is sent from your user account.
+
+                    `{opponent}` and `{game}` are placeholders that will be replaced with the opponent and the game URLs.
+
+                    You can omit this field to send the default message,
+                    but if you set your own message, it must at least contain the `{game}` placeholder.
+                  default: "Your game with {opponent} is ready: {game}."
       responses:
         200:
           content:
@@ -3717,6 +3731,16 @@ paths:
                     - racingKings
                     - threeCheck
                   default: standard
+                message:
+                  type: string
+                  description: |
+                    Message that will be sent to each player, when the game is created.  It is sent from your user account.
+
+                    `{opponent}` and `{game}` are placeholders that will be replaced with the opponent and the game URLs.
+
+                    You can omit this field to send the default message,
+                    but if you set your own message, it must at least contain the `{game}` placeholder.
+                  default: "Your game with {opponent} is ready: {game}."
       responses:
         200:
           content:
@@ -3879,6 +3903,16 @@ paths:
                   type: string
                   description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated.
                   default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+                message:
+                  type: string
+                  description: |
+                    Message that is sent to each player, when the game is created. It is sent from your user account.
+
+                    `{opponent}` and `{game}` are placeholders that will be replaced with the opponent and the game URLs.
+
+                    You can omit this field to send the default message,
+                    but if you set your own message, it must at least contain the `{game}` placeholder.
+                  default: "Your game with {opponent} is ready: {game}."
       responses:
         200:
           content:
