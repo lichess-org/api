@@ -5004,22 +5004,22 @@ components:
             - music
             - speech
         blindfold:
-          type: int
+          type: integer
           example: 0
         autoQueen:
-          type: int
+          type: integer
           example: 2
         autoThreefold:
-          type: int
+          type: integer
           example: 2
         takeback:
-          type: int
+          type: integer
           example: 3
         moretime:
-          type: int
+          type: integer
           example: 3
         clockTenths:
-          type: int
+          type: integer
           example: 1
         clockBar:
           type: boolean
@@ -5031,7 +5031,7 @@ components:
           type: boolean
           example: true
         animation:
-          type: int
+          type: integer
           example: 2
         captured:
           type: boolean
@@ -5046,40 +5046,40 @@ components:
           type: boolean
           example: true
         coords:
-          type: int
+          type: integer
           example: 2
         replay:
-          type: int
+          type: integer
           example: 2
         challenge:
-          type: int
+          type: integer
           example: 4
         message:
-          type: int
+          type: integer
           example: 3
         coordColor:
-          type: int
+          type: integer
           example: 2
         submitMove:
-          type: int
+          type: integer
           example: 4
         confirmResign:
-          type: int
+          type: integer
           example: 1
         insightShare:
-          type: int
+          type: integer
           example: 1
         keyboardMove:
-          type: int
+          type: integer
           example: 0
         zen:
-          type: int
+          type: integer
           example: 0
         moveEvent:
-          type: int
+          type: integer
           example: 2
         rookCastle:
-          type: int
+          type: integer
           example: 1
 
     ArenaTournaments:
