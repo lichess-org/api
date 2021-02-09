@@ -1199,6 +1199,14 @@ paths:
                     - 5
                     - 6
                     - 7
+                    - 10
+                    - 15
+                    - 20
+                    - 25
+                    - 30
+                    - 40
+                    - 50
+                    - 60
                 clockIncrement:
                   type: integer
                   description: Clock increment in seconds
@@ -1303,12 +1311,186 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/tournament/{id}:
+    get:
+      operationId: tournament
+      summary: Get info about an Arena tournament
+      description: |
+        Get detailed info about recently finished, current, or upcoming tournament's duels, player standings, and other info.
+      tags:
+        - "Arena tournaments"
+      security:
+        - None: []
+      parameters:
+        - in: path
+          name: id
+          description: The tournament ID.
+          schema:
+            type: string
+          required: true
+        - in: query
+          name: page
+          description: Specify which page of player standings to view.
+          schema:
+            type: number
+            example: 1
+            default: 1
+            minimum: 1
+            maximum: 200
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArenaTournament'
+    post:
+      operationId: apiTournamentUpdate
+      summary: Update an Arena tournament
+      description: |
+        Update an Arena tournament.
+
+        Be mindful not to make important changes to ongoing tournaments.
+
+        Can be used to update a team battle.
+      tags:
+        - "Arena tournaments"
+      security:
+        - OAuth2: ["tournament:write"]
+      requestBody:
+        description: Parameters of the tournament
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The tournament name. Leave empty to get a random Grandmaster name
+                clockTime:
+                  type: number
+                  description: Clock initial time in minutes
+                  example: 2
+                  minimum: 0
+                  maximum: 60
+                  enum:
+                    - 0
+                    - 0.25
+                    - 0.5
+                    - 0.75
+                    - 1
+                    - 1.5
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    - 6
+                    - 7
+                    - 10
+                    - 15
+                    - 20
+                    - 25
+                    - 30
+                    - 40
+                    - 50
+                    - 60
+                clockIncrement:
+                  type: integer
+                  description: Clock increment in seconds
+                  example: 1
+                  minimum: 0
+                  maximum: 60
+                minutes:
+                  type: integer
+                  description: How long the tournament lasts, in minutes
+                  example: 60
+                  minimum: 0
+                  maximum: 360
+                waitMinutes:
+                  type: integer
+                  description: How long to wait before starting the tournament, from now, in minutes
+                  minimum: 0
+                  maximum: 360
+                  default: 5
+                startDate:
+                  type: integer
+                  description: Timestamp to start the tournament at a given date and time. Overrides the `waitMinutes` setting
+                variant:
+                  type: string
+                  description: The variant to use in tournament games
+                  enum:
+                    - standard
+                    - chess960
+                    - crazyhouse
+                    - antichess
+                    - atomic
+                    - horde
+                    - kingOfTheHill
+                    - racingKings
+                    - threeCheck
+                  default: standard
+                rated:
+                  type: boolean
+                  description: Games are rated and impact players ratings
+                  default: true
+                position:
+                  type: string
+                  description: Custom initial position (in FEN) for all games of the tournament. Must be a legal chess position. Only works with standard chess, not variants (except Chess960).
+                berserkable:
+                  type: boolean
+                  description: Whether the players can use berserk
+                  default: true
+                streakable:
+                  type: boolean
+                  description: After 2 wins, consecutive wins grant 4 points instead of 2.
+                  default: true
+                # "conditions.titled":
+                #   type: boolean
+                #   description: Whether to require a title to enter the tournament
+                #   default: false
+                hasChat:
+                  type: boolean
+                  description: Whether the players can discuss in a chat
+                  default: true
+                description:
+                  type: string
+                  description: Anything you want to tell players about the tournament
+                password:
+                  type: string
+                  description: Make the tournament private, and restrict access with a password
+                conditions.minRating.rating:
+                  type: integer
+                  description: Minimum rating to join. Leave empty to let everyone join the tournament.
+                conditions.maxRating.rating:
+                  type: integer
+                  description: Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
+                conditions.nbRatedGame.nb:
+                  type: integer
+                  description: Minimum number of rated games required to join.
+              required:
+                - clockTime
+                - clockIncrement
+                - minutes
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArenaTournament'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /api/tournament/team-battle/{id}:
       post:
         operationId: apiTournamentTeamBattlePost
         summary: Update a team battle
         description: |
           Set the teams and number of leaders of a team battle.
+
+          To update the other attributes of a team battle, use the [tournament update endpoint](#operation/apiTournamentUpdate).
         tags:
           - "Arena tournaments"
         security:
@@ -1352,39 +1534,6 @@ paths:
               application/json:
                 schema:
                   $ref: '#/components/schemas/Error'
-
-  /api/tournament/{id}:
-    get:
-      operationId: tournament
-      summary: Get info about a tournament
-      description: |
-        Get detailed info about recently finished, current, or upcoming tournament's duels, player standings, and other info.
-      tags:
-        - "Arena tournaments"
-      security:
-        - None: []
-      parameters:
-        - in: path
-          name: id
-          description: The tournament ID.
-          schema:
-            type: string
-          required: true
-        - in: query
-          name: page
-          description: Specify which page of player standings to view.
-          schema:
-            type: number
-            example: 1
-            default: 1
-            minimum: 1
-            maximum: 200
-      responses:
-        200:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ArenaTournament'
 
   /api/tournament/{id}/games:
     get:
@@ -1463,9 +1612,9 @@ paths:
   /api/tournament/{id}/results:
     get:
       operationId: resultsByTournament
-      summary: Get results of an arena tournament
+      summary: Get results of an Arena tournament
       description: |
-        Players of an arena tournament, with their score and performance, sorted by rank (best first).
+        Players of an Arena tournament, with their score and performance, sorted by rank (best first).
 
         **Players are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
 
@@ -2362,9 +2511,9 @@ paths:
   /api/team/{teamId}/arena:
     get:
       operationId: apiTeamArena
-      summary: Get team arena tournaments
+      summary: Get team Arena tournaments
       description: |
-        Get all arena tournaments relevant to a team.
+        Get all Arena tournaments relevant to a team.
 
         Tournaments are sorted by reverse chronological order of start date (last starting first).
 
