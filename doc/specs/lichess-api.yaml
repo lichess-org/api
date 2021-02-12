@@ -5736,6 +5736,7 @@ components:
             "email:read": Read your email address
             "challenge:read": Read incoming challenges
             "challenge:write": Create, accept, decline challenges
+            "challenge:bulk": Create, delete, query bulk pairings
             "study:read": Read private studies and broadcasts
             "study:write": Create, update, delete studies and broadcasts
             "tournament:write": Create tournaments
