@@ -420,6 +420,41 @@ paths:
               schema:
                 $ref: '#/components/schemas/PuzzleDashboardJson'
 
+  /api/storm/dashboard/{username}:
+    get:
+      operationId: apiStormDashboard
+      summary: Get the storm dashboard of a player
+      description: |
+        Download the [storm dashboard](https://lichess.org/storm/dashboard/mrbasso) of any player as JSON.
+
+        Contains the aggregated highscores, and the history of storm runs aggregated by days.
+
+        Use `?days=0` if you only care about the highscores.
+      tags:
+        - Puzzles
+      security:
+        - None: []
+      parameters:
+        - in: path
+          name: username
+          description: Username of the player
+          schema:
+            type: string
+        - in: query
+          name: days
+          description: How many days of history to return
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 365
+            default: 30
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StormDashboardJson'
+
   /api/users:
     post:
       operationId: apiUsers
@@ -4937,6 +4972,48 @@ components:
           }
         }
       }
+
+    StormDashboardJson:
+      example: {
+        "high": {
+            "allTime": 11,
+            "day": 0,
+            "month": 7,
+            "week": 0
+        },
+        "days": [
+            {
+                "_id": "2021/1/28",
+                "combo": 8,
+                "errors": 1,
+                "highest": 1084,
+                "moves": 9,
+                "runs": 26,
+                "score": 4,
+                "time": 175
+            },
+            {
+                "_id": "2021/1/27",
+                "combo": 14,
+                "errors": 1,
+                "highest": 1095,
+                "moves": 15,
+                "runs": 15,
+                "score": 7,
+                "time": 23
+            },
+            {
+                "_id": "2021/1/22",
+                "combo": 14,
+                "errors": 1,
+                "highest": 1095,
+                "moves": 15,
+                "runs": 15,
+                "score": 3,
+                "time": 23
+            },
+        ]
+    }
 
     RatingHistory:
       example: [{"name":"Bullet","points":[[2011,0,8,1472],[2011,0,9,1332],[2011,8,12,1314]]},{"name":"Blitz","points":[[2011,7,29,1332]]}]
