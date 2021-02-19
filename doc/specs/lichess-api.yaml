@@ -2997,6 +2997,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BotGameState'
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
 
   /api/board/game/{gameId}/move/{move}:
     post:
@@ -3243,6 +3248,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BotGameState'
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
 
   /api/bot/game/{gameId}/move/{move}:
     post:
