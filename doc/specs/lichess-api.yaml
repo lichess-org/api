@@ -3769,7 +3769,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ChallengeJson'
+                $ref: '#/components/schemas/ChallengeOpenJson'
         400:
           content:
             application/json:
@@ -4482,6 +4482,50 @@ components:
       example: {
         "id": "VU0nyvsW",
         "url": "https://lichess.org/VU0nyvsW",
+        "color": "random",
+        "direction": "out",
+        "timeControl": {
+          "increment": 2,
+          "limit": 300,
+          "show": "5+2",
+          "type": "clock"
+        },
+        "variant": {
+          "key": "standard",
+          "name": "Standard",
+          "short": "Std"
+        },
+        "challenger": {
+          "id": "thibot",
+          "name": "thibot",
+          "online": true,
+          "provisional": false,
+          "rating": 1940,
+          "title": "BOT"
+        },
+        "destUser": {
+          "id": "leelachess",
+          "name": "LeelaChess",
+          "online": true,
+          "provisional": true,
+          "rating": 2670,
+          "title": "BOT"
+        },
+        "perf": {
+          "icon": ";",
+          "name": "Correspondence"
+        },
+        "rated": true,
+        "speed": "blitz",
+        "status": "created"
+      }
+
+    ChallengeOpenJson:
+      example: {
+        "id": "VU0nyvsW",
+        "url": "https://lichess.org/VU0nyvsW",
+        "urlWhite": "https://lichess.org/VU0nyvsW?color=white",
+        "urlBlack": "https://lichess.org/VU0nyvsW?color=black",
         "color": "random",
         "direction": "out",
         "timeControl": {
