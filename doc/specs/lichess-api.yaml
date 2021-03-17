@@ -2875,7 +2875,6 @@ paths:
       tags:
         - Board
         - Bot
-        - Challenges
       security:
         - OAuth2: ["challenge:read", "bot:play", "board:play"]
       responses:
