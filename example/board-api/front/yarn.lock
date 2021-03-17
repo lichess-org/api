@@ -94,10 +94,10 @@ chessground@^7.9.3:
   resolved "https://registry.yarnpkg.com/chessground/-/chessground-7.9.3.tgz#dec20a45afe439fe9ed961836a7e5a9157087141"
   integrity sha512-6vU1q3u/69aHt/Y/UwNk9h9BxPhOuJl+xTQH/taicVZcVY7VcUEUpt+yvVGgglooPgOzM/uj2Rzv5Pcaj/R2/A==
 
-chessops@^0.7.3:
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/chessops/-/chessops-0.7.3.tgz#ecd38943fb0135625cd710c5ac68f1c624a147da"
-  integrity sha512-lMh+gibYSvpMYf4Tty3l3DO6XL+MpDynyCZN7UcGdVIsbfjGzGUAA6EJuNR4QTGrt4D8o5oqiNvdrtUtJ/lH+Q==
+chessops@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/chessops/-/chessops-0.8.1.tgz#23f420692264319a73de4ad8535f1c5e4be488c4"
+  integrity sha512-D0VeU1cI0iHqGE3RAZYRZaWTai1wHpKXdZaTM3iWKt89kfnO8Y49MWydcd5TawrfE3Zczq9Xa+1pyr+j/2q4lQ==
   dependencies:
     "@badrap/result" "^0.2.6"
 
