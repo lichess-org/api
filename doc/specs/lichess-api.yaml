@@ -2122,6 +2122,63 @@ paths:
               schema:
                 $ref: '#/components/schemas/StudyPgn'
 
+  /study/by/{username}/export.pgn:
+    get:
+      operationId: studyExportAllPgn
+      summary: Export all studies of a user
+      description: |
+        Download all chapters of all studies of a user in PGN format.
+
+        If authenticated, then all public, unlisted, and private studies are included.
+
+        If not, only public, listed studies are included.
+      tags:
+        - Studies
+        - OAuth
+      security:
+        - OAuth2: []
+        - SameOrigin: []
+      parameters:
+        - in: path
+          name: username
+          description: The user whose studies we export
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: clocks
+          description: |
+            Include clock comments in the PGN moves, when available.
+
+            Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+          schema:
+            type: boolean
+            default: true
+        - in: query
+          name: comments
+          description: |
+            Include analysis and annotator comments in the PGN moves, when available.
+
+            Example: `12. Bxf6 { [%eval 0.23] } a3 { White is in a pickle. }`
+          schema:
+            type: boolean
+            default: true
+        - in: query
+          name: variations
+          description: |
+            Include non-mainline moves, when available.
+
+            Example: `4. d4 Bb4+ (4... Nc6 5. Nf3 Bb4+ 6. Bd2 (6. Nbd2 O-O 7. O-O) 6... Bd6) 5. Nd2`
+          schema:
+            type: boolean
+            default: true
+      responses:
+        200:
+          content:
+            application/x-chess-pgn:
+              schema:
+                $ref: '#/components/schemas/StudyPgn'
+
   /api/broadcast:
     get:
       operationId: broadcastIndex
