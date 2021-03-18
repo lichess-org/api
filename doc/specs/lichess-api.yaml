@@ -3791,6 +3791,9 @@ paths:
             schema:
               type: object
               properties:
+                rated:
+                  type: boolean
+                  description: Game is rated and impacts players ratings
                 'clock.limit':
                   type: number
                   description: Clock initial time in seconds. If empty, a correspondence game is created.
