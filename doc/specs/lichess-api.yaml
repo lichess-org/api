@@ -3841,6 +3841,9 @@ paths:
                   type: string
                   description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated.
                   default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+                name:
+                  type: string
+                  description: Optional name for the challenge, that players will see on the challenge page.
       responses:
         200:
           content:
