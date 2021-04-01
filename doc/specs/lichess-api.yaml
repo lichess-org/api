@@ -174,6 +174,7 @@ paths:
           example: aliquantus,chess-network,lovlas
       responses:
         200:
+          description: The list of users and their respective statuses.
           content:
             application/json:
               schema:
@@ -232,6 +233,7 @@ paths:
         - $ref: '#/components/parameters/lichess'
       responses:
         200:
+          description: The list of variants with their respective top players.
           content:
             application/vnd.lichess.v3+json:
               schema:
@@ -284,6 +286,7 @@ paths:
           required: true
       responses:
         200:
+          description: The list of top players for the variant.
           content:
             application/vnd.lichess.v3+json:
               schema:
@@ -307,6 +310,7 @@ paths:
           required: true
       responses:
         200:
+          description: The information of the user.
           content:
             application/json:
               schema:
@@ -333,6 +337,7 @@ paths:
           required: true
       responses:
         200:
+          description: The rating history of the user.
           content:
             application/json:
               schema:
@@ -356,6 +361,7 @@ paths:
           required: true
       responses:
         200:
+          description: The activity feed of the user.
           content:
             application/json:
               example:
@@ -373,6 +379,7 @@ paths:
         - None: []
       responses:
         200:
+          description: The daily puzzle.
           content:
             application/x-ndjson:
               schema:
@@ -403,6 +410,7 @@ paths:
             default: null
       responses:
         200:
+          description: The puzzle activity of the logged in user.
           content:
             application/x-ndjson:
               schema:
@@ -432,6 +440,7 @@ paths:
             minimum: 1
       responses:
         200:
+          description: The puzzle dashboard of the logged in user.
           content:
             application/json:
               schema:
@@ -467,6 +476,7 @@ paths:
             default: 30
       responses:
         200:
+          description: The storm dashboard of a player.
           content:
             application/json:
               schema:
@@ -494,6 +504,7 @@ paths:
             example: "aliquantus,chess-network,lovlas"
       responses:
         200:
+          description: The list of users.
           content:
             application/json:
               schema:
@@ -514,6 +525,7 @@ paths:
         - OAuth2: []
       responses:
         200:
+          description: The public informations about the logged in user.
           content:
             application/json:
               schema:
@@ -532,6 +544,7 @@ paths:
         - OAuth2: ["email:read"]
       responses:
         200:
+          description: The email address of the logged in user.
           content:
             application/json:
               schema:
@@ -557,6 +570,7 @@ paths:
         - OAuth2: ["preference:read"]
       responses:
         200:
+          description: The preferences of the logged in user.
           content:
             application/json:
               schema:
@@ -579,6 +593,7 @@ paths:
         - OAuth2: ["preference:read"]
       responses:
         200:
+          description: The kid mode status of the logged in user.
           content:
             application/json:
               schema:
@@ -609,6 +624,7 @@ paths:
           example: true
       responses:
         200:
+          description: The kid mode status was set successfully for the logged in user.
           content:
             application/json:
               schema:
@@ -696,6 +712,7 @@ paths:
             type: string
       responses:
         200:
+          description: The game representation.
           content:
             application/x-chess-pgn:
               schema:
@@ -785,6 +802,7 @@ paths:
             type: string
       responses:
         200:
+          description: The ongoing (or last) game of a user.
           content:
             application/x-chess-pgn:
               schema:
@@ -955,6 +973,7 @@ paths:
             type: string
       responses:
         200:
+          description: The games of the user.
           content:
             application/x-chess-pgn:
               schema:
@@ -1044,6 +1063,7 @@ paths:
             type: string
       responses:
         200:
+          description: The representation of the games.
           content:
             application/x-chess-pgn:
               schema:
@@ -1079,6 +1099,7 @@ paths:
             example: aliquantus,chess-network,lovlas
       responses:
         200:
+          description: The stream of the games played between the users.
           content:
             application/x-ndjson:
               schema:
@@ -1108,6 +1129,7 @@ paths:
             maximum: 50
       responses:
         200:
+          description: The ongoing games of the logged in user.
           content:
             application/json:
               schema:
@@ -1128,6 +1150,7 @@ paths:
         - None: []
       responses:
         200:
+          description: The list of games being played for each speed and variant.
           content:
             application/json:
               schema:
@@ -1148,6 +1171,7 @@ paths:
         - SameOrigin: []
       responses:
         200:
+          description: The stream of the current TV game.
           content:
             application/x-ndjson:
               schema:
@@ -1183,6 +1207,7 @@ paths:
                   description: The PGN. It can contain only one game. Most standard tags are supported.
       responses:
         200:
+          description: The game was successfully imported.
           content:
             application/json:
               schema:
@@ -1202,6 +1227,7 @@ paths:
         - None: []
       responses:
         200:
+          description: The list of current tournaments.
           content:
             application/json:
               schema:
@@ -1353,11 +1379,13 @@ paths:
                 - minutes
       responses:
         200:
+          description: The Arena tournament has been successfully created.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ArenaTournament'
         400:
+          description: The creation of the Arena tournament failed.
           content:
             application/json:
               schema:
@@ -1391,6 +1419,7 @@ paths:
             maximum: 200
       responses:
         200:
+          description: The information of the Arena tournament.
           content:
             application/json:
               schema:
@@ -1525,11 +1554,13 @@ paths:
                 - minutes
       responses:
         200:
+          description: The Arena tournament was successfully updated.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ArenaTournament'
         400:
+          description: The update of the Arena tournament failed.
           content:
             application/json:
               schema:
@@ -1577,11 +1608,13 @@ paths:
                   - nbLeaders
         responses:
           200:
+            description: The team battle tournament was successfully updated.
             content:
               application/json:
                 schema:
                   $ref: '#/components/schemas/ArenaTournament'
           400:
+            description: The update of the team battle tournament failed.
             content:
               application/json:
                 schema:
@@ -1653,6 +1686,7 @@ paths:
             default: false
       responses:
         200:
+          description: The list of games of an Arena tournament.
           content:
             application/x-chess-pgn:
               schema:
@@ -1692,6 +1726,7 @@ paths:
             minimum: 1
       responses:
         200:
+          description: The results of the Arena tournament.
           content:
             application/x-ndjson:
               schema:
@@ -1716,6 +1751,7 @@ paths:
           required: true
       responses:
         200:
+          description: The list of teams of a team battle tournament, with their respective top players.
           content:
             application/json:
               schema:
@@ -1744,6 +1780,7 @@ paths:
             minimum: 1
       responses:
         200:
+          description: The list of tournaments created by the user.
           content:
             application/x-ndjson:
               schema:
@@ -1846,11 +1883,13 @@ paths:
                 - nbRounds
       responses:
         200:
+          description: The Swiss tournament was successfully created.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SwissTournament'
         400:
+          description: The creation of the Swiss tournament failed.
           content:
             application/json:
               schema:
@@ -1879,6 +1918,7 @@ paths:
           required: true
       responses:
         200:
+          description: The TRF representation of a Swiss tournament.
           content:
             text/plain:
               example:
@@ -1949,6 +1989,7 @@ paths:
             default: false
       responses:
         200:
+          description: The list of games of a Swiss tournament.
           content:
             application/x-chess-pgn:
               schema:
@@ -1988,6 +2029,7 @@ paths:
             minimum: 1
       responses:
         200:
+          description: The results of a Swiss tournament.
           content:
             application/x-ndjson:
               schema:
@@ -2024,6 +2066,7 @@ paths:
             default: 100
       responses:
         200:
+          description: The list of Swiss tournaments of a team.
           content:
             application/json:
               schema:
@@ -2083,6 +2126,7 @@ paths:
             default: true
       responses:
         200:
+          description: The chapter of the study.
           content:
             application/x-chess-pgn:
               schema:
@@ -2134,6 +2178,7 @@ paths:
             default: true
       responses:
         200:
+          description: The PGN representation of the study.
           content:
             application/x-chess-pgn:
               schema:
@@ -2191,6 +2236,7 @@ paths:
             default: true
       responses:
         200:
+          description: The studies of the user.
           content:
             application/x-chess-pgn:
               schema:
@@ -2217,6 +2263,7 @@ paths:
             minimum: 1
       responses:
         200:
+          description: The list of official broadcasts.
           content:
             application/json:
               schema:
@@ -2288,11 +2335,13 @@ paths:
                 - description
       responses:
         200:
+          description: The broadcast was successfully created.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Broadcast'
         400:
+          description: The creation of the broadcast failed.
           content:
             application/json:
               schema:
@@ -2327,6 +2376,7 @@ paths:
             type: string
       responses:
         200:
+          description: The information about the broadcast.
           content:
             application/json:
               schema:
@@ -2413,11 +2463,13 @@ paths:
                   - description
         responses:
           200:
+            description: The broadcast was successfully edited.
             content:
               application/json:
                 schema:
                   $ref: '#/components/schemas/Broadcast'
           400:
+            description: The edition of the broadcast failed.
             content:
               application/json:
                 schema:
@@ -2459,6 +2511,7 @@ paths:
               type: string
       responses:
         200:
+          description: The broadcast was successfully updated.
           content:
             application/json:
               schema:
@@ -2478,6 +2531,7 @@ paths:
         - None: []
       responses:
         200:
+          description: The list of simuls.
           content:
             application/json:
               schema:
@@ -2502,6 +2556,7 @@ paths:
           required: true
       responses:
         200:
+          description: The information about the team.
           content:
             application/json:
               schema:
@@ -2526,6 +2581,7 @@ paths:
             default: 1
       responses:
         200:
+          description: A paginated list of the most popular teams.
           content:
             application/json:
               schema:
@@ -2552,6 +2608,7 @@ paths:
           required: true
       responses:
         200:
+          description: The list of teams the user is a member of.
           content:
             application/json:
               schema:
@@ -2583,6 +2640,7 @@ paths:
             default: 1
       responses:
         200:
+          description: The paginated list of teams.
           content:
             application/json:
               schema:
@@ -2612,6 +2670,7 @@ paths:
           required: true
       responses:
         200:
+          description: The list of users in the team.
           content:
             application/x-ndjson:
               schema:
@@ -2648,6 +2707,7 @@ paths:
             default: 100
       responses:
         200:
+          description: The list of Arena tournaments of a team.
           content:
             application/json:
               schema:
@@ -2693,6 +2753,7 @@ paths:
                   description: Optional password, if the team requires one.
       responses:
         200:
+          description: The request to join a team was successfully sent.
           content:
             application/json:
               schema:
@@ -2720,6 +2781,7 @@ paths:
           required: true
       responses:
         200:
+          description: The logged in user has successfully left the team.
           content:
             application/json:
               schema:
@@ -2753,6 +2815,7 @@ paths:
           required: true
       responses:
         200:
+          description: The member has been kicked from the team.
           content:
             application/json:
               schema:
@@ -2789,11 +2852,13 @@ paths:
                   description: The message to send to all your team members.
       responses:
         200:
+          description: The message has successfully been sent to all team members.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         400:
+          description: The sending of message to all team members has failed.
           content:
             application/json:
               schema:
@@ -2815,6 +2880,7 @@ paths:
           SameOrigin: []
       responses:
         200:
+          description: The list of live streamers and their respective information.
           content:
             application/json:
               schema:
@@ -2879,6 +2945,7 @@ paths:
             type: boolean
       responses:
         200:
+          description: The crosstable of the two users.
           content:
             application/json:
               schema:
@@ -2903,6 +2970,7 @@ paths:
           required: true
       responses:
         200:
+          description: The list of users followed by a user.
           content:
             application/x-ndjson:
               schema:
@@ -2927,6 +2995,7 @@ paths:
           required: true
       responses:
         200:
+          description: The list of users who follow a user.
           content:
             application/x-ndjson:
               schema:
@@ -2953,6 +3022,7 @@ paths:
         - OAuth2: ["challenge:read", "bot:play", "board:play"]
       responses:
         200:
+          description: The stream of events reaching the logged in user.
           content:
             text/plain:
               example: |
@@ -3032,10 +3102,12 @@ paths:
                 - increment
       responses:
         200:
+          description: The seek was successfully created.
           content:
             text/plain:
               example: ""
         400:
+          description: The creation of the seek failed.
           content:
             application/json:
               schema:
@@ -3066,11 +3138,13 @@ paths:
           required: true
       responses:
         200:
+          description: The stream of the game.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/BotGameState'
         404:
+          description: The game was not found.
           content:
             application/json:
               schema:
@@ -3109,11 +3183,13 @@ paths:
             type: boolean
       responses:
         200:
+          description: The move was successfully made.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         400:
+          description: The move failed.
           content:
             application/json:
               schema:
@@ -3156,11 +3232,13 @@ paths:
                 - text
       responses:
         200:
+          description: The message was successfully posted in the chat.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         400:
+          description: The posting of the message in the chat failed.
           content:
             application/json:
               schema:
@@ -3185,11 +3263,13 @@ paths:
           required: true
       responses:
         200:
+          description: The game successfully aborted.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         400:
+          description: The abortion of the game failed.
           content:
             application/json:
               schema:
@@ -3214,11 +3294,13 @@ paths:
           required: true
       responses:
         200:
+          description: The game was successfully resigned.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         400:
+          description: The resigning from the game failed.
           content:
             application/json:
               schema:
@@ -3251,11 +3333,13 @@ paths:
           required: true
       responses:
         200:
+          description: The draw offer was successfully sent.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         400:
+          description: The draw offering failed.
           content:
             application/json:
               schema:
@@ -3282,11 +3366,13 @@ paths:
         - OAuth2: ["bot:play"]
       responses:
         200:
+          description: The bot account was successfully upgraded.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         400:
+          description: The upgrade of the bot account failed.
           content:
             application/json:
               schema:
@@ -3317,11 +3403,13 @@ paths:
           required: true
       responses:
         200:
+          description: The stream of the bot game.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/BotGameState'
         404:
+          description: The bot game was not found.
           content:
             application/json:
               schema:
@@ -3360,11 +3448,13 @@ paths:
             type: boolean
       responses:
         200:
+          description: The bot move was successfully made.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         400:
+          description: The bot move failed.
           content:
             application/json:
               schema:
@@ -3407,11 +3497,13 @@ paths:
                 - text
       responses:
         200:
+          description: The message was successfully posted in chat.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         400:
+          description: The posting of the  message in chat failed.
           content:
             application/json:
               schema:
@@ -3436,11 +3528,13 @@ paths:
           required: true
       responses:
         200:
+          description: The game was successfully aborted.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         400:
+          description: The abortion of the game failed.
           content:
             application/json:
               schema:
@@ -3465,11 +3559,13 @@ paths:
           required: true
       responses:
         200:
+          description: The game was successfully resigned from.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         400:
+          description: Resigning the game failed.
           content:
             application/json:
               schema:
@@ -3575,11 +3671,13 @@ paths:
                   default: "Your game with {opponent} is ready: {game}."
       responses:
         200:
+          description: The challenge was successfully created.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ChallengeJson'
         400:
+          description: The creation of the challenge failed.
           content:
             application/json:
               schema:
@@ -3606,11 +3704,13 @@ paths:
           required: true
       responses:
         200:
+          description: The challenge was successfully accepted.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         404:
+          description: The challenge to accept was not found.
           content:
             application/json:
               schema:
@@ -3658,11 +3758,13 @@ paths:
                     - onlyBot
       responses:
         200:
+          description: The challenge was successfully declined.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         404:
+          description: The challenge to decline was not found.
           content:
             application/json:
               schema:
@@ -3688,11 +3790,13 @@ paths:
           required: true
       responses:
         200:
+          description: The challenge was successfully cancelled.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         404:
+          description: The challenge to cancel was not found.
           content:
             application/json:
               schema:
@@ -3769,11 +3873,13 @@ paths:
                   default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
       responses:
         200:
+          description: The game with Lichess AI was successfully started.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/GameJson'
         400:
+          description: The creation of a game with Lichess AI failed.
           content:
             application/json:
               schema:
@@ -3846,11 +3952,13 @@ paths:
                   description: Optional name for the challenge, that players will see on the challenge page.
       responses:
         200:
+          description: The challenge was successfully created.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ChallengeOpenJson'
         400:
+          description: The creation of the challenge failed.
           content:
             application/json:
               schema:
@@ -3889,6 +3997,7 @@ paths:
             type: string
       responses:
         200:
+          description: The clock of a game was successfully started.
           content:
             application/json:
               schema:
@@ -3910,6 +4019,7 @@ paths:
         - OAuth2: ["challenge:bulk"]
       responses:
         200:
+          description: The list of upcoming bulk pairing the logged in user created.
           content:
             application/json:
               schema:
@@ -4022,11 +4132,13 @@ paths:
                   default: "Your game with {opponent} is ready: {game}."
       responses:
         200:
+          description: The bulk pairings have been successfully created.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/BulkPairing'
         400:
+          description: The creation of the bulk pairings failed.
           content:
             application/json:
               schema:
@@ -4058,11 +4170,13 @@ paths:
           required: true
       responses:
         200:
+          description: The clocks of the games of a bulk pairing were successfully started.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         404:
+          description: The bulk pairing was not found.
           content:
             application/json:
               schema:
@@ -4092,11 +4206,13 @@ paths:
           required: true
       responses:
         200:
+          description: The bulk pairing was successfully deleted.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         404:
+          description: The bulk pairing to delete was not found.
           content:
             application/json:
               schema:
@@ -4130,6 +4246,7 @@ paths:
           required: true
       responses:
         200:
+          description: Time was successfully added to the opponent's clock.
           content:
             application/json:
               schema:
@@ -4230,11 +4347,13 @@ paths:
                   default: "Your game with {opponent} is ready: {game}."
       responses:
         200:
+          description: The challenge has been successfully created.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ChallengeJson'
         400:
+          description: The creation of the challenge failed.
           content:
             application/json:
               schema:
@@ -4272,11 +4391,13 @@ paths:
                 - text
       responses:
         200:
+          description: The private message has been successfully sent.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ok'
         400:
+          description: The sending of the private message has failed.
           content:
             application/json:
               schema:
@@ -4318,6 +4439,7 @@ paths:
             default: standard
       responses:
         200:
+          description: The evaluation of the position.
           content:
             application/json:
               example: {"fen":"rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2","knodes":13683,"depth":22,"pvs":[{"moves":"c8f5 d2d4 e7e6 g1f3 g8e7 c1e3 c7c5 d4c5 e7c6 b1c3","cp":-13},{"moves":"c7c5 c2c3 d5d4 g1f3 b8c6 c3d4 c6d4 b1c3 c8d7 f1d3","cp":-1},{"moves":"e7e6 d2d4 c7c5 c2c3 b8c6 g1f3 c8d7 b1a3 c5d4 c3d4","cp":24}]}
@@ -4365,6 +4487,7 @@ paths:
             maximum: 4
       responses:
         200:
+          description: The evaluation of the position.
           content:
             application/json:
               schema:
@@ -4453,6 +4576,7 @@ paths:
                 - 2500
       responses:
         200:
+          description: The list of openings.
           content:
             application/json:
               schema:
@@ -4478,6 +4602,7 @@ paths:
           required: true
       responses:
         200:
+          description: The PGN representation of the game.
           content:
             application/x-chess-pgn:
               schema:
@@ -4497,6 +4622,7 @@ paths:
         - None: []
       responses:
         200:
+          description: The statistics of the Opening Explorer.
           content:
             application/json:
               example: {"master":{"games":2299868,"uniquePositions":56683918},"lichess":{"chess960":{"games":2259840,"uniquePositions":190488295},"standard":{"games":272515941,"uniquePositions":7355380242},"antichess":{"games":7818476,"uniquePositions":177073596},"horde":{"games":1027171,"uniquePositions":34843126},"atomic":{"games":3827483,"uniquePositions":70119949},"racingKings":{"games":747878,"uniquePositions":11671677},"kingOfTheHill":{"games":1345370,"uniquePositions":38511395},"crazyhouse":{"games":7540244,"uniquePositions":218945811},"threeCheck":{"games":1362591,"uniquePositions":29181473}}}
@@ -4521,6 +4647,7 @@ paths:
           description: FEN of the position. Underscores allowed. The halfmove clock is taken into account for WDL values.
       responses:
         200:
+          description: The tablebase information for the position in standard chess.
           content:
             application/json:
               schema:
