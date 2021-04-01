@@ -434,6 +434,7 @@ paths:
       parameters:
         - in: path
           name: days
+          required: true
           description: How many days to look back when aggregating puzzle results. 30 is sensible.
           schema:
             type: integer
@@ -466,6 +467,7 @@ paths:
           description: Username of the player
           schema:
             type: string
+          required: true
         - in: query
           name: days
           description: How many days of history to return
@@ -1437,6 +1439,13 @@ paths:
         - "Arena tournaments"
       security:
         - OAuth2: ["tournament:write"]
+      parameters:
+        - in: path
+          name: id
+          description: The tournament ID.
+          schema:
+            type: string
+          required: true
       requestBody:
         description: Parameters of the tournament
         required: true
@@ -1772,12 +1781,12 @@ paths:
       security:
         - None: []
       parameters:
-        - in: query
-          name: nb
-          description: Max number of tournaments to fetch
+        - in: path
+          name: username
+          description: The user whose created tournaments to fetch
           schema:
-            type: integer
-            minimum: 1
+            type: string
+          required: true
       responses:
         200:
           description: The list of tournaments created by the user.
@@ -1801,11 +1810,12 @@ paths:
       security:
         - OAuth2: ["tournament:write"]
       parameters:
-        - in: query
+        - in: path
           name: teamId
           description: ID of the team
           schema:
             type: string
+          required: true
       requestBody:
         description: Parameters of the tournament
         required: true
