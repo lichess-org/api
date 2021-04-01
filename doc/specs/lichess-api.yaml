@@ -2144,7 +2144,7 @@ paths:
 
   /study/{studyId}.pgn:
     get:
-      operationId: studyChapterPgn
+      operationId: studyAllChaptersPgn
       summary: Export all chapters
       description: |
         Download all chapters of a study in PGN format.
