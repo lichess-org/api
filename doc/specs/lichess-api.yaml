@@ -4627,6 +4627,9 @@ paths:
       summary: Tablebase lookup for Atomic chess
       tags:
         - Tablebase
+      responses:
+        200:
+          description: The tablebase information for the position in atomic chess.
 
   /antichess:
     get:
@@ -4634,6 +4637,9 @@ paths:
       summary: Tablebase lookup for Antichess
       tags:
         - Tablebase
+      responses:
+        200:
+          description: The tablebase information for the position in atomic chess.
 
 
 components:
