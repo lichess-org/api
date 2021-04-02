@@ -174,6 +174,11 @@ paths:
       responses:
         200:
           description: The list of users and their respective statuses.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -222,8 +227,7 @@ paths:
       summary: Get all top 10
       tags:
         - Users
-      security:
-        - SameOrigin: []
+      security: []
       description: |
         Get the top 10 players for each speed and variant.
 
@@ -244,8 +248,7 @@ paths:
       summary: Get one leaderboard
       tags:
         - Users
-      security:
-        - SameOrigin: []
+      security: []
       description: |
         Get the leaderboard for a single speed or variant (a.k.a. `perfType`).
         There is no leaderboard for correspondence or puzzles.
@@ -286,6 +289,11 @@ paths:
       responses:
         200:
           description: The list of top players for the variant.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/vnd.lichess.v3+json:
               schema:
@@ -309,6 +317,11 @@ paths:
       responses:
         200:
           description: The information of the user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -335,6 +348,11 @@ paths:
       responses:
         200:
           description: The rating history of the user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -358,6 +376,11 @@ paths:
       responses:
         200:
           description: The activity feed of the user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               example:
@@ -375,6 +398,11 @@ paths:
       responses:
         200:
           description: The daily puzzle.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-ndjson:
               schema:
@@ -406,6 +434,11 @@ paths:
       responses:
         200:
           description: The puzzle activity of the logged in user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-ndjson:
               schema:
@@ -437,6 +470,11 @@ paths:
       responses:
         200:
           description: The puzzle dashboard of the logged in user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -473,6 +511,11 @@ paths:
       responses:
         200:
           description: The storm dashboard of a player.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -500,6 +543,11 @@ paths:
       responses:
         200:
           description: The list of users.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -521,6 +569,11 @@ paths:
       responses:
         200:
           description: The public informations about the logged in user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -540,6 +593,11 @@ paths:
       responses:
         200:
           description: The email address of the logged in user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -566,6 +624,11 @@ paths:
       responses:
         200:
           description: The preferences of the logged in user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -589,6 +652,11 @@ paths:
       responses:
         200:
           description: The kid mode status of the logged in user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -620,6 +688,11 @@ paths:
       responses:
         200:
           description: The kid mode status was set successfully for the logged in user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -707,6 +780,11 @@ paths:
       responses:
         200:
           description: The game representation.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-chess-pgn:
               schema:
@@ -796,6 +874,11 @@ paths:
       responses:
         200:
           description: The ongoing (or last) game of a user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-chess-pgn:
               schema:
@@ -966,6 +1049,11 @@ paths:
       responses:
         200:
           description: The games of the user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-chess-pgn:
               schema:
@@ -990,8 +1078,7 @@ paths:
         Ongoing games have their last 3 moves omitted, after move 5.
       tags:
         - Games
-      security:
-        - SameOrigin: []
+      security: []
       requestBody:
         description: Game IDs separated by commas. Up to 300.
         required: true
@@ -1091,6 +1178,11 @@ paths:
       responses:
         200:
           description: The stream of the games played between the users.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-ndjson:
               schema:
@@ -1121,6 +1213,11 @@ paths:
       responses:
         200:
           description: The ongoing games of the logged in user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -1141,6 +1238,11 @@ paths:
       responses:
         200:
           description: The list of games being played for each speed and variant.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -1157,8 +1259,7 @@ paths:
         Try it with `curl https://lichess.org/api/tv/feed`.
       tags:
         - Games
-      security:
-        - SameOrigin: []
+      security: []
       responses:
         200:
           description: The stream of the current TV game.
@@ -1197,6 +1298,11 @@ paths:
       responses:
         200:
           description: The game was successfully imported.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -1216,6 +1322,11 @@ paths:
       responses:
         200:
           description: The list of current tournaments.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -1368,6 +1479,11 @@ paths:
       responses:
         200:
           description: The Arena tournament has been successfully created.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -1407,6 +1523,11 @@ paths:
       responses:
         200:
           description: The information of the Arena tournament.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -1549,6 +1670,11 @@ paths:
       responses:
         200:
           description: The Arena tournament was successfully updated.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -1603,6 +1729,11 @@ paths:
         responses:
           200:
             description: The team battle tournament was successfully updated.
+            headers:
+              Access-Control-Allow-Origin:
+                schema:
+                  type: string
+                  default: "'*'"
             content:
               application/json:
                 schema:
@@ -1680,6 +1811,11 @@ paths:
       responses:
         200:
           description: The list of games of an Arena tournament.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-chess-pgn:
               schema:
@@ -1719,6 +1855,11 @@ paths:
       responses:
         200:
           description: The results of the Arena tournament.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-ndjson:
               schema:
@@ -1743,6 +1884,11 @@ paths:
       responses:
         200:
           description: The list of teams of a team battle tournament, with their respective top players.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -1771,6 +1917,11 @@ paths:
       responses:
         200:
           description: The list of tournaments created by the user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-ndjson:
               schema:
@@ -1875,6 +2026,11 @@ paths:
       responses:
         200:
           description: The Swiss tournament was successfully created.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -1909,6 +2065,11 @@ paths:
       responses:
         200:
           description: The TRF representation of a Swiss tournament.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             text/plain:
               example:
@@ -1979,6 +2140,11 @@ paths:
       responses:
         200:
           description: The list of games of a Swiss tournament.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-chess-pgn:
               schema:
@@ -2018,6 +2184,11 @@ paths:
       responses:
         200:
           description: The results of a Swiss tournament.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-ndjson:
               schema:
@@ -2054,6 +2225,11 @@ paths:
       responses:
         200:
           description: The list of Swiss tournaments of a team.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -2069,8 +2245,7 @@ paths:
         Download one study chapter in PGN format.
       tags:
         - Studies
-      security:
-        - SameOrigin: []
+      security: []
       parameters:
         - in: path
           name: studyId
@@ -2127,8 +2302,7 @@ paths:
         Download all chapters of a study in PGN format.
       tags:
         - Studies
-      security:
-        - SameOrigin: []
+      security: []
       parameters:
         - in: path
           name: studyId
@@ -2186,7 +2360,6 @@ paths:
         - OAuth
       security:
         - OAuth2: []
-        - SameOrigin: []
       parameters:
         - in: path
           name: username
@@ -2251,6 +2424,11 @@ paths:
       responses:
         200:
           description: The list of official broadcasts.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -2321,6 +2499,11 @@ paths:
       responses:
         200:
           description: The broadcast was successfully created.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -2344,7 +2527,6 @@ paths:
         - OAuth
       security:
         - OAuth2: ["study:read"]
-          SameOrigin: []
       parameters:
         - in: path
           name: slug
@@ -2447,6 +2629,11 @@ paths:
         responses:
           200:
             description: The broadcast was successfully edited.
+            headers:
+              Access-Control-Allow-Origin:
+                schema:
+                  type: string
+                  default: "'*'"
             content:
               application/json:
                 schema:
@@ -2470,7 +2657,6 @@ paths:
         - OAuth
       security:
         - OAuth2: ["study:write"]
-          SameOrigin: []
       parameters:
         - in: path
           name: slug
@@ -2495,6 +2681,11 @@ paths:
       responses:
         200:
           description: The broadcast was successfully updated.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -2514,6 +2705,11 @@ paths:
       responses:
         200:
           description: The list of simuls.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -2538,6 +2734,11 @@ paths:
       responses:
         200:
           description: The information about the team.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -2562,6 +2763,11 @@ paths:
       responses:
         200:
           description: A paginated list of the most popular teams.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -2588,6 +2794,11 @@ paths:
       responses:
         200:
           description: The list of teams the user is a member of.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -2619,6 +2830,11 @@ paths:
       responses:
         200:
           description: The paginated list of teams.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -2648,6 +2864,11 @@ paths:
       responses:
         200:
           description: The list of users in the team.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-ndjson:
               schema:
@@ -2684,6 +2905,11 @@ paths:
       responses:
         200:
           description: The list of Arena tournaments of a team.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -2706,7 +2932,6 @@ paths:
         - OAuth
       security:
         - OAuth2: ["team:write"]
-          SameOrigin: []
       parameters:
         - in: path
           name: teamId
@@ -2747,7 +2972,6 @@ paths:
         - OAuth
       security:
         - OAuth2: ["team:write"]
-          SameOrigin: []
       parameters:
         - in: path
           name: teamId
@@ -2775,7 +2999,6 @@ paths:
         - OAuth
       security:
         - OAuth2: ["team:write"]
-          SameOrigin: []
       parameters:
         - in: path
           name: teamId
@@ -2829,6 +3052,11 @@ paths:
       responses:
         200:
           description: The message has successfully been sent to all team members.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -2851,8 +3079,7 @@ paths:
         So you can call it quite often (like once every 5 seconds).
       tags:
         - Users
-      security:
-        - SameOrigin: []
+      security: []
       responses:
         200:
           description: The list of live streamers and their respective information.
@@ -2920,6 +3147,11 @@ paths:
       responses:
         200:
           description: The crosstable of the two users.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -2944,6 +3176,11 @@ paths:
       responses:
         200:
           description: The list of users followed by a user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-ndjson:
               schema:
@@ -2968,6 +3205,11 @@ paths:
       responses:
         200:
           description: The list of users who follow a user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-ndjson:
               schema:
@@ -2995,6 +3237,11 @@ paths:
       responses:
         200:
           description: The stream of events reaching the logged in user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             text/plain:
               example: |
@@ -3075,6 +3322,11 @@ paths:
       responses:
         200:
           description: The seek was successfully created.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             text/plain:
               example: ""
@@ -3111,6 +3363,11 @@ paths:
       responses:
         200:
           description: The stream of the game.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3156,6 +3413,11 @@ paths:
       responses:
         200:
           description: The move was successfully made.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3205,6 +3467,11 @@ paths:
       responses:
         200:
           description: The message was successfully posted in the chat.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3236,6 +3503,11 @@ paths:
       responses:
         200:
           description: The game successfully aborted.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3267,6 +3539,11 @@ paths:
       responses:
         200:
           description: The game was successfully resigned.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3306,6 +3583,11 @@ paths:
       responses:
         200:
           description: The draw offer was successfully sent.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3339,6 +3621,11 @@ paths:
       responses:
         200:
           description: The bot account was successfully upgraded.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3376,6 +3663,11 @@ paths:
       responses:
         200:
           description: The stream of the bot game.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3421,6 +3713,11 @@ paths:
       responses:
         200:
           description: The bot move was successfully made.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3470,6 +3767,11 @@ paths:
       responses:
         200:
           description: The message was successfully posted in chat.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3501,6 +3803,11 @@ paths:
       responses:
         200:
           description: The game was successfully aborted.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3532,6 +3839,11 @@ paths:
       responses:
         200:
           description: The game was successfully resigned from.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3644,6 +3956,11 @@ paths:
       responses:
         200:
           description: The challenge was successfully created.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3677,6 +3994,11 @@ paths:
       responses:
         200:
           description: The challenge was successfully accepted.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3731,6 +4053,11 @@ paths:
       responses:
         200:
           description: The challenge was successfully declined.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3763,6 +4090,11 @@ paths:
       responses:
         200:
           description: The challenge was successfully cancelled.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3846,6 +4178,11 @@ paths:
       responses:
         200:
           description: The game with Lichess AI was successfully started.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3924,6 +4261,11 @@ paths:
       responses:
         200:
           description: The challenge was successfully created.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3969,6 +4311,11 @@ paths:
       responses:
         200:
           description: The clock of a game was successfully started.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -3991,6 +4338,11 @@ paths:
       responses:
         200:
           description: The list of upcoming bulk pairing the logged in user created.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -4104,6 +4456,11 @@ paths:
       responses:
         200:
           description: The bulk pairings have been successfully created.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -4142,6 +4499,11 @@ paths:
       responses:
         200:
           description: The clocks of the games of a bulk pairing were successfully started.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -4178,6 +4540,11 @@ paths:
       responses:
         200:
           description: The bulk pairing was successfully deleted.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -4218,6 +4585,11 @@ paths:
       responses:
         200:
           description: Time was successfully added to the opponent's clock.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -4319,6 +4691,11 @@ paths:
       responses:
         200:
           description: The challenge has been successfully created.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -4340,7 +4717,6 @@ paths:
         - Messaging
       security:
         - OAuth2: ["msg:write"]
-          SameOrigin: []
       parameters:
         - in: path
           name: username
@@ -4410,6 +4786,11 @@ paths:
       responses:
         200:
           description: The evaluation of the position.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               example: {"fen":"rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2","knodes":13683,"depth":22,"pvs":[{"moves":"c8f5 d2d4 e7e6 g1f3 g8e7 c1e3 c7c5 d4c5 e7c6 b1c3","cp":-13},{"moves":"c7c5 c2c3 d5d4 g1f3 b8c6 c3d4 c6d4 b1c3 c8d7 f1d3","cp":-1},{"moves":"e7e6 d2d4 c7c5 c2c3 b8c6 g1f3 c8d7 b1a3 c5d4 c3d4","cp":24}]}
@@ -4457,6 +4838,11 @@ paths:
       responses:
         200:
           description: The evaluation of the position.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -4545,6 +4931,11 @@ paths:
       responses:
         200:
           description: The list of openings.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -4570,6 +4961,11 @@ paths:
       responses:
         200:
           description: The PGN representation of the game.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-chess-pgn:
               schema:
@@ -4589,6 +4985,11 @@ paths:
       responses:
         200:
           description: The statistics of the Opening Explorer.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               example: {"master":{"games":2299868,"uniquePositions":56683918},"lichess":{"chess960":{"games":2259840,"uniquePositions":190488295},"standard":{"games":272515941,"uniquePositions":7355380242},"antichess":{"games":7818476,"uniquePositions":177073596},"horde":{"games":1027171,"uniquePositions":34843126},"atomic":{"games":3827483,"uniquePositions":70119949},"racingKings":{"games":747878,"uniquePositions":11671677},"kingOfTheHill":{"games":1345370,"uniquePositions":38511395},"crazyhouse":{"games":7540244,"uniquePositions":218945811},"threeCheck":{"games":1362591,"uniquePositions":29181473}}}
@@ -4613,6 +5014,11 @@ paths:
       responses:
         200:
           description: The tablebase information for the position in standard chess.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -4626,6 +5032,11 @@ paths:
       responses:
         200:
           description: The tablebase information for the position in atomic chess.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
 
   /antichess:
     get:
@@ -4636,6 +5047,11 @@ paths:
       responses:
         200:
           description: The tablebase information for the position in atomic chess.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
 
 
 components:
@@ -6129,9 +6545,3 @@ components:
             "msg:write": Send private messages to other players
             "board:play": Play with the Board API
             "bot:play": Play with the Bot API. Only for [Bot accounts](#operation/botAccountUpgrade)
-    SameOrigin:
-      description: "CORS is supported on almost all endpoints, except those tagged `SameOrigin`.\n\
-        \ If you need CORS on one of those, please\n\
-        \ [make an issue](https://github.com/ornicar/lila/issues/new)\n\
-        \ explaining your use case to request it."
-      type: none
