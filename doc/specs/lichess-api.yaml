@@ -2308,9 +2308,7 @@ paths:
                     Timestamp in milliseconds of broadcast start. Leave empty to manually start the broadcast.
 
                     Example: `1356998400070`
-                  schema:
-                    type: integer
-                    minimum: 1356998400070
+                  minimum: 1356998400070
                 official:
                   type: boolean
                   description: For Lichess internal usage only. You are not allowed to use this flag. If you do it, we will have to call the police.
@@ -2436,9 +2434,7 @@ paths:
                       Timestamp in milliseconds of broadcast start. Leave empty to manually start the broadcast.
 
                       Example: `1356998400070`
-                    schema:
-                      type: integer
-                      minimum: 1356998400070
+                    minimum: 1356998400070
                   official:
                     type: boolean
                     description: For Lichess internal usage only. You are not allowed to use this flag. If you do it, we will have to call the police.
