@@ -5875,6 +5875,8 @@ components:
         moves:
           type: array
           description: Information about legal moves, best first
+          items:
+            $ref: '#/components/schemas/Move'
       example:
         {
           "wdl": 2,
@@ -5901,6 +5903,37 @@ components:
             }
           ]
         }
+
+    Move:
+      type: object
+      properties:
+        uci:
+          type: string
+          example: "h7h8q"
+        san:
+          type: string
+          example: "h8=Q+"
+        wdl:
+          type: integer
+          description: (2) win, (1) cursed win, (0) draw, (-1) blessed loss, (-2) loss, (null) unknown
+        dtz:
+          type: integer
+          description: Distance to zeroing or null if unknown
+        dtm:
+          type: integer
+          description: Distance to mate (only for positions with not more than 5 pieces)
+        zeroing:
+          type: boolean
+        checkmate:
+          type: boolean
+        stalemate:
+          type: boolean
+        variant_win:
+          type: boolean
+        variant_loss:
+          type: boolean
+        insufficient_material:
+          type: boolean
 
     Team:
       type: object
