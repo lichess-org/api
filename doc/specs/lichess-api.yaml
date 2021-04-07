@@ -3948,7 +3948,7 @@ paths:
 
                     Message that is sent to each player, when the game is created. It is sent from your user account.
 
-                    `{opponent}` and `{game}` are placeholders that will be replaced with the opponent and the game URLs.
+                    `{opponent}`, `{player}` and `{game}` are placeholders that will be replaced with the opponent name, player name, and the game URLs.
 
                     You can omit this field to send the default message,
                     but if you set your own message, it must at least contain the `{game}` placeholder.
