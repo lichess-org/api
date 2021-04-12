@@ -1686,6 +1686,43 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/tournament/{id}/terminate:
+    post:
+      operationId: apiTournamentTerminate
+      summary: Terminate an Arena tournament
+      description: |
+        Terminate an Arena tournament
+      tags:
+        - "Arena tournaments"
+      security:
+        - OAuth2: ["tournament:write"]
+      parameters:
+        - in: path
+          name: id
+          description: The tournament ID.
+          schema:
+            type: string
+            example: "hL7vMrFQ"
+          required: true
+      responses:
+        200:
+          description: The tournament was successfully terminated.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          description: Terminating the tournament failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /api/tournament/team-battle/{id}:
       post:
         operationId: apiTournamentTeamBattlePost
