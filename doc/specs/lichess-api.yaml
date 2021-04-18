@@ -1687,6 +1687,57 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/tournament/{id}/join:
+    post:
+      operationId: apiTournamentJoin
+      summary: Join an Arena tournament
+      description: |
+        Join an Arena tournament, possibly with a password and/or a team.
+      tags:
+        - "Arena tournaments"
+      security:
+        - OAuth2: ["tournament:write"]
+      parameters:
+        - in: path
+          name: id
+          description: The tournament ID.
+          schema:
+            type: string
+            example: "hL7vMrFQ"
+          required: true
+      requestBody:
+        description: You may need these depending on the tournament to join
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  description: The tournament password, if one is required
+                team:
+                  type: string
+                  description: The team to join the tournament with, for team battle tournaments
+      responses:
+        200:
+          description: The tournament was successfully joined.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          description: Joining the tournament failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /api/tournament/{id}/terminate:
     post:
       operationId: apiTournamentTerminate
