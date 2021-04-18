@@ -46,7 +46,8 @@ tags:
 - name: Puzzles
   description: "Access Lichess puzzle history and dashboard. https://lichess.org/training\n\n
   \ Our collection of puzzles is in the public domain, you can [download it here](https://database.lichess.org/#puzzles).\n\n
-  \ For a list of our puzzle themes with their description, check out the [theme translation file](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml)."
+  \ For a list of our puzzle themes with their description, check out the [theme translation file](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).\n\n
+  \ The daily puzzle can be [posted in your slack workspace](https://lichess.org/daily-puzzle-slack)"
 - name: Teams
   description: |
     Access and manage Lichess teams and their members.
@@ -393,6 +394,8 @@ paths:
       summary: Get the daily puzzle
       description: |
         Get the daily Lichess puzzle in JSON format.
+
+        Alternatively, you can [post it in your slack workspace](https://lichess.org/daily-puzzle-slack).
       tags:
         - Puzzles
       security: []
