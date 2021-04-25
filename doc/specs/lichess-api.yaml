@@ -4939,7 +4939,7 @@ paths:
         - in: query
           name: fen
           required: true
-          description: FEN of the position
+          description: FEN of the root position
           schema:
             type: string
           example: rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2
@@ -4992,9 +4992,25 @@ paths:
       security: []
       parameters:
         - in: query
+          name: variant
+          description: Variant
+          required: true
+          schema:
+            type: string
+            enum:
+              - standard
+              - chess960
+              - threeCheck
+              - kingOfTheHill
+              - racingKings
+              - antichess
+              - atomic
+              - horde
+              - crazyhouse
+        - in: query
           name: fen
           required: true
-          description: FEN of the position
+          description: FEN of the root position
           schema:
             type: string
           example: rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2
@@ -5026,12 +5042,6 @@ paths:
             type: number
             default: 4
             maximum: 4
-        - in: query
-          name: variant
-          description: Variant
-          schema:
-            type: string
-            default: standard
         - in: query
           name: speeds[]
           description: One or more game speeds to look for
