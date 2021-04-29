@@ -5642,9 +5642,6 @@ components:
         tosViolation:
           type: boolean
           example: false
-        booster:
-          type: boolean
-          example: false
         profile:
           $ref: '#/components/schemas/Profile'
         seenAt:
