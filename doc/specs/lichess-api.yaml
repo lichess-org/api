@@ -1273,6 +1273,37 @@ paths:
                 example:
                   {"t":"featured","d":{"id":"qVSOPtMc","orientation":"black","players":[{"color":"white","user":{"name":"lizen9","id":"lizen9","title":"GM"},"rating":2531},{"color":"black","user":{"name":"lizen29","title":"WGM","id":"lizen29"},"rating":2594}],"fen":"rnbqk1r1/ppp1ppbp/8/N2p2p1/8/1PQPP3/P1P2PPn/R1B1K1NR"}}
 
+  /api/stream/game/{id}:
+    get:
+      operationId: streamGame
+      summary: Stream moves of a game
+      description: |
+        Stream positions and moves of any ongoing game, in [ndjson](http://ndjson.org/).
+
+        A description of the game is sent as a first message.
+        Then a message is sent each time a move is played.
+        Finally a description of the game is sent when it finishes, and the stream is closed.
+
+        After move 5, the stream intentionally remains 3 moves behind the game status, as to prevent cheat bots from using this API.
+
+        No more than 8 game streams can be opened at the same time from the same IP address.
+      tags:
+        - Games
+      security: []
+      responses:
+        200:
+          description: The stream of the game moves.
+          content:
+            application/x-ndjson:
+              schema:
+                example: |
+                  {"id":"LuGQwhBb","variant":{"key":"standard","name":"Standard","short":"Std"},"speed":"blitz","perf":"blitz","rated":true,"initialFen":"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1","fen":"rnbqkb1r/1p1ppppp/p6n/2p4Q/8/1P2P3/P1PP1PPP/RNB1KBNR w KQkq - 0 4","player":"white","turns":6,"startedAtTurn":0,"source":"pool","status":{"id":20,"name":"started"},"createdAt":1620029815106,"lastMove":"c7c5"}
+                  {"fen":"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w","wc":180,"bc":180}
+                  {"fen":"rnbqkbnr/pppppppp/8/8/8/4P3/PPPP1PPP/RNBQKBNR b","lm":"e2e3","wc":180,"bc":180}
+                  {"fen":"rnbqkb1r/pppppppp/7n/8/8/4P3/PPPP1PPP/RNBQKBNR w","lm":"g8h6","wc":180,"bc":180}
+                  {"fen":"rnbqkb1r/pppppppp/7n/8/8/1P2P3/P1PP1PPP/RNBQKBNR b","lm":"b2b3","wc":177,"bc":180}
+                  {"fen":"rnbqkb1r/1ppppppp/p6n/8/8/1P2P3/P1PP1PPP/RNBQKBNR w","lm":"a7a6","wc":177,"bc":177}
+
   /api/import:
     post:
       operationId: gameImport
