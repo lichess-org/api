@@ -5788,13 +5788,20 @@ components:
     }
 
     PuzzleRoundJson:
-      example: {
-        "id": 70232,
-        "date": 1514505150384,
-        "rating": 1982,
-        "ratingDiff": 5,
-        "puzzleRating": 1877
-      }
+      type: object
+      properties:
+        id:
+          type: string
+          example: "BwPiW"
+        date:
+          type: number
+          example: 1514505150384
+        win:
+          type: boolean
+          example: true
+        puzzleRating:
+          type: number
+          example: 1877
 
     PuzzleDashboardJson:
       example: {
