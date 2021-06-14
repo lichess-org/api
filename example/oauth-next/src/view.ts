@@ -16,6 +16,18 @@ export function view(ctrl: Ctrl): VNode {
       h('td', ctrl.errorDescription),
     ]),
     h('tr', [
+      h('td', 'Authorization code (secret)'),
+      h('td', ctrl.code),
+    ]),
+    h('tr', [
+      h('td', 'Access token (secret)'),
+      h('td', ctrl.accessToken),
+    ]),
+    h('tr', [
+      h('td', 'Confirmed email'),
+      h('td', ctrl.email),
+    ]),
+    h('tr', [
       h('td', ''),
       h('td', [
         h('button', {

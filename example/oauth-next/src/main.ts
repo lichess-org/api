@@ -12,4 +12,6 @@ export default function (element: HTMLElement) {
   function redraw() {
     vnode = patch(vnode, view(ctrl));
   }
+
+  ctrl.init();
 }

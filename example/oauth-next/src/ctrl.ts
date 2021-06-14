@@ -10,13 +10,14 @@ const clientUrl = (() => {
 
 const authorizeEndpoint = 'http://localhost:9663/oauth/authorize';
 const tokenEndpoint = 'http://localhost:9663/api/oauth/token';
+const apiEndpoint = 'http://localhost:9663/api';
 
 export class Ctrl {
   state: State = 'unauthorized';
 
   // https://www.oauth.com/oauth2-servers/server-side-apps/possible-errors/
-  error: string | null;
-  errorDescription: string | null;
+  error: string | null = null;
+  errorDescription: string | null = null;
 
   code: string | null = null;
   accessToken: string | null = null;
@@ -24,6 +25,9 @@ export class Ctrl {
   email: string | null = null;
 
   constructor(private redraw: () => void) {
+  }
+
+  init() {
     const params = new URL(location.href).searchParams;
     this.error = params.get('error');
     this.errorDescription = params.get('error_description');
@@ -76,7 +80,7 @@ export class Ctrl {
     }
 
     // 7. Request access token.
-    let res;
+    /* let res;
     try {
       res = await fetch(tokenEndpoint, {
         'method': 'POST',
@@ -103,18 +107,37 @@ export class Ctrl {
       this.errorDescription = body.error_description;
       this.redraw();
       return;
-    }
+    } */
+    const body = {
+      access_token: 'U1gBsKWNzU5VNw6Y', // mock example
+    };
 
     this.accessToken = body.access_token;
     if (this.accessToken) {
       this.state = 'unauthorized';
       this.redraw();
+      return await this.useApi();
     }
-
-    return await this.useApi();
   }
 
   async useApi() {
+    const res = await fetch(`${apiEndpoint}/account/email`, {
+      headers: {
+        'Authorization': `Bearer ${this.accessToken}`,
+      }
+    });
+
+    const body = await res.json();
+
+    if (!res.ok) {
+      this.state = 'error';
+      this.error = 'api_error';
+      this.errorDescription = JSON.stringify(body);
+    } else {
+      this.email = body.email;
+    }
+
+    this.redraw();
   }
 }
 
