@@ -16,10 +16,6 @@ export function view(ctrl: Ctrl): VNode {
       h('td', ctrl.errorDescription),
     ]),
     h('tr', [
-      h('td', 'Authorization code (secret)'),
-      h('td', ctrl.code),
-    ]),
-    h('tr', [
       h('td', 'Access token (secret)'),
       h('td', ctrl.accessToken),
     ]),
@@ -38,6 +34,15 @@ export function view(ctrl: Ctrl): VNode {
            click: () => ctrl.login(),
           }
         }, 'Login'),
+        ' ',
+        h('button', {
+          attrs: {
+            disabled: ctrl.state != 'error' && ctrl.state != 'authorized',
+          },
+          on: {
+            click: () => ctrl.logout(),
+          },
+        }, ctrl.state == 'authorized' ? 'Logout' : 'Reset'),
       ]),
     ]),
   ]);

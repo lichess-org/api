@@ -1,6 +1,6 @@
 export type State = 'unauthorized' | 'preparing' | 'error' | 'verifying' | 'authorized';
 
-const clientId = 'example.com'; // your domain
+const clientId = 'example.com';
 
 const clientUrl = (() => {
   const url = new URL(location.href);
@@ -13,35 +13,36 @@ const tokenEndpoint = 'http://localhost:9663/api/oauth/token';
 const apiEndpoint = 'http://localhost:9663/api';
 
 export class Ctrl {
-  state: State = 'unauthorized';
+  state: State;
 
-  // https://www.oauth.com/oauth2-servers/server-side-apps/possible-errors/
-  error: string | null = null;
-  errorDescription: string | null = null;
+  error?: string | null = null;
+  errorDescription?: string | null = null;
 
-  code: string | null = null;
-  accessToken: string | null = null;
+  accessToken: string | null;
 
-  email: string | null = null;
+  email?: string;
 
   constructor(private redraw: () => void) {
+    this.accessToken = localStorage.getItem('access_token');
+    this.state = this.accessToken ? 'authorized' : 'unauthorized';
   }
 
-  init() {
-    const params = new URL(location.href).searchParams;
-    this.error = params.get('error');
-    this.errorDescription = params.get('error_description');
-
-    if (this.error) this.state == 'error';
-    else this.verify(params);
+  async init() {
+    await this.verify();
+    await this.useApi();
   }
 
   async login() {
     this.state = 'preparing';
     this.redraw();
 
-    // 1. Generate cryptographically random code verifier.
-    const codeVerifier = encodeBase64Url(secureRandom(64));
+    // Lichess provides OAuth 2 with PKCE flow. The steps below can be
+    // performed on a server, but also fully client-side. All clients are
+    // considered public, so clients do not have to be registered and there
+    // are no client secrets.
+
+    // 1. Generate cryptographically random code verifier (as text).
+    const codeVerifier = secureRandom(64);
     sessionStorage.setItem('code_verifier', codeVerifier);
 
     // 2. Derive code challenge from code verifier.
@@ -49,7 +50,7 @@ export class Ctrl {
     const codeChallenge = encodeBase64Url(digest);
 
     // 3. Generate random state (arbitrarily).
-    const state = encodeBase64Url(secureRandom(64));
+    const state = secureRandom(64);
     sessionStorage.setItem('state', state);
 
     // 4. Redirect to authorization endpoint.
@@ -57,29 +58,46 @@ export class Ctrl {
     url.searchParams.set('response_type', 'code');
     url.searchParams.set('client_id', clientId);
     url.searchParams.set('redirect_uri', clientUrl);
-    url.searchParams.set('state', state); // optional
+    url.searchParams.set('state', state);
     url.searchParams.set('code_challenge', codeChallenge);
     url.searchParams.set('code_challenge_method', 'S256');
     url.searchParams.set('scope', ['email:read'].join(' '));
     location.href = url.href;
   }
 
-  async verify(params: URLSearchParams) {
-    // 5. Server responded with an authorization code.
-    this.code = params.get('code');
-    if (!this.code) return;
-    this.state = 'verifying';
-
-    // 6. Check state to prevent CSRF.
-    const codeVerifier = sessionStorage.getItem('code_verifier');
-    const state = params.get('state');
-    if (!codeVerifier || !state || state !== sessionStorage.getItem('state')) {
-      this.state = 'error';
-      this.error = 'invalid_state';
+  async verify() {
+    // 5. Handle errors returned by authorization ...
+    const params = new URL(location.href).searchParams;
+    this.error = params.get('error');
+    this.errorDescription = params.get('error_description');
+    if (this.error) {
+      this.state == 'error';
+      this.redraw();
       return;
     }
 
-    // 7. Request access token.
+    // ... get the code ...
+    const code = params.get('code');
+    if (!code) return;
+
+    // ... and check the client state to ensure the client really wanted to
+    // initiate authentication.
+    const codeVerifier = sessionStorage.getItem('code_verifier');
+    const storedState = sessionStorage.getItem('state');
+    sessionStorage.removeItem('code_verifier');
+    sessionStorage.removeItem('state');
+    if (!codeVerifier || !storedState) return;
+    if (params.get('state') !== storedState) {
+      this.state = 'error';
+      this.error = 'invalid_state';
+      this.errorDescription = `!= ${storedState}`;
+      this.redraw();
+      return;
+    }
+
+    // 6. Use the authorization code to request an access token. This should be
+    // stored safely, for example in local storage.
+    this.state = 'verifying';
     /* let res;
     try {
       res = await fetch(tokenEndpoint, {
@@ -100,35 +118,53 @@ export class Ctrl {
       this.redraw();
       return;
     }
-    const body = await res.json();
-    if (res.status != 200) {
+
+    const body = await res.json(); */
+    const res = {
+     ok: true,
+    };
+    const body = {
+      access_token: 'U1gBsKWNzU5VNw6Y', // mock example
+      error: undefined,
+      error_description: undefined,
+    };
+
+    if (!res.ok) {
       this.state = 'error';
       this.error = body.error;
       this.errorDescription = body.error_description;
-      this.redraw();
       return;
-    } */
-    const body = {
-      access_token: 'U1gBsKWNzU5VNw6Y', // mock example
-    };
-
-    this.accessToken = body.access_token;
-    if (this.accessToken) {
+    } else {
       this.state = 'authorized';
-      this.redraw();
-      return await this.useApi();
+      this.accessToken = body.access_token;
+      localStorage.setItem('access_token', body.access_token);
     }
+    this.redraw();
   }
 
   async useApi() {
-    const res = await fetch(`${apiEndpoint}/account/email`, {
-      headers: {
-        'Authorization': `Bearer ${this.accessToken}`,
-      }
-    });
+    if (!this.accessToken) return;
+
+    // 7. Use access token in API requests. Make sure to properly handle
+    // errors. Back off for status code 429 Too Many requests, allow
+    // reauthenticating for status code 401 Unauthorized (token was revoked
+    // or may have expired).
+    let res;
+    try {
+      res = await fetch(`${apiEndpoint}/account/email`, {
+        headers: {
+          'Authorization': `Bearer ${this.accessToken}`,
+        }
+      });
+    } catch (e) {
+      this.state = 'error';
+      this.error = 'fetch_error';
+      this.errorDescription = e;
+      this.redraw();
+      return;
+    }
 
     const body = await res.json();
-
     if (!res.ok) {
       this.state = 'error';
       this.error = 'api_error';
@@ -136,15 +172,31 @@ export class Ctrl {
     } else {
       this.email = body.email;
     }
+    this.redraw();
+  }
+
+  logout() {
+    // 8. Logout should really remove the access token from persistent storage.
+    this.state = 'unauthorized';
+    this.error = undefined;
+    this.errorDescription = undefined;
+
+    this.accessToken = null;
+
+    sessionStorage.removeItem('code_verifier');
+    sessionStorage.removeItem('state');
+    localStorage.removeItem('access_token');
+
+    this.email = undefined;
 
     this.redraw();
   }
 }
 
-function secureRandom(bytes: number): Uint8Array {
+function secureRandom(bytes: number): string {
   const buffer = new Uint8Array(bytes);
   crypto.getRandomValues(buffer);
-  return buffer;
+  return encodeBase64Url(buffer);
 }
 
 function encodeBase64Url(bytes: Uint8Array): string {
