@@ -41,11 +41,11 @@ export class Ctrl {
     this.redraw();
 
     // 1. Generate cryptographically random code verifier.
-    const codeVerifier = secureRandom(64);
-    sessionStorage.setItem('code_verifier', encodeBase64Url(codeVerifier));
+    const codeVerifier = encodeBase64Url(secureRandom(64));
+    sessionStorage.setItem('code_verifier', codeVerifier);
 
     // 2. Derive code challenge from code verifier.
-    const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', codeVerifier));
+    const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(codeVerifier)));
     const codeChallenge = encodeBase64Url(digest);
 
     // 3. Generate random state (arbitrarily).
@@ -114,7 +114,7 @@ export class Ctrl {
 
     this.accessToken = body.access_token;
     if (this.accessToken) {
-      this.state = 'unauthorized';
+      this.state = 'authorized';
       this.redraw();
       return await this.useApi();
     }
