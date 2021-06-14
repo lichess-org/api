@@ -98,17 +98,17 @@ export class Ctrl {
     // 6. Use the authorization code to request an access token. This should be
     // stored safely, for example in local storage.
     this.state = 'verifying';
-    /* let res;
+    let res;
     try {
       res = await fetch(tokenEndpoint, {
-        'method': 'POST',
-        'credentials': 'omit',
-        'body': new URLSearchParams({
-          'client_id': clientId,
-          'code_verifier': codeVerifier,
-          'grant_type': 'authorization_code',
-          'redirect_url': clientUrl,
-          'code': this.code,
+        method: 'POST',
+        credentials: 'omit',
+        body: new URLSearchParams({
+          client_id: clientId,
+          code_verifier: codeVerifier,
+          grant_type: 'authorization_code',
+          redirect_url: clientUrl,
+          code,
         })
       });
     } catch (e) {
@@ -119,15 +119,7 @@ export class Ctrl {
       return;
     }
 
-    const body = await res.json(); */
-    const res = {
-     ok: true,
-    };
-    const body = {
-      access_token: 'U1gBsKWNzU5VNw6Y', // mock example
-      error: undefined,
-      error_description: undefined,
-    };
+    const body = await res.json();
 
     if (!res.ok) {
       this.state = 'error';
@@ -145,15 +137,16 @@ export class Ctrl {
   async useApi() {
     if (!this.accessToken) return;
 
-    // 7. Use access token in API requests. Make sure to properly handle
-    // errors. Back off for status code 429 Too Many requests, allow
+    // 7. You can now use the access token to make API requests.
+    // Make sure to properly handle errors.
+    // Back off for status code 429 Too Many requests, allow
     // reauthenticating for status code 401 Unauthorized (token was revoked
     // or may have expired).
     let res;
     try {
       res = await fetch(`${apiEndpoint}/account/email`, {
         headers: {
-          'Authorization': `Bearer ${this.accessToken}`,
+          Authorization: `Bearer ${this.accessToken}`,
         }
       });
     } catch (e) {
