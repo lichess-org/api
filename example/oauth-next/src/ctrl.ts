@@ -14,11 +14,10 @@ const apiEndpoint = 'http://localhost:9663/api';
 
 export class Ctrl {
   state: State;
+  accessToken: string | null;
 
   error?: string | null = null;
   errorDescription?: string | null = null;
-
-  accessToken: string | null;
 
   email?: string;
 
@@ -157,13 +156,12 @@ export class Ctrl {
       return;
     }
 
-    const body = await res.json();
     if (!res.ok) {
       this.state = 'error';
       this.error = 'api_error';
-      this.errorDescription = JSON.stringify(body);
+      this.errorDescription = await res.text();
     } else {
-      this.email = body.email;
+      this.email = (await res.json()).email;
     }
     this.redraw();
   }
@@ -171,14 +169,14 @@ export class Ctrl {
   logout() {
     // 8. Logout should really remove the access token from persistent storage.
     this.state = 'unauthorized';
+    this.accessToken = null;
+    localStorage.removeItem('access_token');
+
     this.error = undefined;
     this.errorDescription = undefined;
 
-    this.accessToken = null;
-
     sessionStorage.removeItem('code_verifier');
     sessionStorage.removeItem('state');
-    localStorage.removeItem('access_token');
 
     this.email = undefined;
 
