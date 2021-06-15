@@ -133,6 +133,9 @@ tags:
     but you can [create your own broadcasts](https://lichess.org/broadcast/new) to cover any live game or chess event.
     You will need to publish PGN on a public URL so that Lichess can pull updates from it.
     Alternatively, you can push PGN updates to Lichess using this API.
+
+    Broadcasts are organized in tournaments, which have several rounds, which have several games.
+    You must first create a tournament, then you can add rounds to them.
 - name: Analysis
   description: |
     Access Lichess cloud evaluations database.
@@ -2595,13 +2598,14 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Broadcast'
+                  $ref: '#/components/schemas/BroadcastTour'
+
   /broadcast/new:
     post:
-      operationId: broadcastCreate
-      summary: Create a broadcast
+      operationId: broadcastTourCreate
+      summary: Create a broadcast tournament
       description: |
-        Create a new broadcast to relay external games.
+        Create a new broadcast tournament to relay external games.
         This endpoint accepts the same form data as the [web form](https://lichess.org/broadcast/new).
       tags:
         - Broadcasts
@@ -2618,48 +2622,27 @@ paths:
                 name:
                   type: string
                   description: |
-                    Name of the broadcast. Length must be between 3 and 80 characters.
+                    Name of the broadcast tournament. Length must be between 3 and 80 characters.
 
-                    Example: `Sinquefield Cup - Round 10`
+                    Example: `Sinquefield Cup`
                 description:
                   type: string
                   description: |
-                    Short description of the broadcast. Length must be between 3 and 400 characters.
+                    Short description of the broadcast tournament. Length must be between 3 and 400 characters.
 
                     Example: `An 11 round classical tournament featuring the 9 highest rated players in the world. Including Carlsen, Caruana, Ding, Aronian, Nakamura and more.`
-                syncUrl:
-                  type: string
-                  description: |
-                    URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
-
-                    Example: `http://myserver.org/myevent/round-10/games.pgn`
-
-                    If the syncUrl is missing, then the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush).
-                markdown:
+                markup:
                   type: string
                   description: Optional long description of the broadcast. Markdown is supported. Length must be less than 20,000 characters.
-                credit:
-                  type: string
-                  description: Optional short text to give credit to the source provider.
-                startsAt:
-                  type: integer
-                  description: |
-                    Timestamp in milliseconds of broadcast start. Leave empty to manually start the broadcast.
-
-                    Example: `1356998400070`
-                  minimum: 1356998400070
                 official:
                   type: boolean
                   description: For Lichess internal usage only. You are not allowed to use this flag. If you do it, we will have to call the police.
-                throttle:
-                  type: integer
-                  description: For Lichess internal usage only. You are not allowed to use this flag. If you do it, chess24 will [display ads on your broadcast](https://i.imgur.com/B47wT5P.jpg).
               required:
                 - name
                 - description
       responses:
         200:
-          description: The broadcast was successfully created.
+          description: The broadcast tournament was successfully created.
           headers:
             Access-Control-Allow-Origin:
               schema:
@@ -2668,21 +2651,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Broadcast'
+                $ref: '#/components/schemas/BroadcastTour'
         400:
-          description: The creation of the broadcast failed.
+          description: The creation of the broadcast tournament failed.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /broadcast/{slug}/{broadcastId}:
+  /broadcast/{slug}/{broadcastTournamentId}:
     get:
-      operationId: broadcastGet
-      summary: Get your broadcast
+      operationId: broadcastTourGet
+      summary: Get your broadcast tournament
       description: |
-        Get information about a broadcast that you created.
-        You will need it if you want to update that broadcast.
+        Get information about a broadcast tournament that you created.
       tags:
         - Broadcasts
         - OAuth
@@ -2691,36 +2673,35 @@ paths:
       parameters:
         - in: path
           name: slug
-          description: The broadcast slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastId` is actually used.
+          description: The broadcast tournament slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastTournamentId` is actually used.
           required: true
           schema:
             type: string
             default: "-"
         - in: path
-          name: broadcastId
-          description: The broadcast ID (8 characters).
+          name: broadcastTournamentId
+          description: The broadcast tournament ID (8 characters).
           required: true
           schema:
             type: string
       responses:
         200:
-          description: The information about the broadcast.
+          description: The information about the broadcast tournament.
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Broadcast'
+                  $ref: '#/components/schemas/BroadcastTour'
 
-  /broadcast/{slug}/{broadcastId}/edit:
+  /broadcast/{broadcastTournamentId}/edit:
       post:
-        operationId: broadcastUpdate
-        summary: Update your broadcast
+        operationId: broadcastTourUpdate
+        summary: Update your broadcast tournament
         description: |
-          Update information about a broadcast that you created.
+          Update information about a broadcast tournament that you created.
           This endpoint accepts the same form data as the web form.
           All fields must be populated with data. Missing fields will override the broadcast with empty data.
-          For instance, if you omit `startDate`, then any pre-existing start date will be removed.
         tags:
           - Broadcasts
           - OAuth
@@ -2728,14 +2709,7 @@ paths:
           - OAuth2: ["study:write"]
         parameters:
           - in: path
-            name: slug
-            description: The broadcast slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastId` is actually used.
-            required: true
-            schema:
-              type: string
-              default: "-"
-          - in: path
-            name: broadcastId
+            name: broadcastTournamentId
             description: The broadcast ID (8 characters).
             required: true
             schema:
@@ -2750,46 +2724,27 @@ paths:
                   name:
                     type: string
                     description: |
-                      Name of the broadcast. Length must be between 3 and 80 characters.
+                      Name of the broadcast tournament. Length must be between 3 and 80 characters.
 
-                      Example: `Sinquefield Cup - Round 10`
+                      Example: `Sinquefield Cup`
                   description:
                     type: string
                     description: |
-                      Short description of the broadcast. Length must be between 3 and 400 characters.
+                      Short description of the broadcast tournament. Length must be between 3 and 400 characters.
 
                       Example: `An 11 round classical tournament featuring the 9 highest rated players in the world. Including Carlsen, Caruana, Ding, Aronian, Nakamura and more.`
-                  syncUrl:
+                  markup:
                     type: string
-                    description: |
-                      URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
-
-                      Example: `http://myserver.org/myevent/round-10/games.pgn`
-                  markdown:
-                    type: string
-                    description: Optional long description of the broadcast. Markdown is supported. Length must be less than 20,000 characters.
-                  credit:
-                    type: string
-                    description: Optional short text to give credit to the source provider.
-                  startsAt:
-                    type: integer
-                    description: |
-                      Timestamp in milliseconds of broadcast start. Leave empty to manually start the broadcast.
-
-                      Example: `1356998400070`
-                    minimum: 1356998400070
+                    description: Optional long description of the broadcast tournament. Markdown is supported. Length must be less than 20,000 characters.
                   official:
                     type: boolean
                     description: For Lichess internal usage only. You are not allowed to use this flag. If you do it, we will have to call the police.
-                  throttle:
-                    type: integer
-                    description: For Lichess internal usage only. You are not allowed to use this flag. If you do it, chess24 will display ads on your broadcast.
                 required:
                   - name
                   - description
         responses:
           200:
-            description: The broadcast was successfully edited.
+            description: The broadcast tournament was successfully edited.
             headers:
               Access-Control-Allow-Origin:
                 schema:
@@ -2798,9 +2753,180 @@ paths:
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/Broadcast'
+                  $ref: '#/components/schemas/Ok'
           400:
-            description: The edition of the broadcast failed.
+            description: The edition of the broadcast tournament failed.
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'
+
+  /broadcast/{broadcastTournamentId}/new:
+    post:
+      operationId: broadcastRoundCreate
+      summary: Create a broadcast round
+      description: |
+        Create a new broadcast round to relay external games.
+        This endpoint accepts the same form data as the web form.
+      tags:
+        - Broadcasts
+        - OAuth
+      security:
+        - OAuth2: ["study:write"]
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: |
+                    Name of the broadcast round. Length must be between 3 and 80 characters.
+
+                    Example: `Round 1`
+                syncUrl:
+                  type: string
+                  description: |
+                    URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
+
+                    Example: `https://myserver.org/myevent/round-10/games.pgn`
+
+                    If the syncUrl is missing, then the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush).
+                startsAt:
+                  type: integer
+                  description: |
+                    Timestamp in milliseconds of broadcast round start. Leave empty to manually start the broadcast round.
+
+                    Example: `1356998400070`
+                  minimum: 1356998400070
+              required:
+                - name
+      responses:
+        200:
+          description: The broadcast round was successfully created.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BroadcastRound'
+        400:
+          description: The creation of the broadcast failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /broadcast/{broadcastTournamentSlug}/{broadcastRoundSlug}/{broadcastRoundId}:
+    get:
+      operationId: broadcastRoundGet
+      summary: Get your broadcast round
+      description: |
+        Get information about a broadcast round that you created.
+      tags:
+        - Broadcasts
+        - OAuth
+      security:
+        - OAuth2: ["study:read"]
+      parameters:
+        - in: path
+          name: broadcastTournamentSlug
+          description: The broadcast tournament slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastRoundId` is actually used.
+          required: true
+          schema:
+            type: string
+            default: "-"
+        - in: path
+          name: broadcastRoundSlug
+          description: The broadcast round slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastRoundId` is actually used.
+          required: true
+          schema:
+            type: string
+            default: "-"
+        - in: path
+          name: broadcastRoundId
+          description: The broadcast Round ID (8 characters).
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: The information about the broadcast round.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BroadcastRound'
+
+  /broadcast/round/{broadcastRoundId}/edit:
+      post:
+        operationId: broadcastRoundUpdate
+        summary: Update your broadcast round
+        description: |
+          Update information about a broadcast round that you created.
+          This endpoint accepts the same form data as the web form.
+          All fields must be populated with data. Missing fields will override the broadcast with empty data.
+          For instance, if you omit `startDate`, then any pre-existing start date will be removed.
+        tags:
+          - Broadcasts
+          - OAuth
+        security:
+          - OAuth2: ["study:write"]
+        parameters:
+          - in: path
+            name: broadcastRoundId
+            description: The broadcast round ID (8 characters).
+            required: true
+            schema:
+              type: string
+        requestBody:
+          required: true
+          content:
+            application/x-www-form-urlencoded:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    description: |
+                      Name of the broadcast round. Length must be between 3 and 80 characters.
+
+                      Example: `Round 10`
+                  syncUrl:
+                    type: string
+                    description: |
+                      URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
+
+                      Example: `https://myserver.org/myevent/round-10/games.pgn`
+                  startsAt:
+                    type: integer
+                    description: |
+                      Timestamp in milliseconds of broadcast start. Leave empty to manually start the broadcast.
+
+                      Example: `1356998400070`
+                    minimum: 1356998400070
+                required:
+                  - name
+        responses:
+          200:
+            description: The broadcast round was successfully edited.
+            headers:
+              Access-Control-Allow-Origin:
+                schema:
+                  type: string
+                  default: "'*'"
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Ok'
+          400:
+            description: The edition of the broadcast tournament failed.
             content:
               application/json:
                 schema:
@@ -6378,8 +6504,38 @@ components:
           ]
       }
 
-    Broadcast:
-      example: {"tour":{"id":"phgcXuBl","name":"New in Chess Classic | Finals","slug":"new-in-chess-classic--finals","description":"Match for 1st 2nd and 3rd place.","markup":"<p>New in Chess Classic is the 5th event of Meltwater Champions Chess Tour. The top 8 players from the Preliminaries will be playing in the Knockout. The knockout match-ups consist of 4-game matches on the first two days. The time control is rapid, with 15 minutes and a 10 second increment per move.</p>\n<p>Tie breaks: If the match score is 1-1, two 5+3 games are then played, if still undecided an Armageddon game will be played, where White has 5 minutes to Black's 4, but a draw will count as a win for Black.</p>\n<p>Dates: 24th to 26th April (<a href=\"https://lichess.org/broadcast/new-in-chess-classic-preliminaries--day-1/oEeMZKX7\">Preliminaries</a>) , 27th April to 2nd May (Knockout)<br><a href=\"https://championschesstour.com/\">Official website</a></p>\n<h2>Schedule</h2>\n<table class=\"slist\">\n<thead>\n<tr><th>Round</th><th>Date</th><th><a href=\"https://time.is/UTC\">Time (UTC)</a></th></tr>\n</thead>\n<tbody>\n<tr><td><a href=\"https://lichess.org/broadcast/new-in-chess-classic--quarter-finals-day-1/quarter-finals-day-1/1R4i4rHd\">Quarter finals</a></td><td><a href=\"https://lichess.org/broadcast/new-in-chess-classic--quarter-finals-day-1/quarter-finals-day-1/1R4i4rHd\">Apr 27-28</a></td><td>17:00</td></tr>\n<tr><td><a href=\"https://lichess.org/broadcast/new-in-chess-classic--semi-finals/semi-finals-day-1/TJN73z17\">Semi finals</a></td><td><a href=\"https://lichess.org/broadcast/new-in-chess-classic--semi-finals/semi-finals-day-1/TJN73z17\">Apr 29-30</a></td><td>17:00</td></tr>\n<tr><td><a href=\"https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ\">Finals</a></td><td><a href=\"https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ\">May 1-2</a></td><td>17:00</td></tr>\n</tbody>\n</table>\n<h2>Finals</h2>\n<table class=\"slist\">\n<thead>\n<tr><th>Rank</th><th>Player name</th><th>F1</th><th>F2</th></tr>\n</thead>\n<tbody>\n<tr><td> </td><td> </td><td> </td><td> </td></tr>\n<tr><td>1</td><td>Magnus Carlsen</td><td>3</td><td>2</td></tr>\n<tr><td>2</td><td>Hikaru Nakamura</td><td>1</td><td>2</td></tr>\n</tbody>\n</table>\n<h2>Third place match</h2>\n<table class=\"slist\">\n<thead>\n<tr><th>Rank</th><th>Player name</th><th>M1</th><th>M2</th></tr>\n</thead>\n<tbody>\n<tr><td> </td><td> </td><td> </td><td> </td></tr>\n<tr><td>3</td><td>Shakhriyar Mamedyarov</td><td>2</td><td>2.5</td></tr>\n<tr><td>4</td><td>Levon Aronian</td><td>2</td><td>0.5</td></tr>\n</tbody>\n</table>\n","url":"http://l.org/broadcast/new-in-chess-classic--finals/phgcXuBl"},"rounds":[{"id":"BueO56UJ","name":"Finals Day 1","slug":"finals-day-1","finished":true,"startsAt":1619888421326,"url":"http://l.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ"},{"id":"yeGGfkfY","name":"Finals Day 2","slug":"finals-day-2","finished":true,"startsAt":1619974826231,"url":"http://l.org/broadcast/new-in-chess-classic--finals/finals-day-2/yeGGfkfY"}]}
+    BroadcastTour:
+      example: {
+        "tour": {
+            "description": "Match for 1st 2nd and 3rd place.",
+            "id": "QYiOYnl1",
+            "name": "New in Chess Classic | Finals",
+            "slug": "new-in-chess-classic--finals",
+            "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/phgcXuBl"
+        },
+        "rounds": [
+            {
+                "id": "BueO56UJ",
+                "name": "Finals Day 1",
+                "slug": "finals-day-1",
+                "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ"
+            },
+            {
+                "id": "yeGGfkfY",
+                "name": "Finals Day 2",
+                "slug": "finals-day-2",
+                "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-2/yeGGfkfY"
+            }
+        ]
+    } 
+
+    BroadcastRound:
+      example: {
+          "id": "BueO56UJ",
+          "name": "Finals Day 1",
+          "slug": "finals-day-1",
+          "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ"
+      }
 
     OpeningExplorerJson:
       example: {
