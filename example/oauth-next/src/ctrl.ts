@@ -1,15 +1,15 @@
 export type State = 'unauthorized' | 'preparing' | 'error' | 'verifying' | 'authorized';
 
-const clientId = 'example.com';
+export const clientId = 'example.com';
 
-const clientUrl = (() => {
+export const clientUrl = (() => {
   const url = new URL(location.href);
   url.search = '';
   return url.href;
 })();
 
 export class Ctrl {
-  lichessServer: string;
+  lichessHost: string;
 
   state: State;
   accessToken: string | null;
@@ -20,15 +20,15 @@ export class Ctrl {
   email?: string;
 
   constructor(private redraw: () => void) {
-    this.lichessServer = localStorage.getItem('lichess_server') || 'https://lichess.org';
+    this.lichessHost = localStorage.getItem('lichess_host') || 'https://lichess.org';
     this.accessToken = localStorage.getItem('access_token');
     this.state = this.accessToken ? 'authorized' : 'unauthorized';
   }
 
-  setLichessServer(lichessServer: string) {
+  setLichessHost(lichessHost: string) {
     if (this.state == 'unauthorized') {
-      this.lichessServer = lichessServer;
-      localStorage.setItem('lichess_server', this.lichessServer);
+      this.lichessHost = lichessHost;
+      localStorage.setItem('lichess_host', this.lichessHost);
     }
   }
 
@@ -59,7 +59,7 @@ export class Ctrl {
     sessionStorage.setItem('state', state);
 
     // 4. Redirect to authorization endpoint.
-    const url = new URL(`${this.lichessServer}/oauth`);
+    const url = new URL(`${this.lichessHost}/oauth`);
     url.searchParams.set('response_type', 'code');
     url.searchParams.set('client_id', clientId);
     url.searchParams.set('redirect_uri', clientUrl);
@@ -105,7 +105,7 @@ export class Ctrl {
     this.state = 'verifying';
     let res;
     try {
-      res = await fetch(`${this.lichessServer}/api/token`, {
+      res = await fetch(`${this.lichessHost}/api/token`, {
         method: 'POST',
         credentials: 'omit',
         body: new URLSearchParams({
@@ -148,7 +148,7 @@ export class Ctrl {
     // or may have expired).
     let res;
     try {
-      res = await fetch(`${this.lichessServer}/api/account/email`, {
+      res = await fetch(`${this.lichessHost}/api/account/email`, {
         headers: {
           Authorization: `Bearer ${this.accessToken}`,
         },
