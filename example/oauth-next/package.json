@@ -9,9 +9,11 @@
     "tslib": "^2",
     "rollup": "^2",
     "@rollup/plugin-typescript": "^8",
-    "@rollup/plugin-node-resolve": "^13"
+    "@rollup/plugin-node-resolve": "^13",
+    "prettier": "^2"
   },
   "scripts": {
-    "prepare": "rollup --config"
+    "prepare": "rollup --config",
+    "format": "prettier --write ."
   }
 }

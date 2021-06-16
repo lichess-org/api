@@ -8,8 +8,5 @@ export default {
     format: 'iife',
     name: 'ExampleApp',
   },
-  plugins: [
-    resolve(),
-    typescript()
-  ]
-}
+  plugins: [resolve(), typescript()],
+};

@@ -14,7 +14,6 @@ export class Ctrl {
   state: State;
   accessToken: string | null;
 
-
   error?: string | null = null;
   errorDescription?: string | null = null;
 
@@ -115,7 +114,7 @@ export class Ctrl {
           grant_type: 'authorization_code',
           redirect_uri: clientUrl,
           code,
-        })
+        }),
       });
     } catch (e) {
       this.state = 'error';
@@ -152,7 +151,7 @@ export class Ctrl {
       res = await fetch(`${this.lichessServer}/api/account/email`, {
         headers: {
           Authorization: `Bearer ${this.accessToken}`,
-        }
+        },
       });
     } catch (e) {
       this.state = 'error';
@@ -197,5 +196,8 @@ function secureRandom(bytes: number): string {
 }
 
 function encodeBase64Url(bytes: Uint8Array): string {
-  return btoa(String.fromCharCode(...bytes)).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+  return btoa(String.fromCharCode(...bytes))
+    .replace(/=/g, '')
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_');
 }
