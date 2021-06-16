@@ -44,6 +44,10 @@ tags:
   description: |
     Access games played on Lichess.
     https://lichess.org/games
+- name: TV
+  description: |
+    Access Lichess TV channels and games.
+    https://lichess.org/tv & https://lichess.org/games
 - name: Puzzles
   description: "Access Lichess puzzle history and dashboard. https://lichess.org/training\n\n
   \ Our collection of puzzles is in the public domain, you can [download it here](https://database.lichess.org/#puzzles).\n\n
@@ -1075,7 +1079,7 @@ paths:
       operationId: gamesExportIds
       summary: Export games by IDs
       description: |
-        Download games by IDs in PGN or [ndjson](http://ndjson.org/) format.
+        Download games by IDs in PGN or [ndjson](http://ndjson.org/) format, depending on the request Accept header.
 
         Games are sorted by reverse chronological order (most recent first)
 
@@ -1199,7 +1203,7 @@ paths:
   /api/account/playing:
     get:
       operationId: apiAccountPlaying
-      summary: Get ongoing games
+      summary: Get my ongoing games
       description: |
         Get the ongoing games of the current user.
         Real-time and correspondence games are included.
@@ -1230,52 +1234,6 @@ paths:
             application/json:
               schema:
                 example: {"nowPlaying":[{"fullId":"knbD9FPUqhra","gameId":"knbD9FPU","fen":"rnbqkbnr/pp3pp1/8/3p3p/1PpPp3/P1P1P3/5PPP/RNBQKBNR","color":"white","lastMove":"c5c4","variant":{"key":"standard","name":"Standard"},"speed":"correspondence","perf":"correspondence","rated":true,"opponent":{"id":"thibot","username":"BOT thibot","rating":1500},"isMyTurn":true}]}
-
-  /api/tv/channels:
-    get:
-      operationId: tvChannels
-      summary: Get current TV games
-      description: |
-        Get basic info about the best games being played for each speed and variant,
-        but also computer games and bot games.
-
-        See [lichess.org/tv](https://lichess.org/tv).
-      tags:
-        - Games
-      security: []
-      responses:
-        200:
-          description: The list of games being played for each speed and variant.
-          headers:
-            Access-Control-Allow-Origin:
-              schema:
-                type: string
-                default: "'*'"
-          content:
-            application/json:
-              schema:
-                example: {"Bot":{"user":{"id":"leelachess","name":"LeelaChess","title":"BOT"},"rating":2660,"gameId":"Zznv9MIl"},"Blitz":{"user":{"id":"lekkerkortook","name":"LekkerKortOok"},"rating":2603,"gameId":"hTJ4v7Mp"},"Racing Kings":{"user":{"id":"chesslo21","name":"chesslo21"},"rating":2123,"gameId":"lgCDl5Of"},"UltraBullet":{"user":{"id":"farmville","name":"Farmville"},"rating":2338,"gameId":"NEY6OQ32"},"Bullet":{"user":{"id":"nurmibrah","name":"nurmiBrah"},"rating":2499,"gameId":"5LgyE516"},"Classical":{"user":{"id":"holden_m_j_thomas","name":"Holden_M_J_Thomas"},"rating":1806,"gameId":"k3oLby6N"},"Three-check":{"user":{"id":"pepellou","name":"pepellou","patron":true},"rating":1978,"gameId":"Og5RCvmu"},"Antichess":{"user":{"id":"maria-bakkar","name":"maria-bakkar"},"rating":2103,"gameId":"toCr41yx"},"Computer":{"user":{"id":"oh_my_goat_im_so_bat","name":"oh_my_goat_Im_so_bat"},"rating":2314,"gameId":"TkI4qZxu"},"Horde":{"user":{"id":"habitualchess","name":"HabitualChess"},"rating":1803,"gameId":"oMofN63H"},"Rapid":{"user":{"id":"denpayd","name":"DenpaYD"},"rating":2289,"gameId":"IcWOl8ee"},"Atomic":{"user":{"id":"meetyourdemise","name":"MeetYourDemise"},"rating":2210,"gameId":"tvMxtCMN"},"Crazyhouse":{"user":{"id":"mathace","name":"mathace"},"rating":2397,"gameId":"i3gTZlUb"},"Chess960":{"user":{"id":"voja_7","name":"voja_7"},"rating":1782,"gameId":"lrXLcedu"},"King of the Hill":{"user":{"id":"nadime","name":"Nadime"},"rating":1500,"gameId":"DsQn8aEV"},"Top Rated":{"user":{"id":"lekkerkortook","name":"LekkerKortOok"},"rating":2603,"gameId":"hTJ4v7Mp"}}
-
-  /api/tv/feed:
-    get:
-      operationId: tvFeed
-      summary: Stream current TV game
-      description: |
-        Stream positions and moves of the current [TV game](https://lichess.org/tv) in [ndjson](http://ndjson.org/).
-        A summary of the game is sent as a first message, and when the featured game changes.
-
-        Try it with `curl https://lichess.org/api/tv/feed`.
-      tags:
-        - Games
-      security: []
-      responses:
-        200:
-          description: The stream of the current TV game.
-          content:
-            application/x-ndjson:
-              schema:
-                example:
-                  {"t":"featured","d":{"id":"qVSOPtMc","orientation":"black","players":[{"color":"white","user":{"name":"lizen9","id":"lizen9","title":"GM"},"rating":2531},{"color":"black","user":{"name":"lizen29","title":"WGM","id":"lizen29"},"rating":2594}],"fen":"rnbqk1r1/ppp1ppbp/8/N2p2p1/8/1PQPP3/P1P2PPn/R1B1K1NR"}}
 
   /api/stream/game/{id}:
     get:
@@ -1346,6 +1304,119 @@ paths:
             application/json:
               schema:
                 example: {"id":"R6iLjwz5","url":"https://lichess.org/R6iLjwz5"}
+
+  /api/tv/channels:
+    get:
+      operationId: tvChannels
+      summary: Get current TV games
+      description: |
+        Get basic info about the best games being played for each speed and variant,
+        but also computer games and bot games.
+
+        See [lichess.org/tv](https://lichess.org/tv).
+      tags:
+        - TV
+      security: []
+      responses:
+        200:
+          description: The list of games being played for each speed and variant.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                example: {"Bot":{"user":{"id":"leelachess","name":"LeelaChess","title":"BOT"},"rating":2660,"gameId":"Zznv9MIl"},"Blitz":{"user":{"id":"lekkerkortook","name":"LekkerKortOok"},"rating":2603,"gameId":"hTJ4v7Mp"},"Racing Kings":{"user":{"id":"chesslo21","name":"chesslo21"},"rating":2123,"gameId":"lgCDl5Of"},"UltraBullet":{"user":{"id":"farmville","name":"Farmville"},"rating":2338,"gameId":"NEY6OQ32"},"Bullet":{"user":{"id":"nurmibrah","name":"nurmiBrah"},"rating":2499,"gameId":"5LgyE516"},"Classical":{"user":{"id":"holden_m_j_thomas","name":"Holden_M_J_Thomas"},"rating":1806,"gameId":"k3oLby6N"},"Three-check":{"user":{"id":"pepellou","name":"pepellou","patron":true},"rating":1978,"gameId":"Og5RCvmu"},"Antichess":{"user":{"id":"maria-bakkar","name":"maria-bakkar"},"rating":2103,"gameId":"toCr41yx"},"Computer":{"user":{"id":"oh_my_goat_im_so_bat","name":"oh_my_goat_Im_so_bat"},"rating":2314,"gameId":"TkI4qZxu"},"Horde":{"user":{"id":"habitualchess","name":"HabitualChess"},"rating":1803,"gameId":"oMofN63H"},"Rapid":{"user":{"id":"denpayd","name":"DenpaYD"},"rating":2289,"gameId":"IcWOl8ee"},"Atomic":{"user":{"id":"meetyourdemise","name":"MeetYourDemise"},"rating":2210,"gameId":"tvMxtCMN"},"Crazyhouse":{"user":{"id":"mathace","name":"mathace"},"rating":2397,"gameId":"i3gTZlUb"},"Chess960":{"user":{"id":"voja_7","name":"voja_7"},"rating":1782,"gameId":"lrXLcedu"},"King of the Hill":{"user":{"id":"nadime","name":"Nadime"},"rating":1500,"gameId":"DsQn8aEV"},"Top Rated":{"user":{"id":"lekkerkortook","name":"LekkerKortOok"},"rating":2603,"gameId":"hTJ4v7Mp"}}
+
+  /api/tv/feed:
+    get:
+      operationId: tvFeed
+      summary: Stream current TV game
+      description: |
+        Stream positions and moves of the current [TV game](https://lichess.org/tv) in [ndjson](http://ndjson.org/).
+        A summary of the game is sent as a first message, and when the featured game changes.
+
+        Try it with `curl https://lichess.org/api/tv/feed`.
+      tags:
+        - TV
+      security: []
+      responses:
+        200:
+          description: The stream of the current TV game.
+          content:
+            application/x-ndjson:
+              schema:
+                example:
+                  {"t":"featured","d":{"id":"qVSOPtMc","orientation":"black","players":[{"color":"white","user":{"name":"lizen9","id":"lizen9","title":"GM"},"rating":2531},{"color":"black","user":{"name":"lizen29","title":"WGM","id":"lizen29"},"rating":2594}],"fen":"rnbqk1r1/ppp1ppbp/8/N2p2p1/8/1PQPP3/P1P2PPn/R1B1K1NR"}}
+
+  /api/tv/{channel}:
+    get:
+      operationId: tvChannelGames
+      summary: Get best ongoing games of a TV channel
+      description: |
+        Get a list of ongoing games for a given TV channel. Similar to [lichess.org/games](https://lichess.org/games).
+
+        Available in PGN or [ndjson](http://ndjson.org/) format, depending on the request Accept header.
+      tags:
+        - TV
+      security: []
+      parameters:
+        - in: query
+          name: nb
+          description: Number of games to fetch.
+          schema:
+            type: number
+            default: 10
+            minimum: 1
+            maximum: 30
+        - in: query
+          name: moves
+          description: Include the PGN moves.
+          schema:
+            type: boolean
+            default: true
+        - in: query
+          name: pgnInJson
+          description: Include the full PGN within the JSON response, in a `pgn` field.
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: tags
+          description: Include the PGN tags.
+          schema:
+            type: boolean
+            default: true
+        - in: query
+          name: clocks
+          description: |
+            Include clock comments in the PGN moves, when available.
+
+            Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: opening
+          description: |
+            Include the opening name.
+
+            Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
+          schema:
+            type: boolean
+            default: false
+      responses:
+        200:
+          description: The representation of the games.
+          content:
+            application/x-chess-pgn:
+              schema:
+                $ref: '#/components/schemas/GamePgn'
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/GameJson'
 
   /api/tournament:
     get:
