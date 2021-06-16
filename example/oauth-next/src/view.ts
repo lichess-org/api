@@ -4,6 +4,33 @@ import { Ctrl } from './ctrl';
 export function view(ctrl: Ctrl): VNode {
   return h('table', [
     h('tr', [
+      h('td', 'Lichess server'),
+      h('td', [
+        h('input', {
+          attrs: {
+            disabled: ctrl.state != 'unauthorized',
+            value: ctrl.lichessServer,
+            list: 'servers',
+          },
+          on: {
+            change(el) {
+              ctrl.setLichessServer((el.target as HTMLInputElement).value);
+            }
+          }
+        }),
+        h('datalist', {
+          attrs: {
+            id: 'servers',
+          }
+        }, [
+          h('option', { attrs: { value: 'https://lichess.org' } }),
+          h('option', { attrs: { value: 'https://lichess.dev' } }),
+          h('option', { attrs: { value: 'http://localhost:9663' } }),
+          h('option', { attrs: { value: 'http://l.org' } }),
+        ]),
+      ]),
+    ]),
+    h('tr', [
       h('td', 'Application state'),
       h('td', ctrl.state),
     ]),

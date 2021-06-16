@@ -8,13 +8,12 @@ const clientUrl = (() => {
   return url.href;
 })();
 
-const authorizeEndpoint = 'http://localhost:9663/oauth/authorize';
-const tokenEndpoint = 'http://localhost:9663/api/oauth/token';
-const apiEndpoint = 'http://localhost:9663/api';
-
 export class Ctrl {
+  lichessServer: string;
+
   state: State;
   accessToken: string | null;
+
 
   error?: string | null = null;
   errorDescription?: string | null = null;
@@ -22,8 +21,16 @@ export class Ctrl {
   email?: string;
 
   constructor(private redraw: () => void) {
+    this.lichessServer = localStorage.getItem('lichess_server') || 'https://lichess.org';
     this.accessToken = localStorage.getItem('access_token');
     this.state = this.accessToken ? 'authorized' : 'unauthorized';
+  }
+
+  setLichessServer(lichessServer: string) {
+    if (this.state == 'unauthorized') {
+      this.lichessServer = lichessServer;
+      localStorage.setItem('lichess_server', this.lichessServer);
+    }
   }
 
   async init() {
@@ -53,7 +60,7 @@ export class Ctrl {
     sessionStorage.setItem('state', state);
 
     // 4. Redirect to authorization endpoint.
-    const url = new URL(authorizeEndpoint);
+    const url = new URL(`${this.lichessServer}/oauth`);
     url.searchParams.set('response_type', 'code');
     url.searchParams.set('client_id', clientId);
     url.searchParams.set('redirect_uri', clientUrl);
@@ -99,7 +106,7 @@ export class Ctrl {
     this.state = 'verifying';
     let res;
     try {
-      res = await fetch(tokenEndpoint, {
+      res = await fetch(`${this.lichessServer}/api/token`, {
         method: 'POST',
         credentials: 'omit',
         body: new URLSearchParams({
@@ -142,7 +149,7 @@ export class Ctrl {
     // or may have expired).
     let res;
     try {
-      res = await fetch(`${apiEndpoint}/account/email`, {
+      res = await fetch(`${this.lichessServer}/api/account/email`, {
         headers: {
           Authorization: `Bearer ${this.accessToken}`,
         }
