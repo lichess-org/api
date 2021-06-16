@@ -3281,10 +3281,11 @@ paths:
       summary: Join a team
       description: |
         Join a team.
-        If the team join policy requires a confirmation,
-        and the team owner is not the oAuth app owner,
-        and the `message` field is not set,
+        If the team requires a password but the `password` field is incorrect,
         then the call fails with `403 Forbidden`.
+        Similarly, if the team join policy requires a confirmation but the
+        `message` parameter is not given, then the call fails with
+        `403 Forbidden`.
       tags:
         - Teams
         - OAuth
