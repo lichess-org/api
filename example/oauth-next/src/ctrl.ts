@@ -106,7 +106,7 @@ export class Ctrl {
           client_id: clientId,
           code_verifier: codeVerifier,
           grant_type: 'authorization_code',
-          redirect_url: clientUrl,
+          redirect_uri: clientUrl,
           code,
         })
       });
@@ -124,7 +124,6 @@ export class Ctrl {
       this.state = 'error';
       this.error = body.error;
       this.errorDescription = body.error_description;
-      return;
     } else {
       this.state = 'authorized';
       this.accessToken = body.access_token;
