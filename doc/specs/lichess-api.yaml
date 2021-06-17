@@ -3613,12 +3613,18 @@ paths:
       summary: Create a seek
       description: "\n
       \ Create a public seek, to start a game with a random player.\n\n
-      \ The response is streamed but doesn't contain any information. **Keep the connection open to keep the seek active**.\n\n
-      \ If the client closes the connection, the seek is canceled.\n\n
-      \ If the seek is accepted, or expires, the server closes the connection.\n\n
+      \ ### Real-time seek\n\n
+      \ Specify the `time` and `increment` clock values.
+      \ The response is streamed but doesn't contain any information.\n\n
+      \ **Keep the connection open to keep the seek active**.\n\n
+      \ If the client closes the connection, the seek is canceled. This way, if the client terminates, the user won't be paired in a game they wouldn't play.\n
+      \ When the seek is accepted, or expires, the server closes the connection.\n\n
       \ **Make sure to also have an [Event stream](#operation/apiStreamEvent) open**, to be notified when a game starts.\n
       \ We recommend opening the [Event stream](#operation/apiStreamEvent) first, then the seek stream. This way,\n
-      \ you won't miss the game event if the seek is accepted immediately."
+      \ you won't miss the game event if the seek is accepted immediately.\n\n
+      \ ### Correspondence seek\n\n
+      \ Specify the `days` per turn value.
+      \ The response is not streamed, it immediately completes with the seek ID. The seek remains active on the server until it is joined by someone."
       tags:
         - Board
       security:
@@ -3638,16 +3644,26 @@ paths:
                   default: false
                 time:
                   type: number
-                  description: Clock initial time in minutes.
+                  description: Clock initial time in minutes. Required for real-time seeks.
                   example: 15
                   minimum: 0
                   maximum: 180
                 increment:
                   type: integer
-                  description: Clock increment in seconds.
+                  description: Clock increment in seconds. Required for real-time seeks.
                   example: 15
                   minimum: 0
                   maximum: 180
+                days:
+                  type: integer
+                  description: Days per turn. Required for correspondence seeks.
+                  enum:
+                    - 1
+                    - 3
+                    - 5
+                    - 7
+                    - 10
+                    - 14
                 variant:
                   type: string
                   description: The variant of the game.
@@ -3675,9 +3691,6 @@ paths:
                   description: |
                     The rating range of potential opponents. Better left empty.
                     Example: 1500-1800
-              required:
-                - time
-                - increment
       responses:
         200:
           description: The seek was successfully created.
