@@ -6,14 +6,13 @@ info:
     url: https://lichess1.org/assets/logo/lichess-pad12.svg
     backgroundColor: #ffffff
   description: "\n\n# Introduction\nWelcome to the reference for the Lichess API! Lichess is free/libre, open-source chess server powered by volunteers and donations.\n\n\
-  \ - Get help in the [lichess developers discord channel](https://discord.gg/pw6Efvk),\
-  \ or in the #lichess IRC channel on freenode.\n\
-  \ - [Contribute to this documentation on Github](https://github.com/lichess-org/api).\n\
-  \ - Check out [lichess widgets to embed in your website](https://lichess.org/developers).\n\
+  \ - Get help in the [Lichess Discord channel](https://discord.gg/lichess)\n\
+  \ - [Contribute to this documentation on Github](https://github.com/lichess-org/api)\n\
+  \ - Check out [Lichess widgets to embed in your website](https://lichess.org/developers)\n\
   \ - [Download all Lichess rated games](https://database.lichess.org/)\n\
   \ - [Download all Lichess puzzles with themes, ratings and votes](https://database.lichess.org/#puzzles)\n\
   \n## Endpoint\n\
-  \ All requests go to `https://lichess.org`.\n\
+  \ All requests go to `https://lichess.org` (unless otherwise specified).\n\
   \n## Clients\n\
   - [Python general API](https://github.com/rhgrant10/berserk)\n\
   - [MicroPython general API](https://github.com/mkomon/uberserk)\n\
@@ -6911,27 +6910,29 @@ components:
   securitySchemes:
     OAuth2:
       type: oauth2
-      description: "### Authorization Code Flow\n\
-        \ The authorization code flow allows your users to **login with lichess**.\n\
-        \ - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth-authorization-code)\n\
-        \ - [Flask/Python example](https://github.com/lakinwecker/lichess-oauth-flask)\n\
-        \ - [NodeJS Passport strategy to login with Lichess OAuth2](https://www.npmjs.com/package/passport-lichess)\n\
-        \ - [Create a Lichess OAuth app](https://lichess.org/account/oauth/app)\n\
-        \ - [About authorization code flow](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2#grant-type-authorization-code)\n\
-        \n#### Real life Oauth2 Authorization Code Flow examples\n\
-        \ - [PyChess](https://github.com/gbtami/pychess-variants) ([source code](https://github.com/gbtami/pychess-variants))\n\
-        \ - [Lichess4545](https://www.lichess4545.com/) ([source code](https://github.com/cyanfish/heltour))\n\
-        \ - [English Chess Federation](https://ecf.octoknight.com/)\n\
-        \ - [Rotherham Online Chess](https://rotherhamonlinechess.azurewebsites.net/tournaments)\n\
-        \n### Personal API Token\n\
-        \ Personal API tokens allow you to quickly interact with Lichess OAuth API.\n\
+      description: "### Personal Access Token\n\
+        \ Personal API access tokens allow you to quickly interact with Lichess API without going through an OAuth flow.\n\
+        \ - [Generate a personal access token](https://lichess.org/account/oauth/token)\n\
         \ - `curl https://lichess.org/api/account -H \"Authorization: Bearer <token>\"`\n\
         \ - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth-personal-token)\n\
-        \ - [Generate a personal API token](https://lichess.org/account/oauth/token)"
+        \n### Authorization Code Flow with PKCE\n\
+        \ The authorization code flow with PKCE allows your users to **login with Lichess**.\n\
+        \ Lichess supports unregistered and public clients (no client authentication, choose any unique client id).\n\
+        \ The only accepted code challenge method is `S256`.\n\
+        \ Access tokens are long-lived (think months), unless they are revoked by the user. Refresh tokens are not supported.\n\
+        \ - [PKCE RFC](https://datatracker.ietf.org/doc/html/rfc7636#section-4) with precise protocol description\n\
+        \ - [Fully client-side example](https://github.com/lichess-org/api/tree/master/example/oauth-app)\n\
+        \ - [Flask/Python example (outdated)](https://github.com/lakinwecker/lichess-oauth-flask)\n\
+        \ - [NodeJS Passport strategy to login with Lichess OAuth2 (outdated)](https://www.npmjs.com/package/passport-lichess)\n\
+        \n#### Real life examples\n\
+        \ - [PyChess](https://github.com/gbtami/pychess-variants) (outdated, [source code](https://github.com/gbtami/pychess-variants))\n\
+        \ - [Lichess4545](https://www.lichess4545.com/) (outdated, [source code](https://github.com/cyanfish/heltour))\n\
+        \ - [English Chess Federation](https://ecf.octoknight.com/) (outdated)\n\
+        \ - [Rotherham Online Chess](https://rotherhamonlinechess.azurewebsites.net/tournaments) (outdated)"
       flows:
         authorizationCode:
-          authorizationUrl: https://oauth.lichess.org/oauth/authorize
-          tokenUrl: https://oauth.lichess.org/oauth
+          authorizationUrl: https://lichess.org/oauth
+          tokenUrl: https://lichess.org/api/token
           scopes:
             "preference:read": Read your preferences
             "preference:write": Write your preferences
