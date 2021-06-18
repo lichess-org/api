@@ -6922,7 +6922,7 @@ components:
         \ Access tokens are long-lived (think months), unless they are revoked by the user. Refresh tokens are not supported.\n\
         \ - [PKCE RFC](https://datatracker.ietf.org/doc/html/rfc7636#section-4) with precise protocol description\n\
         \ - [Fully client-side example](https://github.com/lichess-org/api/tree/master/example/oauth-app)\n\
-        \ - [Flask/Python example (outdated)](https://github.com/lakinwecker/lichess-oauth-flask)\n\
+        \ - [Flask/Python example](https://github.com/lakinwecker/lichess-oauth-flask)\n\
         \ - [NodeJS Passport strategy to login with Lichess OAuth2 (outdated)](https://www.npmjs.com/package/passport-lichess)\n\
         \n#### Real life examples\n\
         \ - [PyChess](https://github.com/gbtami/pychess-variants) (outdated, [source code](https://github.com/gbtami/pychess-variants))\n\
