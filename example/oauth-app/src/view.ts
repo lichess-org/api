@@ -13,7 +13,7 @@ export function view(ctrl: Ctrl): VNode {
     h('tr', [h('td', 'Lichess Host'), h('td', lichessHost)]),
     h('tr', [h('td', 'Client URL'), h('td', clientUrl)]),
     h('tr', [h('td', 'Error'), h('td', ctrl.error?.toString())]),
-    h('tr', [h('td', 'Access token (secret)'), h('td', ctrl.accessToken?.token?.value)]),
+    h('tr', [h('td', 'Access token (secret)'), h('td', ctrl.accessContext?.token?.value)]),
     h('tr', [h('td', 'Lichess account email'), h('td', ctrl.email)]),
     h('tr', [
       h('td', ''),
@@ -21,7 +21,7 @@ export function view(ctrl: Ctrl): VNode {
         h(
           'button',
           {
-            attrs: { disabled: !!ctrl.accessToken?.token },
+            attrs: { disabled: !!ctrl.accessContext?.token },
             on: { click: () => ctrl.login() },
           },
           'Login'
@@ -30,10 +30,10 @@ export function view(ctrl: Ctrl): VNode {
         h(
           'button',
           {
-            attrs: { disabled: !ctrl.error && !ctrl.accessToken?.token },
+            attrs: { disabled: !ctrl.error && !ctrl.accessContext?.token },
             on: { click: () => ctrl.logout() },
           },
-          ctrl.accessToken ? 'Logout' : 'Reset'
+          ctrl.accessContext ? 'Logout' : 'Reset'
         ),
       ]),
     ]),
