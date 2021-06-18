@@ -47,7 +47,7 @@ export class Ctrl {
   }
 
   async login() {
-    await this.oauth.fetchAuthorizationCode();
+    await this.oauth.fetchAuthorizationCode(); // redirects
   }
 
   async useApi(fetch: HttpClient) {
