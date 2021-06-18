@@ -4,20 +4,21 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "@bity/oauth2-auth-code-pkce": "^2.13.0",
-    "@rollup/plugin-commonjs": "^19.0.0"
+    "@bity/oauth2-auth-code-pkce": "^2"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^19",
     "@rollup/plugin-node-resolve": "^13",
     "@rollup/plugin-typescript": "^8",
     "prettier": "^2",
     "rollup": "^2",
     "snabbdom": "^3",
     "tslib": "^2",
-    "typescript": "^4"
+    "typescript": "^4",
+    "http-server": "^0.12"
   },
   "scripts": {
     "prepare": "rollup --config",
-    "format": "prettier --write ."
+    "serve": "http-server"
   }
 }

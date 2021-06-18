@@ -3,13 +3,6 @@ import { lichessHost, clientUrl, Ctrl } from './ctrl';
 
 export function view(ctrl: Ctrl): VNode {
   return h('table', [
-    h('tr', [
-      h(
-        'td',
-        { attrs: { colspan: 2 } },
-        'This is an example of a fully client side OAuth app that reads the users email address from the Lichess API.'
-      ),
-    ]),
     h('tr', [h('td', 'Lichess Host'), h('td', lichessHost)]),
     h('tr', [h('td', 'Client URL'), h('td', clientUrl)]),
     h('tr', [h('td', 'Error'), h('td', ctrl.error?.toString())]),
