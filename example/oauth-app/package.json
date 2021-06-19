@@ -4,7 +4,8 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "@bity/oauth2-auth-code-pkce": "^2"
+    "@bity/oauth2-auth-code-pkce": "^2",
+    "snabbdom": "^3"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^19",
@@ -12,7 +13,6 @@
     "@rollup/plugin-typescript": "^8",
     "prettier": "^2",
     "rollup": "^2",
-    "snabbdom": "^3",
     "tslib": "^2",
     "typescript": "^4",
     "http-server": "^0.12"
