@@ -9,5 +9,5 @@ library.
 
 ## Running
 
-1. `yarn install`
-2. `yarn run serve` or any other method to serve the client on http://localhost:8000
+1. `npm install`
+2. `npm run serve` or any other method to serve the client on http://localhost:8000

@@ -1,6 +1,5 @@
 {
-  "name": "oauth-app",
-  "version": "1.0.0",
+  "name": "lichess-oauth-app-example",
   "private": true,
   "license": "MIT",
   "dependencies": {

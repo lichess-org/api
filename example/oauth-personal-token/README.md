@@ -13,5 +13,5 @@ and you can generate lots of them.
 
 1. Create a personal token at https://lichess.org/account/oauth/token
 2. Edit index.js with your token
-3. Install dependencies with `yarn install`
+3. Install dependencies with `npm install`
 4. Run with `node index.js`
