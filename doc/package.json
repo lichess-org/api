@@ -1,0 +1,12 @@
+{
+  "name": "lichess-api-doc",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "devDependencies": {
+    "redoc-cli": "^0.12.1"
+  },
+  "scripts": {
+    "bundle": "redoc-cli bundle specs/lichess-api.yaml --disable-google-font --output public/index.html",
+    "serve": "redoc-cli serve specs/lichess-api.yaml --disable-google-font"
+  }
+}

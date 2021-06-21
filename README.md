@@ -3,13 +3,12 @@
 - [API documentation](https://lichess.org/api)
 - [Example code](https://github.com/lichess-org/api/tree/master/example/)
 
-## Contribute
-
-### API doc
+## Contribute documentation
 
 ```shell
 cd doc
-http-server # or `python -m http.server` or any HTTP file server
+npm install
+npm run serve --watch
 ```
 
 Now open http://localhost:8080/. You should see the generated API doc.
