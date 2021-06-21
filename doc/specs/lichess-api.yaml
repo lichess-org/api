@@ -3205,12 +3205,14 @@ paths:
       summary: Get members of a team
       description: |
         Members are sorted by reverse chronological order of joining the team (most recent first).
+        OAuth only required if the list of members is private.
 
         **Members are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
       tags:
         - Users
         - Teams
-      security: []
+      security:
+        - OAuth2: ["team:read"]
       parameters:
         - in: path
           name: teamId
