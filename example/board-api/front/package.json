@@ -1,7 +1,6 @@
 {
-  "name": "lichess-puzzle-validator-front",
-  "version": "0.0.1",
-  "main": "index.js",
+  "name": "lichess-board-api-example-front",
+  "private": true,
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^15.1.0",
