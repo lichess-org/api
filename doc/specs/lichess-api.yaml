@@ -2943,72 +2943,72 @@ paths:
                   $ref: '#/components/schemas/BroadcastRound'
 
   /broadcast/round/{broadcastRoundId}/edit:
-      post:
-        operationId: broadcastRoundUpdate
-        summary: Update your broadcast round
-        description: |
-          Update information about a broadcast round that you created.
-          This endpoint accepts the same form data as the web form.
-          All fields must be populated with data. Missing fields will override the broadcast with empty data.
-          For instance, if you omit `startDate`, then any pre-existing start date will be removed.
-        tags:
-          - Broadcasts
-          - OAuth
-        security:
-          - OAuth2: ["study:write"]
-        parameters:
-          - in: path
-            name: broadcastRoundId
-            description: The broadcast round ID (8 characters).
-            required: true
-            schema:
-              type: string
-        requestBody:
+    post:
+      operationId: broadcastRoundUpdate
+      summary: Update your broadcast round
+      description: |
+        Update information about a broadcast round that you created.
+        This endpoint accepts the same form data as the web form.
+        All fields must be populated with data. Missing fields will override the broadcast with empty data.
+        For instance, if you omit `startDate`, then any pre-existing start date will be removed.
+      tags:
+        - Broadcasts
+        - OAuth
+      security:
+        - OAuth2: ["study:write"]
+      parameters:
+        - in: path
+          name: broadcastRoundId
+          description: The broadcast round ID (8 characters).
           required: true
-          content:
-            application/x-www-form-urlencoded:
-              schema:
-                type: object
-                properties:
-                  name:
-                    type: string
-                    description: |
-                      Name of the broadcast round. Length must be between 3 and 80 characters.
-
-                      Example: `Round 10`
-                  syncUrl:
-                    type: string
-                    description: |
-                      URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
-
-                      Example: `https://myserver.org/myevent/round-10/games.pgn`
-                  startsAt:
-                    type: integer
-                    description: |
-                      Timestamp in milliseconds of broadcast start. Leave empty to manually start the broadcast.
-
-                      Example: `1356998400070`
-                    minimum: 1356998400070
-                required:
-                  - name
-        responses:
-          200:
-            description: The broadcast round was successfully edited.
-            headers:
-              Access-Control-Allow-Origin:
-                schema:
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
                   type: string
-                  default: "'*'"
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Ok'
-          400:
-            description: The edition of the broadcast tournament failed.
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Error'
+                  description: |
+                    Name of the broadcast round. Length must be between 3 and 80 characters.
+
+                    Example: `Round 10`
+                syncUrl:
+                  type: string
+                  description: |
+                    URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
+
+                    Example: `https://myserver.org/myevent/round-10/games.pgn`
+                startsAt:
+                  type: integer
+                  description: |
+                    Timestamp in milliseconds of broadcast start. Leave empty to manually start the broadcast.
+
+                    Example: `1356998400070`
+                  minimum: 1356998400070
+              required:
+                - name
+      responses:
+        200:
+          description: The broadcast round was successfully edited.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          description: The edition of the broadcast tournament failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
   /broadcast/{slug}/{broadcastId}/push:
     post:
