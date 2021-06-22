@@ -5218,6 +5218,11 @@ paths:
               example: {"token_type":"bearer","access_token":"lio_pLwAbN7lFPklzY2m8lTOI1DGApS84u57","expires_in":5270400}
         400:
           description: Failed to obtain access token.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -5255,7 +5260,17 @@ paths:
       responses:
         204:
           description: Access token revoked.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
         400:
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           description: No access token found in bearer or request body.
 
   /master:
