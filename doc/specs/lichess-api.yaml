@@ -5213,6 +5213,41 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/token/revoke:
+    post:
+      operationId: apiTokenRevoke
+      summary: Revoke access token
+      description: |
+        Revokes the token sent as bearer and/or the request body.
+      tags:
+        - Token
+        - OAuth
+      security:
+        - OAuth2: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: Token to revoke.
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: Token to revoke.
+
+      responses:
+        204:
+          description: Access token revoked.
+        400:
+          description: No access token found in bearer or request body.
+
   /master:
     get:
       operationId: openingExplorerMaster
