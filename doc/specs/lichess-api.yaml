@@ -3010,7 +3010,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /broadcast/{slug}/{broadcastId}/push:
+  /broadcast/round/{broadcastRoundId}/push:
     post:
       operationId: broadcastPush
       summary: Push PGN to your broadcast
@@ -3023,19 +3023,12 @@ paths:
       security:
         - OAuth2: ["study:write"]
       parameters:
-        - in: path
-          name: slug
-          description: The broadcast slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastId` is actually used.
-          required: true
-          schema:
-            type: string
-            default: "-"
-        - in: path
-          name: broadcastId
-          description: The broadcast ID (8 characters).
-          required: true
-          schema:
-            type: string
+       - in: path
+         name: broadcastRoundId
+         description: The broadcast round ID (8 characters).
+         required: true
+         schema:
+           type: string
       requestBody:
         description: The PGN. It can contain up to 64 games, separated by a double new line.
         required: true
