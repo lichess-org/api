@@ -6920,26 +6920,30 @@ components:
   securitySchemes:
     OAuth2:
       type: oauth2
-      description: "### Personal Access Token\n\
-        \ Personal API access tokens allow you to quickly interact with Lichess API without going through an OAuth flow.\n\
-        \ - [Generate a personal access token](https://lichess.org/account/oauth/token)\n\
-        \ - `curl https://lichess.org/api/account -H \"Authorization: Bearer <token>\"`\n\
-        \ - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth-personal-token)\n\
-        \n### Authorization Code Flow with PKCE\n\
-        \ The authorization code flow with PKCE allows your users to **login with Lichess**.\n\
-        \ Lichess supports unregistered and public clients (no client authentication, choose any unique client id).\n\
-        \ The only accepted code challenge method is `S256`.\n\
-        \ Access tokens are long-lived (think months), unless they are revoked by the user. Refresh tokens are not supported.\n\
-        \ - [PKCE RFC](https://datatracker.ietf.org/doc/html/rfc7636#section-4) with precise protocol description\n\
-        \ - [Fully client-side example](https://github.com/lichess-org/api/tree/master/example/oauth-app)\n\
-        \ - [Flask/Python example](https://github.com/lakinwecker/lichess-oauth-flask)\n\
-        \ - [Java example](https://github.com/tors42/lichess-oauth-pkce-app)\n\
-        \ - [NodeJS Passport strategy to login with Lichess OAuth2](https://www.npmjs.com/package/passport-lichess)\n\
-        \n#### Real life examples\n\
-        \ - [PyChess](https://github.com/gbtami/pychess-variants) (outdated, [source code](https://github.com/gbtami/pychess-variants))\n\
-        \ - [Lichess4545](https://www.lichess4545.com/) (outdated, [source code](https://github.com/cyanfish/heltour))\n\
-        \ - [English Chess Federation](https://ecf.octoknight.com/) (outdated)\n\
-        \ - [Rotherham Online Chess](https://rotherhamonlinechess.azurewebsites.net/tournaments) (outdated)"
+      description: |
+        ### Personal Access Token
+        Personal API access tokens allow you to quickly interact with Lichess API without going through an OAuth flow.
+        - [Generate a personal access token](https://lichess.org/account/oauth/token)
+        - `curl https://lichess.org/api/account -H \"Authorization: Bearer <token>\"`
+        - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth-personal-token)
+
+        ### Authorization Code Flow with PKCE
+        The authorization code flow with PKCE allows your users to **login with Lichess**.
+        Lichess supports unregistered and public clients (no client authentication, choose any unique client id).
+        The only accepted code challenge method is `S256`.
+        Access tokens are long-lived (think months), unless they are revoked by the user.
+        Refresh tokens are not supported.
+        - [PKCE RFC](https://datatracker.ietf.org/doc/html/rfc7636#section-4) with precise protocol description
+        - [Fully client-side example](https://github.com/lichess-org/api/tree/master/example/oauth-app)
+        - [Flask/Python example](https://github.com/lakinwecker/lichess-oauth-flask)
+        - [Java example](https://github.com/tors42/lichess-oauth-pkce-app)
+        - [NodeJS Passport strategy to login with Lichess OAuth2](https://www.npmjs.com/package/passport-lichess)
+
+        #### Real life examples
+        - [PyChess](https://github.com/gbtami/pychess-variants) (outdated, [source code](https://github.com/gbtami/pychess-variants))
+        - [Lichess4545](https://www.lichess4545.com/) (outdated, [source code](https://github.com/cyanfish/heltour))
+        - [English Chess Federation](https://ecf.octoknight.com/) (outdated)
+        - [Rotherham Online Chess](https://rotherhamonlinechess.azurewebsites.net/tournaments) (outdated)
       flows:
         authorizationCode:
           authorizationUrl: https://lichess.org/oauth
