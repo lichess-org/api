@@ -5187,14 +5187,24 @@ paths:
               properties:
                 grant_type:
                   type: string
+                  example: authorization_code
+                  description: Must be `authorization_code`.
                 code:
                   type: string
+                  example: liu_iS1uOZg99Htmo58ex2jKgYziUfzsnAl0
+                  description: The authorization code that was sent in the `code` parameter to your redirect URI.
                 code_verifier:
                   type: string
+                  example: Ry1rbGdOMTQtUjhOc0lmTnFKak1LTHV0NjlRMll2aXYtTThkQnlJRkRpaGwyQjh0ZDNFdzFPSG9KUlY4M1NrRzJ5ZHhUdjVZR08zLTZOT3dCN2xLfjZOXzU2WHk4SENP
+                  description: A code challenge was used to request the authorization code. This must be the code verifier it was derived from.
                 redirect_uri:
                   type: string
+                  example: http://example.com/
+                  description: Must match the redirect URI used to request the authorization code.
                 client_id:
                   type: string
+                  example: example.com
+                  description: Must match the client ID used to request the authorization code.
       responses:
         200:
           description: Access token successfully obtained.
