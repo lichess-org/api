@@ -161,10 +161,10 @@ tags:
     Lookup positions from the [Lichess tablebase server](https://lichess.org/blog/W3WeMyQAACQAdfAL/7-piece-syzygy-tablebases-are-complete).
 
     **The endpoint hostname is not lichess.org but tablebase.lichess.ovh.**
+- name: Token
+  description: Obtaining and revoking OAuth tokens.
 - name: OAuth
-  description: |
-    Requests taking advantage of OAuth authentication.
-    https://lichess.org/account/oauth/app
+  description: Requests taking advantage of OAuth authentication.
 paths:
   /api/users/status:
     get:
@@ -5168,6 +5168,50 @@ paths:
           content:
             application/json:
               example: {"fen":"rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2","knodes":13683,"depth":22,"pvs":[{"moves":"c8f5 d2d4 e7e6 g1f3 g8e7 c1e3 c7c5 d4c5 e7c6 b1c3","cp":-13},{"moves":"c7c5 c2c3 d5d4 g1f3 b8c6 c3d4 c6d4 b1c3 c8d7 f1d3","cp":-1},{"moves":"e7e6 d2d4 c7c5 c2c3 b8c6 g1f3 c8d7 b1a3 c5d4 c3d4","cp":24}]}
+
+  /api/token:
+    post:
+      operationId: apiToken
+      summary: Obtain access token
+      tags:
+        - Token
+      security: []
+      description: |
+        OAuth token endpoint. Exchanges an authorization code for an access token.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                code:
+                  type: string
+                code_verifier:
+                  type: string
+                redirect_uri:
+                  type: string
+                client_id:
+                  type: string
+      responses:
+        200:
+          description: Access token successfully obtained.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              example: {"token_type":"bearer","access_token":"lio_pLwAbN7lFPklzY2m8lTOI1DGApS84u57","expires_in":5270400}
+        400:
+          description: Failed to obtain access token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
   /master:
     get:
