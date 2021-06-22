@@ -5227,36 +5227,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
-  /api/token/revoke:
-    post:
-      operationId: apiTokenRevoke
+    delete:
+      operationId: apiTokenDelete
       summary: Revoke access token
-      description: |
-        Revokes the token sent as bearer and/or the request body.
+      description: Revokes the access token sent as bearer for this request.
       tags:
         - Token
         - OAuth
       security:
         - OAuth2: []
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                token:
-                  type: string
-                  description: Token to revoke.
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              properties:
-                token:
-                  type: string
-                  description: Token to revoke.
-
       responses:
         204:
           description: Access token revoked.
@@ -5265,13 +5244,6 @@ paths:
               schema:
                 type: string
                 default: "'*'"
-        400:
-          headers:
-            Access-Control-Allow-Origin:
-              schema:
-                type: string
-                default: "'*'"
-          description: No access token found in bearer or request body.
 
   /master:
     get:
