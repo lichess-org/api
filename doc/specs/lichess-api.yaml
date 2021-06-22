@@ -5,26 +5,32 @@ info:
   x-logo:
     url: https://lichess1.org/assets/logo/lichess-pad12.svg
     backgroundColor: #ffffff
-  description: "\n\n# Introduction\nWelcome to the reference for the Lichess API! Lichess is free/libre, open-source chess server powered by volunteers and donations.\n\n\
-  \ - Get help in the [Lichess Discord channel](https://discord.gg/lichess)\n\
-  \ - [Contribute to this documentation on Github](https://github.com/lichess-org/api)\n\
-  \ - Check out [Lichess widgets to embed in your website](https://lichess.org/developers)\n\
-  \ - [Download all Lichess rated games](https://database.lichess.org/)\n\
-  \ - [Download all Lichess puzzles with themes, ratings and votes](https://database.lichess.org/#puzzles)\n\
-  \n## Endpoint\n\
-  \ All requests go to `https://lichess.org` (unless otherwise specified).\n\
-  \n## Clients\n\
-  - [Python general API](https://github.com/rhgrant10/berserk)\n\
-  - [MicroPython general API](https://github.com/mkomon/uberserk)\n\
-  - [Python general API - async](https://pypi.org/project/async-lichess-sdk)\n\
-  - [Python Lichess Bot](https://github.com/careless25/lichess-bot)\n\
-  - [Python Board API for Certabo](https://github.com/haklein/certabo-lichess)\n\
-  \n## Rate limiting\n\
-  \ All requests are rate limited using various strategies,\
-  \ to ensure the API remains responsive for everyone.\n\
-  \ Only make one request at a time.\n\
-  \ If you receive an HTTP response with a [429 status](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#429),\
-  \ please wait a full minute before resuming API usage."
+  description: |
+    # Introduction
+    Welcome to the reference for the Lichess API! Lichess is free/libre,
+    open-source chess server powered by volunteers and donations.
+    - Get help in the [Lichess Discord channel](https://discord.gg/lichess)
+    - [Contribute to this documentation on Github](https://github.com/lichess-org/api)
+    - Check out [Lichess widgets to embed in your website](https://lichess.org/developers)
+    - [Download all Lichess rated games](https://database.lichess.org/)
+    - [Download all Lichess puzzles with themes, ratings and votes](https://database.lichess.org/#puzzles)
+
+    ## Endpoint
+    All requests go to `https://lichess.org` (unless otherwise specified).
+
+    ## Clients
+    - [Python general API](https://github.com/rhgrant10/berserk)
+    - [MicroPython general API](https://github.com/mkomon/uberserk)
+    - [Python general API - async](https://pypi.org/project/async-lichess-sdk)
+    - [Python Lichess Bot](https://github.com/careless25/lichess-bot)
+    - [Python Board API for Certabo](https://github.com/haklein/certabo-lichess)
+
+    ## Rate limiting
+    All requests are rate limited using various strategies,
+    to ensure the API remains responsive for everyone.
+    Only make one request at a time.
+    If you receive an HTTP response with a [429 status](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#429),
+    please wait a full minute before resuming API usage.
 servers:
   - url: https://lichess.org
 tags:
@@ -48,10 +54,12 @@ tags:
     Access Lichess TV channels and games.
     https://lichess.org/tv & https://lichess.org/games
 - name: Puzzles
-  description: "Access Lichess puzzle history and dashboard. https://lichess.org/training\n\n
-  \ Our collection of puzzles is in the public domain, you can [download it here](https://database.lichess.org/#puzzles).\n\n
-  \ For a list of our puzzle themes with their description, check out the [theme translation file](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).\n\n
-  \ The daily puzzle can be [posted in your slack workspace](https://lichess.org/daily-puzzle-slack)"
+  description: |
+    Access Lichess [puzzle history and dashboard](https://lichess.org/training).
+
+    Our collection of puzzles is in the public domain, you can [download it here](https://database.lichess.org/#puzzles).
+    For a list of our puzzle themes with their description, check out the [theme translation file](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
+    The daily puzzle can be [posted in your slack workspace](https://lichess.org/daily-puzzle-slack).
 - name: Teams
   description: |
     Access and manage Lichess teams and their members.
