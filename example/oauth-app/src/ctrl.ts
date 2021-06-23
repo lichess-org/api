@@ -26,6 +26,11 @@ export class Ctrl {
 
   constructor(private redraw: () => void) {}
 
+  async login() {
+    // Redirect to authentication prompt.
+    await this.oauth.fetchAuthorizationCode();
+  }
+
   async init() {
     try {
       const hasAuthCode = await this.oauth.isReturningFromAuthServer();
@@ -46,11 +51,9 @@ export class Ctrl {
     }
   }
 
-  async login() {
-    await this.oauth.fetchAuthorizationCode(); // redirects
-  }
-
   async useApi(fetch: HttpClient) {
+    // Example request using @bity/oauth2-auth-code-pkce decorator:
+    // Lookup email associated with the Lichess account.
     // Requests will fail with 401 Unauthorized if the access token expired
     // or was revoked. Make sure to offer a chance to reauthenticate.
     const res = await fetch(`${lichessHost}/api/account/email`);
@@ -58,9 +61,19 @@ export class Ctrl {
     this.redraw();
   }
 
-  logout() {
-    this.error = undefined;
+  async logout() {
+    const token = this.accessContext?.token?.value;
     this.accessContext = undefined;
+    this.error = undefined;
+    this.email = undefined;
     this.redraw();
+
+    // Example request using vanilla fetch: Revoke access token.
+    await fetch(`${lichessHost}/api/token`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
   }
 }
