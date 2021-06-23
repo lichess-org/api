@@ -6993,7 +6993,7 @@ components:
         ### Personal Access Token
         Personal API access tokens allow you to quickly interact with Lichess API without going through an OAuth flow.
         - [Generate a personal access token](https://lichess.org/account/oauth/token)
-        - `curl https://lichess.org/api/account -H \"Authorization: Bearer <token>\"`
+        - `curl https://lichess.org/api/account -H "Authorization: Bearer <token>"`
         - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth-personal-token)
 
         ### Authorization Code Flow with PKCE
