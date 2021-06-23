@@ -5215,7 +5215,7 @@ paths:
                 default: "'*'"
           content:
             application/json:
-              example: {"token_type":"bearer","access_token":"lio_pLwAbN7lFPklzY2m8lTOI1DGApS84u57","expires_in":5270400}
+              example: {"token_type":"Bearer","access_token":"lio_pLwAbN7lFPklzY2m8lTOI1DGApS84u57","expires_in":5270400}
         400:
           description: Failed to obtain access token.
           headers:
@@ -5230,7 +5230,7 @@ paths:
     delete:
       operationId: apiTokenDelete
       summary: Revoke access token
-      description: Revokes the access token sent as bearer for this request.
+      description: Revokes the access token sent as Bearer for this request.
       tags:
         - Token
         - OAuth
