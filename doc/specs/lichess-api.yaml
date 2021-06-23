@@ -5169,6 +5169,87 @@ paths:
             application/json:
               example: {"fen":"rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2","knodes":13683,"depth":22,"pvs":[{"moves":"c8f5 d2d4 e7e6 g1f3 g8e7 c1e3 c7c5 d4c5 e7c6 b1c3","cp":-13},{"moves":"c7c5 c2c3 d5d4 g1f3 b8c6 c3d4 c6d4 b1c3 c8d7 f1d3","cp":-1},{"moves":"e7e6 d2d4 c7c5 c2c3 b8c6 g1f3 c8d7 b1a3 c5d4 c3d4","cp":24}]}
 
+  /oauth:
+    get:
+      operationId: oauth
+      summary: Request authorization code
+      tags:
+        - Token
+      security: []
+      description: |
+        OAuth2 authorization endpoint.
+
+        Start the OAuth authorization flow with PKCE by securely generating
+        and storing two random strings unique to each authorization request:
+        * `code_verifier`
+        * `state`
+
+        Then send the user to this endpoint. They will be prompted to grant
+        authorization and then be redirected back to the given `redirect_uri`.
+
+        If the authorization failed, the following query string parameters will
+        be appended to the redirection:
+        * `error`, in particular with value `access_denied` if the user
+           cancelled authorization
+        * `error_description` to aid debugging
+        * `state`, exactly as passed in the `state` parameter
+
+        If the authorization succeeded, the following query string parameters
+        will be appended to the redirection:
+        * `code`, containing a fresh authorization code
+        * `state`, exactly as passed in the `state` parameter
+
+        Next, to defend against cross site request forgery, check that the
+        returned `state` matches the `state` you originally generated.
+
+        Finally, continue by using the authorization code to
+        [obtain an access token](#operation/apiToken).
+      parameters:
+        - in: query
+          name: response_type
+          description: Must be `code`.
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: client_id
+          description: Arbitrary identifier that uniquely identifies your application.
+          example: example.com
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: redirect_uri
+          description: The absolute URL that the user should be redirected to with the authorization result.
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: scope
+          description: Space separated list of requested OAuth scopes, if any.
+          schema:
+            type: string
+        - in: query
+          name: state
+          description: Arbitrary state that will be returned verbatim with the authorization result.
+          schema:
+            type: string
+        - in: query
+          name: code_challenge_method
+          description: Must be `S256`.
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: code_challenge
+          description: Compute `BASE64URL(SHA256(code_verifier))`.
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Authorization prompt will be displayed to the user.
+
   /api/token:
     post:
       operationId: apiToken
@@ -5177,7 +5258,7 @@ paths:
         - Token
       security: []
       description: |
-        OAuth token endpoint. Exchanges an authorization code for an access token.
+        OAuth2 token endpoint. Exchanges an authorization code for an access token.
       requestBody:
         required: true
         content:
@@ -5192,19 +5273,19 @@ paths:
                 code:
                   type: string
                   example: liu_iS1uOZg99Htmo58ex2jKgYziUfzsnAl0
-                  description: The authorization code that was sent in the `code` parameter to your redirect URI.
+                  description: The authorization code that was sent in the `code` parameter to your `redirect_uri`.
                 code_verifier:
                   type: string
                   example: Ry1rbGdOMTQtUjhOc0lmTnFKak1LTHV0NjlRMll2aXYtTThkQnlJRkRpaGwyQjh0ZDNFdzFPSG9KUlY4M1NrRzJ5ZHhUdjVZR08zLTZOT3dCN2xLfjZOXzU2WHk4SENP
-                  description: A code challenge was used to request the authorization code. This must be the code verifier it was derived from.
+                  description: A `code_challenge` was used to request the authorization code. This must be the `code_verifier` it was derived from.
                 redirect_uri:
                   type: string
                   example: http://example.com/
-                  description: Must match the redirect URI used to request the authorization code.
+                  description: Must match the `redirect_uri` used to request the authorization code.
                 client_id:
                   type: string
                   example: example.com
-                  description: Must match the client ID used to request the authorization code.
+                  description: Must match the `client_id` used to request the authorization code.
       responses:
         200:
           description: Access token successfully obtained.
@@ -7000,8 +7081,9 @@ components:
         The authorization code flow with PKCE allows your users to **login with Lichess**.
         Lichess supports unregistered and public clients (no client authentication, choose any unique client id).
         The only accepted code challenge method is `S256`.
-        Access tokens are long-lived (think months), unless they are revoked by the user.
+        Access tokens are long-lived (think months), unless they are revoked.
         Refresh tokens are not supported.
+        - [Related API endpoints](https://lichess.org/api#tag/Token)
         - [PKCE RFC](https://datatracker.ietf.org/doc/html/rfc7636#section-4) with precise protocol description
         - [Fully client-side example](https://github.com/lichess-org/api/tree/master/example/oauth-app)
         - [Flask/Python example](https://github.com/lakinwecker/lichess-oauth-flask)
