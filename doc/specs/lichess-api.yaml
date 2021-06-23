@@ -161,10 +161,8 @@ tags:
     Lookup positions from the [Lichess tablebase server](https://lichess.org/blog/W3WeMyQAACQAdfAL/7-piece-syzygy-tablebases-are-complete).
 
     **The endpoint hostname is not lichess.org but tablebase.lichess.ovh.**
-- name: Token
-  description: Obtaining and revoking OAuth tokens.
 - name: OAuth
-  description: Requests taking advantage of OAuth authentication.
+  description: Obtaining and revoking OAuth tokens.
 paths:
   /api/users/status:
     get:
@@ -439,7 +437,6 @@ paths:
         We recommend streaming the response, for it can be very long.
       tags:
         - Puzzles
-        - OAuth
       security:
         - OAuth2: ["puzzle:read"]
       parameters:
@@ -475,7 +472,6 @@ paths:
         Allows re-creating the [improvement/strengths](https://lichess.org/training/dashboard/30/improvementAreas) interfaces.
       tags:
         - Puzzles
-        - OAuth
       security:
         - OAuth2: ["puzzle:read"]
       parameters:
@@ -582,7 +578,6 @@ paths:
         Public informations about the logged in user.
       tags:
         - Account
-        - OAuth
       security:
         - OAuth2: []
       responses:
@@ -606,7 +601,6 @@ paths:
         Read the email address of the logged in user.
       tags:
         - Account
-        - OAuth
       security:
         - OAuth2: ["email:read"]
       responses:
@@ -637,7 +631,6 @@ paths:
         - https://github.com/ornicar/lila/blob/master/modules/pref/src/main/Pref.scala
       tags:
         - Account
-        - OAuth
       security:
         - OAuth2: ["preference:read"]
       responses:
@@ -665,7 +658,6 @@ paths:
         - https://lichess.org/account/kid
       tags:
         - Account
-        - OAuth
       security:
         - OAuth2: ["preference:read"]
       responses:
@@ -693,7 +685,6 @@ paths:
         - https://lichess.org/account/kid
       tags:
         - Account
-        - OAuth
       security:
         - OAuth2: ["preference:write"]
       parameters:
@@ -924,7 +915,6 @@ paths:
           - Authenticated, downloading your own games: 60 games per second
       tags:
         - Games
-        - OAuth
       security:
         - OAuth2: []
       parameters:
@@ -1217,7 +1207,6 @@ paths:
         The most urgent games are listed first.
       tags:
         - Games
-        - OAuth
       security:
         - OAuth2: []
       parameters:
@@ -1285,7 +1274,6 @@ paths:
         To broadcast ongoing games, consider [pushing to a broadcast instead](#operation/broadcastPush).
       tags:
         - Games
-        - OAuth
       security:
         - OAuth2: []
       requestBody:
@@ -2599,7 +2587,6 @@ paths:
         If not, only public, listed studies are included.
       tags:
         - Studies
-        - OAuth
       security:
         - OAuth2: []
       parameters:
@@ -2687,7 +2674,6 @@ paths:
         This endpoint accepts the same form data as the [web form](https://lichess.org/broadcast/new).
       tags:
         - Broadcasts
-        - OAuth
       security:
         - OAuth2: ["study:write"]
       requestBody:
@@ -2745,7 +2731,6 @@ paths:
         Get information about a broadcast tournament that you created.
       tags:
         - Broadcasts
-        - OAuth
       security:
         - OAuth2: ["study:read"]
       parameters:
@@ -2782,7 +2767,6 @@ paths:
           All fields must be populated with data. Missing fields will override the broadcast with empty data.
         tags:
           - Broadcasts
-          - OAuth
         security:
           - OAuth2: ["study:write"]
         parameters:
@@ -2848,7 +2832,6 @@ paths:
         This endpoint accepts the same form data as the web form.
       tags:
         - Broadcasts
-        - OAuth
       security:
         - OAuth2: ["study:write"]
       requestBody:
@@ -2908,7 +2891,6 @@ paths:
         Get information about a broadcast round that you created.
       tags:
         - Broadcasts
-        - OAuth
       security:
         - OAuth2: ["study:read"]
       parameters:
@@ -2953,7 +2935,6 @@ paths:
         For instance, if you omit `startDate`, then any pre-existing start date will be removed.
       tags:
         - Broadcasts
-        - OAuth
       security:
         - OAuth2: ["study:write"]
       parameters:
@@ -3019,7 +3000,6 @@ paths:
         Only for broadcast without a source URL.
       tags:
         - Broadcasts
-        - OAuth
       security:
         - OAuth2: ["study:write"]
       parameters:
@@ -3290,7 +3270,6 @@ paths:
         `403 Forbidden`.
       tags:
         - Teams
-        - OAuth
       security:
         - OAuth2: ["team:write"]
       parameters:
@@ -3330,7 +3309,6 @@ paths:
         - https://lichess.org/team
       tags:
         - Teams
-        - OAuth
       security:
         - OAuth2: ["team:write"]
       parameters:
@@ -3357,7 +3335,6 @@ paths:
         - https://lichess.org/team
       tags:
         - Teams
-        - OAuth
       security:
         - OAuth2: ["team:write"]
       parameters:
@@ -3390,7 +3367,6 @@ paths:
         You must own the team.
       tags:
         - Teams
-        - OAuth
       security:
         - OAuth2: ["team:write"]
       parameters:
@@ -5174,13 +5150,14 @@ paths:
       operationId: oauth
       summary: Request authorization code
       tags:
-        - Token
+        - OAuth
       security: []
       description: |
         OAuth2 authorization endpoint.
 
-        Start the OAuth authorization flow with PKCE by securely generating
-        and storing two random strings unique to each authorization request:
+        Start the OAuth2 Authorization Code Flow with PKCE by securely
+        generating and storing two random strings unique to each authorization
+        request:
         * `code_verifier`
         * `state`
 
@@ -5196,7 +5173,7 @@ paths:
 
         If the authorization succeeded, the following query string parameters
         will be appended to the redirection:
-        * `code`, containing a fresh authorization code
+        * `code`, containing a fresh short-lived authorization code
         * `state`, exactly as passed in the `state` parameter
 
         Next, to defend against cross site request forgery, check that the
@@ -5255,7 +5232,7 @@ paths:
       operationId: apiToken
       summary: Obtain access token
       tags:
-        - Token
+        - OAuth
       security: []
       description: |
         OAuth2 token endpoint. Exchanges an authorization code for an access token.
@@ -5313,7 +5290,6 @@ paths:
       summary: Revoke access token
       description: Revokes the access token sent as Bearer for this request.
       tags:
-        - Token
         - OAuth
       security:
         - OAuth2: []
@@ -7074,7 +7050,7 @@ components:
         ### Personal Access Token
         Personal API access tokens allow you to quickly interact with Lichess API without going through an OAuth flow.
         - [Generate a personal access token](https://lichess.org/account/oauth/token)
-        - `curl https://lichess.org/api/account -H "Authorization: Bearer <token>"`
+        - `curl https://lichess.org/api/account -H "Authorization: Bearer {token}"`
         - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth-personal-token)
 
         ### Authorization Code Flow with PKCE
@@ -7083,8 +7059,10 @@ components:
         The only accepted code challenge method is `S256`.
         Access tokens are long-lived (think months), unless they are revoked.
         Refresh tokens are not supported.
-        - [Related API endpoints](https://lichess.org/api#tag/Token)
-        - [PKCE RFC](https://datatracker.ietf.org/doc/html/rfc7636#section-4) with precise protocol description
+
+        See the [documentation for the OAuth endpoints](#tag/OAuth) or
+        the [PKCE RFC](https://datatracker.ietf.org/doc/html/rfc7636#section-4) for a precise protocol description.
+
         - [Fully client-side example](https://github.com/lichess-org/api/tree/master/example/oauth-app)
         - [Flask/Python example](https://github.com/lakinwecker/lichess-oauth-flask)
         - [Java example](https://github.com/tors42/lichess-oauth-pkce-app)
