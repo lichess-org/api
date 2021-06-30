@@ -2573,7 +2573,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/StudyPgn'
 
-  /study/{studyId}.pgn:
+  /api/study/{studyId}.pgn:
     get:
       operationId: studyAllChaptersPgn
       summary: Export all chapters
@@ -2619,6 +2619,11 @@ paths:
       responses:
         200:
           description: The PGN representation of the study.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-chess-pgn:
               schema:
