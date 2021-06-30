@@ -1,12 +1,10 @@
+require('dotenv').config();
 const fetch = require('node-fetch');
 
-/* Create your personal token on https://lichess.org/account/oauth/token */
-const personalToken = '';
+const headers = {
+  Authorization: 'Bearer ' + process.env.lichessToken,
+};
 
-fetch('https://lichess.org/api/account', {
-    headers: {
-      'Authorization': 'Bearer ' + personalToken
-    }
-  })
+fetch('https://lichess.org/api/account', { headers })
   .then(res => res.json())
   .then(console.log);
