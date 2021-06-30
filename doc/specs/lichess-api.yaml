@@ -7094,6 +7094,7 @@ components:
             "study:write": Create, update, delete studies and broadcasts
             "tournament:write": Create tournaments
             "puzzle:read": Read puzzle activity
+            "team:read": Read private team information
             "team:write": Join, leave, and manage teams
             "msg:write": Send private messages to other players
             "board:play": Play with the Board API
