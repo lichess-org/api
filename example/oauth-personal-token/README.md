@@ -14,5 +14,5 @@ and you can generate lots of them.
 1. Copy `.env.default` to `.env`
 2. Create a [personal token](https://lichess.org/account/oauth/token)
 3. Set the token in `.env`
-4. Install dependencies with `yarn install`
+4. Install dependencies with `npm install`
 5. Run with `node index.js`
