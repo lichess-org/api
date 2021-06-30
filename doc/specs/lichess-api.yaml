@@ -373,6 +373,55 @@ paths:
               schema:
                 $ref: '#/components/schemas/RatingHistory'
 
+  /api/user/{username}/perf/{perf}:
+    get:
+      operationId: apiUserPerf
+      summary: Get performance statistics of a user
+      description: |
+        Read performance statistics of a user, for a single performance.
+        Similar to the [performance pages on the website](https://lichess.org/@/thibault/perf/bullet).
+      tags:
+        - Users
+      security: []
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: perf
+          schema:
+            type: string
+            enum:
+              - ultraBullet
+              - bullet
+              - blitz
+              - rapid
+              - classical
+              - correspondence
+              - chess960
+              - crazyhouse
+              - antichess
+              - atomic
+              - horde
+              - kingOfTheHill
+              - racingKings
+              - threeCheck
+          required: true
+      responses:
+        200:
+          description: The performance statistics of the user
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PerfStat'
+
   /api/user/{username}/activity:
     get:
       operationId: apiUserActivity
@@ -6234,6 +6283,9 @@ components:
 
     RatingHistory:
       example: [{"name":"Bullet","points":[[2011,0,8,1472],[2011,0,9,1332],[2011,8,12,1314]]},{"name":"Blitz","points":[[2011,7,29,1332]]}]
+
+    PerfStat:
+      example: {"perf":{"glicko":{"rating":1672.42,"deviation":45.13,"provisional":false},"nb":5692,"progress":-27},"rank":98121,"percentile":69.7,"stat":{"perfType":{"key":"bullet","name":"Bullet"},"highest":{"int":1902,"at":"2021-05-31T08:58:53.701Z","gameId":"YEDqtwig"},"lowest":{"int":1417,"at":"2016-06-28T13:54:39.656Z","gameId":"rNM4J1GJ"},"bestWins":{"results":[{"opInt":2238,"opId":{"id":"hyperdragon84","name":"HyperDragon84","title":null},"at":"2019-06-19T17:09:05.187Z","gameId":"DGB53z9w"},{"opInt":2089,"opId":{"id":"osipov","name":"osipov","title":null},"at":"2017-06-18T09:46:05.016Z","gameId":"gurRhuMi"},{"opInt":2071,"opId":{"id":"spark50","name":"Spark50","title":null},"at":"2020-07-04T08:36:12.948Z","gameId":"a93Dk1mv"},{"opInt":2045,"opId":{"id":"yasha43","name":"Yasha43","title":null},"at":"2021-05-17T14:01:41.098Z","gameId":"j3jZnGTr"},{"opInt":2034,"opId":{"id":"midedu","name":"midedu","title":null},"at":"2020-06-27T17:32:47.001Z","gameId":"OiaMVLQ8"}]},"worstLosses":{"results":[{"opInt":1186,"opId":{"id":"happy0","name":"Happy0","title":null},"at":"2016-07-07T19:48:29.077Z","gameId":"Q01bbiN4"},{"opInt":1197,"opId":{"id":"kazmankiller86","name":"KazmanKiller86","title":null},"at":"2016-10-16T14:21:37.748Z","gameId":"Aivqh9Sp"},{"opInt":1201,"opId":{"id":"artem555","name":"artem555","title":null},"at":"2016-08-28T16:21:30.923Z","gameId":"tiRAbhnX"},{"opInt":1265,"opId":{"id":"arcenuu","name":"Arcenuu","title":null},"at":"2016-12-24T14:28:03.866Z","gameId":"A68wUOoh"},{"opInt":1283,"opId":{"id":"amritalib76","name":"Amritalib76","title":null},"at":"2018-06-26T09:55:39.354Z","gameId":"sbNVikmo"}]},"count":{"all":5858,"rated":5688,"win":2789,"loss":2806,"draw":263,"tour":654,"berserk":1,"opAvg":1671.44,"seconds":784886,"disconnects":0},"resultStreak":{"win":{"cur":{"v":0},"max":{"v":11,"from":{"at":"2021-06-14T15:38:50.681Z","gameId":"wTX2IExo"},"to":{"at":"2021-06-15T18:41:46.970Z","gameId":"1z4rrjgw"}}},"loss":{"cur":{"v":3,"from":{"at":"2021-06-29T17:53:23.642Z","gameId":"pfcnjgik"},"to":{"at":"2021-06-29T18:04:48.358Z","gameId":"6sPaGL8T"}},"max":{"v":14,"from":{"at":"2018-06-11T14:43:39.296Z","gameId":"1fc9dqun"},"to":{"at":"2018-06-11T15:10:30.908Z","gameId":"Nzy6UgwY"}}}},"playStreak":{"nb":{"cur":{"v":0},"max":{"v":118,"from":{"at":"2018-06-11T10:32:21.248Z","gameId":"UAsNnJbN"},"to":{"at":"2018-06-11T15:13:01.193Z","gameId":"T7fHRaFG"}}},"time":{"cur":{"v":0},"max":{"v":12683,"from":{"at":"2018-06-12T14:11:14.021Z","gameId":"IrZCAW58"},"to":{"at":"2018-06-12T18:02:57.010Z","gameId":"RNF1mQ68"}}},"lastDate":"2021-06-29T18:04:48.358Z"}}}
 
     Top10s:
       example: {
