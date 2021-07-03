@@ -2,9 +2,9 @@
 
 There are multiple ways to connect to the [Lichess API](https://lichess.org/api), depending on your needs.
 
-## Which authentication is right for me?
+Which authentication is right for you?
 
-### Personal token
+## Personal token
 
 This is the simplest way, but it requires [manually creating a token](https://lichess.org/account/oauth/token).
 
@@ -22,7 +22,7 @@ Examples:
 
 Relevant example directory: `oauth-personal-token`
 
-### Login with Lichess, with a web server backend
+## Login with Lichess, with a web server backend
 
 Authenticate your users with a simple "Login with Lichess" button, **if you have a webserver**.
 This allows you to make requests to Lichess on behalf of your app users.
@@ -36,7 +36,7 @@ Examples:
 
 Relevant example directory: `oauth-backend`
 
-### Login with Lichess, without a web server backend
+## Login with Lichess, without a web server backend
 
 Authenticate your users with a simple "Login with Lichess" button, **if you don't have a webserver**.
 Perfectly suited to **mobile apps**, **CLI apps**, **client-side JS apps**.
@@ -52,6 +52,6 @@ Examples:
 
 Relevant example directory: `oauth-app`
 
-### No authentication
+## No authentication
 
 Many endpoints of the [Lichess API](https://lichess.org/api) don't require any authentication.
