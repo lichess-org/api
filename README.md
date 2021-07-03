@@ -2,6 +2,7 @@
 
 - [API documentation](https://lichess.org/api)
 - [Example code](https://github.com/lichess-org/api/tree/master/example/)
+- [Which authentication is right for me](https://github.com/lichess-org/api/tree/master/example/README.md)
 
 ## Contribute documentation
 
