@@ -20,7 +20,7 @@ Examples:
 **Never use this for an app that will be used by multiple users.**
 **Never share your personal token.**
 
-Relevant example directory: `oauth-personal-token`
+Relevant code example: [oauth-personal-token](https://github.com/lichess-org/api/tree/master/example/oauth-personal-token)
 
 ## Login with Lichess, with a web server backend
 
@@ -34,7 +34,7 @@ Examples:
 - A [board API](https://lichess.org/api#tag/Board) client with a centralized server
 - a web app that analyses [puzzle activity](https://lichess.org/api#operation/apiPuzzleActivity) or [games played](https://lichess.org/api#operation/apiGamesUser) on server-side
 
-Relevant example directory: `oauth-backend`
+Relevant code example: [oauth-backend](https://github.com/lichess-org/api/tree/master/example/oauth-backend)
 
 ## Login with Lichess, without a web server backend
 
@@ -50,7 +50,7 @@ Examples:
 - An e-board app to play using the [board API](https://lichess.org/api#tag/Board)
 - A JS app that analyses [puzzle activity](https://lichess.org/api#operation/apiPuzzleActivity) or [games played](https://lichess.org/api#operation/apiGamesUser) on client-side
 
-Relevant example directory: `oauth-app`
+Relevant code example: [oauth-app](https://github.com/lichess-org/api/tree/master/example/oauth-app)
 
 ## No authentication
 
