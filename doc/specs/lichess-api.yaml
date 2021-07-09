@@ -4694,6 +4694,8 @@ paths:
         Requires the OAuth tokens of both players with `challenge:write` scope.
 
         If the clocks have already started, the call will have no effect.
+
+        Challenge admins (i.e. not you) can authenticate this call with `challenge:write` and use player IDs in `token1` and `token2`.
       tags:
         - Challenges
       security:
