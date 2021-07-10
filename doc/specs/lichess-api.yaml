@@ -7139,7 +7139,7 @@ components:
         - [NodeJS Passport strategy to login with Lichess OAuth2](https://www.npmjs.com/package/passport-lichess)
 
         #### Real life examples
-        - [PyChess](https://github.com/gbtami/pychess-variants) (outdated, [source code](https://github.com/gbtami/pychess-variants))
+        - [PyChess](https://github.com/gbtami/pychess-variants) ([source code](https://github.com/gbtami/pychess-variants))
         - [Lichess4545](https://www.lichess4545.com/) (outdated, [source code](https://github.com/cyanfish/heltour))
         - [English Chess Federation](https://ecf.octoknight.com/) (outdated)
         - [Rotherham Online Chess](https://rotherhamonlinechess.azurewebsites.net/tournaments) (outdated)
