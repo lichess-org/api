@@ -4,7 +4,6 @@ info:
   title: Lichess.org API reference
   x-logo:
     url: https://lichess1.org/assets/logo/lichess-pad12.svg
-    backgroundColor: #ffffff
   description: |
     # Introduction
     Welcome to the reference for the Lichess API! Lichess is free/libre,
