@@ -4718,8 +4718,6 @@ paths:
         Requires the OAuth tokens of both players with `challenge:write` scope.
 
         If the clocks have already started, the call will have no effect.
-
-        Challenge admins (i.e. not you) can authenticate this call with `challenge:write` and use player IDs in `token1` and `token2`.
       tags:
         - Challenges
       security:
@@ -5028,102 +5026,44 @@ paths:
               schema:
                 $ref: '#/components/schemas/Ok'
 
-  /api/challenge/admin/{orig}/{dest}:
+  /api/token/admin-challenge:
     post:
-      operationId: challengeCreateAdmin
-      summary: Create an admin challenge
+      operationId: adminChallengeTokens
+      summary: Admin challenge tokens
       description: |
-        **For administrators only. You are not allowed to use this endpoint. Use [Create a challenge](#operation/challengeCreate) instead.**
+        **For administrators only. You are not allowed to use this endpoint.**
 
-        Create a challenge between any two players, without OAuth tokens.
-        The challenge will be immediately accepted, and a game created.
+        Create and obtain `challenge:write` tokens for multiple users.
+
+        If a similar token already exists for a user, it is reused. This endpoint is idempotent.
       tags:
         - Challenges
       security:
-        - OAuth2: ["challenge:write"]
-      parameters:
-        - in: path
-          name: orig
-          schema:
-            type: string
-            description: "One of the two players"
-            example: "Lisa"
-          required: true
-        - in: path
-          name: dest
-          schema:
-            type: string
-            description: "The other player"
-            example: "Matilde"
-          required: true
+        - OAuth2: ["web:mod"]
       requestBody:
-        description: Parameters of the challenge
         required: true
         content:
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
-                rated:
-                  type: boolean
-                  description: Game is rated and impacts players ratings
-                'clock.limit':
-                  type: number
-                  description: Clock initial time in seconds. If empty, a correspondence game is created.
-                  example: 300
-                  minimum: 0
-                  maximum: 10800
-                'clock.increment':
-                  type: integer
-                  description: Clock increment in seconds. If empty, a correspondence game is created.
-                  example: 1
-                  minimum: 0
-                  maximum: 60
-                days:
-                  type: integer
-                  description: Days per move, for correspondence games. Clock settings must be omitted.
-                  example: 5
-                  minimum: 1
-                  maximum: 15
-                color:
-                  type: string
-                  description: Which color you get to play
-                  enum:
-                    - random
-                    - white
-                    - black
-                  default: 'random'
-                variant:
-                  type: string
-                  description: The variant of the game
-                  enum:
-                    - standard
-                    - chess960
-                    - crazyhouse
-                    - antichess
-                    - atomic
-                    - horde
-                    - kingOfTheHill
-                    - racingKings
-                    - threeCheck
-                  default: standard
-                fen:
-                  type: string
-                  description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated.
-                  default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
-                message:
-                  type: string
-                  description: |
-                    Message that is sent to each player, when the game is created. It is sent from your user account.
-
-                    `{opponent}` and `{game}` are placeholders that will be replaced with the opponent and the game URLs.
-
-                    You can omit this field to send the default message,
-                    but if you set your own message, it must at least contain the `{game}` placeholder.
-                  default: "Your game with {opponent} is ready: {game}."
+                users:
+                  description: Usernames separated with commas
+                  schema:
+                    type: string
+                  example: thibault,neio,lizen2,lizen3
+                description:
+                  required: true
+                  description: User visible description of the token
+                  schema:
+                    type: string
+                  example: "FIDE tournament XYZ"
+              required:
+                - users
+                - description
       responses:
         200:
-          description: The challenge has been successfully created.
+          description: The `challenge:write` tokens of each user
           headers:
             Access-Control-Allow-Origin:
               schema:
@@ -5131,10 +5071,9 @@ paths:
                 default: "'*'"
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/ChallengeJson'
+              schema: { "thibault": "lLOEkpH58W599xH9", "neio": "nAYTIJphwWFwKmKk", "lizen2": "1cnHhuWKHROgiPC4", "lizen3": "SszJ9Sj1bto0UQCK" }
         400:
-          description: The creation of the challenge failed.
+          description: The creation of the tokens failed.
           content:
             application/json:
               schema:
