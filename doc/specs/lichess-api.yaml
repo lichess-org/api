@@ -5392,6 +5392,8 @@ paths:
                 default: "'*'"
 
   /master:
+    servers:
+      - url: https://explorer.lichess.ovh
     get:
       operationId: openingExplorerMaster
       summary: Master games
@@ -5445,6 +5447,8 @@ paths:
                 $ref: '#/components/schemas/OpeningExplorerJson'
 
   /lichess:
+    servers:
+      - url: https://explorer.lichess.ovh
     get:
       operationId: openingExplorerLichess
       summary: Lichess games
@@ -5548,6 +5552,8 @@ paths:
                 $ref: '#/components/schemas/OpeningExplorerJson'
 
   /master/pgn/{gameId}:
+    servers:
+      - url: https://explorer.lichess.ovh
     get:
       operationId: openingExplorerMasterGame
       summary: OTB master game
@@ -5578,6 +5584,8 @@ paths:
                 $ref: '#/components/schemas/MasterGamePgn'
 
   /stats:
+    servers:
+      - url: https://explorer.lichess.ovh
     get:
       operationId: openingExplorerStats
       summary: Opening explorer stats
@@ -5601,6 +5609,8 @@ paths:
               example: {"master":{"games":2299868,"uniquePositions":56683918},"lichess":{"chess960":{"games":2259840,"uniquePositions":190488295},"standard":{"games":272515941,"uniquePositions":7355380242},"antichess":{"games":7818476,"uniquePositions":177073596},"horde":{"games":1027171,"uniquePositions":34843126},"atomic":{"games":3827483,"uniquePositions":70119949},"racingKings":{"games":747878,"uniquePositions":11671677},"kingOfTheHill":{"games":1345370,"uniquePositions":38511395},"crazyhouse":{"games":7540244,"uniquePositions":218945811},"threeCheck":{"games":1362591,"uniquePositions":29181473}}}
 
   /standard:
+    servers:
+      - url: https://tablebase.lichess.ovh
     get:
       operationId: tablebaseStandard
       summary: Tablebase lookup
@@ -5630,6 +5640,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/TablebaseJson'
   /atomic:
+    servers:
+      - url: https://tablebase.lichess.ovh
     get:
       operationId: tablebaseAtomic
       summary: Tablebase lookup for Atomic chess
@@ -5645,6 +5657,8 @@ paths:
                 default: "'*'"
 
   /antichess:
+    servers:
+      - url: https://tablebase.lichess.ovh
     get:
       operationId: antichessAtomic
       summary: Tablebase lookup for Antichess
