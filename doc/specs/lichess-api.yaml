@@ -7157,8 +7157,9 @@ components:
     OAuth2:
       type: oauth2
       description: |
-        ### Which authentication is right for me?
+        ### Which authentication method is right for me?
         [Read about the Lichess API authentication methods and code examples](https://github.com/lichess-org/api/blob/master/example/README.md)
+
         ### Personal Access Token
         Personal API access tokens allow you to quickly interact with Lichess API without going through an OAuth flow.
         - [Generate a personal access token](https://lichess.org/account/oauth/token)
@@ -7179,6 +7180,11 @@ components:
         - [Flask/Python example](https://github.com/lakinwecker/lichess-oauth-flask)
         - [Java example](https://github.com/tors42/lichess-oauth-pkce-app)
         - [NodeJS Passport strategy to login with Lichess OAuth2](https://www.npmjs.com/package/passport-lichess)
+
+        ### Token format
+        Access tokens and authorization codes match `^[A-Za-z0-9_]+$`.
+        The length of tokens can be increased without notice. Make sure your application can handle at least 512 characters.
+        By convention tokens have a recognizable prefix, but do not rely on this.
 
         #### Real life examples
         - [PyChess](https://github.com/gbtami/pychess-variants) ([source code](https://github.com/gbtami/pychess-variants))
