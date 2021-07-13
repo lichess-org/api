@@ -4,7 +4,6 @@ info:
   title: Lichess.org API reference
   x-logo:
     url: https://lichess1.org/assets/logo/lichess-pad12.svg
-    backgroundColor: #ffffff
   description: |
     # Introduction
     Welcome to the reference for the Lichess API! Lichess is free/libre,
@@ -3166,9 +3165,34 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Team'
+                type: object
+                properties:
+                  currentPage:
+                    type: number
+                    example: 4
+                  maxPerPage:
+                    type: number
+                    example: 15
+                  currentPageResults:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Team'
+                  nbResults:
+                    type: number
+                    example: 205194
+                  previousPage:
+                    anyOf:
+                    - type: number
+                    - type: null
+                    example: 3
+                  nextPage:
+                    anyOf:
+                    - type: number
+                    - type: null
+                    example: 5
+                  nbPages:
+                    type: number
+                    example: 13680
 
   /api/team/of/{username}:
     get:
@@ -6980,6 +7004,10 @@ components:
         nbMembers:
           type: integer
           example: 3129
+        location:
+          type: string
+          optional: true
+          example: Planet Earth
 
     BotGameState:
       type: object
