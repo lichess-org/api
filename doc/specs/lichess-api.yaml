@@ -5071,7 +5071,7 @@ paths:
                 default: "'*'"
           content:
             application/json:
-              schema: { "thibault": "lLOEkpH58W599xH9", "neio": "nAYTIJphwWFwKmKk", "lizen2": "1cnHhuWKHROgiPC4", "lizen3": "SszJ9Sj1bto0UQCK" }
+              example: { "thibault": "lLOEkpH58W599xH9", "neio": "nAYTIJphwWFwKmKk", "lizen2": "1cnHhuWKHROgiPC4", "lizen3": "SszJ9Sj1bto0UQCK" }
         400:
           description: The creation of the tokens failed.
           content:
