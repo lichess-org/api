@@ -4518,6 +4518,11 @@ paths:
             type: string
             example: "5IrD6Gzz"
           required: true
+        - in: query
+          name: opponentToken
+          description: Optional `challenge:write` token of the opponent. If set, the game can be canceled even if both players have moved.
+          schema:
+            type: string
       responses:
         200:
           description: The challenge was successfully cancelled.
