@@ -1046,12 +1046,6 @@ paths:
             type: boolean
             default: null
         - in: query
-          name: ongoing
-          description: "[Filter] Also include ongoing games"
-          schema:
-            type: boolean
-            default: false
-        - in: query
           name: moves
           description: Include the PGN moves.
           schema:
