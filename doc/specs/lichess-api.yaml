@@ -2644,7 +2644,7 @@ paths:
       tags:
         - Studies
       security:
-        - OAuth2: []
+        - OAuth2: ["study:read"]
       parameters:
         - in: path
           name: username
