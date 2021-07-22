@@ -1293,6 +1293,13 @@ paths:
       tags:
         - Games
       security: []
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            example: "LuGQwhBb"
+          required: true
       responses:
         200:
           description: The stream of the game moves.
@@ -1403,6 +1410,12 @@ paths:
         - TV
       security: []
       parameters:
+        - in: path
+          name: channel
+          description: The name of the channel in lowercase.
+          schema:
+            type: string
+          required: true
         - in: query
           name: nb
           description: Number of games to fetch.
@@ -2851,6 +2864,13 @@ paths:
         - Broadcasts
       security:
         - OAuth2: ["study:write"]
+      parameters:
+        - in: path
+          name: broadcastTournamentId
+          description: The broadcast tournament ID (8 characters).
+          required: true
+          schema:
+            type: string
       requestBody:
         required: true
         content:
@@ -3144,12 +3164,12 @@ paths:
                   previousPage:
                     anyOf:
                     - type: number
-                    - type: null
+                    - nullable: true
                     example: 3
                   nextPage:
                     anyOf:
                     - type: number
-                    - type: null
+                    - nullable: true
                     example: 5
                   nbPages:
                     type: number
@@ -4959,14 +4979,11 @@ paths:
               properties:
                 users:
                   description: Usernames separated with commas
-                  schema:
-                    type: string
+                  type: string
                   example: thibault,neio,lizen2,lizen3
                 description:
-                  required: true
                   description: User visible description of the token
-                  schema:
-                    type: string
+                  type: string
                   example: "FIDE tournament XYZ"
               required:
                 - users
@@ -5465,6 +5482,9 @@ paths:
         - in: query
           name: fen
           description: FEN of the position. Underscores allowed. The halfmove clock is taken into account for WDL values.
+          schema:
+            type: string
+          required: true
       responses:
         200:
           description: The tablebase information for the position in standard chess.
@@ -5728,7 +5748,6 @@ components:
           required: [inaccuracy, mistake, blunder, acpl]
         team:
           type: string
-      required: []
 
     GameJson:
       type: object
@@ -7016,7 +7035,7 @@ components:
           example: 3129
         location:
           type: string
-          optional: true
+          nullable: true
           example: Planet Earth
 
     BotGameState:
