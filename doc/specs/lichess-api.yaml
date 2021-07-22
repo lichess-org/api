@@ -1556,19 +1556,8 @@ paths:
                   type: integer
                   description: Timestamp to start the tournament at a given date and time. Overrides the `waitMinutes` setting
                 variant:
-                  type: string
+                  $ref: '#/components/schemas/VariantKey'
                   description: The variant to use in tournament games
-                  enum:
-                    - standard
-                    - chess960
-                    - crazyhouse
-                    - antichess
-                    - atomic
-                    - horde
-                    - kingOfTheHill
-                    - racingKings
-                    - threeCheck
-                  default: standard
                 rated:
                   type: boolean
                   description: Games are rated and impact players ratings
@@ -1762,19 +1751,8 @@ paths:
                   type: integer
                   description: Timestamp to start the tournament at a given date and time. Overrides the `waitMinutes` setting
                 variant:
-                  type: string
+                  $ref: '#/components/schemas/VariantKey'
                   description: The variant to use in tournament games
-                  enum:
-                    - standard
-                    - chess960
-                    - crazyhouse
-                    - antichess
-                    - atomic
-                    - horde
-                    - kingOfTheHill
-                    - racingKings
-                    - threeCheck
-                  default: standard
                 rated:
                   type: boolean
                   description: Games are rated and impact players ratings
@@ -2228,19 +2206,8 @@ paths:
                   maximum: 86400
                   default: auto
                 variant:
-                  type: string
+                  $ref: '#/components/schemas/VariantKey'
                   description: The variant to use in tournament games
-                  enum:
-                    - standard
-                    - chess960
-                    - crazyhouse
-                    - antichess
-                    - atomic
-                    - horde
-                    - kingOfTheHill
-                    - racingKings
-                    - threeCheck
-                  default: standard
                 description:
                   type: string
                   description: Anything you want to tell players about the tournament
@@ -3718,19 +3685,8 @@ paths:
                     - 10
                     - 14
                 variant:
-                  type: string
+                  $ref: '#/components/schemas/VariantKey'
                   description: The variant of the game.
-                  enum:
-                    - standard
-                    - chess960
-                    - crazyhouse
-                    - antichess
-                    - atomic
-                    - horde
-                    - kingOfTheHill
-                    - racingKings
-                    - threeCheck
-                  default: standard
                 color:
                   type: string
                   description: The color to play. Better left empty to automatically get 50% white.
@@ -4341,19 +4297,7 @@ paths:
                     - black
                   default: 'random'
                 variant:
-                  type: string
-                  description: The variant of the game
-                  enum:
-                    - standard
-                    - chess960
-                    - crazyhouse
-                    - antichess
-                    - atomic
-                    - horde
-                    - kingOfTheHill
-                    - racingKings
-                    - threeCheck
-                  default: standard
+                  $ref: '#/components/schemas/VariantKey'
                 fen:
                   type: string
                   description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated. Castling moves will use UCI_Chess960 notation, for example e1h1 instead of e1g1.
@@ -4588,19 +4532,8 @@ paths:
                     - black
                   default: 'random'
                 variant:
-                  type: string
+                  $ref: '#/components/schemas/VariantKey'
                   description: The variant of the game
-                  enum:
-                    - standard
-                    - chess960
-                    - crazyhouse
-                    - antichess
-                    - atomic
-                    - horde
-                    - kingOfTheHill
-                    - racingKings
-                    - threeCheck
-                  default: standard
                 fen:
                   type: string
                   description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated.
@@ -4668,19 +4601,8 @@ paths:
                   minimum: 0
                   maximum: 60
                 variant:
-                  type: string
+                  $ref: '#/components/schemas/VariantKey'
                   description: The variant of the game
-                  enum:
-                    - standard
-                    - chess960
-                    - crazyhouse
-                    - antichess
-                    - atomic
-                    - horde
-                    - kingOfTheHill
-                    - racingKings
-                    - threeCheck
-                  default: standard
                 fen:
                   type: string
                   description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated.
@@ -4860,19 +4782,8 @@ paths:
                   type: boolean
                   description: Game is rated and impacts players ratings
                 variant:
-                  type: string
+                  $ref: '#/components/schemas/VariantKey'
                   description: The variant of the game
-                  enum:
-                    - standard
-                    - chess960
-                    - crazyhouse
-                    - antichess
-                    - atomic
-                    - horde
-                    - kingOfTheHill
-                    - racingKings
-                    - threeCheck
-                  default: standard
                 message:
                   type: string
                   description: |
@@ -5152,8 +5063,7 @@ paths:
           name: variant
           description: Variant
           schema:
-            type: string
-            default: standard
+            $ref: '#/components/schemas/VariantKey'
       responses:
         200:
           description: The evaluation of the position.
@@ -5405,17 +5315,7 @@ paths:
           description: Variant
           required: true
           schema:
-            type: string
-            enum:
-              - standard
-              - chess960
-              - threeCheck
-              - kingOfTheHill
-              - racingKings
-              - antichess
-              - atomic
-              - horde
-              - crazyhouse
+            $ref: '#/components/schemas/VariantKey'
         - in: query
           name: fen
           required: true
@@ -5622,6 +5522,21 @@ components:
         default: application/vnd.lichess.v3+json
       required: true
   schemas:
+    VariantKey:
+      type: string
+      enum:
+        - standard
+        - chess960
+        - crazyhouse
+        - antichess
+        - atomic
+        - horde
+        - kingOfTheHill
+        - racingKings
+        - threeCheck
+      example: standard
+      default: standard
+
     Clock:
       type: object
       properties:
@@ -5784,7 +5699,150 @@ components:
         ]
     }
 
+    GameUser:
+      type: object
+      properties:
+        user:
+          $ref: "#/components/schemas/LightUser"
+        rating:
+          type: number
+        ratingDiff:
+          type: number
+        name:
+          type: string
+        provisional:
+          type: boolean
+        aiLevel:
+          type: number
+        analysis:
+          type: object
+          properties:
+            inaccuracy:
+              type: number
+            mistake:
+              type: number
+            blunder:
+              type: number
+            acpl:
+              type: number
+          required: [inaccuracy, mistake, blunder, acpl]
+        team:
+          type: string
+      required: []
+
     GameJson:
+      type: object
+      properties:
+        id:
+          type: string
+        rated:
+          type: boolean
+        variant: 
+          $ref: '#/components/schemas/VariantKey'
+        speed:
+          type: string
+        perf:
+          type: string
+        createdAt:
+          type: number
+        lastMoveAt:
+          type: number
+        status:
+          type: string
+          enum:
+            - created
+            - started
+            - aborted
+            - mate
+            - resign
+            - stalemate
+            - timeout
+            - draw
+            - outoftime
+            - cheat
+            - noStart
+            - unknownFinish
+            - variantEnd
+        players:
+          type: object
+          properties:
+            white:
+              $ref: '#/components/schemas/GameUser'
+            black:
+              $ref: '#/components/schemas/GameUser'
+        initialFen:
+          type: string
+        winner:
+          type: string
+          enum: [white, black]
+        opening:
+          type: object
+          properties:
+            eco:
+              type: string
+            name:
+              type: string
+            ply:
+              type: number
+        moves:
+          type: string
+        pgn:
+          type: string
+        daysPerTurn:
+          type: number
+        analysis:
+          type: array
+          items:
+            type: object
+            properties:
+              eval:
+                type: number
+                description: Evaluation in centipawns
+              best:
+                type: string
+                example: c2c3
+                description: Best move in UCI notation (only if played move was inaccurate)
+              variation:
+                type: string
+                example: c3 Nc6 d4 Qb6 Be2 Nge7 Na3 cxd4 cxd4 Nf5
+                description: Best variation in SAN notation (only if played move was inaccurate)
+              judgment:
+                type: object
+                description: Judgment annotation (only if played move was inaccurate)
+                properties:
+                  name:
+                    type: string
+                    enum:
+                      - Inaccuracy
+                      - Mistake
+                      - Blunder
+                  comment:
+                    type: string
+                    example: Blunder. Nxg6 was best.
+            required: [eval]
+        tournament:
+          type: string
+        swiss:
+          type: string
+        clock:
+          type: object
+          properties:
+            initial:
+              type: number
+            increment:
+              type: number
+            totalTime:
+              type: number
+      required:
+        - id
+        - rated
+        - variant
+        - speed
+        - perf
+        - createdAt
+        - lastMoveAt
+        - status
+        - players
       example: {
         "id": "q7ZvsdUF",
         "rated": true,
