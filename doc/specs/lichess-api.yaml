@@ -4256,6 +4256,40 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/challenge:
+    get:
+      operationId: challengeList
+      summary: List your challenges
+      description: |
+        Get a list of challenges created by or targeted at you.
+      tags:
+        - Challenges
+      security:
+        - OAuth2: ["challenge:read"]
+      responses:
+        200:
+          description: The list of challenges created by or targeted at the logged in user.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  in:
+                    type: array
+                    description: Incoming challenges i.e. targeted at you
+                    items:
+                      $ref: '#/components/schemas/ChallengeJson'
+                  out:
+                    type: array
+                    description: Outgoing challenges i.e. created by you
+                    items:
+                      $ref: '#/components/schemas/ChallengeJson'
+
   /api/challenge/{username}:
     post:
       operationId: challengeCreate
@@ -5557,6 +5591,16 @@ components:
       example: standard
       default: standard
 
+    Variant:
+      type: object
+      properties:
+        key:
+          $ref: '#components/schemas/VariantKey'
+        name:
+          type: string
+        short:
+          type: string
+
     Clock:
       type: object
       properties:
@@ -5565,7 +5609,107 @@ components:
         increment:
           type: integer
 
+    ChallengeUser:
+      allOf:
+        - $ref: '#/components/schemas/LightUser'
+      properties:
+        rating:
+          type: number
+        provisional:
+          type: boolean
+        online:
+          type: boolean
+
     ChallengeJson:
+      type: object
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+        status:
+          type: string
+          enum:
+            - created
+            - offline
+            - canceled
+            - declined
+            - accepted
+        challenger:
+          $ref: '#/components/schemas/ChallengeUser'
+        destUser:
+          $ref: '#/components/schemas/ChallengeUser'
+          nullable: true
+        variant:
+          $ref: '#/components/schemas/Variant'
+        rated:
+          type: boolean
+        speed:
+          type: string
+          enum:
+            - ultraBullet
+            - bullet
+            - blitz
+            - rapid
+            - classical
+            - correspondence
+        timeControl:
+          oneOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  const: clock
+                limit:
+                  type: number
+                increment:
+                  type: number
+                show:
+                  example: 5+2
+                  type: string
+            - type: object
+              properties:
+                type:
+                  type: string
+                  const: correspondence
+                daysPerTurn:
+                  type: number
+            - type: object
+              properties:
+                type:
+                  type: string
+                  const: unlimited
+        color:
+          type: string
+          enum: ["white", "black", "random"]
+        perf:
+          type: object
+          properties:
+            icon:
+              type: string
+            name:
+              type: string
+        direction:
+          type: string
+          enum:
+            - in
+            - out
+        initialFen:
+          type: string
+        declineReason:
+          type: string
+      required:
+        - id
+        - url
+        - status
+        - challenger
+        - destUser
+        - variant
+        - rated
+        - speed
+        - timeControl
+        - color
+        - perf
       example: {
         "id": "VU0nyvsW",
         "url": "https://lichess.org/VU0nyvsW",
