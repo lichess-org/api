@@ -1,0 +1,35 @@
+name: Lint OpenAPI specification and publish documentation
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: doc
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: lts/*
+    - run: npm install
+    - run: npm run lint
+  build:
+    if: ${{ github.event_name == "push" && github.ref == "refs/heads/master" }}
+    needs: lint
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: doc
+    steps:
+    - uses: actions/checkout@v2
+    - run: npm install
+    - run: npm run bundle
+    - name: GitHub pages deploy
+      uses: maxheld83/ghpages@68f783a4f5313d776c1599e18479607e71c9c738
+      env:
+        BUILD_DIR: "public/"
+        GH_PAT: ${{ secrets.GH_PAT }}

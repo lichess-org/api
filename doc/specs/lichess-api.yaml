@@ -250,8 +250,6 @@ paths:
         Get the top 10 players for each speed and variant.
 
         See https://lichess.org/player.
-      parameters:
-        - $ref: '#/components/parameters/lichess'
       responses:
         200:
           description: The list of variants with their respective top players.
@@ -273,7 +271,6 @@ paths:
 
         See https://lichess.org/player/top/200/bullet.
       parameters:
-        - $ref: '#/components/parameters/lichess'
         - in: path
           name: nb
           description: How many users to fetch
@@ -1306,6 +1303,8 @@ paths:
           description: The stream of the game moves.
           content:
             application/x-ndjson:
+              schema:
+                type: array
               example: [
                 {"id":"LuGQwhBb","variant":{"key":"standard","name":"Standard","short":"Std"},"speed":"blitz","perf":"blitz","rated":true,"initialFen":"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1","fen":"rnbqkb1r/1p1ppppp/p6n/2p4Q/8/1P2P3/P1PP1PPP/RNB1KBNR w KQkq - 0 4","player":"white","turns":6,"startedAtTurn":0,"source":"pool","status":{"id":20,"name":"started"},"createdAt":1620029815106,"lastMove":"c7c5"},
                 {"fen":"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w","wc":180,"bc":180},
@@ -1571,7 +1570,6 @@ paths:
                   description: Timestamp to start the tournament at a given date and time. Overrides the `waitMinutes` setting
                 variant:
                   $ref: '#/components/schemas/VariantKey'
-                  description: The variant to use in tournament games
                 rated:
                   type: boolean
                   description: Games are rated and impact players ratings
@@ -1649,6 +1647,13 @@ paths:
                 $ref: '#/components/schemas/Error'
 
   /api/tournament/{id}:
+    parameters:
+     - in: path
+       name: id
+       description: The tournament ID.
+       schema:
+         type: string
+       required: true
     get:
       operationId: tournament
       summary: Get info about an Arena tournament
@@ -1658,12 +1663,6 @@ paths:
         - "Arena tournaments"
       security: []
       parameters:
-        - in: path
-          name: id
-          description: The tournament ID.
-          schema:
-            type: string
-          required: true
         - in: query
           name: page
           description: Specify which page of player standings to view.
@@ -1698,13 +1697,6 @@ paths:
         - "Arena tournaments"
       security:
         - OAuth2: ["tournament:write"]
-      parameters:
-        - in: path
-          name: id
-          description: The tournament ID.
-          schema:
-            type: string
-          required: true
       requestBody:
         description: Parameters of the tournament
         required: true
@@ -1766,7 +1758,6 @@ paths:
                   description: Timestamp to start the tournament at a given date and time. Overrides the `waitMinutes` setting
                 variant:
                   $ref: '#/components/schemas/VariantKey'
-                  description: The variant to use in tournament games
                 rated:
                   type: boolean
                   description: Games are rated and impact players ratings
@@ -2221,7 +2212,6 @@ paths:
                   default: auto
                 variant:
                   $ref: '#/components/schemas/VariantKey'
-                  description: The variant to use in tournament games
                 description:
                   type: string
                   description: Anything you want to tell players about the tournament
@@ -2328,7 +2318,8 @@ paths:
                 default: "'*'"
           content:
             text/plain:
-              example:
+              schema:
+                type: string
 
   /api/swiss/{id}/games:
     get:
@@ -2771,7 +2762,6 @@ paths:
           required: true
           schema:
             type: string
-            default: "-"
         - in: path
           name: broadcastTournamentId
           description: The broadcast tournament ID (8 characters).
@@ -2938,14 +2928,12 @@ paths:
           required: true
           schema:
             type: string
-            default: "-"
         - in: path
           name: broadcastRoundSlug
           description: The broadcast round slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastRoundId` is actually used.
           required: true
           schema:
             type: string
-            default: "-"
         - in: path
           name: broadcastRoundId
           description: The broadcast Round ID (8 characters).
@@ -3707,7 +3695,6 @@ paths:
                     - 14
                 variant:
                   $ref: '#/components/schemas/VariantKey'
-                  description: The variant of the game.
                 color:
                   type: string
                   description: The color to play. Better left empty to automatically get 50% white.
@@ -4617,7 +4604,6 @@ paths:
                   default: 'random'
                 variant:
                   $ref: '#/components/schemas/VariantKey'
-                  description: The variant of the game
                 fen:
                   type: string
                   description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated.
@@ -4686,7 +4672,6 @@ paths:
                   maximum: 60
                 variant:
                   $ref: '#/components/schemas/VariantKey'
-                  description: The variant of the game
                 fen:
                   type: string
                   description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated.
@@ -4867,7 +4852,6 @@ paths:
                   description: Game is rated and impacts players ratings
                 variant:
                   $ref: '#/components/schemas/VariantKey'
-                  description: The variant of the game
                 message:
                   type: string
                   description: |
@@ -5220,16 +5204,6 @@ paths:
           schema:
             type: string
         - in: query
-          name: scope
-          description: Space separated list of requested OAuth scopes, if any.
-          schema:
-            type: string
-        - in: query
-          name: state
-          description: Arbitrary state that will be returned verbatim with the authorization result.
-          schema:
-            type: string
-        - in: query
           name: code_challenge_method
           description: Must be `S256`.
           required: true
@@ -5239,6 +5213,16 @@ paths:
           name: code_challenge
           description: Compute `BASE64URL(SHA256(code_verifier))`.
           required: true
+          schema:
+            type: string
+        - in: query
+          name: scope
+          description: Space separated list of requested OAuth scopes, if any.
+          schema:
+            type: string
+        - in: query
+          name: state
+          description: Arbitrary state that will be returned verbatim with the authorization result.
           schema:
             type: string
       responses:
@@ -5572,6 +5556,10 @@ paths:
       responses:
         200:
           description: The tablebase information for the position in atomic chess.
+          content:
+            text/plain:
+              schema:
+                type: string
           headers:
             Access-Control-Allow-Origin:
               schema:
@@ -5589,6 +5577,10 @@ paths:
       responses:
         200:
           description: The tablebase information for the position in atomic chess.
+          content:
+            text/plain:
+              schema:
+                type: string
           headers:
             Access-Control-Allow-Origin:
               schema:
@@ -5597,14 +5589,6 @@ paths:
 
 
 components:
-  parameters:
-    lichess:
-      in: header
-      name: Accept
-      schema:
-        type: string
-        default: application/vnd.lichess.v3+json
-      required: true
   schemas:
     VariantKey:
       type: string
@@ -5625,7 +5609,7 @@ components:
       type: object
       properties:
         key:
-          $ref: '#components/schemas/VariantKey'
+          $ref: '#/components/schemas/VariantKey'
         name:
           type: string
         short:
@@ -5689,7 +5673,7 @@ components:
               properties:
                 type:
                   type: string
-                  const: clock
+                  example: clock
                 limit:
                   type: number
                 increment:
@@ -5701,14 +5685,14 @@ components:
               properties:
                 type:
                   type: string
-                  const: correspondence
+                  example: correspondence
                 daysPerTurn:
                   type: number
             - type: object
               properties:
                 type:
                   type: string
-                  const: unlimited
+                  example: unlimited
         color:
           type: string
           enum: ["white", "black", "random"]
@@ -7213,32 +7197,31 @@ components:
           example: Planet Earth
 
     BotGameState:
-      type: object
-      properties:
-        state:
-          type: object
-          properties:
-            moves:
-              type: string
-              description: Current moves in UCI format
-            wtime:
-              type: integer
-              description: Integer of milliseconds White has left on the clock
-            btime:
-              type: integer
-              description: Integer of milliseconds Black has left on the clock
-            winc:
-              type: integer
-              description: Integer of White Fisher increment.
-            binc:
-              type: integer
-              description: Integer of Black Fisher increment.
-            status:
-              type: string
-              description: Game status code. https://github.com/ornicar/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
-            winner:
-              type: string
-              description: Color of the winner, if any
+      type: array
+      items:
+        type: object
+        properties:
+          moves:
+            type: string
+            description: Current moves in UCI format
+          wtime:
+            type: integer
+            description: Integer of milliseconds White has left on the clock
+          btime:
+            type: integer
+            description: Integer of milliseconds Black has left on the clock
+          winc:
+            type: integer
+            description: Integer of White Fisher increment.
+          binc:
+            type: integer
+            description: Integer of Black Fisher increment.
+          status:
+            type: string
+            description: Game status code. https://github.com/ornicar/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
+          winner:
+            type: string
+            description: Color of the winner, if any
       example: [
         {
           "type": "gameFull",
@@ -7400,3 +7383,4 @@ components:
             "msg:write": Send private messages to other players
             "board:play": Play with the Board API
             "bot:play": Play with the Bot API. Only for [Bot accounts](#operation/botAccountUpgrade)
+            "web:mod": Create challenges between players
