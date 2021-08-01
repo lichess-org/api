@@ -18,7 +18,7 @@ jobs:
     - run: npm install
     - run: npm run lint
   build:
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+    if: ${{ github.event_name == 'push' && github.repository == 'lichess-org/api' && github.ref == 'refs/heads/master' }}
     needs: lint
     runs-on: ubuntu-latest
     defaults:
