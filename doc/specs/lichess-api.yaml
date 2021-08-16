@@ -7383,4 +7383,4 @@ components:
             "msg:write": Send private messages to other players
             "board:play": Play with the Board API
             "bot:play": Play with the Bot API. Only for [Bot accounts](#operation/botAccountUpgrade)
-            "web:mod": Create challenges between players
+            "web:mod": Use moderator tools (within the bounds of your permissions)
