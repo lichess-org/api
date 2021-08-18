@@ -2261,6 +2261,54 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/swiss/{id}/join:
+    post:
+      operationId: apiSwissJoin
+      summary: Join a Swiss tournament
+      description: |
+        Join a Swiss tournament, possibly with a password.
+      tags:
+        - "Swiss tournaments"
+      security:
+        - OAuth2: ["tournament:write"]
+      parameters:
+        - in: path
+          name: id
+          description: The tournament ID.
+          schema:
+            type: string
+            example: "hL7vMrFQ"
+          required: true
+      requestBody:
+        description: You may need these depending on the tournament to join
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  description: The tournament password, if one is required
+      responses:
+        200:
+          description: The tournament was successfully joined.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          description: Joining the tournament failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /api/swiss/{id}/terminate:
     post:
       operationId: apiSwissTerminate
