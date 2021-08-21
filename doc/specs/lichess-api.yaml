@@ -596,7 +596,7 @@ paths:
         - Users
       security: []
       description: |
-        Get up to 300 users by their IDs. Users are returned in the order same order as the IDs.
+        Get up to 300 users by their IDs. Users are returned in the same order as the IDs.
 
         The method is `POST` so a longer list of IDs can be sent in the request body.
       requestBody:
