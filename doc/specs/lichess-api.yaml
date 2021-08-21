@@ -1241,7 +1241,29 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                example: {"id":"A5fcMO3k","rated":true,"variant":"standard","speed":"bullet","perf":"bullet","createdAt":1525789431889,"status":20,"clock":{"initial":60,"increment":0,"totalTime":60},"players":{"white":{"userId":"kastorcito","rating":2617},"black":{"userId":"er_or","rating":2288}}}
+                example: {
+                  "id": "A5fcMO3k",
+                  "rated": true,
+                  "variant": "standard",
+                  "speed": "bullet",
+                  "perf": "bullet",
+                  "createdAt": 1525789431889,
+                  "status": 20,
+                  "clock": {
+                    "initial": 60,
+                    "increment": 0,
+                    "totalTime": 60},
+                    "players": {
+                      "white": {
+                        "userId": "kastorcito",
+                        "rating": 2617
+                      },
+                    "black": {
+                      "userId": "er_or",
+                      "rating": 2288
+                    }
+                  }
+                }
 
   /api/account/playing:
     get:
@@ -1275,7 +1297,23 @@ paths:
           content:
             application/json:
               schema:
-                example: {"nowPlaying":[{"fullId":"knbD9FPUqhra","gameId":"knbD9FPU","fen":"rnbqkbnr/pp3pp1/8/3p3p/1PpPp3/P1P1P3/5PPP/RNBQKBNR","color":"white","lastMove":"c5c4","variant":{"key":"standard","name":"Standard"},"speed":"correspondence","perf":"correspondence","rated":true,"opponent":{"id":"thibot","username":"BOT thibot","rating":1500},"isMyTurn":true}]}
+                example: {
+                  "nowPlaying": [
+                    {
+                      "fullId": "knbD9FPUqhra",
+                      "gameId": "knbD9FPU",
+                      "fen": "rnbqkbnr/pp3pp1/8/3p3p/1PpPp3/P1P1P3/5PPP/RNBQKBNR",
+                      "color": "white",
+                      "lastMove": "c5c4",
+                      "variant": { "key": "standard", "name": "Standard" },
+                      "speed": "correspondence",
+                      "perf": "correspondence",
+                      "rated": true,
+                      "opponent": { "id": "thibot", "username": "BOT thibot", "rating": 1500 },
+                      "isMyTurn": true
+                    }
+                  ]
+                }
 
   /api/stream/game/{id}:
     get:
@@ -1307,12 +1345,37 @@ paths:
           content:
             application/x-ndjson:
               example: [
-                {"id":"LuGQwhBb","variant":{"key":"standard","name":"Standard","short":"Std"},"speed":"blitz","perf":"blitz","rated":true,"initialFen":"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1","fen":"rnbqkb1r/1p1ppppp/p6n/2p4Q/8/1P2P3/P1PP1PPP/RNB1KBNR w KQkq - 0 4","player":"white","turns":6,"startedAtTurn":0,"source":"pool","status":{"id":20,"name":"started"},"createdAt":1620029815106,"lastMove":"c7c5"},
-                {"fen":"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w","wc":180,"bc":180},
-                {"fen":"rnbqkbnr/pppppppp/8/8/8/4P3/PPPP1PPP/RNBQKBNR b","lm":"e2e3","wc":180,"bc":180},
-                {"fen":"rnbqkb1r/pppppppp/7n/8/8/4P3/PPPP1PPP/RNBQKBNR w","lm":"g8h6","wc":180,"bc":180},
-                {"fen":"rnbqkb1r/pppppppp/7n/8/8/1P2P3/P1PP1PPP/RNBQKBNR b","lm":"b2b3","wc":177,"bc":180},
-                {"fen":"rnbqkb1r/1ppppppp/p6n/8/8/1P2P3/P1PP1PPP/RNBQKBNR w","lm":"a7a6","wc":177,"bc":177}
+                {
+                  "id": "LuGQwhBb",
+                  "variant": { "key": "standard", "name": "Standard", "short": "Std" },
+                  "speed": "blitz",
+                  "perf": "blitz",
+                  "rated": true,
+                  "initialFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+                  "fen": "rnbqkb1r/1p1ppppp/p6n/2p4Q/8/1P2P3/P1PP1PPP/RNB1KBNR w KQkq - 0 4",
+                  "player": "white",
+                  "turns": 6,
+                  "startedAtTurn": 0,
+                  "source": "pool",
+                  "status": { "id": 20, "name": "started" },
+                  "createdAt": 1620029815106,
+                  "lastMove": "c7c5"
+                },
+                { "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w", "wc": 180, "bc": 180 },
+                { "fen": "rnbqkbnr/pppppppp/8/8/8/4P3/PPPP1PPP/RNBQKBNR b", "lm": "e2e3", "wc": 180, "bc": 180 },
+                { "fen": "rnbqkb1r/pppppppp/7n/8/8/4P3/PPPP1PPP/RNBQKBNR w", "lm": "g8h6", "wc": 180, "bc": 180 },
+                {
+                  "fen": "rnbqkb1r/pppppppp/7n/8/8/1P2P3/P1PP1PPP/RNBQKBNR b",
+                  "lm": "b2b3",
+                  "wc": 177,
+                  "bc": 180
+                },
+                {
+                  "fen": "rnbqkb1r/1ppppppp/p6n/8/8/1P2P3/P1PP1PPP/RNBQKBNR w",
+                  "lm": "a7a6",
+                  "wc": 177,
+                  "bc": 177
+                }
               ]
 
   /api/import:
@@ -1351,7 +1414,7 @@ paths:
           content:
             application/json:
               schema:
-                example: {"id":"R6iLjwz5","url":"https://lichess.org/R6iLjwz5"}
+                example: {"id": "R6iLjwz5", "url": "https://lichess.org/R6iLjwz5"}
 
   /api/tv/channels:
     get:
@@ -1376,7 +1439,84 @@ paths:
           content:
             application/json:
               schema:
-                example: {"Bot":{"user":{"id":"leelachess","name":"LeelaChess","title":"BOT"},"rating":2660,"gameId":"Zznv9MIl"},"Blitz":{"user":{"id":"lekkerkortook","name":"LekkerKortOok"},"rating":2603,"gameId":"hTJ4v7Mp"},"Racing Kings":{"user":{"id":"chesslo21","name":"chesslo21"},"rating":2123,"gameId":"lgCDl5Of"},"UltraBullet":{"user":{"id":"farmville","name":"Farmville"},"rating":2338,"gameId":"NEY6OQ32"},"Bullet":{"user":{"id":"nurmibrah","name":"nurmiBrah"},"rating":2499,"gameId":"5LgyE516"},"Classical":{"user":{"id":"holden_m_j_thomas","name":"Holden_M_J_Thomas"},"rating":1806,"gameId":"k3oLby6N"},"Three-check":{"user":{"id":"pepellou","name":"pepellou","patron":true},"rating":1978,"gameId":"Og5RCvmu"},"Antichess":{"user":{"id":"maria-bakkar","name":"maria-bakkar"},"rating":2103,"gameId":"toCr41yx"},"Computer":{"user":{"id":"oh_my_goat_im_so_bat","name":"oh_my_goat_Im_so_bat"},"rating":2314,"gameId":"TkI4qZxu"},"Horde":{"user":{"id":"habitualchess","name":"HabitualChess"},"rating":1803,"gameId":"oMofN63H"},"Rapid":{"user":{"id":"denpayd","name":"DenpaYD"},"rating":2289,"gameId":"IcWOl8ee"},"Atomic":{"user":{"id":"meetyourdemise","name":"MeetYourDemise"},"rating":2210,"gameId":"tvMxtCMN"},"Crazyhouse":{"user":{"id":"mathace","name":"mathace"},"rating":2397,"gameId":"i3gTZlUb"},"Chess960":{"user":{"id":"voja_7","name":"voja_7"},"rating":1782,"gameId":"lrXLcedu"},"King of the Hill":{"user":{"id":"nadime","name":"Nadime"},"rating":1500,"gameId":"DsQn8aEV"},"Top Rated":{"user":{"id":"lekkerkortook","name":"LekkerKortOok"},"rating":2603,"gameId":"hTJ4v7Mp"}}
+                example: {
+                  "Bot": {
+                    "user": { "id": "leelachess", "name": "LeelaChess", "title": "BOT" },
+                    "rating": 2660,
+                    "gameId": "Zznv9MIl"
+                  },
+                  "Blitz": {
+                    "user": { "id": "lekkerkortook", "name": "LekkerKortOok" },
+                    "rating": 2603,
+                    "gameId": "hTJ4v7Mp"
+                  },
+                  "Racing Kings": {
+                    "user": { "id": "chesslo21", "name": "chesslo21" },
+                    "rating": 2123,
+                    "gameId": "lgCDl5Of"
+                  },
+                  "UltraBullet": {
+                    "user": { "id": "farmville", "name": "Farmville" },
+                    "rating": 2338,
+                    "gameId": "NEY6OQ32"
+                  },
+                  "Bullet": {
+                    "user": { "id": "nurmibrah", "name": "nurmiBrah" },
+                    "rating": 2499,
+                    "gameId": "5LgyE516"
+                  },
+                  "Classical": {
+                    "user": { "id": "holden_m_j_thomas", "name": "Holden_M_J_Thomas" },
+                    "rating": 1806,
+                    "gameId": "k3oLby6N"
+                  },
+                  "Three-check": {
+                    "user": { "id": "pepellou", "name": "pepellou", "patron": true },
+                    "rating": 1978,
+                    "gameId": "Og5RCvmu"
+                  },
+                  "Antichess": {
+                    "user": { "id": "maria-bakkar", "name": "maria-bakkar" },
+                    "rating": 2103,
+                    "gameId": "toCr41yx"
+                  },
+                  "Computer": {
+                    "user": { "id": "oh_my_goat_im_so_bat", "name": "oh_my_goat_Im_so_bat" },
+                    "rating": 2314,
+                    "gameId": "TkI4qZxu"
+                  },
+                  "Horde": {
+                    "user": { "id": "habitualchess", "name": "HabitualChess" },
+                    "rating": 1803,
+                    "gameId": "oMofN63H"
+                  },
+                  "Rapid": { "user": { "id": "denpayd", "name": "DenpaYD" }, "rating": 2289, "gameId": "IcWOl8ee" },
+                  "Atomic": {
+                    "user": { "id": "meetyourdemise", "name": "MeetYourDemise" },
+                    "rating": 2210,
+                    "gameId": "tvMxtCMN"
+                  },
+                  "Crazyhouse": {
+                    "user": { "id": "mathace", "name": "mathace" },
+                    "rating": 2397,
+                    "gameId": "i3gTZlUb"
+                  },
+                  "Chess960": {
+                    "user": { "id": "voja_7", "name": "voja_7" },
+                    "rating": 1782,
+                    "gameId": "lrXLcedu"
+                  },
+                  "King of the Hill": {
+                    "user": { "id": "nadime", "name": "Nadime" },
+                    "rating": 1500,
+                    "gameId": "DsQn8aEV"
+                  },
+                  "Top Rated": {
+                    "user": { "id": "lekkerkortook", "name": "LekkerKortOok" },
+                    "rating": 2603,
+                    "gameId": "hTJ4v7Mp"
+                  }
+                }
 
   /api/tv/feed:
     get:
@@ -1396,8 +1536,26 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                example:
-                  {"t":"featured","d":{"id":"qVSOPtMc","orientation":"black","players":[{"color":"white","user":{"name":"lizen9","id":"lizen9","title":"GM"},"rating":2531},{"color":"black","user":{"name":"lizen29","title":"WGM","id":"lizen29"},"rating":2594}],"fen":"rnbqk1r1/ppp1ppbp/8/N2p2p1/8/1PQPP3/P1P2PPn/R1B1K1NR"}}
+                example: {
+                  "t": "featured",
+                  "d": {
+                    "id": "qVSOPtMc",
+                    "orientation": "black",
+                    "players": [
+                      {
+                        "color": "white",
+                        "user": { "name": "lizen9", "id": "lizen9", "title": "GM" },
+                        "rating": 2531
+                      },
+                      {
+                        "color": "black",
+                        "user": { "name": "lizen29", "title": "WGM", "id": "lizen29" },
+                        "rating": 2594
+                      }
+                    ],
+                    "fen": "rnbqk1r1/ppp1ppbp/8/N2p2p1/8/1PQPP3/P1P2PPn/R1B1K1NR"
+                  }
+                }
 
   /api/tv/{channel}:
     get:
@@ -2093,7 +2251,15 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                example: {"rank":4,"score":389,"rating":2618,"username":"opperwezen","title":"IM","performance":2423,"team":"coders"}
+                example: {
+                  "rank": 4,
+                  "score": 389,
+                  "rating": 2618,
+                  "username": "opperwezen",
+                  "title": "IM",
+                  "performance": 2423,
+                  "team": "coders"
+                }
 
   /api/tournament/{id}/teams:
     get:
@@ -2122,7 +2288,20 @@ paths:
           content:
             application/json:
               schema:
-                example: {"id":"CdPg1ey4","teams":[{"rank":1,"id":"cat-lovers","score":842,"players":[{"user":{"name":"lizen69","id":"lizen69"},"score":54},{"user":{"name":"lizen249","id":"lizen249"}}]}]}
+                example: {
+                  "id": "CdPg1ey4",
+                  "teams": [
+                    {
+                      "rank": 1,
+                      "id": "cat-lovers",
+                      "score": 842,
+                      "players": [
+                        { "user": { "name": "lizen69", "id": "lizen69" }, "score": 54 },
+                        { "user": { "name": "lizen249", "id": "lizen249" } }
+                      ]
+                    }
+                  ]
+                }
 
   /api/user/{username}/tournament/created:
     get:
@@ -2496,7 +2675,15 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                example: {"rank":4,"points":8.5,"tieBreak": 77,"rating":2618,"username":"opperwezen","title":"IM","performance":2423}
+                example: {
+                  "rank": 4,
+                  "points": 8.5,
+                  "tieBreak": 77,
+                  "rating": 2618,
+                  "username": "opperwezen",
+                  "title": "IM",
+                  "performance": 2423
+                }
 
   /api/team/{teamId}/swiss:
     get:
@@ -3692,9 +3879,64 @@ paths:
                 default: "'*'"
           content:
             application/x-ndjson:
-              example: |
-                {"type":"challenge","challenge":{"id":"7pGLxJ4F","status":"created","compat":{"bot":false,"board":true},"challenger":{"id":"lovlas","name":"Lovlas","title":"IM","rating":2506,"patron":true,"online":true,"lag":24},"destUser":{"id":"thibot","name":"thibot","title":null,"rating":1500,"provisional":true,"online":true,"lag":45},"variant":{"key":"standard","name":"Standard","short":"Std"},"rated":true,"timeControl":{"type":"clock","limit":300,"increment":25,"show":"5+25"},"color":"random","perf":{"icon":"#","name":"Rapid"}}}
-                {"type":"gameStart","game":{"id":"1lsvP62l","compat":{"bot":false,"board":true}}}
+              example: [
+                {
+                  "type":"challenge",
+                  "challenge": {
+                    "id":"7pGLxJ4F",
+                    "status":"created",
+                    "compat": {
+                      "bot": false,
+                      "board": true
+                    },
+                    "challenger": {
+                      "id":"lovlas",
+                      "name":"Lovlas",
+                      "title":"IM",
+                      "rating": 2506,
+                      "patron": true,
+                      "online": true,
+                      "lag": 24
+                    },
+                    "destUser": {
+                      "id":"thibot",
+                      "name":"thibot",
+                      "title":null,
+                      "rating": 1500,
+                      "provisional": true,
+                      "online": true,
+                      "lag": 45
+                    },
+                    "variant": {
+                      "key":"standard",
+                      "name":"Standard",
+                      "short":"Std"
+                    },
+                    "rated": true,
+                    "timeControl": {
+                      "type":"clock",
+                      "limit": 300,
+                      "increment": 25,
+                      "show":"5+25"
+                    },
+                    "color":"random",
+                    "perf": {
+                      "icon":"#",
+                      "name":"Rapid"
+                    }
+                  }
+                },
+                {
+                  "type":"gameStart",
+                  "game": {
+                    "id":"1lsvP62l",
+                    "compat": {
+                      "bot": false,
+                      "board": true
+                    }
+                  }
+                }
+              ]
 
   /api/board/seek:
     post:
@@ -5239,7 +5481,16 @@ paths:
                 default: "'*'"
           content:
             application/json:
-              example: {"fen":"rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2","knodes":13683,"depth":22,"pvs":[{"moves":"c8f5 d2d4 e7e6 g1f3 g8e7 c1e3 c7c5 d4c5 e7c6 b1c3","cp":-13},{"moves":"c7c5 c2c3 d5d4 g1f3 b8c6 c3d4 c6d4 b1c3 c8d7 f1d3","cp":-1},{"moves":"e7e6 d2d4 c7c5 c2c3 b8c6 g1f3 c8d7 b1a3 c5d4 c3d4","cp":24}]}
+              example: {
+                "fen": "rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2",
+                "knodes": 13683,
+                "depth": 22,
+                "pvs": [
+                  {"moves": "c8f5 d2d4 e7e6 g1f3 g8e7 c1e3 c7c5 d4c5 e7c6 b1c3", "cp": -13},
+                  {"moves": "c7c5 c2c3 d5d4 g1f3 b8c6 c3d4 c6d4 b1c3 c8d7 f1d3", "cp": -1},
+                  {"moves": "e7e6 d2d4 c7c5 c2c3 b8c6 g1f3 c8d7 b1a3 c5d4 c3d4", "cp": 24}
+                ]
+              }
 
   /oauth:
     get:
@@ -5375,7 +5626,7 @@ paths:
                 default: "'*'"
           content:
             application/json:
-              example: {"token_type":"Bearer","access_token":"lio_pLwAbN7lFPklzY2m8lTOI1DGApS84u57","expires_in":31536000}
+              example: {"token_type": "Bearer", "access_token": "lio_pLwAbN7lFPklzY2m8lTOI1DGApS84u57", "expires_in": 31536000}
         400:
           description: Failed to obtain access token.
           headers:
@@ -5609,7 +5860,50 @@ paths:
                 default: "'*'"
           content:
             application/json:
-              example: {"master":{"games":2299868,"uniquePositions":56683918},"lichess":{"chess960":{"games":2259840,"uniquePositions":190488295},"standard":{"games":272515941,"uniquePositions":7355380242},"antichess":{"games":7818476,"uniquePositions":177073596},"horde":{"games":1027171,"uniquePositions":34843126},"atomic":{"games":3827483,"uniquePositions":70119949},"racingKings":{"games":747878,"uniquePositions":11671677},"kingOfTheHill":{"games":1345370,"uniquePositions":38511395},"crazyhouse":{"games":7540244,"uniquePositions":218945811},"threeCheck":{"games":1362591,"uniquePositions":29181473}}}
+              example: {
+                "master": {
+                  "games": 2299868,
+                  "uniquePositions": 56683918
+                },
+                "lichess": {
+                  "chess960": {
+                    "games": 2259840,
+                    "uniquePositions": 190488295
+                  },
+                  "standard": {
+                    "games": 272515941,
+                    "uniquePositions": 735538024
+                  },
+                  "antichess": {
+                    "games": 7818476,
+                    "uniquePositions": 177073596
+                  },
+                  "horde": {
+                    "games": 1027171,
+                    "uniquePositions": 34843126
+                  },
+                  "atomic": {
+                    "games": 3827483,
+                    "uniquePositions": 70119949
+                  },
+                  "racingKings": {
+                    "games": 747878,
+                    "uniquePositions": 11671677
+                  },
+                  "kingOfTheHill": {
+                    "games": 1345370,
+                    "uniquePositions": 38511395
+                  },
+                  "crazyhouse": {
+                    "games": 7540244,
+                    "uniquePositions": 218945811
+                  },
+                  "threeCheck": {
+                    "games": 1362591,
+                    "uniquePositions": 29181473
+                  }
+                }
+              }
 
   /standard:
     servers:
@@ -5914,19 +6208,19 @@ components:
         "id": "RVAcwgg7",
         "games": [
             {
-                "id": "NKop9IyD",
-                "black": "lizen1",
-                "white": "thibault"
+              "id": "NKop9IyD",
+              "black": "lizen1",
+              "white": "thibault"
             },
             {
-                "id": "KT8374ut",
-                "black": "lizen3",
-                "white": "lizen2"
+              "id": "KT8374ut",
+              "black": "lizen3",
+              "white": "lizen2"
             },
             {
-                "id": "wInQr8Sk",
-                "black": "lizen5",
-                "white": "lizen4"
+              "id": "wInQr8Sk",
+              "black": "lizen5",
+              "white": "lizen4"
             }
         ],
         "variant": "standard",
@@ -6150,9 +6444,9 @@ components:
           }
         },
         "opening": {
-          "eco":"D31",
-          "name":"Semi-Slav Defense: Marshall Gambit",
-          "ply":7
+          "eco": "D31",
+          "name": "Semi-Slav Defense: Marshall Gambit",
+          "ply": 7
         },
         "moves": "d4 d5 c4 c6 Nc3 e6 e4 Nd7 exd5 cxd5 cxd5 exd5 Nxd5 Nb6 Bb5+ Bd7 Qe2+ Ne7 Nxb6 Qxb6 Bxd7+ Kxd7 Nf3 Qa6 Ne5+ Ke8 Qf3 f6 Nd3 Qc6 Qe2 Kf7 O-O Kg8 Bd2 Re8 Rac1 Nf5 Be3 Qe6 Rfe1 g6 b3 Bd6 Qd2 Kf7 Bf4 Qd7 Bxd6 Nxd6 Nc5 Rxe1+ Rxe1 Qc6 f3 Re8 Rxe8 Nxe8 Kf2 Nc7 Qb4 b6 Qc4+ Nd5 Nd3 Qe6 Nb4 Ne7 Qxe6+ Kxe6 Ke3 Kd6 g3 h6 Kd3 h5 Nc2 Kd5 a3 Nc6 Ne3+ Kd6 h4 Nd8 g4 Ne6 Ke4 Ng7 Nc4+ Ke6 d5+ Kd7 a4 g5 gxh5 Nxh5 hxg5 fxg5 Kf5 Nf4 Ne3 Nh3 Kg4 Ng1 Nc4 Kc7 Nd2 Kd6 Kxg5 Kxd5 f4 Nh3+ Kg4 Nf2+ Kf3 Nd3 Ke3 Nc5 Kf3 Ke6 Ke3 Kf5 Kd4 Ne6+ Kc4",
         "clock": {
@@ -6463,7 +6757,7 @@ components:
             "neio": 44,
             "thibault": 43
             },
-            "nbGames":87
+            "nbGames": 87
           }
         }
 
@@ -6600,13 +6894,147 @@ components:
                 "time": 23
             },
         ]
-    }
+      }
 
     RatingHistory:
-      example: [{"name":"Bullet","points":[[2011,0,8,1472],[2011,0,9,1332],[2011,8,12,1314]]},{"name":"Blitz","points":[[2011,7,29,1332]]}]
+      example: [{"name": "Bullet","points":[[2011,0,8,1472],[2011,0,9,1332],[2011,8,12,1314]]},{"name": "Blitz","points":[[2011,7,29,1332]]}]
 
     PerfStat:
-      example: {"perf":{"glicko":{"rating":1672.42,"deviation":45.13,"provisional":false},"nb":5692,"progress":-27},"rank":98121,"percentile":69.7,"stat":{"perfType":{"key":"bullet","name":"Bullet"},"highest":{"int":1902,"at":"2021-05-31T08:58:53.701Z","gameId":"YEDqtwig"},"lowest":{"int":1417,"at":"2016-06-28T13:54:39.656Z","gameId":"rNM4J1GJ"},"bestWins":{"results":[{"opInt":2238,"opId":{"id":"hyperdragon84","name":"HyperDragon84","title":null},"at":"2019-06-19T17:09:05.187Z","gameId":"DGB53z9w"},{"opInt":2089,"opId":{"id":"osipov","name":"osipov","title":null},"at":"2017-06-18T09:46:05.016Z","gameId":"gurRhuMi"},{"opInt":2071,"opId":{"id":"spark50","name":"Spark50","title":null},"at":"2020-07-04T08:36:12.948Z","gameId":"a93Dk1mv"},{"opInt":2045,"opId":{"id":"yasha43","name":"Yasha43","title":null},"at":"2021-05-17T14:01:41.098Z","gameId":"j3jZnGTr"},{"opInt":2034,"opId":{"id":"midedu","name":"midedu","title":null},"at":"2020-06-27T17:32:47.001Z","gameId":"OiaMVLQ8"}]},"worstLosses":{"results":[{"opInt":1186,"opId":{"id":"happy0","name":"Happy0","title":null},"at":"2016-07-07T19:48:29.077Z","gameId":"Q01bbiN4"},{"opInt":1197,"opId":{"id":"kazmankiller86","name":"KazmanKiller86","title":null},"at":"2016-10-16T14:21:37.748Z","gameId":"Aivqh9Sp"},{"opInt":1201,"opId":{"id":"artem555","name":"artem555","title":null},"at":"2016-08-28T16:21:30.923Z","gameId":"tiRAbhnX"},{"opInt":1265,"opId":{"id":"arcenuu","name":"Arcenuu","title":null},"at":"2016-12-24T14:28:03.866Z","gameId":"A68wUOoh"},{"opInt":1283,"opId":{"id":"amritalib76","name":"Amritalib76","title":null},"at":"2018-06-26T09:55:39.354Z","gameId":"sbNVikmo"}]},"count":{"all":5858,"rated":5688,"win":2789,"loss":2806,"draw":263,"tour":654,"berserk":1,"opAvg":1671.44,"seconds":784886,"disconnects":0},"resultStreak":{"win":{"cur":{"v":0},"max":{"v":11,"from":{"at":"2021-06-14T15:38:50.681Z","gameId":"wTX2IExo"},"to":{"at":"2021-06-15T18:41:46.970Z","gameId":"1z4rrjgw"}}},"loss":{"cur":{"v":3,"from":{"at":"2021-06-29T17:53:23.642Z","gameId":"pfcnjgik"},"to":{"at":"2021-06-29T18:04:48.358Z","gameId":"6sPaGL8T"}},"max":{"v":14,"from":{"at":"2018-06-11T14:43:39.296Z","gameId":"1fc9dqun"},"to":{"at":"2018-06-11T15:10:30.908Z","gameId":"Nzy6UgwY"}}}},"playStreak":{"nb":{"cur":{"v":0},"max":{"v":118,"from":{"at":"2018-06-11T10:32:21.248Z","gameId":"UAsNnJbN"},"to":{"at":"2018-06-11T15:13:01.193Z","gameId":"T7fHRaFG"}}},"time":{"cur":{"v":0},"max":{"v":12683,"from":{"at":"2018-06-12T14:11:14.021Z","gameId":"IrZCAW58"},"to":{"at":"2018-06-12T18:02:57.010Z","gameId":"RNF1mQ68"}}},"lastDate":"2021-06-29T18:04:48.358Z"}}}
+      example: {
+        "perf": {
+          "glicko": { "rating": 1672.42, "deviation": 45.13, "provisional": false },
+          "nb": 5692,
+          "progress": -27
+        },
+        "rank": 98121,
+        "percentile": 69.7,
+        "stat": {
+          "perfType": { "key": "bullet", "name": "Bullet" },
+          "highest": { "int": 1902, "at": "2021-05-31T08:58:53.701Z", "gameId": "YEDqtwig" },
+          "lowest": { "int": 1417, "at": "2016-06-28T13:54:39.656Z", "gameId": "rNM4J1GJ" },
+          "bestWins": {
+            "results": [
+              {
+                "opInt": 2238,
+                "opId": { "id": "hyperdragon84", "name": "HyperDragon84", "title": null },
+                "at": "2019-06-19T17:09:05.187Z",
+                "gameId": "DGB53z9w"
+              },
+              {
+                "opInt": 2089,
+                "opId": { "id": "osipov", "name": "osipov", "title": null },
+                "at": "2017-06-18T09:46:05.016Z",
+                "gameId": "gurRhuMi"
+              },
+              {
+                "opInt": 2071,
+                "opId": { "id": "spark50", "name": "Spark50", "title": null },
+                "at": "2020-07-04T08:36:12.948Z",
+                "gameId": "a93Dk1mv"
+              },
+              {
+                "opInt": 2045,
+                "opId": { "id": "yasha43", "name": "Yasha43", "title": null },
+                "at": "2021-05-17T14:01:41.098Z",
+                "gameId": "j3jZnGTr"
+              },
+              {
+                "opInt": 2034,
+                "opId": { "id": "midedu", "name": "midedu", "title": null },
+                "at": "2020-06-27T17:32:47.001Z",
+                "gameId": "OiaMVLQ8"
+              }
+            ]
+          },
+          "worstLosses": {
+            "results": [
+              {
+                "opInt": 1186,
+                "opId": { "id": "happy0", "name": "Happy0", "title": null },
+                "at": "2016-07-07T19:48:29.077Z",
+                "gameId": "Q01bbiN4"
+              },
+              {
+                "opInt": 1197,
+                "opId": { "id": "kazmankiller86", "name": "KazmanKiller86", "title": null },
+                "at": "2016-10-16T14:21:37.748Z",
+                "gameId": "Aivqh9Sp"
+              },
+              {
+                "opInt": 1201,
+                "opId": { "id": "artem555", "name": "artem555", "title": null },
+                "at": "2016-08-28T16:21:30.923Z",
+                "gameId": "tiRAbhnX"
+              },
+              {
+                "opInt": 1265,
+                "opId": { "id": "arcenuu", "name": "Arcenuu", "title": null },
+                "at": "2016-12-24T14:28:03.866Z",
+                "gameId": "A68wUOoh"
+              },
+              {
+                "opInt": 1283,
+                "opId": { "id": "amritalib76", "name": "Amritalib76", "title": null },
+                "at": "2018-06-26T09:55:39.354Z",
+                "gameId": "sbNVikmo"
+              }
+            ]
+          },
+          "count": {
+            "all": 5858,
+            "rated": 5688,
+            "win": 2789,
+            "loss": 2806,
+            "draw": 263,
+            "tour": 654,
+            "berserk": 1,
+            "opAvg": 1671.44,
+            "seconds": 784886,
+            "disconnects": 0
+          },
+          "resultStreak": {
+            "win": {
+              "cur": { "v": 0 },
+              "max": {
+                "v": 11,
+                "from": { "at": "2021-06-14T15:38:50.681Z", "gameId": "wTX2IExo" },
+                "to": { "at": "2021-06-15T18:41:46.970Z", "gameId": "1z4rrjgw" }
+              }
+            },
+            "loss": {
+              "cur": {
+                "v": 3,
+                "from": { "at": "2021-06-29T17:53:23.642Z", "gameId": "pfcnjgik" },
+                "to": { "at": "2021-06-29T18:04:48.358Z", "gameId": "6sPaGL8T" }
+              },
+              "max": {
+                "v": 14,
+                "from": { "at": "2018-06-11T14:43:39.296Z", "gameId": "1fc9dqun" },
+                "to": { "at": "2018-06-11T15:10:30.908Z", "gameId": "Nzy6UgwY" }
+              }
+            }
+          },
+          "playStreak": {
+            "nb": {
+              "cur": { "v": 0 },
+              "max": {
+                "v": 118,
+                "from": { "at": "2018-06-11T10:32:21.248Z", "gameId": "UAsNnJbN" },
+                "to": { "at": "2018-06-11T15:13:01.193Z", "gameId": "T7fHRaFG" }
+              }
+            },
+            "time": {
+              "cur": { "v": 0 },
+              "max": {
+                "v": 12683,
+                "from": { "at": "2018-06-12T14:11:14.021Z", "gameId": "IrZCAW58" },
+                "to": { "at": "2018-06-12T18:02:57.010Z", "gameId": "RNF1mQ68" }
+              }
+            },
+            "lastDate": "2021-06-29T18:04:48.358Z"
+          }
+        }
+      }
 
     Top10s:
       example: {
@@ -7400,9 +7828,44 @@ components:
       ]
 
     StreamEvents:
-      example: |
-        {"type":"challenge","challenge":{"id":"7pGLxJ4F","status":"created","challenger":{"id":"lovlas","name":"Lovlas","title":"IM","rating":2506,"patron":true,"online":true,"lag":24},"destUser":{"id":"thibot","name":"thibot","title":null,"rating":1500,"provisional":true,"online":true,"lag":45},"variant":{"key":"standard","name":"Standard","short":"Std"},"rated":true,"timeControl":{"type":"clock","limit":300,"increment":25,"show":"5+25"},"color":"random","perf":{"icon":"#","name":"Rapid"}}}
-        {"type":"gameStart","game":{"id":"1lsvP62l"}}
+      example: [
+        {
+          "type": "challenge",
+          "challenge": {
+            "id": "7pGLxJ4F",
+            "status": "created",
+            "challenger": {
+              "id": "lovlas",
+              "name": "Lovlas",
+              "title": "IM",
+              "rating": 2506,
+              "patron": true,
+              "online": true,
+              "lag": 24
+            },
+            "destUser": {
+              "id": "thibot",
+              "name": "thibot",
+              "title": null,
+              "rating": 1500,
+              "provisional": true,
+              "online": true,
+              "lag": 45
+            },
+            "variant": { "key": "standard", "name": "Standard", "short": "Std" },
+            "rated": true,
+            "timeControl": { "type": "clock", "limit": 300, "increment": 25, "show": "5+25" },
+            "color": "random",
+            "perf": { "icon": "#", "name": "Rapid" }
+          }
+        },
+        {
+          "type": "gameStart",
+          "game": {
+            "id": "1lsvP62l"
+          }
+        }
+      ]
 
     Ok:
       properties:
