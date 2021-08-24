@@ -7801,6 +7801,18 @@ components:
             winner:
               type: string
               description: Color of the winner, if any
+            wdraw:
+              type: boolean
+              description: true if white is offering draw, else omitted
+            bdraw:
+              type: boolean
+              description: true if black is offering draw, else omitted
+            wback:
+              type: boolean
+              description: true if white is proposing takeback, else omitted
+            bback:
+              type: boolean
+              description: true if black is proposing takeback, else omitted
       example: [
         {
           "type": "gameFull",
