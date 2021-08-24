@@ -4341,6 +4341,50 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/board/game/{gameId}/takeback/{accept}:
+    post:
+      operationId: boardGameTakeback
+      summary: Handle takeback offers
+      description: |
+        Create/accept/decline takebacks.
+        - `yes`: Propose a takeback, or accept the opponent's takeback offer.
+        - `no`: Decline a takeback offer from the opponent.
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+        - in: path
+          name: accept
+          schema:
+            type: boolean
+            example: "yes"
+          required: true
+      responses:
+        200:
+          description: The takeback offer was successfully sent.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          description: The takeback offering failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /api/board/game/{gameId}/claim-victory:
     post:
       operationId: boardGameClaimVictory
