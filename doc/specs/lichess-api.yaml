@@ -7807,10 +7807,10 @@ components:
             bdraw:
               type: boolean
               description: true if black is offering draw, else omitted
-            wback:
+            wtakeback:
               type: boolean
               description: true if white is proposing takeback, else omitted
-            bback:
+            btakeback:
               type: boolean
               description: true if black is proposing takeback, else omitted
       example: [
