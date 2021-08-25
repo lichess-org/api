@@ -30,6 +30,11 @@ info:
     Only make one request at a time.
     If you receive an HTTP response with a [429 status](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#429),
     please wait a full minute before resuming API usage.
+
+    ## Streaming with ND-JSON
+    Some API endpoints stream their responses as [Newline Delimited JSON a.k.a. **nd-json**](http://ndjson.org/), with one JSON object per line.
+
+    Here's a [JavaScript utility function](https://gist.github.com/ornicar/a097406810939cf7be1df8ea30e94f3e) to help reading NDJSON streamed responses.
 servers:
   - url: https://lichess.org
 tags:
@@ -482,7 +487,7 @@ paths:
       operationId: apiPuzzleActivity
       summary: Get your puzzle activity
       description: |
-        Download your puzzle activity in [ndjson](http://ndjson.org/) format.
+        Download your puzzle activity in [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
 
         Puzzle activity is sorted by reverse chronological order (most recent first)
 
@@ -954,7 +959,7 @@ paths:
       operationId: apiGamesUser
       summary: Export games of a user
       description: |
-        Download all games of any user in PGN or [ndjson](http://ndjson.org/) format.
+        Download all games of any user in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
 
         Games are sorted by reverse chronological order (most recent first)
 
@@ -1122,7 +1127,7 @@ paths:
       operationId: gamesExportIds
       summary: Export games by IDs
       description: |
-        Download games by IDs in PGN or [ndjson](http://ndjson.org/) format, depending on the request Accept header.
+        Download games by IDs in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request Accept header.
 
         Games are sorted by reverse chronological order (most recent first)
 
@@ -1216,7 +1221,7 @@ paths:
 
         Maximum number of users: 300.
 
-        **Games are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Games are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
 
         The method is `POST` so a longer list of IDs can be sent in the request body.
       tags:
@@ -1320,7 +1325,7 @@ paths:
       operationId: streamGame
       summary: Stream moves of a game
       description: |
-        Stream positions and moves of any ongoing game, in [ndjson](http://ndjson.org/).
+        Stream positions and moves of any ongoing game, in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
 
         A description of the game is sent as a first message.
         Then a message is sent each time a move is played.
@@ -1523,7 +1528,7 @@ paths:
       operationId: tvFeed
       summary: Stream current TV game
       description: |
-        Stream positions and moves of the current [TV game](https://lichess.org/tv) in [ndjson](http://ndjson.org/).
+        Stream positions and moves of the current [TV game](https://lichess.org/tv) in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
         A summary of the game is sent as a first message, and when the featured game changes.
 
         Try it with `curl https://lichess.org/api/tv/feed`.
@@ -1564,7 +1569,7 @@ paths:
       description: |
         Get a list of ongoing games for a given TV channel. Similar to [lichess.org/games](https://lichess.org/games).
 
-        Available in PGN or [ndjson](http://ndjson.org/) format, depending on the request Accept header.
+        Available in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request Accept header.
       tags:
         - TV
       security: []
@@ -2138,7 +2143,7 @@ paths:
       operationId: gamesByTournament
       summary: Export games of an Arena tournament
       description: |
-        Download games of a tournament in PGN or [ndjson](http://ndjson.org/) format.
+        Download games of a tournament in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
 
         Games are sorted by reverse chronological order (most recent first)
       tags:
@@ -2219,7 +2224,7 @@ paths:
       description: |
         Players of an Arena tournament, with their score and performance, sorted by rank (best first).
 
-        **Players are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        **Players are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON)**, i.e. one JSON object per line.
 
         If called on an ongoing tournament, results can be inconsistent
         due to ranking changes while the players are being streamed.
@@ -2312,7 +2317,7 @@ paths:
 
         Tournaments are sorted by reverse chronological order of start date (last starting first).
 
-        **Tournaments are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
         - "Arena tournaments"
       security: []
@@ -2562,7 +2567,7 @@ paths:
       operationId: gamesBySwiss
       summary: Export games of a Swiss tournament
       description: |
-        Download games of a swiss tournament in PGN or [ndjson](http://ndjson.org/) format.
+        Download games of a swiss tournament in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
 
         Games are sorted by reverse chronological order (last round first)
       tags:
@@ -2643,7 +2648,7 @@ paths:
       description: |
         Players of a swiss tournament, with their score and performance, sorted by rank (best first).
 
-        **Players are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Players are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
 
         If called on an ongoing tournament, results can be inconsistent
         due to ranking changes while the players are being streamed.
@@ -2694,7 +2699,7 @@ paths:
 
         Tournaments are sorted by reverse chronological order of start date (last starting first).
 
-        **Tournaments are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
         - Teams
         - "Swiss tournaments"
@@ -2905,7 +2910,7 @@ paths:
         Get all incoming, ongoing, and finished official broadcasts.
         The broadcasts are sorted by start date, most recent first.
 
-        **Broadcasts are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Broadcasts are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
         - Broadcasts
       parameters:
@@ -3486,7 +3491,7 @@ paths:
         Members are sorted by reverse chronological order of joining the team (most recent first).
         OAuth only required if the list of members is private.
 
-        **Members are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Members are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
         - Users
         - Teams
@@ -3521,7 +3526,7 @@ paths:
 
         Tournaments are sorted by reverse chronological order of start date (last starting first).
 
-        **Tournaments are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
         - Teams
         - "Arena tournaments"
@@ -3797,7 +3802,7 @@ paths:
       operationId: apiUserFollowing
       summary: Get users followed by a user
       description: |
-        **Users are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Users are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
         - Relations
       security: []
@@ -3826,7 +3831,7 @@ paths:
       operationId: apiUserFollowers
       summary: Get users who follow a user
       description: |
-        **Users are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Users are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
         - Relations
       security: []
@@ -3905,7 +3910,7 @@ paths:
       operationId: apiStreamEvent
       summary: Stream incoming events
       description: "\n
-      \ Stream the events reaching a lichess user in real time as [ndjson](http://ndjson.org/).\n\n
+      \ Stream the events reaching a lichess user in real time as [ndjson](#section/Introduction/Streaming-with-ND-JSON).\n\n
       \ Each line is a JSON object containing a `type` field. Possible values are:\n
       \ - `gameStart` Start of a game\n
       \ - `gameFinish` Completion of a game\n
@@ -4084,7 +4089,7 @@ paths:
       operationId: boardGameStream
       summary: Stream Board game state
       description: "\
-      \ Stream the state of a game being played with the Board API, as [ndjson](http://ndjson.org/).\n\
+      \ Stream the state of a game being played with the Board API, as [ndjson](#section/Introduction/Streaming-with-ND-JSON).\n\
       \nUse this endpoint to get updates about the game in real-time, with a single request.\n\
       \nEach line is a JSON object containing a `type` field. Possible values are:\n
       \ - `gameFull` Full game data. All values are immutable, except for the `state` field.\n
@@ -4428,7 +4433,7 @@ paths:
       tags:
         - Bot
       security: []
-      description: Stream the [online bot users](https://lichess.org/player/bots), as [ndjson](http://ndjson.org/). Throttled to 50 bot users per second.
+      description: Stream the [online bot users](https://lichess.org/player/bots), as [ndjson](#section/Introduction/Streaming-with-ND-JSON). Throttled to 50 bot users per second.
       parameters:
         - in: query
           name: nb
@@ -4493,7 +4498,7 @@ paths:
       operationId: botGameStream
       summary: Stream Bot game state
       description: "\
-      \ Stream the state of a game being played with the Bot API, as [ndjson](http://ndjson.org/).\n\
+      \ Stream the state of a game being played with the Bot API, as [ndjson](#section/Introduction/Streaming-with-ND-JSON).\n\
       \nUse this endpoint to get updates about the game in real-time, with a single request.\n\
       \nEach line is a JSON object containing a `type` field. Possible values are:\n
       \ - `gameFull` Full game data. All values are immutable, except for the `state` field.\n
