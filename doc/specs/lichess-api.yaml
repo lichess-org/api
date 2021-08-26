@@ -4757,6 +4757,9 @@ paths:
 
         If you also have an OAuth token with `challenge:write` scope for the receiving user,
         you can make them accept the challenge immediately by setting the `acceptByToken` field.
+
+        Challenges for realtime games (not correspondence) expire after 20s if not accepted.
+        To prevent that, use the `keepAliveStream` flag described below.
       tags:
         - Challenges
       security:
@@ -4811,6 +4814,14 @@ paths:
                   type: string
                   description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated. Castling moves will use UCI_Chess960 notation, for example e1h1 instead of e1g1.
                   default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+                keepAliveStream:
+                  type: boolean
+                  description: |
+                    If set, the response is streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+                    The challenge is kept alive until the connection is closed by the client.
+                    When the challenge is accepted, declined or canceled, a message of the form `{"done":"accepted"}` is sent,
+                    then the connection is closed by the server.
+                    If not set, the response is not streamed, and the challenge expires after 20s if not accepted.
                 acceptByToken:
                   type: string
                   description: |
