@@ -4178,7 +4178,7 @@ paths:
 
   /api/board/game/{gameId}/chat:
     post:
-      operationId: boardGameChat
+      operationId: boardGameChatPost
       summary: Write in the chat
       description: |
         Post a message to the player or spectator chat, in a game being played with the Board API.
@@ -4229,6 +4229,34 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+    get:
+      operationId: boardGameChatGet
+      summary: Fetch the game chat
+      description: |
+        Get the messages posted in the game chat
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          description: The messages posted in the chat.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/GameChat'
 
   /api/board/game/{gameId}/abort:
     post:
@@ -6870,6 +6898,20 @@ components:
             "nbGames": 87
           }
         }
+
+    GameChat:
+      example: [{
+          "text": "Takeback sent",
+          "user": "lichess"
+        },
+        {
+          "text": "Takeback accepted",
+          "user": "lichess"
+        },
+        {
+          "text": "Good game, well played",
+          "user": "thibault"
+        }]
 
     PuzzleJson:
       example: {
