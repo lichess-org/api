@@ -18,7 +18,7 @@ info:
     All requests go to `https://lichess.org` (unless otherwise specified).
 
     ## Clients
-    - [Python general API](https://github.com/rhgrant10/berserk)
+    - [Python general API](https://github.com/ZackClements/berserk)
     - [MicroPython general API](https://github.com/mkomon/uberserk)
     - [Python general API - async](https://pypi.org/project/async-lichess-sdk)
     - [Python Lichess Bot](https://github.com/careless25/lichess-bot)
@@ -30,6 +30,11 @@ info:
     Only make one request at a time.
     If you receive an HTTP response with a [429 status](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#429),
     please wait a full minute before resuming API usage.
+
+    ## Streaming with ND-JSON
+    Some API endpoints stream their responses as [Newline Delimited JSON a.k.a. **nd-json**](http://ndjson.org/), with one JSON object per line.
+
+    Here's a [JavaScript utility function](https://gist.github.com/ornicar/a097406810939cf7be1df8ea30e94f3e) to help reading NDJSON streamed responses.
 servers:
   - url: https://lichess.org
 tags:
@@ -479,7 +484,7 @@ paths:
       operationId: apiPuzzleActivity
       summary: Get your puzzle activity
       description: |
-        Download your puzzle activity in [ndjson](http://ndjson.org/) format.
+        Download your puzzle activity in [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
 
         Puzzle activity is sorted by reverse chronological order (most recent first)
 
@@ -593,7 +598,7 @@ paths:
         - Users
       security: []
       description: |
-        Get up to 300 users by their IDs. Users are returned in the order same order as the IDs.
+        Get up to 300 users by their IDs. Users are returned in the same order as the IDs.
 
         The method is `POST` so a longer list of IDs can be sent in the request body.
       requestBody:
@@ -951,7 +956,7 @@ paths:
       operationId: apiGamesUser
       summary: Export games of a user
       description: |
-        Download all games of any user in PGN or [ndjson](http://ndjson.org/) format.
+        Download all games of any user in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
 
         Games are sorted by reverse chronological order (most recent first)
 
@@ -1119,7 +1124,7 @@ paths:
       operationId: gamesExportIds
       summary: Export games by IDs
       description: |
-        Download games by IDs in PGN or [ndjson](http://ndjson.org/) format, depending on the request Accept header.
+        Download games by IDs in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request Accept header.
 
         Games are sorted by reverse chronological order (most recent first)
 
@@ -1213,7 +1218,7 @@ paths:
 
         Maximum number of users: 300.
 
-        **Games are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Games are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
 
         The method is `POST` so a longer list of IDs can be sent in the request body.
       tags:
@@ -1238,7 +1243,29 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                example: {"id":"A5fcMO3k","rated":true,"variant":"standard","speed":"bullet","perf":"bullet","createdAt":1525789431889,"status":20,"clock":{"initial":60,"increment":0,"totalTime":60},"players":{"white":{"userId":"kastorcito","rating":2617},"black":{"userId":"er_or","rating":2288}}}
+                example: {
+                  "id": "A5fcMO3k",
+                  "rated": true,
+                  "variant": "standard",
+                  "speed": "bullet",
+                  "perf": "bullet",
+                  "createdAt": 1525789431889,
+                  "status": 20,
+                  "clock": {
+                    "initial": 60,
+                    "increment": 0,
+                    "totalTime": 60},
+                    "players": {
+                      "white": {
+                        "userId": "kastorcito",
+                        "rating": 2617
+                      },
+                    "black": {
+                      "userId": "er_or",
+                      "rating": 2288
+                    }
+                  }
+                }
 
   /api/account/playing:
     get:
@@ -1272,14 +1299,30 @@ paths:
           content:
             application/json:
               schema:
-                example: {"nowPlaying":[{"fullId":"knbD9FPUqhra","gameId":"knbD9FPU","fen":"rnbqkbnr/pp3pp1/8/3p3p/1PpPp3/P1P1P3/5PPP/RNBQKBNR","color":"white","lastMove":"c5c4","variant":{"key":"standard","name":"Standard"},"speed":"correspondence","perf":"correspondence","rated":true,"opponent":{"id":"thibot","username":"BOT thibot","rating":1500},"isMyTurn":true}]}
+                example: {
+                  "nowPlaying": [
+                    {
+                      "fullId": "knbD9FPUqhra",
+                      "gameId": "knbD9FPU",
+                      "fen": "rnbqkbnr/pp3pp1/8/3p3p/1PpPp3/P1P1P3/5PPP/RNBQKBNR",
+                      "color": "white",
+                      "lastMove": "c5c4",
+                      "variant": { "key": "standard", "name": "Standard" },
+                      "speed": "correspondence",
+                      "perf": "correspondence",
+                      "rated": true,
+                      "opponent": { "id": "thibot", "username": "BOT thibot", "rating": 1500 },
+                      "isMyTurn": true
+                    }
+                  ]
+                }
 
   /api/stream/game/{id}:
     get:
       operationId: streamGame
       summary: Stream moves of a game
       description: |
-        Stream positions and moves of any ongoing game, in [ndjson](http://ndjson.org/).
+        Stream positions and moves of any ongoing game, in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
 
         A description of the game is sent as a first message.
         Then a message is sent each time a move is played.
@@ -1306,12 +1349,37 @@ paths:
               schema:
                 type: array
               example: [
-                {"id":"LuGQwhBb","variant":{"key":"standard","name":"Standard","short":"Std"},"speed":"blitz","perf":"blitz","rated":true,"initialFen":"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1","fen":"rnbqkb1r/1p1ppppp/p6n/2p4Q/8/1P2P3/P1PP1PPP/RNB1KBNR w KQkq - 0 4","player":"white","turns":6,"startedAtTurn":0,"source":"pool","status":{"id":20,"name":"started"},"createdAt":1620029815106,"lastMove":"c7c5"},
-                {"fen":"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w","wc":180,"bc":180},
-                {"fen":"rnbqkbnr/pppppppp/8/8/8/4P3/PPPP1PPP/RNBQKBNR b","lm":"e2e3","wc":180,"bc":180},
-                {"fen":"rnbqkb1r/pppppppp/7n/8/8/4P3/PPPP1PPP/RNBQKBNR w","lm":"g8h6","wc":180,"bc":180},
-                {"fen":"rnbqkb1r/pppppppp/7n/8/8/1P2P3/P1PP1PPP/RNBQKBNR b","lm":"b2b3","wc":177,"bc":180},
-                {"fen":"rnbqkb1r/1ppppppp/p6n/8/8/1P2P3/P1PP1PPP/RNBQKBNR w","lm":"a7a6","wc":177,"bc":177}
+                {
+                  "id": "LuGQwhBb",
+                  "variant": { "key": "standard", "name": "Standard", "short": "Std" },
+                  "speed": "blitz",
+                  "perf": "blitz",
+                  "rated": true,
+                  "initialFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+                  "fen": "rnbqkb1r/1p1ppppp/p6n/2p4Q/8/1P2P3/P1PP1PPP/RNB1KBNR w KQkq - 0 4",
+                  "player": "white",
+                  "turns": 6,
+                  "startedAtTurn": 0,
+                  "source": "pool",
+                  "status": { "id": 20, "name": "started" },
+                  "createdAt": 1620029815106,
+                  "lastMove": "c7c5"
+                },
+                { "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w", "wc": 180, "bc": 180 },
+                { "fen": "rnbqkbnr/pppppppp/8/8/8/4P3/PPPP1PPP/RNBQKBNR b", "lm": "e2e3", "wc": 180, "bc": 180 },
+                { "fen": "rnbqkb1r/pppppppp/7n/8/8/4P3/PPPP1PPP/RNBQKBNR w", "lm": "g8h6", "wc": 180, "bc": 180 },
+                {
+                  "fen": "rnbqkb1r/pppppppp/7n/8/8/1P2P3/P1PP1PPP/RNBQKBNR b",
+                  "lm": "b2b3",
+                  "wc": 177,
+                  "bc": 180
+                },
+                {
+                  "fen": "rnbqkb1r/1ppppppp/p6n/8/8/1P2P3/P1PP1PPP/RNBQKBNR w",
+                  "lm": "a7a6",
+                  "wc": 177,
+                  "bc": 177
+                }
               ]
 
   /api/import:
@@ -1350,7 +1418,7 @@ paths:
           content:
             application/json:
               schema:
-                example: {"id":"R6iLjwz5","url":"https://lichess.org/R6iLjwz5"}
+                example: {"id": "R6iLjwz5", "url": "https://lichess.org/R6iLjwz5"}
 
   /api/tv/channels:
     get:
@@ -1375,14 +1443,91 @@ paths:
           content:
             application/json:
               schema:
-                example: {"Bot":{"user":{"id":"leelachess","name":"LeelaChess","title":"BOT"},"rating":2660,"gameId":"Zznv9MIl"},"Blitz":{"user":{"id":"lekkerkortook","name":"LekkerKortOok"},"rating":2603,"gameId":"hTJ4v7Mp"},"Racing Kings":{"user":{"id":"chesslo21","name":"chesslo21"},"rating":2123,"gameId":"lgCDl5Of"},"UltraBullet":{"user":{"id":"farmville","name":"Farmville"},"rating":2338,"gameId":"NEY6OQ32"},"Bullet":{"user":{"id":"nurmibrah","name":"nurmiBrah"},"rating":2499,"gameId":"5LgyE516"},"Classical":{"user":{"id":"holden_m_j_thomas","name":"Holden_M_J_Thomas"},"rating":1806,"gameId":"k3oLby6N"},"Three-check":{"user":{"id":"pepellou","name":"pepellou","patron":true},"rating":1978,"gameId":"Og5RCvmu"},"Antichess":{"user":{"id":"maria-bakkar","name":"maria-bakkar"},"rating":2103,"gameId":"toCr41yx"},"Computer":{"user":{"id":"oh_my_goat_im_so_bat","name":"oh_my_goat_Im_so_bat"},"rating":2314,"gameId":"TkI4qZxu"},"Horde":{"user":{"id":"habitualchess","name":"HabitualChess"},"rating":1803,"gameId":"oMofN63H"},"Rapid":{"user":{"id":"denpayd","name":"DenpaYD"},"rating":2289,"gameId":"IcWOl8ee"},"Atomic":{"user":{"id":"meetyourdemise","name":"MeetYourDemise"},"rating":2210,"gameId":"tvMxtCMN"},"Crazyhouse":{"user":{"id":"mathace","name":"mathace"},"rating":2397,"gameId":"i3gTZlUb"},"Chess960":{"user":{"id":"voja_7","name":"voja_7"},"rating":1782,"gameId":"lrXLcedu"},"King of the Hill":{"user":{"id":"nadime","name":"Nadime"},"rating":1500,"gameId":"DsQn8aEV"},"Top Rated":{"user":{"id":"lekkerkortook","name":"LekkerKortOok"},"rating":2603,"gameId":"hTJ4v7Mp"}}
+                example: {
+                  "Bot": {
+                    "user": { "id": "leelachess", "name": "LeelaChess", "title": "BOT" },
+                    "rating": 2660,
+                    "gameId": "Zznv9MIl"
+                  },
+                  "Blitz": {
+                    "user": { "id": "lekkerkortook", "name": "LekkerKortOok" },
+                    "rating": 2603,
+                    "gameId": "hTJ4v7Mp"
+                  },
+                  "Racing Kings": {
+                    "user": { "id": "chesslo21", "name": "chesslo21" },
+                    "rating": 2123,
+                    "gameId": "lgCDl5Of"
+                  },
+                  "UltraBullet": {
+                    "user": { "id": "farmville", "name": "Farmville" },
+                    "rating": 2338,
+                    "gameId": "NEY6OQ32"
+                  },
+                  "Bullet": {
+                    "user": { "id": "nurmibrah", "name": "nurmiBrah" },
+                    "rating": 2499,
+                    "gameId": "5LgyE516"
+                  },
+                  "Classical": {
+                    "user": { "id": "holden_m_j_thomas", "name": "Holden_M_J_Thomas" },
+                    "rating": 1806,
+                    "gameId": "k3oLby6N"
+                  },
+                  "Three-check": {
+                    "user": { "id": "pepellou", "name": "pepellou", "patron": true },
+                    "rating": 1978,
+                    "gameId": "Og5RCvmu"
+                  },
+                  "Antichess": {
+                    "user": { "id": "maria-bakkar", "name": "maria-bakkar" },
+                    "rating": 2103,
+                    "gameId": "toCr41yx"
+                  },
+                  "Computer": {
+                    "user": { "id": "oh_my_goat_im_so_bat", "name": "oh_my_goat_Im_so_bat" },
+                    "rating": 2314,
+                    "gameId": "TkI4qZxu"
+                  },
+                  "Horde": {
+                    "user": { "id": "habitualchess", "name": "HabitualChess" },
+                    "rating": 1803,
+                    "gameId": "oMofN63H"
+                  },
+                  "Rapid": { "user": { "id": "denpayd", "name": "DenpaYD" }, "rating": 2289, "gameId": "IcWOl8ee" },
+                  "Atomic": {
+                    "user": { "id": "meetyourdemise", "name": "MeetYourDemise" },
+                    "rating": 2210,
+                    "gameId": "tvMxtCMN"
+                  },
+                  "Crazyhouse": {
+                    "user": { "id": "mathace", "name": "mathace" },
+                    "rating": 2397,
+                    "gameId": "i3gTZlUb"
+                  },
+                  "Chess960": {
+                    "user": { "id": "voja_7", "name": "voja_7" },
+                    "rating": 1782,
+                    "gameId": "lrXLcedu"
+                  },
+                  "King of the Hill": {
+                    "user": { "id": "nadime", "name": "Nadime" },
+                    "rating": 1500,
+                    "gameId": "DsQn8aEV"
+                  },
+                  "Top Rated": {
+                    "user": { "id": "lekkerkortook", "name": "LekkerKortOok" },
+                    "rating": 2603,
+                    "gameId": "hTJ4v7Mp"
+                  }
+                }
 
   /api/tv/feed:
     get:
       operationId: tvFeed
       summary: Stream current TV game
       description: |
-        Stream positions and moves of the current [TV game](https://lichess.org/tv) in [ndjson](http://ndjson.org/).
+        Stream positions and moves of the current [TV game](https://lichess.org/tv) in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
         A summary of the game is sent as a first message, and when the featured game changes.
 
         Try it with `curl https://lichess.org/api/tv/feed`.
@@ -1395,8 +1540,26 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                example:
-                  {"t":"featured","d":{"id":"qVSOPtMc","orientation":"black","players":[{"color":"white","user":{"name":"lizen9","id":"lizen9","title":"GM"},"rating":2531},{"color":"black","user":{"name":"lizen29","title":"WGM","id":"lizen29"},"rating":2594}],"fen":"rnbqk1r1/ppp1ppbp/8/N2p2p1/8/1PQPP3/P1P2PPn/R1B1K1NR"}}
+                example: {
+                  "t": "featured",
+                  "d": {
+                    "id": "qVSOPtMc",
+                    "orientation": "black",
+                    "players": [
+                      {
+                        "color": "white",
+                        "user": { "name": "lizen9", "id": "lizen9", "title": "GM" },
+                        "rating": 2531
+                      },
+                      {
+                        "color": "black",
+                        "user": { "name": "lizen29", "title": "WGM", "id": "lizen29" },
+                        "rating": 2594
+                      }
+                    ],
+                    "fen": "rnbqk1r1/ppp1ppbp/8/N2p2p1/8/1PQPP3/P1P2PPn/R1B1K1NR"
+                  }
+                }
 
   /api/tv/{channel}:
     get:
@@ -1405,7 +1568,7 @@ paths:
       description: |
         Get a list of ongoing games for a given TV channel. Similar to [lichess.org/games](https://lichess.org/games).
 
-        Available in PGN or [ndjson](http://ndjson.org/) format, depending on the request Accept header.
+        Available in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request Accept header.
       tags:
         - TV
       security: []
@@ -1971,7 +2134,7 @@ paths:
       operationId: gamesByTournament
       summary: Export games of an Arena tournament
       description: |
-        Download games of a tournament in PGN or [ndjson](http://ndjson.org/) format.
+        Download games of a tournament in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
 
         Games are sorted by reverse chronological order (most recent first)
       tags:
@@ -2052,7 +2215,7 @@ paths:
       description: |
         Players of an Arena tournament, with their score and performance, sorted by rank (best first).
 
-        **Players are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        **Players are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON)**, i.e. one JSON object per line.
 
         If called on an ongoing tournament, results can be inconsistent
         due to ranking changes while the players are being streamed.
@@ -2084,7 +2247,15 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                example: {"rank":4,"score":389,"rating":2618,"username":"opperwezen","title":"IM","performance":2423,"team":"coders"}
+                example: {
+                  "rank": 4,
+                  "score": 389,
+                  "rating": 2618,
+                  "username": "opperwezen",
+                  "title": "IM",
+                  "performance": 2423,
+                  "team": "coders"
+                }
 
   /api/tournament/{id}/teams:
     get:
@@ -2113,7 +2284,20 @@ paths:
           content:
             application/json:
               schema:
-                example: {"id":"CdPg1ey4","teams":[{"rank":1,"id":"cat-lovers","score":842,"players":[{"user":{"name":"lizen69","id":"lizen69"},"score":54},{"user":{"name":"lizen249","id":"lizen249"}}]}]}
+                example: {
+                  "id": "CdPg1ey4",
+                  "teams": [
+                    {
+                      "rank": 1,
+                      "id": "cat-lovers",
+                      "score": 842,
+                      "players": [
+                        { "user": { "name": "lizen69", "id": "lizen69" }, "score": 54 },
+                        { "user": { "name": "lizen249", "id": "lizen249" } }
+                      ]
+                    }
+                  ]
+                }
 
   /api/user/{username}/tournament/created:
     get:
@@ -2124,7 +2308,7 @@ paths:
 
         Tournaments are sorted by reverse chronological order of start date (last starting first).
 
-        **Tournaments are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
         - "Arena tournaments"
       security: []
@@ -2251,6 +2435,54 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/swiss/{id}/join:
+    post:
+      operationId: apiSwissJoin
+      summary: Join a Swiss tournament
+      description: |
+        Join a Swiss tournament, possibly with a password.
+      tags:
+        - "Swiss tournaments"
+      security:
+        - OAuth2: ["tournament:write"]
+      parameters:
+        - in: path
+          name: id
+          description: The tournament ID.
+          schema:
+            type: string
+            example: "hL7vMrFQ"
+          required: true
+      requestBody:
+        description: You may need these depending on the tournament to join
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  description: The tournament password, if one is required
+      responses:
+        200:
+          description: The tournament was successfully joined.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          description: Joining the tournament failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /api/swiss/{id}/terminate:
     post:
       operationId: apiSwissTerminate
@@ -2326,7 +2558,7 @@ paths:
       operationId: gamesBySwiss
       summary: Export games of a Swiss tournament
       description: |
-        Download games of a swiss tournament in PGN or [ndjson](http://ndjson.org/) format.
+        Download games of a swiss tournament in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
 
         Games are sorted by reverse chronological order (last round first)
       tags:
@@ -2407,7 +2639,7 @@ paths:
       description: |
         Players of a swiss tournament, with their score and performance, sorted by rank (best first).
 
-        **Players are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Players are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
 
         If called on an ongoing tournament, results can be inconsistent
         due to ranking changes while the players are being streamed.
@@ -2439,7 +2671,15 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                example: {"rank":4,"points":8.5,"tieBreak": 77,"rating":2618,"username":"opperwezen","title":"IM","performance":2423}
+                example: {
+                  "rank": 4,
+                  "points": 8.5,
+                  "tieBreak": 77,
+                  "rating": 2618,
+                  "username": "opperwezen",
+                  "title": "IM",
+                  "performance": 2423
+                }
 
   /api/team/{teamId}/swiss:
     get:
@@ -2450,7 +2690,7 @@ paths:
 
         Tournaments are sorted by reverse chronological order of start date (last starting first).
 
-        **Tournaments are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
         - Teams
         - "Swiss tournaments"
@@ -2661,7 +2901,7 @@ paths:
         Get all incoming, ongoing, and finished official broadcasts.
         The broadcasts are sorted by start date, most recent first.
 
-        **Broadcasts are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Broadcasts are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
         - Broadcasts
       parameters:
@@ -3239,7 +3479,7 @@ paths:
         Members are sorted by reverse chronological order of joining the team (most recent first).
         OAuth only required if the list of members is private.
 
-        **Members are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Members are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
         - Users
         - Teams
@@ -3274,7 +3514,7 @@ paths:
 
         Tournaments are sorted by reverse chronological order of start date (last starting first).
 
-        **Tournaments are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
         - Teams
         - "Arena tournaments"
@@ -3550,7 +3790,7 @@ paths:
       operationId: apiUserFollowing
       summary: Get users followed by a user
       description: |
-        **Users are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Users are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
         - Relations
       security: []
@@ -3579,7 +3819,7 @@ paths:
       operationId: apiUserFollowers
       summary: Get users who follow a user
       description: |
-        **Users are streamed as [ndjson](http://ndjson.org/)**, i.e. one JSON object per line.
+        Users are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
         - Relations
       security: []
@@ -3603,12 +3843,62 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserExtended'
 
+  /api/rel/follow/{username}:
+    post:
+      operationId: followUser
+      summary: Follow a player
+      description: |
+        Follow a player, adding them to your list of Lichess friends.
+      tags:
+        - Relations
+      security:
+        - OAuth2: ["follow:write"]
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+            example: "thibault"
+          required: true
+      responses:
+        200:
+          description: The player was successfully added.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+
+  /api/rel/unfollow/{username}:
+    post:
+      operationId: unfollowUser
+      summary: Unfollow a player
+      description: |
+        Unfollow a player, removing them from your list of Lichess friends.
+      tags:
+        - Relations
+      security:
+        - OAuth2: ["follow:write"]
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+            example: "thibault"
+          required: true
+      responses:
+        200:
+          description: The player was successfully removed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+
   /api/stream/event:
     get:
       operationId: apiStreamEvent
       summary: Stream incoming events
       description: "\n
-      \ Stream the events reaching a lichess user in real time as [ndjson](http://ndjson.org/).\n\n
+      \ Stream the events reaching a lichess user in real time as [ndjson](#section/Introduction/Streaming-with-ND-JSON).\n\n
       \ Each line is a JSON object containing a `type` field. Possible values are:\n
       \ - `gameStart` Start of a game\n
       \ - `gameFinish` Completion of a game\n
@@ -3632,9 +3922,64 @@ paths:
                 default: "'*'"
           content:
             application/x-ndjson:
-              example: |
-                {"type":"challenge","challenge":{"id":"7pGLxJ4F","status":"created","challenger":{"id":"lovlas","name":"Lovlas","title":"IM","rating":2506,"patron":true,"online":true,"lag":24},"destUser":{"id":"thibot","name":"thibot","title":null,"rating":1500,"provisional":true,"online":true,"lag":45},"variant":{"key":"standard","name":"Standard","short":"Std"},"rated":true,"timeControl":{"type":"clock","limit":300,"increment":25,"show":"5+25"},"color":"random","perf":{"icon":"#","name":"Rapid"}}}
-                {"type":"gameStart","game":{"id":"1lsvP62l"}}
+              example: [
+                {
+                  "type":"challenge",
+                  "challenge": {
+                    "id":"7pGLxJ4F",
+                    "status":"created",
+                    "compat": {
+                      "bot": false,
+                      "board": true
+                    },
+                    "challenger": {
+                      "id":"lovlas",
+                      "name":"Lovlas",
+                      "title":"IM",
+                      "rating": 2506,
+                      "patron": true,
+                      "online": true,
+                      "lag": 24
+                    },
+                    "destUser": {
+                      "id":"thibot",
+                      "name":"thibot",
+                      "title":null,
+                      "rating": 1500,
+                      "provisional": true,
+                      "online": true,
+                      "lag": 45
+                    },
+                    "variant": {
+                      "key":"standard",
+                      "name":"Standard",
+                      "short":"Std"
+                    },
+                    "rated": true,
+                    "timeControl": {
+                      "type":"clock",
+                      "limit": 300,
+                      "increment": 25,
+                      "show":"5+25"
+                    },
+                    "color":"random",
+                    "perf": {
+                      "icon":"#",
+                      "name":"Rapid"
+                    }
+                  }
+                },
+                {
+                  "type":"gameStart",
+                  "game": {
+                    "id":"1lsvP62l",
+                    "compat": {
+                      "bot": false,
+                      "board": true
+                    }
+                  }
+                }
+              ]
 
   /api/board/seek:
     post:
@@ -3731,7 +4076,7 @@ paths:
       operationId: boardGameStream
       summary: Stream Board game state
       description: "\
-      \ Stream the state of a game being played with the Board API, as [ndjson](http://ndjson.org/).\n\
+      \ Stream the state of a game being played with the Board API, as [ndjson](#section/Introduction/Streaming-with-ND-JSON).\n\
       \nUse this endpoint to get updates about the game in real-time, with a single request.\n\
       \nEach line is a JSON object containing a `type` field. Possible values are:\n
       \ - `gameFull` Full game data. All values are immutable, except for the `state` field.\n
@@ -3820,7 +4165,7 @@ paths:
 
   /api/board/game/{gameId}/chat:
     post:
-      operationId: boardGameChat
+      operationId: boardGameChatPost
       summary: Write in the chat
       description: |
         Post a message to the player or spectator chat, in a game being played with the Board API.
@@ -3871,6 +4216,34 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+    get:
+      operationId: boardGameChatGet
+      summary: Fetch the game chat
+      description: |
+        Get the messages posted in the game chat
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          description: The messages posted in the chat.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/GameChat'
 
   /api/board/game/{gameId}/abort:
     post:
@@ -3988,6 +4361,86 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/board/game/{gameId}/takeback/{accept}:
+    post:
+      operationId: boardGameTakeback
+      summary: Handle takeback offers
+      description: |
+        Create/accept/decline takebacks.
+        - `yes`: Propose a takeback, or accept the opponent's takeback offer.
+        - `no`: Decline a takeback offer from the opponent.
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+        - in: path
+          name: accept
+          schema:
+            type: boolean
+            example: "yes"
+          required: true
+      responses:
+        200:
+          description: The takeback offer was successfully sent.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          description: The takeback offering failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/board/game/{gameId}/claim-victory:
+    post:
+      operationId: boardGameClaimVictory
+      summary: Claim victory of a game
+      description: |
+        Claim victory when the opponent has left the game for a while.
+      tags:
+        - Board
+      security:
+        - OAuth2: ["board:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        200:
+          description: The victory was successfully claimed.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        400:
+          description: The victory claim has failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /api/bot/online:
     get:
       operationId: apiBotOnline
@@ -3995,7 +4448,7 @@ paths:
       tags:
         - Bot
       security: []
-      description: Stream the [online bot users](https://lichess.org/player/bots), as [ndjson](http://ndjson.org/). Throttled to 50 bot users per second.
+      description: Stream the [online bot users](https://lichess.org/player/bots), as [ndjson](#section/Introduction/Streaming-with-ND-JSON). Throttled to 50 bot users per second.
       parameters:
         - in: query
           name: nb
@@ -4060,7 +4513,7 @@ paths:
       operationId: botGameStream
       summary: Stream Bot game state
       description: "\
-      \ Stream the state of a game being played with the Bot API, as [ndjson](http://ndjson.org/).\n\
+      \ Stream the state of a game being played with the Bot API, as [ndjson](#section/Introduction/Streaming-with-ND-JSON).\n\
       \nUse this endpoint to get updates about the game in real-time, with a single request.\n\
       \nEach line is a JSON object containing a `type` field. Possible values are:\n
       \ - `gameFull` Full game data. All values are immutable, except for the `state` field.\n
@@ -4319,6 +4772,9 @@ paths:
 
         If you also have an OAuth token with `challenge:write` scope for the receiving user,
         you can make them accept the challenge immediately by setting the `acceptByToken` field.
+
+        Challenges for realtime games (not correspondence) expire after 20s if not accepted.
+        To prevent that, use the `keepAliveStream` flag described below.
       tags:
         - Challenges
       security:
@@ -4373,6 +4829,14 @@ paths:
                   type: string
                   description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated. Castling moves will use UCI_Chess960 notation, for example e1h1 instead of e1g1.
                   default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+                keepAliveStream:
+                  type: boolean
+                  description: |
+                    If set, the response is streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+                    The challenge is kept alive until the connection is closed by the client.
+                    When the challenge is accepted, declined or canceled, a message of the form `{"done":"accepted"}` is sent,
+                    then the connection is closed by the server.
+                    If not set, the response is not streamed, and the challenge expires after 20s if not accepted.
                 acceptByToken:
                   type: string
                   description: |
@@ -5139,7 +5603,16 @@ paths:
                 default: "'*'"
           content:
             application/json:
-              example: {"fen":"rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2","knodes":13683,"depth":22,"pvs":[{"moves":"c8f5 d2d4 e7e6 g1f3 g8e7 c1e3 c7c5 d4c5 e7c6 b1c3","cp":-13},{"moves":"c7c5 c2c3 d5d4 g1f3 b8c6 c3d4 c6d4 b1c3 c8d7 f1d3","cp":-1},{"moves":"e7e6 d2d4 c7c5 c2c3 b8c6 g1f3 c8d7 b1a3 c5d4 c3d4","cp":24}]}
+              example: {
+                "fen": "rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2",
+                "knodes": 13683,
+                "depth": 22,
+                "pvs": [
+                  {"moves": "c8f5 d2d4 e7e6 g1f3 g8e7 c1e3 c7c5 d4c5 e7c6 b1c3", "cp": -13},
+                  {"moves": "c7c5 c2c3 d5d4 g1f3 b8c6 c3d4 c6d4 b1c3 c8d7 f1d3", "cp": -1},
+                  {"moves": "e7e6 d2d4 c7c5 c2c3 b8c6 g1f3 c8d7 b1a3 c5d4 c3d4", "cp": 24}
+                ]
+              }
 
   /oauth:
     get:
@@ -5275,7 +5748,7 @@ paths:
                 default: "'*'"
           content:
             application/json:
-              example: {"token_type":"Bearer","access_token":"lio_pLwAbN7lFPklzY2m8lTOI1DGApS84u57","expires_in":31536000}
+              example: {"token_type": "Bearer", "access_token": "lio_pLwAbN7lFPklzY2m8lTOI1DGApS84u57", "expires_in": 31536000}
         400:
           description: Failed to obtain access token.
           headers:
@@ -5509,7 +5982,50 @@ paths:
                 default: "'*'"
           content:
             application/json:
-              example: {"master":{"games":2299868,"uniquePositions":56683918},"lichess":{"chess960":{"games":2259840,"uniquePositions":190488295},"standard":{"games":272515941,"uniquePositions":7355380242},"antichess":{"games":7818476,"uniquePositions":177073596},"horde":{"games":1027171,"uniquePositions":34843126},"atomic":{"games":3827483,"uniquePositions":70119949},"racingKings":{"games":747878,"uniquePositions":11671677},"kingOfTheHill":{"games":1345370,"uniquePositions":38511395},"crazyhouse":{"games":7540244,"uniquePositions":218945811},"threeCheck":{"games":1362591,"uniquePositions":29181473}}}
+              example: {
+                "master": {
+                  "games": 2299868,
+                  "uniquePositions": 56683918
+                },
+                "lichess": {
+                  "chess960": {
+                    "games": 2259840,
+                    "uniquePositions": 190488295
+                  },
+                  "standard": {
+                    "games": 272515941,
+                    "uniquePositions": 735538024
+                  },
+                  "antichess": {
+                    "games": 7818476,
+                    "uniquePositions": 177073596
+                  },
+                  "horde": {
+                    "games": 1027171,
+                    "uniquePositions": 34843126
+                  },
+                  "atomic": {
+                    "games": 3827483,
+                    "uniquePositions": 70119949
+                  },
+                  "racingKings": {
+                    "games": 747878,
+                    "uniquePositions": 11671677
+                  },
+                  "kingOfTheHill": {
+                    "games": 1345370,
+                    "uniquePositions": 38511395
+                  },
+                  "crazyhouse": {
+                    "games": 7540244,
+                    "uniquePositions": 218945811
+                  },
+                  "threeCheck": {
+                    "games": 1362591,
+                    "uniquePositions": 29181473
+                  }
+                }
+              }
 
   /standard:
     servers:
@@ -5814,19 +6330,19 @@ components:
         "id": "RVAcwgg7",
         "games": [
             {
-                "id": "NKop9IyD",
-                "black": "lizen1",
-                "white": "thibault"
+              "id": "NKop9IyD",
+              "black": "lizen1",
+              "white": "thibault"
             },
             {
-                "id": "KT8374ut",
-                "black": "lizen3",
-                "white": "lizen2"
+              "id": "KT8374ut",
+              "black": "lizen3",
+              "white": "lizen2"
             },
             {
-                "id": "wInQr8Sk",
-                "black": "lizen5",
-                "white": "lizen4"
+              "id": "wInQr8Sk",
+              "black": "lizen5",
+              "white": "lizen4"
             }
         ],
         "variant": "standard",
@@ -6050,9 +6566,9 @@ components:
           }
         },
         "opening": {
-          "eco":"D31",
-          "name":"Semi-Slav Defense: Marshall Gambit",
-          "ply":7
+          "eco": "D31",
+          "name": "Semi-Slav Defense: Marshall Gambit",
+          "ply": 7
         },
         "moves": "d4 d5 c4 c6 Nc3 e6 e4 Nd7 exd5 cxd5 cxd5 exd5 Nxd5 Nb6 Bb5+ Bd7 Qe2+ Ne7 Nxb6 Qxb6 Bxd7+ Kxd7 Nf3 Qa6 Ne5+ Ke8 Qf3 f6 Nd3 Qc6 Qe2 Kf7 O-O Kg8 Bd2 Re8 Rac1 Nf5 Be3 Qe6 Rfe1 g6 b3 Bd6 Qd2 Kf7 Bf4 Qd7 Bxd6 Nxd6 Nc5 Rxe1+ Rxe1 Qc6 f3 Re8 Rxe8 Nxe8 Kf2 Nc7 Qb4 b6 Qc4+ Nd5 Nd3 Qe6 Nb4 Ne7 Qxe6+ Kxe6 Ke3 Kd6 g3 h6 Kd3 h5 Nc2 Kd5 a3 Nc6 Ne3+ Kd6 h4 Nd8 g4 Ne6 Ke4 Ng7 Nc4+ Ke6 d5+ Kd7 a4 g5 gxh5 Nxh5 hxg5 fxg5 Kf5 Nf4 Ne3 Nh3 Kg4 Ng1 Nc4 Kc7 Nd2 Kd6 Kxg5 Kxd5 f4 Nh3+ Kg4 Nf2+ Kf3 Nd3 Ke3 Nc5 Kf3 Ke6 Ke3 Kf5 Kd4 Ne6+ Kc4",
         "clock": {
@@ -6363,9 +6879,23 @@ components:
             "neio": 44,
             "thibault": 43
             },
-            "nbGames":87
+            "nbGames": 87
           }
         }
+
+    GameChat:
+      example: [{
+          "text": "Takeback sent",
+          "user": "lichess"
+        },
+        {
+          "text": "Takeback accepted",
+          "user": "lichess"
+        },
+        {
+          "text": "Good game, well played",
+          "user": "thibault"
+        }]
 
     PuzzleJson:
       example: {
@@ -6500,13 +7030,147 @@ components:
                 "time": 23
             },
         ]
-    }
+      }
 
     RatingHistory:
-      example: [{"name":"Bullet","points":[[2011,0,8,1472],[2011,0,9,1332],[2011,8,12,1314]]},{"name":"Blitz","points":[[2011,7,29,1332]]}]
+      example: [{"name": "Bullet","points":[[2011,0,8,1472],[2011,0,9,1332],[2011,8,12,1314]]},{"name": "Blitz","points":[[2011,7,29,1332]]}]
 
     PerfStat:
-      example: {"perf":{"glicko":{"rating":1672.42,"deviation":45.13,"provisional":false},"nb":5692,"progress":-27},"rank":98121,"percentile":69.7,"stat":{"perfType":{"key":"bullet","name":"Bullet"},"highest":{"int":1902,"at":"2021-05-31T08:58:53.701Z","gameId":"YEDqtwig"},"lowest":{"int":1417,"at":"2016-06-28T13:54:39.656Z","gameId":"rNM4J1GJ"},"bestWins":{"results":[{"opInt":2238,"opId":{"id":"hyperdragon84","name":"HyperDragon84","title":null},"at":"2019-06-19T17:09:05.187Z","gameId":"DGB53z9w"},{"opInt":2089,"opId":{"id":"osipov","name":"osipov","title":null},"at":"2017-06-18T09:46:05.016Z","gameId":"gurRhuMi"},{"opInt":2071,"opId":{"id":"spark50","name":"Spark50","title":null},"at":"2020-07-04T08:36:12.948Z","gameId":"a93Dk1mv"},{"opInt":2045,"opId":{"id":"yasha43","name":"Yasha43","title":null},"at":"2021-05-17T14:01:41.098Z","gameId":"j3jZnGTr"},{"opInt":2034,"opId":{"id":"midedu","name":"midedu","title":null},"at":"2020-06-27T17:32:47.001Z","gameId":"OiaMVLQ8"}]},"worstLosses":{"results":[{"opInt":1186,"opId":{"id":"happy0","name":"Happy0","title":null},"at":"2016-07-07T19:48:29.077Z","gameId":"Q01bbiN4"},{"opInt":1197,"opId":{"id":"kazmankiller86","name":"KazmanKiller86","title":null},"at":"2016-10-16T14:21:37.748Z","gameId":"Aivqh9Sp"},{"opInt":1201,"opId":{"id":"artem555","name":"artem555","title":null},"at":"2016-08-28T16:21:30.923Z","gameId":"tiRAbhnX"},{"opInt":1265,"opId":{"id":"arcenuu","name":"Arcenuu","title":null},"at":"2016-12-24T14:28:03.866Z","gameId":"A68wUOoh"},{"opInt":1283,"opId":{"id":"amritalib76","name":"Amritalib76","title":null},"at":"2018-06-26T09:55:39.354Z","gameId":"sbNVikmo"}]},"count":{"all":5858,"rated":5688,"win":2789,"loss":2806,"draw":263,"tour":654,"berserk":1,"opAvg":1671.44,"seconds":784886,"disconnects":0},"resultStreak":{"win":{"cur":{"v":0},"max":{"v":11,"from":{"at":"2021-06-14T15:38:50.681Z","gameId":"wTX2IExo"},"to":{"at":"2021-06-15T18:41:46.970Z","gameId":"1z4rrjgw"}}},"loss":{"cur":{"v":3,"from":{"at":"2021-06-29T17:53:23.642Z","gameId":"pfcnjgik"},"to":{"at":"2021-06-29T18:04:48.358Z","gameId":"6sPaGL8T"}},"max":{"v":14,"from":{"at":"2018-06-11T14:43:39.296Z","gameId":"1fc9dqun"},"to":{"at":"2018-06-11T15:10:30.908Z","gameId":"Nzy6UgwY"}}}},"playStreak":{"nb":{"cur":{"v":0},"max":{"v":118,"from":{"at":"2018-06-11T10:32:21.248Z","gameId":"UAsNnJbN"},"to":{"at":"2018-06-11T15:13:01.193Z","gameId":"T7fHRaFG"}}},"time":{"cur":{"v":0},"max":{"v":12683,"from":{"at":"2018-06-12T14:11:14.021Z","gameId":"IrZCAW58"},"to":{"at":"2018-06-12T18:02:57.010Z","gameId":"RNF1mQ68"}}},"lastDate":"2021-06-29T18:04:48.358Z"}}}
+      example: {
+        "perf": {
+          "glicko": { "rating": 1672.42, "deviation": 45.13, "provisional": false },
+          "nb": 5692,
+          "progress": -27
+        },
+        "rank": 98121,
+        "percentile": 69.7,
+        "stat": {
+          "perfType": { "key": "bullet", "name": "Bullet" },
+          "highest": { "int": 1902, "at": "2021-05-31T08:58:53.701Z", "gameId": "YEDqtwig" },
+          "lowest": { "int": 1417, "at": "2016-06-28T13:54:39.656Z", "gameId": "rNM4J1GJ" },
+          "bestWins": {
+            "results": [
+              {
+                "opInt": 2238,
+                "opId": { "id": "hyperdragon84", "name": "HyperDragon84", "title": null },
+                "at": "2019-06-19T17:09:05.187Z",
+                "gameId": "DGB53z9w"
+              },
+              {
+                "opInt": 2089,
+                "opId": { "id": "osipov", "name": "osipov", "title": null },
+                "at": "2017-06-18T09:46:05.016Z",
+                "gameId": "gurRhuMi"
+              },
+              {
+                "opInt": 2071,
+                "opId": { "id": "spark50", "name": "Spark50", "title": null },
+                "at": "2020-07-04T08:36:12.948Z",
+                "gameId": "a93Dk1mv"
+              },
+              {
+                "opInt": 2045,
+                "opId": { "id": "yasha43", "name": "Yasha43", "title": null },
+                "at": "2021-05-17T14:01:41.098Z",
+                "gameId": "j3jZnGTr"
+              },
+              {
+                "opInt": 2034,
+                "opId": { "id": "midedu", "name": "midedu", "title": null },
+                "at": "2020-06-27T17:32:47.001Z",
+                "gameId": "OiaMVLQ8"
+              }
+            ]
+          },
+          "worstLosses": {
+            "results": [
+              {
+                "opInt": 1186,
+                "opId": { "id": "happy0", "name": "Happy0", "title": null },
+                "at": "2016-07-07T19:48:29.077Z",
+                "gameId": "Q01bbiN4"
+              },
+              {
+                "opInt": 1197,
+                "opId": { "id": "kazmankiller86", "name": "KazmanKiller86", "title": null },
+                "at": "2016-10-16T14:21:37.748Z",
+                "gameId": "Aivqh9Sp"
+              },
+              {
+                "opInt": 1201,
+                "opId": { "id": "artem555", "name": "artem555", "title": null },
+                "at": "2016-08-28T16:21:30.923Z",
+                "gameId": "tiRAbhnX"
+              },
+              {
+                "opInt": 1265,
+                "opId": { "id": "arcenuu", "name": "Arcenuu", "title": null },
+                "at": "2016-12-24T14:28:03.866Z",
+                "gameId": "A68wUOoh"
+              },
+              {
+                "opInt": 1283,
+                "opId": { "id": "amritalib76", "name": "Amritalib76", "title": null },
+                "at": "2018-06-26T09:55:39.354Z",
+                "gameId": "sbNVikmo"
+              }
+            ]
+          },
+          "count": {
+            "all": 5858,
+            "rated": 5688,
+            "win": 2789,
+            "loss": 2806,
+            "draw": 263,
+            "tour": 654,
+            "berserk": 1,
+            "opAvg": 1671.44,
+            "seconds": 784886,
+            "disconnects": 0
+          },
+          "resultStreak": {
+            "win": {
+              "cur": { "v": 0 },
+              "max": {
+                "v": 11,
+                "from": { "at": "2021-06-14T15:38:50.681Z", "gameId": "wTX2IExo" },
+                "to": { "at": "2021-06-15T18:41:46.970Z", "gameId": "1z4rrjgw" }
+              }
+            },
+            "loss": {
+              "cur": {
+                "v": 3,
+                "from": { "at": "2021-06-29T17:53:23.642Z", "gameId": "pfcnjgik" },
+                "to": { "at": "2021-06-29T18:04:48.358Z", "gameId": "6sPaGL8T" }
+              },
+              "max": {
+                "v": 14,
+                "from": { "at": "2018-06-11T14:43:39.296Z", "gameId": "1fc9dqun" },
+                "to": { "at": "2018-06-11T15:10:30.908Z", "gameId": "Nzy6UgwY" }
+              }
+            }
+          },
+          "playStreak": {
+            "nb": {
+              "cur": { "v": 0 },
+              "max": {
+                "v": 118,
+                "from": { "at": "2018-06-11T10:32:21.248Z", "gameId": "UAsNnJbN" },
+                "to": { "at": "2018-06-11T15:13:01.193Z", "gameId": "T7fHRaFG" }
+              }
+            },
+            "time": {
+              "cur": { "v": 0 },
+              "max": {
+                "v": 12683,
+                "from": { "at": "2018-06-12T14:11:14.021Z", "gameId": "IrZCAW58" },
+                "to": { "at": "2018-06-12T18:02:57.010Z", "gameId": "RNF1mQ68" }
+              }
+            },
+            "lastDate": "2021-06-29T18:04:48.358Z"
+          }
+        }
+      }
 
     Top10s:
       example: {
@@ -7197,31 +7861,44 @@ components:
           example: Planet Earth
 
     BotGameState:
-      type: array
-      items:
-        type: object
-        properties:
-          moves:
-            type: string
-            description: Current moves in UCI format
-          wtime:
-            type: integer
-            description: Integer of milliseconds White has left on the clock
-          btime:
-            type: integer
-            description: Integer of milliseconds Black has left on the clock
-          winc:
-            type: integer
-            description: Integer of White Fisher increment.
-          binc:
-            type: integer
-            description: Integer of Black Fisher increment.
-          status:
-            type: string
-            description: Game status code. https://github.com/ornicar/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
-          winner:
-            type: string
-            description: Color of the winner, if any
+      type: object
+      properties:
+        state:
+          type: object
+          properties:
+            moves:
+              type: string
+              description: Current moves in UCI format
+            wtime:
+              type: integer
+              description: Integer of milliseconds White has left on the clock
+            btime:
+              type: integer
+              description: Integer of milliseconds Black has left on the clock
+            winc:
+              type: integer
+              description: Integer of White Fisher increment.
+            binc:
+              type: integer
+              description: Integer of Black Fisher increment.
+            status:
+              type: string
+              description: Game status code. https://github.com/ornicar/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
+            winner:
+              type: string
+              description: Color of the winner, if any
+            wdraw:
+              type: boolean
+              description: true if white is offering draw, else omitted
+            bdraw:
+              type: boolean
+              description: true if black is offering draw, else omitted
+            wtakeback:
+              type: boolean
+              description: true if white is proposing takeback, else omitted
+            btakeback:
+              type: boolean
+              description: true if black is proposing takeback, else omitted
       example: [
         {
           "type": "gameFull",
@@ -7299,9 +7976,44 @@ components:
       ]
 
     StreamEvents:
-      example: |
-        {"type":"challenge","challenge":{"id":"7pGLxJ4F","status":"created","challenger":{"id":"lovlas","name":"Lovlas","title":"IM","rating":2506,"patron":true,"online":true,"lag":24},"destUser":{"id":"thibot","name":"thibot","title":null,"rating":1500,"provisional":true,"online":true,"lag":45},"variant":{"key":"standard","name":"Standard","short":"Std"},"rated":true,"timeControl":{"type":"clock","limit":300,"increment":25,"show":"5+25"},"color":"random","perf":{"icon":"#","name":"Rapid"}}}
-        {"type":"gameStart","game":{"id":"1lsvP62l"}}
+      example: [
+        {
+          "type": "challenge",
+          "challenge": {
+            "id": "7pGLxJ4F",
+            "status": "created",
+            "challenger": {
+              "id": "lovlas",
+              "name": "Lovlas",
+              "title": "IM",
+              "rating": 2506,
+              "patron": true,
+              "online": true,
+              "lag": 24
+            },
+            "destUser": {
+              "id": "thibot",
+              "name": "thibot",
+              "title": null,
+              "rating": 1500,
+              "provisional": true,
+              "online": true,
+              "lag": 45
+            },
+            "variant": { "key": "standard", "name": "Standard", "short": "Std" },
+            "rated": true,
+            "timeControl": { "type": "clock", "limit": 300, "increment": 25, "show": "5+25" },
+            "color": "random",
+            "perf": { "icon": "#", "name": "Rapid" }
+          }
+        },
+        {
+          "type": "gameStart",
+          "game": {
+            "id": "1lsvP62l"
+          }
+        }
+      ]
 
     Ok:
       properties:
