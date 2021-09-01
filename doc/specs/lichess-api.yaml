@@ -255,8 +255,6 @@ paths:
         Get the top 10 players for each speed and variant.
 
         See https://lichess.org/player.
-      parameters:
-        - $ref: '#/components/parameters/lichess'
       responses:
         200:
           description: The list of variants with their respective top players.
@@ -278,7 +276,6 @@ paths:
 
         See https://lichess.org/player/top/200/bullet.
       parameters:
-        - $ref: '#/components/parameters/lichess'
         - in: path
           name: nb
           description: How many users to fetch
@@ -1349,39 +1346,8 @@ paths:
           description: The stream of the game moves.
           content:
             application/x-ndjson:
-              example: [
-                {
-                  "id": "LuGQwhBb",
-                  "variant": { "key": "standard", "name": "Standard", "short": "Std" },
-                  "speed": "blitz",
-                  "perf": "blitz",
-                  "rated": true,
-                  "initialFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-                  "fen": "rnbqkb1r/1p1ppppp/p6n/2p4Q/8/1P2P3/P1PP1PPP/RNB1KBNR w KQkq - 0 4",
-                  "player": "white",
-                  "turns": 6,
-                  "startedAtTurn": 0,
-                  "source": "pool",
-                  "status": { "id": 20, "name": "started" },
-                  "createdAt": 1620029815106,
-                  "lastMove": "c7c5"
-                },
-                { "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w", "wc": 180, "bc": 180 },
-                { "fen": "rnbqkbnr/pppppppp/8/8/8/4P3/PPPP1PPP/RNBQKBNR b", "lm": "e2e3", "wc": 180, "bc": 180 },
-                { "fen": "rnbqkb1r/pppppppp/7n/8/8/4P3/PPPP1PPP/RNBQKBNR w", "lm": "g8h6", "wc": 180, "bc": 180 },
-                {
-                  "fen": "rnbqkb1r/pppppppp/7n/8/8/1P2P3/P1PP1PPP/RNBQKBNR b",
-                  "lm": "b2b3",
-                  "wc": 177,
-                  "bc": 180
-                },
-                {
-                  "fen": "rnbqkb1r/1ppppppp/p6n/8/8/1P2P3/P1PP1PPP/RNBQKBNR w",
-                  "lm": "a7a6",
-                  "wc": 177,
-                  "bc": 177
-                }
-              ]
+              schema:
+                $ref: '#/components/schemas/MoveStream'
 
   /api/import:
     post:
@@ -1734,7 +1700,6 @@ paths:
                   description: Timestamp to start the tournament at a given date and time. Overrides the `waitMinutes` setting
                 variant:
                   $ref: '#/components/schemas/VariantKey'
-                  description: The variant to use in tournament games
                 rated:
                   type: boolean
                   description: Games are rated and impact players ratings
@@ -1812,6 +1777,13 @@ paths:
                 $ref: '#/components/schemas/Error'
 
   /api/tournament/{id}:
+    parameters:
+     - in: path
+       name: id
+       description: The tournament ID.
+       schema:
+         type: string
+       required: true
     get:
       operationId: tournament
       summary: Get info about an Arena tournament
@@ -1821,12 +1793,6 @@ paths:
         - "Arena tournaments"
       security: []
       parameters:
-        - in: path
-          name: id
-          description: The tournament ID.
-          schema:
-            type: string
-          required: true
         - in: query
           name: page
           description: Specify which page of player standings to view.
@@ -1861,13 +1827,6 @@ paths:
         - "Arena tournaments"
       security:
         - OAuth2: ["tournament:write"]
-      parameters:
-        - in: path
-          name: id
-          description: The tournament ID.
-          schema:
-            type: string
-          required: true
       requestBody:
         description: Parameters of the tournament
         required: true
@@ -1929,7 +1888,6 @@ paths:
                   description: Timestamp to start the tournament at a given date and time. Overrides the `waitMinutes` setting
                 variant:
                   $ref: '#/components/schemas/VariantKey'
-                  description: The variant to use in tournament games
                 rated:
                   type: boolean
                   description: Games are rated and impact players ratings
@@ -2405,7 +2363,6 @@ paths:
                   default: auto
                 variant:
                   $ref: '#/components/schemas/VariantKey'
-                  description: The variant to use in tournament games
                 description:
                   type: string
                   description: Anything you want to tell players about the tournament
@@ -2560,7 +2517,8 @@ paths:
                 default: "'*'"
           content:
             text/plain:
-              example:
+              schema:
+                type: string
 
   /api/swiss/{id}/games:
     get:
@@ -3011,7 +2969,6 @@ paths:
           required: true
           schema:
             type: string
-            default: "-"
         - in: path
           name: broadcastTournamentId
           description: The broadcast tournament ID (8 characters).
@@ -3178,14 +3135,12 @@ paths:
           required: true
           schema:
             type: string
-            default: "-"
         - in: path
           name: broadcastRoundSlug
           description: The broadcast round slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastRoundId` is actually used.
           required: true
           schema:
             type: string
-            default: "-"
         - in: path
           name: broadcastRoundId
           description: The broadcast Round ID (8 characters).
@@ -4052,7 +4007,6 @@ paths:
                     - 14
                 variant:
                   $ref: '#/components/schemas/VariantKey'
-                  description: The variant of the game.
                 color:
                   type: string
                   description: The color to play. Better left empty to automatically get 50% white.
@@ -4119,6 +4073,17 @@ paths:
             application/x-ndjson:
               schema:
                 $ref: '#/components/schemas/BotGameState'
+              examples:
+                gameFull:
+                  $ref: '#/components/examples/gameFull'
+                gameState:
+                  $ref: '#/components/examples/gameState'
+                chatLine:
+                  $ref: '#/components/examples/chatLine'
+                chatLineSpectator:
+                  $ref: '#/components/examples/chatLineSpectator'
+                gameStateResign:
+                  $ref: '#/components/examples/gameStateResign'
         404:
           description: The game was not found.
           content:
@@ -4177,6 +4142,13 @@ paths:
                 $ref: '#/components/schemas/Error'
 
   /api/board/game/{gameId}/chat:
+    parameters:
+      - in: path
+        name: gameId
+        schema:
+          type: string
+          example: "5IrD6Gzz"
+        required: true
     post:
       operationId: boardGameChatPost
       summary: Write in the chat
@@ -4186,13 +4158,6 @@ paths:
         - Board
       security:
         - OAuth2: ["board:play"]
-      parameters:
-        - in: path
-          name: gameId
-          schema:
-            type: string
-            example: "5IrD6Gzz"
-          required: true
       requestBody:
         required: true
         content:
@@ -4238,13 +4203,6 @@ paths:
         - Board
       security:
         - OAuth2: ["board:play"]
-      parameters:
-        - in: path
-          name: gameId
-          schema:
-            type: string
-            example: "5IrD6Gzz"
-          required: true
       responses:
         200:
           description: The messages posted in the chat.
@@ -4556,6 +4514,17 @@ paths:
             application/x-ndjson:
               schema:
                 $ref: '#/components/schemas/BotGameState'
+              examples:
+                gameFull:
+                  $ref: '#/components/examples/gameFull'
+                gameState:
+                  $ref: '#/components/examples/gameState'
+                chatLine:
+                  $ref: '#/components/examples/chatLine'
+                chatLineSpectator:
+                  $ref: '#/components/examples/chatLineSpectator'
+                gameStateResign:
+                  $ref: '#/components/examples/gameStateResign'
         404:
           description: The bot game was not found.
           content:
@@ -5081,7 +5050,6 @@ paths:
                   default: 'random'
                 variant:
                   $ref: '#/components/schemas/VariantKey'
-                  description: The variant of the game
                 fen:
                   type: string
                   description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated.
@@ -5150,7 +5118,6 @@ paths:
                   maximum: 60
                 variant:
                   $ref: '#/components/schemas/VariantKey'
-                  description: The variant of the game
                 fen:
                   type: string
                   description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated.
@@ -5331,7 +5298,6 @@ paths:
                   description: Game is rated and impacts players ratings
                 variant:
                   $ref: '#/components/schemas/VariantKey'
-                  description: The variant of the game
                 message:
                   type: string
                   description: |
@@ -5693,16 +5659,6 @@ paths:
           schema:
             type: string
         - in: query
-          name: scope
-          description: Space separated list of requested OAuth scopes, if any.
-          schema:
-            type: string
-        - in: query
-          name: state
-          description: Arbitrary state that will be returned verbatim with the authorization result.
-          schema:
-            type: string
-        - in: query
           name: code_challenge_method
           description: Must be `S256`.
           required: true
@@ -5712,6 +5668,16 @@ paths:
           name: code_challenge
           description: Compute `BASE64URL(SHA256(code_verifier))`.
           required: true
+          schema:
+            type: string
+        - in: query
+          name: scope
+          description: Space separated list of requested OAuth scopes, if any.
+          schema:
+            type: string
+        - in: query
+          name: state
+          description: Arbitrary state that will be returned verbatim with the authorization result.
           schema:
             type: string
       responses:
@@ -6088,6 +6054,10 @@ paths:
       responses:
         200:
           description: The tablebase information for the position in atomic chess.
+          content:
+            text/plain:
+              schema:
+                type: string
           headers:
             Access-Control-Allow-Origin:
               schema:
@@ -6105,6 +6075,10 @@ paths:
       responses:
         200:
           description: The tablebase information for the position in atomic chess.
+          content:
+            text/plain:
+              schema:
+                type: string
           headers:
             Access-Control-Allow-Origin:
               schema:
@@ -6113,14 +6087,6 @@ paths:
 
 
 components:
-  parameters:
-    lichess:
-      in: header
-      name: Accept
-      schema:
-        type: string
-        default: application/vnd.lichess.v3+json
-      required: true
   schemas:
     VariantKey:
       type: string
@@ -6141,7 +6107,7 @@ components:
       type: object
       properties:
         key:
-          $ref: '#components/schemas/VariantKey'
+          $ref: '#/components/schemas/VariantKey'
         name:
           type: string
         short:
@@ -6205,7 +6171,7 @@ components:
               properties:
                 type:
                   type: string
-                  const: clock
+                  example: clock
                 limit:
                   type: number
                 increment:
@@ -6213,18 +6179,21 @@ components:
                 show:
                   example: 5+2
                   type: string
+              additionalProperties: false
             - type: object
               properties:
                 type:
                   type: string
-                  const: correspondence
+                  example: correspondence
                 daysPerTurn:
                   type: number
+              additionalProperties: false
             - type: object
               properties:
                 type:
                   type: string
-                  const: unlimited
+                  example: unlimited
+              additionalProperties: false
         color:
           type: string
           enum: ["white", "black", "random"]
@@ -7915,81 +7884,6 @@ components:
             btakeback:
               type: boolean
               description: true if black is proposing takeback, else omitted
-      example: [
-        {
-          "type": "gameFull",
-          "id": "5IrD6Gzz",
-          "rated": true,
-          "variant": {
-            "key": "standard",
-            "name": "Standard",
-            "short": "Std"
-          },
-          "clock": {
-            "initial": 1200000,
-            "increment": 10000
-          },
-          "speed": "classical",
-          "perf": {
-            "name": "Classical"
-          },
-          "createdAt": 1523825103562,
-          "white": {
-            "id": "lovlas",
-            "name": "lovlas",
-            "provisional": false,
-            "rating": 2500,
-            "title": "IM"
-          },
-          "black": {
-            "id": "leela",
-            "name": "leela",
-            "rating": 2390,
-            "title": null
-          },
-          "initialFen": "startpos",
-          "state": {
-            "type": "gameState",
-            "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7",
-            "wtime": 7598040,
-            "btime": 8395220,
-            "winc": 10000,
-            "binc": 10000,
-            "status": "started"
-          }
-        },
-        {
-          "type": "gameState",
-          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
-          "wtime": 7598040,
-          "btime": 8395220,
-          "winc": 10000,
-          "binc": 10000,
-          "status": "started"
-        },
-        {
-          "type": "chatLine",
-          "username": "thibault",
-          "text": "Good luck, have fun",
-          "room": "player"
-        },
-        {
-          "type": "chatLine",
-          "username": "lovlas",
-          "text": "!eval",
-          "room": "spectator"
-        },
-        {
-          "type": "gameState",
-          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
-          "wtime": 7598040,
-          "btime": 8395220,
-          "winc": 10000,
-          "binc": 10000,
-          "status": "resign",
-          "winner": "black"
-        }
-      ]
 
     StreamEvents:
       example: [
@@ -8053,6 +7947,125 @@ components:
       example:
         error: "Not found."
 
+    MoveStream:
+      example: [
+        {
+          "id": "LuGQwhBb",
+          "variant": { "key": "standard", "name": "Standard", "short": "Std" },
+          "speed": "blitz",
+          "perf": "blitz",
+          "rated": true,
+          "initialFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "fen": "rnbqkb1r/1p1ppppp/p6n/2p4Q/8/1P2P3/P1PP1PPP/RNB1KBNR w KQkq - 0 4",
+          "player": "white",
+          "turns": 6,
+          "startedAtTurn": 0,
+          "source": "pool",
+          "status": { "id": 20, "name": "started" },
+          "createdAt": 1620029815106,
+          "lastMove": "c7c5"
+        },
+        { "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w", "wc": 180, "bc": 180 },
+        { "fen": "rnbqkbnr/pppppppp/8/8/8/4P3/PPPP1PPP/RNBQKBNR b", "lm": "e2e3", "wc": 180, "bc": 180 },
+        { "fen": "rnbqkb1r/pppppppp/7n/8/8/4P3/PPPP1PPP/RNBQKBNR w", "lm": "g8h6", "wc": 180, "bc": 180 },
+        {
+          "fen": "rnbqkb1r/pppppppp/7n/8/8/1P2P3/P1PP1PPP/RNBQKBNR b",
+          "lm": "b2b3",
+          "wc": 177,
+          "bc": 180
+        },
+        {
+          "fen": "rnbqkb1r/1ppppppp/p6n/8/8/1P2P3/P1PP1PPP/RNBQKBNR w",
+          "lm": "a7a6",
+          "wc": 177,
+          "bc": 177
+        }
+      ]
+
+  examples:
+    gameFull:
+      value: {
+        "type": "gameFull",
+        "id": "5IrD6Gzz",
+        "rated": true,
+        "variant": {
+          "key": "standard",
+          "name": "Standard",
+          "short": "Std"
+        },
+        "clock": {
+          "initial": 1200000,
+          "increment": 10000
+        },
+        "speed": "classical",
+        "perf": {
+          "name": "Classical"
+        },
+        "createdAt": 1523825103562,
+        "white": {
+          "id": "lovlas",
+          "name": "lovlas",
+          "provisional": false,
+          "rating": 2500,
+          "title": "IM"
+        },
+        "black": {
+          "id": "leela",
+          "name": "leela",
+          "rating": 2390,
+          "title": null
+        },
+        "initialFen": "startpos",
+        "state": {
+          "type": "gameState",
+          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7",
+          "wtime": 7598040,
+          "btime": 8395220,
+          "winc": 10000,
+          "binc": 10000,
+          "status": "started"
+        }
+      }
+
+    gameState:
+      value: {
+        "type": "gameState",
+        "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
+        "wtime": 7598040,
+        "btime": 8395220,
+        "winc": 10000,
+        "binc": 10000,
+        "status": "started"
+      }
+
+    chatLine:
+      value: {
+        "type": "chatLine",
+        "username": "thibault",
+        "text": "Good luck, have fun",
+        "room": "player"
+      }
+    
+    chatLineSpectator:
+      value: {
+        "type": "chatLine",
+        "username": "lovlas",
+        "text": "!eval",
+        "room": "spectator"
+      }
+    
+    gameStateResign:
+      value: {
+        "type": "gameState",
+        "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
+        "wtime": 7598040,
+        "btime": 8395220,
+        "winc": 10000,
+        "binc": 10000,
+        "status": "resign",
+        "winner": "black"
+      }
+
   securitySchemes:
     OAuth2:
       type: oauth2
@@ -8108,6 +8121,8 @@ components:
             "puzzle:read": Read puzzle activity
             "team:read": Read private team information
             "team:write": Join, leave, and manage teams
+            "follow:write": Follow and unfollow other players
             "msg:write": Send private messages to other players
             "board:play": Play with the Board API
             "bot:play": Play with the Bot API. Only for [Bot accounts](#operation/botAccountUpgrade)
+            "web:mod": Use moderator tools (within the bounds of your permissions)
