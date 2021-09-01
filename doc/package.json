@@ -3,7 +3,7 @@
   "private": true,
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
-    "pva": "^0.2.0",
+    "pva": "^0.2.1",
     "redoc-cli": "^0.12.1"
   },
   "scripts": {
