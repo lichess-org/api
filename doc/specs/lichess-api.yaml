@@ -1347,40 +1347,7 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                type: array
-              example: [
-                {
-                  "id": "LuGQwhBb",
-                  "variant": { "key": "standard", "name": "Standard", "short": "Std" },
-                  "speed": "blitz",
-                  "perf": "blitz",
-                  "rated": true,
-                  "initialFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-                  "fen": "rnbqkb1r/1p1ppppp/p6n/2p4Q/8/1P2P3/P1PP1PPP/RNB1KBNR w KQkq - 0 4",
-                  "player": "white",
-                  "turns": 6,
-                  "startedAtTurn": 0,
-                  "source": "pool",
-                  "status": { "id": 20, "name": "started" },
-                  "createdAt": 1620029815106,
-                  "lastMove": "c7c5"
-                },
-                { "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w", "wc": 180, "bc": 180 },
-                { "fen": "rnbqkbnr/pppppppp/8/8/8/4P3/PPPP1PPP/RNBQKBNR b", "lm": "e2e3", "wc": 180, "bc": 180 },
-                { "fen": "rnbqkb1r/pppppppp/7n/8/8/4P3/PPPP1PPP/RNBQKBNR w", "lm": "g8h6", "wc": 180, "bc": 180 },
-                {
-                  "fen": "rnbqkb1r/pppppppp/7n/8/8/1P2P3/P1PP1PPP/RNBQKBNR b",
-                  "lm": "b2b3",
-                  "wc": 177,
-                  "bc": 180
-                },
-                {
-                  "fen": "rnbqkb1r/1ppppppp/p6n/8/8/1P2P3/P1PP1PPP/RNBQKBNR w",
-                  "lm": "a7a6",
-                  "wc": 177,
-                  "bc": 177
-                }
-              ]
+                $ref: '#/components/schemas/MoveStream'
 
   /api/import:
     post:
@@ -4106,6 +4073,17 @@ paths:
             application/x-ndjson:
               schema:
                 $ref: '#/components/schemas/BotGameState'
+              examples:
+                gameFull:
+                  $ref: '#/components/examples/gameFull'
+                gameState:
+                  $ref: '#/components/examples/gameState'
+                chatLine:
+                  $ref: '#/components/examples/chatLine'
+                chatLineSpectator:
+                  $ref: '#/components/examples/chatLineSpectator'
+                gameStateResign:
+                  $ref: '#/components/examples/gameStateResign'
         404:
           description: The game was not found.
           content:
@@ -4164,6 +4142,13 @@ paths:
                 $ref: '#/components/schemas/Error'
 
   /api/board/game/{gameId}/chat:
+    parameters:
+      - in: path
+        name: gameId
+        schema:
+          type: string
+          example: "5IrD6Gzz"
+        required: true
     post:
       operationId: boardGameChatPost
       summary: Write in the chat
@@ -4173,13 +4158,6 @@ paths:
         - Board
       security:
         - OAuth2: ["board:play"]
-      parameters:
-        - in: path
-          name: gameId
-          schema:
-            type: string
-            example: "5IrD6Gzz"
-          required: true
       requestBody:
         required: true
         content:
@@ -4225,13 +4203,6 @@ paths:
         - Board
       security:
         - OAuth2: ["board:play"]
-      parameters:
-        - in: path
-          name: gameId
-          schema:
-            type: string
-            example: "5IrD6Gzz"
-          required: true
       responses:
         200:
           description: The messages posted in the chat.
@@ -4543,6 +4514,17 @@ paths:
             application/x-ndjson:
               schema:
                 $ref: '#/components/schemas/BotGameState'
+              examples:
+                gameFull:
+                  $ref: '#/components/examples/gameFull'
+                gameState:
+                  $ref: '#/components/examples/gameState'
+                chatLine:
+                  $ref: '#/components/examples/chatLine'
+                chatLineSpectator:
+                  $ref: '#/components/examples/chatLineSpectator'
+                gameStateResign:
+                  $ref: '#/components/examples/gameStateResign'
         404:
           description: The bot game was not found.
           content:
@@ -6197,6 +6179,7 @@ components:
                 show:
                   example: 5+2
                   type: string
+              additionalProperties: false
             - type: object
               properties:
                 type:
@@ -6204,11 +6187,13 @@ components:
                   example: correspondence
                 daysPerTurn:
                   type: number
+              additionalProperties: false
             - type: object
               properties:
                 type:
                   type: string
                   example: unlimited
+              additionalProperties: false
         color:
           type: string
           enum: ["white", "black", "random"]
@@ -7899,81 +7884,6 @@ components:
             btakeback:
               type: boolean
               description: true if black is proposing takeback, else omitted
-      example: [
-        {
-          "type": "gameFull",
-          "id": "5IrD6Gzz",
-          "rated": true,
-          "variant": {
-            "key": "standard",
-            "name": "Standard",
-            "short": "Std"
-          },
-          "clock": {
-            "initial": 1200000,
-            "increment": 10000
-          },
-          "speed": "classical",
-          "perf": {
-            "name": "Classical"
-          },
-          "createdAt": 1523825103562,
-          "white": {
-            "id": "lovlas",
-            "name": "lovlas",
-            "provisional": false,
-            "rating": 2500,
-            "title": "IM"
-          },
-          "black": {
-            "id": "leela",
-            "name": "leela",
-            "rating": 2390,
-            "title": null
-          },
-          "initialFen": "startpos",
-          "state": {
-            "type": "gameState",
-            "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7",
-            "wtime": 7598040,
-            "btime": 8395220,
-            "winc": 10000,
-            "binc": 10000,
-            "status": "started"
-          }
-        },
-        {
-          "type": "gameState",
-          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
-          "wtime": 7598040,
-          "btime": 8395220,
-          "winc": 10000,
-          "binc": 10000,
-          "status": "started"
-        },
-        {
-          "type": "chatLine",
-          "username": "thibault",
-          "text": "Good luck, have fun",
-          "room": "player"
-        },
-        {
-          "type": "chatLine",
-          "username": "lovlas",
-          "text": "!eval",
-          "room": "spectator"
-        },
-        {
-          "type": "gameState",
-          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
-          "wtime": 7598040,
-          "btime": 8395220,
-          "winc": 10000,
-          "binc": 10000,
-          "status": "resign",
-          "winner": "black"
-        }
-      ]
 
     StreamEvents:
       example: [
@@ -8037,6 +7947,125 @@ components:
       example:
         error: "Not found."
 
+    MoveStream:
+      example: [
+        {
+          "id": "LuGQwhBb",
+          "variant": { "key": "standard", "name": "Standard", "short": "Std" },
+          "speed": "blitz",
+          "perf": "blitz",
+          "rated": true,
+          "initialFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "fen": "rnbqkb1r/1p1ppppp/p6n/2p4Q/8/1P2P3/P1PP1PPP/RNB1KBNR w KQkq - 0 4",
+          "player": "white",
+          "turns": 6,
+          "startedAtTurn": 0,
+          "source": "pool",
+          "status": { "id": 20, "name": "started" },
+          "createdAt": 1620029815106,
+          "lastMove": "c7c5"
+        },
+        { "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w", "wc": 180, "bc": 180 },
+        { "fen": "rnbqkbnr/pppppppp/8/8/8/4P3/PPPP1PPP/RNBQKBNR b", "lm": "e2e3", "wc": 180, "bc": 180 },
+        { "fen": "rnbqkb1r/pppppppp/7n/8/8/4P3/PPPP1PPP/RNBQKBNR w", "lm": "g8h6", "wc": 180, "bc": 180 },
+        {
+          "fen": "rnbqkb1r/pppppppp/7n/8/8/1P2P3/P1PP1PPP/RNBQKBNR b",
+          "lm": "b2b3",
+          "wc": 177,
+          "bc": 180
+        },
+        {
+          "fen": "rnbqkb1r/1ppppppp/p6n/8/8/1P2P3/P1PP1PPP/RNBQKBNR w",
+          "lm": "a7a6",
+          "wc": 177,
+          "bc": 177
+        }
+      ]
+
+  examples:
+    gameFull:
+      value: {
+        "type": "gameFull",
+        "id": "5IrD6Gzz",
+        "rated": true,
+        "variant": {
+          "key": "standard",
+          "name": "Standard",
+          "short": "Std"
+        },
+        "clock": {
+          "initial": 1200000,
+          "increment": 10000
+        },
+        "speed": "classical",
+        "perf": {
+          "name": "Classical"
+        },
+        "createdAt": 1523825103562,
+        "white": {
+          "id": "lovlas",
+          "name": "lovlas",
+          "provisional": false,
+          "rating": 2500,
+          "title": "IM"
+        },
+        "black": {
+          "id": "leela",
+          "name": "leela",
+          "rating": 2390,
+          "title": null
+        },
+        "initialFen": "startpos",
+        "state": {
+          "type": "gameState",
+          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7",
+          "wtime": 7598040,
+          "btime": 8395220,
+          "winc": 10000,
+          "binc": 10000,
+          "status": "started"
+        }
+      }
+
+    gameState:
+      value: {
+        "type": "gameState",
+        "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
+        "wtime": 7598040,
+        "btime": 8395220,
+        "winc": 10000,
+        "binc": 10000,
+        "status": "started"
+      }
+
+    chatLine:
+      value: {
+        "type": "chatLine",
+        "username": "thibault",
+        "text": "Good luck, have fun",
+        "room": "player"
+      }
+    
+    chatLineSpectator:
+      value: {
+        "type": "chatLine",
+        "username": "lovlas",
+        "text": "!eval",
+        "room": "spectator"
+      }
+    
+    gameStateResign:
+      value: {
+        "type": "gameState",
+        "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
+        "wtime": 7598040,
+        "btime": 8395220,
+        "winc": 10000,
+        "binc": 10000,
+        "status": "resign",
+        "winner": "black"
+      }
+
   securitySchemes:
     OAuth2:
       type: oauth2
@@ -8092,6 +8121,7 @@ components:
             "puzzle:read": Read puzzle activity
             "team:read": Read private team information
             "team:write": Join, leave, and manage teams
+            "follow:write": Follow and unfollow other players
             "msg:write": Send private messages to other players
             "board:play": Play with the Board API
             "bot:play": Play with the Bot API. Only for [Bot accounts](#operation/botAccountUpgrade)
