@@ -31,5 +31,5 @@ jobs:
     - name: GitHub pages deploy
       uses: maxheld83/ghpages@68f783a4f5313d776c1599e18479607e71c9c738
       env:
-        BUILD_DIR: "public/"
+        BUILD_DIR: "doc/public/"
         GH_PAT: ${{ secrets.GH_PAT }}
