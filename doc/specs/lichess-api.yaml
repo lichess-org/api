@@ -74,7 +74,7 @@ tags:
   \n### Features\n\
   \ - [Stream incoming chess moves](#operation/boardGameStream)\n\
   \ - [Play chess moves](#operation/boardGameMove)\n\
-  \ - [Read](#operation/boardGameStream) and [write](#operation/boardGameChat) in the player and spectator chats\n\
+  \ - [Read](#operation/boardGameStream) and [write](#operation/boardGameChatPost) in the player and spectator chats\n\
   \ - [Receive](#operation/apiStreamEvent), [create](#operation/challengeCreate) and [accept](#operation/challengeAccept) (or [decline](#operation/challengeDecline)) challenges\n\
   \ - [Abort](#operation/boardGameAbort) and [resign](#operation/boardGameResign) games\n\
   \ - Compatible with normal Lichess accounts\n\n
@@ -3227,7 +3227,7 @@ paths:
   /broadcast/round/{broadcastRoundId}/push:
     post:
       operationId: broadcastPush
-      summary: Push PGN to your broadcast
+      summary: Push PGN to your broadcast round
       description: |
         Update your broadcast with new PGN.
         Only for broadcast without a source URL.
@@ -3263,6 +3263,35 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Ok'
+
+  /api/broadcast/{broadcastTournamentId}.pgn:
+    get:
+      operationId: broadcastAllRoundsPgn
+      summary: Export all rounds as PGN
+      description: |
+        Download all games of all rounds of a broadcast in PGN format.
+      tags:
+        - Broadcasts
+      security: []
+      parameters:
+        - in: path
+          name: broadcastTournamentId
+          description: The broadcast tournament ID (8 characters).
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: The PGN representation of the broadcast.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/x-chess-pgn:
+              schema:
+                $ref: '#/components/schemas/StudyPgn'
 
   /api/simul:
     get:
