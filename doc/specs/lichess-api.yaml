@@ -6047,8 +6047,6 @@ paths:
       description: |
         **Endpoint: https://tablebase.lichess.ovh**
 
-        Runs https://github.com/niklasf/lila-tablebase with `--sloppy-real-wdl`.
-
         Example: `curl http://tablebase.lichess.ovh/standard?fen=4k3/6KP/8/8/8/8/7p/8_w_-_-_0_1`
       tags:
         - Tablebase
@@ -6056,7 +6054,7 @@ paths:
       parameters:
         - in: query
           name: fen
-          description: FEN of the position. Underscores allowed. The halfmove clock is taken into account for WDL values.
+          description: FEN of the position. Underscores allowed.
           schema:
             type: string
           required: true
@@ -7761,12 +7759,20 @@ components:
     TablebaseJson:
       type: object
       properties:
-        wdl:
-          type: integer
-          description: (2) win, (1) cursed win, (0) draw, (-1) blessed loss, (-2) loss, (null) unknown
+        category:
+          type: string
+          enum:
+            - win
+            - unknown
+            - maybe-win
+            - cursed-win
+            - draw
+            - blessed-loss
+            - maybe-loss
+            - loss
         dtz:
           type: integer
-          description: Distance to zeroing or null if unknown
+          description: DTZ50'' with rounding or null if unknown
         dtm:
           type: integer
           description: Distance to mate (only for positions with not more than 5 pieces)
@@ -7789,7 +7795,6 @@ components:
             $ref: '#/components/schemas/Move'
       example:
         {
-          "wdl": 2,
           "dtz": 1,
           "dtm": 17,
           "checkmate": false,
@@ -7797,11 +7802,11 @@ components:
           "variant_win": false,
           "variant_loss": false,
           "insufficient_material": false,
+          "category": "win",
           "moves": [
             {
               "uci": "h7h8q",
               "san": "h8=Q+",
-              "wdl": -2,
               "dtz": -2,
               "dtm": -16,
               "zeroing": true,
@@ -7809,7 +7814,8 @@ components:
               "stalemate": false,
               "variant_win": false,
               "variant_loss": false,
-              "insufficient_material": false
+              "insufficient_material": false,
+              "category": "loss"
             }
           ]
         }
@@ -7823,12 +7829,20 @@ components:
         san:
           type: string
           example: "h8=Q+"
-        wdl:
-          type: integer
-          description: (2) win, (1) cursed win, (0) draw, (-1) blessed loss, (-2) loss, (null) unknown
+        category:
+          type: string
+          enum:
+            - loss
+            - unknown
+            - maybe-loss
+            - blessed-loss
+            - draw
+            - cursed-win
+            - maybe-win
+            - win
         dtz:
           type: integer
-          description: Distance to zeroing or null if unknown
+          description: DTZ50'' with rounding or null if unknown
         dtm:
           type: integer
           description: Distance to mate (only for positions with not more than 5 pieces)
