@@ -7770,9 +7770,19 @@ components:
             - blessed-loss
             - maybe-loss
             - loss
+          description: |
+            `cursed-win` and `blessed-loss` means the 50-move rule prevents
+            the decisive result.
+
+            `maybe-win` and `maybe-loss` means exact result is unknown due to
+            [DTZ rounding](https://syzygy-tables.info/metrics#dtz), i.e., the
+            win or loss could also be prevented by the 50-move rule if
+            the user has deviated from the tablebase recommendation since the
+            last pawn move or capture.
         dtz:
           type: integer
-          description: DTZ50'' with rounding or null if unknown
+          description: |
+            [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) or null if unknown
         dtm:
           type: integer
           description: Distance to mate (only for positions with not more than 5 pieces)
@@ -7782,7 +7792,7 @@ components:
           type: boolean
         variant_win:
           type: boolean
-          description: Only in chess variants (atomic, antichess)
+          description: Only in chess variants
         variant_loss:
           type: boolean
           description: Only in chess variants
