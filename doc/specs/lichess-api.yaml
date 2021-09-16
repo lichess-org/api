@@ -8170,7 +8170,7 @@ components:
 
         #### Real life examples
         - [PyChess](https://github.com/gbtami/pychess-variants) ([source code](https://github.com/gbtami/pychess-variants))
-        - [Lichess4545](https://www.lichess4545.com/) (outdated, [source code](https://github.com/cyanfish/heltour))
+        - [Lichess4545](https://www.lichess4545.com/) ([source code](https://github.com/cyanfish/heltour))
         - [English Chess Federation](https://ecf.octoknight.com/) (outdated)
         - [Rotherham Online Chess](https://rotherhamonlinechess.azurewebsites.net/tournaments) (outdated)
 
