@@ -8171,8 +8171,8 @@ components:
         #### Real life examples
         - [PyChess](https://github.com/gbtami/pychess-variants) ([source code](https://github.com/gbtami/pychess-variants))
         - [Lichess4545](https://www.lichess4545.com/) ([source code](https://github.com/cyanfish/heltour))
-        - [English Chess Federation](https://ecf.octoknight.com/) (outdated)
-        - [Rotherham Online Chess](https://rotherhamonlinechess.azurewebsites.net/tournaments) (outdated)
+        - [English Chess Federation](https://ecf.octoknight.com/)
+        - [Rotherham Online Chess](https://rotherhamonlinechess.azurewebsites.net/tournaments)
 
         ### Token format
         Access tokens and authorization codes match `^[A-Za-z0-9_]+$`.
