@@ -6834,9 +6834,6 @@ components:
           example: true
         playTime:
           $ref: '#/components/schemas/PlayTime'
-        language:
-          type: string
-          example: en-GB
         title:
           $ref: '#/components/schemas/Title'
 
