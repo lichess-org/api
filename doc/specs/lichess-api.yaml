@@ -701,6 +701,9 @@ paths:
                 properties:
                   prefs:
                     $ref: '#/components/schemas/UserPreferences'
+                  language:
+                    type: string
+                    example: en-GB
 
   /api/account/kid:
     get:
