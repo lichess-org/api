@@ -2292,7 +2292,7 @@ paths:
         - in: query
           name: status
           description: |
-            Possible values: 10, 20, 30. Meaning respectively to include tournaments in status: "Created", "Started", "Finished". 
+            Include tournaments in the given status: "Created" (10), "Started" (20), "Finished" (30)
             
             You can add this parameter more than once to include tournaments in different statuses. 
             
