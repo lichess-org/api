@@ -2299,6 +2299,7 @@ paths:
             Example: `?status=10&status=20`
           schema:
             type: integer
+            enum: [10, 20, 30]
           required: false
       responses:
         200:
