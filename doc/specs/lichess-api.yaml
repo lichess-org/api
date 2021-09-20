@@ -3813,35 +3813,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserExtended'
 
-  /api/user/{username}/followers:
-    get:
-      operationId: apiUserFollowers
-      summary: Get users who follow a user
-      description: |
-        Users are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-      tags:
-        - Relations
-      security: []
-      parameters:
-        - in: path
-          name: username
-          schema:
-            type: string
-            example: "thibault"
-          required: true
-      responses:
-        200:
-          description: The list of users who follow a user.
-          headers:
-            Access-Control-Allow-Origin:
-              schema:
-                type: string
-                default: "'*'"
-          content:
-            application/x-ndjson:
-              schema:
-                $ref: '#/components/schemas/UserExtended'
-
   /api/rel/follow/{username}:
     post:
       operationId: followUser
