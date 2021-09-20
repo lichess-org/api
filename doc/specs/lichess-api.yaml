@@ -190,7 +190,7 @@ paths:
         - in: query
           name: ids
           required: true
-          description: User IDs separated by commas. Up to 50 IDs.
+          description: User IDs separated by commas. Up to 100 IDs.
           schema:
             type: string
           example: aliquantus,chess-network,lovlas
