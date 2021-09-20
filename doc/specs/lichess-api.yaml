@@ -2292,9 +2292,11 @@ paths:
         - in: query
           name: status
           description: |
-            Include only tournaments in the given status(es). 
-            Possible values: 10, 20, 30. Meaning respectively "Created", "Started", "Finished". 
-            You can add this parameter more than once to include tournaments in different statuses. E.g: ?status=10&status=20
+            Possible values: 10, 20, 30. Meaning respectively to include tournaments in status: "Created", "Started", "Finished". 
+            
+            You can add this parameter more than once to include tournaments in different statuses. 
+            
+            Example: `?status=10&status=20`
           schema:
             type: integer
           required: false
