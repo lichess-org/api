@@ -1219,6 +1219,9 @@ paths:
         Stream the games played between a list of users, in real time.
         Only games where **both players** are part of the list are included.
 
+        By default, games are only sent to the stream when they start.
+        To also get all ongoing games at the beginning of the stream, use the `withCurrentGames` flag.
+
         Maximum number of users: 300.
 
         Games are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
@@ -1235,6 +1238,13 @@ paths:
             schema:
               type: string
             example: aliquantus,chess-network,lovlas
+      parameters:
+        - in: query
+          name: withCurrentGames
+          description: Include the already started games at the beginning of the stream.
+          schema:
+            type: boolean
+            default: false
       responses:
         200:
           description: The stream of the games played between the users.
