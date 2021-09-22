@@ -23,6 +23,7 @@ info:
     - [Python general API - async](https://pypi.org/project/async-lichess-sdk)
     - [Python Lichess Bot](https://github.com/careless25/lichess-bot)
     - [Python Board API for Certabo](https://github.com/haklein/certabo-lichess)
+    - [Java general API](https://github.com/tors42/chariot)
 
     ## Rate limiting
     All requests are rate limited using various strategies,
