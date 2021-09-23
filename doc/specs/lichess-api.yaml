@@ -3319,6 +3319,42 @@ paths:
               schema:
                 $ref: '#/components/schemas/StudyPgn'
 
+  /api/stream/broadcast/round/{broadcastRoundId}.pgn:
+    get:
+      operationId: broadcastStreamRoundPgn
+      summary: Stream an ongoing broadcast tournament as PGN
+      description: |
+        This streaming endpoint first sends all games of a broadcast tournament in PGN format.
+
+        Then, it waits for new moves to be played. As soon as it happens, the entire PGN of the game is sent to the stream.
+
+        The stream will also send PGNs when games are added to the tournament.
+
+        This is the best way to get updates about an ongoing tournament. Streaming means no polling,
+        and no pollings means no latency, and minimum impact on the server.
+      tags:
+        - Broadcasts
+      security: []
+      parameters:
+        - in: path
+          name: broadcastRoundId
+          description: The broadcast round ID (8 characters).
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: The PGN representation of the tournament games, then the PGNs of games as they are updated.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/x-chess-pgn:
+              schema:
+                $ref: '#/components/schemas/StudyPgn'
+
   /api/simul:
     get:
       operationId: apiSimul
@@ -6624,7 +6660,7 @@ components:
         1. e4 e5 2. f4 d5 3. exd5 exf4 4. Nf3 Nf6 5. c4 c6 6. d4 cxd5 7. c5 Nc6 8. Bb5 Be7 9. O-O O-O 10. Bxf4 Bg4 11. Nc3 Ne4 12. Qd3 Bf5 13. Qe3 Bf6 14. Bxc6 bxc6 15. Ne5 Bxe5 16. Bxe5 Bg6 17. Nxe4 Bxe4 18. Qg3 f6 19. Bd6 Re8 20. b4 Bg6 21. a4 a6 22. h4 Qd7 23. h5 Bxh5 24. Rxf6 Qg4 25. Qxg4 Bxg4 26. Rf4 Bh5 27. Raf1 h6 28. Be5 Ra7 29. b5 axb5 30. axb5 cxb5 31. c6 Raa8 32. c7 Kh7 33. Rb1 Be2 34. Rf7 Rg8 35. Re7 Bc4 36. Kh2 Rae8 37. Rd7 Ra8 38. Rb2 Raf8 39. g4 Ra8 40. Rf2 b4 41. Rff7 h5 42. Rxg7+ Rxg7 43. Rxg7+ 1-0
     StudyPgn:
       example: |
-        [Event "♦ All about the Sicilian Defense ♦: Dragon Variation"]
+        [Event "All about the Sicilian Defense: Dragon Variation"]
         [Site "https://lichess.org/study/8c8bmUfy/qwnXMwVC"]
         [Result "*"]
         [UTCDate "2017.06.25"]
