@@ -3290,35 +3290,6 @@ paths:
                 items:
                   $ref: '#/components/schemas/Ok'
 
-  /api/broadcast/{broadcastTournamentId}.pgn:
-    get:
-      operationId: broadcastAllRoundsPgn
-      summary: Export all rounds as PGN
-      description: |
-        Download all games of all rounds of a broadcast in PGN format.
-      tags:
-        - Broadcasts
-      security: []
-      parameters:
-        - in: path
-          name: broadcastTournamentId
-          description: The broadcast tournament ID (8 characters).
-          required: true
-          schema:
-            type: string
-      responses:
-        200:
-          description: The PGN representation of the broadcast.
-          headers:
-            Access-Control-Allow-Origin:
-              schema:
-                type: string
-                default: "'*'"
-          content:
-            application/x-chess-pgn:
-              schema:
-                $ref: '#/components/schemas/StudyPgn'
-
   /api/stream/broadcast/round/{broadcastRoundId}.pgn:
     get:
       operationId: broadcastStreamRoundPgn
@@ -3345,6 +3316,72 @@ paths:
       responses:
         200:
           description: The PGN representation of the tournament games, then the PGNs of games as they are updated.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/x-chess-pgn:
+              schema:
+                $ref: '#/components/schemas/StudyPgn'
+
+  /api/broadcast/round/{broadcastRoundId}.pgn:
+    get:
+      operationId: broadcastRoundPgn
+      summary: Export one round as PGN
+      description: |
+        Download all games of a single round of a broadcast tournament in PGN format.
+
+        You *could* poll this endpoint to get updates about a tournament, but it would be slow,
+        and very inneficient.
+
+        Instead, consider [streaming the tournament](#operation/broadcastStreamRoundPgn) to get
+        a new PGN every time a game is updated, in real-time.
+      tags:
+        - Broadcasts
+      security: []
+      parameters:
+        - in: path
+          name: broadcastRoundId
+          description: The round ID (8 characters).
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: The PGN representation of the round.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/x-chess-pgn:
+              schema:
+                $ref: '#/components/schemas/StudyPgn'
+
+  /api/broadcast/{broadcastTournamentId}.pgn:
+    get:
+      operationId: broadcastAllRoundsPgn
+      summary: Export all rounds as PGN
+      description: |
+        Download all games of all rounds of a broadcast in PGN format.
+        
+        You may want to [download only the games of a single round](#operation/broadcastRoundPgn) instead.
+      tags:
+        - Broadcasts
+      security: []
+      parameters:
+        - in: path
+          name: broadcastTournamentId
+          description: The broadcast tournament ID (8 characters).
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: The PGN representation of the broadcast.
           headers:
             Access-Control-Allow-Origin:
               schema:
