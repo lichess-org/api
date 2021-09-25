@@ -42,22 +42,22 @@ tags:
 - name: Account
   description: |
     Read and write account informations and preferences.
-    https://lichess.org/account/preferences/game-display
+    <https://lichess.org/account/preferences/game-display>
 - name: Users
   description: |
     Access registered users on Lichess.
-    https://lichess.org/player
+    <https://lichess.org/player>
 - name: Relations
   description: |
     Access relations between users.
 - name: Games
   description: |
     Access games played on Lichess.
-    https://lichess.org/games
+    <https://lichess.org/games>
 - name: TV
   description: |
     Access Lichess TV channels and games.
-    https://lichess.org/tv & https://lichess.org/games
+    <https://lichess.org/tv> & <https://lichess.org/games>
 - name: Puzzles
   description: |
     Access Lichess [puzzle history and dashboard](https://lichess.org/training).
@@ -68,7 +68,7 @@ tags:
 - name: Teams
   description: |
     Access and manage Lichess teams and their members.
-    https://lichess.org/team
+    <https://lichess.org/team>
 - name: Board
   description: "Play on Lichess with physical boards and third-party clients.\n
   \ Works with normal Lichess accounts. Engine play or assistance is forbidden.\n\n\
@@ -134,15 +134,15 @@ tags:
 - name: Simuls
   description: |
     Access simuls played on Lichess.
-    https://lichess.org/simul
+    <https://lichess.org/simul>
 - name: Studies
   description: |
     Access Lichess studies.
-    https://lichess.org/study
+    <https://lichess.org/study>
 - name: Messaging
   description: |
     Private messages with other players.
-    https://lichess.org/inbox
+    <https://lichess.org/inbox>
 - name: Broadcasts
   description: |
     Relay chess events on Lichess.
@@ -156,7 +156,7 @@ tags:
 - name: Analysis
   description: |
     Access Lichess cloud evaluations database.
-    https://lichess.org/analysis
+    <https://lichess.org/analysis>
 - name: Opening Explorer
   description: |
     Lookup positions from the [Lichess opening explorer](https://lichess.org/analysis#explorer).
@@ -255,7 +255,7 @@ paths:
       description: |
         Get the top 10 players for each speed and variant.
 
-        See https://lichess.org/player.
+        See <https://lichess.org/player>.
       responses:
         200:
           description: The list of variants with their respective top players.
@@ -275,7 +275,7 @@ paths:
         Get the leaderboard for a single speed or variant (a.k.a. `perfType`).
         There is no leaderboard for correspondence or puzzles.
 
-        See https://lichess.org/player/top/200/bullet.
+        See <https://lichess.org/player/top/200/bullet>.
       parameters:
         - in: path
           name: nb
@@ -682,8 +682,8 @@ paths:
       description: |
         Read the preferences of the logged in user.
 
-        - https://lichess.org/account/preferences/game-display
-        - https://github.com/ornicar/lila/blob/master/modules/pref/src/main/Pref.scala
+        - <https://lichess.org/account/preferences/game-display>
+        - <https://github.com/ornicar/lila/blob/master/modules/pref/src/main/Pref.scala>
       tags:
         - Account
       security:
@@ -713,7 +713,7 @@ paths:
       description: |
         Read the kid mode status of the logged in user.
 
-        - https://lichess.org/account/kid
+        - <https://lichess.org/account/kid>
       tags:
         - Account
       security:
@@ -740,7 +740,7 @@ paths:
       description: |
         Set the kid mode status of the logged in user.
 
-        - https://lichess.org/account/kid
+        - <https://lichess.org/account/kid>
       tags:
         - Account
       security:
@@ -842,7 +842,7 @@ paths:
           name: players
           description: |
             URL of a text file containing real names and ratings, to replace Lichess usernames and ratings in the PGN.
-            Example: https://gist.githubusercontent.com/ornicar/6bfa91eb61a2dcae7bcd14cce1b2a4eb/raw/768b9f6cc8a8471d2555e47ba40fb0095e5fba37/gistfile1.txt
+            Example: <https://gist.githubusercontent.com/ornicar/6bfa91eb61a2dcae7bcd14cce1b2a4eb/raw/768b9f6cc8a8471d2555e47ba40fb0095e5fba37/gistfile1.txt>
           schema:
             type: string
       responses:
@@ -936,7 +936,7 @@ paths:
           name: players
           description: |
             URL of a text file containing real names and ratings, to replace Lichess usernames and ratings in the PGN.
-            Example: https://gist.githubusercontent.com/ornicar/6bfa91eb61a2dcae7bcd14cce1b2a4eb/raw/768b9f6cc8a8471d2555e47ba40fb0095e5fba37/gistfile1.txt
+            Example: <https://gist.githubusercontent.com/ornicar/6bfa91eb61a2dcae7bcd14cce1b2a4eb/raw/768b9f6cc8a8471d2555e47ba40fb0095e5fba37/gistfile1.txt>
           schema:
             type: string
       responses:
@@ -965,7 +965,7 @@ paths:
         Games are sorted by reverse chronological order (most recent first)
 
         We recommend streaming the response, for it can be very long.
-        https://lichess.org/@/german11 for instance has more than 320,000 games.
+        <https://lichess.org/@/german11> for instance has more than 320,000 games.
 
         The game stream is throttled, depending on who is making the request:
           - Anonymous request: 20 games per second
@@ -1104,7 +1104,7 @@ paths:
           name: players
           description: |
             URL of a text file containing real names and ratings, to replace Lichess usernames and ratings in the PGN.
-            Example: https://gist.githubusercontent.com/ornicar/6bfa91eb61a2dcae7bcd14cce1b2a4eb/raw/768b9f6cc8a8471d2555e47ba40fb0095e5fba37/gistfile1.txt
+            Example: <https://gist.githubusercontent.com/ornicar/6bfa91eb61a2dcae7bcd14cce1b2a4eb/raw/768b9f6cc8a8471d2555e47ba40fb0095e5fba37/gistfile1.txt>
           schema:
             type: string
       responses:
@@ -1198,7 +1198,7 @@ paths:
           name: players
           description: |
             URL of a text file containing real names and ratings, to replace Lichess usernames and ratings in the PGN.
-            Example: https://gist.githubusercontent.com/ornicar/6bfa91eb61a2dcae7bcd14cce1b2a4eb/raw/768b9f6cc8a8471d2555e47ba40fb0095e5fba37/gistfile1.txt
+            Example: <https://gist.githubusercontent.com/ornicar/6bfa91eb61a2dcae7bcd14cce1b2a4eb/raw/768b9f6cc8a8471d2555e47ba40fb0095e5fba37/gistfile1.txt>
           schema:
             type: string
       responses:
@@ -1368,7 +1368,7 @@ paths:
       operationId: gameImport
       summary: Import one game
       description: |
-        Import a game from PGN. See https://lichess.org/paste.
+        Import a game from PGN. See <https://lichess.org/paste>.
 
         Rate limiting: 200 games per hour for OAuth requests, 100 games per hour for anonymous requests.
 
@@ -1644,7 +1644,7 @@ paths:
       description: |
         Create a public or private Arena tournament.
 
-        This endpoint mirrors the form on https://lichess.org/tournament/new.
+        This endpoint mirrors the form on <https://lichess.org/tournament/new>.
 
         You can create up to 12 public tournaments per day, or 24 private tournaments.
 
@@ -1753,7 +1753,7 @@ paths:
                   description: |
                     Restrict entry to members of a team.
 
-                    The teamId is the last part of a team URL, e.g. https://lichess.org/team/coders has teamId = `coders`.
+                    The teamId is the last part of a team URL, e.g. `https://lichess.org/team/coders` has teamId = `coders`.
 
                     Leave empty to let everyone join the tournament.
 
@@ -2520,9 +2520,9 @@ paths:
       description: |
         Download a tournament in the Tournament Report File format, the FIDE standard.
 
-        Documentation: https://www.fide.com/FIDE/handbook/C04Annex2_TRF16.pdf
+        Documentation: <https://www.fide.com/FIDE/handbook/C04Annex2_TRF16.pdf>
 
-        Example: https://lichess.org/swiss/j8rtJ5GL.trf
+        Example: <https://lichess.org/swiss/j8rtJ5GL.trf>
       tags:
         - "Swiss tournaments"
       security: []
@@ -3692,7 +3692,7 @@ paths:
       summary: Leave a team
       description: |
         Leave a team.
-        - https://lichess.org/team
+        - <https://lichess.org/team>
       tags:
         - Teams
       security:
@@ -3718,7 +3718,7 @@ paths:
       summary: Kick a user from your team
       description: |
         Kick a member out of one of your teams.
-        - https://lichess.org/team
+        - <https://lichess.org/team>
       tags:
         - Teams
       security:
@@ -5865,7 +5865,7 @@ paths:
       operationId: openingExplorerMaster
       summary: Master games
       description: |
-        **Endpoint: https://explorer.lichess.ovh/master**
+        **Endpoint: <https://explorer.lichess.ovh/master>**
 
         Example: `curl https://explorer.lichess.ovh/master?fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
       tags:
@@ -5920,9 +5920,9 @@ paths:
       operationId: openingExplorerLichess
       summary: Lichess games
       description: |
-        **Endpoint: https://explorer.lichess.ovh/lichess**
+        **Endpoint: <https://explorer.lichess.ovh/lichess>**
 
-        Runs https://github.com/niklasf/lila-openingexplorer.
+        Runs <https://github.com/niklasf/lila-openingexplorer>.
 
         Example: `curl https://explorer.lichess.ovh/lichess?variant=standard&speeds[]=blitz&speeds[]=rapid&speeds[]=classical&ratings[]=2200&ratings[]=2500&fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
       tags:
@@ -6015,7 +6015,7 @@ paths:
       operationId: openingExplorerMasterGame
       summary: OTB master game
       description: |
-        **Endpoint: https://explorer.lichess.ovh/master/pgn/{gameId}**
+        **Endpoint: `https://explorer.lichess.ovh/master/pgn/{gameId}`**
 
         Example: `curl https://explorer.lichess.ovh/master/pgn/aAbqI4ey`
       tags:
@@ -6047,7 +6047,7 @@ paths:
       operationId: openingExplorerStats
       summary: Opening explorer stats
       description: |
-        **Endpoint: https://explorer.lichess.ovh/stats**
+        **Endpoint: <https://explorer.lichess.ovh/stats>**
 
         Example: `curl https://explorer.lichess.ovh/stats`
       tags:
@@ -6115,7 +6115,7 @@ paths:
       operationId: tablebaseStandard
       summary: Tablebase lookup
       description: |
-        **Endpoint: https://tablebase.lichess.ovh**
+        **Endpoint: <https://tablebase.lichess.ovh>**
 
         Example: `curl http://tablebase.lichess.ovh/standard?fen=4k3/6KP/8/8/8/8/7p/8_w_-_-_0_1`
       tags:
