@@ -6922,12 +6922,6 @@ components:
               type: string
               format: uri
               example: https://lichess.org/yqfLYJ5E/black
-            nbFollowing:
-              type: integer
-              example: 299
-            nbFollowers:
-              type: integer
-              example: 2735
             completionRate:
               type: integer
               example: 97
