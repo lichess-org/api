@@ -6902,6 +6902,9 @@ components:
         patron:
           type: boolean
           example: true
+        verified:
+          type: boolean
+          example: true
         playTime:
           $ref: '#/components/schemas/PlayTime'
         title:
