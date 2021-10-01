@@ -3880,22 +3880,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/Crosstable'
 
-  /api/user/{username}/following:
+  /api/rel/following:
     get:
       operationId: apiUserFollowing
-      summary: Get users followed by a user
+      summary: Get users followed the logged in user
       description: |
         Users are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
         - Relations
-      security: []
-      parameters:
-        - in: path
-          name: username
-          schema:
-            type: string
-            example: "thibault"
-          required: true
+      security:
+        - OAuth2: []
       responses:
         200:
           description: The list of users followed by a user.
