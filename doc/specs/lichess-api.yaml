@@ -1107,6 +1107,15 @@ paths:
             Example: <https://gist.githubusercontent.com/ornicar/6bfa91eb61a2dcae7bcd14cce1b2a4eb/raw/768b9f6cc8a8471d2555e47ba40fb0095e5fba37/gistfile1.txt>
           schema:
             type: string
+        - in: query
+          name: sort
+          description: "Sort order of the games".
+          schema:
+            type: string
+            default: dateDesc
+            enum:
+              - dateAsc
+              - dateDesc
       responses:
         200:
           description: The games of the user.
