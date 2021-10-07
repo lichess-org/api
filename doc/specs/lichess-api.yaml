@@ -1101,6 +1101,12 @@ paths:
             type: boolean
             default: false
         - in: query
+          name: ongoing
+          description: Include ongoing games. The last 3 moves will be omitted.
+          schema:
+            type: boolean
+            default: false
+        - in: query
           name: players
           description: |
             URL of a text file containing real names and ratings, to replace Lichess usernames and ratings in the PGN.
