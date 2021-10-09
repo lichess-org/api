@@ -1115,7 +1115,7 @@ paths:
             type: string
         - in: query
           name: sort
-          description: "Sort order of the games".
+          description: "Sort order of the games."
           schema:
             type: string
             default: dateDesc
