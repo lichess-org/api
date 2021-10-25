@@ -2448,6 +2448,114 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/swiss/{id}/edit:
+    post:
+      operationId: apiSwissUpdate
+      summary: Update a Swiss tournament.
+      description: |
+        Update a Swiss tournament.
+
+        Be mindful not to make important changes to ongoing tournaments.
+      tags:
+        - "Swiss tournaments"
+      security:
+        - OAuth2: ["tournament:write"]
+      parameters:
+        - in: path
+          name: id
+          description: The tournament ID.
+          schema:
+            type: string
+            example: "hL7vMrFQ"
+          required: true
+      requestBody:
+        description: Parameters of the tournament
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The tournament name. Leave empty to get a random Grandmaster name
+                'clock.limit':
+                  type: number
+                  description: Clock initial time in seconds
+                  example: 300
+                  minimum: 0
+                  maximum: 3600
+                'clock.increment':
+                  type: integer
+                  description: Clock increment in seconds
+                  example: 1
+                  minimum: 0
+                  maximum: 600
+                nbRounds:
+                  type: integer
+                  description: Maximum number of rounds to play
+                  minimum: 3
+                  maximum: 100
+                  default: 8
+                startsAt:
+                  type: integer
+                  description: Timestamp in milliseconds to start the tournament at a given date and time. By default, it starts 10 minutes after creation.
+                roundInterval:
+                  type: integer
+                  description: |
+                    How long to wait between each round, in seconds.
+
+                    Set to 99999999 to manually schedule each round from the tournament UI.
+                  minimum: 0
+                  maximum: 86400
+                  default: auto
+                variant:
+                  $ref: '#/components/schemas/VariantKey'
+                description:
+                  type: string
+                  description: Anything you want to tell players about the tournament
+                rated:
+                  type: boolean
+                  description: Games are rated and impact players ratings
+                  default: true
+                chatFor:
+                  type: number
+                  description: |
+                    Who can read and write in the chat.
+                    - 0  = No-one
+                    - 10 = Only team leaders
+                    - 20 = Only team members
+                    - 30 = All Lichess players
+                  default: 20
+              required:
+                - 'clock.limit'
+                - 'clock.increment'
+                - nbRounds
+      responses:
+        200:
+          description: The Swiss tournament was successfully updated.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SwissTournament'
+        400:
+          description: Updating the swiss failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: This user cannot update this Swiss.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SwissUnauthorisedEdit'
+
   /api/swiss/{id}/join:
     post:
       operationId: apiSwissJoin
@@ -8098,6 +8206,14 @@ components:
           type: string
       example:
         error: "Not found."
+
+
+    SwissUnauthorisedEdit:
+      properties:
+        error:
+          type: string
+      example:
+        error: "This user cannot edit this swiss"
 
     MoveStream:
       example: [
