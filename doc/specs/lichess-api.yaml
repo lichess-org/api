@@ -6097,9 +6097,9 @@ paths:
       description: |
         **Endpoint: <https://explorer.lichess.ovh/lichess>**
 
-        Runs <https://github.com/niklasf/lila-openingexplorer>.
+        Games sampled from all Lichess players.
 
-        Example: `curl https://explorer.lichess.ovh/lichess?variant=standard&speeds[]=blitz&speeds[]=rapid&speeds[]=classical&ratings[]=2200&ratings[]=2500&fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
+        Example: `curl https://explorer.lichess.ovh/lichess?variant=standard&speeds=blitz,rapid,classical&ratings=2200,2500&fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
       tags:
         - Opening Explorer
       security: []
@@ -6107,12 +6107,11 @@ paths:
         - in: query
           name: variant
           description: Variant
-          required: true
           schema:
             $ref: '#/components/schemas/VariantKey'
+            default: standard
         - in: query
           name: fen
-          required: true
           description: FEN of the root position
           schema:
             type: string
@@ -6120,11 +6119,53 @@ paths:
         - in: query
           name: play
           description: |
-            Comma separated sequence of legal moves in UCI notation, starting from the given FEN.
-            Determines the position to be looked up.
+            Comma separated sequence of legal moves in UCI notation.
+            Play additional moves starting from `fen`.
+            Required to find an opening name, if `fen` is not an exact match
+            for a named position.
           schema:
             type: string
             default: ""
+          example: e2e4,e7e5,c2c4,c7c6,c4e5
+        - in: query
+          name: speeds
+          description: Comma separated list of game speeds to look for
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - ultraBullet
+                - bullet
+                - blitz
+                - rapid
+                - classical
+                - correspondence
+        - in: query
+          name: ratings
+          description: Comma separated list of rating groups, ranging from their value to the next higher group
+          schema:
+            type: array
+            items:
+              type: number
+              enum:
+                - 1600
+                - 1800
+                - 2000
+                - 2200
+                - 2500
+        - in: query
+          name: since
+          description: Include only games from this month or later
+          schema:
+            type: string
+            default: 0000-01
+        - in: query
+          name: until
+          description: Include only games from this month or earlier
+          schema:
+            type: string
+            default: 3000-12
         - in: query
           name: moves
           description: Number of most common moves to display
@@ -6137,42 +6178,17 @@ paths:
           schema:
             type: number
             default: 4
-            maximum: 4
+            maximum: 8
         - in: query
           name: recentGames
           description: Number of recent games to display
           schema:
             type: number
             default: 4
-            maximum: 4
-        - in: query
-          name: speeds[]
-          description: One or more game speeds to look for
-          schema:
-            type: array
-            items:
-              type: string
-              enum:
-                - bullet
-                - blitz
-                - rapid
-                - classical
-        - in: query
-          name: ratings[]
-          description: One or more rating groups, ranging from their value to the next higher group
-          schema:
-            type: array
-            items:
-              type: number
-              enum:
-                - 1600
-                - 1800
-                - 2000
-                - 2200
-                - 2500
+            maximum: 8
       responses:
         200:
-          description: The list of openings.
+          description: Opening statistics and game references for the position.
           headers:
             Access-Control-Allow-Origin:
               schema:
@@ -7974,6 +7990,7 @@ components:
             "month": "2018-06"
           }
         ],
+        "recentGames": [],
         "opening": {
           "eco": "D10",
           "name": "Slav Defense: Exchange Variation"
