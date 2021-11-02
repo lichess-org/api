@@ -161,6 +161,8 @@ tags:
   description: |
     Lookup positions from the [Lichess opening explorer](https://lichess.org/analysis#explorer).
 
+    Runs <https://github.com/niklasf/lila-openingexplorer>.
+
     **The endpoint hostname is not lichess.org but explorer.lichess.ovh.**
 - name: Tablebase
   description: |
@@ -6018,35 +6020,48 @@ paths:
                 type: string
                 default: "'*'"
 
-  /master:
+  /masters:
     servers:
       - url: https://explorer.lichess.ovh
     get:
       operationId: openingExplorerMaster
-      summary: Master games
+      summary: Masters database
       description: |
-        **Endpoint: <https://explorer.lichess.ovh/master>**
+        **Endpoint: <https://explorer.lichess.ovh/masters>**
 
-        Example: `curl https://explorer.lichess.ovh/master?fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
+        Example: `curl https://explorer.lichess.ovh/masters?play=d2d4,d7d5,c2c4,c7c6,c4d5`
       tags:
         - Opening Explorer
       security: []
       parameters:
         - in: query
           name: fen
-          required: true
           description: FEN of the root position
           schema:
             type: string
-          example: rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2
+          example: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
         - in: query
           name: play
           description: |
-            Comma separated sequence of legal moves in UCI notation, starting from the given FEN.
-            Determines the position to be looked up.
+            Comma separated sequence of legal moves in UCI notation.
+            Play additional moves starting from `fen`.
+            Required to find an opening name, if `fen` is not an exact match
+            for a named position.
           schema:
             type: string
             default: ""
+          example: e2e4,e7e5,c2c4,c7c6,c4e5
+        - in: query
+          name: since
+          description: Include only games from this year or later
+          schema:
+            type: number
+            default: 1952
+        - in: query
+          name: until
+          description: Include only games from thi year or earlier
+          schema:
+            type: number
         - in: query
           name: moves
           description: Number of most common moves to display
@@ -6058,11 +6073,11 @@ paths:
           description: Number of top games to display
           schema:
             type: number
-            default: 4
-            maximum: 4
+            default: 15
+            maximum: 15
       responses:
         200:
-          description: The evaluation of the position.
+          description: Opening statistics and game references for the position.
           headers:
             Access-Control-Allow-Origin:
               schema:
@@ -6175,9 +6190,9 @@ paths:
       operationId: openingExplorerMasterGame
       summary: OTB master game
       description: |
-        **Endpoint: `https://explorer.lichess.ovh/master/pgn/{gameId}`**
+        **Endpoint: `https://explorer.lichess.ovh/masters/pgn/{gameId}`**
 
-        Example: `curl https://explorer.lichess.ovh/master/pgn/aAbqI4ey`
+        Example: `curl https://explorer.lichess.ovh/masters/pgn/aAbqI4ey`
       tags:
         - Opening Explorer
       security: []
@@ -6199,74 +6214,6 @@ paths:
             application/x-chess-pgn:
               schema:
                 $ref: '#/components/schemas/MasterGamePgn'
-
-  /stats:
-    servers:
-      - url: https://explorer.lichess.ovh
-    get:
-      operationId: openingExplorerStats
-      summary: Opening explorer stats
-      description: |
-        **Endpoint: <https://explorer.lichess.ovh/stats>**
-
-        Example: `curl https://explorer.lichess.ovh/stats`
-      tags:
-        - Opening Explorer
-      security: []
-      responses:
-        200:
-          description: The statistics of the Opening Explorer.
-          headers:
-            Access-Control-Allow-Origin:
-              schema:
-                type: string
-                default: "'*'"
-          content:
-            application/json:
-              example: {
-                "master": {
-                  "games": 2299868,
-                  "uniquePositions": 56683918
-                },
-                "lichess": {
-                  "chess960": {
-                    "games": 2259840,
-                    "uniquePositions": 190488295
-                  },
-                  "standard": {
-                    "games": 272515941,
-                    "uniquePositions": 735538024
-                  },
-                  "antichess": {
-                    "games": 7818476,
-                    "uniquePositions": 177073596
-                  },
-                  "horde": {
-                    "games": 1027171,
-                    "uniquePositions": 34843126
-                  },
-                  "atomic": {
-                    "games": 3827483,
-                    "uniquePositions": 70119949
-                  },
-                  "racingKings": {
-                    "games": 747878,
-                    "uniquePositions": 11671677
-                  },
-                  "kingOfTheHill": {
-                    "games": 1345370,
-                    "uniquePositions": 38511395
-                  },
-                  "crazyhouse": {
-                    "games": 7540244,
-                    "uniquePositions": 218945811
-                  },
-                  "threeCheck": {
-                    "games": 1362591,
-                    "uniquePositions": 29181473
-                  }
-                }
-              }
 
   /standard:
     servers:
@@ -7959,46 +7906,78 @@ components:
 
     OpeningExplorerJson:
       example: {
-        "white": 645088,
-        "draws": 838971,
-        "black": 462332,
-        "averageRating": 2407,
+        "white": 1443,
+        "draws": 3787,
+        "black": 1156,
         "moves": [
           {
-            "uci": "e2e4",
-            "san": "e4",
-            "white": 291056,
-            "draws": 376163,
-            "black": 218378,
-            "averageRating": 2401
+            "uci": "c6d5",
+            "san": "cxd5",
+            "averageRating": 2423,
+            "white": 1443,
+            "draws": 3787,
+            "black": 1155,
+            "game": null
           },
           {
-            "uci": "d2d4",
-            "san": "d4",
-            "white": 234074,
-            "draws": 304134,
-            "black": 159442,
-            "averageRating": 2414
-          },
+            "uci": "g8f6",
+            "san": "Nf6",
+            "averageRating": 2515,
+            "white": 0,
+            "draws": 0,
+            "black": 1,
+            "game": {
+              "id": "1EErB5jc",
+              "winner": "black",
+              "white": {
+                "name": "Drozdovskij, Yuri",
+                "rating": 2509
+              },
+              "black": {
+                "name": "Dobrov, Vladimir",
+                "rating": 2515
+              },
+              "year": 2006,
+              "month": "2006-01"
+            }
+          }
         ],
         "topGames": [
           {
-            "id": "IpY1ThET",
+            "uci": "c6d5",
+            "id": "kN6d9l2i",
+            "winner": "black",
+            "white": {
+              "name": "Carlsen, M.",
+              "rating": 2881
+            },
+            "black": {
+              "name": "Anand, V.",
+              "rating": 2785
+            },
+            "year": 2014,
+            "month": "2014-06"
+          },
+          {
+            "uci": "c6d5",
+            "id": "qeYPJL2y",
             "winner": "white",
             "white": {
-              "name": "Aronian, L.",
-              "rating": 2826
+              "name": "So, W.",
+              "rating": 2778
             },
             "black": {
               "name": "Carlsen, M.",
-              "rating": 2872
+              "rating": 2843
             },
-            "year": 2014,
-            "speed": "classical"
-          },
+            "year": 2018,
+            "month": "2018-06"
+          }
         ],
-        "recentGames": [],
-        "opening": null
+        "opening": {
+          "eco": "D10",
+          "name": "Slav Defense: Exchange Variation"
+        }
       }
 
     TablebaseJson:
