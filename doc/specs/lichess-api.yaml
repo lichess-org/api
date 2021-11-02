@@ -6199,6 +6199,114 @@ paths:
               schema:
                 $ref: '#/components/schemas/OpeningExplorerJson'
 
+  /player?:
+    servers:
+      - url: https://explorer.lichess.ovh
+    get:
+      operationId: openingExplorerPlayer
+      summary: Player games
+      description: |
+        **Endpoint: <https://explorer.lichess.ovh/player>**
+
+        Games of a Lichess player.
+
+        Responds with a stream of newline delimited JSON. Will start indexing
+        on demand, immediately respond with the current results, and stream
+        more updates until indexing is complete. The stream is throttled
+        and deduplicated. Empty lines may be sent to avoid timeouts.
+
+        Will index new games at most once per minute, and revisit previously
+        ongoing games at most once every day.
+
+        Example: `curl https://explorer.lichess.ovh/player?player=revoof&color=white&play=d2d4,d7d5&recentGames=1`
+      tags:
+        - Opening Explorer
+      security: []
+      parameters:
+        - in: query
+          name: variant
+          description: Variant
+          schema:
+            $ref: '#/components/schemas/VariantKey'
+            default: standard
+        - in: query
+          name: fen
+          description: FEN of the root position
+          schema:
+            type: string
+          example: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+        - in: query
+          name: play
+          description: |
+            Comma separated sequence of legal moves in UCI notation.
+            Play additional moves starting from `fen`.
+            Required to find an opening name, if `fen` is not an exact match
+            for a named position.
+          schema:
+            type: string
+            default: ""
+          example: d2d4,d7d5
+        - in: query
+          name: speeds
+          description: Comma separated list of game speeds to look for
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - ultraBullet
+                - bullet
+                - blitz
+                - rapid
+                - classical
+                - correspondence
+        - in: query
+          name: modes
+          description: Comma separated list of modes
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - casual
+                - rated
+        - in: query
+          name: since
+          description: Include only games from this month or later
+          schema:
+            type: string
+            default: 0000-01
+        - in: query
+          name: until
+          description: Include only games from this month or earlier
+          schema:
+            type: string
+            default: 3000-12
+        - in: query
+          name: moves
+          description: Number of most common moves to display
+          schema:
+            type: number
+        - in: query
+          name: recentGames
+          description: Number of recent games to display
+          schema:
+            type: number
+            default: 4
+            maximum: 8
+      responses:
+        200:
+          description: Opening statistics and game references for the position.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/nd-json:
+              schema:
+                $ref: '#/components/schemas/OpeningExplorerPlayerJson'
+
   /master/pgn/{gameId}:
     servers:
       - url: https://explorer.lichess.ovh
@@ -7994,6 +8102,122 @@ components:
         "opening": {
           "eco": "D10",
           "name": "Slav Defense: Exchange Variation"
+        }
+      }
+
+    OpeningExplorerPlayerJson:
+      example: {
+        "white": 354,
+        "draws": 22,
+        "black": 268,
+        "moves": [
+          {
+            "uci": "c2c4",
+            "san": "c4",
+            "averageOpponentRating": 1696,
+            "white": 349,
+            "draws": 22,
+            "black": 261,
+            "game": null
+          },
+          {
+            "uci": "c2c3",
+            "san": "c3",
+            "averageOpponentRating": 1796,
+            "white": 2,
+            "draws": 0,
+            "black": 2,
+            "game": null
+          },
+          {
+            "uci": "g1f3",
+            "san": "Nf3",
+            "averageOpponentRating": 1496,
+            "white": 1,
+            "draws": 0,
+            "black": 2,
+            "game": null
+          },
+          {
+            "uci": "e2e4",
+            "san": "e4",
+            "averageOpponentRating": 1762,
+            "white": 1,
+            "draws": 0,
+            "black": 2,
+            "game": null
+          },
+          {
+            "uci": "h2h4",
+            "san": "h4",
+            "averageOpponentRating": 1674,
+            "white": 0,
+            "draws": 0,
+            "black": 1,
+            "game": {
+              "id": "9vA24xBn",
+              "winner": "black",
+              "speed": "bullet",
+              "mode": "rated",
+              "white": {
+                "name": "revoof",
+                "rating": 1657
+              },
+              "black": {
+                "name": "MentalBlood",
+                "rating": 1674
+              },
+              "year": 2020,
+              "month": "2020-06"
+            }
+          },
+          {
+            "uci": "h2h3",
+            "san": "h3",
+            "averageOpponentRating": 1696,
+            "white": 1,
+            "draws": 0,
+            "black": 0,
+            "game": {
+              "id": "zyI4GGKv",
+              "winner": "white",
+              "speed": "bullet",
+              "mode": "rated",
+              "white": {
+                "name": "revoof",
+                "rating": 1702
+              },
+              "black": {
+                "name": "gocool99",
+                "rating": 1696
+              },
+              "year": 2020,
+              "month": "2020-07"
+            }
+          }
+        ],
+        "recentGames": [
+          {
+            "uci": "c2c4",
+            "id": "xOwRVjjt",
+            "winner": "white",
+            "speed": "blitz",
+            "mode": "rated",
+            "white": {
+              "name": "revoof",
+              "rating": 1799
+            },
+            "black": {
+              "name": "VLASNAME",
+              "rating": 1076
+            },
+            "year": 2021,
+            "month": "2021-10"
+          }
+        ],
+        "opening": {
+          "eco": "D00",
+          "name": "Queen's Pawn Game"
         }
       }
 
