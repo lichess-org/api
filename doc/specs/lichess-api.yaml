@@ -1109,6 +1109,12 @@ paths:
             type: boolean
             default: false
         - in: query
+          name: finished
+          description: Include finished games. Set to `false` to only get ongoing games.
+          schema:
+            type: boolean
+            default: true
+        - in: query
           name: players
           description: |
             URL of a text file containing real names and ratings, to replace Lichess usernames and ratings in the PGN.
