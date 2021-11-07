@@ -4127,64 +4127,25 @@ paths:
                 default: "'*'"
           content:
             application/x-ndjson:
-              example: [
-                {
-                  "type":"challenge",
-                  "challenge": {
-                    "id":"7pGLxJ4F",
-                    "status":"created",
-                    "compat": {
-                      "bot": false,
-                      "board": true
-                    },
-                    "challenger": {
-                      "id":"lovlas",
-                      "name":"Lovlas",
-                      "title":"IM",
-                      "rating": 2506,
-                      "patron": true,
-                      "online": true,
-                      "lag": 24
-                    },
-                    "destUser": {
-                      "id":"thibot",
-                      "name":"thibot",
-                      "title":null,
-                      "rating": 1500,
-                      "provisional": true,
-                      "online": true,
-                      "lag": 45
-                    },
-                    "variant": {
-                      "key":"standard",
-                      "name":"Standard",
-                      "short":"Std"
-                    },
-                    "rated": true,
-                    "timeControl": {
-                      "type":"clock",
-                      "limit": 300,
-                      "increment": 25,
-                      "show":"5+25"
-                    },
-                    "color":"random",
-                    "perf": {
-                      "icon":"#",
-                      "name":"Rapid"
-                    }
-                  }
-                },
-                {
-                  "type":"gameStart",
-                  "game": {
-                    "id":"1lsvP62l",
-                    "compat": {
-                      "bot": false,
-                      "board": true
-                    }
-                  }
-                }
-              ]
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/GameStartEvent'
+                  - $ref: '#/components/schemas/GameFinishEvent'
+                  - $ref: '#/components/schemas/ChallengeEvent'
+                  - $ref: '#/components/schemas/ChallengeCanceledEvent'
+                  - $ref: '#/components/schemas/ChallengeDeclinedEvent'
+              examples:
+                challenge:
+                  $ref: '#/components/examples/eventStream/challenge'
+                challengeCanceled:
+                  $ref: '#/components/examples/eventStream/challengeCanceled'
+                challengeDeclined:
+                  $ref: '#/components/examples/eventStream/challengeDeclined'
+                gameStart:
+                  $ref: '#/components/examples/eventStream/gameStart'
+                gameFinish:
+                  $ref: '#/components/examples/eventStream/gameFinish'
+
 
   /api/board/seek:
     post:
@@ -6446,6 +6407,24 @@ components:
         increment:
           type: integer
 
+    GameStatus:
+      type: string
+      description: Game status code. https://github.com/ornicar/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
+      enum:
+        - created
+        - started
+        - aborted
+        - mate
+        - resign
+        - stalemate
+        - timeout
+        - draw
+        - outoftime
+        - cheat
+        - noStart
+        - unknownFinish
+        - variantEnd
+
     ChallengeUser:
       allOf:
         - $ref: '#/components/schemas/LightUser'
@@ -8361,7 +8340,7 @@ components:
       properties:
         type:
           type: string
-          value: gameFull
+          const: gameFull
         id:
           type: string
         variant:
@@ -8413,7 +8392,7 @@ components:
       properties:
         type:
           type: string
-          value: gameState
+          const: gameState
         moves:
           type: string
           description: Current moves in UCI format
@@ -8460,7 +8439,7 @@ components:
       properties:
         type:
           type: string
-          value: chatLine
+          const: chatLine
         room:
           type: string
           enum:
@@ -8476,23 +8455,78 @@ components:
         - username
         - text
 
-    GameStatus:
-      type: string
-      description: Game status code. https://github.com/ornicar/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
-      enum:
-        - created
-        - started
-        - aborted
-        - mate
-        - resign
-        - stalemate
-        - timeout
-        - draw
-        - outoftime
-        - cheat
-        - noStart
-        - unknownFinish
-        - variantEnd
+    GameEventInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        source:
+          type: string
+          enum:
+            - lobby
+            - friend
+            - ai
+            - api
+            - tournament
+            - position
+            - import
+            - importlive
+            - simul
+            - relay
+            - pool
+            - swiss
+        compat:
+          type: object
+          properties:
+            bot:
+              type: boolean
+            board:
+              type: boolean
+
+    GameStartEvent:
+      type: object
+      properties:
+        type:
+          type: string
+          const: gameStart
+        game:
+          $ref: '#/components/schemas/GameEventInfo'
+
+    GameFinishEvent:
+      type: object
+      properties:
+        type:
+          type: string
+          const: gameFinish
+        game:
+          $ref: '#/components/schemas/GameEventInfo'
+
+    ChallengeEvent:
+      type: object
+      properties:
+        type:
+          type: string
+          const: challenge
+        challenge:
+          $ref: '#/components/schemas/ChallengeJson'
+
+    ChallengeCanceledEvent:
+      type: object
+      properties:
+        type:
+          type: string
+          const: challengeCanceled
+        challenge:
+          $ref: '#/components/schemas/ChallengeJson'
+
+    ChallengeDeclinedEvent:
+      type: object
+      properties:
+        type:
+          type: string
+          const: challengeDeclined
+        challenge:
+          $ref: '#/components/schemas/ChallengeJson'
 
     Ok:
       properties:
@@ -8621,6 +8655,175 @@ components:
             "web:mod": Use moderator tools (within the bounds of your permissions)
 
   examples:
+    eventStream:
+      challenge:
+        value: {
+          "type":"challenge",
+          "challenge": {
+            "id":"7pGLxJ4F",
+            "status":"created",
+            "compat": {
+              "bot": false,
+              "board": true
+            },
+            "challenger": {
+              "id":"lovlas",
+              "name":"Lovlas",
+              "title":"IM",
+              "rating": 2506,
+              "patron": true,
+              "online": true,
+              "lag": 24
+            },
+            "destUser": {
+              "id":"thibot",
+              "name":"thibot",
+              "title":null,
+              "rating": 1500,
+              "provisional": true,
+              "online": true,
+              "lag": 45
+            },
+            "variant": {
+              "key":"standard",
+              "name":"Standard",
+              "short":"Std"
+            },
+            "rated": true,
+            "timeControl": {
+              "type":"clock",
+              "limit": 300,
+              "increment": 25,
+              "show":"5+25"
+            },
+            "color":"random",
+            "perf": {
+              "icon":"#",
+              "name":"Rapid"
+            }
+          }
+        }
+
+      challengeCanceled:
+        value: {
+          "type":"challengeCanceled",
+          "challenge": {
+            "id":"7pGLxJ4F",
+            "status":"created",
+            "compat": {
+              "bot": false,
+              "board": true
+            },
+            "challenger": {
+              "id":"lovlas",
+              "name":"Lovlas",
+              "title":"IM",
+              "rating": 2506,
+              "patron": true,
+              "online": true,
+              "lag": 24
+            },
+            "destUser": {
+              "id":"thibot",
+              "name":"thibot",
+              "title":null,
+              "rating": 1500,
+              "provisional": true,
+              "online": true,
+              "lag": 45
+            },
+            "variant": {
+              "key":"standard",
+              "name":"Standard",
+              "short":"Std"
+            },
+            "rated": true,
+            "timeControl": {
+              "type":"clock",
+              "limit": 300,
+              "increment": 25,
+              "show":"5+25"
+            },
+            "color":"random",
+            "perf": {
+              "icon":"#",
+              "name":"Rapid"
+            }
+          }
+        }
+
+      challengeDeclined:
+        value: {
+          "type":"challengeDeclined",
+          "challenge": {
+            "id":"7pGLxJ4F",
+            "status":"created",
+            "compat": {
+              "bot": false,
+              "board": true
+            },
+            "challenger": {
+              "id":"lovlas",
+              "name":"Lovlas",
+              "title":"IM",
+              "rating": 2506,
+              "patron": true,
+              "online": true,
+              "lag": 24
+            },
+            "destUser": {
+              "id":"thibot",
+              "name":"thibot",
+              "title":null,
+              "rating": 1500,
+              "provisional": true,
+              "online": true,
+              "lag": 45
+            },
+            "variant": {
+              "key":"standard",
+              "name":"Standard",
+              "short":"Std"
+            },
+            "rated": true,
+            "timeControl": {
+              "type":"clock",
+              "limit": 300,
+              "increment": 25,
+              "show":"5+25"
+            },
+            "color":"random",
+            "perf": {
+              "icon":"#",
+              "name":"Rapid"
+            }
+          }
+        }
+
+      gameStart:
+        value: {
+          "type":"gameStart",
+          "game": {
+            "id":"1lsvP62l",
+            "compat": {
+              "bot": false,
+              "board": true
+            }
+          }
+        }
+
+      gameFinish:
+        value: {
+          "type":"gameFinish",
+          "game": {
+            "id":"1lsvP62l",
+            "compat": {
+              "bot": false,
+              "board": true
+            }
+          }
+        }
+
     gameStream:
       gameFull:
         value: {
