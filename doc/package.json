@@ -3,25 +3,12 @@
   "private": true,
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
-    "pva": "^0.2.1",
+    "@stoplight/spectral-cli": "^6.1",
     "redoc-cli": "^0.12.1"
   },
   "scripts": {
-    "lint": "pva specs/*.yaml",
+    "lint": "spectral lint specs/*.yaml",
     "bundle": "redoc-cli bundle specs/lichess-api.yaml --disable-google-font --output public/index.html",
     "serve": "redoc-cli serve specs/lichess-api.yaml --disable-google-font"
-  },
-  "pva": {
-    "oas3": {
-      "responses": {
-        "no_response_body": "off"
-      }
-    },
-    "spectral": {
-      "rules": {
-        "content-entry-contains-schema": "warning",
-        "major-version-in-path": "off"
-      }
-    }
   }
 }
