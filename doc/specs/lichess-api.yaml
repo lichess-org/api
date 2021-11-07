@@ -400,22 +400,7 @@ paths:
         - in: path
           name: perf
           schema:
-            type: string
-            enum:
-              - ultraBullet
-              - bullet
-              - blitz
-              - rapid
-              - classical
-              - correspondence
-              - chess960
-              - crazyhouse
-              - antichess
-              - atomic
-              - horde
-              - kingOfTheHill
-              - racingKings
-              - threeCheck
+            $ref: '#/components/schemas/PerfType'
           required: true
       responses:
         200:
@@ -1022,23 +1007,9 @@ paths:
           \nMultiple perf types can be specified, separated by a comma.\n
           \nExample: blitz,rapid,classical"
           schema:
-            type: string
-            default: null
-            enum:
-              - ultraBullet
-              - bullet
-              - blitz
-              - rapid
-              - classical
-              - correspondence
-              - chess960
-              - crazyhouse
-              - antichess
-              - atomic
-              - horde
-              - kingOfTheHill
-              - racingKings
-              - threeCheck
+            allOf:
+              - $ref: '#/components/schemas/PerfType'
+              - default: null
         - in: query
           name: color
           description: "[Filter] Only games played as this color."
@@ -4339,18 +4310,21 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/BotGameState'
+                oneOf:
+                  - $ref: '#/components/schemas/GameFullEvent'
+                  - $ref: '#/components/schemas/GameStateEvent'
+                  - $ref: '#/components/schemas/ChatLineEvent'
               examples:
                 gameFull:
-                  $ref: '#/components/examples/gameFull'
+                  $ref: '#/components/examples/gameStream/gameFull'
                 gameState:
-                  $ref: '#/components/examples/gameState'
+                  $ref: '#/components/examples/gameStream/gameState'
                 chatLine:
-                  $ref: '#/components/examples/chatLine'
+                  $ref: '#/components/examples/gameStream/chatLine'
                 chatLineSpectator:
-                  $ref: '#/components/examples/chatLineSpectator'
+                  $ref: '#/components/examples/gameStream/chatLineSpectator'
                 gameStateResign:
-                  $ref: '#/components/examples/gameStateResign'
+                  $ref: '#/components/examples/gameStream/gameStateResign'
         404:
           description: The game was not found.
           content:
@@ -4780,18 +4754,21 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/BotGameState'
+                oneOf:
+                  - $ref: '#/components/schemas/GameFullEvent'
+                  - $ref: '#/components/schemas/GameStateEvent'
+                  - $ref: '#/components/schemas/ChatLineEvent'
               examples:
                 gameFull:
-                  $ref: '#/components/examples/gameFull'
+                  $ref: '#/components/examples/gameStream/gameFull'
                 gameState:
-                  $ref: '#/components/examples/gameState'
+                  $ref: '#/components/examples/gameStream/gameState'
                 chatLine:
-                  $ref: '#/components/examples/chatLine'
+                  $ref: '#/components/examples/gameStream/chatLine'
                 chatLineSpectator:
-                  $ref: '#/components/examples/chatLineSpectator'
+                  $ref: '#/components/examples/gameStream/chatLineSpectator'
                 gameStateResign:
-                  $ref: '#/components/examples/gameStateResign'
+                  $ref: '#/components/examples/gameStream/gameStateResign'
         404:
           description: The bot game was not found.
           content:
@@ -6139,14 +6116,7 @@ paths:
           schema:
             type: array
             items:
-              type: string
-              enum:
-                - ultraBullet
-                - bullet
-                - blitz
-                - rapid
-                - classical
-                - correspondence
+              $ref: '#/components/schemas/Speed'
         - in: query
           name: ratings
           description: Comma separated list of rating groups, ranging from their value to the next higher group
@@ -6258,14 +6228,7 @@ paths:
           schema:
             type: array
             items:
-              type: string
-              enum:
-                - ultraBullet
-                - bullet
-                - blitz
-                - rapid
-                - classical
-                - correspondence
+              $ref: '#/components/schemas/Speed'
         - in: query
           name: modes
           description: Comma separated list of modes
@@ -6447,6 +6410,34 @@ components:
         short:
           type: string
 
+    Speed:
+      type: string
+      enum:
+        - ultraBullet
+        - bullet
+        - blitz
+        - rapid
+        - classical
+        - correspondence
+
+    PerfType:
+      type: string
+      enum:
+        - ultraBullet
+        - bullet
+        - blitz
+        - rapid
+        - classical
+        - correspondence
+        - chess960
+        - crazyhouse
+        - antichess
+        - atomic
+        - horde
+        - kingOfTheHill
+        - racingKings
+        - threeCheck
+
     Clock:
       type: object
       properties:
@@ -6491,14 +6482,7 @@ components:
         rated:
           type: boolean
         speed:
-          type: string
-          enum:
-            - ultraBullet
-            - bullet
-            - blitz
-            - rapid
-            - classical
-            - correspondence
+          $ref: '#/components/schemas/Speed'
         timeControl:
           oneOf:
             - type: object
@@ -6752,7 +6736,7 @@ components:
         variant: 
           $ref: '#/components/schemas/VariantKey'
         speed:
-          type: string
+          $ref: '#/components/schemas/Speed'
         perf:
           type: string
         createdAt:
@@ -6760,21 +6744,7 @@ components:
         lastMoveAt:
           type: number
         status:
-          type: string
-          enum:
-            - created
-            - started
-            - aborted
-            - mate
-            - resign
-            - stalemate
-            - timeout
-            - draw
-            - outoftime
-            - cheat
-            - noStart
-            - unknownFinish
-            - variantEnd
+          $ref: '#/components/schemas/GameStatus'
         players:
           type: object
           properties:
@@ -8369,85 +8339,160 @@ components:
           nullable: true
           example: Planet Earth
 
-    BotGameState:
+    GameEventPlayer:
       type: object
       properties:
-        state:
+        aiLevel:
+          type: number
+        id:
+          type: string
+        name:
+          type: string
+        title:
+          type: string
+        rating:
+          type: number
+        provisional:
+          type: boolean
+      required: []
+
+    GameFullEvent:
+      type: object
+      properties:
+        type:
+          type: string
+          value: gameFull
+        id:
+          type: string
+        variant:
+          $ref: '#/components/schemas/Variant'
+        clock:
+          $ref: '#/components/schemas/Clock'
+          nullable: true
+        speed:
+          $ref: '#/components/schemas/Speed'
+        perf:
           type: object
           properties:
-            moves:
+            name:
               type: string
-              description: Current moves in UCI format
-            wtime:
-              type: integer
-              description: Integer of milliseconds White has left on the clock
-            btime:
-              type: integer
-              description: Integer of milliseconds Black has left on the clock
-            winc:
-              type: integer
-              description: Integer of White Fisher increment.
-            binc:
-              type: integer
-              description: Integer of Black Fisher increment.
-            status:
-              type: string
-              description: Game status code. https://github.com/ornicar/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
-            winner:
-              type: string
-              description: Color of the winner, if any
-            wdraw:
-              type: boolean
-              description: true if white is offering draw, else omitted
-            bdraw:
-              type: boolean
-              description: true if black is offering draw, else omitted
-            wtakeback:
-              type: boolean
-              description: true if white is proposing takeback, else omitted
-            btakeback:
-              type: boolean
-              description: true if black is proposing takeback, else omitted
+              description: Translated perf name (e.g. "Classical" or "Blitz")
+        rated:
+          type: boolean
+        createdAt:
+          type: number
+        white:
+          $ref: '#/components/schemas/GameEventPlayer'
+        black:
+          $ref: '#/components/schemas/GameEventPlayer'
+        initialFen:
+          oneOf:
+            - type: string
+              enum: ["startpos"]
+            - type: string
+        state:
+          $ref: '#/components/schemas/GameStateEvent'
+        tournamentId:
+          type: string
+      required:
+        - type
+        - id
+        - variant
+        - clock
+        - speed
+        - perf
+        - rated
+        - createdAt
+        - white
+        - black
+        - initialFen
+        - state
 
-    StreamEvents:
-      example: [
-        {
-          "type": "challenge",
-          "challenge": {
-            "id": "7pGLxJ4F",
-            "status": "created",
-            "challenger": {
-              "id": "lovlas",
-              "name": "Lovlas",
-              "title": "IM",
-              "rating": 2506,
-              "patron": true,
-              "online": true,
-              "lag": 24
-            },
-            "destUser": {
-              "id": "thibot",
-              "name": "thibot",
-              "title": null,
-              "rating": 1500,
-              "provisional": true,
-              "online": true,
-              "lag": 45
-            },
-            "variant": { "key": "standard", "name": "Standard", "short": "Std" },
-            "rated": true,
-            "timeControl": { "type": "clock", "limit": 300, "increment": 25, "show": "5+25" },
-            "color": "random",
-            "perf": { "icon": "#", "name": "Rapid" }
-          }
-        },
-        {
-          "type": "gameStart",
-          "game": {
-            "id": "1lsvP62l"
-          }
-        }
-      ]
+    GameStateEvent:
+      type: object
+      properties:
+        type:
+          type: string
+          value: gameState
+        moves:
+          type: string
+          description: Current moves in UCI format
+        wtime:
+          type: integer
+          description: Integer of milliseconds White has left on the clock
+        btime:
+          type: integer
+          description: Integer of milliseconds Black has left on the clock
+        winc:
+          type: integer
+          description: Integer of White Fisher increment.
+        binc:
+          type: integer
+          description: Integer of Black Fisher increment.
+        status:
+          $ref: '#/components/schemas/GameStatus'
+        winner:
+          type: string
+          description: Color of the winner, if any
+        wdraw:
+          type: boolean
+          description: true if white is offering draw, else omitted
+        bdraw:
+          type: boolean
+          description: true if black is offering draw, else omitted
+        wtakeback:
+          type: boolean
+          description: true if white is proposing takeback, else omitted
+        btakeback:
+          type: boolean
+          description: true if black is proposing takeback, else omitted
+      required:
+        - type
+        - moves
+        - wtime
+        - btime
+        - winc
+        - binc
+        - status
+
+    ChatLineEvent:
+      type: object
+      properties:
+        type:
+          type: string
+          value: chatLine
+        room:
+          type: string
+          enum:
+            - player
+            - spectator
+        username:
+          type: string
+        text:
+          type: string
+      required:
+        - type
+        - room
+        - username
+        - text
+
+    GameStatus:
+      type: string
+      description: Game status code. https://github.com/ornicar/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
+      enum:
+        - created
+        - started
+        - aborted
+        - mate
+        - resign
+        - stalemate
+        - timeout
+        - draw
+        - outoftime
+        - cheat
+        - noStart
+        - unknownFinish
+        - variantEnd
 
     Ok:
       properties:
@@ -8514,90 +8559,6 @@ components:
         }
       ]
 
-  examples:
-    gameFull:
-      value: {
-        "type": "gameFull",
-        "id": "5IrD6Gzz",
-        "rated": true,
-        "variant": {
-          "key": "standard",
-          "name": "Standard",
-          "short": "Std"
-        },
-        "clock": {
-          "initial": 1200000,
-          "increment": 10000
-        },
-        "speed": "classical",
-        "perf": {
-          "name": "Classical"
-        },
-        "createdAt": 1523825103562,
-        "white": {
-          "id": "lovlas",
-          "name": "lovlas",
-          "provisional": false,
-          "rating": 2500,
-          "title": "IM"
-        },
-        "black": {
-          "id": "leela",
-          "name": "leela",
-          "rating": 2390,
-          "title": null
-        },
-        "initialFen": "startpos",
-        "state": {
-          "type": "gameState",
-          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7",
-          "wtime": 7598040,
-          "btime": 8395220,
-          "winc": 10000,
-          "binc": 10000,
-          "status": "started"
-        }
-      }
-
-    gameState:
-      value: {
-        "type": "gameState",
-        "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
-        "wtime": 7598040,
-        "btime": 8395220,
-        "winc": 10000,
-        "binc": 10000,
-        "status": "started"
-      }
-
-    chatLine:
-      value: {
-        "type": "chatLine",
-        "username": "thibault",
-        "text": "Good luck, have fun",
-        "room": "player"
-      }
-    
-    chatLineSpectator:
-      value: {
-        "type": "chatLine",
-        "username": "lovlas",
-        "text": "!eval",
-        "room": "spectator"
-      }
-    
-    gameStateResign:
-      value: {
-        "type": "gameState",
-        "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
-        "wtime": 7598040,
-        "btime": 8395220,
-        "winc": 10000,
-        "binc": 10000,
-        "status": "resign",
-        "winner": "black"
-      }
-
   securitySchemes:
     OAuth2:
       type: oauth2
@@ -8658,3 +8619,88 @@ components:
             "board:play": Play with the Board API
             "bot:play": Play with the Bot API. Only for [Bot accounts](#operation/botAccountUpgrade)
             "web:mod": Use moderator tools (within the bounds of your permissions)
+
+  examples:
+    gameStream:
+      gameFull:
+        value: {
+          "type": "gameFull",
+          "id": "5IrD6Gzz",
+          "rated": true,
+          "variant": {
+            "key": "standard",
+            "name": "Standard",
+            "short": "Std"
+          },
+          "clock": {
+            "initial": 1200000,
+            "increment": 10000
+          },
+          "speed": "classical",
+          "perf": {
+            "name": "Classical"
+          },
+          "createdAt": 1523825103562,
+          "white": {
+            "id": "lovlas",
+            "name": "lovlas",
+            "provisional": false,
+            "rating": 2500,
+            "title": "IM"
+          },
+          "black": {
+            "id": "leela",
+            "name": "leela",
+            "rating": 2390,
+            "title": null
+          },
+          "initialFen": "startpos",
+          "state": {
+            "type": "gameState",
+            "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7",
+            "wtime": 7598040,
+            "btime": 8395220,
+            "winc": 10000,
+            "binc": 10000,
+            "status": "started"
+          }
+        }
+
+      gameState:
+        value: {
+          "type": "gameState",
+          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
+          "wtime": 7598040,
+          "btime": 8395220,
+          "winc": 10000,
+          "binc": 10000,
+          "status": "started"
+        }
+
+      chatLine:
+        value: {
+          "type": "chatLine",
+          "username": "thibault",
+          "text": "Good luck, have fun",
+          "room": "player"
+        }
+
+      chatLineSpectator:
+        value: {
+          "type": "chatLine",
+          "username": "lovlas",
+          "text": "!eval",
+          "room": "spectator"
+        }
+
+      gameStateResign:
+        value: {
+          "type": "gameState",
+          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
+          "wtime": 7598040,
+          "btime": 8395220,
+          "winc": 10000,
+          "binc": 10000,
+          "status": "resign",
+          "winner": "black"
+        }
