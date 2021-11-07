@@ -217,15 +217,25 @@ paths:
                     name:
                       type: string
                     title:
-                      type: [string, 'null']
+                      anyOf:
+                        - type: string
+                        # - type: 'null'
                     online:
-                      type: [boolean, 'null']
+                      anyOf:
+                        - type: boolean
+                        # - type: 'null'
                     playing:
-                      type: [boolean, 'null']
+                      anyOf:
+                        - type: boolean
+                        # - type: 'null'
                     streaming:
-                      type: [boolean, 'null']
+                      anyOf:
+                        - type: boolean
+                        # - type: 'null'
                     patron:
-                      type: [boolean, 'null']
+                      anyOf:
+                        - type: boolean
+                        # - type: 'null'
                 example: [
                   {
                     "id": "aliquantus",
@@ -3626,10 +3636,14 @@ paths:
                     type: number
                     example: 205194
                   previousPage:
-                    type: [number, 'null']
+                    anyOf:
+                      - type: number
+                      # - type: 'null'
                     example: 3
                   nextPage:
-                    type: [number, 'null']
+                    anyOf:
+                      - type: number
+                      # - type: 'null'
                     example: 5
                   nbPages:
                     type: number
@@ -3954,11 +3968,17 @@ paths:
                     name:
                       type: string
                     title:
-                      type: [string, 'null']
+                      anyOf:
+                        - type: string
+                        # - type: 'null'
                     online:
-                      type: [boolean, 'null']
+                      anyOf:
+                        - type: boolean
+                        # - type: 'null'
                     patron:
-                      type: [boolean, 'null']
+                      anyOf:
+                        - type: boolean
+                        # - type: 'null'
                 example: [
                   {
                     "id": "aliquantus",
@@ -4124,15 +4144,15 @@ paths:
                   - $ref: '#/components/schemas/ChallengeDeclinedEvent'
               examples:
                 challenge:
-                  $ref: '#/components/examples/eventStream/challenge'
+                  $ref: '#/components/examples/challenge'
                 challengeCanceled:
-                  $ref: '#/components/examples/eventStream/challengeCanceled'
+                  $ref: '#/components/examples/challengeCanceled'
                 challengeDeclined:
-                  $ref: '#/components/examples/eventStream/challengeDeclined'
+                  $ref: '#/components/examples/challengeDeclined'
                 gameStart:
-                  $ref: '#/components/examples/eventStream/gameStart'
+                  $ref: '#/components/examples/gameStart'
                 gameFinish:
-                  $ref: '#/components/examples/eventStream/gameFinish'
+                  $ref: '#/components/examples/gameFinish'
 
 
   /api/board/seek:
@@ -4265,15 +4285,15 @@ paths:
                   - $ref: '#/components/schemas/ChatLineEvent'
               examples:
                 gameFull:
-                  $ref: '#/components/examples/gameStream/gameFull'
+                  $ref: '#/components/examples/gameFull'
                 gameState:
-                  $ref: '#/components/examples/gameStream/gameState'
+                  $ref: '#/components/examples/gameState'
                 chatLine:
-                  $ref: '#/components/examples/gameStream/chatLine'
+                  $ref: '#/components/examples/chatLine'
                 chatLineSpectator:
-                  $ref: '#/components/examples/gameStream/chatLineSpectator'
+                  $ref: '#/components/examples/chatLineSpectator'
                 gameStateResign:
-                  $ref: '#/components/examples/gameStream/gameStateResign'
+                  $ref: '#/components/examples/gameStateResign'
         404:
           description: The game was not found.
           content:
@@ -4709,15 +4729,15 @@ paths:
                   - $ref: '#/components/schemas/ChatLineEvent'
               examples:
                 gameFull:
-                  $ref: '#/components/examples/gameStream/gameFull'
+                  $ref: '#/components/examples/gameFull'
                 gameState:
-                  $ref: '#/components/examples/gameStream/gameState'
+                  $ref: '#/components/examples/gameState'
                 chatLine:
-                  $ref: '#/components/examples/gameStream/chatLine'
+                  $ref: '#/components/examples/chatLine'
                 chatLineSpectator:
-                  $ref: '#/components/examples/gameStream/chatLineSpectator'
+                  $ref: '#/components/examples/chatLineSpectator'
                 gameStateResign:
-                  $ref: '#/components/examples/gameStream/gameStateResign'
+                  $ref: '#/components/examples/gameStateResign'
         404:
           description: The bot game was not found.
           content:
@@ -6444,7 +6464,7 @@ components:
         destUser:
           oneOf:
             - $ref: '#/components/schemas/ChallengeUser'
-            - type: 'null'
+            # - type: 'null'
         variant:
           $ref: '#/components/schemas/Variant'
         rated:
@@ -6626,42 +6646,6 @@ components:
         "rated": false,
         "startClocksAt": 1612200422971,
         "scheduledAt": 1612203514628
-    }
-
-    BulksPairing:
-      example: {
-        "bulks": [
-            {
-                "id": "RVAcwgg7",
-                "games": [
-                    {
-                        "id": "NKop9IyD",
-                        "black": "lizen1",
-                        "white": "thibault"
-                    },
-                    {
-                        "id": "KT8374ut",
-                        "black": "lizen3",
-                        "white": "lizen2"
-                    },
-                    {
-                        "id": "wInQr8Sk",
-                        "black": "lizen5",
-                        "white": "lizen4"
-                    }
-                ],
-                "variant": "standard",
-                "clock": {
-                    "increment": 0,
-                    "limit": 300
-                },
-                "pairAt": 1612289869919,
-                "pairedAt": null,
-                "rated": false,
-                "startClocksAt": 1612200422971,
-                "scheduledAt": 1612203514628
-            }
-        ]
     }
 
     GameUser:
@@ -8303,9 +8287,9 @@ components:
           type: integer
           example: 3129
         location:
-          type:
-            - string
-            - 'null'
+          anyOf:
+            - type: string
+            # - type: 'null'
           example: Planet Earth
 
     GameEventPlayer:
@@ -8323,14 +8307,13 @@ components:
           type: number
         provisional:
           type: boolean
-      required: []
 
     GameFullEvent:
       type: object
       properties:
-        type:
-          type: string
-          const: gameFull
+        # type:
+        #   type: string
+        #   const: gameFull
         id:
           type: string
         variant:
@@ -8338,7 +8321,7 @@ components:
         clock:
           oneOf:
             - $ref: '#/components/schemas/Clock'
-            - type: 'null'
+            # - type: 'null'
         speed:
           $ref: '#/components/schemas/Speed'
         perf:
@@ -8365,7 +8348,7 @@ components:
         tournamentId:
           type: string
       required:
-        - type
+        # - type
         - id
         - variant
         - clock
@@ -8381,9 +8364,9 @@ components:
     GameStateEvent:
       type: object
       properties:
-        type:
-          type: string
-          const: gameState
+        # type:
+        #   type: string
+        #   const: gameState
         moves:
           type: string
           description: Current moves in UCI format
@@ -8417,7 +8400,7 @@ components:
           type: boolean
           description: true if black is proposing takeback, else omitted
       required:
-        - type
+        # - type
         - moves
         - wtime
         - btime
@@ -8428,9 +8411,9 @@ components:
     ChatLineEvent:
       type: object
       properties:
-        type:
-          type: string
-          const: chatLine
+        # type:
+        #   type: string
+        #   const: chatLine
         room:
           type: string
           enum:
@@ -8441,7 +8424,7 @@ components:
         text:
           type: string
       required:
-        - type
+        # - type
         - room
         - username
         - text
@@ -8477,45 +8460,45 @@ components:
     GameStartEvent:
       type: object
       properties:
-        type:
-          type: string
-          const: gameStart
+        # type:
+        #   type: string
+        #   const: gameStart
         game:
           $ref: '#/components/schemas/GameEventInfo'
 
     GameFinishEvent:
       type: object
       properties:
-        type:
-          type: string
-          const: gameFinish
+        # type:
+        #   type: string
+        #   const: gameFinish
         game:
           $ref: '#/components/schemas/GameEventInfo'
 
     ChallengeEvent:
       type: object
       properties:
-        type:
-          type: string
-          const: challenge
+        # type:
+        #   type: string
+        #   const: challenge
         challenge:
           $ref: '#/components/schemas/ChallengeJson'
 
     ChallengeCanceledEvent:
       type: object
       properties:
-        type:
-          type: string
-          const: challengeCanceled
+        # type:
+        #   type: string
+        #   const: challengeCanceled
         challenge:
           $ref: '#/components/schemas/ChallengeJson'
 
     ChallengeDeclinedEvent:
       type: object
       properties:
-        type:
-          type: string
-          const: challengeDeclined
+        # type:
+        #   type: string
+        #   const: challengeDeclined
         challenge:
           $ref: '#/components/schemas/ChallengeJson'
 
@@ -8646,255 +8629,253 @@ components:
             "web:mod": Use moderator tools (within the bounds of your permissions)
 
   examples:
-    eventStream:
-      challenge:
-        value: {
-          "type":"challenge",
-          "challenge": {
-            "id":"7pGLxJ4F",
-            "status":"created",
-            "compat": {
-              "bot": false,
-              "board": true
-            },
-            "challenger": {
-              "id":"lovlas",
-              "name":"Lovlas",
-              "title":"IM",
-              "rating": 2506,
-              "patron": true,
-              "online": true,
-              "lag": 24
-            },
-            "destUser": {
-              "id":"thibot",
-              "name":"thibot",
-              "title":null,
-              "rating": 1500,
-              "provisional": true,
-              "online": true,
-              "lag": 45
-            },
-            "variant": {
-              "key":"standard",
-              "name":"Standard",
-              "short":"Std"
-            },
-            "rated": true,
-            "timeControl": {
-              "type":"clock",
-              "limit": 300,
-              "increment": 25,
-              "show":"5+25"
-            },
-            "color":"random",
-            "perf": {
-              "icon":"#",
-              "name":"Rapid"
-            }
-          }
-        }
-
-      challengeCanceled:
-        value: {
-          "type":"challengeCanceled",
-          "challenge": {
-            "id":"7pGLxJ4F",
-            "status":"created",
-            "compat": {
-              "bot": false,
-              "board": true
-            },
-            "challenger": {
-              "id":"lovlas",
-              "name":"Lovlas",
-              "title":"IM",
-              "rating": 2506,
-              "patron": true,
-              "online": true,
-              "lag": 24
-            },
-            "destUser": {
-              "id":"thibot",
-              "name":"thibot",
-              "title":null,
-              "rating": 1500,
-              "provisional": true,
-              "online": true,
-              "lag": 45
-            },
-            "variant": {
-              "key":"standard",
-              "name":"Standard",
-              "short":"Std"
-            },
-            "rated": true,
-            "timeControl": {
-              "type":"clock",
-              "limit": 300,
-              "increment": 25,
-              "show":"5+25"
-            },
-            "color":"random",
-            "perf": {
-              "icon":"#",
-              "name":"Rapid"
-            }
-          }
-        }
-
-      challengeDeclined:
-        value: {
-          "type":"challengeDeclined",
-          "challenge": {
-            "id":"7pGLxJ4F",
-            "status":"created",
-            "compat": {
-              "bot": false,
-              "board": true
-            },
-            "challenger": {
-              "id":"lovlas",
-              "name":"Lovlas",
-              "title":"IM",
-              "rating": 2506,
-              "patron": true,
-              "online": true,
-              "lag": 24
-            },
-            "destUser": {
-              "id":"thibot",
-              "name":"thibot",
-              "title":null,
-              "rating": 1500,
-              "provisional": true,
-              "online": true,
-              "lag": 45
-            },
-            "variant": {
-              "key":"standard",
-              "name":"Standard",
-              "short":"Std"
-            },
-            "rated": true,
-            "timeControl": {
-              "type":"clock",
-              "limit": 300,
-              "increment": 25,
-              "show":"5+25"
-            },
-            "color":"random",
-            "perf": {
-              "icon":"#",
-              "name":"Rapid"
-            }
-          }
-        }
-
-      gameStart:
-        value: {
-          "type":"gameStart",
-          "game": {
-            "id":"1lsvP62l",
-            "compat": {
-              "bot": false,
-              "board": true
-            }
-          }
-        }
-
-      gameFinish:
-        value: {
-          "type":"gameFinish",
-          "game": {
-            "id":"1lsvP62l",
-            "compat": {
-              "bot": false,
-              "board": true
-            }
-          }
-        }
-
-    gameStream:
-      gameFull:
-        value: {
-          "type": "gameFull",
-          "id": "5IrD6Gzz",
-          "rated": true,
+    challenge:
+      value: {
+        "type":"challenge",
+        "challenge": {
+          "id":"7pGLxJ4F",
+          "status":"created",
+          "compat": {
+            "bot": false,
+            "board": true
+          },
+          "challenger": {
+            "id":"lovlas",
+            "name":"Lovlas",
+            "title":"IM",
+            "rating": 2506,
+            "patron": true,
+            "online": true,
+            "lag": 24
+          },
+          "destUser": {
+            "id":"thibot",
+            "name":"thibot",
+            "title":null,
+            "rating": 1500,
+            "provisional": true,
+            "online": true,
+            "lag": 45
+          },
           "variant": {
-            "key": "standard",
-            "name": "Standard",
-            "short": "Std"
+            "key":"standard",
+            "name":"Standard",
+            "short":"Std"
           },
-          "clock": {
-            "initial": 1200000,
-            "increment": 10000
+          "rated": true,
+          "timeControl": {
+            "type":"clock",
+            "limit": 300,
+            "increment": 25,
+            "show":"5+25"
           },
-          "speed": "classical",
+          "color":"random",
           "perf": {
-            "name": "Classical"
-          },
-          "createdAt": 1523825103562,
-          "white": {
-            "id": "lovlas",
-            "name": "lovlas",
-            "provisional": false,
-            "rating": 2500,
-            "title": "IM"
-          },
-          "black": {
-            "id": "leela",
-            "name": "leela",
-            "rating": 2390,
-            "title": null
-          },
-          "initialFen": "startpos",
-          "state": {
-            "type": "gameState",
-            "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7",
-            "wtime": 7598040,
-            "btime": 8395220,
-            "winc": 10000,
-            "binc": 10000,
-            "status": "started"
+            "icon":"#",
+            "name":"Rapid"
           }
         }
+      }
 
-      gameState:
-        value: {
+    challengeCanceled:
+      value: {
+        "type":"challengeCanceled",
+        "challenge": {
+          "id":"7pGLxJ4F",
+          "status":"created",
+          "compat": {
+            "bot": false,
+            "board": true
+          },
+          "challenger": {
+            "id":"lovlas",
+            "name":"Lovlas",
+            "title":"IM",
+            "rating": 2506,
+            "patron": true,
+            "online": true,
+            "lag": 24
+          },
+          "destUser": {
+            "id":"thibot",
+            "name":"thibot",
+            "title":null,
+            "rating": 1500,
+            "provisional": true,
+            "online": true,
+            "lag": 45
+          },
+          "variant": {
+            "key":"standard",
+            "name":"Standard",
+            "short":"Std"
+          },
+          "rated": true,
+          "timeControl": {
+            "type":"clock",
+            "limit": 300,
+            "increment": 25,
+            "show":"5+25"
+          },
+          "color":"random",
+          "perf": {
+            "icon":"#",
+            "name":"Rapid"
+          }
+        }
+      }
+
+    challengeDeclined:
+      value: {
+        "type":"challengeDeclined",
+        "challenge": {
+          "id":"7pGLxJ4F",
+          "status":"created",
+          "compat": {
+            "bot": false,
+            "board": true
+          },
+          "challenger": {
+            "id":"lovlas",
+            "name":"Lovlas",
+            "title":"IM",
+            "rating": 2506,
+            "patron": true,
+            "online": true,
+            "lag": 24
+          },
+          "destUser": {
+            "id":"thibot",
+            "name":"thibot",
+            "title":null,
+            "rating": 1500,
+            "provisional": true,
+            "online": true,
+            "lag": 45
+          },
+          "variant": {
+            "key":"standard",
+            "name":"Standard",
+            "short":"Std"
+          },
+          "rated": true,
+          "timeControl": {
+            "type":"clock",
+            "limit": 300,
+            "increment": 25,
+            "show":"5+25"
+          },
+          "color":"random",
+          "perf": {
+            "icon":"#",
+            "name":"Rapid"
+          }
+        }
+      }
+
+    gameStart:
+      value: {
+        "type":"gameStart",
+        "game": {
+          "id":"1lsvP62l",
+          "compat": {
+            "bot": false,
+            "board": true
+          }
+        }
+      }
+
+    gameFinish:
+      value: {
+        "type":"gameFinish",
+        "game": {
+          "id":"1lsvP62l",
+          "compat": {
+            "bot": false,
+            "board": true
+          }
+        }
+      }
+
+    gameFull:
+      value: {
+        "type": "gameFull",
+        "id": "5IrD6Gzz",
+        "rated": true,
+        "variant": {
+          "key": "standard",
+          "name": "Standard",
+          "short": "Std"
+        },
+        "clock": {
+          "initial": 1200000,
+          "increment": 10000
+        },
+        "speed": "classical",
+        "perf": {
+          "name": "Classical"
+        },
+        "createdAt": 1523825103562,
+        "white": {
+          "id": "lovlas",
+          "name": "lovlas",
+          "provisional": false,
+          "rating": 2500,
+          "title": "IM"
+        },
+        "black": {
+          "id": "leela",
+          "name": "leela",
+          "rating": 2390,
+          "title": null
+        },
+        "initialFen": "startpos",
+        "state": {
           "type": "gameState",
-          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
+          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7",
           "wtime": 7598040,
           "btime": 8395220,
           "winc": 10000,
           "binc": 10000,
           "status": "started"
         }
+      }
 
-      chatLine:
-        value: {
-          "type": "chatLine",
-          "username": "thibault",
-          "text": "Good luck, have fun",
-          "room": "player"
-        }
+    gameState:
+      value: {
+        "type": "gameState",
+        "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
+        "wtime": 7598040,
+        "btime": 8395220,
+        "winc": 10000,
+        "binc": 10000,
+        "status": "started"
+      }
 
-      chatLineSpectator:
-        value: {
-          "type": "chatLine",
-          "username": "lovlas",
-          "text": "!eval",
-          "room": "spectator"
-        }
+    chatLine:
+      value: {
+        "type": "chatLine",
+        "username": "thibault",
+        "text": "Good luck, have fun",
+        "room": "player"
+      }
 
-      gameStateResign:
-        value: {
-          "type": "gameState",
-          "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
-          "wtime": 7598040,
-          "btime": 8395220,
-          "winc": 10000,
-          "binc": 10000,
-          "status": "resign",
-          "winner": "black"
-        }
+    chatLineSpectator:
+      value: {
+        "type": "chatLine",
+        "username": "lovlas",
+        "text": "!eval",
+        "room": "spectator"
+      }
+
+    gameStateResign:
+      value: {
+        "type": "gameState",
+        "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
+        "wtime": 7598040,
+        "btime": 8395220,
+        "winc": 10000,
+        "binc": 10000,
+        "status": "resign",
+        "winner": "black"
+      }
