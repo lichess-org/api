@@ -217,20 +217,15 @@ paths:
                     name:
                       type: string
                     title:
-                      type: string
-                      nullable: true
+                      type: [string, 'null']
                     online:
-                      type: boolean
-                      nullable: true
+                      type: [boolean, 'null']
                     playing:
-                      type: boolean
-                      nullable: true
+                      type: [boolean, 'null']
                     streaming:
-                      type: boolean
-                      nullable: true
+                      type: [boolean, 'null']
                     patron:
-                      type: boolean
-                      nullable: true
+                      type: [boolean, 'null']
                 example: [
                   {
                     "id": "aliquantus",
@@ -3631,14 +3626,10 @@ paths:
                     type: number
                     example: 205194
                   previousPage:
-                    anyOf:
-                    - type: number
-                    - nullable: true
+                    type: [number, 'null']
                     example: 3
                   nextPage:
-                    anyOf:
-                    - type: number
-                    - nullable: true
+                    type: [number, 'null']
                     example: 5
                   nbPages:
                     type: number
@@ -3963,14 +3954,11 @@ paths:
                     name:
                       type: string
                     title:
-                      type: string
-                      nullable: true
+                      type: [string, 'null']
                     online:
-                      type: boolean
-                      nullable: true
+                      type: [boolean, 'null']
                     patron:
-                      type: boolean
-                      nullable: true
+                      type: [boolean, 'null']
                 example: [
                   {
                     "id": "aliquantus",
@@ -6454,8 +6442,9 @@ components:
         challenger:
           $ref: '#/components/schemas/ChallengeUser'
         destUser:
-          $ref: '#/components/schemas/ChallengeUser'
-          nullable: true
+          oneOf:
+            - $ref: '#/components/schemas/ChallengeUser'
+            - type: 'null'
         variant:
           $ref: '#/components/schemas/Variant'
         rated:
@@ -8314,8 +8303,9 @@ components:
           type: integer
           example: 3129
         location:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Planet Earth
 
     GameEventPlayer:
@@ -8346,8 +8336,9 @@ components:
         variant:
           $ref: '#/components/schemas/Variant'
         clock:
-          $ref: '#/components/schemas/Clock'
-          nullable: true
+          oneOf:
+            - $ref: '#/components/schemas/Clock'
+            - type: 'null'
         speed:
           $ref: '#/components/schemas/Speed'
         perf:
