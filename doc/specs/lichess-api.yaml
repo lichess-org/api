@@ -967,7 +967,7 @@ paths:
         Games are sorted by reverse chronological order (most recent first)
 
         We recommend streaming the response, for it can be very long.
-        <https://lichess.org/@/german11> for instance has more than 320,000 games.
+        <https://lichess.org/@/german11> for instance has more than 500,000 games.
 
         The game stream is throttled, depending on who is making the request:
           - Anonymous request: 20 games per second
@@ -4902,6 +4902,27 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+    get:
+      operationId: botGameChatGet
+      summary: Fetch the game chat
+      description: |
+        Get the messages posted in the game chat
+      tags:
+        - Bot
+      security:
+        - OAuth2: ["bot:play"]
+      responses:
+        200:
+          description: The messages posted in the chat.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/GameChat'
 
   /api/bot/game/{gameId}/abort:
     post:
