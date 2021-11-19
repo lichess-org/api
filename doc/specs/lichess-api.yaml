@@ -197,6 +197,13 @@ paths:
           schema:
             type: string
           example: aliquantus,chess-network,lovlas
+        - in: query
+          name: withGameIds
+          required: false
+          description: Also return the ID of the game being played, if any, for each player, in a `playingId` field.
+          schema:
+            type: boolean
+          example: true
       responses:
         "200":
           description: The list of users and their respective statuses.
