@@ -2,6 +2,10 @@ openapi: "3.1.0"
 info:
   version: 2.0.0
   title: Lichess.org API reference
+  contact:
+    name: "Lichess.org API"
+    url: "https://lichess.org/api"
+    email: "contact@lichess.org"
   x-logo:
     url: https://lichess1.org/assets/logo/lichess-pad12.svg
   description: |
@@ -6184,6 +6188,12 @@ paths:
       security: []
       parameters:
         - in: query
+          name: player
+          description: Username or ID of the player
+          schema:
+            type: string
+          example: revoof
+        - in: query
           name: variant
           description: Variant
           schema:
@@ -6330,6 +6340,8 @@ paths:
     get:
       operationId: tablebaseAtomic
       summary: Tablebase lookup for Atomic chess
+      description: |
+        **Endpoint: <https://tablebase.lichess.ovh>**
       tags:
         - Tablebase
       responses:
@@ -6351,6 +6363,8 @@ paths:
     get:
       operationId: antichessAtomic
       summary: Tablebase lookup for Antichess
+      description: |
+        **Endpoint: <https://tablebase.lichess.ovh>**
       tags:
         - Tablebase
       responses:
