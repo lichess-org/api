@@ -204,7 +204,9 @@ paths:
         - in: query
           name: withGameIds
           required: false
-          description: Also return the ID of the game being played, if any, for each player, in a `playingId` field.
+          description: |
+            Also return the ID of the game being played, if any, for each player, in a `playingId` field.
+            Defaults to `false` to preserve server resources.
           schema:
             type: boolean
           example: true
