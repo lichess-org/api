@@ -8209,6 +8209,10 @@ components:
           type: integer
           description: |
             [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) or null if unknown
+        precise_dtz:
+          type: integer
+          description: |
+            DTZ50'' (only if guaranteed to be not rounded) or null if unknown
         dtm:
           type: integer
           description: Distance to mate (only for positions with not more than 5 pieces)
@@ -8232,6 +8236,7 @@ components:
       example:
         {
           "dtz": 1,
+          "precise_dtz": 1,
           "dtm": 17,
           "checkmate": false,
           "stalemate": false,
@@ -8244,6 +8249,7 @@ components:
               "uci": "h7h8q",
               "san": "h8=Q+",
               "dtz": -2,
+              "precise_dtz": -2,
               "dtm": -16,
               "zeroing": true,
               "checkmate": false,
@@ -8279,6 +8285,10 @@ components:
         dtz:
           type: integer
           description: DTZ50'' with rounding or null if unknown
+        precise_dtz:
+          type: integer
+          description: |
+            DTZ50'' (only if guaranteed to be not rounded) or null if unknown
         dtm:
           type: integer
           description: Distance to mate (only for positions with not more than 5 pieces)
