@@ -2858,11 +2858,9 @@ paths:
                 type: string
                 default: "'*'"
           content:
-            application/json:
+            application/nd-json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/SwissTournament'
+                $ref: '#/components/schemas/SwissTournament'
 
   /study/{studyId}/{chapterId}.pgn:
     get:
