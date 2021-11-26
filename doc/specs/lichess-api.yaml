@@ -5512,14 +5512,14 @@ paths:
                   maximum: 60
                 pairAt:
                   description: |
-                    Date at which the games will be created.
+                    Date at which the games will be created as a Unix timestamp in milliseconds.
                     Up to 24h in the future.
                     Omit, or set to current date and time, to start the games immediately.
                     Example: `1612289869919`
                   type: integer
                 startClocksAt:
                   description: |
-                    Date at which the clocks will be automatically started.
+                    Date at which the clocks will be automatically started as a Unix timestamp in milliseconds.
                     Up to 24h in the future.
                     Note that the clocks can start earlier than specified, if players start making moves in the game.
                     If omitted, the clocks will not start automatically.
