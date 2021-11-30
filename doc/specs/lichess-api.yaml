@@ -4121,12 +4121,7 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                oneOf:
-                  - $ref: '#/components/schemas/GameStartEvent'
-                  - $ref: '#/components/schemas/GameFinishEvent'
-                  - $ref: '#/components/schemas/ChallengeEvent'
-                  - $ref: '#/components/schemas/ChallengeCanceledEvent'
-                  - $ref: '#/components/schemas/ChallengeDeclinedEvent'
+                $ref: '#/components/schemas/ApiStreamEvent'
               examples:
                 challenge:
                   $ref: '#/components/examples/challenge'
@@ -4264,10 +4259,7 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                oneOf:
-                  - $ref: '#/components/schemas/GameFullEvent'
-                  - $ref: '#/components/schemas/GameStateEvent'
-                  - $ref: '#/components/schemas/ChatLineEvent'
+                $ref: '#/components/schemas/GameStreamEvent'
               examples:
                 gameFull:
                   $ref: '#/components/examples/gameFull'
@@ -4714,10 +4706,7 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                oneOf:
-                  - $ref: '#/components/schemas/GameFullEvent'
-                  - $ref: '#/components/schemas/GameStateEvent'
-                  - $ref: '#/components/schemas/ChatLineEvent'
+                $ref: '#/components/schemas/GameStreamEvent'
               examples:
                 gameFull:
                   $ref: '#/components/examples/gameFull'
@@ -6473,6 +6462,72 @@ components:
         online:
           type: boolean
 
+    ApiStreamEvent:
+      type: object
+      properties:
+        type:
+          type: string
+      discriminator:
+        propertyName: type
+        mapping:
+          'gameStart': '#/components/schemas/GameStartEvent'
+          'gameFinish': '#/components/schemas/GameFinishEvent'
+          'challenge': '#/components/schemas/ChallengeEvent'
+          'challengeCanceled': '#/components/schemas/ChallengeCanceledEvent'
+          'challengeDeclined': '#/components/schemas/ChallengeDeclinedEvent'
+
+    GameStreamEvent:
+      type: object
+      properties:
+        type:
+          type: string
+      discriminator:
+        propertyName: type
+        mapping:
+          'gameFull': '#/components/schemas/GameFullEvent'
+          'gameState': '#/components/schemas/GameStateEvent'
+          'chatLine': '#/components/schemas/ChatLineEvent'
+
+    TimeControl:
+      type: object
+      properties:
+        type:
+          type: string
+      discriminator:
+        propertyName: type
+        mapping:
+          'clock': '#/components/schemas/TimeControlClock'
+          'correspondence': '#/components/schemas/TimeControlCorrespondence'
+          'unlimited': '#/components/schemas/TimeControlUnlimited'
+    
+    TimeControlClock:
+      allOf:
+      - $ref: "#/components/schemas/TimeControl"
+      - type: object
+        properties:
+          limit:
+            type: number
+          increment:
+            type: number
+          show:
+            example: 5+2
+            type: string
+      additionalProperties: false
+    
+    TimeControlCorrespondence:
+      allOf:
+      - $ref: "#/components/schemas/TimeControl"
+      - type: object
+        properties:
+          daysPerTurn:
+            type: number
+      additionalProperties: false
+    
+    TimeControlUnlimited:
+      allOf:
+      - $ref: "#/components/schemas/TimeControl"
+      additionalProperties: false
+    
     ChallengeJson:
       type: object
       properties:
@@ -6501,34 +6556,8 @@ components:
         speed:
           $ref: '#/components/schemas/Speed'
         timeControl:
-          oneOf:
-            - type: object
-              properties:
-                type:
-                  type: string
-                  example: clock
-                limit:
-                  type: number
-                increment:
-                  type: number
-                show:
-                  example: 5+2
-                  type: string
-              additionalProperties: false
-            - type: object
-              properties:
-                type:
-                  type: string
-                  example: correspondence
-                daysPerTurn:
-                  type: number
-              additionalProperties: false
-            - type: object
-              properties:
-                type:
-                  type: string
-                  example: unlimited
-              additionalProperties: false
+          $ref: '#/components/schemas/TimeControl'
+
         color:
           type: string
           enum: ["white", "black", "random"]
