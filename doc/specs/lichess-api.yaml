@@ -6012,7 +6012,6 @@ paths:
             schema:
               type: string
             example: "lip_AvsS88TozFeSMEaoLN5c,lip_badToken"
-      parameters:
       responses:
         "200":
           description: The representation of the OAuth tokens.
