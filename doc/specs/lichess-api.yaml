@@ -5991,6 +5991,47 @@ paths:
                 type: string
                 default: "'*'"
 
+  /api/token/test:
+    post:
+      operationId: tokenTest
+      summary: Test multiple OAuth tokens
+      description: |
+        For up to 1000 OAuth tokens, 
+        returns their associated user ID and scopes,
+        or `null` if the token is invalid.
+
+        The method is `POST` so a longer list of tokens can be sent in the request body.
+      tags:
+        - OAuth
+      security: []
+      requestBody:
+        description: OAuth tokens separated by commas. Up to 1000.
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+            example: "lip_AvsS88TozFeSMEaoLN5c,lip_badToken"
+      parameters:
+      responses:
+        "200":
+          description: The representation of the OAuth tokens.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example: [
+                  {
+                    "lip_AvsS88TozFeSnZa1LN5c": {
+                      "scopes": "challenge:read,challenge:write",
+                      "userId": "thibault"
+                    },
+                    "lip_badToken": null
+                  }
+                ]
+
   /masters:
     servers:
       - url: https://explorer.lichess.ovh
