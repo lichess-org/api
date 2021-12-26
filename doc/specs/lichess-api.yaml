@@ -3128,7 +3128,7 @@ paths:
       operationId: broadcastTourGet
       summary: Get your broadcast tournament
       description: |
-        Get information about a broadcast tournament that you created.
+        Get information about a broadcast tournament.
       tags:
         - Broadcasts
       security:
@@ -3294,7 +3294,7 @@ paths:
       operationId: broadcastRoundGet
       summary: Get your broadcast round
       description: |
-        Get information about a broadcast round that you created.
+        Get information about a broadcast round.
       tags:
         - Broadcasts
       security:
