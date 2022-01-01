@@ -2011,7 +2011,7 @@ paths:
   /api/tournament/{id}/withdraw:
     post:
       operationId: apiTournamentWithdraw
-      summary: Pause of leave an Arena tournament
+      summary: Pause or leave an Arena tournament
       description: |
         Leave a future Arena tournament, or take a break on an ongoing Arena tournament.
         It's possible to join again later. Points and streaks are preserved.
