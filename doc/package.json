@@ -4,7 +4,7 @@
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
     "@stoplight/spectral-cli": "^6.1",
-    "redoc-cli": "^0.12.1"
+    "redoc-cli": "^0.13.2"
   },
   "scripts": {
     "lint": "spectral lint specs/*.yaml",
