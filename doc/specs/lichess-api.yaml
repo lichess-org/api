@@ -3952,18 +3952,7 @@ paths:
               schema:
                 type: array
                 items:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    name:
-                      type: string
-                    title:
-                      type: [string, 'null']
-                    online:
-                      type: [boolean, 'null']
-                    patron:
-                      type: [boolean, 'null']
+                  $ref: '#/components/schemas/LightUser'
                 example: [
                   {
                     "id": "aliquantus",
@@ -3973,7 +3962,6 @@ paths:
                     "id": "chess-network",
                     "name": "Chess-Network",
                     "title": "NM",
-                    "playing": true,
                     "patron": true
                   }
                 ]
