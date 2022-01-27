@@ -4180,6 +4180,7 @@ paths:
                   description: Days per turn. Required for correspondence seeks.
                   enum:
                     - 1
+                    - 2
                     - 3
                     - 5
                     - 7
@@ -5014,9 +5015,14 @@ paths:
                 days:
                   type: integer
                   description: Days per move, for correspondence games. Clock settings must be omitted.
-                  example: 5
-                  minimum: 1
-                  maximum: 15
+                  enum:
+                    - 1
+                    - 2
+                    - 3
+                    - 5
+                    - 7
+                    - 10
+                    - 14
                 color:
                   type: string
                   description: Which color you get to play
@@ -5257,9 +5263,14 @@ paths:
                 days:
                   type: integer
                   description: Days per move, for correspondence games. Clock settings must be omitted.
-                  example: 5
-                  minimum: 1
-                  maximum: 15
+                  enum:
+                    - 1
+                    - 2
+                    - 3
+                    - 5
+                    - 7
+                    - 10
+                    - 14
                 color:
                   type: string
                   description: Which color you get to play
