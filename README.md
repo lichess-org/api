@@ -1,4 +1,5 @@
 # Lichess API doc & examples
+[![Lint OpenAPI specification and publish documentation](https://github.com/lichess-org/api/actions/workflows/main.yml/badge.svg)](https://github.com/lichess-org/api/actions/workflows/main.yml)
 
 - [API documentation](https://lichess.org/api)
 - [Example code](https://github.com/lichess-org/api/tree/master/example/)
