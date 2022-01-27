@@ -5336,6 +5336,17 @@ paths:
                   example: 1
                   minimum: 0
                   maximum: 60
+                days:
+                  type: integer
+                  description: Days per turn. For correspondence challenges.
+                  enum:
+                    - 1
+                    - 2
+                    - 3
+                    - 5
+                    - 7
+                    - 10
+                    - 14
                 variant:
                   $ref: '#/components/schemas/VariantKey'
                 fen:
