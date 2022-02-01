@@ -1310,17 +1310,20 @@ paths:
                 example: {
                   "nowPlaying": [
                     {
-                      "fullId": "knbD9FPUqhra",
-                      "gameId": "knbD9FPU",
-                      "fen": "rnbqkbnr/pp3pp1/8/3p3p/1PpPp3/P1P1P3/5PPP/RNBQKBNR",
-                      "color": "white",
-                      "lastMove": "c5c4",
-                      "variant": { "key": "standard", "name": "Standard" },
-                      "speed": "correspondence",
+                      "gameId": "rCRw1AuO",
+                      "fullId": "rCRw1AuOvonq",
+                      "color": "black",
+                      "fen": "r1bqkbnr/pppp2pp/2n1pp2/8/8/3PP3/PPPB1PPP/RN1QKBNR w KQkq - 2 4",
+                      "hasMoved": true,
+                      "isMyTurn": false,
+                      "lastMove": "b8c6",
+                      "opponent": { "id": "philippe", "rating": 1790, "username": "Philippe" },
                       "perf": "correspondence",
-                      "rated": true,
-                      "opponent": { "id": "thibot", "username": "BOT thibot", "rating": 1500 },
-                      "isMyTurn": true
+                      "rated": false,
+                      "secondsLeft": 1209600,
+                      "source": "friend",
+                      "speed": "correspondence",
+                      "variant": { "key": "standard", "name": "Standard" }
                     }
                   ]
                 }
@@ -8870,7 +8873,20 @@ components:
       value: {
         "type":"gameStart",
         "game": {
-          "id":"1lsvP62l",
+          "gameId": "rCRw1AuO",
+          "fullId": "rCRw1AuOvonq",
+          "color": "black",
+          "fen": "r1bqkbnr/pppp2pp/2n1pp2/8/8/3PP3/PPPB1PPP/RN1QKBNR w KQkq - 2 4",
+          "hasMoved": true,
+          "isMyTurn": false,
+          "lastMove": "b8c6",
+          "opponent": { "id": "philippe", "rating": 1790, "username": "Philippe" },
+          "perf": "correspondence",
+          "rated": false,
+          "secondsLeft": 1209600,
+          "source": "friend",
+          "speed": "correspondence",
+          "variant": { "key": "standard", "name": "Standard" },
           "compat": {
             "bot": false,
             "board": true
@@ -8882,7 +8898,20 @@ components:
       value: {
         "type":"gameFinish",
         "game": {
-          "id":"1lsvP62l",
+          "gameId": "rCRw1AuO",
+          "fullId": "rCRw1AuOvonq",
+          "color": "black",
+          "fen": "r1bqkbnr/pppp2pp/2n1pp2/8/8/3PP3/PPPB1PPP/RN1QKBNR w KQkq - 2 4",
+          "hasMoved": true,
+          "isMyTurn": false,
+          "lastMove": "b8c6",
+          "opponent": { "id": "philippe", "rating": 1790, "username": "Philippe" },
+          "perf": "correspondence",
+          "rated": false,
+          "secondsLeft": 1209600,
+          "source": "friend",
+          "speed": "correspondence",
+          "variant": { "key": "standard", "name": "Standard" },
           "compat": {
             "bot": false,
             "board": true
