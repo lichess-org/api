@@ -3920,7 +3920,7 @@ paths:
         }
   ]
 
-  /team/{teamId}/request/{userId}/accept:
+  /api/team/{teamId}/request/{userId}/accept:
     post:
       operationId: teamRequestAccept
       summary: Accept join request
@@ -3950,7 +3950,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Ok'
 
-  /team/{teamId}/request/{userId}/decline:
+  /api/team/{teamId}/request/{userId}/decline:
     post:
       operationId: teamRequestDecline
       summary: Decline join request
