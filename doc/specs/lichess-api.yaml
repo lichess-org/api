@@ -4215,7 +4215,7 @@ paths:
       \ Each line is a JSON object containing a `type` field. Possible values are:\n
       \ - `gameStart` Start of a game\n
       \ - `gameFinish` Completion of a game\n
-      \ - `challenge` A player sends you a challenge\n
+      \ - `challenge` A player sends you a challenge or you challenge someone\n
       \ - `challengeCanceled` A player cancels their challenge to you\n
       \ - `challengeDeclined` The opponent declines your challenge\n
       \n
