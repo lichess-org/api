@@ -1739,7 +1739,10 @@ paths:
                   description: Anything you want to tell players about the tournament
                 password:
                   type: string
-                  description: Make the tournament private, and restrict access with a password
+                  description: |
+                    Make the tournament private, and restrict access with a password.
+                    You can also [generate user-specific entry codes](https://github.com/lichess-org/api/tree/master/example/tournament-entry-code)
+                    based on this password.
                 teambBattleByTeam:
                   type: string
                   description: |
@@ -1984,7 +1987,10 @@ paths:
               properties:
                 password:
                   type: string
-                  description: The tournament password, if one is required
+                  description: |
+                    The tournament password, if one is required.
+                    Can also be a [user-specific entry code](https://github.com/lichess-org/api/tree/master/example/tournament-entry-code)
+                    generated and shared by the organizer.
                 team:
                   type: string
                   description: The team to join the tournament with, for team battle tournaments
