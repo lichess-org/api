@@ -6326,14 +6326,14 @@ paths:
           schema:
             type: number
             default: 4
-            maximum: 8
+            maximum: 4
         - in: query
           name: recentGames
           description: Number of recent games to display
           schema:
             type: number
             default: 4
-            maximum: 8
+            maximum: 4 # or 8, depending on query
       responses:
         "200":
           description: Opening statistics and game references for the position.
@@ -6439,7 +6439,7 @@ paths:
           description: Number of recent games to display
           schema:
             type: number
-            default: 4
+            default: 8
             maximum: 8
       responses:
         "200":
