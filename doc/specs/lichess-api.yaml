@@ -2471,6 +2471,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/swiss/{id}:
+    parameters:
+     - in: path
+       name: id
+       description: The Swiss tournament ID.
+       schema:
+         type: string
+       required: true
+    get:
+      operationId: swiss
+      summary: Get info about a Swiss tournament
+      description: |
+        Get detailed info about recently finished, current, or upcoming swiss tournament's boards, player standings, and other info.
+      tags:
+        - "Swiss tournaments"
+      security: []
+      responses:
+        "200":
+          description: The information of the Swiss tournament.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SwissTournament'
+
   /api/swiss/{id}/edit:
     post:
       operationId: apiSwissUpdate
@@ -8080,7 +8109,9 @@ components:
         "round": 0,
         "startsAt": "2020-05-11T12:23:18.233-06:00",
         "status": "created",
-        "variant": "standard"
+        "variant": "standard",
+        "isRecentlyFinished": false,
+        "password": true
       }
 
     Simul:
