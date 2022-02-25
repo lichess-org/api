@@ -8068,10 +8068,6 @@ components:
             "limit": 300
         },
         "createdBy": "thibault",
-        "greatPlayer": {
-            "name": "Wang",
-            "url": "https://wikipedia.org/wiki/Wang_Hao_(chess_player)"
-        },
         "id": "ZmKWCOye",
         "name": "Wang",
         "nbOngoing": 0,
@@ -8080,10 +8076,6 @@ components:
         "nextRound": {
             "at": "2020-05-11T12:23:18.233-06:00",
             "in": 600
-        },
-        "quote": {
-            "author": "Emanuel Lasker",
-            "text": "By what right does White, in an absolutely even position, such as after move one, when both sides have advanced 1. e4, sacrifice a pawn, whose recapture is quite uncertain, and open up his kingside to attack? And then follow up this policy by leaving the check of the black queen open? None whatever !"
         },
         "round": 0,
         "startsAt": "2020-05-11T12:23:18.233-06:00",
