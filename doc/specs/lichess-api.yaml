@@ -2483,7 +2483,7 @@ paths:
       operationId: swiss
       summary: Get info about a Swiss tournament
       description: |
-        Get detailed info about recently finished, current, or upcoming swiss tournament's boards, player standings, and other info.
+        Get detailed info about a Swiss tournament.
       tags:
         - "Swiss tournaments"
       security: []
