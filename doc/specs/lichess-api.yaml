@@ -2439,6 +2439,12 @@ paths:
                   type: boolean
                   description: Games are rated and impact players ratings
                   default: true
+                forbiddenPairings:
+                  type: string
+                  description: |
+                    Usernames of players that must not play together.
+                    
+                    Two usernames per line, separated by a space.
                 chatFor:
                   type: number
                   description: |
