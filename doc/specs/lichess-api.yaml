@@ -1117,7 +1117,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GameJson'
 
-  /games/export/_ids:
+  /api/games/export/_ids:
     post:
       operationId: gamesExportIds
       summary: Export games by IDs
@@ -1198,6 +1198,11 @@ paths:
       responses:
         "200":
           description: The representation of the games.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/x-chess-pgn:
               schema:
