@@ -8963,48 +8963,6 @@ components:
         "type":"challengeCanceled",
         "challenge": {
           "id":"7pGLxJ4F",
-          "url": "https://lichess.org/VU0nyvsW",
-          "status":"created",
-          "compat": {
-            "bot": false,
-            "board": true
-          },
-          "challenger": {
-            "id":"lovlas",
-            "name":"Lovlas",
-            "title":"IM",
-            "rating": 2506,
-            "patron": true,
-            "online": true,
-            "lag": 24
-          },
-          "destUser": {
-            "id":"thibot",
-            "name":"thibot",
-            "title":null,
-            "rating": 1500,
-            "provisional": true,
-            "online": true,
-            "lag": 45
-          },
-          "variant": {
-            "key":"standard",
-            "name":"Standard",
-            "short":"Std"
-          },
-          "rated": true,
-          "timeControl": {
-            "type":"clock",
-            "limit": 300,
-            "increment": 25,
-            "show":"5+25"
-          },
-          "color":"random",
-          "speed":"rapid",
-          "perf": {
-            "icon":"#",
-            "name":"Rapid"
-          }
         }
       }
 
