@@ -3,7 +3,7 @@
   "private": true,
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
-    "@stoplight/spectral-cli": "^6.1",
+    "@stoplight/spectral-cli": "^6.3.0",
     "redoc-cli": "^0.13.2"
   },
   "scripts": {
