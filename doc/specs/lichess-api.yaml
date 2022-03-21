@@ -7979,7 +7979,7 @@ components:
         "isFinished": true,
         "isRecentlyFinished": true,
         "pairingsClosed": true,
-        "startsAt": "2018-04-04T01:00:00.000Z",
+        "startsAt": 1522803600000,
         "nbPlayers": 154,
         "perf": {
           "icon": ")",
