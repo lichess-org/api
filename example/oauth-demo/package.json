@@ -1,0 +1,29 @@
+{
+  "name": "lichess-oauth-app-example",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "@bity/oauth2-auth-code-pkce": "^2",
+    "bootstrap": "^5",
+    "page": "^1",
+    "snabbdom": "^3"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21",
+    "@rollup/plugin-node-resolve": "^13",
+    "@rollup/plugin-typescript": "^8",
+    "@types/page": "^1",
+    "http-server": "^14",
+    "prettier": "^2",
+    "rollup": "^2",
+    "rollup-plugin-scss": "^3",
+    "sass": "^1",
+    "tslib": "^2",
+    "typescript": "^4"
+  },
+  "scripts": {
+    "build": "rollup --config",
+    "watch": "rollup --config --watch",
+    "serve": "http-server"
+  }
+}
