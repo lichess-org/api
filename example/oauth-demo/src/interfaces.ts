@@ -5,3 +5,7 @@ export type Page = 'home';
 
 export type MaybeVNodes = (VNode | undefined)[];
 export type Renderer = (ctrl: Ctrl) => MaybeVNodes;
+
+export interface Game {
+  [key: string]: any;
+}

@@ -1,14 +1,14 @@
 import { HttpClient, OAuth2AuthCodePKCE } from '@bity/oauth2-auth-code-pkce';
 
 export const lichessHost = 'https://lichess.org';
-export const scopes = ['email:read'];
+export const scopes = ['board:play'];
 export const clientId = 'lichess-oauth-demo';
 export const clientUrl = `${location.protocol}//${location.host}/`;
 
 export interface Me {
   id: string;
   username: string;
-  fetch: HttpClient;
+  httpClient: HttpClient;
 }
 
 export class Auth {
@@ -24,10 +24,6 @@ export class Auth {
 
   me?: Me;
   error?: string;
-
-  async login() {
-    await this.oauth.fetchAuthorizationCode();
-  }
 
   async init() {
     try {
@@ -46,20 +42,26 @@ export class Auth {
     }
   }
 
-  fetchMe = async () => {
-    const fetch = this.oauth.decorateFetchHTTPClient(window.fetch);
-    const res = await fetch(`${lichessHost}/api/account`);
-    const me = await res.json();
-    if (me.error) throw me.error;
-    me.fetch = fetch;
-    this.me = me;
-    this.error = undefined;
-  };
+  async login() {
+    await this.oauth.fetchAuthorizationCode();
+  }
 
   async logout() {
-    if (this.me) await this.me.fetch(`${lichessHost}/api/token`, { method: 'DELETE' });
+    if (this.me) await this.me.httpClient(`${lichessHost}/api/token`, { method: 'DELETE' });
     localStorage.clear();
     this.error = undefined;
     this.me = undefined;
   }
+
+  fetch = (path: string, ...args: any[]) => this.me?.httpClient(`${lichessHost}${path}`, args);
+
+  private fetchMe = async () => {
+    const fetch = this.oauth.decorateFetchHTTPClient(window.fetch);
+    const res = await fetch(`${lichessHost}/api/account`);
+    const me = await res.json();
+    if (me.error) throw me.error;
+    me.httpClient = fetch;
+    this.me = me;
+    this.error = undefined;
+  };
 }

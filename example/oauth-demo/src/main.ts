@@ -1,10 +1,10 @@
 import { init, attributesModule, eventListenersModule, h } from 'snabbdom';
-import page from 'page';
 import { Ctrl } from './ctrl';
 import view from './view/view';
 import '../scss/style.scss';
 import '../node_modules/bootstrap/js/dist/dropdown.js';
 import '../node_modules/bootstrap/js/dist/collapse.js';
+import routing from './routing';
 
 export default function (element: HTMLElement) {
   const patch = init([attributesModule, eventListenersModule]);
@@ -17,5 +17,8 @@ export default function (element: HTMLElement) {
     vnode = patch(vnode, view(ctrl));
   }
 
-  ctrl.auth.init().then(() => page({ hashbang: true }));
+  ctrl.auth.init().then(() => {
+    routing(ctrl);
+    ctrl.startEventStream();
+  });
 }
