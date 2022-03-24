@@ -9,6 +9,7 @@ export interface Me {
   id: string;
   username: string;
   httpClient: HttpClient;
+  perfs: { [key: string]: any };
 }
 
 export class Auth {

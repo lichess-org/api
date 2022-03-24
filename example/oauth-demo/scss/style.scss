@@ -1,4 +1,18 @@
-@import '../node_modules/bootstrap/scss/bootstrap';
+// @import '../node_modules/bootstrap/scss/bootstrap';
+@import '../node_modules/bootstrap-dark-5/dist/css/bootstrap-nightshade.css';
+
+@import './chessground';
+
+body {
+  --board-color: '#f0d9b5';
+}
+
+html.dark a {
+  color: var(--bs-primary);
+  &:hover {
+    color: white;
+  }
+}
 
 .login {
   margin-top: 30%;
@@ -7,4 +21,64 @@
 
 #navbarSupportedContent {
   justify-content: flex-end;
+}
+
+.colorpicker {
+  display: flex;
+  align-items: center;
+  margin-right: 1em;
+}
+#colorpicker {
+  border-radius: 0.25em;
+}
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.game-widget {
+  border-radius: 0.25rem;
+  padding: 1em;
+  &,
+  & a {
+    color: var(--bs-gray) !important;
+  }
+  &:hover {
+    background: var(--bs-primary);
+    color: white !important;
+  }
+  &__opponent {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.game-page {
+  display: flex;
+  flex-flow: column;
+  max-width: 60vh;
+  margin: 10vh auto;
+
+  &__player {
+    display: flex;
+    justify-content: space-between;
+    flex: 0 0 auto;
+    &__user {
+      display: flex;
+      align-items: center;
+      &__rating {
+        margin-left: 1em;
+        color: var(--bs-gray);
+      }
+    }
+    &__clock {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__board {
+    flex: 1 1 auto;
+  }
 }

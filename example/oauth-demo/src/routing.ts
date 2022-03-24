@@ -17,5 +17,9 @@ export default function (ctrl: Ctrl) {
     await ctrl.auth.logout();
     location.href = '/';
   });
+  page('/game/:id', ctx => {
+    ctrl.page = 'game';
+    ctrl.openGame(ctx.params.id);
+  });
   page({ hashbang: true });
 }

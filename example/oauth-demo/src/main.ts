@@ -1,9 +1,10 @@
 import { init, attributesModule, eventListenersModule, h } from 'snabbdom';
 import { Ctrl } from './ctrl';
-import view from './view/view';
+import view from './view/app';
 import '../scss/style.scss';
 import '../node_modules/bootstrap/js/dist/dropdown.js';
 import '../node_modules/bootstrap/js/dist/collapse.js';
+import '../node_modules/bootstrap-dark-5/dist/js/darkmode.js';
 import routing from './routing';
 
 export default function (element: HTMLElement) {

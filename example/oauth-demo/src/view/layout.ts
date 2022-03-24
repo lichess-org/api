@@ -2,6 +2,7 @@ import { h, VNode } from 'snabbdom';
 import { Me } from '../auth';
 import { Ctrl } from '../ctrl';
 import { MaybeVNodes } from '../interfaces';
+import colorpicker from './colorpicker';
 
 export default function (ctrl: Ctrl, body: MaybeVNodes): VNode {
   return h('body', [renderNavBar(ctrl), h('div.container', body)]);
@@ -32,12 +33,12 @@ const renderNavBar = (ctrl: Ctrl) =>
         h('span.navbar-toggler-icon')
       ),
       h('div#navbarSupportedContent.collapse.navbar-collapse', [
-        h('ul.navbar-nav', ctrl.auth.me ? userNav(ctrl.auth.me) : anonNav()),
+        h('ul.navbar-nav', [colorpicker(), ctrl.auth.me ? userNav(ctrl.auth.me) : anonNav()]),
       ]),
     ]),
   ]);
 
-const userNav = (me: Me) => [
+const userNav = (me: Me) =>
   h('li.nav-item.dropdown', [
     h(
       'a#navbarDropdown.nav-link.dropdown-toggle',
@@ -71,10 +72,9 @@ const userNav = (me: Me) => [
         ),
       ]
     ),
-  ]),
-];
+  ]);
 
-const anonNav = () => [
+const anonNav = () =>
   h(
     'li.nav-item',
     h(
@@ -84,5 +84,4 @@ const anonNav = () => [
       },
       'Login with Lichess'
     )
-  ),
-];
+  );
