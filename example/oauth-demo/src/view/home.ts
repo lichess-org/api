@@ -57,16 +57,20 @@ const renderGame = (ctrl: Ctrl, me: Me) => (game: Game) =>
     ]
   );
 
-const anonHome = (ctrl: Ctrl) => [loginButton(), ctrl.auth.error ? h('div', 'Error: ' + ctrl.auth.error) : undefined];
-
-const loginButton = () =>
-  h(
-    'div.login.text-center',
+const anonHome = (ctrl: Ctrl) => [
+  h('div.login.text-center', [
+    h('p', [
+      'This client-side app demonstrates usage of the ',
+      h('a', { attrs: { href: 'https://lichess.org/api' } }, 'Lichess API'),
+      '.',
+    ]),
+    h('p', 'Please log in to continue.'),
     h(
-      'a.btn.btn-primary.btn-lg',
+      'a.btn.btn-primary.btn-lg.mt-5',
       {
         attrs: { href: '/login' },
       },
       'Login with Lichess'
-    )
-  );
+    ),
+  ]),
+];

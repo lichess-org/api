@@ -297,7 +297,10 @@ html.dark a:hover {
 
 .login {
   margin-top: 30%;
-  font-size: 3em;
+  font-size: 2rem;
+}
+.login .btn {
+  font-size: 3rem;
 }
 
 #navbarSupportedContent {
@@ -339,7 +342,7 @@ html.dark a:hover {
   display: flex;
   flex-flow: column;
   max-width: 60vh;
-  margin: 10vh auto;
+  margin: 5vh auto;
 }
 .game-page__player {
   display: flex;
@@ -357,7 +360,14 @@ html.dark a:hover {
 .game-page__player__clock {
   display: flex;
   align-items: center;
+  color: var(--bs-gray);
+}
+.game-page__player.turn .game-page__player__clock {
+  color: var(--bs-body-color-alt);
 }
 .game-page__board {
   flex: 1 1 auto;
+}
+.game-page__state {
+  text-align: center;
 }

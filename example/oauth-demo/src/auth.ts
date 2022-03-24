@@ -27,19 +27,20 @@ export class Auth {
   error?: string;
 
   async init() {
+    this.error = undefined;
     try {
+      const accessContext = await this.oauth.getAccessToken();
+      if (accessContext) await this.fetchMe();
+    } catch (err) {
+      this.error = '' + err;
+    }
+    if (!this.me) {
       try {
-        const accessContext = await this.oauth.getAccessToken();
-        if (accessContext) await this.fetchMe();
+        const hasAuthCode = await this.oauth.isReturningFromAuthServer();
+        if (hasAuthCode) await this.fetchMe();
       } catch (err) {
         this.error = '' + err;
       }
-      if (!this.me) {
-        const hasAuthCode = await this.oauth.isReturningFromAuthServer();
-        if (hasAuthCode) await this.fetchMe();
-      }
-    } catch (err) {
-      this.error = '' + err;
     }
   }
 

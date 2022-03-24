@@ -1,4 +1,4 @@
-import { init, attributesModule, eventListenersModule, h } from 'snabbdom';
+import { init, attributesModule, eventListenersModule, h, classModule } from 'snabbdom';
 import { Ctrl } from './ctrl';
 import view from './view/app';
 import '../scss/style.scss';
@@ -8,7 +8,7 @@ import '../node_modules/bootstrap-dark-5/dist/js/darkmode.js';
 import routing from './routing';
 
 export default function (element: HTMLElement) {
-  const patch = init([attributesModule, eventListenersModule]);
+  const patch = init([attributesModule, eventListenersModule, classModule]);
 
   const ctrl = new Ctrl(redraw);
 

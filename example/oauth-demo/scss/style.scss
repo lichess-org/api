@@ -16,7 +16,10 @@ html.dark a {
 
 .login {
   margin-top: 30%;
-  font-size: 3em;
+  font-size: 2rem;
+  & .btn {
+    font-size: 3rem;
+  }
 }
 
 #navbarSupportedContent {
@@ -58,7 +61,7 @@ html.dark a {
   display: flex;
   flex-flow: column;
   max-width: 60vh;
-  margin: 10vh auto;
+  margin: 5vh auto;
 
   &__player {
     display: flex;
@@ -75,10 +78,18 @@ html.dark a {
     &__clock {
       display: flex;
       align-items: center;
+      color: var(--bs-gray);
+    }
+    &.turn &__clock {
+      color: var(--bs-body-color-alt);
     }
   }
 
   &__board {
     flex: 1 1 auto;
+  }
+
+  &__state {
+    text-align: center;
   }
 }

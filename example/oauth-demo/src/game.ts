@@ -3,7 +3,7 @@ import { Game } from './interfaces';
 import { Api as CgApi } from 'chessground/api';
 import { readStream } from './ndJsonStream';
 import { Color, Key } from 'chessground/types';
-import { parseUci } from 'chessops/util';
+import { opposite, parseUci } from 'chessops/util';
 import { Chess, defaultSetup } from 'chessops';
 import { makeFen, parseFen } from 'chessops/fen';
 import { chessgroundDests } from 'chessops/compat';
@@ -41,8 +41,15 @@ export class GameCtrl {
   timeOf = (color: Color) => this.game.state[`${color[0]}time`];
 
   userMove = async (orig: Key, dest: Key) => {
+    this.ground?.set({ turnColor: opposite(this.pov) });
     await this.root.auth.fetchBody(`/api/board/game/${this.game.id}/move/${orig}${dest}`, { method: 'post' });
   };
+
+  resign = async () => {
+    await this.root.auth.fetchBody(`/api/board/game/${this.game.id}/resign`, { method: 'post' });
+  };
+
+  playing = () => this.game.state.status == 'started';
 
   chessgroundConfig = () => ({
     orientation: this.pov,
@@ -52,7 +59,7 @@ export class GameCtrl {
     check: !!this.chess.isCheck(),
     movable: {
       free: false,
-      color: this.pov,
+      color: this.playing() ? this.pov : undefined,
       dests: chessgroundDests(this.chess),
     },
     events: {
