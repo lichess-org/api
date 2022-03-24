@@ -13,13 +13,18 @@ export class GameCtrl {
   pov: Color;
   chess: Chess = Chess.default();
   lastMove?: [Key, Key];
+  lastUpdateAt: number = Date.now();
   ground?: CgApi;
+  redrawInterval: ReturnType<typeof setInterval>;
 
   constructor(game: Game, private root: Ctrl) {
     this.game = game;
     this.pov = this.game.black.id == this.root.auth.me?.id ? 'black' : 'white';
     this.onUpdate();
+    this.redrawInterval = setInterval(root.redraw, 100);
   }
+
+  onUnmount = () => clearInterval(this.redrawInterval);
 
   private onUpdate = () => {
     const setup = this.game.initialFen == 'startpos' ? defaultSetup() : parseFen(this.game.initialFen).unwrap();
@@ -28,6 +33,7 @@ export class GameCtrl {
     moves.forEach((uci: string) => this.chess.play(parseUci(uci)!));
     const lastMove = moves[moves.length - 1];
     this.lastMove = lastMove && [lastMove.substr(0, 2) as Key, lastMove.substr(2, 2) as Key];
+    this.lastUpdateAt = Date.now();
     this.ground?.set(this.chessgroundConfig());
     if (this.chess.turn == this.pov) this.ground?.playPremove();
   };
