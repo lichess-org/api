@@ -50,16 +50,15 @@ const renderPlayer = (ctrl: GameCtrl, color: Color) => {
 };
 
 function clockContent(ctrl: GameCtrl, color: Color, showTenths: boolean): Array<string | VNode> {
-  const centis = ctrl.timeOf(color);
-  if (!centis && centis !== 0) return ['-'];
-  const date = new Date(centis * 10 + (color == ctrl.chess.turn ? ctrl.lastUpdateAt - Date.now() : 0)),
+  const time = ctrl.timeOf(color);
+  if (!time && time !== 0) return ['-'];
+  const decay = color == ctrl.chess.turn && ctrl.chess.fullmoves > 1 ? ctrl.lastUpdateAt - Date.now() : 0;
+  const date = new Date(time + decay),
     millis = date.getUTCMilliseconds(),
     sep = ':',
     baseStr = pad2(date.getUTCMinutes()) + sep + pad2(date.getUTCSeconds());
-  if (!showTenths || centis >= 360000) return [Math.floor(centis / 360000) + sep + baseStr];
+  if (!showTenths || time >= 3600000) return [Math.floor(time / 3600000) + sep + baseStr];
   return [baseStr, h('tenths', '.' + Math.floor(millis / 100).toString())];
 }
 
-function pad2(num: number): string {
-  return (num < 10 ? '0' : '') + num;
-}
+const pad2 = (num: number) => (num < 10 ? '0' : '') + num;

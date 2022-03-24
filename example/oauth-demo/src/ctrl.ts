@@ -3,6 +3,7 @@ import { GameCtrl } from './game';
 import { Page } from './interfaces';
 import { readStream } from './ndJsonStream';
 import OngoingGames from './ongoingGames';
+import page from 'page';
 
 export class Ctrl {
   auth: Auth = new Auth();
@@ -18,15 +19,27 @@ export class Ctrl {
     this.redraw();
   };
 
+  playAi = async () => {
+    const game = await this.auth.fetchBody('/api/challenge/ai', {
+      method: 'post',
+      body: formData({
+        level: 1,
+        'clock.limit': 60 * 3,
+        'clock.increment': 2,
+      }),
+    });
+    page(`/game/${game.id}`);
+  };
+
   startEventStream = async () => {
     if (this.auth.me) {
-      const stream = await this.auth.fetch('/api/stream/event');
+      const stream = await this.auth.fetchResponse('/api/stream/event');
       await readStream(this.messageHandler)(stream);
       await this.startEventStream(); // reconnect
     }
   };
 
-  messageHandler = (msg: any) => {
+  private messageHandler = (msg: any) => {
     switch (msg.type) {
       case 'gameStart':
         this.games.onStart(msg.game);
@@ -41,3 +54,9 @@ export class Ctrl {
     }
   };
 }
+
+const formData = (data: any): FormData => {
+  const formData = new FormData();
+  for (const k of Object.keys(data)) formData.append(k, data[k]);
+  return formData;
+};

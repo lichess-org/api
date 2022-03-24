@@ -7,8 +7,20 @@ import { Game, Renderer } from '../interfaces';
 export const renderHome: Renderer = ctrl => (ctrl.auth.me ? userHome(ctrl, ctrl.auth.me) : anonHome(ctrl));
 
 const userHome = (ctrl: Ctrl, me: Me) => [
-  h('div.alert.alert-success.mt-5', ['Welcome, ', me.username]),
-  h('div.mt-5', [h('h1', 'Games in progress'), h('div.games', ctrl.games.games.map(renderGame(ctrl, me)))]),
+  h('div.mt-5', [
+    h('div.mt-5', [
+      h(
+        'button.btn.btn-primary.btn-lg',
+        {
+          attrs: { type: 'button' },
+          on: { click: ctrl.playAi },
+        },
+        'Play the Lichess AI'
+      ),
+    ]),
+    h('h1.mt-5', 'Games in progress'),
+    h('div.games', ctrl.games.games.map(renderGame(ctrl, me))),
+  ]),
 ];
 
 const renderGame = (ctrl: Ctrl, me: Me) => (game: Game) =>

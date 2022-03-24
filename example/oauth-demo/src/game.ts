@@ -29,7 +29,7 @@ export class GameCtrl {
   private onUpdate = () => {
     const setup = this.game.initialFen == 'startpos' ? defaultSetup() : parseFen(this.game.initialFen).unwrap();
     this.chess = Chess.fromSetup(setup).unwrap();
-    const moves = this.game.state.moves.split(' ');
+    const moves = this.game.state.moves.split(' ').filter((m: string) => m);
     moves.forEach((uci: string) => this.chess.play(parseUci(uci)!));
     const lastMove = moves[moves.length - 1];
     this.lastMove = lastMove && [lastMove.substr(0, 2) as Key, lastMove.substr(2, 2) as Key];
@@ -41,7 +41,7 @@ export class GameCtrl {
   timeOf = (color: Color) => this.game.state[`${color[0]}time`];
 
   userMove = async (orig: Key, dest: Key) => {
-    await this.root.auth.fetch(`/api/board/game/${this.game.id}/move/${orig}${dest}`, { method: 'post' });
+    await this.root.auth.fetchBody(`/api/board/game/${this.game.id}/move/${orig}${dest}`, { method: 'post' });
   };
 
   chessgroundConfig = () => ({
@@ -70,7 +70,7 @@ export class GameCtrl {
           resolve(ctrl);
         }
       };
-      const stream = await root.auth.fetch(`/api/board/game/stream/${id}`);
+      const stream = await root.auth.fetchResponse(`/api/board/game/stream/${id}`);
       await readStream(handler)(stream);
     });
   };

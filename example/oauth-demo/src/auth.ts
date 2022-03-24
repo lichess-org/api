@@ -54,7 +54,21 @@ export class Auth {
     this.me = undefined;
   }
 
-  fetch = (path: string, config: any = {}) => this.me?.httpClient(`${lichessHost}${path}`, config);
+  fetchResponse = async (path: string, config: any = {}) => {
+    const res = await this.me?.httpClient(`${lichessHost}${path}`, config);
+    if (res.error || !res.ok) {
+      const err = `${res.error} ${res.status} ${res.statusText}`;
+      alert(err);
+      throw err;
+    }
+    return res;
+  };
+
+  fetchBody = async (path: string, config: any = {}) => {
+    const res = await this.fetchResponse(path, config);
+    const body = await res.json();
+    return body;
+  };
 
   private fetchMe = async () => {
     const fetch = this.oauth.decorateFetchHTTPClient(window.fetch);
