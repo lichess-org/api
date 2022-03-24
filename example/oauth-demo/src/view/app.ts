@@ -1,4 +1,4 @@
-import { VNode } from 'snabbdom';
+import { h, VNode } from 'snabbdom';
 import { Ctrl } from '../ctrl';
 import { Page, Renderer } from '../interfaces';
 import { renderGame } from './game';
@@ -10,7 +10,11 @@ export default function view(ctrl: Ctrl): VNode {
 }
 
 const selectRenderer = (ctrl: Ctrl): Renderer => {
-  if (ctrl.page == 'game' && ctrl.game) return renderGame(ctrl.game);
+  if (ctrl.page == 'game') return ctrl.game ? renderGame(ctrl.game) : renderLoading;
   if (ctrl.page == 'home') return renderHome;
   throw `No renderer for page ${page}`;
 };
+
+const renderLoading: Renderer = (_: Ctrl) => [
+  h('div.spinner-border.text-primary', { attrs: { role: 'status' } }, h('span.visually-hidden', 'Loading...')),
+];

@@ -1,12 +1,15 @@
 import { Chessground } from 'chessground';
 import { Color } from 'chessground/types';
 import { opposite } from 'chessground/util';
+import { chessgroundDests } from 'chessops/compat';
+import { makeFen } from 'chessops/fen';
 import { h, VNode } from 'snabbdom';
 import { GameCtrl } from '../game';
 import { Game, Renderer } from '../interfaces';
 
 export const renderGame: (ctrl: GameCtrl) => Renderer = ctrl => root => {
-  const game = ctrl.game;
+  const game = ctrl.game,
+    pos = ctrl.chess;
   return [
     h(
       `div.game-page.game-page--${game.id}`,
@@ -20,18 +23,7 @@ export const renderGame: (ctrl: GameCtrl) => Renderer = ctrl => root => {
                 {
                   hook: {
                     insert(vnode) {
-                      const el = vnode.elm as HTMLElement;
-                      console.log(game?.fen);
-                      if (game)
-                        ctrl.ground = Chessground(el, {
-                          fen: game.fen,
-                          orientation: game.color,
-                          lastMove: game.lastMove?.match(/.{1,2}/g),
-                          viewOnly: true,
-                          movable: { free: false },
-                          drawable: { visible: false },
-                          coordinates: false,
-                        });
+                      ctrl.ground = Chessground(vnode.elm as HTMLElement, ctrl.chessgroundConfig());
                     },
                   },
                 },
@@ -45,15 +37,16 @@ export const renderGame: (ctrl: GameCtrl) => Renderer = ctrl => root => {
   ];
 };
 
-const renderPlayer = (ctrl: GameCtrl, color: Color) =>
-  ctrl.game &&
-  h('div.game-page__player', [
+const renderPlayer = (ctrl: GameCtrl, color: Color) => {
+  const p = ctrl.game[color];
+  return h('div.game-page__player', [
     h('div.game-page__player__user', [
-      h('h2.game-page__player__user__name', ctrl.game[color].name || 'Anon'),
-      h('span.game-page__player__user__rating', ctrl.game[color].rating || '?'),
+      h('h2.game-page__player__user__name', p.aiLevel ? `Stockfish level ${p.aiLevel}` : p.name || 'Anon'),
+      h('span.game-page__player__user__rating', p.rating || ''),
     ]),
     h('div.game-page__player__clock.display-4', clockContent(ctrl.timeOf(color), false)),
   ]);
+};
 
 function clockContent(centis: number | undefined, showTenths: boolean): Array<string | VNode> {
   if (!centis && centis !== 0) return ['-'];

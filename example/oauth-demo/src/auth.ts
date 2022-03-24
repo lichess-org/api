@@ -54,7 +54,7 @@ export class Auth {
     this.me = undefined;
   }
 
-  fetch = (path: string, ...args: any[]) => this.me?.httpClient(`${lichessHost}${path}`, args);
+  fetch = (path: string, config: any = {}) => this.me?.httpClient(`${lichessHost}${path}`, config);
 
   private fetchMe = async () => {
     const fetch = this.oauth.decorateFetchHTTPClient(window.fetch);

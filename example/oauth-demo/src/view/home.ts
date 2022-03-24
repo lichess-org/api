@@ -8,7 +8,7 @@ export const renderHome: Renderer = ctrl => (ctrl.auth.me ? userHome(ctrl, ctrl.
 
 const userHome = (ctrl: Ctrl, me: Me) => [
   h('div.alert.alert-success.mt-5', ['Welcome, ', me.username]),
-  h('div.mt-5', [h('h1', 'Games in progress'), h('div.games', ctrl.games.map(renderGame(ctrl, me)))]),
+  h('div.mt-5', [h('h1', 'Games in progress'), h('div.games', ctrl.games.games.map(renderGame(ctrl, me)))]),
 ];
 
 const renderGame = (ctrl: Ctrl, me: Me) => (game: Game) =>
@@ -20,7 +20,7 @@ const renderGame = (ctrl: Ctrl, me: Me) => (game: Game) =>
     [
       h('span.game-widget__opponent', [
         h('span.game-widget__opponent__name', game.opponent.username || 'Anon'),
-        h('span.game-widget__opponent__rating', game.opponent.rating || '?'),
+        game.opponent.rating && h('span.game-widget__opponent__rating', game.opponent.rating),
       ]),
       h(
         'span.game-widget__board.cg-wrap',
