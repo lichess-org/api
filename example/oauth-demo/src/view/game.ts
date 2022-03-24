@@ -1,13 +1,11 @@
 import { Chessground } from 'chessground';
 import { Color } from 'chessground/types';
 import { opposite } from 'chessground/util';
-import { chessgroundDests } from 'chessops/compat';
-import { makeFen } from 'chessops/fen';
 import { h, VNode } from 'snabbdom';
 import { GameCtrl } from '../game';
-import { Game, Renderer } from '../interfaces';
+import { Renderer } from '../interfaces';
 
-export const renderGame: (ctrl: GameCtrl) => Renderer = ctrl => root => {
+export const renderGame: (ctrl: GameCtrl) => Renderer = ctrl => _ => {
   return [
     h(
       `div.game-page.game-page--${ctrl.game.id}`,
@@ -18,26 +16,29 @@ export const renderGame: (ctrl: GameCtrl) => Renderer = ctrl => root => {
       },
       [
         renderPlayer(ctrl, opposite(ctrl.pov)),
-        h(
-          'div.game-page__board',
-          h(
-            'div.cg-wrap',
-            {
-              hook: {
-                insert(vnode) {
-                  ctrl.ground = Chessground(vnode.elm as HTMLElement, ctrl.chessgroundConfig());
-                },
-              },
-            },
-            'loading...'
-          )
-        ),
+        renderBoard(ctrl),
         renderPlayer(ctrl, ctrl.pov),
         ctrl.playing() ? renderButtons(ctrl) : renderState(ctrl),
       ]
     ),
   ];
 };
+
+const renderBoard = (ctrl: GameCtrl) =>
+  h(
+    'div.game-page__board',
+    h(
+      'div.cg-wrap',
+      {
+        hook: {
+          insert(vnode) {
+            ctrl.ground = Chessground(vnode.elm as HTMLElement, ctrl.chessgroundConfig());
+          },
+        },
+      },
+      'loading...'
+    )
+  );
 
 const renderButtons = (ctrl: GameCtrl) =>
   h('div.btn-group.mt-4', [

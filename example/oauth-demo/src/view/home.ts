@@ -1,12 +1,11 @@
 import { Chessground } from 'chessground';
 import { h } from 'snabbdom';
-import { Me } from '../auth';
 import { Ctrl } from '../ctrl';
 import { Game, Renderer } from '../interfaces';
 
-export const renderHome: Renderer = ctrl => (ctrl.auth.me ? userHome(ctrl, ctrl.auth.me) : anonHome(ctrl));
+export const renderHome: Renderer = ctrl => (ctrl.auth.me ? userHome(ctrl) : anonHome());
 
-const userHome = (ctrl: Ctrl, me: Me) => [
+const userHome = (ctrl: Ctrl) => [
   h('div.mt-5', [
     h('div.mt-5', [
       h(
@@ -19,11 +18,11 @@ const userHome = (ctrl: Ctrl, me: Me) => [
       ),
     ]),
     h('h1.mt-5', 'Games in progress'),
-    h('div.games', ctrl.games.games.map(renderGame(ctrl, me))),
+    h('div.games', ctrl.games.games.map(renderGameWidget)),
   ]),
 ];
 
-const renderGame = (ctrl: Ctrl, me: Me) => (game: Game) =>
+const renderGameWidget = (game: Game) =>
   h(
     'a.game-widget.text-decoration-none',
     {
@@ -57,7 +56,7 @@ const renderGame = (ctrl: Ctrl, me: Me) => (game: Game) =>
     ]
   );
 
-const anonHome = (ctrl: Ctrl) => [
+const anonHome = () => [
   h('div.login.text-center', [
     h('p', [
       'This client-side app demonstrates usage of the ',
