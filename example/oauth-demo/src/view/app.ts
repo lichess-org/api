@@ -16,5 +16,8 @@ const selectRenderer = (ctrl: Ctrl): Renderer => {
 };
 
 const renderLoading: Renderer = (_: Ctrl) => [
-  h('div.spinner-border.text-primary', { attrs: { role: 'status' } }, h('span.visually-hidden', 'Loading...')),
+  h(
+    'div.loading',
+    h('div.spinner-border.text-primary', { attrs: { role: 'status' } }, h('span.visually-hidden', 'Loading...'))
+  ),
 ];

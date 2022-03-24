@@ -20,6 +20,9 @@ export class Ctrl {
   };
 
   playAi = async () => {
+    this.game = undefined;
+    this.page = 'game';
+    this.redraw();
     const game = await this.auth.fetchBody('/api/challenge/ai', {
       method: 'post',
       body: formData({

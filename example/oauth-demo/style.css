@@ -303,6 +303,13 @@ html.dark a:hover {
   font-size: 3rem;
 }
 
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
 #navbarSupportedContent {
   justify-content: flex-end;
 }
