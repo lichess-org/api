@@ -13,6 +13,7 @@ info:
     Welcome to the reference for the Lichess API! Lichess is free/libre,
     open-source chess server powered by volunteers and donations.
     - Get help in the [Lichess Discord channel](https://discord.gg/lichess)
+    - API demo app with OAuth2 login, gameplay, and more: [source](https://github.com/lichess-org/api-demo) / [demo](https://lichess-org.github.io/api-demo/)
     - [Contribute to this documentation on Github](https://github.com/lichess-org/api)
     - Check out [Lichess widgets to embed in your website](https://lichess.org/developers)
     - [Download all Lichess rated games](https://database.lichess.org/)
@@ -8865,7 +8866,8 @@ components:
         See the [documentation for the OAuth endpoints](#tag/OAuth) or
         the [PKCE RFC](https://datatracker.ietf.org/doc/html/rfc7636#section-4) for a precise protocol description.
 
-        - [Fully client-side example](https://github.com/lichess-org/api/tree/master/example/oauth-app)
+        - [Demo app](https://lichess-org.github.io/api-demo/)
+        - [Minimal client-side example](https://github.com/lichess-org/api/tree/master/example/oauth-app)
         - [Flask/Python example](https://github.com/lakinwecker/lichess-oauth-flask)
         - [Java example](https://github.com/tors42/lichess-oauth-pkce-app)
         - [NodeJS Passport strategy to login with Lichess OAuth2](https://www.npmjs.com/package/passport-lichess)

@@ -46,6 +46,7 @@ It is safe, and scales very well with many users.
 
 Examples:
 
+- [Lichess API demo app](https://lichess-org.github.io/api-demo/)
 - A client-side app that manages [Swiss](https://lichess.org/api#tag/Swiss-tournaments) or [Arena](https://lichess.org/api#tag/Arena-tournaments) tournaments on behalf of a user
 - An e-board app to play using the [board API](https://lichess.org/api#tag/Board)
 - A JS app that analyses [puzzle activity](https://lichess.org/api#operation/apiPuzzleActivity) or [games played](https://lichess.org/api#operation/apiGamesUser) on client-side
