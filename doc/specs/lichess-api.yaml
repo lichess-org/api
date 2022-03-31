@@ -6943,8 +6943,10 @@ components:
           type: string
         createdAt:
           type: number
+          format: int64
         lastMoveAt:
           type: number
+          format: int64
         status:
           $ref: '#/components/schemas/GameStatus'
         players:
@@ -7298,6 +7300,7 @@ components:
           $ref: '#/components/schemas/Perfs'
         createdAt:
           type: integer
+          format: int64
           example: 1290415680000
         disabled:
           type: boolean
@@ -7309,6 +7312,7 @@ components:
           $ref: '#/components/schemas/Profile'
         seenAt:
           type: integer
+          format: int64
           example: 1522636452014
         patron:
           type: boolean
@@ -8618,6 +8622,7 @@ components:
           type: boolean
         createdAt:
           type: number
+          format: int64
         white:
           $ref: '#/components/schemas/GameEventPlayer'
         black:
