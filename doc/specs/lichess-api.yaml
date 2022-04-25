@@ -346,6 +346,12 @@ paths:
           schema:
             type: string
           required: true
+        - in: query
+          name: trophies
+          description: Include user trophies
+          schema:
+            type: boolean
+            default: false
       responses:
         "200":
           description: The information of the user.
