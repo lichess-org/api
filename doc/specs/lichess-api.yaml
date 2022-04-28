@@ -1759,7 +1759,7 @@ paths:
                     Make the tournament private, and restrict access with a password.
                     You can also [generate user-specific entry codes](https://github.com/lichess-org/api/tree/master/example/tournament-entry-code)
                     based on this password.
-                teambBattleByTeam:
+                teamBattleByTeam:
                   type: string
                   description: |
                     Set the ID of a team you lead to create a team battle.
