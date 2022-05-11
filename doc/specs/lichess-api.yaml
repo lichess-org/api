@@ -6631,6 +6631,7 @@ components:
         - kingOfTheHill
         - racingKings
         - threeCheck
+        - fromPosition
       example: standard
       default: standard
 
