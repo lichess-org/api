@@ -6663,6 +6663,7 @@ components:
         - blitz
         - rapid
         - classical
+        - standard
         - correspondence
         - chess960
         - crazyhouse
@@ -6672,6 +6673,7 @@ components:
         - kingOfTheHill
         - racingKings
         - threeCheck
+        - puzzle
 
     Clock:
       type: object
