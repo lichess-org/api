@@ -1357,7 +1357,7 @@ paths:
         Stream positions and moves of any ongoing game, in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
 
         A description of the game is sent as a first message.
-        Then a message is sent each time a move is played indicating the board state, the last move, and the current time remaining for each side. For standard games, the state updates start from the very first move. For variants, the state updates start from the state of the board when the request was sent.
+        Then a message is sent each time a move is played indicating the board state, the last move, and the current time remaining for each side. For game types other than Horde and Racing Kings, the state updates start from the very first move. For Horde and Racing Kings, the state updates start from the state of the board when the request was sent.
         Finally a description of the game is sent when it finishes, and the stream is closed.
 
         After move 5, the stream intentionally remains 3 moves behind the game status, as to prevent cheat bots from using this API.
