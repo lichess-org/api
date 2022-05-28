@@ -3151,7 +3151,7 @@ paths:
                     Short description of the broadcast tournament. Length must be between 3 and 400 characters.
 
                     Example: `An 11 round classical tournament featuring the 9 highest rated players in the world. Including Carlsen, Caruana, Ding, Aronian, Nakamura and more.`
-                markup:
+                markdown:
                   type: string
                   description: Optional long description of the broadcast. Markdown is supported. Length must be less than 20,000 characters.
                 official:
@@ -3250,7 +3250,7 @@ paths:
                       Short description of the broadcast tournament. Length must be between 3 and 400 characters.
 
                       Example: `An 11 round classical tournament featuring the 9 highest rated players in the world. Including Carlsen, Caruana, Ding, Aronian, Nakamura and more.`
-                  markup:
+                  markdown:
                     type: string
                     description: Optional long description of the broadcast tournament. Markdown is supported. Length must be less than 20,000 characters.
                   official:
