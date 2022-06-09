@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{{!-- Based on https://github.com/Redocly/redoc/blob/2100b549c0f1d54c95c41fd0d3eb0b6b23deccb1/cli/template.hbs --}}
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>{{title}}</title>
+  <!-- needed for adaptive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      word-break: break-word;
+    }
+  </style>
+  {{{redocHead}}}
+  {{#unless disableGoogleFont}}<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">{{/unless}}
+</head>
+
+<body>
+  {{{redocHTML}}}
+</body>
+
+</html>
