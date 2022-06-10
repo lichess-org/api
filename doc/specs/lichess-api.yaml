@@ -963,7 +963,7 @@ paths:
       description: |
         Download all games of any user in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
 
-        Games are sorted by reverse chronological order (most recent first)
+        Games are sorted by reverse chronological order (most recent first).
 
         We recommend streaming the response, for it can be very long.
         <https://lichess.org/@/german11> for instance has more than 500,000 games.
@@ -2170,7 +2170,11 @@ paths:
       description: |
         Download games of a tournament in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
 
-        Games are sorted by reverse chronological order (most recent first)
+        Games are sorted by reverse chronological order (most recent first).
+
+        The game stream is throttled, depending on who is making the request:
+          - Anonymous request: 20 games per second
+          - [OAuth2 authenticated](#section/Authentication) request: 30 games per second
       tags:
         - "Arena tournaments"
       security: []
@@ -2756,7 +2760,11 @@ paths:
       description: |
         Download games of a swiss tournament in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
 
-        Games are sorted by reverse chronological order (last round first)
+        Games are sorted by reverse chronological order (last round first).
+
+        The game stream is throttled, depending on who is making the request:
+          - Anonymous request: 20 games per second
+          - [OAuth2 authenticated](#section/Authentication) request: 30 games per second
       tags:
         - "Swiss tournaments"
       security: []
