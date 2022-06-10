@@ -7989,6 +7989,7 @@ components:
       example: {
         "id": "QITRjufu",
         "fullName": "U1700 SuperBlitz Arena",
+        "rated": true,
         "clock": {
           "increment": 0,
           "limit": 180
