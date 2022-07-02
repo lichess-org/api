@@ -593,6 +593,33 @@ paths:
               schema:
                 $ref: '#/components/schemas/StormDashboardJson'
 
+  /api/racer:
+    post:
+      operationId: racerPost
+      summary: Create and join a puzzle race
+      description: |
+        Create a new private [puzzle race](https://lichess.org/racer).
+        The Lichess user who creates the race must join the race page,
+        and manually start the race when enough players have joined.
+
+        - <https://lichess.org/racer>
+      tags:
+        - Puzzles
+      security:
+        - OAuth2: ["racer:write"]
+      responses:
+        "200":
+          description: The new puzzle race.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PuzzleRaceJson'
+
   /api/users:
     post:
       operationId: apiUsers
@@ -7513,6 +7540,12 @@ components:
             "theme": "Anastasia's mate"
           }
         }
+      }
+
+    PuzzleRaceJson:
+      example: {
+        "id": "Kj1t0",
+        "url": "http://l.org/racer/Kj1t0"
       }
 
     StormDashboardJson:
