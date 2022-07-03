@@ -7545,7 +7545,7 @@ components:
     PuzzleRaceJson:
       example: {
         "id": "Kj1t0",
-        "url": "http://l.org/racer/Kj1t0"
+        "url": "https://lichess.org/racer/Kj1t0"
       }
 
     StormDashboardJson:
