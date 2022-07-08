@@ -8205,6 +8205,8 @@ components:
 
     Simul:
       example: {
+          "id": "pDGbxhUe",
+          "name": "GM ChessWeeb",
           "fullName": "GM ChessWeeb simul",
           "host": {
               "id": "chessweeb",
@@ -8212,11 +8214,12 @@ components:
               "rating": 1500,
               "title": "GM"
           },
-          "id": "pDGbxhUe",
           "isCreated": false,
           "isFinished": true,
           "isRunning": false,
-          "name": "GM ChessWeeb",
+          "estimatedStartAt": 1620029815106,
+          "startedAt": 1620029815106,
+          "finishedAt": 1620029937283,
           "nbApplicants": 0,
           "nbPairings": 24,
           "text": "",
