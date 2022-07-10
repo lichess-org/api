@@ -1602,7 +1602,7 @@ paths:
       parameters:
         - in: path
           name: channel
-          description: The name of the channel in lowercase.
+          description: The name of the channel in camel case.
           schema:
             type: string
           required: true
