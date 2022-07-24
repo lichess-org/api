@@ -8999,6 +8999,7 @@ components:
             "study:read": Read private studies and broadcasts
             "study:write": Create, update, delete studies and broadcasts
             "tournament:write": Create tournaments
+            "racer:write": Create and join puzzle races
             "puzzle:read": Read puzzle activity
             "team:read": Read private team information
             "team:write": Join, leave, and manage teams
