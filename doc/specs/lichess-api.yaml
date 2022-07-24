@@ -4244,7 +4244,7 @@ paths:
       tags:
         - Relations
       security:
-        - OAuth2: []
+        - OAuth2: ["follow:read"]
       responses:
         "200":
           description: The list of users followed by a user.
@@ -9002,6 +9002,7 @@ components:
             "puzzle:read": Read puzzle activity
             "team:read": Read private team information
             "team:write": Join, leave, and manage teams
+            "follow:read": Read followed players
             "follow:write": Follow and unfollow other players
             "msg:write": Send private messages to other players
             "board:play": Play with the Board API
