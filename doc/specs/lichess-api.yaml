@@ -2487,6 +2487,9 @@ paths:
                   type: boolean
                   description: Games are rated and impact players ratings
                   default: true
+                password:
+                  type: string
+                  description: Make the tournament private and restrict access with a password.
                 forbiddenPairings:
                   type: string
                   description: |
@@ -2625,6 +2628,9 @@ paths:
                   type: boolean
                   description: Games are rated and impact players ratings
                   default: true
+                password:
+                  type: string
+                  description: Make the tournament private and restrict access with a password.
                 chatFor:
                   type: number
                   description: |
