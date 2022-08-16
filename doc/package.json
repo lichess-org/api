@@ -3,12 +3,12 @@
   "private": true,
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
-    "@stoplight/spectral-cli": "^6.3.0",
+    "@stoplight/spectral-cli": "^6.5.0",
     "redoc-cli": "^0.13"
   },
   "scripts": {
     "lint": "spectral lint specs/*.yaml",
-    "bundle": "redoc-cli bundle specs/lichess-api.yaml -t template.hbs --disable-google-font --output public/index.html",
+    "build": "redoc-cli build specs/lichess-api.yaml -t template.hbs --disable-google-font --output public/index.html",
     "serve": "redoc-cli serve --port 8089 specs/lichess-api.yaml -t template.hbs --disable-google-font"
   }
 }
