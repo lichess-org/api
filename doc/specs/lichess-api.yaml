@@ -1263,8 +1263,9 @@ paths:
         Stream the games played between a list of users, in real time.
         Only games where **both players** are part of the list are included.
 
-        By default, games are only sent to the stream when they start.
-        To also get all ongoing games at the beginning of the stream, use the `withCurrentGames` flag.
+        The stream emits an event each time a game is started or finished.
+
+        To also get all current ongoing games at the beginning of the stream, use the `withCurrentGames` flag.
 
         Maximum number of users: 300.
 
