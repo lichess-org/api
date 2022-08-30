@@ -338,9 +338,13 @@ paths:
       summary: Get user public data
       description: |
         Read public data of a user.
+
+        If the request is [authenticated with OAuth2](#section/Authentication),
+        then extra fields might be present in the response: `followable`, `following`, `blocking`, `followsYou`.
       tags:
         - Users
-      security: []
+      security:
+        - OAuth2: []
       parameters:
         - in: path
           name: username
