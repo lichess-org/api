@@ -8076,11 +8076,7 @@ components:
           "freq": "hourly",
           "speed": "superblitz"
         },
-        "variant": {
-          "key": "standard",
-          "name": "Standard",
-          "short": "Std"
-        },
+        "variant": "standard",
         "duels": [
           {
             "id": "0MM6q4tQ",
