@@ -257,7 +257,7 @@ paths:
                   }
                 ]
 
-  /player:
+  /api/player:
     get:
       operationId: player
       summary: Get all top 10
@@ -271,8 +271,13 @@ paths:
       responses:
         "200":
           description: The list of variants with their respective top players.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
-            application/vnd.lichess.v3+json:
+            application/json:
               schema:
                 $ref: '#/components/schemas/Top10s'
 
@@ -4163,7 +4168,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /streamer/live:
+  /api/streamer/live:
     get:
       operationId: streamerLive
       summary: Get live streamers
@@ -4178,6 +4183,11 @@ paths:
       responses:
         "200":
           description: The list of live streamers and their respective information.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
           content:
             application/json:
               schema:
@@ -6455,7 +6465,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OpeningExplorerJson'
 
-  /player?:
+  /player:
     servers:
       - url: https://explorer.lichess.ovh
     get:
