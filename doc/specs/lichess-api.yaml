@@ -1876,7 +1876,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArenaTournament'
+                $ref: '#/components/schemas/ArenaTournamentVariantIsKey'
     post:
       operationId: apiTournamentUpdate
       summary: Update an Arena tournament
@@ -8046,7 +8046,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ArenaTournament'
-
     ArenaTournament:
       example: {
         "id": "QITRjufu",
@@ -8081,6 +8080,135 @@ components:
           "name": "Standard",
           "short": "Std"
         },
+        "duels": [
+          {
+            "id": "0MM6q4tQ",
+            "p": [
+              {
+                "n": "player1",
+                "r": 1500,
+                "k": 3
+              },
+              {
+                "n": "player2",
+                "r": 1500,
+                "k": 3
+              }
+            ]
+          }
+        ],
+        "standings": {
+          "page": 1,
+          "players": [
+            {
+              "name": "player1",
+              "rank": 1,
+              "rating": 1500,
+              "score": 3,
+              "sheet": {
+                "scores": [
+                {
+                  "0": 2,
+                  "1": 2,
+                },
+                {
+                  "0": 4,
+                  "1": 3,
+                },
+                0
+                ],
+                "total": 6,
+                "fire": true
+              }
+            }
+          ],
+        },
+        "featured": {
+          "id": "khe72Fer",
+          "fen": "rn1qkb1r/pQ3ppp/2b2n2/8/5P2/4P3/PP4PP/RNB1KBNR",
+          "color": "black",
+          "lastMove": "d7c6",
+          "white": {
+            "rank": 2,
+            "name": "player1",
+            "rating": 1360
+          },
+          "black": {
+            "rank": 5,
+            "name": "player2",
+            "rating": 1431
+          }
+        },
+        "podium": [
+          {
+            "name": "player1",
+            "rank": 1,
+            "rating": 1500,
+            "score": 3,
+            "sheet": {
+              "scores": [
+              {
+                "0": 2,
+                "1": 2,
+              },
+              {
+                "0": 4,
+                "1": 3,
+              },
+              0
+              ],
+              "total": 6,
+              "fire": true
+            },
+            "nb": {
+              "game": 3,
+              "beserk": 0,
+              "win": 2
+            },
+            "performance": 1787
+          }
+        ],
+        "stats": {
+          "games": 454,
+          "moves": 27542,
+          "whiteWins": 236,
+          "blackWins": 207,
+          "draws": 11,
+          "berserks": 0,
+          "averageRating": 1320
+        }
+      }
+
+    ArenaTournamentVariantIsKey:
+      example: {
+        "id": "QITRjufu",
+        "fullName": "U1700 SuperBlitz Arena",
+        "rated": true,
+        "clock": {
+          "increment": 0,
+          "limit": 180
+        },
+        "minutes": 57,
+        "createdBy": "lichess",
+        "system": "arena",
+        "secondsToStart": 0,
+        "secondsToFinish": 36000,
+        "isFinished": true,
+        "isRecentlyFinished": true,
+        "pairingsClosed": true,
+        "startsAt": 1522803600000,
+        "nbPlayers": 154,
+        "perf": {
+          "icon": ")",
+          "key": "blitz",
+          "name": "Blitz",
+          "position": 1
+        },
+        "schedule": {
+          "freq": "hourly",
+          "speed": "superblitz"
+        },
+        "variant": "standard",
         "duels": [
           {
             "id": "0MM6q4tQ",
