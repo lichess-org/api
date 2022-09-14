@@ -6239,6 +6239,76 @@ paths:
               schema:
                 $ref: '#/components/schemas/Ok'
 
+  /api/external-engine/{id}/analyse:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The external engine id.
+        schema:
+          type: string
+        example: eei_aTKImBJOnv6j
+    post:
+      operationId: apiExternalEngineAnalyse
+      summary: Analyse with external engine
+      tags:
+        - External engine
+      security: []
+      description: |
+        Request a stream of analysis from an external engine.
+      requestBody:
+        description: Engine credentials and analysis request.
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              example: {
+                "clientSecret": "ees_mdF2hK0hlKGSPeC6",
+                "work": {
+                  "sri": "1234",
+                  "threads": 4,
+                  "hashMib": 64,
+                  "maxDepth": 99,
+                  "multiPv": 5,
+                  "variant": "standard",
+                  "initialFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+                  "moves": [
+                    "e2e4",
+                    "g8f6"
+                  ]
+                }
+              }
+      responses:
+        "200":
+          description: Stream of analysis.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/x-ndjson:
+              schema:
+                example: {
+                  "depth": 6,
+                  "seldepth": 6,
+                  "multipv": 1,
+                  "score": {
+                    "cp": 36
+                  },
+                  "nodes": 3954,
+                  "nps": 659000,
+                  "tbhits": 0,
+                  "time": 6,
+                  "pv": [
+                    "e2e4",
+                    "c7c5",
+                    "c2c3",
+                    "b8c6"
+                  ],
+                }
+
   /oauth:
     get:
       operationId: oauth
@@ -9248,27 +9318,29 @@ components:
     ExternalEngineRegistration:
       type: object
       properties:
+        required:
+          - engineName
+          - maxThreads
+          - maxHashMib
+          - secret
         engineName:
           type: string
           description: Display name of the engine.
           example: Stockfish 15
           minLength: 3
           maxLength: 200
-          required: true
         maxThreads:
           type: integer
           description: Maximum number of available threads.
           example: 8
           minimum: 1
           maximum: 65536
-          required: true
         maxHashMib:
           type: integer
           description: Maximum available hash table size, in MiB.
           example: 2048
           minimum: 1
           maximum: 1048576
-          required: true
         variants:
           type: array
           description: Optional comma seperated list of supported chess variants.
@@ -9298,7 +9370,6 @@ components:
           example: Dee3uwieZei9ahpaici9bee2yahsai0K
           minLength: 16
           maxLength: 1024
-          required: true
         data:
           type: string
           description: |
@@ -9307,7 +9378,6 @@ components:
 
             Users can read this information, but updating it requires knowing
             or changing the `secret`.
-          required: false
 
     ExternalEngine:
       type: object
@@ -9316,47 +9386,40 @@ components:
           type: string
           description: Unique engine registration ID.
           example: eei_aTKImBJOnv6j
-          required: true
         clientSecret:
           type: string
           description: |
             A secret token that can be used to *request* analysis from this
             external engine.
           example: ees_mdF2hK0hlKGSPeC6
-          required: true
         userId:
           type: string
           description: The user this engine has been registered for.
           example: thibault
-          required: true
         engineName:
           type: string
           description: Display name of the engine.
           example: Stockfish 15
           minLength: 3
           maxLength: 200
-          required: true
         maxThreads:
           type: integer
           description: Maximum number of available threads.
           example: 8
           minimum: 1
           maximum: 65536
-          required: true
         maxHashMib:
           type: integer
           description: Maximum available hash table size, in MiB.
           example: 2048
           minimum: 1
           maximum: 1048576
-          required: true
         variants:
           type: array
           description: Optional comma seperated list of supported chess variants.
           example: [standard]
           items:
             $ref: '#/components/schemas/VariantKey'
-          required: false
         data:
           type: string
           description: |
@@ -9365,7 +9428,14 @@ components:
 
             Users can read this information, but updating it requires knowing
             or changing the `secret`.
-          required: false
+        required:
+          - _id
+          - clientSecret
+          - userId
+          - engineName
+          - maxThreads
+          - maxHashMib
+          - variants
 
   securitySchemes:
     OAuth2:
