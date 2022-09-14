@@ -6297,6 +6297,8 @@ paths:
                 $ref: '#/components/schemas/ExternalEngineInfo'
 
   /api/external-engine/work:
+    servers:
+      - url: https://engine.lichess.ovh
     post:
       operationId: apiExternalEngineAcquire
       summary: Acquire analysis request
@@ -6304,6 +6306,8 @@ paths:
         - External engine (draft)
       security: []
       description: |
+        **Endpoint: `https://engine.lichess.ovh/api/external-engine/work`**
+
         Wait for an analysis requests to any of the external engines that
         have been registered with the given `secret`.
 
@@ -6357,6 +6361,8 @@ paths:
                 default: "'*'"
 
   /api/external-engine/work/{workId}:
+    servers:
+      - url: https://engine.lichess.ovh
     parameters:
       - in: path
         name: workId
@@ -6371,6 +6377,8 @@ paths:
         - External engine (draft)
       security: []
       description: |
+        **Endpoint: `https://engine.lichess.ovh/api/external-engine/work/{workId}`**
+
         Submit a stream of analysis as newline-delimited JSON.
       requestBody:
         description: Analysis results
