@@ -165,7 +165,8 @@ tags:
     <https://lichess.org/analysis>
 - name: External engine
   description: |
-    **This API is a draft and not yet fully available.**
+    **This API is a draft and not yet fully available. The specification is
+    subject to change.**
 
     Use or provide external engine analysis.
 
@@ -6240,6 +6241,8 @@ paths:
                 $ref: '#/components/schemas/Ok'
 
   /api/external-engine/{id}/analyse:
+    servers:
+      - url: https://engine.lichess.ovh
     parameters:
       - in: path
         name: id
@@ -6255,33 +6258,34 @@ paths:
         - External engine
       security: []
       description: |
-        Request a stream of analysis from an external engine.
+        **Endpoint: `https://engine.lichess.ovh/api/external-engine/{id}/analyse`**
+
+        Request analysis from an external engine.
+
+        Response content is streamed as newline-delimited JSON. The properties
+        are based on the
+        [UCI specification](https://backscattering.de/chess/uci/#engine).
+        Analysis stops when the client goes away, the requested limit
+        is reached, or the provider goes away.
       requestBody:
         description: Engine credentials and analysis request.
         required: true
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
               type: object
-              example: {
-                "clientSecret": "ees_mdF2hK0hlKGSPeC6",
-                "work": {
-                  "sri": "1234",
-                  "threads": 4,
-                  "hashMib": 64,
-                  "maxDepth": 99,
-                  "multiPv": 5,
-                  "variant": "standard",
-                  "initialFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-                  "moves": [
-                    "e2e4",
-                    "g8f6"
-                  ]
-                }
-              }
+              properties:
+                clientSecret:
+                  type: string
+                  example: ees_mdF2hK0hlKGSPeC6
+                work:
+                  $ref: '#/components/schemas/ExternalEngineWork'
+              required:
+                - clientSecret
+                - work
       responses:
         "200":
-          description: Stream of analysis.
+          description: Stream of analysis
           headers:
             Access-Control-Allow-Origin:
               schema:
@@ -9318,11 +9322,6 @@ components:
     ExternalEngineRegistration:
       type: object
       properties:
-        required:
-          - engineName
-          - maxThreads
-          - maxHashMib
-          - secret
         engineName:
           type: string
           description: Display name of the engine.
@@ -9378,6 +9377,11 @@ components:
 
             Users can read this information, but updating it requires knowing
             or changing the `secret`.
+      required:
+        - engineName
+        - maxThreads
+        - maxHashMib
+        - secret
 
     ExternalEngine:
       type: object
@@ -9428,14 +9432,63 @@ components:
 
             Users can read this information, but updating it requires knowing
             or changing the `secret`.
-        required:
-          - _id
-          - clientSecret
-          - userId
-          - engineName
-          - maxThreads
-          - maxHashMib
-          - variants
+      required:
+        - _id
+        - clientSecret
+        - userId
+        - engineName
+        - maxThreads
+        - maxHashMib
+        - variants
+
+    ExternalEngineWork:
+      type: object
+      properties:
+        sessionId:
+          type: string
+          description: |
+            Identifies the analysis session. Providers may choose to clear
+            the hash table between sessions.
+          example: "abcd1234"
+        threads:
+          type: integer
+          description: Number of threads to use for analysis.
+          example: 4
+        hashMib:
+          type: integer
+          description: Hash table size to use for analysis, in MiB.
+          example: 128
+        maxDepth:
+          type: integer
+          description: Limit analysis to this depth.
+          example: 99
+        multiPv:
+          type: integer
+          minimum: 1
+          maximum: 5
+          description: Requested number of principal variations.
+          example: 1
+        variant:
+          $ref: '#/components/schemas/VariantKey'
+        initialFen:
+          type: string
+          description: Initial position of the game.
+          example: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+        moves:
+          type: array
+          description: List of moves played from the initial position, in UCI notation.
+          items:
+            type: string
+          example: ["e2e4", "g8f6"]
+      required:
+        - sessionId
+        - threads
+        - hashMib
+        - maxDepth
+        - multiPv
+        - variant
+        - initialFen
+        - moves
 
   securitySchemes:
     OAuth2:
