@@ -163,6 +163,15 @@ tags:
   description: |
     Access Lichess cloud evaluations database.
     <https://lichess.org/analysis>
+- name: External engine
+  description: |
+    **This API is a draft and not yet fully available.**
+
+    Use or provide external engine analysis.
+
+    External engines can provide analysis on pages like the
+    [analysis board](https://lichess.org/analysis), running as a service
+    outside of the browser, or even on a different machine.
 - name: Opening Explorer
   description: |
     Lookup positions from the [Lichess opening explorer](https://lichess.org/analysis#explorer).
@@ -6098,6 +6107,138 @@ paths:
                 ]
               }
 
+  /api/external-engine:
+    get:
+      operationId: apiExternalEngineList
+      summary: List external engines
+      tags:
+        - External engine
+      security:
+        - OAuth2: ["engine:read"]
+      description: |
+        Lists all external engines that have been registered for the user,
+        and the credentials required to use them.
+      responses:
+        "200":
+          description: A list of external engines.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExternalEngine'
+    post:
+      operationId: apiExternalEngineCreate
+      summary: Create external engine
+      tags:
+        - External engine
+      security:
+        - OAuth2: ["engine:write"]
+      description: |
+        Registers a new external engine for the user. It can then be selected
+        and used on the analysis board.
+
+        After registering, the provider should start waiting for analyis requests.
+      requestBody:
+        description: A new external engine registration.
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ExternalEngineRegistration'
+      responses:
+        "200":
+          description: The registered engine.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalEngine'
+
+  /api/external-engine/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The external engine id.
+        schema:
+          type: string
+        example: eei_aTKImBJOnv6j
+    get:
+      operationId: apiExternalEngineGet
+      summary: Get external engine
+      tags:
+        - External engine
+      security:
+        - OAuth2: ["engine:read"]
+      description: |
+        Get properties and credentials of an external engine.
+      responses:
+        "200":
+          description: A registered engine.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalEngine'
+    put:
+      operationId: apiExternalEnginePut
+      summary: Update external engine
+      tags:
+        - External engine
+      security:
+        - OAuth2: ["engine:write"]
+      description: |
+        Updates the properties of an external engine.
+      requestBody:
+        description: A modified engine registration.
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ExternalEngineRegistration'
+      responses:
+        "200":
+          description: A registered engine.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalEngine'
+    delete:
+      operationId: apiExternalEngineDelete
+      summary: Delete external engine
+      tags:
+        - External engine
+      security:
+        - OAuth2: ["engine:write"]
+      description: |
+        Unregisters an external engine.
+      responses:
+        "200":
+          description: Engine successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+
   /oauth:
     get:
       operationId: oauth
@@ -9103,6 +9244,128 @@ components:
           "bc": 177
         }
       ]
+
+    ExternalEngineRegistration:
+      type: object
+      properties:
+        engineName:
+          type: string
+          description: Display name of the engine.
+          example: Stockfish 15
+          minLength: 3
+          maxLength: 200
+          required: true
+        maxThreads:
+          type: integer
+          description: Maximum number of available threads.
+          example: 8
+          minimum: 1
+          maximum: 65536
+          required: true
+        maxHashMib:
+          type: integer
+          description: Maximum available hash table size, in MiB.
+          example: 2048
+          minimum: 1
+          maximum: 1048576
+          required: true
+        variants:
+          type: array
+          description: Optional comma seperated list of supported chess variants.
+          items:
+            $ref: '#/components/schemas/VariantKey'
+          required: false
+        #officialStockfish:
+        #  type: boolean
+        #  description: |
+        #    Promises that the engine is a recent official Stockfish release.
+        #    Can be considered for cloud evaluation.
+        #  required: false
+        secret:
+          type: string
+          description: |
+            A random token that can be used to wait for analysis requests and
+            provide analysis.
+
+            The engine provider should securely generate a random string.
+
+            The token will not be readable again, even by the user.
+
+            The analysis provider can register multiple engines with the same
+            token, even for different users, and wait for analysis requests
+            from any of them. In this case, the request must not be made via
+            CORS, so that the token is not revealed to any of the users.
+          example: Dee3uwieZei9ahpaici9bee2yahsai0K
+          minLength: 16
+          maxLength: 1024
+          required: true
+        data:
+          type: string
+          description: |
+            Arbitrary data that the engine provider can use for identification
+            or bookkeeping.
+
+            Users can read this information, but updating it requires knowing
+            or changing the `secret`.
+          required: false
+
+    ExternalEngine:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: Unique engine registration ID.
+          example: eei_aTKImBJOnv6j
+          required: true
+        clientSecret:
+          type: string
+          description: |
+            A secret token that can be used to *request* analysis from this
+            external engine.
+          example: ees_mdF2hK0hlKGSPeC6
+          required: true
+        userId:
+          type: string
+          description: The user this engine has been registered for.
+          example: thibault
+          required: true
+        engineName:
+          type: string
+          description: Display name of the engine.
+          example: Stockfish 15
+          minLength: 3
+          maxLength: 200
+          required: true
+        maxThreads:
+          type: integer
+          description: Maximum number of available threads.
+          example: 8
+          minimum: 1
+          maximum: 65536
+          required: true
+        maxHashMib:
+          type: integer
+          description: Maximum available hash table size, in MiB.
+          example: 2048
+          minimum: 1
+          maximum: 1048576
+          required: true
+        variants:
+          type: array
+          description: Optional comma seperated list of supported chess variants.
+          example: [standard]
+          items:
+            $ref: '#/components/schemas/VariantKey'
+          required: false
+        data:
+          type: string
+          description: |
+            Arbitrary data that the engine provider can use for identification
+            or bookkeeping.
+
+            Users can read this information, but updating it requires knowing
+            or changing the `secret`.
+          required: false
 
   securitySchemes:
     OAuth2:
