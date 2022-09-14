@@ -6294,26 +6294,9 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                example: {
-                  "depth": 6,
-                  "seldepth": 6,
-                  "multipv": 1,
-                  "score": {
-                    "cp": 36
-                  },
-                  "nodes": 3954,
-                  "nps": 659000,
-                  "tbhits": 0,
-                  "time": 6,
-                  "pv": [
-                    "e2e4",
-                    "c7c5",
-                    "c2c3",
-                    "b8c6"
-                  ],
-                }
+                $ref: '#/components/schemas/ExternalEngineInfo'
 
-  /api/external-engine/acquire:
+  /api/external-engine/work:
     post:
       operationId: apiExternalEngineAcquire
       summary: Acquire analysis request
@@ -6325,6 +6308,9 @@ paths:
         have been registered with the given `secret`.
 
         Uses long polling.
+
+        After acquiring a request, the provider should immediately
+        [start streaming the results](#tag/External-engine-(draft)/operation/apiExternalEngineAcquire).
       requestBody:
         description: Provider credentials.
         required: true
@@ -6351,19 +6337,51 @@ paths:
               schema:
                 type: object
                 properties:
-                  id:
+                  workId:
                     type: string
                     example: aingoohiJee2sius
-                  engine:
-                    $ref: '#/components/schemas/ExternalEngine'
                   work:
                     $ref: '#/components/schemas/ExternalEngineWork'
+                  engine:
+                    $ref: '#/components/schemas/ExternalEngine'
                 required:
                   - id
                   - engine
                   - work
         "204":
           description: No pending analysis
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+
+  /api/external-engine/work/{workId}:
+    parameters:
+      - in: path
+        name: workId
+        required: true
+        schema:
+          type: string
+          example: aingoohiJee2sius
+    post:
+      operationId: apiExternalEngineSubmit
+      summary: Submit analysis
+      tags:
+        - External engine (draft)
+      security: []
+      description: |
+        Submit a stream of analysis as newline-delimited JSON.
+      requestBody:
+        description: Analysis results
+        required: true
+        content:
+          application/x-ndjson:
+            schema:
+              $ref: '#/components/schemas/ExternalEngineInfo'
+      responses:
+        "204":
+          description: Thanks
           headers:
             Access-Control-Allow-Origin:
               schema:
@@ -9548,6 +9566,26 @@ components:
         - variant
         - initialFen
         - moves
+
+    ExternalEngineInfo:
+      example: {
+        "depth": 6,
+        "seldepth": 6,
+        "multipv": 1,
+        "score": {
+          "cp": 36
+        },
+        "nodes": 3954,
+        "nps": 659000,
+        "tbhits": 0,
+        "time": 6,
+        "pv": [
+          "e2e4",
+          "c7c5",
+          "c2c3",
+          "b8c6"
+        ],
+      }
 
   securitySchemes:
     OAuth2:
