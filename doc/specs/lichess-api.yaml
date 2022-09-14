@@ -163,7 +163,7 @@ tags:
   description: |
     Access Lichess cloud evaluations database.
     <https://lichess.org/analysis>
-- name: External engine
+- name: External engine (draft)
   description: |
     **This API is a draft and not yet fully available. The specification is
     subject to change.**
@@ -6113,7 +6113,7 @@ paths:
       operationId: apiExternalEngineList
       summary: List external engines
       tags:
-        - External engine
+        - External engine (draft)
       security:
         - OAuth2: ["engine:read"]
       description: |
@@ -6137,7 +6137,7 @@ paths:
       operationId: apiExternalEngineCreate
       summary: Create external engine
       tags:
-        - External engine
+        - External engine (draft)
       security:
         - OAuth2: ["engine:write"]
       description: |
@@ -6178,7 +6178,7 @@ paths:
       operationId: apiExternalEngineGet
       summary: Get external engine
       tags:
-        - External engine
+        - External engine (draft)
       security:
         - OAuth2: ["engine:read"]
       description: |
@@ -6199,7 +6199,7 @@ paths:
       operationId: apiExternalEnginePut
       summary: Update external engine
       tags:
-        - External engine
+        - External engine (draft)
       security:
         - OAuth2: ["engine:write"]
       description: |
@@ -6227,7 +6227,7 @@ paths:
       operationId: apiExternalEngineDelete
       summary: Delete external engine
       tags:
-        - External engine
+        - External engine (draft)
       security:
         - OAuth2: ["engine:write"]
       description: |
@@ -6255,7 +6255,7 @@ paths:
       operationId: apiExternalEngineAnalyse
       summary: Analyse with external engine
       tags:
-        - External engine
+        - External engine (draft)
       security: []
       description: |
         **Endpoint: `https://engine.lichess.ovh/api/external-engine/{id}/analyse`**
@@ -6312,6 +6312,63 @@ paths:
                     "b8c6"
                   ],
                 }
+
+  /api/external-engine/acquire:
+    post:
+      operationId: apiExternalEngineAcquire
+      summary: Acquire analysis request
+      tags:
+        - External engine (draft)
+      security: []
+      description: |
+        Wait for an analysis requests to any of the external engines that
+        have been registered with the given `secret`.
+
+        Uses long polling.
+      requestBody:
+        description: Provider credentials.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                secret:
+                  type: string
+                  example: Dee3uwieZei9ahpaici9bee2yahsai0K
+              required:
+                - secret
+      responses:
+        "200":
+          description: Analysis has been requested
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: aingoohiJee2sius
+                  engine:
+                    $ref: '#/components/schemas/ExternalEngine'
+                  work:
+                    $ref: '#/components/schemas/ExternalEngineWork'
+                required:
+                  - id
+                  - engine
+                  - work
+        "204":
+          description: No pending analysis
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
 
   /oauth:
     get:
@@ -9355,8 +9412,9 @@ components:
         secret:
           type: string
           description: |
-            A random token that can be used to wait for analysis requests and
-            provide analysis.
+            A random token that can be used to
+            [wait for analysis requests](#tag/External-engine-(draft)/operation/apiExternalEngineAcquire)
+            and provide analysis.
 
             The engine provider should securely generate a random string.
 
@@ -9393,8 +9451,9 @@ components:
         clientSecret:
           type: string
           description: |
-            A secret token that can be used to *request* analysis from this
-            external engine.
+            A secret token that can be used to
+            [*request* analysis](#tag/External-engine-(draft)/operation/apiExternalEngineAnalyse)
+            from this external engine.
           example: ees_mdF2hK0hlKGSPeC6
         userId:
           type: string
