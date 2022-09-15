@@ -5637,6 +5637,13 @@ paths:
                 name:
                   type: string
                   description: Optional name for the challenge, that players will see on the challenge page.
+                users:
+                  type: string
+                  example: 'Username1,Username2'
+                  description: |
+                    Optional pair of usernames, separated by a comma.
+                    If set, only these users will be allowed to join the game.
+                    The first username gets the white pieces.
       responses:
         "200":
           description: The challenge was successfully created.
