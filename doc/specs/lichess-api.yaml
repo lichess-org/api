@@ -5703,6 +5703,9 @@ paths:
                 name:
                   type: string
                   description: Optional name for the challenge, that players will see on the challenge page.
+                singleGame:
+                  type: boolean
+                  description: Prevent players from aborting the game, and from playing a rematch after it.
                 users:
                   type: string
                   description: |
