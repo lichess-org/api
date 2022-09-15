@@ -5401,6 +5401,9 @@ paths:
                     You can omit this field to send the default message,
                     but if you set your own message, it must at least contain the `{game}` placeholder.
                   default: "Your game with {opponent} is ready: {game}."
+                singleGame:
+                  type: boolean
+                  description: Prevent players from aborting the game, and from playing a rematch after it.
       responses:
         "200":
           description: The challenge was successfully created.
