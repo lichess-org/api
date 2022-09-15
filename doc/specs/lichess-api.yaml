@@ -1286,22 +1286,23 @@ paths:
 
         To also get all current ongoing games at the beginning of the stream, use the `withCurrentGames` flag.
 
-        Maximum number of users: 300.
-
         Games are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+
+        Maximum number of users: 300.
 
         The method is `POST` so a longer list of IDs can be sent in the request body.
       tags:
         - Games
       security: []
       requestBody:
-        description: Up to 300 user IDs separated by commas.
+        description: |
+          Up to 300 user IDs separated by commas.
+          Example: `aliquantus,chess-network,lovlas`
         required: true
         content:
           text/plain:
             schema:
               type: string
-            example: aliquantus,chess-network,lovlas
       parameters:
         - in: query
           name: withCurrentGames
@@ -1320,29 +1321,94 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                example: {
-                  "id": "A5fcMO3k",
-                  "rated": true,
-                  "variant": "standard",
-                  "speed": "bullet",
-                  "perf": "bullet",
-                  "createdAt": 1525789431889,
-                  "status": 20,
-                  "clock": {
-                    "initial": 60,
-                    "increment": 0,
-                    "totalTime": 60},
-                    "players": {
-                      "white": {
-                        "userId": "kastorcito",
-                        "rating": 2617
-                      },
-                    "black": {
-                      "userId": "er_or",
-                      "rating": 2288
-                    }
-                  }
-                }
+                $ref: '#/components/schemas/GameStream'
+
+  /api/stream/games/{streamId}:
+    post:
+      operationId: gamesByIds
+      summary: Stream games by IDs
+      description: |
+        Creates a stream of games from an arbitrary streamId, and a list of game IDs.
+
+        The stream first outputs the games that already exists, then emits an event each time a game is started or finished.
+
+        Games are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+
+        Maximum number of games: 500 for anonymous requests, or 1000 for [OAuth2 authenticated](#section/Authentication) requests.
+
+        While the stream is open, it is possible to [add new game IDs to watch](#operation/gamesByIdsAdd).
+      tags:
+        - Games
+      security: []
+      parameters:
+        - in: path
+          name: streamId
+          schema:
+            type: string
+            description: Arbitrary stream ID that you can later use to add game IDs to the stream.
+            example: "myAppName-someRandomId"
+          required: true
+      requestBody:
+        description: |
+          Up to 500 or 1000 game IDs separated by commas.
+          Example: `gameId01,gameId02,gameId03`
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+      responses:
+        "200":
+          description: The stream of the games matching the requested IDs.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/GameStream'
+
+  /api/stream/games/{streamId}/add:
+    post:
+      operationId: gamesByIdsAdd
+      summary: Add game IDs to stream
+      description: |
+        Add new game IDs for [an existing stream](#operation/gamesByIds) to watch.
+        The stream will immediately outputs the games that already exists, then emit an event each time a game is started or finished.
+      tags:
+        - Games
+      security: []
+      parameters:
+        - in: path
+          name: streamId
+          schema:
+            type: string
+            description: The stream ID you used to [create the stream](#operation/gamesByIds).
+            example: "myAppName-someRandomId"
+          required: true
+      requestBody:
+        description: |
+          Up to 500 or 1000 game IDs separated by commas.
+          Example: `gameId04,gameId05,gameId06`
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+      responses:
+        "200":
+          description: The game IDs have been added to the stream.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
 
   /api/account/playing:
     get:
@@ -9373,6 +9439,35 @@ components:
           type: string
       example:
         error: "This user cannot edit this swiss"
+
+    GameStream:
+      example: [
+        {
+          "id": "A5fcMO3k",
+          "rated": true,
+          "variant": "standard",
+          "speed": "bullet",
+          "perf": "bullet",
+          "createdAt": 1525789431889,
+          "status": 20,
+          "statusName": "started",
+          "clock": {
+            "initial": 60,
+            "increment": 0,
+            "totalTime": 60
+          },
+          "players": {
+            "white": {
+              "userId": "kastorcito",
+              "rating": 2617
+            },
+            "black": {
+              "userId": "er_or",
+              "rating": 2288
+            }
+          }
+        }
+      ]
 
     MoveStream:
       example: [
