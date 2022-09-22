@@ -1897,6 +1897,13 @@ paths:
                 conditions.nbRatedGame.nb:
                   type: integer
                   description: Minimum number of rated games required to join.
+                conditions.allowList:
+                  type: string
+                  description: |
+                    Predefined list of usernames that are allowed to join, separated by commas.
+                    If this list is non-empty, then usernames absent from this list will be forbidden to join.
+                    Adding `%titled` to the list additionally allows any titled player to join.
+                    Example: `thibault,german11,%titled`
               required:
                 - clockTime
                 - clockIncrement
@@ -2600,6 +2607,13 @@ paths:
                     - 20 = Only team members
                     - 30 = All Lichess players
                   default: 20
+                conditions.allowList:
+                  type: string
+                  description: |
+                    Predefined list of usernames that are allowed to join, separated by commas.
+                    If this list is non-empty, then usernames absent from this list will be forbidden to join.
+                    Adding `%titled` to the list additionally allows any titled player to join.
+                    Example: `thibault,german11,%titled`
               required:
                 - 'clock.limit'
                 - 'clock.increment'
