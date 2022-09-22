@@ -5415,9 +5415,16 @@ paths:
                     You can omit this field to send the default message,
                     but if you set your own message, it must at least contain the `{game}` placeholder.
                   default: "Your game with {opponent} is ready: {game}."
-                singleGame:
-                  type: boolean
-                  description: Prevent players from aborting the game, and from playing a rematch after it.
+                rules:
+                  type: string
+                  enum:
+                    - noAbort
+                    - noRematch
+                    - noGiveTime
+                    - noClaimWin
+                  description: |
+                    Extra game rules separated by commas.
+                    Example: `noAbort,noRematch`
       responses:
         "200":
           description: The challenge was successfully created.
@@ -5720,9 +5727,16 @@ paths:
                 name:
                   type: string
                   description: Optional name for the challenge, that players will see on the challenge page.
-                singleGame:
-                  type: boolean
-                  description: Prevent players from aborting the game, and from playing a rematch after it.
+                rules:
+                  type: string
+                  enum:
+                    - noAbort
+                    - noRematch
+                    - noGiveTime
+                    - noClaimWin
+                  description: |
+                    Extra game rules separated by commas.
+                    Example: `noAbort,noRematch`
                 users:
                   type: string
                   description: |
@@ -5913,6 +5927,16 @@ paths:
                     You can omit this field to send the default message,
                     but if you set your own message, it must at least contain the `{game}` placeholder.
                   default: "Your game with {opponent} is ready: {game}."
+                rules:
+                  type: string
+                  enum:
+                    - noAbort
+                    - noRematch
+                    - noGiveTime
+                    - noClaimWin
+                  description: |
+                    Extra game rules separated by commas.
+                    Example: `noAbort,noRematch`
       responses:
         "200":
           description: The bulk pairings have been successfully created.
