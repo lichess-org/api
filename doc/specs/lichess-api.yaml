@@ -6458,7 +6458,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  workId:
+                  id:
                     type: string
                     example: aingoohiJee2sius
                   work:
@@ -6477,12 +6477,12 @@ paths:
                 type: string
                 default: "'*'"
 
-  /api/external-engine/work/{workId}:
+  /api/external-engine/work/{id}:
     servers:
       - url: https://engine.lichess.ovh
     parameters:
       - in: path
-        name: workId
+        name: id
         required: true
         schema:
           type: string
@@ -6494,7 +6494,7 @@ paths:
         - External engine (draft)
       security: []
       description: |
-        **Endpoint: `https://engine.lichess.ovh/api/external-engine/work/{workId}`**
+        **Endpoint: `https://engine.lichess.ovh/api/external-engine/work/{id}`**
 
         Submit a stream of analysis as newline-delimited JSON.
       requestBody:
