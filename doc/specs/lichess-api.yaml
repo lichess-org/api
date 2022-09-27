@@ -6266,7 +6266,7 @@ paths:
         description: A new external engine registration.
         required: true
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
               $ref: '#/components/schemas/ExternalEngineRegistration'
       responses:
@@ -6325,7 +6325,7 @@ paths:
         description: A modified engine registration.
         required: true
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
               $ref: '#/components/schemas/ExternalEngineRegistration'
       responses:
