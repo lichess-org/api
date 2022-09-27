@@ -9606,7 +9606,7 @@ components:
             or bookkeeping.
 
             Users can read this information, but updating it requires knowing
-            or changing the `secret`.
+            or changing the `providerSecret`.
       required:
         - name
         - maxThreads
@@ -9662,7 +9662,7 @@ components:
             or bookkeeping.
 
             Users can read this information, but updating it requires knowing
-            or changing the `secret`.
+            or changing the `providerSecret`.
       required:
         - id
         - clientSecret
