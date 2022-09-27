@@ -9616,7 +9616,7 @@ components:
     ExternalEngine:
       type: object
       properties:
-        _id:
+        id:
           type: string
           description: Unique engine registration ID.
           example: eei_aTKImBJOnv6j
@@ -9664,7 +9664,7 @@ components:
             Users can read this information, but updating it requires knowing
             or changing the `secret`.
       required:
-        - _id
+        - id
         - clientSecret
         - userId
         - engineName
