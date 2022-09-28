@@ -6402,14 +6402,14 @@ paths:
                 - work
       responses:
         "200":
-          description: Stream of analysis
+          description: Stream of UCI output
           headers:
             Access-Control-Allow-Origin:
               schema:
                 type: string
                 default: "'*'"
           content:
-            application/x-ndjson:
+            text/plain:
               schema:
                 $ref: '#/components/schemas/ExternalEngineInfo'
 
@@ -6496,12 +6496,12 @@ paths:
       description: |
         **Endpoint: `https://engine.lichess.ovh/api/external-engine/work/{id}`**
 
-        Submit a stream of analysis as newline-delimited JSON.
+        Submit a stream of analysis as UCI output.
       requestBody:
         description: Analysis results
         required: true
         content:
-          application/x-ndjson:
+          text/plain:
             schema:
               $ref: '#/components/schemas/ExternalEngineInfo'
       responses:
@@ -9722,24 +9722,9 @@ components:
         - moves
 
     ExternalEngineInfo:
-      example: {
-        "depth": 6,
-        "seldepth": 6,
-        "multipv": 1,
-        "score": {
-          "cp": 36
-        },
-        "nodes": 3954,
-        "nps": 659000,
-        "tbhits": 0,
-        "time": 6,
-        "pv": [
-          "e2e4",
-          "c7c5",
-          "c2c3",
-          "b8c6"
-        ],
-      }
+      example: |
+        info multipv 1 depth 19 seldepth 28 time 1036 nodes 1119774 score cp 36 hashfull 478 nps 1080862 tbhits 0 pv d2d4 d7d5 c2c4 e7e6 g1f3 d5c4 e2e4 b7b5 a2a4 c7c6 a4b5 c6b5 b2b3 g8f6 b3c4 b5c4 f1c4 f6e4 e1g1 f8e7 d4d5 e8g8 d5e6 c8e6 c4e6
+        info multipv 1 depth 20 seldepth 30 time 1373 nodes 1494341 score cp 47 hashfull 594 nps 1088376 tbhits 0 pv d2d4 d7d5 c2c4 e7e6 b1c3 f8b4 c4d5 e6d5 g1f3 g8f6 c1g5 h7h6 g5f6 d8f6 d1b3 c7c5 e2e3 b8c6 d4c5 e8g8 f1d3
 
   securitySchemes:
     OAuth2:
