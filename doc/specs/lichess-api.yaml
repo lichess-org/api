@@ -6379,9 +6379,8 @@ paths:
 
         Request analysis from an external engine.
 
-        Response content is streamed as newline-delimited JSON. The properties
-        are based on the
-        [UCI specification](https://backscattering.de/chess/uci/#engine).
+        Response content is streamed as [newline delimited JSON](#section/Introduction/Streaming-with-ND-JSON). 
+        The properties are based on the [UCI specification](https://backscattering.de/chess/uci/#engine).
         Analysis stops when the client goes away, the requested limit
         is reached, or the provider goes away.
       requestBody:
@@ -6902,7 +6901,7 @@ paths:
 
         Games of a Lichess player.
 
-        Responds with a stream of newline delimited JSON. Will start indexing
+        Responds with a stream of [newline delimited JSON](#section/Introduction/Streaming-with-ND-JSON). Will start indexing
         on demand, immediately respond with the current results, and stream
         more updates until indexing is complete. The stream is throttled
         and deduplicated. Empty lines may be sent to avoid timeouts.
