@@ -5424,9 +5424,16 @@ paths:
                     You can omit this field to send the default message,
                     but if you set your own message, it must at least contain the `{game}` placeholder.
                   default: "Your game with {opponent} is ready: {game}."
-                singleGame:
-                  type: boolean
-                  description: Prevent players from aborting the game, and from playing a rematch after it.
+                rules:
+                  type: string
+                  enum:
+                    - noAbort
+                    - noRematch
+                    - noGiveTime
+                    - noClaimWin
+                  description: |
+                    Extra game rules separated by commas.
+                    Example: `noAbort,noRematch`
       responses:
         "200":
           description: The challenge was successfully created.
@@ -5729,9 +5736,16 @@ paths:
                 name:
                   type: string
                   description: Optional name for the challenge, that players will see on the challenge page.
-                singleGame:
-                  type: boolean
-                  description: Prevent players from aborting the game, and from playing a rematch after it.
+                rules:
+                  type: string
+                  enum:
+                    - noAbort
+                    - noRematch
+                    - noGiveTime
+                    - noClaimWin
+                  description: |
+                    Extra game rules separated by commas.
+                    Example: `noAbort,noRematch`
                 users:
                   type: string
                   description: |
@@ -5922,6 +5936,16 @@ paths:
                     You can omit this field to send the default message,
                     but if you set your own message, it must at least contain the `{game}` placeholder.
                   default: "Your game with {opponent} is ready: {game}."
+                rules:
+                  type: string
+                  enum:
+                    - noAbort
+                    - noRematch
+                    - noGiveTime
+                    - noClaimWin
+                  description: |
+                    Extra game rules separated by commas.
+                    Example: `noAbort,noRematch`
       responses:
         "200":
           description: The bulk pairings have been successfully created.
@@ -6251,7 +6275,7 @@ paths:
         description: A new external engine registration.
         required: true
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
               $ref: '#/components/schemas/ExternalEngineRegistration'
       responses:
@@ -6310,7 +6334,7 @@ paths:
         description: A modified engine registration.
         required: true
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
               $ref: '#/components/schemas/ExternalEngineRegistration'
       responses:
@@ -6364,9 +6388,8 @@ paths:
 
         Request analysis from an external engine.
 
-        Response content is streamed as newline-delimited JSON. The properties
-        are based on the
-        [UCI specification](https://backscattering.de/chess/uci/#engine).
+        Response content is streamed as [newline delimited JSON](#section/Introduction/Streaming-with-ND-JSON). 
+        The properties are based on the [UCI specification](https://backscattering.de/chess/uci/#engine).
         Analysis stops when the client goes away, the requested limit
         is reached, or the provider goes away.
       requestBody:
@@ -6387,16 +6410,17 @@ paths:
                 - work
       responses:
         "200":
-          description: Stream of analysis
+          description: Stream of UCI output
           headers:
             Access-Control-Allow-Origin:
               schema:
                 type: string
                 default: "'*'"
           content:
-            application/x-ndjson:
+            text/plain:
               schema:
-                $ref: '#/components/schemas/ExternalEngineInfo'
+                type: string
+              example: info multipv 1 depth 20 seldepth 30 time 1373 nodes 1494341 score cp 47 hashfull 594 nps 1088376 tbhits 0 pv d2d4 d7d5 c2c4 e7e6 b1c3 f8b4 c4d5 e6d5 g1f3 g8f6 c1g5 h7h6 g5f6 d8f6 d1b3 c7c5 e2e3 b8c6 d4c5 e8g8 f1d3
 
   /api/external-engine/work:
     servers:
@@ -6425,7 +6449,7 @@ paths:
             schema:
               type: object
               properties:
-                secret:
+                providerSecret:
                   type: string
                   example: Dee3uwieZei9ahpaici9bee2yahsai0K
               required:
@@ -6443,7 +6467,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  workId:
+                  id:
                     type: string
                     example: aingoohiJee2sius
                   work:
@@ -6462,12 +6486,12 @@ paths:
                 type: string
                 default: "'*'"
 
-  /api/external-engine/work/{workId}:
+  /api/external-engine/work/{id}:
     servers:
       - url: https://engine.lichess.ovh
     parameters:
       - in: path
-        name: workId
+        name: id
         required: true
         schema:
           type: string
@@ -6479,18 +6503,19 @@ paths:
         - External engine (draft)
       security: []
       description: |
-        **Endpoint: `https://engine.lichess.ovh/api/external-engine/work/{workId}`**
+        **Endpoint: `https://engine.lichess.ovh/api/external-engine/work/{id}`**
 
-        Submit a stream of analysis as newline-delimited JSON.
+        Submit a stream of analysis as UCI output.
       requestBody:
         description: Analysis results
         required: true
         content:
-          application/x-ndjson:
+          text/plain:
             schema:
-              $ref: '#/components/schemas/ExternalEngineInfo'
+              type: string
+            example: info multipv 1 depth 20 seldepth 30 time 1373 nodes 1494341 score cp 47 hashfull 594 nps 1088376 tbhits 0 pv d2d4 d7d5 c2c4 e7e6 b1c3 f8b4 c4d5 e6d5 g1f3 g8f6 c1g5 h7h6 g5f6 d8f6 d1b3 c7c5 e2e3 b8c6 d4c5 e8g8 f1d3
       responses:
-        "204":
+        "200":
           description: Thanks
           headers:
             Access-Control-Allow-Origin:
@@ -6885,7 +6910,7 @@ paths:
 
         Games of a Lichess player.
 
-        Responds with a stream of newline delimited JSON. Will start indexing
+        Responds with a stream of [newline delimited JSON](#section/Introduction/Streaming-with-ND-JSON). Will start indexing
         on demand, immediately respond with the current results, and stream
         more updates until indexing is complete. The stream is throttled
         and deduplicated. Empty lines may be sent to avoid timeouts.
@@ -9536,7 +9561,7 @@ components:
     ExternalEngineRegistration:
       type: object
       properties:
-        engineName:
+        name:
           type: string
           description: Display name of the engine.
           example: Stockfish 15
@@ -9548,7 +9573,7 @@ components:
           example: 8
           minimum: 1
           maximum: 65536
-        maxHashMib:
+        maxHash:
           type: integer
           description: Maximum available hash table size, in MiB.
           example: 2048
@@ -9566,7 +9591,7 @@ components:
         #    Promises that the engine is a recent official Stockfish release.
         #    Can be considered for cloud evaluation.
         #  required: false
-        secret:
+        providerSecret:
           type: string
           description: |
             A random token that can be used to
@@ -9584,27 +9609,33 @@ components:
           example: Dee3uwieZei9ahpaici9bee2yahsai0K
           minLength: 16
           maxLength: 1024
-        data:
+        providerData:
           type: string
           description: |
             Arbitrary data that the engine provider can use for identification
             or bookkeeping.
 
             Users can read this information, but updating it requires knowing
-            or changing the `secret`.
+            or changing the `providerSecret`.
       required:
-        - engineName
+        - name
         - maxThreads
-        - maxHashMib
-        - secret
+        - maxHash
+        - providerSecret
 
     ExternalEngine:
       type: object
       properties:
-        _id:
+        id:
           type: string
           description: Unique engine registration ID.
           example: eei_aTKImBJOnv6j
+        name:
+          type: string
+          description: Display name of the engine.
+          example: Stockfish 15
+          minLength: 3
+          maxLength: 200
         clientSecret:
           type: string
           description: |
@@ -9616,19 +9647,13 @@ components:
           type: string
           description: The user this engine has been registered for.
           example: thibault
-        engineName:
-          type: string
-          description: Display name of the engine.
-          example: Stockfish 15
-          minLength: 3
-          maxLength: 200
         maxThreads:
           type: integer
           description: Maximum number of available threads.
           example: 8
           minimum: 1
           maximum: 65536
-        maxHashMib:
+        maxHash:
           type: integer
           description: Maximum available hash table size, in MiB.
           example: 2048
@@ -9640,21 +9665,21 @@ components:
           example: [standard]
           items:
             $ref: '#/components/schemas/VariantKey'
-        data:
+        providerData:
           type: string
           description: |
             Arbitrary data that the engine provider can use for identification
             or bookkeeping.
 
             Users can read this information, but updating it requires knowing
-            or changing the `secret`.
+            or changing the `providerSecret`.
       required:
-        - _id
+        - id
         - clientSecret
         - userId
-        - engineName
+        - name
         - maxThreads
-        - maxHashMib
+        - maxHash
         - variants
 
     ExternalEngineWork:
@@ -9670,7 +9695,7 @@ components:
           type: integer
           description: Number of threads to use for analysis.
           example: 4
-        hashMib:
+        hash:
           type: integer
           description: Hash table size to use for analysis, in MiB.
           example: 128
@@ -9699,32 +9724,12 @@ components:
       required:
         - sessionId
         - threads
-        - hashMib
+        - hash
         - maxDepth
         - multiPv
         - variant
         - initialFen
         - moves
-
-    ExternalEngineInfo:
-      example: {
-        "depth": 6,
-        "seldepth": 6,
-        "multipv": 1,
-        "score": {
-          "cp": 36
-        },
-        "nodes": 3954,
-        "nps": 659000,
-        "tbhits": 0,
-        "time": 6,
-        "pv": [
-          "e2e4",
-          "c7c5",
-          "c2c3",
-          "b8c6"
-        ],
-      }
 
   securitySchemes:
     OAuth2:
