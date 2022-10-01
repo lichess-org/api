@@ -9791,15 +9791,17 @@ components:
         sessionId:
           type: string
           description: |
-            Identifies the analysis session. Providers may choose to clear
-            the hash table between sessions.
+            Arbitary string that identifies the analysis session.
+            Providers may wish to clear the hash table between sessions.
           example: "abcd1234"
         threads:
           type: integer
+          minimum: 1
           description: Number of threads to use for analysis.
           example: 4
         hash:
           type: integer
+          minimum: 1
           description: Hash table size to use for analysis, in MiB.
           example: 128
         maxDepth:
