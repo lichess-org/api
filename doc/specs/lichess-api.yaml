@@ -6859,7 +6859,7 @@ paths:
           description: Include only games from this month or later
           schema:
             type: string
-            default: 0000-01
+            default: 1952-01
         - in: query
           name: until
           description: Include only games from this month or earlier
@@ -6898,6 +6898,109 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OpeningExplorerJson'
+
+  /lichess/history:
+    servers:
+      - url: https://explorer.lichess.ovh
+    get:
+      operationId: openingExplorerLichessHistory
+      summary: Lichess games history
+      description: |
+        **Endpoint: <https://explorer.lichess.ovh/lichess/history>**
+
+        Opening statistics of games sampled from all Lichess players, grouped
+        by month. Starts with the first month that has any data,
+        or at `since` if given.
+      tags:
+        - Opening Explorer
+      security: []
+      parameters:
+        - in: query
+          name: variant
+          description: Variant
+          schema:
+            $ref: '#/components/schemas/VariantKey'
+            default: standard
+        - in: query
+          name: fen
+          description: FEN of the root position
+          schema:
+            type: string
+          example: rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2
+        - in: query
+          name: play
+          description: |
+            Comma separated sequence of legal moves in UCI notation.
+            Play additional moves starting from `fen`.
+            Required to find an opening name, if `fen` is not an exact match
+            for a named position.
+          schema:
+            type: string
+            default: ""
+          example: e2e4,e7e5,c2c4,c7c6,c4e5
+        - in: query
+          name: speeds
+          description: Comma separated list of game speeds to look for
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Speed'
+        - in: query
+          name: ratings
+          description: Comma separated list of rating groups, ranging from their value to the next higher group
+          schema:
+            type: array
+            items:
+              type: number
+              enum:
+                - 1600
+                - 1800
+                - 2000
+                - 2200
+                - 2500
+        - in: query
+          name: since
+          description: Include only games from this month or later
+          schema:
+            type: string
+            example: 2017-04
+        - in: query
+          name: until
+          description: Include only games from this month or earlier
+          schema:
+            type: string
+            default: 3000-12
+      responses:
+        "200":
+          description: Opening statistics over time.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                example: {
+                  "history": [
+                    {
+                      "month": "2017-04",
+                      "black": 413538,
+                      "draws": 38549,
+                      "white": 429805
+                    },
+                    {
+                      "month": "2017-05",
+                      "black": 418542,
+                      "draws": 39171,
+                      "white": 434066
+                    }
+                  ],
+                  "opening": {
+                      "eco": "B00",
+                      "name": "King's Pawn"
+                  }
+                }
 
   /player:
     servers:
@@ -6974,7 +7077,7 @@ paths:
           description: Include only games from this month or later
           schema:
             type: string
-            default: 0000-01
+            default: 1952-01
         - in: query
           name: until
           description: Include only games from this month or earlier
