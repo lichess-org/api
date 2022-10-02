@@ -9804,10 +9804,22 @@ components:
           minimum: 1
           description: Hash table size to use for analysis, in MiB.
           example: 128
-        maxDepth:
+        depth:
           type: integer
+          minimum: 0
+          maximum: 245
           description: Limit analysis to this depth.
           example: 99
+        nodes:
+          type: integer
+          minimum: 0
+          description: Limit analysis to this number of nodes.
+          example: 5000000
+        time:
+          type: integer
+          minimum: 0
+          description: Limit analysis time to this number of milliseconds.
+          example: 90000
         multiPv:
           type: integer
           minimum: 1
@@ -9830,7 +9842,6 @@ components:
         - sessionId
         - threads
         - hash
-        - maxDepth
         - multiPv
         - variant
         - initialFen
