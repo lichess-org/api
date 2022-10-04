@@ -6093,7 +6093,7 @@ paths:
       operationId: adminChallengeTokens
       summary: Admin challenge tokens
       description: |
-        **For administrators only. You are not allowed to use this endpoint.**
+        ***This endpoint is for Lichess administrators only*** - *Tournament organizers must use* [Request Authorization Code](#tag/OAuth/operation/oauth) *and* [Obtain Access Token](#tag/OAuth/operation/apiToken) *to get* `challenge:write` *tokens for bulk pairing.*
 
         Create and obtain `challenge:write` tokens for multiple users.
 
