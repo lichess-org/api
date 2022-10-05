@@ -4617,6 +4617,7 @@ paths:
                   - $ref: '#/components/schemas/GameFullEvent'
                   - $ref: '#/components/schemas/GameStateEvent'
                   - $ref: '#/components/schemas/ChatLineEvent'
+                  - $ref: '#/components/schemas/OpponentGone'
               examples:
                 gameFull:
                   $ref: '#/components/examples/gameFull'
@@ -5072,6 +5073,7 @@ paths:
                   - $ref: '#/components/schemas/GameFullEvent'
                   - $ref: '#/components/schemas/GameStateEvent'
                   - $ref: '#/components/schemas/ChatLineEvent'
+                  - $ref: '#/components/schemas/OpponentGone'
               examples:
                 gameFull:
                   $ref: '#/components/examples/gameFull'
@@ -9491,6 +9493,20 @@ components:
         - room
         - username
         - text
+
+    OpponentGone:
+      type: object
+      properties:
+        type:
+          type: string
+          const: opponentGone
+        gone:
+          type: boolean
+        claimWinInSeconds:
+          type: number
+      required:
+        - type
+        - gone
 
     GameEventInfo:
       type: object
