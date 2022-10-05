@@ -4588,6 +4588,7 @@ paths:
       \ - `gameFull` Full game data. All values are immutable, except for the `state` field.\n
       \ - `gameState` Current state of the game. Immutable values not included. Sent when a move is played, a draw is offered, or when the game ends.\n
       \ - `chatLine` Chat message sent by a user in the `room` \"player\" or \"spectator\".\n\n
+      \ - `opponentGone` Whether the opponent has left the game, and how long before you can claim a win or draw.\n\n
       \nThe first line is always of type `gameFull`.\n\n
       \nThe server closes the stream when the game ends, or if the game has already ended."
       tags:
@@ -4625,6 +4626,10 @@ paths:
                   $ref: '#/components/examples/chatLine'
                 chatLineSpectator:
                   $ref: '#/components/examples/chatLineSpectator'
+                opponentGoneTrue:
+                  $ref: '#/components/examples/opponentGoneTrue'
+                opponentGoneFalse:
+                  $ref: '#/components/examples/opponentGoneFalse'
                 gameStateResign:
                   $ref: '#/components/examples/gameStateResign'
         "404":
@@ -5039,6 +5044,7 @@ paths:
       \ - `gameFull` Full game data. All values are immutable, except for the `state` field.\n
       \ - `gameState` Current state of the game. Immutable values not included.\n
       \ - `chatLine` Chat message sent by a user (or the bot itself) in the `room` \"player\" or \"spectator\".\n\n
+      \ - `opponentGone` Whether the opponent has left the game, and how long before you can claim a win or draw.\n\n
       \nThe first line is always of type `gameFull`."
       tags:
         - Bot
@@ -5075,6 +5081,10 @@ paths:
                   $ref: '#/components/examples/chatLine'
                 chatLineSpectator:
                   $ref: '#/components/examples/chatLineSpectator'
+                opponentGoneTrue:
+                  $ref: '#/components/examples/opponentGoneTrue'
+                opponentGoneFalse:
+                  $ref: '#/components/examples/opponentGoneFalse'
                 gameStateResign:
                   $ref: '#/components/examples/gameStateResign'
         "404":
@@ -10181,6 +10191,19 @@ components:
         "username": "lovlas",
         "text": "!eval",
         "room": "spectator"
+      }
+
+    opponentGoneTrue:
+      value: {
+        "type": "opponentGone",
+        "gone": true,
+        "claimWinInSeconds": 8
+      }
+
+    opponentGoneFalse:
+      value: {
+        "type": "opponentGone",
+        "gone": false
       }
 
     gameStateResign:
