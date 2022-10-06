@@ -5915,9 +5915,20 @@ paths:
                 'clock.increment':
                   type: integer
                   description: |
-                    Clock increment in seconds. Example: `5`
+                    Clock increment in seconds. Example: `2`
                   minimum: 0
                   maximum: 60
+                days:
+                  type: integer
+                  description: Days per turn. For correspondence games only.
+                  enum:
+                    - 1
+                    - 2
+                    - 3
+                    - 5
+                    - 7
+                    - 10
+                    - 14
                 pairAt:
                   description: |
                     Date at which the games will be created as a Unix timestamp in milliseconds.
