@@ -9724,7 +9724,6 @@ components:
           description: Optional comma seperated list of supported chess variants.
           items:
             $ref: '#/components/schemas/VariantKey'
-          required: false
         #officialStockfish:
         #  type: boolean
         #  description: |
