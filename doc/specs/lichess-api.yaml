@@ -4145,7 +4145,7 @@ paths:
       tags:
         - Teams
       security:
-        - OAuth2: ["team:write"]
+        - OAuth2: ["team:lead"]
       parameters:
         - in: path
           name: teamId
@@ -4175,7 +4175,7 @@ paths:
       tags:
         - Teams
       security:
-        - OAuth2: ["team:write"]
+        - OAuth2: ["team:lead"]
       parameters:
         - in: path
           name: teamId
@@ -4207,7 +4207,7 @@ paths:
       tags:
         - Teams
       security:
-        - OAuth2: ["team:write"]
+        - OAuth2: ["team:lead"]
       parameters:
         - in: path
           name: teamId
@@ -4239,7 +4239,7 @@ paths:
       tags:
         - Teams
       security:
-        - OAuth2: ["team:write"]
+        - OAuth2: ["team:lead"]
       parameters:
         - in: path
           name: teamId
@@ -9940,7 +9940,8 @@ components:
             "racer:write": Create and join puzzle races
             "puzzle:read": Read puzzle activity
             "team:read": Read private team information
-            "team:write": Join, leave, and manage teams
+            "team:write": Join, leave teams
+            "team:lead": Manage teams (kick members, send PMs)
             "follow:read": Read followed players
             "follow:write": Follow and unfollow other players
             "msg:write": Send private messages to other players
