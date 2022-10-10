@@ -52,6 +52,11 @@ tags:
   description: |
     Access registered users on Lichess.
     <https://lichess.org/player>
+
+    - Each user blog exposes an atom (RSS) feed, like <https://lichess.org/@/thibault/blog.atom>.
+    - User blogs mashup feed: https://lichess.org/blog/community.atom
+    - User blogs mashup feed for a language: https://lichess.org/blog/community/fr.atom
+
 - name: Relations
   description: |
     Access relations between users.
