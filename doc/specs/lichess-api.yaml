@@ -9845,22 +9845,10 @@ components:
           minimum: 1
           description: Hash table size to use for analysis, in MiB.
           example: 128
-        depth:
-          type: integer
-          minimum: 0
-          maximum: 245
-          description: Limit analysis to this depth.
-          example: 99
-        nodes:
-          type: integer
-          minimum: 0
-          description: Limit analysis to this number of nodes.
-          example: 5000000
-        time:
-          type: integer
-          minimum: 0
-          description: Limit analysis time to this number of milliseconds.
-          example: 90000
+        deep:
+          type: boolean
+          description: Request a deep or infinite search.
+          example: false
         multiPv:
           type: integer
           minimum: 1
