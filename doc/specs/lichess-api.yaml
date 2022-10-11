@@ -9724,6 +9724,18 @@ components:
           example: 2048
           minimum: 1
           maximum: 1048576
+        shallowDepth:
+          type: integer
+          description: Estimated depth of normal search.
+          example: 24
+          minimum: 0
+          maximum: 246
+        deepDepth:
+          type: integer
+          description: Estimated depth if a deep search is run to completion.
+          example: 99
+          minimum: 0
+          maximum: 246
         variants:
           type: array
           description: Optional comma seperated list of supported chess variants.
@@ -9803,6 +9815,18 @@ components:
           example: 2048
           minimum: 1
           maximum: 1048576
+        shallowDepth:
+          type: integer
+          description: Estimated depth of normal search.
+          example: 24
+          minimum: 0
+          maximum: 246
+        deepDepth:
+          type: integer
+          description: Estimated depth if a deep search is run to completion.
+          example: 99
+          minimum: 0
+          maximum: 246
         variants:
           type: array
           description: Optional comma seperated list of supported chess variants.
@@ -9824,6 +9848,8 @@ components:
         - name
         - maxThreads
         - maxHash
+        - shallowDepth
+        - deepDepth
         - variants
 
     ExternalEngineWork:
