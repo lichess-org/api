@@ -6445,10 +6445,57 @@ paths:
                 type: string
                 default: "'*'"
           content:
-            text/plain:
+            application/x-ndjson:
               schema:
-                type: string
-              example: info multipv 1 depth 20 seldepth 30 time 1373 nodes 1494341 score cp 47 hashfull 594 nps 1088376 tbhits 0 pv d2d4 d7d5 c2c4 e7e6 b1c3 f8b4 c4d5 e6d5 g1f3 g8f6 c1g5 h7h6 g5f6 d8f6 d1b3 c7c5 e2e3 b8c6 d4c5 e8g8 f1d3
+                type: object
+                properties:
+                  time:
+                    type: integer
+                    description: Number of milliseconds the search has been going on
+                    example: 6880
+                    minimum: 0
+                  depth:
+                    type: integer
+                    description: Current search depth
+                    example: 25
+                    minimum: 0
+                  nodes:
+                    type: integer
+                    description: Number of nodes visited so far
+                    example: 7230340
+                    minimum: 0
+                  pvs:
+                    type: array
+                    description: Information about up to 5 pvs, with the primary pv at index 0.
+                    items:
+                      type: object
+                      properties:
+                        depth:
+                          type: integer
+                          description: Current search depth of the pv
+                          example: 25
+                          minimum: 0
+                        cp:
+                          type: integer
+                          description: Evaluation in centi-pawns, from White's point of view
+                          example: 40
+                        mate:
+                          type: integer
+                          description: Evaluation in signed moves to mate, from White's point of view
+                        moves:
+                          type: array
+                          description: Variation in UCI notation
+                          items:
+                            type: string
+                          example: ["e2e4", "c7c6", "g1f3", "d7d5", "d2d3", "d5e4"]
+                      required:
+                        - depth
+                        - moves
+                required:
+                  - time
+                  - depth
+                  - nodes
+                  - pvs
 
   /api/external-engine/work:
     servers:
@@ -9777,6 +9824,8 @@ components:
         - name
         - maxThreads
         - maxHash
+        - shallowDepth
+        - deepDepth
         - providerSecret
 
     ExternalEngine:
@@ -9873,7 +9922,9 @@ components:
           example: 128
         deep:
           type: boolean
-          description: Request a deep or infinite search.
+          description: |
+            Request a deep or infinite search (rougly aiming for `deepDepth`
+            rather than `shallowDepth`).
           example: false
         multiPv:
           type: integer
