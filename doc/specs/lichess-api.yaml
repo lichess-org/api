@@ -6580,7 +6580,17 @@ paths:
       description: |
         **Endpoint: `https://engine.lichess.ovh/api/external-engine/work/{id}`**
 
-        Submit a stream of analysis as UCI output.
+        Submit a stream of analysis as [UCI output](https://backscattering.de/chess/uci/#engine-info).
+
+        * The engine should always be in `UCI_Chess960` mode.
+        * `UCI_AnalyseMode` enabled if available.
+        * It produces `info` with:
+          - `depth`
+          - `multipv` (between 1 and 5)
+          - `score`
+          - `nodes`
+          - `time`
+          - `pv`
       requestBody:
         description: Analysis results
         required: true
