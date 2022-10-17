@@ -6814,10 +6814,10 @@ paths:
                             description: Comma-separated list of scopes. Empty string if the token has no scopes.
                           expires:
                             type:
-                              - number
-                              - null
+                              - integer
+                              - "null"
                             description: Unix-timestampe in milliseconds or null if the token never expires.
-                      - type: null
+                      - type: "null"
                 example: [
                   {
                     "lip_AvsS88TozFeSnZa1LN5c": {
