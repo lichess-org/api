@@ -6802,6 +6802,22 @@ paths:
                 type: array
                 items:
                   type: object
+                  additionalProperties:
+                    x-additionalPropertiesName: token
+                    oneOf:
+                      - type: object
+                        properties:
+                          userId:
+                            type: string
+                          scopes:
+                            type: string
+                            description: Comma-separated list of scopes. Empty string if the token has no scopes.
+                          expires:
+                            type:
+                              - number
+                              - null
+                            description: Unix-timestampe in milliseconds or null if the token never expires.
+                      - type: null
                 example: [
                   {
                     "lip_AvsS88TozFeSnZa1LN5c": {
