@@ -6868,7 +6868,7 @@ paths:
             default: 1952
         - in: query
           name: until
-          description: Include only games from thi year or earlier
+          description: Include only games from this year or earlier
           schema:
             type: number
         - in: query
