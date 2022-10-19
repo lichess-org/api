@@ -81,7 +81,7 @@ tags:
     <https://lichess.org/team>
 - name: Board
   description: "Play on Lichess with physical boards and third-party clients.\n
-  \ Works with normal Lichess accounts. Engine play or assistance is forbidden.\n\n\
+  \ Works with normal Lichess accounts. Engine play or assistance is [forbidden](https://lichess.org/page/fair-play).\n\n\
   \n### Features\n\
   \ - [Stream incoming chess moves](#operation/boardGameStream)\n\
   \ - [Play chess moves](#operation/boardGameMove)\n\
@@ -90,7 +90,7 @@ tags:
   \ - [Abort](#operation/boardGameAbort) and [resign](#operation/boardGameResign) games\n\
   \ - Compatible with normal Lichess accounts\n\n
   \n### Restrictions\n\
-  \ - Engine assistance, or any kind of outside help, is strictly forbidden\n\
+  \ - Engine assistance, or any kind of outside help, is [forbidden](https://lichess.org/page/fair-play)\n\
   \ - Time controls: [Rapid, Classical and Correspondence](https://lichess.org/faq#time-controls) only.\n\
   \   For direct challenges and games vs AI, Blitz is also possible.\n\
   \n### Links\n\
@@ -109,7 +109,7 @@ tags:
   \ - [Read](#operation/botGameStream) and [write](#operation/botGameChat) in the player and spectator chats\n\
   \ - [Receive](#operation/apiStreamEvent), [create](#operation/challengeCreate) and [accept](#operation/challengeAccept) (or [decline](#operation/challengeDecline)) challenges\n\
   \ - [Abort](#operation/botGameAbort) and [resign](#operation/botGameResign) games\n\
-  \ - Engine assistance is allowed\n\
+  \ - Engine assistance is [allowed](https://lichess.org/page/fair-play)\n\
   \n### Restrictions\n\
   \ - Bots can only play challenge games:  pools and tournaments are off-limits\n\
   \ - Bots cannot play UltraBullet (¼+0) because it requires making too many requests. But 0+1 and ½+0 are allowed.\n\
