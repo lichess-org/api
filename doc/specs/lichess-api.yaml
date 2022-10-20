@@ -248,15 +248,18 @@ paths:
                     name:
                       type: string
                     title:
-                      type: [string, 'null']
+                      type: string
                     online:
-                      type: [boolean, 'null']
+                      type: boolean
                     playing:
-                      type: [boolean, 'null']
+                      type: boolean
                     streaming:
-                      type: [boolean, 'null']
+                      type: boolean
                     patron:
-                      type: [boolean, 'null']
+                      type: boolean
+                  required:
+                    - id
+                    - name
                 example: [
                   {
                     "id": "aliquantus",
