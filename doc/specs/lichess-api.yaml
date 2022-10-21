@@ -300,7 +300,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Top10s'
 
-  /player/top/{nb}/{perfType}:
+  /api/player/top/{nb}/{perfType}:
     get:
       operationId: playerTopNbPerfType
       summary: Get one leaderboard
