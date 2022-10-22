@@ -8057,9 +8057,6 @@ components:
         username:
           type: string
           example: Georges
-        online:
-          type: boolean
-          example: true
         perfs:
           $ref: '#/components/schemas/Perfs'
         createdAt:
