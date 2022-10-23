@@ -6558,7 +6558,7 @@ paths:
         Uses long polling.
 
         After acquiring a request, the provider should immediately
-        [start streaming the results](#tag/External-engine/operation/apiExternalEngineAcquire).
+        [start streaming the results](#tag/External-engine/operation/apiExternalEngineSubmit).
       requestBody:
         description: Provider credentials.
         required: true
@@ -6616,7 +6616,7 @@ paths:
           example: aingoohiJee2sius
     post:
       operationId: apiExternalEngineSubmit
-      summary: Submit analysis
+      summary: Answer analysis request
       tags:
         - External engine
       security: []
