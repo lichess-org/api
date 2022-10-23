@@ -6481,7 +6481,7 @@ paths:
                 - work
       responses:
         "200":
-          description: Stream of UCI output
+          description: Stream of analysis output
           headers:
             Access-Control-Allow-Origin:
               schema:
@@ -6627,13 +6627,16 @@ paths:
 
         * The engine should always be in `UCI_Chess960` mode.
         * `UCI_AnalyseMode` enabled if available.
-        * It produces `info` with:
+        * It produces `info` with at least:
           - `depth`
           - `multipv` (between 1 and 5)
           - `score`
           - `nodes`
           - `time`
           - `pv`
+
+        The server may close the connection at any time, indicating that
+        the requester has gone away and analysis should be stopped.
       requestBody:
         description: Analysis results
         required: true
