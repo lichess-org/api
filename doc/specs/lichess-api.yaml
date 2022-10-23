@@ -169,10 +169,9 @@ tags:
   description: |
     Access Lichess cloud evaluations database.
     <https://lichess.org/analysis>
-- name: External engine (draft)
+- name: External engine
   description: |
-    **This API is a draft and not yet fully available. The specification is
-    subject to change.**
+    **This API is in alpha and subject to change.**
 
     Use or provide external engine analysis.
 
@@ -6311,7 +6310,7 @@ paths:
       operationId: apiExternalEngineList
       summary: List external engines
       tags:
-        - External engine (draft)
+        - External engine
       security:
         - OAuth2: ["engine:read"]
       description: |
@@ -6335,7 +6334,7 @@ paths:
       operationId: apiExternalEngineCreate
       summary: Create external engine
       tags:
-        - External engine (draft)
+        - External engine
       security:
         - OAuth2: ["engine:write"]
       description: |
@@ -6376,7 +6375,7 @@ paths:
       operationId: apiExternalEngineGet
       summary: Get external engine
       tags:
-        - External engine (draft)
+        - External engine
       security:
         - OAuth2: ["engine:read"]
       description: |
@@ -6397,7 +6396,7 @@ paths:
       operationId: apiExternalEnginePut
       summary: Update external engine
       tags:
-        - External engine (draft)
+        - External engine
       security:
         - OAuth2: ["engine:write"]
       description: |
@@ -6425,7 +6424,7 @@ paths:
       operationId: apiExternalEngineDelete
       summary: Delete external engine
       tags:
-        - External engine (draft)
+        - External engine
       security:
         - OAuth2: ["engine:write"]
       description: |
@@ -6453,7 +6452,7 @@ paths:
       operationId: apiExternalEngineAnalyse
       summary: Analyse with external engine
       tags:
-        - External engine (draft)
+        - External engine
       security: []
       description: |
         **Endpoint: `https://engine.lichess.ovh/api/external-engine/{id}/analyse`**
@@ -6548,7 +6547,7 @@ paths:
       operationId: apiExternalEngineAcquire
       summary: Acquire analysis request
       tags:
-        - External engine (draft)
+        - External engine
       security: []
       description: |
         **Endpoint: `https://engine.lichess.ovh/api/external-engine/work`**
@@ -6559,7 +6558,7 @@ paths:
         Uses long polling.
 
         After acquiring a request, the provider should immediately
-        [start streaming the results](#tag/External-engine-(draft)/operation/apiExternalEngineAcquire).
+        [start streaming the results](#tag/External-engine/operation/apiExternalEngineAcquire).
       requestBody:
         description: Provider credentials.
         required: true
@@ -6619,7 +6618,7 @@ paths:
       operationId: apiExternalEngineSubmit
       summary: Submit analysis
       tags:
-        - External engine (draft)
+        - External engine
       security: []
       description: |
         **Endpoint: `https://engine.lichess.ovh/api/external-engine/work/{id}`**
@@ -9865,7 +9864,7 @@ components:
           type: string
           description: |
             A random token that can be used to
-            [wait for analysis requests](#tag/External-engine-(draft)/operation/apiExternalEngineAcquire)
+            [wait for analysis requests](#tag/External-engine/operation/apiExternalEngineAcquire)
             and provide analysis.
 
             The engine provider should securely generate a random string.
@@ -9912,7 +9911,7 @@ components:
           type: string
           description: |
             A secret token that can be used to
-            [*request* analysis](#tag/External-engine-(draft)/operation/apiExternalEngineAnalyse)
+            [*request* analysis](#tag/External-engine/operation/apiExternalEngineAnalyse)
             from this external engine.
           example: ees_mdF2hK0hlKGSPeC6
         userId:
