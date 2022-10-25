@@ -5444,6 +5444,7 @@ paths:
                 rated:
                   type: boolean
                   description: Game is rated and impacts players ratings
+                  default: false
                 'clock.limit':
                   type: number
                   description: Clock initial time in seconds. If empty, a correspondence game is created.
@@ -5789,6 +5790,7 @@ paths:
                 rated:
                   type: boolean
                   description: Game is rated and impacts players ratings
+                  default: false
                 'clock.limit':
                   type: number
                   description: Clock initial time in seconds. If empty, a correspondence game is created.
@@ -6023,6 +6025,7 @@ paths:
                 rated:
                   type: boolean
                   description: Game is rated and impacts players ratings
+                  default: false
                 variant:
                   $ref: '#/components/schemas/VariantKey'
                 fen:
