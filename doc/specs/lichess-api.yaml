@@ -518,6 +518,13 @@ paths:
       tags:
         - Puzzles
       security: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The puzzle ID
+          schema:
+            type: string
       responses:
         "200":
           description: The requested puzzle.
