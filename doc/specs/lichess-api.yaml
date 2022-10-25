@@ -5479,7 +5479,7 @@ paths:
                   $ref: '#/components/schemas/VariantKey'
                 fen:
                   type: string
-                  description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated. Castling moves will use UCI_Chess960 notation, for example e1h1 instead of e1g1.
+                  description: Custom initial position (in FEN). Variant must be standard, fromPosition, or chess960 (if a valid 960 starting position), and the game cannot be rated. Castling moves will use UCI_Chess960 notation, for example e1h1 instead of e1g1.
                   default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
                 keepAliveStream:
                   type: boolean
@@ -5737,7 +5737,7 @@ paths:
                   $ref: '#/components/schemas/VariantKey'
                 fen:
                   type: string
-                  description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated.
+                  description: Custom initial position (in FEN). Variant must be standard, fromPosition, or chess960 (if a valid 960 starting position), and the game cannot be rated.
                   default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
       responses:
         "200":
@@ -5816,7 +5816,7 @@ paths:
                   $ref: '#/components/schemas/VariantKey'
                 fen:
                   type: string
-                  description: Custom initial position (in FEN). Variant must be standard, and the game cannot be rated.
+                  description: Custom initial position (in FEN). Variant must be standard, fromPosition, or chess960 (if a valid 960 starting position), and the game cannot be rated.
                   default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
                 name:
                   type: string
