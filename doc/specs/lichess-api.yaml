@@ -510,6 +510,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/PuzzleJson'
 
+  /api/puzzle/{id}:
+    get:
+      operationId: apiPuzzleId
+      summary: Get a puzzle by its ID
+      description: Get a single Lichess puzzle in JSON format.
+      tags:
+        - Puzzles
+      security: []
+      responses:
+        "200":
+          description: The requested puzzle.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/PuzzleJson'
+
   /api/puzzle/activity:
     get:
       operationId: apiPuzzleActivity
