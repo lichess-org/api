@@ -6025,6 +6025,10 @@ paths:
                   description: Game is rated and impacts players ratings
                 variant:
                   $ref: '#/components/schemas/VariantKey'
+                fen:
+                  type: string
+                  description: Custom initial position (in FEN). Variant must be standard, fromPosition, or chess960 (if a valid 960 starting position), and the game cannot be rated.
+                  default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
                 message:
                   type: string
                   description: |
