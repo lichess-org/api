@@ -1826,6 +1826,11 @@ paths:
         You can create up to 12 public tournaments per day, or 24 private tournaments.
 
         A team battle can be created by specifying the `teambBattleByTeam` argument.
+
+        Additional restrictions:
+          - clockTime + clockIncrement > 0
+          - 15s and 0+1 variant tournaments cannot be rated
+          - Clock time in comparison to tournament length must be reasonable: 3 <= (minutes * 60) / (96 * clockTime + 48 * clockIncrement + 15) <= 150
       tags:
         - "Arena tournaments"
       security:
@@ -1841,6 +1846,8 @@ paths:
                 name:
                   type: string
                   description: The tournament name. Leave empty to get a random Grandmaster name
+                  minLength: 2
+                  maxLength: 30
                 clockTime:
                   type: number
                   description: Clock initial time in minutes
@@ -1883,7 +1890,7 @@ paths:
                   enum: [1, 2, 3, 5, 10, 15, 20, 30, 45, 60]
                 startDate:
                   type: integer
-                  description: Timestamp to start the tournament at a given date and time. Overrides the `waitMinutes` setting
+                  description: Timestamp (in milliseconds) to start the tournament at a given date and time. Overrides the `waitMinutes` setting
                 variant:
                   $ref: '#/components/schemas/VariantKey'
                 rated:
@@ -1895,7 +1902,7 @@ paths:
                   description: Custom initial position (in FEN) for all games of the tournament. Must be a legal chess position. Only works with standard chess, not variants (except Chess960).
                 berserkable:
                   type: boolean
-                  description: Whether the players can use berserk
+                  description: Whether the players can use berserk. Only allowed if clockIncrement <= clockTime * 2
                   default: true
                 streakable:
                   type: boolean
@@ -1936,12 +1943,15 @@ paths:
                 conditions.minRating.rating:
                   type: integer
                   description: Minimum rating to join. Leave empty to let everyone join the tournament.
+                  enum: [1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600]
                 conditions.maxRating.rating:
                   type: integer
                   description: Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
+                  enum: [2200, 2100, 2000, 1900, 1800, 1700, 1600, 1500, 1400, 1300, 1200, 1100, 1000, 900, 800]
                 conditions.nbRatedGame.nb:
                   type: integer
                   description: Minimum number of rated games required to join.
+                  enum: [0, 5, 10, 15, 20, 30, 40, 50, 75, 100, 150, 200]
                 conditions.allowList:
                   type: string
                   description: |
@@ -2019,6 +2029,11 @@ paths:
         Be mindful not to make important changes to ongoing tournaments.
 
         Can be used to update a team battle.
+
+        Additional restrictions:
+          - clockTime + clockIncrement > 0
+          - 15s and 0+1 variant tournaments cannot be rated
+          - Clock time in comparison to tournament length must be reasonable: 3 <= (minutes * 60) / (96 * clockTime + 48 * clockIncrement + 15) <= 150
       tags:
         - "Arena tournaments"
       security:
@@ -2034,12 +2049,12 @@ paths:
                 name:
                   type: string
                   description: The tournament name. Leave empty to get a random Grandmaster name
+                  minLength: 2
+                  maxLength: 30
                 clockTime:
                   type: number
                   description: Clock initial time in minutes
                   example: 2
-                  minimum: 0
-                  maximum: 60
                   enum:
                     - 0
                     - 0.25
@@ -2065,23 +2080,20 @@ paths:
                   type: integer
                   description: Clock increment in seconds
                   example: 1
-                  minimum: 0
-                  maximum: 60
+                  enum: [0, 1, 2, 3, 4, 5, 6, 7, 10, 15, 20, 25, 30, 40, 50, 60]
                 minutes:
                   type: integer
                   description: How long the tournament lasts, in minutes
                   example: 60
-                  minimum: 0
-                  maximum: 360
+                  enum: [20, 25, 30, 35, 40, 45, 50, 55, 60, 70, 80, 90, 100, 110, 120, 150, 180, 210, 240, 270, 300, 330, 360, 420, 480, 540, 600, 720]
                 waitMinutes:
                   type: integer
                   description: How long to wait before starting the tournament, from now, in minutes
-                  minimum: 0
-                  maximum: 360
                   default: 5
+                  enum: [1, 2, 3, 5, 10, 15, 20, 30, 45, 60]
                 startDate:
                   type: integer
-                  description: Timestamp to start the tournament at a given date and time. Overrides the `waitMinutes` setting
+                  description: Timestamp (in milliseconds) to start the tournament at a given date and time. Overrides the `waitMinutes` setting
                 variant:
                   $ref: '#/components/schemas/VariantKey'
                 rated:
@@ -2093,7 +2105,7 @@ paths:
                   description: Custom initial position (in FEN) for all games of the tournament. Must be a legal chess position. Only works with standard chess, not variants (except Chess960).
                 berserkable:
                   type: boolean
-                  description: Whether the players can use berserk
+                  description: Whether the players can use berserk. Only allowed if clockIncrement <= clockTime * 2
                   default: true
                 streakable:
                   type: boolean
@@ -2112,12 +2124,22 @@ paths:
                 conditions.minRating.rating:
                   type: integer
                   description: Minimum rating to join. Leave empty to let everyone join the tournament.
+                  enum: [1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600]
                 conditions.maxRating.rating:
                   type: integer
                   description: Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
+                  enum: [2200, 2100, 2000, 1900, 1800, 1700, 1600, 1500, 1400, 1300, 1200, 1100, 1000, 900, 800]
                 conditions.nbRatedGame.nb:
                   type: integer
                   description: Minimum number of rated games required to join.
+                  enum: [0, 5, 10, 15, 20, 30, 40, 50, 75, 100, 150, 200]
+                conditions.allowList:
+                  type: string
+                  description: |
+                    Predefined list of usernames that are allowed to join, separated by commas.
+                    If this list is non-empty, then usernames absent from this list will be forbidden to join.
+                    Adding `%titled` to the list additionally allows any titled player to join.
+                    Example: `thibault,german11,%titled`
               required:
                 - clockTime
                 - clockIncrement
@@ -2572,6 +2594,10 @@ paths:
         This endpoint mirrors the Swiss tournament form from your team pagee.
 
         You can create up to 12 tournaments per day.
+
+        Additional restrictions:
+          - clock.limit + clock.increment > 0
+          - 15s and 0+1 variant tournaments cannot be rated
       tags:
         - "Swiss tournaments"
       security:
@@ -2594,24 +2620,56 @@ paths:
                 name:
                   type: string
                   description: The tournament name. Leave empty to get a random Grandmaster name
-                'clock.limit':
+                  minLength: 2
+                  maxLength: 30
+                clock.limit:
                   type: number
                   description: Clock initial time in seconds
                   example: 300
-                  minimum: 0
-                  maximum: 3600
-                'clock.increment':
+                  enum:
+                    - 0
+                    - 15
+                    - 30
+                    - 45
+                    - 60
+                    - 90
+                    - 120
+                    - 180
+                    - 240
+                    - 300
+                    - 360
+                    - 420
+                    - 600
+                    - 900
+                    - 1200
+                    - 1500
+                    - 1800
+                    - 2400
+                    - 3000
+                    - 3600
+                    - 4200
+                    - 4800
+                    - 5400
+                    - 6000
+                    - 6600
+                    - 7200
+                    - 7800
+                    - 8400
+                    - 9000
+                    - 9600
+                    - 10200
+                    - 10800
+                clock.increment:
                   type: integer
                   description: Clock increment in seconds
                   example: 1
                   minimum: 0
-                  maximum: 600
+                  maximum: 120
                 nbRounds:
                   type: integer
                   description: Maximum number of rounds to play
                   minimum: 3
                   maximum: 100
-                  default: 8
                 startsAt:
                   type: integer
                   description: Timestamp in milliseconds to start the tournament at a given date and time. By default, it starts 10 minutes after creation.
@@ -2622,9 +2680,28 @@ paths:
 
                     Set to 99999999 to manually schedule each round from the tournament UI.
 
-                    If empty, a sensible value is picked automatically.
-                  minimum: 0
-                  maximum: 86400
+                    If empty or -1, a sensible value is picked automatically.
+                  enum:
+                    - -1
+                    - 5
+                    - 10
+                    - 20
+                    - 30
+                    - 45
+                    - 60
+                    - 120
+                    - 180
+                    - 300
+                    - 600
+                    - 900
+                    - 1200
+                    - 1800
+                    - 2700
+                    - 3600
+                    - 86400
+                    - 172800
+                    - 604800
+                    - 99999999
                 variant:
                   $ref: '#/components/schemas/VariantKey'
                 description:
@@ -2641,7 +2718,7 @@ paths:
                   type: string
                   description: |
                     Usernames of players that must not play together.
-                    
+
                     Two usernames per line, separated by a space.
                 chatFor:
                   type: number
@@ -2652,6 +2729,19 @@ paths:
                     - 20 = Only team members
                     - 30 = All Lichess players
                   default: 20
+                conditions.minRating.rating:
+                  type: integer
+                  description: Minimum rating to join. Leave empty to let everyone join the tournament.
+                  enum: [1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600]
+                conditions.maxRating.rating:
+                  type: integer
+                  description: Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
+                  enum: [2200, 2100, 2000, 1900, 1800, 1700, 1600, 1500, 1400, 1300, 1200, 1100, 1000, 900, 800]
+                conditions.nbRatedGame.nb:
+                  type: integer
+                  description: Minimum number of rated games required to join.
+                  minimum: 0
+                  maximun: 200
                 conditions.allowList:
                   type: string
                   description: |
@@ -2660,8 +2750,8 @@ paths:
                     Adding `%titled` to the list additionally allows any titled player to join.
                     Example: `thibault,german11,%titled`
               required:
-                - 'clock.limit'
-                - 'clock.increment'
+                - clock.limit
+                - clock.increment
                 - nbRounds
       responses:
         "200":
@@ -2719,6 +2809,10 @@ paths:
         Update a Swiss tournament.
 
         Be mindful not to make important changes to ongoing tournaments.
+
+        Additional restrictions:
+          - clock.limit + clock.increment > 0
+          - 15s and 0+1 variant tournaments cannot be rated
       tags:
         - "Swiss tournaments"
       security:
@@ -2742,24 +2836,56 @@ paths:
                 name:
                   type: string
                   description: The tournament name. Leave empty to get a random Grandmaster name
-                'clock.limit':
+                  minLength: 2
+                  maxLength: 30
+                clock.limit:
                   type: number
                   description: Clock initial time in seconds
                   example: 300
-                  minimum: 0
-                  maximum: 3600
-                'clock.increment':
+                  enum:
+                    - 0
+                    - 15
+                    - 30
+                    - 45
+                    - 60
+                    - 90
+                    - 120
+                    - 180
+                    - 240
+                    - 300
+                    - 360
+                    - 420
+                    - 600
+                    - 900
+                    - 1200
+                    - 1500
+                    - 1800
+                    - 2400
+                    - 3000
+                    - 3600
+                    - 4200
+                    - 4800
+                    - 5400
+                    - 6000
+                    - 6600
+                    - 7200
+                    - 7800
+                    - 8400
+                    - 9000
+                    - 9600
+                    - 10200
+                    - 10800
+                clock.increment:
                   type: integer
                   description: Clock increment in seconds
                   example: 1
                   minimum: 0
-                  maximum: 600
+                  maximum: 120
                 nbRounds:
                   type: integer
                   description: Maximum number of rounds to play
                   minimum: 3
                   maximum: 100
-                  default: 8
                 startsAt:
                   type: integer
                   description: Timestamp in milliseconds to start the tournament at a given date and time. By default, it starts 10 minutes after creation.
@@ -2770,9 +2896,28 @@ paths:
 
                     Set to 99999999 to manually schedule each round from the tournament UI.
 
-                    If empty, a sensible value is picked automatically.
-                  minimum: 0
-                  maximum: 86400
+                    If empty or -1, a sensible value is picked automatically.
+                  enum:
+                    - -1
+                    - 5
+                    - 10
+                    - 20
+                    - 30
+                    - 45
+                    - 60
+                    - 120
+                    - 180
+                    - 300
+                    - 600
+                    - 900
+                    - 1200
+                    - 1800
+                    - 2700
+                    - 3600
+                    - 86400
+                    - 172800
+                    - 604800
+                    - 99999999
                 variant:
                   $ref: '#/components/schemas/VariantKey'
                 description:
@@ -2785,6 +2930,12 @@ paths:
                 password:
                   type: string
                   description: Make the tournament private and restrict access with a password.
+                forbiddenPairings:
+                  type: string
+                  description: |
+                    Usernames of players that must not play together.
+
+                    Two usernames per line, separated by a space.
                 chatFor:
                   type: number
                   description: |
@@ -2794,9 +2945,29 @@ paths:
                     - 20 = Only team members
                     - 30 = All Lichess players
                   default: 20
+                conditions.minRating.rating:
+                  type: integer
+                  description: Minimum rating to join. Leave empty to let everyone join the tournament.
+                  enum: [1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600]
+                conditions.maxRating.rating:
+                  type: integer
+                  description: Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
+                  enum: [2200, 2100, 2000, 1900, 1800, 1700, 1600, 1500, 1400, 1300, 1200, 1100, 1000, 900, 800]
+                conditions.nbRatedGame.nb:
+                  type: integer
+                  description: Minimum number of rated games required to join.
+                  minimum: 0
+                  maximun: 200
+                conditions.allowList:
+                  type: string
+                  description: |
+                    Predefined list of usernames that are allowed to join, separated by commas.
+                    If this list is non-empty, then usernames absent from this list will be forbidden to join.
+                    Adding `%titled` to the list additionally allows any titled player to join.
+                    Example: `thibault,german11,%titled`
               required:
-                - 'clock.limit'
-                - 'clock.increment'
+                - clock.limit
+                - clock.increment
                 - nbRounds
       responses:
         "200":
