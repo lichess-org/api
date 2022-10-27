@@ -2723,6 +2723,13 @@ paths:
                     Usernames of players that must not play together.
 
                     Two usernames per line, separated by a space.
+                manualPairings:
+                  type: string
+                  description: |
+                    Manual pairings for the next round.
+
+                    Two usernames per line, separated by a space.
+                    Missing players will be given a bye, which is worth 1 point.
                 chatFor:
                   type: number
                   description: |
