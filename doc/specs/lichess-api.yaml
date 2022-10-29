@@ -10088,7 +10088,7 @@ components:
           maximum: 246
         variants:
           type: array
-          description: Optional comma seperated list of supported chess variants.
+          description: Optional list of supported chess variants.
           items:
             $ref: '#/components/schemas/UciVariant'
         #officialStockfish:
@@ -10174,7 +10174,7 @@ components:
           maximum: 246
         variants:
           type: array
-          description: Optional comma seperated list of supported chess variants.
+          description: List of supported chess variants.
           example: [chess]
           items:
             $ref: '#/components/schemas/UciVariant'
