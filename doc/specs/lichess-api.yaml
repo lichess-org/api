@@ -10066,16 +10066,10 @@ components:
           example: 2048
           minimum: 1
           maximum: 1048576
-        shallowDepth:
+        defaultDepth:
           type: integer
           description: Estimated depth of normal search.
           example: 24
-          minimum: 0
-          maximum: 246
-        deepDepth:
-          type: integer
-          description: Estimated depth if a deep search is run to completion.
-          example: 99
           minimum: 0
           maximum: 246
         variants:
@@ -10119,8 +10113,7 @@ components:
         - name
         - maxThreads
         - maxHash
-        - shallowDepth
-        - deepDepth
+        - defaultDepth
         - providerSecret
 
     ExternalEngine:
@@ -10159,16 +10152,10 @@ components:
           example: 2048
           minimum: 1
           maximum: 1048576
-        shallowDepth:
+        defaultDepth:
           type: integer
           description: Estimated depth of normal search.
           example: 24
-          minimum: 0
-          maximum: 246
-        deepDepth:
-          type: integer
-          description: Estimated depth if a deep search is run to completion.
-          example: 99
           minimum: 0
           maximum: 246
         variants:
@@ -10192,8 +10179,7 @@ components:
         - name
         - maxThreads
         - maxHash
-        - shallowDepth
-        - deepDepth
+        - defaultDepth
         - variants
 
     ExternalEngineWork:
@@ -10215,11 +10201,11 @@ components:
           minimum: 1
           description: Hash table size to use for analysis, in MiB.
           example: 128
-        deep:
+        infinite:
           type: boolean
           description: |
-            Request a deep or infinite search (rougly aiming for `deepDepth`
-            rather than `shallowDepth`).
+            Request an infinite search (rather than roughly aiming for
+            `defaultDepth`).
           example: false
         multiPv:
           type: integer
