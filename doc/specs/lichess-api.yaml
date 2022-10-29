@@ -2729,7 +2729,8 @@ paths:
                     Manual pairings for the next round.
 
                     Two usernames per line, separated by a space.
-                    Missing players will be given a bye, which is worth 1 point.
+                    Present players without a valid pairing will be given a bye, which is worth 1 point.
+                    Forfeited players will get 0 points.
                 chatFor:
                   type: number
                   description: |
