@@ -7621,6 +7621,20 @@ components:
         short:
           type: string
 
+    UciVariant:
+      type: string
+      enum:
+        - chess
+        - crazyhouse
+        - antichess
+        - atomic
+        - horde
+        - kingofthehill
+        - racingkings
+        - 3check
+      example: chess
+      default: chess
+
     Speed:
       type: string
       enum:
@@ -10076,7 +10090,7 @@ components:
           type: array
           description: Optional comma seperated list of supported chess variants.
           items:
-            $ref: '#/components/schemas/VariantKey'
+            $ref: '#/components/schemas/UciVariant'
         #officialStockfish:
         #  type: boolean
         #  description: |
@@ -10161,9 +10175,9 @@ components:
         variants:
           type: array
           description: Optional comma seperated list of supported chess variants.
-          example: [standard]
+          example: [chess]
           items:
-            $ref: '#/components/schemas/VariantKey'
+            $ref: '#/components/schemas/UciVariant'
         providerData:
           type: string
           description: |
@@ -10214,7 +10228,7 @@ components:
           description: Requested number of principal variations.
           example: 1
         variant:
-          $ref: '#/components/schemas/VariantKey'
+          $ref: '#/components/schemas/UciVariant'
         initialFen:
           type: string
           description: Initial position of the game.
