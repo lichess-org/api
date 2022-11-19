@@ -7828,6 +7828,15 @@ components:
         "status": "created"
       }
 
+    ChallengeCanceledJson:
+      type: object
+      properties:
+        id:
+          type: string
+      example: {
+        "id": "VU0nyvsW"
+      }
+
     ChallengeOpenJson:
       example: {
         "id": "VU0nyvsW",
@@ -9951,7 +9960,7 @@ components:
           type: string
           const: challengeDeclined
         challenge:
-          $ref: '#/components/schemas/ChallengeJson'
+          $ref: '#/components/schemas/ChallengeCanceledJson'
 
     Ok:
       properties:
