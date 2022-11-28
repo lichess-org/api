@@ -3502,7 +3502,7 @@ paths:
                 type: string
                 default: "'*'"
           content:
-            application/json:
+            application/x-ndjson:
               schema:
                 type: array
                 items:
