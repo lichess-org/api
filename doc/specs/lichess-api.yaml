@@ -3062,6 +3062,38 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/swiss/{id}/withdraw:
+    post:
+      operationId: apiSwissWithdraw
+      summary: Pause or leave a swiss tournament
+      description: |
+        Leave a future Swiss tournament, or take a break on an ongoing Swiss tournament.
+        It's possible to join again later. Points are preserved.
+      tags:
+        - "Swiss tournaments"
+      security:
+        - OAuth2: ["tournament:write"]
+      parameters:
+        - in: path
+          name: id
+          description: The tournament ID.
+          schema:
+            type: string
+            example: "hL7vMrFQ"
+          required: true
+      responses:
+        "200":
+          description: The tournament was successfully paused or left.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+
   /api/swiss/{id}/terminate:
     post:
       operationId: apiSwissTerminate
