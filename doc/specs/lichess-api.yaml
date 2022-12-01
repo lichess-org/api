@@ -6993,7 +6993,7 @@ paths:
             type: string
         - in: query
           name: username
-          description: If you want the user to log in with a specific Lichess username.
+          description: Hint that you want the user to log in with a specific Lichess username.
           schema:
             type: string
         - in: query
