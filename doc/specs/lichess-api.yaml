@@ -23,7 +23,7 @@ info:
     All requests go to `https://lichess.org` (unless otherwise specified).
 
     ## Clients
-    - [Python general API](https://github.com/ZackClements/berserk)
+    - [Python general API](https://github.com/rhgrant10/berserk)
     - [MicroPython general API](https://github.com/mkomon/uberserk)
     - [Python general API - async](https://pypi.org/project/async-lichess-sdk)
     - [Python Lichess Bot](https://github.com/ShailChoksi/lichess-bot)
