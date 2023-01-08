@@ -3192,6 +3192,11 @@ paths:
             type: string
           required: true
         - in: query
+          name: player
+          description: Only the games played by a given player
+          schema:
+            type: string
+        - in: query
           name: moves
           description: Include the PGN moves.
           schema:
