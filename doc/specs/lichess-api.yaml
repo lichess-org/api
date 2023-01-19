@@ -1191,6 +1191,13 @@ paths:
             type: boolean
             default: false
         - in: query
+          name: lastFen
+          description: |
+            Include the FEN notation of the last position of the game.
+          schema:
+            type: boolean
+            default: false
+        - in: query
           name: players
           description: |
             URL of a text file containing real names and ratings, to replace Lichess usernames and ratings in the PGN.
