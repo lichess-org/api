@@ -1126,6 +1126,7 @@ paths:
           description: Include the PGN moves.
           schema:
             type: boolean
+            default: true
         - in: query
           name: pgnInJson
           description:
