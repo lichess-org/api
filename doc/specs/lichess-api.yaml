@@ -9101,18 +9101,7 @@ components:
               "rating": 1500,
               "score": 3,
               "sheet": {
-                "scores": [
-                {
-                  "0": 2,
-                  "1": 2,
-                },
-                {
-                  "0": 4,
-                  "1": 3,
-                },
-                0
-                ],
-                "total": 6,
+                "scores": "220422102202",
                 "fire": true
               }
             }
@@ -9140,21 +9129,6 @@ components:
             "rank": 1,
             "rating": 1500,
             "score": 3,
-            "sheet": {
-              "scores": [
-              {
-                "0": 2,
-                "1": 2,
-              },
-              {
-                "0": 4,
-                "1": 3,
-              },
-              0
-              ],
-              "total": 6,
-              "fire": true
-            },
             "nb": {
               "game": 3,
               "beserk": 0,
