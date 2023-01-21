@@ -2491,6 +2491,14 @@ paths:
           schema:
             type: integer
             minimum: 1
+        - in: query
+          name: sheet
+          description: |
+            Add a `sheet` field to the player document.
+            It's an expensive server computation that slows down the stream.
+          schema:
+            type: boolean
+            default false
       responses:
         "200":
           description: The results of the Arena tournament.
