@@ -2498,7 +2498,7 @@ paths:
             It's an expensive server computation that slows down the stream.
           schema:
             type: boolean
-            default false
+            default: false
       responses:
         "200":
           description: The results of the Arena tournament.
