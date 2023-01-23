@@ -3412,6 +3412,24 @@ paths:
           schema:
             type: boolean
             default: true
+        - in: query
+          name: source
+          description: |
+            Add a `Source` PGN tag with the study chapter URL.
+
+            Example: `[Source "https://lichess.org/study/4NBHImfM/1Tk4IyTz"]`
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: orientation
+          description: |
+            Add a `Orientation` PGN tag with the chapter predefined orientation.
+
+            Example: `[Orientation "White"]`
+          schema:
+            type: boolean
+            default: false
       responses:
         "200":
           description: The chapter of the study.
@@ -3463,6 +3481,24 @@ paths:
           schema:
             type: boolean
             default: true
+        - in: query
+          name: source
+          description: |
+            Add a `Source` PGN tag with the study chapter URL.
+
+            Example: `[Source "https://lichess.org/study/4NBHImfM/1Tk4IyTz"]`
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: orientation
+          description: |
+            Add a `Orientation` PGN tag with the chapter predefined orientation.
+
+            Example: `[Orientation "White"]`
+          schema:
+            type: boolean
+            default: false
       responses:
         "200":
           description: The PGN representation of the study.
