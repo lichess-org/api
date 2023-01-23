@@ -3426,7 +3426,7 @@ paths:
           description: |
             Add a `Orientation` PGN tag with the chapter predefined orientation.
 
-            Example: `[Orientation "White"]`
+            Example: `[Orientation "white"]`
           schema:
             type: boolean
             default: false
@@ -3495,7 +3495,7 @@ paths:
           description: |
             Add a `Orientation` PGN tag with the chapter predefined orientation.
 
-            Example: `[Orientation "White"]`
+            Example: `[Orientation "white"]`
           schema:
             type: boolean
             default: false
@@ -3574,7 +3574,7 @@ paths:
           description: |
             Add a `Orientation` PGN tag with the chapter predefined orientation.
 
-            Example: `[Orientation "White"]`
+            Example: `[Orientation "white"]`
           schema:
             type: boolean
             default: false
