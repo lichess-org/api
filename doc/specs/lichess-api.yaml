@@ -3533,6 +3533,15 @@ paths:
           schema:
             type: boolean
             default: false
+        - in: query
+          name: orientation
+          description: |
+            Add a `Orientation` PGN tag with the chapter predefined orientation.
+
+            Example: `[Orientation "White"]`
+          schema:
+            type: boolean
+            default: false
       responses:
         "200":
           description: The studies of the user.
