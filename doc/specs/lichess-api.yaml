@@ -3524,6 +3524,15 @@ paths:
           schema:
             type: boolean
             default: true
+        - in: query
+          name: source
+          description: |
+            Add a `Source` PGN tag with the study chapter URL.
+
+            Example: `[Source "https://lichess.org/study/4NBHImfM/1Tk4IyTz"]`
+          schema:
+            type: boolean
+            default: false
       responses:
         "200":
           description: The studies of the user.
