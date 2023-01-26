@@ -905,12 +905,21 @@ paths:
         - in: query
           name: evals
           description: |
-            Include analysis evaluation comments in the PGN, when available.
+            Include analysis evaluations and comments, when available.
 
-            Example: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+            Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+
+            Or in an `analysis` JSON field, depending on the response type.
           schema:
             type: boolean
             default: true
+        - in: query
+          name: accuracy
+          description: |
+            Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available.
+          schema:
+            type: boolean
+            default: false
         - in: query
           name: opening
           description: |
@@ -1001,12 +1010,21 @@ paths:
         - in: query
           name: evals
           description: |
-            Include analysis evaluation comments in the PGN, when available.
+            Include analysis evaluations and comments, when available.
 
-            Example: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+            Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+
+            Or in an `analysis` JSON field, depending on the response type.
           schema:
             type: boolean
             default: true
+        - in: query
+          name: accuracy
+          description: |
+            Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available.
+          schema:
+            type: boolean
+            default: false
         - in: query
           name: opening
           description: |
@@ -1160,9 +1178,18 @@ paths:
         - in: query
           name: evals
           description: |
-            Include analysis evaluation comments in the PGN, when available.
+            Include analysis evaluations and comments, when available.
 
-            Example: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+            Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+
+            Or in an `analysis` JSON field, depending on the response type.
+          schema:
+            type: boolean
+            default: true
+        - in: query
+          name: accuracy
+          description: |
+            Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available.
           schema:
             type: boolean
             default: false
@@ -1293,9 +1320,18 @@ paths:
         - in: query
           name: evals
           description: |
-            Include analysis evaluation comments in the PGN, when available.
+            Include analysis evaluations and comments, when available.
 
-            Example: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+            Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+
+            Or in an `analysis` JSON field, depending on the response type.
+          schema:
+            type: boolean
+            default: true
+        - in: query
+          name: accuracy
+          description: |
+            Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available.
           schema:
             type: boolean
             default: false
@@ -2444,9 +2480,18 @@ paths:
         - in: query
           name: evals
           description: |
-            Include analysis evaluation comments in the PGN, when available.
+            Include analysis evaluations and comments, when available.
 
-            Example: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+            Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+
+            Or in an `analysis` JSON field, depending on the response type.
+          schema:
+            type: boolean
+            default: true
+        - in: query
+          name: accuracy
+          description: |
+            Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available.
           schema:
             type: boolean
             default: false
@@ -3256,9 +3301,18 @@ paths:
         - in: query
           name: evals
           description: |
-            Include analysis evaluation comments in the PGN, when available.
+            Include analysis evaluations and comments, when available.
 
-            Example: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+            Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+
+            Or in an `analysis` JSON field, depending on the response type.
+          schema:
+            type: boolean
+            default: true
+        - in: query
+          name: accuracy
+          description: |
+            Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available.
           schema:
             type: boolean
             default: false
