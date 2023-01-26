@@ -990,9 +990,11 @@ paths:
         - in: query
           name: clocks
           description: |
-            Include clock comments in the PGN moves, when available.
+            Include clock status when available.
 
-            Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+            Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+
+            Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
           schema:
             type: boolean
             default: true
@@ -1147,9 +1149,11 @@ paths:
         - in: query
           name: clocks
           description: |
-            Include clock comments in the PGN moves, when available.
+            Include clock status when available.
 
-            Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+            Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+
+            Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
           schema:
             type: boolean
             default: false
@@ -1278,9 +1282,11 @@ paths:
         - in: query
           name: clocks
           description: |
-            Include clock comments in the PGN moves, when available.
+            Include clock status when available.
 
-            Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+            Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+
+            Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
           schema:
             type: boolean
             default: false
@@ -1781,9 +1787,11 @@ paths:
         - in: query
           name: clocks
           description: |
-            Include clock comments in the PGN moves, when available.
+            Include clock status when available.
 
-            Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+            Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+
+            Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
           schema:
             type: boolean
             default: false
@@ -2425,9 +2433,11 @@ paths:
         - in: query
           name: clocks
           description: |
-            Include clock comments in the PGN moves, when available.
+            Include clock status when available.
 
-            Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+            Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+
+            Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
           schema:
             type: boolean
             default: false
@@ -3235,9 +3245,11 @@ paths:
         - in: query
           name: clocks
           description: |
-            Include clock comments in the PGN moves, when available.
+            Include clock status when available.
 
-            Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+            Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+
+            Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
           schema:
             type: boolean
             default: false
