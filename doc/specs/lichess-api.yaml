@@ -4774,21 +4774,21 @@ paths:
   /api/player/autocomplete:
     get:
       operationId: apiPlayerAutocomplete
-      summary: Autocomplete a Lichess username
+      summary: Autocomplete usernames
       description: |
         Provides autocompletion options for an incomplete username.
       tags:
         - Users
       security: []
       parameters:
-        - in: path
+        - in: query
           name: term
           description: The beginning of a username
           schema:
             type: string
             minLength: 3
           required: true
-        - in: path
+        - in: query
           name: object
           description: |
             - `false` returns an array of usernames
@@ -8394,7 +8394,8 @@ components:
       allOf:
         - $ref: '#/components/schemas/LightUser'
         - properties:
-          online: true
+            online: 
+              type: boolean
 
     Perf:
       type: object
