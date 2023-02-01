@@ -4771,6 +4771,53 @@ paths:
               schema:
                 $ref: '#/components/schemas/Crosstable'
 
+  /api/player/autocomplete:
+    get:
+      operationId: apiPlayerAutocomplete
+      summary: Autocomplete a Lichess username
+      description: |
+        Provides autocompletion options for an incomplete username.
+      tags:
+        - Users
+      security: []
+      parameters:
+        - in: path
+          name: term
+          description: The beginning of a username
+          schema:
+            type: string
+            minLength: 3
+          required: true
+        - in: path
+          name: object
+          description: |
+            - `false` returns an array of usernames
+            - `true` returns an array of user objects `{id,name,title,patron,online}`.
+          schema:
+            type: boolean
+        - in: query
+          name: friend
+          description: |
+            Returns followed players matching `term` if any, else returns other players.
+            Requires [OAuth](#tag/OAuth).
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: An array of players which usernames start with the provided term.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                type: array
+                description: Username string, or object if `object` is set.
+                items:
+                  $ref: '#/components/schemas/LightUserOnline'
+
   /api/rel/following:
     get:
       operationId: apiUserFollowing
@@ -8342,6 +8389,12 @@ components:
         id:
           type: string
           example: "chess-network"
+
+    LightUserOnline:
+      allOf:
+        - $ref: '#/components/schemas/LightUser'
+        - properties:
+          online: true
 
     Perf:
       type: object
