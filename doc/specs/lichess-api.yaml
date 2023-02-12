@@ -10271,7 +10271,24 @@ components:
           "source": "pool",
           "status": { "id": 20, "name": "started" },
           "createdAt": 1620029815106,
-          "lastMove": "c7c5"
+          "lastMove": "c7c5",
+          "players": {
+              "white": {
+                  "user": {
+                      "name": "ARM-777777",
+                      "title": "GM",
+                      "id": "arm-777777"
+                  },
+                  "rating": 3120
+              },
+              "black": {
+                  "user": {
+                      "name": "Flash_Marafon",
+                      "id": "flash_marafon"
+                  },
+                  "rating": 3015
+              }
+          }
         },
         { "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w", "wc": 180, "bc": 180 },
         { "fen": "rnbqkbnr/pppppppp/8/8/8/4P3/PPPP1PPP/RNBQKBNR b", "lm": "e2e3", "wc": 180, "bc": 180 },
