@@ -41,6 +41,9 @@ info:
     Some API endpoints stream their responses as [Newline Delimited JSON a.k.a. **nd-json**](http://ndjson.org/), with one JSON object per line.
 
     Here's a [JavaScript utility function](https://gist.github.com/ornicar/a097406810939cf7be1df8ea30e94f3e) to help reading NDJSON streamed responses.
+
+    # Authentication
+    <SecurityDefinitions />
 servers:
   - url: https://lichess.org
 tags:
