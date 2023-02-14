@@ -42,8 +42,42 @@ info:
 
     Here's a [JavaScript utility function](https://gist.github.com/ornicar/a097406810939cf7be1df8ea30e94f3e) to help reading NDJSON streamed responses.
 
-    # Authentication
-    <SecurityDefinitions />
+    ## Authentication
+    ### Which authentication method is right for me?
+    [Read about the Lichess API authentication methods and code examples](https://github.com/lichess-org/api/blob/master/example/README.md)
+
+    ### Personal Access Token
+    Personal API access tokens allow you to quickly interact with Lichess API without going through an OAuth flow.
+    - [Generate a personal access token](https://lichess.org/account/oauth/token)
+    - `curl https://lichess.org/api/account -H "Authorization: Bearer {token}"`
+    - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth-personal-token)
+
+    ### Authorization Code Flow with PKCE
+    The authorization code flow with PKCE allows your users to **login with Lichess**.
+    Lichess supports unregistered and public clients (no client authentication, choose any unique client id).
+    The only accepted code challenge method is `S256`.
+    Access tokens are long-lived (expect one year), unless they are revoked.
+    Refresh tokens are not supported.
+
+    See the [documentation for the OAuth endpoints](#tag/OAuth) or
+    the [PKCE RFC](https://datatracker.ietf.org/doc/html/rfc7636#section-4) for a precise protocol description.
+
+    - [Demo app](https://lichess-org.github.io/api-demo/)
+    - [Minimal client-side example](https://github.com/lichess-org/api/tree/master/example/oauth-app)
+    - [Flask/Python example](https://github.com/lakinwecker/lichess-oauth-flask)
+    - [Java example](https://github.com/tors42/lichess-oauth-pkce-app)
+    - [NodeJS Passport strategy to login with Lichess OAuth2](https://www.npmjs.com/package/passport-lichess)
+
+    #### Real life examples
+    - [PyChess](https://github.com/gbtami/pychess-variants) ([source code](https://github.com/gbtami/pychess-variants))
+    - [Lichess4545](https://www.lichess4545.com/) ([source code](https://github.com/cyanfish/heltour))
+    - [English Chess Federation](https://ecf.octoknight.com/)
+    - [Rotherham Online Chess](https://rotherhamonlinechess.azurewebsites.net/tournaments)
+
+    ### Token format
+    Access tokens and authorization codes match `^[A-Za-z0-9_]+$`.
+    The length of tokens can be increased without notice. Make sure your application can handle at least 512 characters.
+    By convention tokens have a recognizable prefix, but do not rely on this.
 servers:
   - url: https://lichess.org
 tags:
@@ -365,7 +399,7 @@ paths:
       description: |
         Read public data of a user.
 
-        If the request is [authenticated with OAuth2](#section/Authentication),
+        If the request is [authenticated with OAuth2](#section/Introduction/Authentication),
         then extra fields might be present in the response: `followable`, `following`, `blocking`, `followsYou`.
       tags:
         - Users
@@ -1083,7 +1117,7 @@ paths:
 
         The game stream is throttled, depending on who is making the request:
           - Anonymous request: 20 games per second
-          - [OAuth2 authenticated](#section/Authentication) request: 30 games per second
+          - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 games per second
           - Authenticated, downloading your own games: 60 games per second
       tags:
         - Games
@@ -1439,7 +1473,7 @@ paths:
 
         Games are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
 
-        Maximum number of games: 500 for anonymous requests, or 1000 for [OAuth2 authenticated](#section/Authentication) requests.
+        Maximum number of games: 500 for anonymous requests, or 1000 for [OAuth2 authenticated](#section/Introduction/Authentication) requests.
 
         While the stream is open, it is possible to [add new game IDs to watch](#operation/gamesByIdsAdd).
       tags:
@@ -2435,7 +2469,7 @@ paths:
 
         The game stream is throttled, depending on who is making the request:
           - Anonymous request: 20 games per second
-          - [OAuth2 authenticated](#section/Authentication) request: 30 games per second
+          - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 games per second
       tags:
         - "Arena tournaments"
       security: []
@@ -3256,7 +3290,7 @@ paths:
 
         The game stream is throttled, depending on who is making the request:
           - Anonymous request: 20 games per second
-          - [OAuth2 authenticated](#section/Authentication) request: 30 games per second
+          - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 games per second
       tags:
         - "Swiss tournaments"
       security: []
@@ -10486,41 +10520,7 @@ components:
     OAuth2:
       type: oauth2
       description: |
-        ### Which authentication method is right for me?
-        [Read about the Lichess API authentication methods and code examples](https://github.com/lichess-org/api/blob/master/example/README.md)
-
-        ### Personal Access Token
-        Personal API access tokens allow you to quickly interact with Lichess API without going through an OAuth flow.
-        - [Generate a personal access token](https://lichess.org/account/oauth/token)
-        - `curl https://lichess.org/api/account -H "Authorization: Bearer {token}"`
-        - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth-personal-token)
-
-        ### Authorization Code Flow with PKCE
-        The authorization code flow with PKCE allows your users to **login with Lichess**.
-        Lichess supports unregistered and public clients (no client authentication, choose any unique client id).
-        The only accepted code challenge method is `S256`.
-        Access tokens are long-lived (expect one year), unless they are revoked.
-        Refresh tokens are not supported.
-
-        See the [documentation for the OAuth endpoints](#tag/OAuth) or
-        the [PKCE RFC](https://datatracker.ietf.org/doc/html/rfc7636#section-4) for a precise protocol description.
-
-        - [Demo app](https://lichess-org.github.io/api-demo/)
-        - [Minimal client-side example](https://github.com/lichess-org/api/tree/master/example/oauth-app)
-        - [Flask/Python example](https://github.com/lakinwecker/lichess-oauth-flask)
-        - [Java example](https://github.com/tors42/lichess-oauth-pkce-app)
-        - [NodeJS Passport strategy to login with Lichess OAuth2](https://www.npmjs.com/package/passport-lichess)
-
-        #### Real life examples
-        - [PyChess](https://github.com/gbtami/pychess-variants) ([source code](https://github.com/gbtami/pychess-variants))
-        - [Lichess4545](https://www.lichess4545.com/) ([source code](https://github.com/cyanfish/heltour))
-        - [English Chess Federation](https://ecf.octoknight.com/)
-        - [Rotherham Online Chess](https://rotherhamonlinechess.azurewebsites.net/tournaments)
-
-        ### Token format
-        Access tokens and authorization codes match `^[A-Za-z0-9_]+$`.
-        The length of tokens can be increased without notice. Make sure your application can handle at least 512 characters.
-        By convention tokens have a recognizable prefix, but do not rely on this.
+        Read [the introduction for how to make authenticated requests](#section/Introduction/Authentication).
       flows:
         authorizationCode:
           authorizationUrl: https://lichess.org/oauth
