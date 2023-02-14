@@ -362,7 +362,7 @@ paths:
       description: |
         Read public data of a user.
 
-        If the request is [authenticated with OAuth2](#section/Authentication),
+        If the request is [authenticated with OAuth2](#tag/OAuth),
         then extra fields might be present in the response: `followable`, `following`, `blocking`, `followsYou`.
       tags:
         - Users
@@ -1080,7 +1080,7 @@ paths:
 
         The game stream is throttled, depending on who is making the request:
           - Anonymous request: 20 games per second
-          - [OAuth2 authenticated](#section/Authentication) request: 30 games per second
+          - [OAuth2 authenticated](#tag/OAuth) request: 30 games per second
           - Authenticated, downloading your own games: 60 games per second
       tags:
         - Games
@@ -1436,7 +1436,7 @@ paths:
 
         Games are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
 
-        Maximum number of games: 500 for anonymous requests, or 1000 for [OAuth2 authenticated](#section/Authentication) requests.
+        Maximum number of games: 500 for anonymous requests, or 1000 for [OAuth2 authenticated](#tag/OAuth) requests.
 
         While the stream is open, it is possible to [add new game IDs to watch](#operation/gamesByIdsAdd).
       tags:
@@ -2432,7 +2432,7 @@ paths:
 
         The game stream is throttled, depending on who is making the request:
           - Anonymous request: 20 games per second
-          - [OAuth2 authenticated](#section/Authentication) request: 30 games per second
+          - [OAuth2 authenticated](#tag/OAuth) request: 30 games per second
       tags:
         - "Arena tournaments"
       security: []
@@ -3253,7 +3253,7 @@ paths:
 
         The game stream is throttled, depending on who is making the request:
           - Anonymous request: 20 games per second
-          - [OAuth2 authenticated](#section/Authentication) request: 30 games per second
+          - [OAuth2 authenticated](#tag/OAuth) request: 30 games per second
       tags:
         - "Swiss tournaments"
       security: []
