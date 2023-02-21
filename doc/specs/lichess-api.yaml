@@ -4935,7 +4935,8 @@ paths:
       summary: Stream incoming events
       description: "\n
       \ Stream the events reaching a lichess user in real time as [ndjson](#section/Introduction/Streaming-with-ND-JSON).\n\n
-      \ Each line is a JSON object containing a `type` field. Possible values are:\n
+      \ An empty line is sent every 6 seconds for keep alive purposes.\n\n
+      \ Each non-empty line is a JSON object containing a `type` field. Possible values are:\n
       \ - `gameStart` Start of a game\n
       \ - `gameFinish` Completion of a game\n
       \ - `challenge` A player sends you a challenge or you challenge someone\n
