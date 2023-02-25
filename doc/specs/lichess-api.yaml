@@ -8635,9 +8635,6 @@ components:
               type: string
               format: uri
               example: https://lichess.org/yqfLYJ5E/black
-            completionRate:
-              type: integer
-              example: 97
             count:
               $ref: '#/components/schemas/Count'
             streaming:
