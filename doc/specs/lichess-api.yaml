@@ -7493,7 +7493,7 @@ paths:
             items:
               type: number
               enum:
-                - 600
+                - 0
                 - 1000
                 - 1200
                 - 1400
@@ -7601,7 +7601,7 @@ paths:
             items:
               type: number
               enum:
-                - 600
+                - 0
                 - 1000
                 - 1200
                 - 1400
