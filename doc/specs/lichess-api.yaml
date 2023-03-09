@@ -8852,31 +8852,31 @@ components:
             "results": [
               {
                 "opInt": 2238,
-                "opId": { "id": "hyperdragon84", "name": "HyperDragon84", "title": null },
+                "opId": { "id": "hyperdragon84", "name": "HyperDragon84" },
                 "at": "2019-06-19T17:09:05.187Z",
                 "gameId": "DGB53z9w"
               },
               {
                 "opInt": 2089,
-                "opId": { "id": "osipov", "name": "osipov", "title": null },
+                "opId": { "id": "osipov", "name": "osipov" },
                 "at": "2017-06-18T09:46:05.016Z",
                 "gameId": "gurRhuMi"
               },
               {
                 "opInt": 2071,
-                "opId": { "id": "spark50", "name": "Spark50", "title": null },
+                "opId": { "id": "spark50", "name": "Spark50" },
                 "at": "2020-07-04T08:36:12.948Z",
                 "gameId": "a93Dk1mv"
               },
               {
                 "opInt": 2045,
-                "opId": { "id": "yasha43", "name": "Yasha43", "title": null },
+                "opId": { "id": "yasha43", "name": "Yasha43" },
                 "at": "2021-05-17T14:01:41.098Z",
                 "gameId": "j3jZnGTr"
               },
               {
                 "opInt": 2034,
-                "opId": { "id": "midedu", "name": "midedu", "title": null },
+                "opId": { "id": "midedu", "name": "midedu" },
                 "at": "2020-06-27T17:32:47.001Z",
                 "gameId": "OiaMVLQ8"
               }
@@ -8886,31 +8886,31 @@ components:
             "results": [
               {
                 "opInt": 1186,
-                "opId": { "id": "happy0", "name": "Happy0", "title": null },
+                "opId": { "id": "happy0", "name": "Happy0" },
                 "at": "2016-07-07T19:48:29.077Z",
                 "gameId": "Q01bbiN4"
               },
               {
                 "opInt": 1197,
-                "opId": { "id": "kazmankiller86", "name": "KazmanKiller86", "title": null },
+                "opId": { "id": "kazmankiller86", "name": "KazmanKiller86" },
                 "at": "2016-10-16T14:21:37.748Z",
                 "gameId": "Aivqh9Sp"
               },
               {
                 "opInt": 1201,
-                "opId": { "id": "artem555", "name": "artem555", "title": null },
+                "opId": { "id": "artem555", "name": "artem555" },
                 "at": "2016-08-28T16:21:30.923Z",
                 "gameId": "tiRAbhnX"
               },
               {
                 "opInt": 1265,
-                "opId": { "id": "arcenuu", "name": "Arcenuu", "title": null },
+                "opId": { "id": "arcenuu", "name": "Arcenuu" },
                 "at": "2016-12-24T14:28:03.866Z",
                 "gameId": "A68wUOoh"
               },
               {
                 "opInt": 1283,
-                "opId": { "id": "amritalib76", "name": "Amritalib76", "title": null },
+                "opId": { "id": "amritalib76", "name": "Amritalib76" },
                 "at": "2018-06-26T09:55:39.354Z",
                 "gameId": "sbNVikmo"
               }
@@ -10594,7 +10594,6 @@ components:
           "destUser": {
             "id":"thibot",
             "name":"thibot",
-            "title":null,
             "rating": 1500,
             "provisional": true,
             "online": true,
@@ -10644,7 +10643,6 @@ components:
           "destUser": {
             "id":"thibot",
             "name":"thibot",
-            "title":null,
             "rating": 1500,
             "provisional": true,
             "online": true,
@@ -10801,7 +10799,6 @@ components:
           "id": "leela",
           "name": "leela",
           "rating": 2390,
-          "title": null
         },
         "initialFen": "startpos",
         "state": {
