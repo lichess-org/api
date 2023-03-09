@@ -4830,9 +4830,10 @@ paths:
           name: object
           description: |
             - `false` returns an array of usernames
-            - `true` returns an array of user objects `{id,name,title,patron,online}`.
+            - `true` returns an object with matching users
           schema:
             type: boolean
+            default: false
         - in: query
           name: friend
           description: |
@@ -4851,10 +4852,16 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                description: Username string, or object if `object` is set.
-                items:
-                  $ref: '#/components/schemas/LightUserOnline'
+                oneOf:
+                  - type: array
+                    items:
+                      type: string
+                  - type: object
+                    properties:
+                      result:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/LightUserOnline'
 
   /api/rel/following:
     get:
@@ -8423,25 +8430,26 @@ components:
     LightUser:
       type: object
       properties:
+        id:
+          type: string
+          example: "chess-network"
         name:
           type: string
           example: "Chess-Network"
         title:
-          oneOf:
-            - $ref: '#/components/schemas/Title'
-            - type: 'null'
+          $ref: '#/components/schemas/Title'
         patron:
           type: boolean
           example: true
-        id:
-          type: string
-          example: "chess-network"
+      required:
+        - id
+        - name
 
     LightUserOnline:
       allOf:
         - $ref: '#/components/schemas/LightUser'
         - properties:
-            online: 
+            online:
               type: boolean
 
     Perf:
