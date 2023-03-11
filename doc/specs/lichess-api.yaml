@@ -2680,9 +2680,9 @@ paths:
           name: status
           description: |
             Include tournaments in the given status: "Created" (10), "Started" (20), "Finished" (30)
-            
-            You can add this parameter more than once to include tournaments in different statuses. 
-            
+
+            You can add this parameter more than once to include tournaments in different statuses.
+
             Example: `?status=10&status=20`
           schema:
             type: integer
@@ -2843,9 +2843,18 @@ paths:
                   description: |
                     Manual pairings for the next round.
 
-                    Two usernames per line, separated by a space.
-                    Present players without a valid pairing will be given a bye, which is worth 1 point.
-                    Forfeited players will get 0 points.
+                    Two usernames per line, separated by a space. Example:
+                    ```
+                    PlayerA PlayerB
+                    PlayerC PlayerD
+                    ```
+
+                    To give a bye (1 point) to a player instead of a pairing, add a line like so:
+                    ```
+                    PlayerE 1
+                    ```
+
+                    Missing players will be considered absent and get zero points.
                 chatFor:
                   type: number
                   description: |
@@ -4172,7 +4181,7 @@ paths:
       summary: Export all rounds as PGN
       description: |
         Download all games of all rounds of a broadcast in PGN format.
-        
+
         You may want to [download only the games of a single round](#operation/broadcastRoundPgn) instead.
       tags:
         - Broadcasts
@@ -4516,7 +4525,7 @@ paths:
   /api/team/{teamId}/requests:
     get:
       operationId: teamRequests
-      summary: Get join requests 
+      summary: Get join requests
       description: Get pending join requests of your team
       tags:
         - Teams
@@ -6958,7 +6967,7 @@ paths:
 
         Request analysis from an external engine.
 
-        Response content is streamed as [newline delimited JSON](#section/Introduction/Streaming-with-ND-JSON). 
+        Response content is streamed as [newline delimited JSON](#section/Introduction/Streaming-with-ND-JSON).
         The properties are based on the [UCI specification](https://backscattering.de/chess/uci/#engine).
         Analysis stops when the client goes away, the requested limit
         is reached, or the provider goes away.
@@ -7326,7 +7335,7 @@ paths:
       operationId: tokenTest
       summary: Test multiple OAuth tokens
       description: |
-        For up to 1000 OAuth tokens, 
+        For up to 1000 OAuth tokens,
         returns their associated user ID and scopes,
         or `null` if the token is invalid.
 
@@ -8236,7 +8245,7 @@ components:
           type: string
         rated:
           type: boolean
-        variant: 
+        variant:
           $ref: '#/components/schemas/VariantKey'
         speed:
           $ref: '#/components/schemas/Speed'
@@ -9599,7 +9608,7 @@ components:
                 "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-2/yeGGfkfY"
             }
         ]
-    } 
+    }
 
     BroadcastRound:
       example: {
