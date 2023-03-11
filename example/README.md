@@ -13,7 +13,7 @@ or if the users of your client are few, and tech-savvy.
 
 Examples:
 
-- A [Lichess bot](https://github.com/ShailChoksi/lichess-bot)
+- A [Lichess bot](https://github.com/lichess-bot-devs/lichess-bot)
 - A script that manages [Swiss](https://lichess.org/api#tag/Swiss-tournaments) or [Arena](https://lichess.org/api#tag/Arena-tournaments) tournaments or [broadcasts](https://lichess.org/api#tag/Broadcasts)
 - A zulip/discord/slack bot
 
