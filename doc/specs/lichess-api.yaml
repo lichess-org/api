@@ -2939,7 +2939,7 @@ paths:
   /api/swiss/{id}/edit:
     post:
       operationId: apiSwissUpdate
-      summary: Update a Swiss tournament.
+      summary: Update a Swiss tournament
       description: |
         Update a Swiss tournament.
 
@@ -3030,7 +3030,7 @@ paths:
                   description: |
                     How long to wait between each round, in seconds.
 
-                    Set to 99999999 to manually schedule each round from the tournament UI.
+                    Set to 99999999 to manually schedule each round from the tournament UI, or [with the API](#tag/Swiss-tournaments/operation/apiSwissScheduleNextRound).
 
                     If empty or -1, a sensible value is picked automatically.
                   enum:
@@ -3125,6 +3125,60 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SwissTournament'
+        "400":
+          description: Updating the swiss failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: This user cannot update this Swiss.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SwissUnauthorisedEdit'
+
+  /api/swiss/{id}/schedule-next-round:
+    post:
+      operationId: apiSwissScheduleNextRound
+      summary: Manually schedule the next round
+      description: |
+        Manually schedule the next round date and time of a Swiss tournament.
+
+        This sets the `roundInterval` field to `99999999`, i.e. manual scheduling.
+
+        All further rounds will need to be manually scheduled, unless the `roundInterval` field is changed back to automatic scheduling.
+      tags:
+        - "Swiss tournaments"
+      security:
+        - OAuth2: ["tournament:write"]
+      parameters:
+        - in: path
+          name: id
+          description: The tournament ID.
+          schema:
+            type: string
+            example: "hL7vMrFQ"
+          required: true
+      requestBody:
+        description: Parameters of the tournament
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: integer
+                  description: Timestamp in milliseconds to start the next round at a given date and time.
+      responses:
+        "204":
+          description: The Swiss tournament was successfully updated.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
         "400":
           description: Updating the swiss failed.
           content:
