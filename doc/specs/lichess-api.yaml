@@ -135,7 +135,8 @@ tags:
   \ - [Implementation example](https://github.com/lichess-org/api-demo) and [live demo](https://lichess-org.github.io/api-demo/)\n\n
   \ - [Certabo support](https://github.com/haklein/certabo-lichess)\n\
   \ - [Lichs (play from command-line)](https://github.com/Cqsi/lichs)\n\
-  \ - [Lichess discord bot](https://top.gg/bot/707287095911120968)"
+  \ - [Lichess discord bot](https://top.gg/bot/707287095911120968)\n\
+  \ - [cli-chess](https://github.com/trevorbayless/cli-chess/)"
 - name: Bot
   description: "Play on Lichess as a bot. Allows engine play.\n
   \ Read the [blog post announcement of lichess bots](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots).\n\n
