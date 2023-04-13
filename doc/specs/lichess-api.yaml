@@ -8,6 +8,9 @@ info:
     email: "contact@lichess.org"
   x-logo:
     url: https://lichess1.org/assets/logo/lichess-pad12.svg
+  license:
+    name: AGPL-3.0-or-later
+    url: https://www.gnu.org/licenses/agpl-3.0.txt
   description: |
     # Introduction
     Welcome to the reference for the Lichess API! Lichess is free/libre,
@@ -2877,7 +2880,7 @@ paths:
                   type: integer
                   description: Minimum number of rated games required to join.
                   minimum: 0
-                  maximun: 200
+                  maximum: 200
                 conditions.allowList:
                   type: string
                   description: |
@@ -3102,7 +3105,7 @@ paths:
                   type: integer
                   description: Minimum number of rated games required to join.
                   minimum: 0
-                  maximun: 200
+                  maximum: 200
                 conditions.allowList:
                   type: string
                   description: |
@@ -3766,6 +3769,7 @@ paths:
         Broadcasts are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
         - Broadcasts
+      security: []
       parameters:
         - in: query
           name: nb
@@ -7917,6 +7921,7 @@ paths:
         **Endpoint: <https://tablebase.lichess.ovh>**
       tags:
         - Tablebase
+      security: []
       responses:
         "200":
           description: The tablebase information for the position in atomic chess.
@@ -7940,6 +7945,7 @@ paths:
         **Endpoint: <https://tablebase.lichess.ovh>**
       tags:
         - Tablebase
+      security: []
       responses:
         "200":
           description: The tablebase information for the position in atomic chess.
