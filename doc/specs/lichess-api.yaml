@@ -6177,6 +6177,8 @@ paths:
       description: |
         Cancel a challenge you sent, or aborts the game if the challenge was accepted, but the game was not yet played.
         Note that the ID of a game is the same as the ID of the challenge that created it.
+
+        Works for user challenges and open challenges alike.
       tags:
         - Challenges
       security:
@@ -6307,6 +6309,9 @@ paths:
         instead of the main challenge URL.
 
         Open challenges expire after 24h.
+
+        If the challenge creation is [authenticated with OAuth2](#section/Introduction/Authentication),
+        then you can use the [challenge cancel endpoint](#operation/challengeCancel) to cancel it.
 
         To directly pair 2 known players, use [this endpoint](#operation/challengeCreate) instead,
         with the `acceptByToken` parameter.
