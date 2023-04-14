@@ -12,6 +12,6 @@ npm install
 npm run serve -- --watch
 ```
 
-Now open http://localhost:8080/. You should see the generated API doc.
+Now open http://localhost:8089/. You should see the generated API doc.
 
 Make modifications to `doc/specs/lichess-api.yaml`, and reload the page to see your changes.
