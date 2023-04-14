@@ -2824,6 +2824,8 @@ paths:
                     - 99999999
                 variant:
                   $ref: '#/components/schemas/VariantKey'
+                position:
+                  $ref: '#/components/schemas/FromPositionFEN'
                 description:
                   type: string
                   description: Anything you want to tell players about the tournament
