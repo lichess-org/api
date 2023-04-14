@@ -1999,8 +1999,7 @@ paths:
                   description: Games are rated and impact players ratings
                   default: true
                 position:
-                  type: string
-                  description: Custom initial position (in FEN) for all games of the tournament. Must be a legal chess position. Only works with standard chess, not variants (except Chess960).
+                   $ref: '#/components/schemas/FromPositionFEN'
                 berserkable:
                   type: boolean
                   description: Whether the players can use berserk. Only allowed if clockIncrement <= clockTime * 2
@@ -2203,8 +2202,7 @@ paths:
                   description: Games are rated and impact players ratings
                   default: true
                 position:
-                  type: string
-                  description: Custom initial position (in FEN) for all games of the tournament. Must be a legal chess position. Only works with standard chess, not variants (except Chess960).
+                  $ref: '#/components/schemas/FromPositionFEN'
                 berserkable:
                   type: boolean
                   description: Whether the players can use berserk. Only allowed if clockIncrement <= clockTime * 2
@@ -6017,9 +6015,7 @@ paths:
                 variant:
                   $ref: '#/components/schemas/VariantKey'
                 fen:
-                  type: string
-                  description: Custom initial position (in FEN). Variant must be standard, fromPosition, or chess960 (if a valid 960 starting position), and the game cannot be rated. Castling moves will use UCI_Chess960 notation, for example e1h1 instead of e1g1.
-                  default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+                  $ref: '#/components/schemas/FromPositionFEN'
                 keepAliveStream:
                   type: boolean
                   description: |
@@ -6277,9 +6273,7 @@ paths:
                 variant:
                   $ref: '#/components/schemas/VariantKey'
                 fen:
-                  type: string
-                  description: Custom initial position (in FEN). Variant must be standard, fromPosition, or chess960 (if a valid 960 starting position), and the game cannot be rated.
-                  default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+                  $ref: '#/components/schemas/FromPositionFEN'
       responses:
         "200":
           description: The game with Lichess AI was successfully started.
@@ -6360,9 +6354,7 @@ paths:
                 variant:
                   $ref: '#/components/schemas/VariantKey'
                 fen:
-                  type: string
-                  description: Custom initial position (in FEN). Variant must be standard, fromPosition, or chess960 (if a valid 960 starting position), and the game cannot be rated.
-                  default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+                  $ref: '#/components/schemas/FromPositionFEN'
                 name:
                   type: string
                   description: Optional name for the challenge, that players will see on the challenge page.
@@ -6572,9 +6564,7 @@ paths:
                 variant:
                   $ref: '#/components/schemas/VariantKey'
                 fen:
-                  type: string
-                  description: Custom initial position (in FEN). Variant must be standard, fromPosition, or chess960 (if a valid 960 starting position), and the game cannot be rated.
-                  default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+                  $ref: '#/components/schemas/FromPositionFEN'
                 message:
                   type: string
                   description: |
@@ -8055,6 +8045,11 @@ components:
         - noStart
         - unknownFinish
         - variantEnd
+
+    FromPositionFEN:
+      type: string
+      description: Custom initial position (in FEN). Variant must be standard, fromPosition, or chess960 (if a valid 960 starting position), and the game cannot be rated.
+      default: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
 
     ChallengeUser:
       allOf:
