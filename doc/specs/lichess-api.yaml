@@ -10257,6 +10257,11 @@ components:
             - relay
             - pool
             - swiss
+        status:
+          $ref: '#/components/schemas/GameStatus'
+        winner:
+          type: string
+          enum: [white, black]
         compat:
           type: object
           properties:
