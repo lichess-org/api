@@ -3535,7 +3535,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SwissTournament'
 
-  /study/{studyId}/{chapterId}.pgn:
+  /api/study/{studyId}/{chapterId}.pgn:
     get:
       operationId: studyChapterPgn
       summary: Export one study chapter
