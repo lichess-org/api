@@ -6280,7 +6280,7 @@ paths:
                 fen:
                   $ref: '#/components/schemas/FromPositionFEN'
       responses:
-        "200":
+        "201":
           description: The game with Lichess AI was successfully started.
           headers:
             Access-Control-Allow-Origin:
