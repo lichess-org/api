@@ -6067,7 +6067,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ChallengeJson'
+                type: object
+                properties:
+                  challenge:
+                    $ref: '#/components/schemas/ChallengeJson'
         "400":
           description: The creation of the challenge failed.
           content:
