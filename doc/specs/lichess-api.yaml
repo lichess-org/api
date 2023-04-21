@@ -903,7 +903,7 @@ paths:
       description: |
         Download one game in either PGN or JSON format.
 
-        Ongoing games have their last 3 moves omitted, after move 5.
+        Ongoing games have their last 3 moves omitted after move 5, as to prevent cheat bots from using this API.
       tags:
         - Games
       security: []
@@ -1009,7 +1009,8 @@ paths:
       description: |
         Download the ongoing game, or the last game played, of a user.
         Available in either PGN or JSON format.
-        If the game is ongoing, the 3 last moves are omitted.
+        
+        Ongoing games have their last 3 moves omitted after move 5, as to prevent cheat bots from using this API.
       tags:
         - Games
       security: []
@@ -1245,7 +1246,7 @@ paths:
             default: false
         - in: query
           name: ongoing
-          description: Include ongoing games. The last 3 moves will be omitted.
+          description: Include ongoing games. Their last 3 moves are omitted after move 5, as to prevent cheat bots from using this API.
           schema:
             type: boolean
             default: false
@@ -1316,7 +1317,7 @@ paths:
 
         300 IDs can be submitted.
 
-        Ongoing games have their last 3 moves omitted, after move 5.
+        Ongoing games have their last 3 moves omitted after move 5, as to prevent cheat bots from using this API.
       tags:
         - Games
       security: []
