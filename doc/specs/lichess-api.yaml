@@ -1009,7 +1009,7 @@ paths:
       description: |
         Download the ongoing game, or the last game played, of a user.
         Available in either PGN or JSON format.
-        
+
         Ongoing games have their last 3 moves omitted after move 5, as to prevent cheat bots from using this API.
       tags:
         - Games
@@ -3680,10 +3680,41 @@ paths:
               schema:
                 type: string
                 default: "'*'"
+            Last-Modified:
+              schema:
+                type: string
+                example: 'Tue, 25 Apr 2023 13:23:09 GMT'
           content:
             application/x-chess-pgn:
               schema:
                 $ref: '#/components/schemas/StudyPgn'
+    head:
+      operationId: studyAllChaptersHead
+      summary: Study metadata
+      description: |
+        Only get the study headers, including `Last-Modified`.
+      tags:
+        - Studies
+      security: []
+      parameters:
+        - in: path
+          name: studyId
+          description: The study ID (8 characters).
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The study headers.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+            Last-Modified:
+              schema:
+                type: string
+                example: 'Tue, 25 Apr 2023 13:23:09 GMT'
 
   /study/by/{username}/export.pgn:
     get:
