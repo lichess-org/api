@@ -7576,7 +7576,7 @@ paths:
             default: standard
         - in: query
           name: fen
-          description: FEN of the root position
+          description: FEN or EPD of the root position
           schema:
             type: string
           example: rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2
@@ -7593,14 +7593,18 @@ paths:
           example: e2e4,e7e5,c2c4,c7c6,c4e5
         - in: query
           name: speeds
-          description: Comma separated list of game speeds to look for
+          description: Comma separated list of game speeds to filter by
           schema:
             type: array
             items:
               $ref: '#/components/schemas/Speed'
         - in: query
           name: ratings
-          description: Comma separated list of rating groups, ranging from their value to the next higher group
+          description: |
+            Comma separated list of ratings groups to filter by.
+            Each group ranges from its value to the next higher
+            group in the enum (`0` from 0 to 999, `1000` from 1000 to 1199,
+            ..., `2500` from 2500 to any rating above).
           schema:
             type: array
             items:
