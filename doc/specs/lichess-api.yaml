@@ -10739,6 +10739,7 @@ components:
             "show":"5+25"
           },
           "color":"random",
+          "finalColor": "white",
           "speed":"rapid",
           "perf": {
             "icon":"#",
@@ -10753,7 +10754,7 @@ components:
         "challenge": {
           "id":"7pGLxJ4F",
           "url": "https://lichess.org/VU0nyvsW",
-          "status":"created",
+          "status": "canceled",
           "compat": {
             "bot": false,
             "board": true
@@ -10788,6 +10789,7 @@ components:
             "show":"5+25"
           },
           "color":"random",
+          "finalColor": "black",
           "speed":"rapid",
           "perf": {
             "icon":"#",
@@ -10798,11 +10800,11 @@ components:
 
     challengeDeclined:
       value: {
-        "type":"challengeDeclined",
+        "type": "challengeDeclined",
         "challenge": {
           "id":"7pGLxJ4F",
           "url": "https://lichess.org/VU0nyvsW",
-          "status":"created",
+          "status": "declined",
           "compat": {
             "bot": false,
             "board": true
@@ -10838,11 +10840,14 @@ components:
             "show":"5+25"
           },
           "color":"random",
+          "finalColor": "white",
           "speed":"rapid",
           "perf": {
             "icon":"#",
             "name":"Rapid"
-          }
+          },
+          "declineReason": "I'm not accepting challenges at the moment.",
+          "declineReasonKey": "generic"
         }
       }
 
@@ -10859,7 +10864,7 @@ components:
           "lastMove": "b8c6",
           "opponent": { "id": "philippe", "rating": 1790, "username": "Philippe" },
           "perf": "correspondence",
-          "rated": false,
+          "rated": true,
           "secondsLeft": 1209600,
           "source": "friend",
           "speed": "correspondence",
@@ -10867,7 +10872,8 @@ components:
           "compat": {
             "bot": false,
             "board": true
-          }
+          },
+          "id": "rCRw1AuO"
         }
       }
 
@@ -10882,9 +10888,9 @@ components:
           "hasMoved": true,
           "isMyTurn": false,
           "lastMove": "b8c6",
-          "opponent": { "id": "philippe", "rating": 1790, "username": "Philippe" },
+          "opponent": { "id": "philippe", "username": "Philippe", "rating": 1790, "ratingDiff": -12 },
           "perf": "correspondence",
-          "rated": false,
+          "rated": true,
           "secondsLeft": 1209600,
           "source": "friend",
           "speed": "correspondence",
@@ -10892,7 +10898,10 @@ components:
           "compat": {
             "bot": false,
             "board": true
-          }
+          },
+          "winner": "black",
+          "ratingDiff": 8,
+          "id": "rCRw1AuO"
         }
       }
 
