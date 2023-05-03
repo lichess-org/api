@@ -8071,7 +8071,7 @@ components:
 
     GameStatus:
       type: string
-      description: Game status code. https://github.com/ornicar/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
+      description: Game status code. https://github.com/lichess-org/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
       enum:
         - created
         - started
@@ -10297,7 +10297,13 @@ components:
             - pool
             - swiss
         status:
-          $ref: '#/components/schemas/GameStatus'
+          type: object
+          properties:
+            id:
+              type: integer
+              enum: [10, 20, 25, 30, 31, 32, 33, 34, 35, 36, 37, 38, 60]
+            name:
+              $ref: '#/components/schemas/GameStatus'
         winner:
           type: string
           enum: [white, black]
@@ -10867,6 +10873,7 @@ components:
           "rated": true,
           "secondsLeft": 1209600,
           "source": "friend",
+          "status": { "id": 20, "name": "started" },
           "speed": "correspondence",
           "variant": { "key": "standard", "name": "Standard" },
           "compat": {
@@ -10893,6 +10900,7 @@ components:
           "rated": true,
           "secondsLeft": 1209600,
           "source": "friend",
+          "status": { "id": 31, "name": "resign" },
           "speed": "correspondence",
           "variant": { "key": "standard", "name": "Standard" },
           "compat": {
