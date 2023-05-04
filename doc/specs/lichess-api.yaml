@@ -8591,7 +8591,7 @@ components:
         prov:
           type: boolean
 
-    StormPerf:
+    PuzzleModePerf:
       type: object
       properties:
         runs:
@@ -8629,7 +8629,12 @@ components:
         rapid:
           $ref: '#/components/schemas/Perf'
         storm:
-          $ref: '#/components/schemas/StormPerf'
+          $ref: '#/components/schemas/PuzzleModePerf'
+        racer:
+          $ref: '#/components/schemas/PuzzleModePerf'
+        streak:
+          $ref: '#/components/schemas/PuzzleModePerf'
+        
 
     PlayTime:
       type: object
