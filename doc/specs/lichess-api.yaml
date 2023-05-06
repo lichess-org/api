@@ -1926,7 +1926,7 @@ paths:
 
         You can create up to 12 public tournaments per day, or 24 private tournaments.
 
-        A team battle can be created by specifying the `teambBattleByTeam` argument.
+        A team battle can be created by specifying the `teamBattleByTeam` argument.
 
         Additional restrictions:
           - clockTime + clockIncrement > 0
