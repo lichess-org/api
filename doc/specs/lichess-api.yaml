@@ -2075,7 +2075,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArenaTournament'
+                $ref: '#/components/schemas/ArenaTournamentVariantIsKey'
         "400":
           description: The creation of the Arena tournament failed.
           content:
@@ -2256,7 +2256,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArenaTournament'
+                $ref: '#/components/schemas/ArenaTournamentVariantIsKey'
         "400":
           description: The update of the Arena tournament failed.
           content:
@@ -2453,7 +2453,7 @@ paths:
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/ArenaTournament'
+                  $ref: '#/components/schemas/ArenaTournamentVariantIsKey'
           "400":
             description: The update of the team battle tournament failed.
             content:
@@ -4538,11 +4538,9 @@ paths:
                 type: string
                 default: "'*'"
           content:
-            application/json:
+            application/x-ndjson:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ArenaTournament'
+                $ref: '#/components/schemas/ArenaTournament'
 
   /team/{teamId}/join:
     post:
