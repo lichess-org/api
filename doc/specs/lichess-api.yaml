@@ -26,7 +26,7 @@ info:
     All requests go to `https://lichess.org` (unless otherwise specified).
 
     ## Clients
-    - [Python general API](https://github.com/ZackClements/berserk)
+    - [Python general API](https://github.com/lichess-org/berserk)
     - [MicroPython general API](https://github.com/mkomon/uberserk)
     - [Python general API - async](https://pypi.org/project/async-lichess-sdk)
     - [Python Lichess Bot](https://github.com/lichess-bot-devs/lichess-bot)
@@ -1926,7 +1926,7 @@ paths:
 
         You can create up to 12 public tournaments per day, or 24 private tournaments.
 
-        A team battle can be created by specifying the `teambBattleByTeam` argument.
+        A team battle can be created by specifying the `teamBattleByTeam` argument.
 
         Additional restrictions:
           - clockTime + clockIncrement > 0
@@ -2075,7 +2075,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArenaTournament'
+                $ref: '#/components/schemas/ArenaTournamentVariantIsKey'
         "400":
           description: The creation of the Arena tournament failed.
           content:
@@ -2256,7 +2256,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArenaTournament'
+                $ref: '#/components/schemas/ArenaTournamentVariantIsKey'
         "400":
           description: The update of the Arena tournament failed.
           content:
@@ -2453,7 +2453,7 @@ paths:
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/ArenaTournament'
+                  $ref: '#/components/schemas/ArenaTournamentVariantIsKey'
           "400":
             description: The update of the team battle tournament failed.
             content:
@@ -4576,11 +4576,9 @@ paths:
                 type: string
                 default: "'*'"
           content:
-            application/json:
+            application/x-ndjson:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ArenaTournament'
+                $ref: '#/components/schemas/ArenaTournament'
 
   /team/{teamId}/join:
     post:
@@ -7492,35 +7490,31 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  additionalProperties:
-                    x-additionalPropertiesName: token
-                    oneOf:
-                      - type: object
-                        properties:
-                          userId:
-                            type: string
-                          scopes:
-                            type: string
-                            description: Comma-separated list of scopes. Empty string if the token has no scopes.
-                          expires:
-                            type:
-                              - integer
-                              - "null"
-                            description: Unix-timestampe in milliseconds or null if the token never expires.
-                      - type: "null"
-                example: [
-                  {
-                    "lip_AvsS88TozFeSnZa1LN5c": {
-                      "scopes": "challenge:read,challenge:write",
-                      "userId": "thibault",
-                      "expires": 1358509698620
-                    },
-                    "lip_badToken": null
-                  }
-                ]
+                type: object
+                additionalProperties:
+                  x-additionalPropertiesName: token
+                  oneOf:
+                    - type: object
+                      properties:
+                        userId:
+                          type: string
+                        scopes:
+                          type: string
+                          description: Comma-separated list of scopes. Empty string if the token has no scopes.
+                        expires:
+                          type:
+                            - integer
+                            - "null"
+                          description: Unix-timestampe in milliseconds or null if the token never expires.
+                    - type: "null"
+                example: {
+                  "lip_AvsS88TozFeSnZa1LN5c": {
+                    "scopes": "challenge:read,challenge:write",
+                    "userId": "thibault",
+                    "expires": 1358509698620
+                  },
+                  "lip_badToken": null
+                }
 
   /masters:
     servers:
@@ -7614,7 +7608,7 @@ paths:
             default: standard
         - in: query
           name: fen
-          description: FEN of the root position
+          description: FEN or EPD of the root position
           schema:
             type: string
           example: rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2
@@ -7631,14 +7625,18 @@ paths:
           example: e2e4,e7e5,c2c4,c7c6,c4e5
         - in: query
           name: speeds
-          description: Comma separated list of game speeds to look for
+          description: Comma separated list of game speeds to filter by
           schema:
             type: array
             items:
               $ref: '#/components/schemas/Speed'
         - in: query
           name: ratings
-          description: Comma separated list of rating groups, ranging from their value to the next higher group
+          description: |
+            Comma separated list of ratings groups to filter by.
+            Each group ranges from its value to the next higher
+            group in the enum (`0` from 0 to 999, `1000` from 1000 to 1199,
+            ..., `2500` from 2500 to any rating above).
           schema:
             type: array
             items:
@@ -8105,7 +8103,7 @@ components:
 
     GameStatus:
       type: string
-      description: Game status code. https://github.com/ornicar/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
+      description: Game status code. https://github.com/lichess-org/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
       enum:
         - created
         - started
@@ -8633,7 +8631,7 @@ components:
         prov:
           type: boolean
 
-    StormPerf:
+    PuzzleModePerf:
       type: object
       properties:
         runs:
@@ -8671,7 +8669,12 @@ components:
         rapid:
           $ref: '#/components/schemas/Perf'
         storm:
-          $ref: '#/components/schemas/StormPerf'
+          $ref: '#/components/schemas/PuzzleModePerf'
+        racer:
+          $ref: '#/components/schemas/PuzzleModePerf'
+        streak:
+          $ref: '#/components/schemas/PuzzleModePerf'
+        
 
     PlayTime:
       type: object
@@ -9440,112 +9443,168 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ArenaTournament'
+
+    ArenaStatus:
+      type: integer
+      description: |
+        10: created, 20: started, 30: finished
+      enum:
+        - 10
+        - 20
+        - 30
+      example: 30
+    
+    ArenaPerf:
+      type: object
+      properties:
+        key:
+          type: string
+          example: "blitz"
+        name:
+          type: string
+          example: "Blitz"
+        position:
+          type: integer
+          example: 1
+        icon:
+          type: string
+          example: ")"
+      
+    ArenaRatingObj:
+        type: object
+        properties:
+          perf:
+            $ref: '#/components/schemas/PerfType'
+          rating:
+            type: integer
+            example: 1700
+
+    ArenaPosition:
+      oneOf:
+        - type: object
+          title: Thematic
+          properties:
+            eco:
+              type: string
+              example: "C41"
+            name:
+              type: string
+              example: "Philidor Defense"
+            fen:
+              type: string
+              example: "rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -"
+            url:
+              type: string
+              example: "https://lichess.org/opening/Philidor_Defense"
+        - type: object
+          title: Custom position
+          properties:
+            name:
+              type: string
+              const: "Custom position"
+            fen:
+              type: string
+              example: "rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 2 3"
+
     ArenaTournament:
-      example: {
-        "id": "QITRjufu",
-        "fullName": "U1700 SuperBlitz Arena",
-        "rated": true,
-        "clock": {
-          "increment": 0,
-          "limit": 180
-        },
-        "minutes": 57,
-        "createdBy": "lichess",
-        "system": "arena",
-        "secondsToStart": 0,
-        "secondsToFinish": 36000,
-        "isFinished": true,
-        "isRecentlyFinished": true,
-        "pairingsClosed": true,
-        "startsAt": 1522803600000,
-        "nbPlayers": 154,
-        "perf": {
-          "icon": ")",
-          "key": "blitz",
-          "name": "Blitz",
-          "position": 1
-        },
-        "schedule": {
-          "freq": "hourly",
-          "speed": "superblitz"
-        },
-        "variant": {
-          "key": "standard",
-          "name": "Standard",
-          "short": "Std"
-        },
-        "duels": [
-          {
-            "id": "0MM6q4tQ",
-            "p": [
-              {
-                "n": "player1",
-                "r": 1500,
-                "k": 3
-              },
-              {
-                "n": "player2",
-                "r": 1500,
-                "k": 3
-              }
-            ]
-          }
-        ],
-        "standings": {
-          "page": 1,
-          "players": [
-            {
-              "name": "player1",
-              "rank": 1,
-              "rating": 1500,
-              "score": 3,
-              "sheet": {
-                "scores": "220422102202",
-                "fire": true
-              }
-            }
-          ],
-        },
-        "featured": {
-          "id": "khe72Fer",
-          "fen": "rn1qkb1r/pQ3ppp/2b2n2/8/5P2/4P3/PP4PP/RNB1KBNR",
-          "color": "black",
-          "lastMove": "d7c6",
-          "white": {
-            "rank": 2,
-            "name": "player1",
-            "rating": 1360
-          },
-          "black": {
-            "rank": 5,
-            "name": "player2",
-            "rating": 1431
-          }
-        },
-        "podium": [
-          {
-            "name": "player1",
-            "rank": 1,
-            "rating": 1500,
-            "score": 3,
-            "nb": {
-              "game": 3,
-              "beserk": 0,
-              "win": 2
-            },
-            "performance": 1787
-          }
-        ],
-        "stats": {
-          "games": 454,
-          "moves": 27542,
-          "whiteWins": 236,
-          "blackWins": 207,
-          "draws": 11,
-          "berserks": 0,
-          "averageRating": 1320
-        }
-      }
+      type: object
+      properties:
+        id:
+          type: string
+          example: "QITRjufu"
+        createdBy:
+          type: string
+          example: "lichess"
+        system:
+          type: string
+          const: "arena"
+        minutes:
+          type: integer
+          example: 57
+        clock:
+          $ref: '#/components/schemas/Clock'
+        rated:
+          type: boolean
+          example: true
+        fullName:
+          type: string
+          example: "U1700 SuperBlitz Arena"
+        nbPlayers:
+          type: integer
+          example: 154
+        variant:
+          $ref: '#/components/schemas/Variant'
+        startsAt:
+          type: integer
+          example: 1522803600000
+        finishesAt:
+          type: integer
+          example: 1522807200000
+        status:
+          $ref: '#/components/schemas/ArenaStatus'
+        perf:
+          $ref: '#/components/schemas/ArenaPerf'
+        secondsToStart:
+          type: integer
+          example: 576
+        hasMaxRating:
+          type: boolean
+          example: true
+        maxRating:
+          $ref: '#/components/schemas/ArenaRatingObj'
+        minRating:
+          $ref: '#/components/schemas/ArenaRatingObj'
+        minRatedGames:
+          type: object
+          properties:
+            nb:
+              type: integer
+              example: 20
+            perf:
+              $ref: '#/components/schemas/PerfType'
+              example: "blitz"
+        onlyTitled:
+          type: boolean
+          example: false
+        teamMember:
+          type: string
+          example: "coders" 
+        private:
+          type: boolean
+          example: true
+        position:
+          $ref: '#/components/schemas/ArenaPosition'
+        schedule:
+          type: object
+          properties:
+            freq:
+              type: string
+              example: "hourly"
+            speed:
+              type: string
+              example: "superblitz"
+        teamBattle:
+          type: object
+          properties:
+            teams:
+              type: array
+              items:
+                type: string
+                example: "coders"
+            nbLeaders:
+              type: integer
+              example: 3
+        winner:
+          type: object
+          properties:
+            id:
+              type: string
+              example: "lichess"
+            name:
+              type: string
+              example: "lichess"
+            title:
+              $ref: '#/components/schemas/Title'
 
     ArenaTournamentVariantIsKey:
       example: {
@@ -10339,7 +10398,13 @@ components:
             - pool
             - swiss
         status:
-          $ref: '#/components/schemas/GameStatus'
+          type: object
+          properties:
+            id:
+              type: integer
+              enum: [10, 20, 25, 30, 31, 32, 33, 34, 35, 36, 37, 38, 60]
+            name:
+              $ref: '#/components/schemas/GameStatus'
         winner:
           type: string
           enum: [white, black]
@@ -10781,6 +10846,7 @@ components:
             "show":"5+25"
           },
           "color":"random",
+          "finalColor": "white",
           "speed":"rapid",
           "perf": {
             "icon":"#",
@@ -10795,7 +10861,7 @@ components:
         "challenge": {
           "id":"7pGLxJ4F",
           "url": "https://lichess.org/VU0nyvsW",
-          "status":"created",
+          "status": "canceled",
           "compat": {
             "bot": false,
             "board": true
@@ -10830,6 +10896,7 @@ components:
             "show":"5+25"
           },
           "color":"random",
+          "finalColor": "black",
           "speed":"rapid",
           "perf": {
             "icon":"#",
@@ -10840,11 +10907,11 @@ components:
 
     challengeDeclined:
       value: {
-        "type":"challengeDeclined",
+        "type": "challengeDeclined",
         "challenge": {
           "id":"7pGLxJ4F",
           "url": "https://lichess.org/VU0nyvsW",
-          "status":"created",
+          "status": "declined",
           "compat": {
             "bot": false,
             "board": true
@@ -10880,11 +10947,14 @@ components:
             "show":"5+25"
           },
           "color":"random",
+          "finalColor": "white",
           "speed":"rapid",
           "perf": {
             "icon":"#",
             "name":"Rapid"
-          }
+          },
+          "declineReason": "I'm not accepting challenges at the moment.",
+          "declineReasonKey": "generic"
         }
       }
 
@@ -10901,15 +10971,17 @@ components:
           "lastMove": "b8c6",
           "opponent": { "id": "philippe", "rating": 1790, "username": "Philippe" },
           "perf": "correspondence",
-          "rated": false,
+          "rated": true,
           "secondsLeft": 1209600,
           "source": "friend",
+          "status": { "id": 20, "name": "started" },
           "speed": "correspondence",
           "variant": { "key": "standard", "name": "Standard" },
           "compat": {
             "bot": false,
             "board": true
-          }
+          },
+          "id": "rCRw1AuO"
         }
       }
 
@@ -10924,17 +10996,21 @@ components:
           "hasMoved": true,
           "isMyTurn": false,
           "lastMove": "b8c6",
-          "opponent": { "id": "philippe", "rating": 1790, "username": "Philippe" },
+          "opponent": { "id": "philippe", "username": "Philippe", "rating": 1790, "ratingDiff": -12 },
           "perf": "correspondence",
-          "rated": false,
+          "rated": true,
           "secondsLeft": 1209600,
           "source": "friend",
+          "status": { "id": 31, "name": "resign" },
           "speed": "correspondence",
           "variant": { "key": "standard", "name": "Standard" },
           "compat": {
             "bot": false,
             "board": true
-          }
+          },
+          "winner": "black",
+          "ratingDiff": 8,
+          "id": "rCRw1AuO"
         }
       }
 
