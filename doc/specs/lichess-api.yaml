@@ -549,7 +549,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PuzzleJson'
+                $ref: '#/components/schemas/PuzzleAndGame'
 
   /api/puzzle/{id}:
     get:
@@ -577,7 +577,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PuzzleJson'
+                $ref: '#/components/schemas/PuzzleAndGame'
 
   /api/puzzle/activity:
     get:
@@ -8863,7 +8863,7 @@ components:
           "user": "thibault"
         }]
 
-    PuzzleJson:
+    PuzzleAndGame:
       example: {
         "game": {
             "clock": "10+0",
@@ -8918,9 +8918,16 @@ components:
         win:
           type: boolean
           example: true
-        puzzleRating:
-          type: number
-          example: 1877
+        puzzle:
+          type: object
+          example: {
+            "id": "K69di",
+            "fen": "6k1/6b1/8/4p1N1/7Q/2P2pP1/1Pq2P1K/8 w - - 14 49",
+            "plays": 1970,
+            "rating": 2022,
+            "solution": [ "e1e7", "f4f6", "e7f6" ],
+            "themes": [ "short", "queenRookEndgame", "endgame", "mateIn2" ]
+          }
 
     PuzzleDashboardJson:
       example: {
