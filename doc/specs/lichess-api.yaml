@@ -8680,7 +8680,7 @@ components:
           $ref: '#/components/schemas/PuzzleModePerf'
         streak:
           $ref: '#/components/schemas/PuzzleModePerf'
-        
+
 
     PlayTime:
       type: object
@@ -9459,7 +9459,7 @@ components:
         - 20
         - 30
       example: 30
-    
+
     ArenaPerf:
       type: object
       properties:
@@ -9475,7 +9475,7 @@ components:
         icon:
           type: string
           example: ")"
-      
+
     ArenaRatingObj:
         type: object
         properties:
@@ -9574,7 +9574,7 @@ components:
           example: false
         teamMember:
           type: string
-          example: "coders" 
+          example: "coders"
         private:
           type: boolean
           example: true
