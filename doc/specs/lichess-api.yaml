@@ -600,6 +600,12 @@ paths:
           schema:
             type: integer
             minimum: 1
+        - in: query
+          name: before
+          description: Download entries before this timestamp. Defaults to now. Use `before` and `max` for pagination.
+          schema:
+            type: integer
+            minimum: 1356998400070
       responses:
         "200":
           description: The puzzle activity of the logged in user.
