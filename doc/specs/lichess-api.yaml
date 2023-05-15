@@ -4346,7 +4346,10 @@ paths:
       operationId: apiSimul
       summary: Get current simuls
       description: |
-        Get recently finished, ongoing, and upcoming simuls.
+        Get recently created, started, finished, simuls.
+
+        Created and finished simul lists are not exhaustives, only those with
+        strong enough host will be listed, the same filter is used to display simuls on https://lichess.org/simul.
       tags:
         - Simuls
       security: []
@@ -4361,9 +4364,24 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Simul'
+                type: object
+                properties:
+                  pending:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Simul'
+                  created:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Simul'
+                  started:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Simul'
+                  finished:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Simul'
 
   /api/team/{teamId}:
     get:
