@@ -8929,9 +8929,6 @@ components:
     PuzzleRoundJson:
       type: object
       properties:
-        id:
-          type: string
-          example: "BwPiW"
         date:
           type: number
           example: 1514505150384
