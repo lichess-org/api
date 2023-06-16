@@ -4317,10 +4317,14 @@ paths:
       description: |
         Download all games of all rounds of a broadcast in PGN format.
 
+        If a `study:read` [OAuth token](#tag/OAuth) is provided,
+        the private rounds where the user is a contributor will be available.
+
         You may want to [download only the games of a single round](#operation/broadcastRoundPgn) instead.
       tags:
         - Broadcasts
-      security: []
+      security:
+        - OAuth2: ["study:read"]
       parameters:
         - in: path
           name: broadcastTournamentId
@@ -4517,7 +4521,7 @@ paths:
       summary: Get members of a team
       description: |
         Members are sorted by reverse chronological order of joining the team (most recent first).
-        OAuth only required if the list of members is private.
+        OAuth is only required if the list of members is private.
 
         Members are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
