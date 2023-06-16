@@ -6478,6 +6478,9 @@ paths:
                     If set, only these users will be allowed to join the game.
                     The first username gets the white pieces.
                     Example: `Username1,Username2`
+                expiresAt:
+                  type: integer
+                  description: Timestamp in milliseconds to expire the challenge. Defaults to 24h after creation. Can't be more than 2 weeks after creation.
       responses:
         "200":
           description: The challenge was successfully created.
