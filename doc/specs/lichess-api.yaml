@@ -6053,9 +6053,6 @@ paths:
         If the challenge is accepted, you will be notified on the [event stream](#operation/apiStreamEvent)
         that a new game has started. The game ID will be the same as the challenge ID.
 
-        If you also have an OAuth token with `challenge:write` scope for the receiving user,
-        you can make them accept the challenge immediately by setting the `acceptByToken` field.
-
         Challenges for realtime games (not correspondence) expire after 20s if not accepted.
         To prevent that, use the `keepAliveStream` flag described below.
       tags:
@@ -6124,26 +6121,6 @@ paths:
                     When the challenge is accepted, declined or canceled, a message of the form `{"done":"accepted"}` is sent,
                     then the connection is closed by the server.
                     If not set, the response is not streamed, and the challenge expires after 20s if not accepted.
-                acceptByToken:
-                  type: string
-                  description: |
-                    Immediately accept the challenge and create the game.
-                    Pass in an OAuth token (with the `challenge:write` scope) for the receiving user.
-                    On success, the response will contain a `game` field instead of a `challenge` field.
-
-                    Alternatively, consider the [bulk pairing API](#operation/bulkPairingCreate).
-                message:
-                  type: string
-                  description: |
-                    **Only if `acceptByToken` is set.**
-
-                    Message that is sent to each player, when the game is created. It is sent from your user account.
-
-                    `{opponent}`, `{player}` and `{game}` are placeholders that will be replaced with the opponent name, player name, and the game URLs.
-
-                    You can omit this field to send the default message,
-                    but if you set your own message, it must at least contain the `{game}` placeholder.
-                  default: "Your game with {opponent} is ready: {game}."
                 rules:
                   type: string
                   enum:
