@@ -6128,6 +6128,7 @@ paths:
                     - noRematch
                     - noGiveTime
                     - noClaimWin
+                    - noEarlyDraw
                   description: |
                     Extra game rules separated by commas.
                     Example: `noAbort,noRematch`
@@ -6445,6 +6446,7 @@ paths:
                     - noRematch
                     - noGiveTime
                     - noClaimWin
+                    - noEarlyDraw
                   description: |
                     Extra game rules separated by commas.
                     Example: `noAbort,noRematch`
@@ -6665,6 +6667,7 @@ paths:
                     - noRematch
                     - noGiveTime
                     - noClaimWin
+                    - noEarlyDraw
                   description: |
                     Extra game rules separated by commas.
                     Example: `noAbort,noRematch`
