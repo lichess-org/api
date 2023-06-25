@@ -6392,6 +6392,8 @@ paths:
 
         If the challenge creation is [authenticated with OAuth2](#section/Introduction/Authentication),
         then you can use the [challenge cancel endpoint](#operation/challengeCancel) to cancel it.
+
+        To directly pair 2 known players, use [this endpoint](#operation/bulkPairingGet) instead.
       tags:
         - Challenges
       security: []
