@@ -17,7 +17,7 @@ info:
     open-source chess server powered by volunteers and donations.
     - Get help in the [Lichess Discord channel](https://discord.gg/lichess)
     - API demo app with OAuth2 login and gameplay: [source](https://github.com/lichess-org/api-demo) / [demo](https://lichess-org.github.io/api-demo/)
-    - API UI app with OAuth2 login and endpoint forms: [source](https://github.com/lichess-org/api-ui) / [website](https://lichess-org.github.io/api-ui/)
+    - API UI app with OAuth2 login and endpoint forms: [source](https://github.com/lichess-org/api-ui) / [website](https://lichess.org/api/ui)
     - [Contribute to this documentation on Github](https://github.com/lichess-org/api)
     - Check out [Lichess widgets to embed in your website](https://lichess.org/developers)
     - [Download all Lichess rated games](https://database.lichess.org/)
