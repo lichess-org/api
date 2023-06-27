@@ -3960,9 +3960,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/BroadcastTour'
+                $ref: '#/components/schemas/BroadcastTour'
 
   /broadcast/{broadcastTournamentId}/edit:
       post:
@@ -4132,9 +4130,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/BroadcastRound'
+                $ref: '#/components/schemas/BroadcastRound'
 
   /broadcast/round/{broadcastRoundId}/edit:
     post:
@@ -4239,9 +4235,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Ok'
+                $ref: '#/components/schemas/Ok'
 
   /api/stream/broadcast/round/{broadcastRoundId}.pgn:
     get:
