@@ -156,7 +156,7 @@ tags:
   \ - Bots can only play challenge games:  pools and tournaments are off-limits\n\
   \ - Bots cannot play UltraBullet (¼+0) because it requires making too many requests. But 0+1 and ½+0 are allowed.\n\
   \n### Integrations\n\
-  \ - [Python3 lichess-bot](https://github.com/ShailChoksi/lichess-bot) (official)\n\
+  \ - [Python3 lichess-bot](https://github.com/lichess-bot-devs/lichess-bot) (official)\n\
   \ - [JavaScript bot-o-tron](https://github.com/tailuge/bot-o-tron)\n\
   \ - [Golang lichess-bot](https://github.com/dolegi/lichess-bot)\n\
   \ - [Electronic Chessboard](http://www.oliviermercier.com/res/projects/chessboard/)
@@ -5712,7 +5712,7 @@ paths:
 
         The account **cannot have played any game** before becoming a Bot account. The upgrade is **irreversible**. The account will only be able to play as a Bot.
 
-        To upgrade an account to Bot, use the [official lichess-bot client](https://github.com/ShailChoksi/lichess-bot), or follow these steps:
+        To upgrade an account to Bot, use the [official lichess-bot client](https://github.com/lichess-bot-devs/lichess-bot), or follow these steps:
         - Create an [API access token](https://lichess.org/account/oauth/token/create?scopes[]=bot:play) with "Play bot moves" permission.
         - `curl -d '' https://lichess.org/api/bot/account/upgrade -H "Authorization: Bearer <yourTokenHere>"`
 
