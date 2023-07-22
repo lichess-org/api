@@ -9,7 +9,7 @@
 ```shell
 cd doc
 npm install
-npm run serve -- --watch
+npm run serve
 ```
 
 Now open http://localhost:8089/. You should see the generated API doc.

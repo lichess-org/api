@@ -8,7 +8,7 @@
   },
   "scripts": {
     "lint": "spectral lint specs/*.yaml",
-    "build": "redoc-cli build specs/lichess-api.yaml -t template.hbs --disable-google-font --output public/index.html",
-    "serve": "redoc-cli serve --port 8089 specs/lichess-api.yaml -t template.hbs --disable-google-font"
+    "build": "npx @redocly/cli build-docs specs/lichess-api.yaml --output public/index.html",
+    "serve": "npx @redocly/cli preview-docs specs/lichess-api.yaml --port 8089"
   }
 }
