@@ -5033,6 +5033,90 @@ paths:
                         items:
                           $ref: '#/components/schemas/LightUserOnline'
 
+  /api/user/{username}/note:
+    post:
+      operationId: writeNote
+      summary: Add a note for a user
+      description: |
+        Add a private note available only to you about this account.
+      tags:
+        - Users
+      security:
+        - OAuth2: []
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+            example: "thibault"
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                text:
+                  description: The contents of the note
+                  type: string
+              required:
+                - text
+      responses:
+        "200":
+          description: The note was successfully added.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+    get:
+      operationId: readNote
+      summary: Get notes for a user
+      description: |
+        Get the private notes that you have added for a user.
+      tags:
+        - Users
+      security:
+        - OAuth2: []
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+            example: "thibault"
+          required: true
+      responses:
+        "200":
+          description: The list of notes you have added for this user
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserNote'
+                example: [
+                  {
+                    "from": {
+                      "name": "thibault",
+                      "patron": true,
+                      "id": "thibault"
+                    },
+                    "to": {
+                      "name": "DrNykterstein",
+                      "title": "GM",
+                      "patron": true,
+                      "id": "drnykterstein"
+                    },
+                    "text": "This guy is good at chess",
+                    "date": 1690585691898
+                  }
+                ]
+
   /api/rel/following:
     get:
       operationId: apiUserFollowing
@@ -8584,6 +8668,20 @@ components:
         streak:
           $ref: '#/components/schemas/PuzzleModePerf'
 
+    UserNote:
+      type: object
+      properties:
+        from:
+          $ref: '#/components/schemas/LightUser'
+        to:
+          $ref: '#/components/schemas/LightUser'
+        text:
+          type: string
+          example: "This is a note"
+        date:
+          type: integer
+          format: int64
+          example: 1290415680000
 
     PlayTime:
       type: object
