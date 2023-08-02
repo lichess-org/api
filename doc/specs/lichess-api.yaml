@@ -157,6 +157,7 @@ tags:
   \ - Bots cannot play UltraBullet (¼+0) because it requires making too many requests. But 0+1 and ½+0 are allowed.\n\
   \n### Integrations\n\
   \ - [Python3 lichess-bot](https://github.com/lichess-bot-devs/lichess-bot) (official)\n\
+  \ - [Python Lichess-Bot](https://github.com/M-DinhHoangViet/Lichess-Bot)\n\
   \ - [JavaScript bot-o-tron](https://github.com/tailuge/bot-o-tron)\n\
   \ - [Golang lichess-bot](https://github.com/dolegi/lichess-bot)\n\
   \ - [Electronic Chessboard](http://www.oliviermercier.com/res/projects/chessboard/)
