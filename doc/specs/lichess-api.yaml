@@ -10225,9 +10225,6 @@ components:
         nbMembers:
           type: integer
           example: 3129
-        location:
-          type: [string, 'null']
-          example: Planet Earth
 
     TeamRequest:
       type: object
