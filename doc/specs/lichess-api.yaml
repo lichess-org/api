@@ -4442,30 +4442,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  currentPage:
-                    type: number
-                    example: 4
-                  maxPerPage:
-                    type: number
-                    example: 15
-                  currentPageResults:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Team'
-                  nbResults:
-                    type: number
-                    example: 205194
-                  previousPage:
-                    type: [number, 'null']
-                    example: 3
-                  nextPage:
-                    type: [number, 'null']
-                    example: 5
-                  nbPages:
-                    type: number
-                    example: 13680
+                $ref: '#/components/schemas/TeamPaginatorJson'
 
   /api/team/of/{username}:
     get:
@@ -4530,9 +4507,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Team'
+                $ref: '#/components/schemas/TeamPaginatorJson'
 
   /api/team/{teamId}/users:
     get:
@@ -10225,6 +10200,32 @@ components:
         nbMembers:
           type: integer
           example: 3129
+
+    TeamPaginatorJson:
+      type: object
+      properties:
+        currentPage:
+          type: number
+          example: 4
+        maxPerPage:
+          type: number
+          example: 15
+        currentPageResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/Team'
+        nbResults:
+          type: number
+          example: 205194
+        previousPage:
+          type: [number, 'null']
+          example: 3
+        nextPage:
+          type: [number, 'null']
+          example: 5
+        nbPages:
+          type: number
+          example: 13680
 
     TeamRequest:
       type: object
