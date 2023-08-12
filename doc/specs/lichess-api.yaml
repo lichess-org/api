@@ -6082,6 +6082,54 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/bot/game/{gameId}/draw/{accept}:
+    post:
+      operationId: botGameDraw
+      summary: Handle draw offers in bot games
+      description: |
+        Create/accept/decline draw offers in bot games
+        - `yes`: Offer a draw, or accept the opponent's draw offer.
+        - `no`: Decline a draw offer from the opponent.
+      tags:
+        - Bot
+      security:
+        - OAuth2: ["bot:play"]
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            example: "5IrD6Gzz"
+          required: true
+        - in: path
+          name: accept
+          schema:
+            anyOf:
+              - type: boolean
+              - type: string
+                const: yes
+            example: "yes"
+          required: true
+      responses:
+        "200":
+          description: The draw offer was successfully sent.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        "400":
+          description: The draw offering failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
   /api/challenge:
     get:
       operationId: challengeList
