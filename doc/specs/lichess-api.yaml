@@ -3751,7 +3751,7 @@ paths:
 
         If authenticated, then all public, unlisted, and private studies are included.
 
-        If not, only public, listed studies are included.
+        If not, only public (non-unlisted) studies are included.
       tags:
         - Studies
       security:
@@ -3825,7 +3825,7 @@ paths:
 
         If authenticated, then all public, unlisted, and private studies are included.
 
-        If not, only public, listed studies are included.
+        If not, only public (non-unlisted) studies are included.
 
         Studies are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
