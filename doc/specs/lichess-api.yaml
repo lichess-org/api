@@ -8812,6 +8812,15 @@ components:
             streaming:
               type: boolean
               example: false
+            streamer:
+              example: {
+                "twitch": {
+                  "channel": "https://www.twitch.tv/lichessdotorg"
+                },
+                "youTube": {
+                  "channel": "https://www.youtube.com/c/LichessDotOrg"
+                }
+              }
             followable:
               type: boolean
               example: true
