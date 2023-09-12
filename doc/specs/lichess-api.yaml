@@ -4534,7 +4534,6 @@ paths:
 
         Members are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
       tags:
-        - Users
         - Teams
       security:
         - OAuth2: ["team:read"]
