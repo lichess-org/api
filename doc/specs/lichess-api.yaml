@@ -33,6 +33,7 @@ info:
     - [Python Lichess Bot](https://github.com/lichess-bot-devs/lichess-bot)
     - [Python Board API for Certabo](https://github.com/haklein/certabo-lichess)
     - [Java general API](https://github.com/tors42/chariot)
+    - [JavaScript & TypeScript general API](https://github.com/devjiwonchoi/equine)
 
     ## Rate limiting
     All requests are rate limited using various strategies,
