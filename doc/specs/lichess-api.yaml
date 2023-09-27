@@ -1236,7 +1236,7 @@ paths:
             Or in an `analysis` JSON field, depending on the response type.
           schema:
             type: boolean
-            default: true
+            default: false
         - in: query
           name: accuracy
           description: |
@@ -1378,7 +1378,7 @@ paths:
             Or in an `analysis` JSON field, depending on the response type.
           schema:
             type: boolean
-            default: true
+            default: false
         - in: query
           name: accuracy
           description: |
@@ -2554,7 +2554,7 @@ paths:
             Or in an `analysis` JSON field, depending on the response type.
           schema:
             type: boolean
-            default: true
+            default: false
         - in: query
           name: accuracy
           description: |
@@ -3440,7 +3440,7 @@ paths:
             Or in an `analysis` JSON field, depending on the response type.
           schema:
             type: boolean
-            default: true
+            default: false
         - in: query
           name: accuracy
           description: |
