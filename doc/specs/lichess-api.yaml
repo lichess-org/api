@@ -4480,7 +4480,7 @@ paths:
     get:
       operationId: teamShow
       summary: Get a single team
-      description: Infos about a team
+      description: Public info about a team. Includes the list of publicly visible leaders.
       tags:
         - Teams
       security: []
@@ -10295,8 +10295,6 @@ components:
         open:
           type: boolean
           example: false
-        leader:
-          $ref: '#/components/schemas/LightUser'
         leaders:
           type: array
           items:
