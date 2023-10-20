@@ -1,5 +1,5 @@
 async function hmacSha256(secret, data) {
-  const utf8 = new TextEncoder('utf-8');
+  const utf8 = new TextEncoder();
   const algorithm = {name: 'HMAC', hash: 'SHA-256'};
   const key = await crypto.subtle.importKey('raw', utf8.encode(secret), algorithm, false, ['sign']);
   return await crypto.subtle.sign(algorithm, key, utf8.encode(data));
