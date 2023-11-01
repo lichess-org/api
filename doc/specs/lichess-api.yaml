@@ -4912,7 +4912,7 @@ paths:
       summary: Message all members
       description: |
         Send a private message to all members of a team.
-        You must own the team.
+        You must be a team leader with the "Messages" permission.
       tags:
         - Teams
       security:
