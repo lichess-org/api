@@ -3,11 +3,11 @@
   "private": true,
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
-    "@stoplight/spectral-cli": "^6",
-    "redoc-cli": "^0.13"
+    "@redocly/cli": "^1.4.0",
+    "@stoplight/spectral-cli": "^6"
   },
   "scripts": {
-    "lint": "spectral lint specs/*.yaml",
+    "lint": "spectral lint --fail-severity=warn specs/*.yaml",
     "build": "npx @redocly/cli build-docs specs/lichess-api.yaml --output public/index.html",
     "serve": "npx @redocly/cli preview-docs specs/lichess-api.yaml --port 8089"
   }
