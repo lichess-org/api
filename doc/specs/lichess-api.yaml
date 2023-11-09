@@ -6542,14 +6542,15 @@ paths:
                 rules:
                   type: string
                   enum:
-                    - noAbort
                     - noRematch
                     - noGiveTime
                     - noClaimWin
                     - noEarlyDraw
+                    - noAbort
                   description: |
                     Extra game rules separated by commas.
-                    Example: `noAbort,noRematch`
+                    Example: `noRematch,noGiveTime`
+                    The `noAbort` rule is available for Lichess admins only
                 users:
                   type: string
                   description: |
