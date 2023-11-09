@@ -10916,6 +10916,8 @@ components:
             "preference:read": Read your preferences
             "preference:write": Write your preferences
             "email:read": Read your email address
+            "engine:read": Read your external engines
+            "engine:write": Create, update, delete your external engines
             "challenge:read": Read incoming challenges
             "challenge:write": Create, accept, decline challenges
             "challenge:bulk": Create, delete, query bulk pairings
