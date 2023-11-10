@@ -912,7 +912,7 @@ paths:
       description: |
         Download one game in either PGN or JSON format.
 
-        Ongoing games have their last 3 moves omitted after move 5, as to prevent cheat bots from using this API.
+        Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
       tags:
         - Games
       security: []
@@ -1019,7 +1019,7 @@ paths:
         Download the ongoing game, or the last game played, of a user.
         Available in either PGN or JSON format.
 
-        Ongoing games have their last 3 moves omitted after move 5, as to prevent cheat bots from using this API.
+        Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
       tags:
         - Games
       security: []
@@ -1255,7 +1255,7 @@ paths:
             default: false
         - in: query
           name: ongoing
-          description: Include ongoing games. Their last 3 moves are omitted after move 5, as to prevent cheat bots from using this API.
+          description: Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
           schema:
             type: boolean
             default: false
@@ -1326,7 +1326,7 @@ paths:
 
         300 IDs can be submitted.
 
-        Ongoing games have their last 3 moves omitted after move 5, as to prevent cheat bots from using this API.
+        Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
       tags:
         - Games
       security: []
@@ -1627,7 +1627,7 @@ paths:
         Then a message is sent each time a move is played.
         Finally a description of the game is sent when it finishes, and the stream is closed.
 
-        After move 5, the stream intentionally remains 3 moves behind the game status, as to prevent cheat bots from using this API.
+        Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
 
         No more than 8 game streams can be opened at the same time from the same IP address.
       tags:
