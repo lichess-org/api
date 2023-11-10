@@ -1278,6 +1278,8 @@ paths:
           name: lastFen
           description: |
             Include the FEN notation of the last position of the game.
+
+            The response type must be set to `application/x-ndjson` by the request Accept header.
           schema:
             type: boolean
             default: false
