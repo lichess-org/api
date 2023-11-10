@@ -1279,7 +1279,7 @@ paths:
           description: |
             Include the FEN notation of the last position of the game.
 
-            The response type must be set to `application/x-ndjson` by the request Accept header.
+            The response type must be set to `application/x-ndjson` by the request `Accept` header.
           schema:
             type: boolean
             default: false
@@ -1320,7 +1320,7 @@ paths:
       operationId: gamesExportIds
       summary: Export games by IDs
       description: |
-        Download games by IDs in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request Accept header.
+        Download games by IDs in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
 
         Games are sorted by reverse chronological order (most recent first)
 
@@ -1854,7 +1854,7 @@ paths:
       description: |
         Get a list of ongoing games for a given TV channel. Similar to [lichess.org/games](https://lichess.org/games).
 
-        Available in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request Accept header.
+        Available in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
       tags:
         - TV
       security: []
