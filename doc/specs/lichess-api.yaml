@@ -9871,8 +9871,8 @@ components:
         tier:
           type: integer
           description: |
-            Optional, for Lichess admins only, use to feature on /broadcast. 
-            
+            Optional, for Lichess admins only, use to feature on /broadcast.
+
             * `3` for normal
             * `4` for high
             * `5` for best
@@ -9881,13 +9881,13 @@ components:
             Optional replace player names, ratings and titles.
 
             One line per player, formatted as such:
-            
+
             `Original name; Replacement name; Optional replacement rating; Optional replacement title`
 
             Example:
-            
+
             DrNykterstein;Magnus Carlsen;2863
-            
+
             AnishGiri;Anish Giri;2764;GM
       required:
         - name
