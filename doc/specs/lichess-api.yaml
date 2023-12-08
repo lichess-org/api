@@ -4832,7 +4832,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Ok'
 
-  /team/{teamId}/kick/{userId}:
+  /api/team/{teamId}/kick/{userId}:
     post:
       operationId: teamIdKickUserId
       summary: Kick a user from your team
