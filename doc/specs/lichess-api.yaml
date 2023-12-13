@@ -22,6 +22,7 @@ info:
     - Check out [Lichess widgets to embed in your website](https://lichess.org/developers)
     - [Download all Lichess rated games](https://database.lichess.org/)
     - [Download all Lichess puzzles with themes, ratings and votes](https://database.lichess.org/#puzzles)
+    - [Download all evaluated positions](https://database.lichess.org/#evals)
 
     ## Endpoint
     All requests go to `https://lichess.org` (unless otherwise specified).
