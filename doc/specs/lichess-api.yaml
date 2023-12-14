@@ -206,7 +206,7 @@ tags:
     [Official broadcasts](https://lichess.org/broadcast) are maintained by Lichess,
     but you can [create your own broadcasts](https://lichess.org/broadcast/new) to cover any live game or chess event.
     You will need to publish PGN on a public URL so that Lichess can pull updates from it.
-    Alternatively, you can push PGN updates to Lichess using this API.
+    Alternatively, you can push PGN updates to Lichess using [this API endpoint](#tag/Broadcasts/operation/broadcastPush).
 
     Broadcasts are organized in tournaments, which have several rounds, which have several games.
     You must first create a tournament, then you can add rounds to them.
@@ -4283,7 +4283,26 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                properties:
+                  ok:
+                    type: string
+                example:
+                  ok: "12 new moves"
+        "400":
+          description: There was a problem with the pushed PGN.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
+                example:
+                  error: "Cannot parse moves"
 
   /api/stream/broadcast/round/{broadcastRoundId}.pgn:
     get:
