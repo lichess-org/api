@@ -8457,6 +8457,9 @@ components:
               eval:
                 type: number
                 description: Evaluation in centipawns
+              mate:
+                type: number
+                description: Number of moves until forced mate
               best:
                 type: string
                 example: c2c3
@@ -8478,7 +8481,7 @@ components:
                   comment:
                     type: string
                     example: Blunder. Nxg6 was best.
-            required: [eval]
+            required: []
         tournament:
           type: string
         swiss:
