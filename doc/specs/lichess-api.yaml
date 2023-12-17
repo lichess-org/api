@@ -4284,10 +4284,10 @@ paths:
             application/json:
               schema:
                 properties:
-                  ok:
-                    type: string
+                  moves:
+                    type: integer
                 example:
-                  ok: "12 new moves"
+                  moves: 12
         "400":
           description: There was a problem with the pushed PGN.
           headers:
