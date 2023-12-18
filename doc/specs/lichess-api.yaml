@@ -9978,9 +9978,12 @@ components:
 
     BroadcastRound:
       example: {
-          "id": "BueO56UJ",
-          "name": "Finals Day 1",
-          "slug": "finals-day-1",
+          "round": {
+              "id": "BueO56UJ",
+              "name": "Finals Day 1",
+              "slug": "finals-day-1",
+              "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ",
+          },
           "tour": {
               "id": "QYiOYnl1",
               "name": "New in Chess Classic | Finals",
@@ -9988,7 +9991,9 @@ components:
               "description": "Match for 1st 2nd and 3rd place.",
               "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/phgcXuBl"
           },
-          "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ",
+          "study": {
+            "writeable": true
+          },
           "games": [
             {
               "id": "GRjidNTw",
