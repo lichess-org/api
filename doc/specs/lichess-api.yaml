@@ -9954,10 +9954,10 @@ components:
     BroadcastTour:
       example: {
         "tour": {
-            "description": "Match for 1st 2nd and 3rd place.",
             "id": "QYiOYnl1",
             "name": "New in Chess Classic | Finals",
             "slug": "new-in-chess-classic--finals",
+            "description": "Match for 1st 2nd and 3rd place.",
             "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/phgcXuBl"
         },
         "rounds": [
@@ -9981,6 +9981,13 @@ components:
           "id": "BueO56UJ",
           "name": "Finals Day 1",
           "slug": "finals-day-1",
+          "tour": {
+              "id": "QYiOYnl1",
+              "name": "New in Chess Classic | Finals",
+              "slug": "new-in-chess-classic--finals",
+              "description": "Match for 1st 2nd and 3rd place.",
+              "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/phgcXuBl"
+          },
           "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ",
           "games": [
             {
@@ -9988,19 +9995,19 @@ components:
               "name": "Martin Fargac - Vit Kostka",
               "ongoing": true,
               "res": "*",
-              "url": "http://l.org/broadcast/isreali-championship/round-4/iCEwAzEX/GRjidNTw"
+              "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/round-4/iCEwAzEX/GRjidNTw"
             },
             {
               "id": "81TcKCWT",
               "name": "Pavel Zabystrzan - Kilian Slovak",
               "res": "½-½",
-              "url": "http://l.org/broadcast/isreali-championship/round-4/iCEwAzEX/tJpK7gbl"
+              "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/round-4/iCEwAzEX/tJpK7gbl"
             },
             {
               "id": "xEfufedI",
               "name": "Roman Pilch - Bartolomej Buchta",
               "res": "1-0",
-              "url": "http://l.org/broadcast/isreali-championship/round-4/iCEwAzEX/xEfufedI"
+              "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/round-4/iCEwAzEX/xEfufedI"
             }
           ]
       }
