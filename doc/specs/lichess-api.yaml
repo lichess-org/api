@@ -4143,16 +4143,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /broadcast/{broadcastTournamentSlug}/{broadcastRoundSlug}/{broadcastRoundId}:
+  /api/broadcast/{broadcastTournamentSlug}/{broadcastRoundSlug}/{broadcastRoundId}:
     get:
       operationId: broadcastRoundGet
-      summary: Get your broadcast round
+      summary: Get a broadcast round
       description: |
         Get information about a broadcast round.
       tags:
         - Broadcasts
-      security:
-        - OAuth2: ["study:read"]
       parameters:
         - in: path
           name: broadcastTournamentSlug
