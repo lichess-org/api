@@ -6153,42 +6153,10 @@ paths:
                   default: false
                 'clock.limit':
                   type: number
-                  description: Clock initial time in seconds. If empty, a correspondence game is created.
+                  description: Clock initial time in seconds. If empty, a correspondence game is created. Valid values are 0, 15, 30, 45, 60, 90, and any multiple of 60 up to 10800 (3 hours).
                   example: 300
-                  enum:
-                    - 0
-                    - 15
-                    - 30
-                    - 45
-                    - 60
-                    - 90
-                    - 120
-                    - 180
-                    - 240
-                    - 300
-                    - 360
-                    - 420
-                    - 480
-                    - 600
-                    - 900
-                    - 1200
-                    - 1500
-                    - 1800
-                    - 2400
-                    - 3000
-                    - 3600
-                    - 4200
-                    - 4800
-                    - 5400
-                    - 6000
-                    - 6600
-                    - 7200
-                    - 7800
-                    - 8400
-                    - 9000
-                    - 9600
-                    - 10200
-                    - 10800
+                  minimum: 0
+                  maximum: 10800
                 'clock.increment':
                   type: integer
                   description: Clock increment in seconds. If empty, a correspondence game is created.
