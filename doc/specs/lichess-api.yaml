@@ -10004,20 +10004,23 @@ components:
             "name": "New in Chess Classic | Finals",
             "slug": "new-in-chess-classic--finals",
             "description": "Match for 1st 2nd and 3rd place.",
-            "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/phgcXuBl"
+            "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/phgcXuBl",
+            "createdAt": 1525789431889
         },
         "rounds": [
             {
                 "id": "BueO56UJ",
                 "name": "Finals Day 1",
                 "slug": "finals-day-1",
-                "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ"
+                "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ",
+                "createdAt": 1525789431889
             },
             {
                 "id": "yeGGfkfY",
                 "name": "Finals Day 2",
                 "slug": "finals-day-2",
-                "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-2/yeGGfkfY"
+                "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-2/yeGGfkfY",
+                "createdAt": 1525789431889
             }
         ]
     }
@@ -10029,13 +10032,15 @@ components:
               "name": "Finals Day 1",
               "slug": "finals-day-1",
               "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ",
+              "createdAt": 1525789431889
           },
           "tour": {
               "id": "QYiOYnl1",
               "name": "New in Chess Classic | Finals",
               "slug": "new-in-chess-classic--finals",
               "description": "Match for 1st 2nd and 3rd place.",
-              "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/phgcXuBl"
+              "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/phgcXuBl",
+              "createdAt": 1525789431889
           },
           "study": {
             "writeable": true
