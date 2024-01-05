@@ -2912,6 +2912,13 @@ paths:
                   description: Minimum number of rated games required to join.
                   minimum: 0
                   maximum: 200
+                conditions.playYourGames:
+                  type: boolean
+                  description: |
+                    Only let players join if they have played their last swiss game. 
+                    If they failed to show up in a recent swiss event, they won't be able to enter yours. 
+                    This results in a better swiss experience for the players who actually show up.
+                  default: false
                 conditions.allowList:
                   type: string
                   description: |
