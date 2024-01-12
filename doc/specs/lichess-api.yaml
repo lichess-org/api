@@ -10088,7 +10088,7 @@ components:
             "description": "April 18th - 28th  |  10-round Swiss  |  Classical time control",
             "id": "x7WskVz3",
             "name": "Moonway Chess Festival",
-            "official": true,
+            "tier": "high",
             "slug": "moonway-chess-festival"
         },
         "round": {
