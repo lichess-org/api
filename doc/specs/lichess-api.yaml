@@ -157,6 +157,8 @@ tags:
   \n### Restrictions\n\
   \ - Bots can only play challenge games:  pools and tournaments are off-limits\n\
   \ - Bots cannot play UltraBullet (¼+0) because it requires making too many requests. But 0+1 and ½+0 are allowed.\n\
+  \ - Bots must follow [Lichess TOS](https://lichess.org/terms-of-service) specifically Sandbagging, Constant Aborting, Boosting, etc\n\
+  \ - Bot devs are advised to make their Bots play casual only when testing their Bots logic and to avoid breaking Lichess TOS.\n\
   \n### Integrations\n\
   \ - [Python3 lichess-bot](https://github.com/lichess-bot-devs/lichess-bot) (official)\n\
   \ - [Python3 lichess UCI bot](https://github.com/Torom/BotLi)\n\
