@@ -2915,8 +2915,8 @@ paths:
                 conditions.playYourGames:
                   type: boolean
                   description: |
-                    Only let players join if they have played their last swiss game. 
-                    If they failed to show up in a recent swiss event, they won't be able to enter yours. 
+                    Only let players join if they have played their last swiss game.
+                    If they failed to show up in a recent swiss event, they won't be able to enter yours.
                     This results in a better swiss experience for the players who actually show up.
                   default: false
                 conditions.allowList:
@@ -3147,8 +3147,8 @@ paths:
                 conditions.playYourGames:
                   type: boolean
                   description: |
-                    Only let players join if they have played their last swiss game. 
-                    If they failed to show up in a recent swiss event, they won't be able to enter yours. 
+                    Only let players join if they have played their last swiss game.
+                    If they failed to show up in a recent swiss event, they won't be able to enter yours.
                     This results in a better swiss experience for the players who actually show up.
                   default: false
                 conditions.allowList:
@@ -6738,20 +6738,16 @@ paths:
   /api/bulk-pairing:
     get:
       operationId: bulkPairingGet
-      summary: View upcoming bulk pairings
+      summary: View your bulk pairings
       description: |
-        Get a list of upcoming bulk pairings you created.
-
-        Only bulk pairings that are scheduled in the future, or that have a clock start scheduled in the future, are listed.
-
-        Bulk pairings are deleted from the server after the pairings are done and the clocks have started.
+        Get a list of bulk pairings you created.
       tags:
         - Bulk pairings
       security:
         - OAuth2: ["challenge:bulk"]
       responses:
         "200":
-          description: The list of upcoming bulk pairing the logged in user created.
+          description: The list of bulk pairing the logged in user created.
           headers:
             Access-Control-Allow-Origin:
               schema:
@@ -6885,7 +6881,7 @@ paths:
                     Example: `noAbort,noRematch`
       responses:
         "200":
-          description: The bulk pairings have been successfully created.
+          description: The bulk pairing has been successfully created.
           headers:
             Access-Control-Allow-Origin:
               schema:
@@ -6946,6 +6942,39 @@ paths:
                 $ref: '#/components/schemas/NotFound'
 
   /api/bulk-pairing/{id}:
+    get:
+      operationId: bulkPairingGet
+      summary: Show a bulk pairing
+      tags:
+        - Bulk pairings
+      security:
+        - OAuth2: ["challenge:bulk"]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            description: The ID of the bulk pairing
+            example: "5IrD6Gzz"
+          required: true
+      responses:
+        "200":
+          description: The bulk pairing.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkPairing'
+        "404":
+          description: The bulk pairing was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
     delete:
       operationId: bulkPairingDelete
       summary: Cancel a bulk pairing
