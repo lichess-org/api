@@ -7031,6 +7031,8 @@ paths:
     get:
       operationId: bulkPairingGet
       summary: Show a bulk pairing
+      description: |
+        Get a single bulk pairing by its ID.
       tags:
         - Bulk pairings
       security:
