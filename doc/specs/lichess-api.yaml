@@ -1691,6 +1691,28 @@ paths:
             application/json:
               schema:
                 example: {"id": "R6iLjwz5", "url": "https://lichess.org/R6iLjwz5"}
+  
+  /api/games/export/imports:
+    get:
+      operationId: apiImportedGamesUser
+      summary: Export your imported games
+      description : Download all games imported by you. Games are exported in PGN format.
+      tags: 
+        - Games
+      security: 
+        - OAuth2: []
+      responses: 
+        "200":
+          description: "Imported games in PGN format"
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                default: "'*'"
+          content:
+            application/x-chess-pgn:
+              schema:
+                $ref: '#/components/schemas/GamePgn'
 
   /api/tv/channels:
     get:
