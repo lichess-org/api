@@ -1021,6 +1021,14 @@ paths:
             type: boolean
             default: true
         - in: query
+          name: division
+          description: | 
+            Plies which mark the beginning of the middlegame and endgame.
+            Only available in JSON
+          schema:
+            type: boolean
+            default: true
+        - in: query
           name: literate
           description: |
             Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
@@ -1126,6 +1134,14 @@ paths:
           schema:
             type: boolean
             default: true
+        - in: query
+          name: division
+          description: | 
+            Plies which mark the beginning of the middlegame and endgame.
+            Only available in JSON
+          schema:
+            type: boolean
+            default: false
         - in: query
           name: literate
           description: |
@@ -1295,6 +1311,14 @@ paths:
             type: boolean
             default: false
         - in: query
+          name: division
+          description: | 
+            Plies which mark the beginning of the middlegame and endgame.
+            Only available in JSON
+          schema:
+            type: boolean
+            default: false
+        - in: query
           name: ongoing
           description: Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
           schema:
@@ -1435,6 +1459,14 @@ paths:
             Include the opening name.
 
             Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: division
+          description: | 
+            Plies which mark the beginning of the middlegame and endgame.
+            Only available in JSON
           schema:
             type: boolean
             default: false
@@ -2636,6 +2668,14 @@ paths:
           schema:
             type: boolean
             default: false
+        - in: query
+          name: division
+          description: | 
+            Plies which mark the beginning of the middlegame and endgame.
+            Only available in JSON
+          schema:
+            type: boolean
+            default: false
       responses:
         "200":
           description: The list of games of an Arena tournament.
@@ -3533,6 +3573,14 @@ paths:
             Include the opening name.
 
             Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: division
+          description: | 
+            Plies which mark the beginning of the middlegame and endgame.
+            Only available in JSON
           schema:
             type: boolean
             default: false
@@ -8742,6 +8790,16 @@ components:
               type: number
             totalTime:
               type: number
+        division:
+          type: object
+          properties:
+            middle:
+              type: number
+              description: Ply at which the middlegame begins
+            end:
+              type: number
+              description: Ply at which the endgame begins
+          required: []
       required:
         - id
         - rated
