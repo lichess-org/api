@@ -1,0 +1,192 @@
+type: object
+properties:
+  dark:
+    type: boolean
+    example: true
+  transp:
+    type: boolean
+    example: false
+  bgImg:
+    type: string
+    format: uri
+  is3d:
+    type: boolean
+    example: false
+  theme:
+    type: string
+    enum:
+      - blue
+      - blue2
+      - blue3
+      - blue-marble
+      - canvas
+      - wood
+      - wood2
+      - wood3
+      - wood4
+      - maple
+      - maple2
+      - brown
+      - leather
+      - green
+      - marble
+      - green-plastic
+      - grey
+      - metal
+      - olive
+      - newspaper
+      - purple
+      - purple-diag
+      - pink
+      - ic
+  pieceSet:
+    type: string
+    enum:
+      - cburnett
+      - merida
+      - alpha
+      - pirouetti
+      - chessnut
+      - chess7
+      - reillycraig
+      - companion
+      - riohacha
+      - kosal
+      - leipzig
+      - fantasy
+      - spatial
+      - california
+      - pixel
+      - maestro
+      - fresca
+      - cardinal
+      - gioco
+      - tatiana
+      - staunty
+      - governor
+      - dubrovny
+      - icpieces
+      - shapes
+      - letter
+  theme3d:
+    type: string
+    enum:
+      - Black-White-Aluminium
+      - Brushed-Aluminium
+      - China-Blue
+      - China-Green
+      - China-Grey
+      - China-Scarlet
+      - Classic-Blue
+      - Gold-Silver
+      - Light-Wood
+      - Power-Coated
+      - Rosewood
+      - Marble
+      - Wax
+      - Jade
+      - Woodi
+  pieceSet3d:
+    type: string
+    enum:
+      - Basic
+      - Wood
+      - Metal
+      - RedVBlue
+      - ModernJade
+      - ModernWood
+      - Glass
+      - Trimmed
+      - Experimental
+      - Staunton
+      - CubesAndPi
+  soundSet:
+    type: string
+    enum:
+      - silent
+      - standard
+      - piano
+      - nes
+      - sfx
+      - futuristic
+      - robot
+      - music
+      - speech
+  blindfold:
+    type: integer
+    example: 0
+  autoQueen:
+    type: integer
+    example: 2
+  autoThreefold:
+    type: integer
+    example: 2
+  takeback:
+    type: integer
+    example: 3
+  moretime:
+    type: integer
+    example: 3
+  clockTenths:
+    type: integer
+    example: 1
+  clockBar:
+    type: boolean
+    example: true
+  clockSound:
+    type: boolean
+    example: true
+  premove:
+    type: boolean
+    example: true
+  animation:
+    type: integer
+    example: 2
+  captured:
+    type: boolean
+    example: true
+  follow:
+    type: boolean
+    example: true
+  highlight:
+    type: boolean
+    example: true
+  destination:
+    type: boolean
+    example: true
+  coords:
+    type: integer
+    example: 2
+  replay:
+    type: integer
+    example: 2
+  challenge:
+    type: integer
+    example: 4
+  message:
+    type: integer
+    example: 3
+  coordColor:
+    type: integer
+    example: 2
+  submitMove:
+    type: integer
+    example: 4
+  confirmResign:
+    type: integer
+    example: 1
+  insightShare:
+    type: integer
+    example: 1
+  keyboardMove:
+    type: integer
+    example: 0
+  zen:
+    type: integer
+    example: 0
+  moveEvent:
+    type: integer
+    example: 2
+  rookCastle:
+    type: integer
+    example: 1

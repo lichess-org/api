@@ -1,0 +1,64 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique engine registration ID.
+    example: eei_aTKImBJOnv6j
+  name:
+    type: string
+    description: Display name of the engine.
+    example: Stockfish 15
+    minLength: 3
+    maxLength: 200
+  clientSecret:
+    type: string
+    description: |
+      A secret token that can be used to
+      [*request* analysis](#tag/External-engine/operation/apiExternalEngineAnalyse)
+      from this external engine.
+    example: ees_mdF2hK0hlKGSPeC6
+  userId:
+    type: string
+    description: The user this engine has been registered for.
+    example: thibault
+  maxThreads:
+    type: integer
+    description: Maximum number of available threads.
+    example: 8
+    minimum: 1
+    maximum: 65536
+  maxHash:
+    type: integer
+    description: Maximum available hash table size, in MiB.
+    example: 2048
+    minimum: 1
+    maximum: 1048576
+  defaultDepth:
+    type: integer
+    description: Estimated depth of normal search.
+    example: 24
+    minimum: 0
+    maximum: 246
+  variants:
+    type: array
+    description: List of supported chess variants.
+    example: [chess]
+    items:
+      $ref: './UciVariant.yaml'
+  providerData:
+    type: string
+    description: |
+      Arbitrary data that the engine provider can use for identification
+      or bookkeeping.
+
+      Users can read this information, but updating it requires knowing
+      or changing the `providerSecret`.
+required:
+  - id
+  - clientSecret
+  - userId
+  - name
+  - maxThreads
+  - maxHash
+  - defaultDepth
+  - variants

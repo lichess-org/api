@@ -1,0 +1,16 @@
+type: object
+properties:
+  id:
+    type: string
+    example: "chess-network"
+  name:
+    type: string
+    example: "Chess-Network"
+  title:
+    $ref: './Title.yaml'
+  patron:
+    type: boolean
+    example: true
+required:
+  - id
+  - name

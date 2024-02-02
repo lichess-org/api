@@ -1,0 +1,45 @@
+type: object
+properties:
+  type:
+    type: string
+    const: gameState
+  moves:
+    type: string
+    description: Current moves in UCI format
+  wtime:
+    type: integer
+    description: Integer of milliseconds White has left on the clock
+  btime:
+    type: integer
+    description: Integer of milliseconds Black has left on the clock
+  winc:
+    type: integer
+    description: Integer of White Fisher increment.
+  binc:
+    type: integer
+    description: Integer of Black Fisher increment.
+  status:
+    $ref: '#/components/schemas/GameStatus'
+  winner:
+    type: string
+    description: Color of the winner, if any
+  wdraw:
+    type: boolean
+    description: true if white is offering draw, else omitted
+  bdraw:
+    type: boolean
+    description: true if black is offering draw, else omitted
+  wtakeback:
+    type: boolean
+    description: true if white is proposing takeback, else omitted
+  btakeback:
+    type: boolean
+    description: true if black is proposing takeback, else omitted
+required:
+  - type
+  - moves
+  - wtime
+  - btime
+  - winc
+  - binc
+  - status

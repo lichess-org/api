@@ -1,0 +1,50 @@
+type: object
+properties:
+  type:
+    type: string
+    const: gameFull
+  id:
+    type: string
+  variant:
+    $ref: './Variant.yaml'
+  clock:
+    oneOf:
+      - $ref: './Clock.yaml'
+      - type: 'null'
+  speed:
+    $ref: './Speed.yaml'
+  perf:
+    type: object
+    properties:
+      name:
+        type: string
+        description: Translated perf name (e.g. "Classical" or "Blitz")
+  rated:
+    type: boolean
+  createdAt:
+    type: number
+    format: int64
+  white:
+    $ref: './GameEventPlayer.yaml'
+  black:
+    $ref: './GameEventPlayer.yaml'
+  initialFen:
+    type: string
+    default: "startpos"
+  state:
+    $ref: './GameStateEvent.yaml'
+  tournamentId:
+    type: string
+required:
+  - type
+  - id
+  - variant
+  - clock
+  - speed
+  - perf
+  - rated
+  - createdAt
+  - white
+  - black
+  - initialFen
+  - state

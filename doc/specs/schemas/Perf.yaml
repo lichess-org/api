@@ -1,0 +1,16 @@
+type: object
+properties:
+  games:
+    type: integer
+    example: 2945
+  rating:
+    type: integer
+    example: 1609
+  rd:
+    type: integer
+    example: 60
+  prog:
+    type: integer
+    example: -22
+  prov:
+    type: boolean

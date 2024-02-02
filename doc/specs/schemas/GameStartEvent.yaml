@@ -1,0 +1,7 @@
+type: object
+properties:
+  type:
+    type: string
+    const: gameStart
+  game:
+    $ref: './GameEventInfo.yaml'

@@ -1,0 +1,154 @@
+type: object
+properties:
+  entries:
+    type: array
+  users:
+    type: object
+example: {
+  "entries": [
+    {
+      "type": "follow",
+      "data": {
+        "u1": "neio",
+        "u2": "chess-network"
+      },
+      "date": 1644232201429
+    },
+    {
+      "type": "team-join",
+      "data": {
+        "userId": "neio",
+        "teamId": "coders"
+      },
+      "date": 1644232201429
+    },
+    {
+      "type": "team-create",
+      "data": {
+        "userId": "neio",
+        "teamId": "coders"
+      },
+      "date": 1644232201429
+    },
+    {
+      "type": "forum-post",
+      "data": {
+        "userId": "neio",
+        "topicId": "AAAAAAAN",
+        "topicName": "World's Tallest LEGO Tower Completed in City Square",
+        "postId": "AAAAAAAL"
+      },
+      "date": 1644232201429
+    },
+    {
+      "type": "ublog-post",
+      "data": {
+        "userId": "neio",
+        "id": "og5pkt1c",
+        "slug": "gotta-go-fast",
+        "title": "Gotta Go Fast"
+      },
+      "date": 1644232201429
+    },
+    {
+      "type": "tour-join",
+      "data": {
+        "userId": "chess-network",
+        "tourId": "Z24oxqgU",
+        "tourName": "Daily Blitz Arena"
+      },
+      "date": 1644232201429
+    },
+    {
+      "type": "game-end",
+      "data": {
+        "fullId": "iGkAXUdEfLZC",
+        "perf": "correspondence",
+        "opponent": "chess-network",
+        "win": false
+      },
+      "date": 1644232201429
+    },
+    {
+      "type": "simul-create",
+      "data": {
+        "userId": "neio",
+        "simulId": "m3c0Wvu3",
+        "simulName": "RCA 1st Jan simul"
+      },
+      "date": 1644232201429
+    },
+    {
+      "type": "simul-join",
+      "data": {
+        "userId": "chess-network",
+        "simulId": "m3c0Wvu3",
+        "simulName": "RCA 1st Jan simul"
+      },
+      "date": 1644232201429
+    },
+    {
+      "type": "study-like",
+      "data": {
+        "userId": "neio",
+        "studyId": "ma5AvZ7o",
+        "studyName": "Free wins | Danish Gambit"
+      },
+      "date": 1644232201429
+    },
+    {
+      "type": "plan-start",
+      "data": {
+        "userId": "chess-network",
+      },
+      "date": 1644232201429
+    },
+    {
+      "type": "plan-renew",
+      "data": {
+        "userId": "chess-network",
+        "months": 64
+      },
+      "date": 1644232201429
+    },
+    {
+      "type": "blog-post",
+      "data": {
+        "id": "ZUviXRIAACYAVtMm",
+        "slug": "lichess-development-made-easy-with-gitpod",
+        "title": "Lichess Development Made Easy With Gitpod"
+      },
+      "date": 1644232201429
+    },
+    {
+      "type": "ublog-post-like",
+      "data": {
+        "userId": "neio",
+        "id": "ZUviXRIAACYAVtMm",
+        "title": "Lichess Development Made Easy With Gitpod"
+      },
+      "date": 1644232201429
+    },
+    {
+      "type": "stream-start",
+      "data": {
+        "userId": "chess-network",
+        "title": "Streamers Battle December !team | lichess.org"
+      },
+      "date": 1644232201429
+    }
+  ],
+  "users": {
+    "neio": {
+      "id": "neio",
+      "name": "Neio",
+      "title": "NM"
+    },
+    "chess-network": {
+      "id": "chess-network",
+      "name": "Chess-Network",
+      "title": "NM",
+      "patron": true
+    }
+  }
+}

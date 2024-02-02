@@ -1,0 +1,21 @@
+type: object
+properties:
+  id:
+    type: string
+    example: coders
+  name:
+    type: string
+    example: Coders
+  description:
+    type: string
+    example: "There are 10 kinds of people in the world: those who understand binary, and the others.\r\n\r\nIf you want to join the team, prove (briefly) that you can code in the request message!"
+  open:
+    type: boolean
+    example: false
+  leaders:
+    type: array
+    items:
+      $ref: './LightUser.yaml'
+  nbMembers:
+    type: integer
+    example: 3129

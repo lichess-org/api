@@ -1,0 +1,98 @@
+type: object
+properties:
+  id:
+    type: string
+    example: "QITRjufu"
+  createdBy:
+    type: string
+    example: "lichess"
+  system:
+    type: string
+    const: "arena"
+  minutes:
+    type: integer
+    example: 57
+  clock:
+    $ref: './Clock.yaml'
+  rated:
+    type: boolean
+    example: true
+  fullName:
+    type: string
+    example: "U1700 SuperBlitz Arena"
+  nbPlayers:
+    type: integer
+    example: 154
+  variant:
+    $ref: './Variant.yaml'
+  startsAt:
+    type: integer
+    example: 1522803600000
+  finishesAt:
+    type: integer
+    example: 1522807200000
+  status:
+    $ref: './ArenaStatus.yaml'
+  perf:
+    $ref: './ArenaPerf.yaml'
+  secondsToStart:
+    type: integer
+    example: 576
+  hasMaxRating:
+    type: boolean
+    example: true
+  maxRating:
+    $ref: './ArenaRatingObj.yaml'
+  minRating:
+    $ref: './ArenaRatingObj.yaml'
+  minRatedGames:
+    type: object
+    properties:
+      nb:
+        type: integer
+        example: 20
+      perf:
+        $ref: './PerfType.yaml'
+        example: "blitz"
+  onlyTitled:
+    type: boolean
+    example: false
+  teamMember:
+    type: string
+    example: "coders"
+  private:
+    type: boolean
+    example: true
+  position:
+    $ref: './ArenaPosition.yaml'
+  schedule:
+    type: object
+    properties:
+      freq:
+        type: string
+        example: "hourly"
+      speed:
+        type: string
+        example: "superblitz"
+  teamBattle:
+    type: object
+    properties:
+      teams:
+        type: array
+        items:
+          type: string
+          example: "coders"
+      nbLeaders:
+        type: integer
+        example: 3
+  winner:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "lichess"
+      name:
+        type: string
+        example: "lichess"
+      title:
+        $ref: './Title.yaml'

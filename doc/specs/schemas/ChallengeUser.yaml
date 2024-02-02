@@ -1,0 +1,9 @@
+allOf:
+  - $ref: './LightUser.yaml'
+properties:
+  rating:
+    type: number
+  provisional:
+    type: boolean
+  online:
+    type: boolean

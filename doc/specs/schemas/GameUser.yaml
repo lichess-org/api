@@ -1,0 +1,28 @@
+type: object
+properties:
+  user:
+    $ref: "./LightUser.yaml"
+  rating:
+    type: number
+  ratingDiff:
+    type: number
+  name:
+    type: string
+  provisional:
+    type: boolean
+  aiLevel:
+    type: number
+  analysis:
+    type: object
+    properties:
+      inaccuracy:
+        type: number
+      mistake:
+        type: number
+      blunder:
+        type: number
+      acpl:
+        type: number
+    required: [inaccuracy, mistake, blunder, acpl]
+  team:
+    type: string

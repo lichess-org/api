@@ -1,0 +1,28 @@
+type: object
+properties:
+  country:
+    type: string
+    example: EC
+  location:
+    type: string
+  bio:
+    type: string
+    example: Free bugs!
+  firstName:
+    type: string
+    example: Thibault
+  lastName:
+    type: string
+    example: Duplessis
+  fideRating:
+    type: integer
+    example: 1500
+  uscfRating:
+    type: integer
+    example: 1500
+  ecfRating:
+    type: integer
+    example: 1500
+  links:
+    type: string
+    example: "github.com/ornicar\r\ntwitter.com/ornicar"

@@ -1,0 +1,22 @@
+example: |
+  [Event "Rated Blitz game"]
+  [Site "https://lichess.org/fY44h4OY"]
+  [Date "2018.03.29"]
+  [Round "-"]
+  [White "pveldman"]
+  [Black "thibault"]
+  [Result "1-0"]
+  [UTCDate "2018.03.29"]
+  [UTCTime "01:38:15"]
+  [WhiteElo "1610"]
+  [BlackElo "1601"]
+  [WhiteRatingDiff "+10"]
+  [BlackRatingDiff "-10"]
+  [Variant "Standard"]
+  [TimeControl "180+0"]
+  [ECO "C62"]
+  [Opening "Ruy Lopez: Steinitz Defense"]
+  [Termination "Normal"]
+  [Event "U1700 SuperBlitz Arena"]
+
+  1. e4 { [%clk 0:03:00] } e5 { [%clk 0:03:00] } 2. Nf3 { [%clk 0:02:59] } Nc6 { [%clk 0:02:58] } 3. Bb5 { [%clk 0:02:57] } d6 { [%clk 0:02:55] } 4. h3 { [%clk 0:02:54] } Nf6 { [%clk 0:02:52] } 5. Bxc6+ { [%clk 0:02:52] } bxc6 { [%clk 0:02:49] } 6. d3 { [%clk 0:02:51] } Be7 { [%clk 0:02:46] } 7. O-O { [%clk 0:02:47] } O-O { [%clk 0:02:45] } 8. b3 { [%clk 0:02:45] } d5 { [%clk 0:02:45] } 9. exd5 { [%clk 0:02:33] } cxd5 { [%clk 0:02:40] } 10. Nxe5 { [%clk 0:02:31] } Qd6 { [%clk 0:02:38] } 1-0

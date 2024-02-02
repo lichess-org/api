@@ -1,0 +1,13 @@
+type: object
+properties:
+  from:
+    $ref: './LightUser.yaml'
+  to:
+    $ref: './LightUser.yaml'
+  text:
+    type: string
+    example: "This is a note"
+  date:
+    type: integer
+    format: int64
+    example: 1290415680000
