@@ -36,12 +36,12 @@ get:
               - $ref: '../../schemas/ChallengeDeclinedEvent.yaml'
           examples:
             challenge:
-              $ref: '#/components/examples/challenge'
+              $ref: '../../examples/challenge.yaml'
             challengeCanceled:
-              $ref: '#/components/examples/challengeCanceled'
+              $ref: '../../examples/challengeCanceled.yaml'
             challengeDeclined:
-              $ref: '#/components/examples/challengeDeclined'
+              $ref: '../../examples/challengeDeclined.yaml'
             gameStart:
-              $ref: '#/components/examples/gameStart'
+              $ref: '../../examples/gameStart.yaml'
             gameFinish:
-              $ref: '#/components/examples/gameFinish'
+              $ref: '../../examples/gameFinish.yaml'

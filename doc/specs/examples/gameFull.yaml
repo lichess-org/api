@@ -1,0 +1,41 @@
+value: {
+  "type": "gameFull",
+  "id": "5IrD6Gzz",
+  "rated": true,
+  "variant": {
+    "key": "standard",
+    "name": "Standard",
+    "short": "Std"
+  },
+  "clock": {
+    "initial": 1200000,
+    "increment": 10000
+  },
+  "speed": "classical",
+  "perf": {
+    "name": "Classical"
+  },
+  "createdAt": 1523825103562,
+  "white": {
+    "id": "lovlas",
+    "name": "lovlas",
+    "provisional": false,
+    "rating": 2500,
+    "title": "IM"
+  },
+  "black": {
+    "id": "leela",
+    "name": "leela",
+    "rating": 2390,
+  },
+  "initialFen": "startpos",
+  "state": {
+    "type": "gameState",
+    "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7",
+    "wtime": 7598040,
+    "btime": 8395220,
+    "winc": 10000,
+    "binc": 10000,
+    "status": "started"
+  }
+}
