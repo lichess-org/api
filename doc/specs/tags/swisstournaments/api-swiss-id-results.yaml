@@ -1,0 +1,45 @@
+get:
+  operationId: resultsBySwiss
+  summary: Get results of a swiss tournament
+  description: |
+    Players of a swiss tournament, with their score and performance, sorted by rank (best first).
+    Players are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+    If called on an ongoing tournament, results can be inconsistent
+    due to ranking changes while the players are being streamed.
+    Use on finished tournaments for guaranteed consistency.
+  tags:
+    - "Swiss tournaments"
+  security: []
+  parameters:
+    - in: path
+      name: id
+      description: The tournament ID.
+      schema:
+        type: string
+      required: true
+    - in: query
+      name: nb
+      description: Max number of players to fetch
+      schema:
+        type: integer
+        minimum: 1
+  responses:
+    "200":
+      description: The results of a Swiss tournament.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            example: {
+              "rank": 4,
+              "points": 8.5,
+              "tieBreak": 77,
+              "rating": 2618,
+              "username": "opperwezen",
+              "title": "IM",
+              "performance": 2423
+            }

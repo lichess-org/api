@@ -1,0 +1,30 @@
+get:
+  operationId: teamIdUsers
+  summary: Get members of a team
+  description: |
+    Members are sorted by reverse chronological order of joining the team (most recent first).
+    OAuth is only required if the list of members is private.
+    Members are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+  tags:
+    - Teams
+  security:
+    - OAuth2: ["team:read"]
+  parameters:
+    - in: path
+      name: teamId
+      schema:
+        type: string
+        example: "coders"
+      required: true
+  responses:
+    "200":
+      description: The list of users in the team.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            $ref: '../../schemas/UserExtended.yaml'

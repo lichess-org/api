@@ -1,0 +1,60 @@
+get:
+  operationId: botGameStream
+  summary: Stream Bot game state
+  description: "\
+  \ Stream the state of a game being played with the Bot API, as [ndjson](#section/Introduction/Streaming-with-ND-JSON).\n\
+  \nUse this endpoint to get updates about the game in real-time, with a single request.\n\
+  \nEach line is a JSON object containing a `type` field. Possible values are:\n
+  \ - `gameFull` Full game data. All values are immutable, except for the `state` field.\n
+  \ - `gameState` Current state of the game. Immutable values not included.\n
+  \ - `chatLine` Chat message sent by a user (or the bot itself) in the `room` \"player\" or \"spectator\".\n\n
+  \ - `opponentGone` Whether the opponent has left the game, and how long before you can claim a win or draw.\n\n
+  \nThe first line is always of type `gameFull`."
+  tags:
+    - Bot
+  security:
+    - OAuth2: ["bot:play"]
+  parameters:
+    - in: path
+      name: gameId
+      schema:
+        type: string
+        example: "5IrD6Gzz"
+      required: true
+  responses:
+    "200":
+      description: The stream of the bot game.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            oneOf:
+              - $ref: '../../schemas/GameFullEvent.yaml'
+              - $ref: '../../schemas/GameStateEvent.yaml'
+              - $ref: '../../schemas/ChatLineEvent.yaml'
+              - $ref: '../../schemas/OpponentGone.yaml'
+          examples:
+            gameFull:
+              $ref: '#/components/examples/gameFull'
+            gameState:
+              $ref: '#/components/examples/gameState'
+            chatLine:
+              $ref: '#/components/examples/chatLine'
+            chatLineSpectator:
+              $ref: '#/components/examples/chatLineSpectator'
+            opponentGoneTrue:
+              $ref: '#/components/examples/opponentGoneTrue'
+            opponentGoneFalse:
+              $ref: '#/components/examples/opponentGoneFalse'
+            gameStateResign:
+              $ref: '#/components/examples/gameStateResign'
+    "404":
+      description: The bot game was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/NotFound.yaml'

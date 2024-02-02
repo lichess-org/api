@@ -1,0 +1,101 @@
+servers:
+  - url: https://explorer.lichess.ovh
+get:
+  operationId: openingExplorerPlayer
+  summary: Player games
+  description: |
+    **Endpoint: <https://explorer.lichess.ovh/player>**
+    Games of a Lichess player.
+    Responds with a stream of [newline delimited JSON](#section/Introduction/Streaming-with-ND-JSON). Will start indexing
+    on demand, immediately respond with the current results, and stream
+    more updates until indexing is complete. The stream is throttled
+    and deduplicated. Empty lines may be sent to avoid timeouts.
+    Will index new games at most once per minute, and revisit previously
+    ongoing games at most once every day.
+    Example: `curl https://explorer.lichess.ovh/player?player=revoof&color=white&play=d2d4,d7d5&recentGames=1`
+  tags:
+    - Opening Explorer
+  security: []
+  parameters:
+    - in: query
+      name: player
+      description: Username or ID of the player
+      schema:
+        type: string
+      example: revoof
+    - in: query
+      name: variant
+      description: Variant
+      schema:
+        $ref: '../../schemas/VariantKey.yaml'
+        default: standard
+    - in: query
+      name: fen
+      description: FEN of the root position
+      schema:
+        type: string
+      example: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+    - in: query
+      name: play
+      description: |
+        Comma separated sequence of legal moves in UCI notation.
+        Play additional moves starting from `fen`.
+        Required to find an opening name, if `fen` is not an exact match
+        for a named position.
+      schema:
+        type: string
+        default: ""
+      example: d2d4,d7d5
+    - in: query
+      name: speeds
+      description: Comma separated list of game speeds to look for
+      schema:
+        type: array
+        items:
+          $ref: '../../schemas/Speed.yaml'
+    - in: query
+      name: modes
+      description: Comma separated list of modes
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - casual
+            - rated
+    - in: query
+      name: since
+      description: Include only games from this month or later
+      schema:
+        type: string
+        default: 1952-01
+    - in: query
+      name: until
+      description: Include only games from this month or earlier
+      schema:
+        type: string
+        default: 3000-12
+    - in: query
+      name: moves
+      description: Number of most common moves to display
+      schema:
+        type: number
+    - in: query
+      name: recentGames
+      description: Number of recent games to display
+      schema:
+        type: number
+        default: 8
+        maximum: 8
+  responses:
+    "200":
+      description: Opening statistics and game references for the position.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/nd-json:
+          schema:
+            $ref: '../../schemas/OpeningExplorerPlayerJson.yaml'

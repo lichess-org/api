@@ -1,0 +1,38 @@
+post:
+  operationId: bulkPairingStartClocks
+  summary: Manually start clocks
+  description: |
+    Immediately start all clocks of the games of a bulk pairing.
+    This overrides the `startClocksAt` value of an existing bulk pairing.
+    If the games have not yet been created (`bulk.pairAt` is in the future), then this does nothing.
+    If the clocks have already started (`bulk.startClocksAt` is in the past), then this does nothing.
+  tags:
+    - Bulk pairings
+  security:
+    - OAuth2: ["challenge:bulk"]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+        description: The ID of the bulk pairing
+        example: "5IrD6Gzz"
+      required: true
+  responses:
+    "200":
+      description: The clocks of the games of a bulk pairing were successfully started.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'
+    "404":
+      description: The bulk pairing was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/NotFound.yaml'

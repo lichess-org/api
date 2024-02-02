@@ -1,0 +1,98 @@
+get:
+  operationId: studyAllChaptersPgn
+  summary: Export all chapters
+  description: |
+    Download all chapters of a study in PGN format.
+  tags:
+    - Studies
+  security: []
+  parameters:
+    - in: path
+      name: studyId
+      description: The study ID (8 characters).
+      required: true
+      schema:
+        type: string
+    - in: query
+      name: clocks
+      description: |
+        Include clock comments in the PGN moves, when available.
+        Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+      schema:
+        type: boolean
+        default: true
+    - in: query
+      name: comments
+      description: |
+        Include analysis and annotator comments in the PGN moves, when available.
+        Example: `12. Bxf6 { [%eval 0.23] } a3 { White is in a pickle. }`
+      schema:
+        type: boolean
+        default: true
+    - in: query
+      name: variations
+      description: |
+        Include non-mainline moves, when available.
+        Example: `4. d4 Bb4+ (4... Nc6 5. Nf3 Bb4+ 6. Bd2 (6. Nbd2 O-O 7. O-O) 6... Bd6) 5. Nd2`
+      schema:
+        type: boolean
+        default: true
+    - in: query
+      name: source
+      description: |
+        Add a `Source` PGN tag with the study chapter URL.
+        Example: `[Source "https://lichess.org/study/4NBHImfM/1Tk4IyTz"]`
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: orientation
+      description: |
+        Add a `Orientation` PGN tag with the chapter predefined orientation.
+        Example: `[Orientation "white"]`
+      schema:
+        type: boolean
+        default: false
+  responses:
+    "200":
+      description: The PGN representation of the study.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+        Last-Modified:
+          schema:
+            type: string
+            example: 'Tue, 25 Apr 2023 13:23:09 GMT'
+      content:
+        application/x-chess-pgn:
+          schema:
+            $ref: '../../schemas/StudyPgn.yaml'
+head:
+  operationId: studyAllChaptersHead
+  summary: Study metadata
+  description: |
+    Only get the study headers, including `Last-Modified`.
+  tags:
+    - Studies
+  security: []
+  parameters:
+    - in: path
+      name: studyId
+      description: The study ID (8 characters).
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: The study headers.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+        Last-Modified:
+          schema:
+            type: string
+            example: 'Tue, 25 Apr 2023 13:23:09 GMT'

@@ -1,0 +1,37 @@
+get:
+  operationId: apiCrosstable
+  summary: Get crosstable
+  description: |
+    Get total number of games, and current score, of any two users.
+    If the `matchup` flag is provided, and the users are currently playing, also gets the current match game number and scores.
+  tags:
+    - Users
+  security: []
+  parameters:
+    - in: path
+      name: user1
+      schema:
+        type: string
+      required: true
+    - in: path
+      name: user2
+      schema:
+        type: string
+      required: true
+    - in: query
+      name: matchup
+      description: Whether to get the current match data, if any
+      schema:
+        type: boolean
+  responses:
+    "200":
+      description: The crosstable of the two users.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Crosstable.yaml'

@@ -1,0 +1,69 @@
+get:
+  operationId: tvChannelGames
+  summary: Get best ongoing games of a TV channel
+  description: |
+    Get a list of ongoing games for a given TV channel. Similar to [lichess.org/games](https://lichess.org/games).
+    Available in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
+  tags:
+    - TV
+  security: []
+  parameters:
+    - in: path
+      name: channel
+      description: The name of the channel in camel case.
+      schema:
+        type: string
+      required: true
+    - in: query
+      name: nb
+      description: Number of games to fetch.
+      schema:
+        type: number
+        default: 10
+        minimum: 1
+        maximum: 30
+    - in: query
+      name: moves
+      description: Include the PGN moves.
+      schema:
+        type: boolean
+        default: true
+    - in: query
+      name: pgnInJson
+      description: Include the full PGN within the JSON response, in a `pgn` field.
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: tags
+      description: Include the PGN tags.
+      schema:
+        type: boolean
+        default: true
+    - in: query
+      name: clocks
+      description: |
+        Include clock status when available.
+        Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+        Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: opening
+      description: |
+        Include the opening name.
+        Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
+      schema:
+        type: boolean
+        default: false
+  responses:
+    "200":
+      description: The representation of the games.
+      content:
+        application/x-chess-pgn:
+          schema:
+            $ref: '../../schemas/GamePgn.yaml'
+        application/x-ndjson:
+          schema:
+            $ref: '../../schemas/GameJson.yaml'

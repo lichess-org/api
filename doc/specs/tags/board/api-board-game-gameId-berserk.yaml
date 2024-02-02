@@ -1,0 +1,35 @@
+post:
+  operationId: boardGameBerserk
+  summary: Berserk a tournament game
+  description: |
+    Go berserk on an arena tournament game. Halves the clock time, grants an extra point upon winning.
+    Only available in arena tournaments that allow berserk, and before each player has made a move.
+  tags:
+    - Board
+  security:
+    - OAuth2: ["board:play"]
+  parameters:
+    - in: path
+      name: gameId
+      schema:
+        type: string
+        example: "5IrD6Gzz"
+      required: true
+  responses:
+    "200":
+      description: The player successfully whent berserk.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'
+    "400":
+      description: The berserk has failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'

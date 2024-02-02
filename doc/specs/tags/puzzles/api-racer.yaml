@@ -1,0 +1,24 @@
+post:
+  operationId: racerPost
+  summary: Create and join a puzzle race
+  description: |
+    Create a new private [puzzle race](https://lichess.org/racer).
+    The Lichess user who creates the race must join the race page,
+    and manually start the race when enough players have joined.
+    - <https://lichess.org/racer>
+  tags:
+    - Puzzles
+  security:
+    - OAuth2: ["racer:write"]
+  responses:
+    "200":
+      description: The new puzzle race.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PuzzleRaceJson.yaml'

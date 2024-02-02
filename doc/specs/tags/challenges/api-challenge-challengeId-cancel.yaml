@@ -1,0 +1,41 @@
+post:
+  operationId: challengeCancel
+  summary: Cancel a challenge
+  description: |
+    Cancel a challenge you sent, or aborts the game if the challenge was accepted, but the game was not yet played.
+    Note that the ID of a game is the same as the ID of the challenge that created it.
+    Works for user challenges and open challenges alike.
+  tags:
+    - Challenges
+  security:
+    - OAuth2: ["challenge:write", "bot:play", "board:play"]
+  parameters:
+    - in: path
+      name: challengeId
+      schema:
+        type: string
+        example: "5IrD6Gzz"
+      required: true
+    - in: query
+      name: opponentToken
+      description: Optional `challenge:write` token of the opponent. If set, the game can be canceled even if both players have moved.
+      schema:
+        type: string
+  responses:
+    "200":
+      description: The challenge was successfully cancelled.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'
+    "404":
+      description: The challenge to cancel was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/NotFound.yaml'

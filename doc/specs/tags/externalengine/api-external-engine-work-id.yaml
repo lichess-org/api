@@ -1,0 +1,45 @@
+servers:
+  - url: https://engine.lichess.ovh
+parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+      example: aingoohiJee2sius
+post:
+  operationId: apiExternalEngineSubmit
+  summary: Answer analysis request
+  tags:
+    - External engine
+  security: []
+  description: |
+    **Endpoint: `https://engine.lichess.ovh/api/external-engine/work/{id}`**
+    Submit a stream of analysis as [UCI output](https://backscattering.de/chess/uci/#engine-info).
+    * The engine should always be in `UCI_Chess960` mode.
+    * `UCI_AnalyseMode` enabled if available.
+    * It produces `info` with at least:
+      - `depth`
+      - `multipv` (between 1 and 5)
+      - `score`
+      - `nodes`
+      - `time`
+      - `pv`
+    The server may close the connection at any time, indicating that
+    the requester has gone away and analysis should be stopped.
+  requestBody:
+    description: Analysis results
+    required: true
+    content:
+      text/plain:
+        schema:
+          type: string
+        example: info multipv 1 depth 20 seldepth 30 time 1373 nodes 1494341 score cp 47 hashfull 594 nps 1088376 tbhits 0 pv d2d4 d7d5 c2c4 e7e6 b1c3 f8b4 c4d5 e6d5 g1f3 g8f6 c1g5 h7h6 g5f6 d8f6 d1b3 c7c5 e2e3 b8c6 d4c5 e8g8 f1d3
+  responses:
+    "200":
+      description: Thanks
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"

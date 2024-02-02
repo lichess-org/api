@@ -1,0 +1,176 @@
+parameters:
+ - in: path
+   name: id
+   description: The tournament ID.
+   schema:
+     type: string
+   required: true
+get:
+  operationId: tournament
+  summary: Get info about an Arena tournament
+  description: |
+    Get detailed info about recently finished, current, or upcoming tournament's duels, player standings, and other info.
+  tags:
+    - "Arena tournaments"
+  security: []
+  parameters:
+    - in: query
+      name: page
+      description: Specify which page of player standings to view.
+      schema:
+        type: number
+        example: 1
+        default: 1
+        minimum: 1
+        maximum: 200
+  responses:
+    "200":
+      description: The information of the Arena tournament.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ArenaTournamentVariantIsKey.yaml'
+post:
+  operationId: apiTournamentUpdate
+  summary: Update an Arena tournament
+  description: |
+    Update an Arena tournament.
+    Be mindful not to make important changes to ongoing tournaments.
+    Can be used to update a team battle.
+    Additional restrictions:
+      - clockTime + clockIncrement > 0
+      - 15s and 0+1 variant tournaments cannot be rated
+      - Clock time in comparison to tournament length must be reasonable: 3 <= (minutes * 60) / (96 * clockTime + 48 * clockIncrement + 15) <= 150
+  tags:
+    - "Arena tournaments"
+  security:
+    - OAuth2: ["tournament:write"]
+  requestBody:
+    description: Parameters of the tournament
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              description: The tournament name. Leave empty to get a random Grandmaster name
+              minLength: 2
+              maxLength: 30
+            clockTime:
+              type: number
+              description: Clock initial time in minutes
+              example: 2
+              enum:
+                - 0
+                - 0.25
+                - 0.5
+                - 0.75
+                - 1
+                - 1.5
+                - 2
+                - 3
+                - 4
+                - 5
+                - 6
+                - 7
+                - 8
+                - 10
+                - 15
+                - 20
+                - 25
+                - 30
+                - 40
+                - 50
+                - 60
+            clockIncrement:
+              type: integer
+              description: Clock increment in seconds
+              example: 1
+              enum: [0, 1, 2, 3, 4, 5, 6, 7, 10, 15, 20, 25, 30, 40, 50, 60]
+            minutes:
+              type: integer
+              description: How long the tournament lasts, in minutes
+              example: 60
+              enum: [20, 25, 30, 35, 40, 45, 50, 55, 60, 70, 80, 90, 100, 110, 120, 150, 180, 210, 240, 270, 300, 330, 360, 420, 480, 540, 600, 720]
+            waitMinutes:
+              type: integer
+              description: How long to wait before starting the tournament, from now, in minutes
+              default: 5
+              enum: [1, 2, 3, 5, 10, 15, 20, 30, 45, 60]
+            startDate:
+              type: integer
+              description: Timestamp (in milliseconds) to start the tournament at a given date and time. Overrides the `waitMinutes` setting
+            variant:
+              $ref: '../../schemas/VariantKey.yaml'
+            rated:
+              type: boolean
+              description: Games are rated and impact players ratings
+              default: true
+            position:
+              $ref: '../../schemas/FromPositionFEN.yaml'
+            berserkable:
+              type: boolean
+              description: Whether the players can use berserk. Only allowed if clockIncrement <= clockTime * 2
+              default: true
+            streakable:
+              type: boolean
+              description: After 2 wins, consecutive wins grant 4 points instead of 2.
+              default: true
+            hasChat:
+              type: boolean
+              description: Whether the players can discuss in a chat
+              default: true
+            description:
+              type: string
+              description: Anything you want to tell players about the tournament
+            password:
+              type: string
+              description: Make the tournament private, and restrict access with a password
+            conditions.minRating.rating:
+              type: integer
+              description: Minimum rating to join. Leave empty to let everyone join the tournament.
+              enum: [1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600]
+            conditions.maxRating.rating:
+              type: integer
+              description: Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
+              enum: [2200, 2100, 2000, 1900, 1800, 1700, 1600, 1500, 1400, 1300, 1200, 1100, 1000, 900, 800]
+            conditions.nbRatedGame.nb:
+              type: integer
+              description: Minimum number of rated games required to join.
+              enum: [0, 5, 10, 15, 20, 30, 40, 50, 75, 100, 150, 200]
+            conditions.allowList:
+              type: string
+              description: |
+                Predefined list of usernames that are allowed to join, separated by commas.
+                If this list is non-empty, then usernames absent from this list will be forbidden to join.
+                Adding `%titled` to the list additionally allows any titled player to join.
+                Example: `thibault,german11,%titled`
+          required:
+            - clockTime
+            - clockIncrement
+            - minutes
+  responses:
+    "200":
+      description: The Arena tournament was successfully updated.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ArenaTournamentVariantIsKey.yaml'
+    "400":
+      description: The update of the Arena tournament failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'

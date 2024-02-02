@@ -1,0 +1,33 @@
+get:
+  operationId: studyListMetadata
+  summary: List studies of a user
+  description: |
+    Get metadata (name and dates) of all studies of a user.
+    If authenticated, then all public, unlisted, and private studies are included.
+    If not, only public (non-unlisted) studies are included.
+    Studies are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+  tags:
+    - Studies
+  security:
+    - OAuth2: ["study:read"]
+  parameters:
+    - in: path
+      name: username
+      description: The user whose studies we list
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: The list of studies.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/StudyMetadata.yaml'

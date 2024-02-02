@@ -1,0 +1,41 @@
+post:
+  operationId: inboxUsername
+  summary: Send a private message
+  description: |
+    Send a private message to another player.
+  tags:
+    - Messaging
+  security:
+    - OAuth2: ["msg:write"]
+  parameters:
+    - in: path
+      name: username
+      schema:
+        type: string
+        example: "someplayer"
+      required: true
+  requestBody:
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            text:
+              type: string
+              example: "Thank you for the game!"
+          required:
+            - text
+  responses:
+    "200":
+      description: The private message has been successfully sent.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'
+    "400":
+      description: The sending of the private message has failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'

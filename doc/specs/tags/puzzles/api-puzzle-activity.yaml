@@ -1,0 +1,36 @@
+get:
+  operationId: apiPuzzleActivity
+  summary: Get your puzzle activity
+  description: |
+    Download your puzzle activity in [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
+    Puzzle activity is sorted by reverse chronological order (most recent first)
+    We recommend streaming the response, for it can be very long.
+  tags:
+    - Puzzles
+  security:
+    - OAuth2: ["puzzle:read"]
+  parameters:
+    - in: query
+      name: max
+      description: How many entries to download. Leave empty to download all activity.
+      schema:
+        type: integer
+        minimum: 1
+    - in: query
+      name: before
+      description: Download entries before this timestamp. Defaults to now. Use `before` and `max` for pagination.
+      schema:
+        type: integer
+        minimum: 1356998400070
+  responses:
+    "200":
+      description: The puzzle activity of the logged in user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            $ref: '../../schemas/PuzzleRoundJson.yaml'

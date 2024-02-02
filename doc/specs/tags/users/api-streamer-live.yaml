@@ -1,0 +1,46 @@
+get:
+  operationId: streamerLive
+  summary: Get live streamers
+  description: |
+    Get basic info about currently streaming users.
+    This API is very fast and cheap on lichess side.
+    So you can call it quite often (like once every 5 seconds).
+  tags:
+    - Users
+  security: []
+  responses:
+    "200":
+      description: The list of live streamers and their respective information.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/LightUser.yaml'
+            example: [
+              {
+                "id": "chess-network",
+                "name": "Chess-Network",
+                "title": "NM",
+                "patron": true,
+                "stream": {
+                  "service": "twitch",
+                  "status": "Tuesday night 🐴 chess | lichess.org",
+                  "lang": "en"
+                },
+                "streamer": {
+                  "name": "ChessNetwork",
+                  "headline": "Chess with commentary, tournament competition, viewer interaction, and more.",
+                  "description": "I'm a self-taught National Master in chess from Pennsylvania, USA who was introduced to the game by my father in 1988 at age 8. I've been playing since, enjoy teaching, and have been a broadcaster of all things chess since 2011. It's my hope your experience with this stream is both fun and educational. 😎
+-Jerry",
+                  "twitch": "https://twitch.tv/chessnetwork",
+                  "youTube": "https://www.youtube.com/channel/UCCDOQrpqLqKVcTCKzqarxLg/live",
+                  "image": "https://image.lichess1.org/display?h=350&op=thumbnail&path=orlandikill:streamer:orlandikill:wiw356Np.jpg&w=350&sig=9912e0c45e42f37e7cd2716af6bd41bb10497b0c"
+                }
+              }
+            ]

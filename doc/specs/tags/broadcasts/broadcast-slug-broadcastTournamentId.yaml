@@ -1,0 +1,29 @@
+get:
+  operationId: broadcastTourGet
+  summary: Get your broadcast tournament
+  description: |
+    Get information about a broadcast tournament.
+  tags:
+    - Broadcasts
+  security:
+    - OAuth2: ["study:read"]
+  parameters:
+    - in: path
+      name: slug
+      description: The broadcast tournament slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastTournamentId` is actually used.
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: broadcastTournamentId
+      description: The broadcast tournament ID (8 characters).
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: The information about the broadcast tournament.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/BroadcastTour.yaml'

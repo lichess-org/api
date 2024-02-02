@@ -1,0 +1,61 @@
+post:
+  operationId: apiTournamentJoin
+  summary: Join an Arena tournament
+  description: |
+    Join an Arena tournament, possibly with a password and/or a team.
+    Also unpauses if you had previously [paused](#operation/apiTournamentWithdraw) the tournament.
+  tags:
+    - "Arena tournaments"
+  security:
+    - OAuth2: ["tournament:write"]
+  parameters:
+    - in: path
+      name: id
+      description: The tournament ID.
+      schema:
+        type: string
+        example: "hL7vMrFQ"
+      required: true
+  requestBody:
+    description: You may need these depending on the tournament to join
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            password:
+              type: string
+              description: |
+                The tournament password, if one is required.
+                Can also be a [user-specific entry code](https://github.com/lichess-org/api/tree/master/example/tournament-entry-code)
+                generated and shared by the organizer.
+            team:
+              type: string
+              description: The team to join the tournament with, for team battle tournaments
+            pairMeAsap:
+              type: boolean
+              default: false
+              description: |
+                If the tournament is started, attempt to pair the user,
+                even if they are not connected to the tournament page.
+                This expires after one minute, to avoid pairing a user who is long gone.
+                You may call "join" again to extend the waiting.
+  responses:
+    "200":
+      description: The tournament was successfully joined.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'
+    "400":
+      description: Joining the tournament failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'

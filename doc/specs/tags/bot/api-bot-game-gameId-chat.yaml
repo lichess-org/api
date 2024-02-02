@@ -1,0 +1,80 @@
+post:
+  operationId: botGameChat
+  summary: Write in the chat
+  description: |
+    Post a message to the player or spectator chat, in a game being played with the Bot API.
+  tags:
+    - Bot
+  security:
+    - OAuth2: ["bot:play"]
+  parameters:
+    - in: path
+      name: gameId
+      schema:
+        type: string
+        example: "5IrD6Gzz"
+      required: true
+  requestBody:
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            room:
+              type: string
+              enum:
+              - player
+              - spectator
+            text:
+              type: string
+              example: "Thank you for the game!"
+          required:
+            - room
+            - text
+  responses:
+    "200":
+      description: The message was successfully posted in chat.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'
+    "400":
+      description: The posting of the  message in chat failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'
+get:
+  operationId: botGameChatGet
+  summary: Fetch the game chat
+  description: |
+    Get the messages posted in the game chat
+  tags:
+    - Bot
+  security:
+    - OAuth2: ["bot:play"]
+  parameters:
+    - in: path
+      name: gameId
+      schema:
+        type: string
+        example: "5IrD6Gzz"
+      required: true
+  responses:
+    "200":
+      description: The messages posted in the chat.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            $ref: '../../schemas/GameChat.yaml'

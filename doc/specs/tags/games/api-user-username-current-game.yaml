@@ -1,0 +1,105 @@
+get:
+  operationId: apiUserCurrentGame
+  summary: Export ongoing game of a user
+  description: |
+    Download the ongoing game, or the last game played, of a user.
+    Available in either PGN or JSON format.
+    Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
+  tags:
+    - Games
+  security: []
+  parameters:
+    - in: path
+      name: username
+      required: true
+      schema:
+        type: string
+    - in: query
+      name: moves
+      description: Include the PGN moves.
+      schema:
+        type: boolean
+        default: true
+    - in: query
+      name: pgnInJson
+      description: Include the full PGN within the JSON response, in a `pgn` field.
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: tags
+      description: Include the PGN tags.
+      schema:
+        type: boolean
+        default: true
+    - in: query
+      name: clocks
+      description: |
+        Include clock status when available.
+        Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+        Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
+      schema:
+        type: boolean
+        default: true
+    - in: query
+      name: evals
+      description: |
+        Include analysis evaluations and comments, when available.
+        Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+        Or in an `analysis` JSON field, depending on the response type.
+      schema:
+        type: boolean
+        default: true
+    - in: query
+      name: accuracy
+      description: |
+        Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available.
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: opening
+      description: |
+        Include the opening name.
+        Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
+      schema:
+        type: boolean
+        default: true
+    - in: query
+      name: division
+      description: | 
+        Plies which mark the beginning of the middlegame and endgame.
+        Only available in JSON
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: literate
+      description: |
+        Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
+        Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: players
+      description: |
+        URL of a text file containing real names and ratings, to replace Lichess usernames and ratings in the PGN.
+        Example: <https://gist.githubusercontent.com/ornicar/6bfa91eb61a2dcae7bcd14cce1b2a4eb/raw/768b9f6cc8a8471d2555e47ba40fb0095e5fba37/gistfile1.txt>
+      schema:
+        type: string
+  responses:
+    "200":
+      description: The ongoing (or last) game of a user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-chess-pgn:
+          schema:
+            $ref: '../../schemas/GamePgn.yaml'
+        application/json:
+          schema:
+            $ref: '../../schemas/GameJson.yaml'

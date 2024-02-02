@@ -1,0 +1,56 @@
+get:
+  operationId: accountKid
+  summary: Get my kid mode status
+  description: |
+    Read the kid mode status of the logged in user.
+    - <https://lichess.org/account/kid>
+  tags:
+    - Account
+  security:
+    - OAuth2: ["preference:read"]
+  responses:
+    "200":
+      description: The kid mode status of the logged in user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            properties:
+              kid:
+                type: boolean
+            example:
+              kid: false
+post:
+  operationId: accountKidPost
+  summary: Set my kid mode status
+  description: |
+    Set the kid mode status of the logged in user.
+    - <https://lichess.org/account/kid>
+  tags:
+    - Account
+  security:
+    - OAuth2: ["preference:write"]
+  parameters:
+    - in: query
+      name: v
+      required: true
+      description: Kid mode status
+      schema:
+        type: boolean
+      example: true
+  responses:
+    "200":
+      description: The kid mode status was set successfully for the logged in user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'

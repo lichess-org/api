@@ -1,0 +1,73 @@
+post:
+  operationId: apiToken
+  summary: Obtain access token
+  tags:
+    - OAuth
+  security: []
+  description: |
+    OAuth2 token endpoint. Exchanges an authorization code for an access token.
+  requestBody:
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            grant_type:
+              type: string
+              example: authorization_code
+              description: Must be `authorization_code`.
+            code:
+              type: string
+              example: liu_iS1uOZg99Htmo58ex2jKgYziUfzsnAl0
+              description: The authorization code that was sent in the `code` parameter to your `redirect_uri`.
+            code_verifier:
+              type: string
+              example: Ry1rbGdOMTQtUjhOc0lmTnFKak1LTHV0NjlRMll2aXYtTThkQnlJRkRpaGwyQjh0ZDNFdzFPSG9KUlY4M1NrRzJ5ZHhUdjVZR08zLTZOT3dCN2xLfjZOXzU2WHk4SENP
+              description: A `code_challenge` was used to request the authorization code. This must be the `code_verifier` it was derived from.
+            redirect_uri:
+              type: string
+              example: http://example.com/
+              description: Must match the `redirect_uri` used to request the authorization code.
+            client_id:
+              type: string
+              example: example.com
+              description: Must match the `client_id` used to request the authorization code.
+  responses:
+    "200":
+      description: Access token successfully obtained.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          example: {"token_type": "Bearer", "access_token": "lio_pLwAbN7lFPklzY2m8lTOI1DGApS84u57", "expires_in": 31536000}
+    "400":
+      description: Failed to obtain access token.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/OAuthError.yaml'
+delete:
+  operationId: apiTokenDelete
+  summary: Revoke access token
+  description: Revokes the access token sent as Bearer for this request.
+  tags:
+    - OAuth
+  security:
+    - OAuth2: []
+  responses:
+    "204":
+      description: Access token revoked.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"

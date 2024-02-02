@@ -1,0 +1,57 @@
+post:
+  operationId: challengeDecline
+  summary: Decline a challenge
+  description: |
+    Decline an incoming challenge.
+  tags:
+    - Challenges
+  security:
+    - OAuth2: ["challenge:write", "bot:play", "board:play"]
+  parameters:
+    - in: path
+      name: challengeId
+      schema:
+        type: string
+        example: "5IrD6Gzz"
+      required: true
+  requestBody:
+    description: Details related to decline of challenge
+    required: false
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            reason:
+              type: string
+              description: Reason challenge was declined. It will be translated to the player's language. See [the full list in the translation file](https://github.com/ornicar/lila/blob/master/translation/source/challenge.xml#L14).
+              enum:
+                - generic
+                - later
+                - tooFast
+                - tooSlow
+                - timeControl
+                - rated
+                - casual
+                - standard
+                - variant
+                - noBot
+                - onlyBot
+  responses:
+    "200":
+      description: The challenge was successfully declined.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'
+    "404":
+      description: The challenge to decline was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/NotFound.yaml'

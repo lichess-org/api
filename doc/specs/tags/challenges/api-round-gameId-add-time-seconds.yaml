@@ -1,0 +1,36 @@
+post:
+  operationId: roundAddTime
+  summary: Add time to the opponent clock
+  description: |
+    Add seconds to the opponent's clock. Can be used to create games with time odds.
+  tags:
+    - Challenges
+  security:
+    - OAuth2: ["challenge:write"]
+  parameters:
+    - in: path
+      name: gameId
+      schema:
+        type: string
+        description: ID of the game
+      required: true
+    - in: path
+      name: seconds
+      description: How many seconds to give
+      schema:
+        type: string
+        minimum: 1
+        maximum: 86400
+      required: true
+  responses:
+    "200":
+      description: Time was successfully added to the opponent's clock.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'

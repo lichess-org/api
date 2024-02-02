@@ -1,0 +1,36 @@
+post:
+  operationId: apiTournamentWithdraw
+  summary: Pause or leave an Arena tournament
+  description: |
+    Leave a future Arena tournament, or take a break on an ongoing Arena tournament.
+    It's possible to join again later. Points and streaks are preserved.
+  tags:
+    - "Arena tournaments"
+  security:
+    - OAuth2: ["tournament:write"]
+  parameters:
+    - in: path
+      name: id
+      description: The tournament ID.
+      schema:
+        type: string
+        example: "hL7vMrFQ"
+      required: true
+  responses:
+    "200":
+      description: The tournament was successfully paused or left.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'
+    "400":
+      description: Pausing/leaving the tournament failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'

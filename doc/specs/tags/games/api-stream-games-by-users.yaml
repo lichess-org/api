@@ -1,0 +1,42 @@
+post:
+  operationId: gamesByUsers
+  summary: Stream games of users
+  description: |
+    Stream the games played between a list of users, in real time.
+    Only games where **both players** are part of the list are included.
+    The stream emits an event each time a game is started or finished.
+    To also get all current ongoing games at the beginning of the stream, use the `withCurrentGames` flag.
+    Games are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+    Maximum number of users: 300.
+    The method is `POST` so a longer list of IDs can be sent in the request body.
+  tags:
+    - Games
+  security: []
+  requestBody:
+    description: |
+      Up to 300 user IDs separated by commas.
+      Example: `aliquantus,chess-network,lovlas`
+    required: true
+    content:
+      text/plain:
+        schema:
+          type: string
+  parameters:
+    - in: query
+      name: withCurrentGames
+      description: Include the already started games at the beginning of the stream.
+      schema:
+        type: boolean
+        default: false
+  responses:
+    "200":
+      description: The stream of the games played between the users.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            $ref: '../../schemas/GameStream.yaml'

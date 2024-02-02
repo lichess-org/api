@@ -1,0 +1,37 @@
+post:
+  operationId: gameImport
+  summary: Import one game
+  description: |
+    Import a game from PGN. See <https://lichess.org/paste>.
+    Rate limiting: 200 games per hour for OAuth requests, 100 games per hour for anonymous requests.
+    To broadcast ongoing games, consider [pushing to a broadcast instead](#operation/broadcastPush).
+    To analyse a position or a line, just construct an analysis board URL:
+    [https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bc4_Bc5_Bxf7+](https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bc4_Bc5_Bxf7+)
+  tags:
+    - Games
+  security:
+    - OAuth2: []
+  requestBody:
+    description: A single game to import
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            pgn:
+              type: string
+              description: The PGN. It can contain only one game. Most standard tags are supported.
+  responses:
+    "200":
+      description: The game was successfully imported.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            example: {"id": "R6iLjwz5", "url": "https://lichess.org/R6iLjwz5"}
+

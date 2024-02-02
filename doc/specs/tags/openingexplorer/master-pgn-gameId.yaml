@@ -1,0 +1,29 @@
+servers:
+  - url: https://explorer.lichess.ovh
+get:
+  operationId: openingExplorerMasterGame
+  summary: OTB master game
+  description: |
+    **Endpoint: `https://explorer.lichess.ovh/masters/pgn/{gameId}`**
+    Example: `curl https://explorer.lichess.ovh/masters/pgn/aAbqI4ey`
+  tags:
+    - Opening Explorer
+  security: []
+  parameters:
+    - in: path
+      name: gameId
+      schema:
+        type: string
+      required: true
+  responses:
+    "200":
+      description: The PGN representation of the game.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-chess-pgn:
+          schema:
+            $ref: '../../schemas/MasterGamePgn.yaml'

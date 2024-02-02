@@ -1,0 +1,50 @@
+post:
+  operationId: tokenTest
+  summary: Test multiple OAuth tokens
+  description: |
+    For up to 1000 OAuth tokens,
+    returns their associated user ID and scopes,
+    or `null` if the token is invalid.
+    The method is `POST` so a longer list of tokens can be sent in the request body.
+  tags:
+    - OAuth
+  security: []
+  requestBody:
+    description: OAuth tokens separated by commas. Up to 1000.
+    required: true
+    content:
+      text/plain:
+        schema:
+          type: string
+        example: "lip_AvsS88TozFeSMEaoLN5c,lip_badToken"
+  responses:
+    "200":
+      description: The representation of the OAuth tokens.
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties:
+              x-additionalPropertiesName: token
+              oneOf:
+                - type: object
+                  properties:
+                    userId:
+                      type: string
+                    scopes:
+                      type: string
+                      description: Comma-separated list of scopes. Empty string if the token has no scopes.
+                    expires:
+                      type:
+                        - integer
+                        - "null"
+                      description: Unix-timestampe in milliseconds or null if the token never expires.
+                - type: "null"
+            example: {
+              "lip_AvsS88TozFeSnZa1LN5c": {
+                "scopes": "challenge:read,challenge:write",
+                "userId": "thibault",
+                "expires": 1358509698620
+              },
+              "lip_badToken": null
+            }

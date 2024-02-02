@@ -1,0 +1,27 @@
+get:
+  operationId: apiBotOnline
+  summary: Get online bots
+  tags:
+    - Bot
+  security: []
+  description: Stream the [online bot users](https://lichess.org/player/bots), as [ndjson](#section/Introduction/Streaming-with-ND-JSON). Throttled to 50 bot users per second.
+  parameters:
+    - in: query
+      name: nb
+      description: How many bot users to fetch
+      schema:
+        type: integer
+        minimum: 1
+        example: 20
+  responses:
+    "200":
+      description: The list of online bot users
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            $ref: '../../schemas/User.yaml'

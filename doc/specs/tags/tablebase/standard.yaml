@@ -1,0 +1,30 @@
+servers:
+  - url: https://tablebase.lichess.ovh
+get:
+  operationId: tablebaseStandard
+  summary: Tablebase lookup
+  description: |
+    **Endpoint: <https://tablebase.lichess.ovh>**
+    Example: `curl http://tablebase.lichess.ovh/standard?fen=4k3/6KP/8/8/8/8/7p/8_w_-_-_0_1`
+  tags:
+    - Tablebase
+  security: []
+  parameters:
+    - in: query
+      name: fen
+      description: FEN of the position. Underscores allowed.
+      schema:
+        type: string
+      required: true
+  responses:
+    "200":
+      description: The tablebase information for the position in standard chess.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/TablebaseJson.yaml'

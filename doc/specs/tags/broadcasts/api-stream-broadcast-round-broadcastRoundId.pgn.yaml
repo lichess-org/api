@@ -1,0 +1,31 @@
+get:
+  operationId: broadcastStreamRoundPgn
+  summary: Stream an ongoing broadcast tournament as PGN
+  description: |
+    This streaming endpoint first sends all games of a broadcast tournament in PGN format.
+    Then, it waits for new moves to be played. As soon as it happens, the entire PGN of the game is sent to the stream.
+    The stream will also send PGNs when games are added to the tournament.
+    This is the best way to get updates about an ongoing tournament. Streaming means no polling,
+    and no pollings means no latency, and minimum impact on the server.
+  tags:
+    - Broadcasts
+  security: []
+  parameters:
+    - in: path
+      name: broadcastRoundId
+      description: The broadcast round ID (8 characters).
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: The PGN representation of the tournament games, then the PGNs of games as they are updated.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-chess-pgn:
+          schema:
+            $ref: '../../schemas/StudyPgn.yaml'

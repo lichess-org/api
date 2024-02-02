@@ -1,0 +1,22 @@
+servers:
+  - url: https://tablebase.lichess.ovh
+get:
+  operationId: tablebaseAtomic
+  summary: Tablebase lookup for Atomic chess
+  description: |
+    **Endpoint: <https://tablebase.lichess.ovh>**
+  tags:
+    - Tablebase
+  security: []
+  responses:
+    "200":
+      description: The tablebase information for the position in atomic chess.
+      content:
+        text/plain:
+          schema:
+            type: string
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"

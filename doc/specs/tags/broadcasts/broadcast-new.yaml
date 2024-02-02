@@ -1,0 +1,34 @@
+post:
+  operationId: broadcastTourCreate
+  summary: Create a broadcast tournament
+  description: |
+    Create a new broadcast tournament to relay external games.
+    This endpoint accepts the same form data as the [web form](https://lichess.org/broadcast/new).
+  tags:
+    - Broadcasts
+  security:
+    - OAuth2: ["study:write"]
+  requestBody:
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          $ref: '../../schemas/BroadcastForm.yaml'
+  responses:
+    "200":
+      description: The broadcast tournament was successfully created.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/BroadcastTour.yaml'
+    "400":
+      description: The creation of the broadcast tournament failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'

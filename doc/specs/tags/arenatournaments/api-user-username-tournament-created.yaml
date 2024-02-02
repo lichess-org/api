@@ -1,0 +1,39 @@
+get:
+  operationId: apiUserNameTournamentCreated
+  summary: Get tournaments created by a user
+  description: |
+    Get all tournaments created by a given user.
+    Tournaments are sorted by reverse chronological order of start date (last starting first).
+    Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+  tags:
+    - "Arena tournaments"
+  security: []
+  parameters:
+    - in: path
+      name: username
+      description: The user whose created tournaments to fetch
+      schema:
+        type: string
+      required: true
+    - in: query
+      name: status
+      description: |
+        Include tournaments in the given status: "Created" (10), "Started" (20), "Finished" (30)
+        You can add this parameter more than once to include tournaments in different statuses.
+        Example: `?status=10&status=20`
+      schema:
+        type: integer
+        enum: [10, 20, 30]
+      required: false
+  responses:
+    "200":
+      description: The list of tournaments created by the user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            $ref: '../../schemas/ArenaTournament.yaml'

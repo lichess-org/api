@@ -1,0 +1,23 @@
+post:
+  operationId: followUser
+  summary: Follow a player
+  description: |
+    Follow a player, adding them to your list of Lichess friends.
+  tags:
+    - Relations
+  security:
+    - OAuth2: ["follow:write"]
+  parameters:
+    - in: path
+      name: username
+      schema:
+        type: string
+        example: "thibault"
+      required: true
+  responses:
+    "200":
+      description: The player was successfully added.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'

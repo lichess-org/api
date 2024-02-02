@@ -1,0 +1,54 @@
+get:
+  operationId: apiExternalEngineList
+  summary: List external engines
+  tags:
+    - External engine
+  security:
+    - OAuth2: ["engine:read"]
+  description: |
+    Lists all external engines that have been registered for the user,
+    and the credentials required to use them.
+  responses:
+    "200":
+      description: A list of external engines.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/ExternalEngine.yaml'
+post:
+  operationId: apiExternalEngineCreate
+  summary: Create external engine
+  tags:
+    - External engine
+  security:
+    - OAuth2: ["engine:write"]
+  description: |
+    Registers a new external engine for the user. It can then be selected
+    and used on the analysis board.
+    After registering, the provider should start waiting for analyis requests.
+  requestBody:
+    description: A new external engine registration.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/ExternalEngineRegistration.yaml'
+  responses:
+    "200":
+      description: The registered engine.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ExternalEngine.yaml'

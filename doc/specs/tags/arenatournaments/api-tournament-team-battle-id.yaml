@@ -1,0 +1,55 @@
+post:
+  operationId: apiTournamentTeamBattlePost
+  summary: Update a team battle
+  description: |
+    Set the teams and number of leaders of a team battle.
+    To update the other attributes of a team battle, use the [tournament update endpoint](#operation/apiTournamentUpdate).
+  tags:
+    - "Arena tournaments"
+  security:
+    - OAuth2: ["tournament:write"]
+  parameters:
+    - in: path
+      name: id
+      description: The tournament ID (8 characters)..
+      required: true
+      schema:
+        type: string
+  requestBody:
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            teams:
+              type: string
+              description: |
+                All team IDs of the team battle, separated by commas.
+                Make sure to always send the full list.
+                Teams that are not in the list will be removed from the team battle.
+                Example: `coders,zhigalko_sergei-fan-club,hhSwTKZv`
+            nbLeaders:
+              type: integer
+              description: Number team leaders per team.
+          required:
+            - teams
+            - nbLeaders
+  responses:
+    "200":
+      description: The team battle tournament was successfully updated.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ArenaTournamentVariantIsKey.yaml'
+    "400":
+      description: The update of the team battle tournament failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'

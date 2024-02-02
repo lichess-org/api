@@ -1,0 +1,25 @@
+get:
+  operationId: teamShow
+  summary: Get a single team
+  description: Public info about a team. Includes the list of publicly visible leaders.
+  tags:
+    - Teams
+  security: []
+  parameters:
+    - in: path
+      name: teamId
+      schema:
+        type: string
+      required: true
+  responses:
+    "200":
+      description: The information about the team.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Team.yaml'

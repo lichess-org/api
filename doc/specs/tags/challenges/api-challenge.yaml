@@ -1,0 +1,32 @@
+get:
+  operationId: challengeList
+  summary: List your challenges
+  description: |
+    Get a list of challenges created by or targeted at you.
+  tags:
+    - Challenges
+  security:
+    - OAuth2: ["challenge:read"]
+  responses:
+    "200":
+      description: The list of challenges created by or targeted at the logged in user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              in:
+                type: array
+                description: Incoming challenges i.e. targeted at you
+                items:
+                  $ref: '../../schemas/ChallengeJson.yaml'
+              out:
+                type: array
+                description: Outgoing challenges i.e. created by you
+                items:
+                  $ref: '../../schemas/ChallengeJson.yaml'

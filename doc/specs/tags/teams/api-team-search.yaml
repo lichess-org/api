@@ -1,0 +1,32 @@
+get:
+  operationId: teamSearch
+  summary: Search teams
+  description: |
+    Paginator of team search results for a keyword.
+  tags:
+    - Teams
+  security: []
+  parameters:
+    - in: query
+      name: text
+      schema:
+        type: string
+        example: coders
+    - in: query
+      name: page
+      schema:
+        type: number
+        example: 1
+        default: 1
+  responses:
+    "200":
+      description: The paginated list of teams.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/TeamPaginatorJson.yaml'

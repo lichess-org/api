@@ -1,0 +1,40 @@
+get:
+  operationId: apiSimul
+  summary: Get current simuls
+  description: |
+    Get recently created, started, finished, simuls.
+    Created and finished simul lists are not exhaustives, only those with
+    strong enough host will be listed, the same filter is used to display simuls on https://lichess.org/simul.
+    When [authenticated with OAuth2](#section/Introduction/Authentication), the pending list will be populated with your created, but unstarted simuls.
+  tags:
+    - Simuls
+  security: []
+  responses:
+    "200":
+      description: The list of simuls.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              pending:
+                type: array
+                items:
+                  $ref: '../../schemas/Simul.yaml'
+              created:
+                type: array
+                items:
+                  $ref: '../../schemas/Simul.yaml'
+              started:
+                type: array
+                items:
+                  $ref: '../../schemas/Simul.yaml'
+              finished:
+                type: array
+                items:
+                  $ref: '../../schemas/Simul.yaml'

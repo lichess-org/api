@@ -1,0 +1,31 @@
+get:
+  operationId: broadcastAllRoundsPgn
+  summary: Export all rounds as PGN
+  description: |
+    Download all games of all rounds of a broadcast in PGN format.
+    If a `study:read` [OAuth token](#tag/OAuth) is provided,
+    the private rounds where the user is a contributor will be available.
+    You may want to [download only the games of a single round](#operation/broadcastRoundPgn) instead.
+  tags:
+    - Broadcasts
+  security:
+    - OAuth2: ["study:read"]
+  parameters:
+    - in: path
+      name: broadcastTournamentId
+      description: The broadcast tournament ID (8 characters).
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: The PGN representation of the broadcast.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-chess-pgn:
+          schema:
+            $ref: '../../schemas/StudyPgn.yaml'

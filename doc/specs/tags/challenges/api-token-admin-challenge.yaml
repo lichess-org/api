@@ -1,0 +1,46 @@
+post:
+  operationId: adminChallengeTokens
+  summary: Admin challenge tokens
+  description: |
+    **This endpoint can only be used by Lichess administrators. It will not work if you do not have the appropriate permissions.** Tournament organizers should instead use [OAuth](#tag/OAuth) to obtain `challenge:write` tokens from users in order to perform bulk pairing.*
+    Create and obtain `challenge:write` tokens for multiple users.
+    If a similar token already exists for a user, it is reused. This endpoint is idempotent.
+  tags:
+    - Challenges
+  security:
+    - OAuth2: ["web:mod"]
+  requestBody:
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            users:
+              description: Usernames separated with commas
+              type: string
+              example: thibault,neio,lizen2,lizen3
+            description:
+              description: User visible description of the token
+              type: string
+              example: "FIDE tournament XYZ"
+          required:
+            - users
+            - description
+  responses:
+    "200":
+      description: The `challenge:write` tokens of each user
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          example: { "thibault": "lLOEkpH58W599xH9", "neio": "nAYTIJphwWFwKmKk", "lizen2": "1cnHhuWKHROgiPC4", "lizen3": "SszJ9Sj1bto0UQCK" }
+    "400":
+      description: The creation of the tokens failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'

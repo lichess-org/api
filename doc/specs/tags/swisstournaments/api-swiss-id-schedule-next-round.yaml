@@ -1,0 +1,50 @@
+post:
+  operationId: apiSwissScheduleNextRound
+  summary: Manually schedule the next round
+  description: |
+    Manually schedule the next round date and time of a Swiss tournament.
+    This sets the `roundInterval` field to `99999999`, i.e. manual scheduling.
+    All further rounds will need to be manually scheduled, unless the `roundInterval` field is changed back to automatic scheduling.
+  tags:
+    - "Swiss tournaments"
+  security:
+    - OAuth2: ["tournament:write"]
+  parameters:
+    - in: path
+      name: id
+      description: The tournament ID.
+      schema:
+        type: string
+        example: "hL7vMrFQ"
+      required: true
+  requestBody:
+    description: Parameters of the tournament
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            date:
+              type: integer
+              description: Timestamp in milliseconds to start the next round at a given date and time.
+  responses:
+    "204":
+      description: The Swiss tournament was successfully updated.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+    "400":
+      description: Updating the swiss failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'
+    "401":
+      description: This user cannot update this Swiss.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/SwissUnauthorisedEdit.yaml'

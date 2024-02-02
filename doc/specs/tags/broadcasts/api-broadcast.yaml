@@ -1,0 +1,32 @@
+get:
+  operationId: broadcastIndex
+  summary: Get official broadcasts
+  description: |
+    Get all incoming, ongoing, and finished official broadcasts.
+    The broadcasts are sorted by start date, most recent first.
+    Broadcasts are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+  tags:
+    - Broadcasts
+  security: []
+  parameters:
+    - in: query
+      name: nb
+      description: Max number of broadcasts to fetch
+      schema:
+        type: integer
+        default: 20
+        minimum: 1
+  responses:
+    "200":
+      description: The list of official broadcasts.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/BroadcastTour.yaml'

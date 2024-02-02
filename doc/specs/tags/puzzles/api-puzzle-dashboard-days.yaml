@@ -1,0 +1,31 @@
+get:
+  operationId: apiPuzzleDashboard
+  summary: Get your puzzle dashboard
+  description: |
+    Download your [puzzle dashboard](https://lichess.org/training/dashboard/30/dashboard) as JSON.
+    Also includes all puzzle themes played, with aggregated results.
+    Allows re-creating the [improvement/strengths](https://lichess.org/training/dashboard/30/improvementAreas) interfaces.
+  tags:
+    - Puzzles
+  security:
+    - OAuth2: ["puzzle:read"]
+  parameters:
+    - in: path
+      name: days
+      required: true
+      description: How many days to look back when aggregating puzzle results. 30 is sensible.
+      schema:
+        type: integer
+        minimum: 1
+  responses:
+    "200":
+      description: The puzzle dashboard of the logged in user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PuzzleDashboardJson.yaml'
