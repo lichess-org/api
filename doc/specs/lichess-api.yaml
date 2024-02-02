@@ -344,7 +344,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Top10s'
+                $ref: './schemas/Top10s.yaml'
 
   /api/player/top/{nb}/{perfType}:
     get:
@@ -400,7 +400,7 @@ paths:
           content:
             application/vnd.lichess.v3+json:
               schema:
-                $ref: '#/components/schemas/Leaderboard'
+                $ref: './schemas/Leaderboard.yaml'
 
   /api/user/{username}:
     get:
@@ -438,7 +438,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserExtended'
+                $ref: './schemas/UserExtended.yaml'
 
   /api/user/{username}/rating-history:
     get:
@@ -469,7 +469,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RatingHistory'
+                $ref: './schemas/RatingHistory.yaml'
 
   /api/user/{username}/perf/{perf}:
     get:
@@ -490,7 +490,7 @@ paths:
         - in: path
           name: perf
           schema:
-            $ref: '#/components/schemas/PerfType'
+            $ref: './schemas/PerfType.yaml'
           required: true
       responses:
         "200":
@@ -503,7 +503,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PerfStat'
+                $ref: './schemas/PerfStat.yaml'
 
   /api/user/{username}/activity:
     get:
@@ -555,7 +555,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PuzzleAndGame'
+                $ref: './schemas/PuzzleAndGame.yaml'
 
   /api/puzzle/{id}:
     get:
@@ -583,7 +583,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PuzzleAndGame'
+                $ref: './schemas/PuzzleAndGame.yaml'
 
   /api/puzzle/activity:
     get:
@@ -623,7 +623,7 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/PuzzleRoundJson'
+                $ref: './schemas/PuzzleRoundJson.yaml'
 
   /api/puzzle/dashboard/{days}:
     get:
@@ -658,7 +658,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PuzzleDashboardJson'
+                $ref: './schemas/PuzzleDashboardJson.yaml'
 
   /api/storm/dashboard/{username}:
     get:
@@ -699,7 +699,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StormDashboardJson'
+                $ref: './schemas/StormDashboardJson.yaml'
 
   /api/racer:
     post:
@@ -726,7 +726,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PuzzleRaceJson'
+                $ref: './schemas/PuzzleRaceJson.yaml'
 
   /api/users:
     post:
@@ -765,7 +765,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/User'
+                  $ref: './schemas/User.yaml'
 
   /api/account:
     get:
@@ -788,7 +788,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserExtended'
+                $ref: './schemas/UserExtended.yaml'
 
   /api/account/email:
     get:
@@ -843,7 +843,7 @@ paths:
               schema:
                 properties:
                   prefs:
-                    $ref: '#/components/schemas/UserPreferences'
+                    $ref: './schemas/UserPreferences.yaml'
                   language:
                     type: string
                     example: en-GB
@@ -906,7 +906,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
 
   /api/timeline:
     get:
@@ -944,7 +944,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Timeline'
+                $ref: './schemas/Timeline.yaml'
 
   /game/export/{gameId}:
     get:
@@ -1055,10 +1055,10 @@ paths:
           content:
             application/x-chess-pgn:
               schema:
-                $ref: '#/components/schemas/GamePgn'
+                $ref: './schemas/GamePgn.yaml'
             application/json:
               schema:
-                $ref: '#/components/schemas/GameJson'
+                $ref: './schemas/GameJson.yaml'
 
   /api/user/{username}/current-game:
     get:
@@ -1169,10 +1169,10 @@ paths:
           content:
             application/x-chess-pgn:
               schema:
-                $ref: '#/components/schemas/GamePgn'
+                $ref: './schemas/GamePgn.yaml'
             application/json:
               schema:
-                $ref: '#/components/schemas/GameJson'
+                $ref: './schemas/GameJson.yaml'
 
   /api/games/user/{username}:
     get:
@@ -1236,7 +1236,7 @@ paths:
           \nExample: blitz,rapid,classical"
           schema:
             allOf:
-              - $ref: '#/components/schemas/PerfType'
+              - $ref: './schemas/PerfType.yaml'
               - default: null
         - in: query
           name: color
@@ -1375,10 +1375,10 @@ paths:
           content:
             application/x-chess-pgn:
               schema:
-                $ref: '#/components/schemas/GamePgn'
+                $ref: './schemas/GamePgn.yaml'
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/GameJson'
+                $ref: './schemas/GameJson.yaml'
 
   /api/games/export/_ids:
     post:
@@ -1497,10 +1497,10 @@ paths:
           content:
             application/x-chess-pgn:
               schema:
-                $ref: '#/components/schemas/GamePgn'
+                $ref: './schemas/GamePgn.yaml'
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/GameJson'
+                $ref: './schemas/GameJson.yaml'
 
   /api/stream/games-by-users:
     post:
@@ -1549,7 +1549,7 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/GameStream'
+                $ref: './schemas/GameStream.yaml'
 
   /api/stream/games/{streamId}:
     post:
@@ -1596,7 +1596,7 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/GameStream'
+                $ref: './schemas/GameStream.yaml'
 
   /api/stream/games/{streamId}/add:
     post:
@@ -1636,7 +1636,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
 
   /api/account/playing:
     get:
@@ -1721,7 +1721,7 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/MoveStream'
+                $ref: './schemas/MoveStream.yaml'
 
   /api/import:
     post:
@@ -1784,7 +1784,7 @@ paths:
           content:
             application/x-chess-pgn:
               schema:
-                $ref: '#/components/schemas/GamePgn'
+                $ref: './schemas/GamePgn.yaml'
 
   /api/tv/channels:
     get:
@@ -2012,10 +2012,10 @@ paths:
           content:
             application/x-chess-pgn:
               schema:
-                $ref: '#/components/schemas/GamePgn'
+                $ref: './schemas/GamePgn.yaml'
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/GameJson'
+                $ref: './schemas/GameJson.yaml'
 
   /api/tournament:
     get:
@@ -2039,7 +2039,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArenaTournaments'
+                $ref: './schemas/ArenaTournaments.yaml'
     post:
       operationId: apiTournamentPost
       summary: Create a new Arena tournament
@@ -2118,13 +2118,13 @@ paths:
                   type: integer
                   description: Timestamp (in milliseconds) to start the tournament at a given date and time. Overrides the `waitMinutes` setting
                 variant:
-                  $ref: '#/components/schemas/VariantKey'
+                  $ref: './schemas/VariantKey.yaml'
                 rated:
                   type: boolean
                   description: Games are rated and impact players ratings
                   default: true
                 position:
-                   $ref: '#/components/schemas/FromPositionFEN'
+                   $ref: './schemas/FromPositionFEN.yaml'
                 berserkable:
                   type: boolean
                   description: Whether the players can use berserk. Only allowed if clockIncrement <= clockTime * 2
@@ -2199,13 +2199,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArenaTournamentVariantIsKey'
+                $ref: './schemas/ArenaTournamentVariantIsKey.yaml'
         "400":
           description: The creation of the Arena tournament failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/tournament/{id}:
     parameters:
@@ -2244,7 +2244,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArenaTournamentVariantIsKey'
+                $ref: './schemas/ArenaTournamentVariantIsKey.yaml'
     post:
       operationId: apiTournamentUpdate
       summary: Update an Arena tournament
@@ -2321,13 +2321,13 @@ paths:
                   type: integer
                   description: Timestamp (in milliseconds) to start the tournament at a given date and time. Overrides the `waitMinutes` setting
                 variant:
-                  $ref: '#/components/schemas/VariantKey'
+                  $ref: './schemas/VariantKey.yaml'
                 rated:
                   type: boolean
                   description: Games are rated and impact players ratings
                   default: true
                 position:
-                  $ref: '#/components/schemas/FromPositionFEN'
+                  $ref: './schemas/FromPositionFEN.yaml'
                 berserkable:
                   type: boolean
                   description: Whether the players can use berserk. Only allowed if clockIncrement <= clockTime * 2
@@ -2380,13 +2380,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArenaTournamentVariantIsKey'
+                $ref: './schemas/ArenaTournamentVariantIsKey.yaml'
         "400":
           description: The update of the Arena tournament failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/tournament/{id}/join:
     post:
@@ -2443,13 +2443,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: Joining the tournament failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/tournament/{id}/withdraw:
     post:
@@ -2481,13 +2481,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: Pausing/leaving the tournament failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/tournament/{id}/terminate:
     post:
@@ -2518,13 +2518,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: Terminating the tournament failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/tournament/team-battle/{id}:
       post:
@@ -2577,13 +2577,13 @@ paths:
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/ArenaTournamentVariantIsKey'
+                  $ref: './schemas/ArenaTournamentVariantIsKey.yaml'
           "400":
             description: The update of the team battle tournament failed.
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/Error'
+                  $ref: './schemas/Error.yaml'
 
   /api/tournament/{id}/games:
     get:
@@ -2687,10 +2687,10 @@ paths:
           content:
             application/x-chess-pgn:
               schema:
-                $ref: '#/components/schemas/GamePgn'
+                $ref: './schemas/GamePgn.yaml'
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/GameJson'
+                $ref: './schemas/GameJson.yaml'
 
   /api/tournament/{id}/results:
     get:
@@ -2834,7 +2834,7 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/ArenaTournament'
+                $ref: './schemas/ArenaTournament.yaml'
 
   /api/swiss/new/{teamId}:
     post:
@@ -2956,9 +2956,9 @@ paths:
                     - 604800
                     - 99999999
                 variant:
-                  $ref: '#/components/schemas/VariantKey'
+                  $ref: './schemas/VariantKey.yaml'
                 position:
-                  $ref: '#/components/schemas/FromPositionFEN'
+                  $ref: './schemas/FromPositionFEN.yaml'
                 description:
                   type: string
                   description: Anything you want to tell players about the tournament
@@ -3043,13 +3043,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SwissTournament'
+                $ref: './schemas/SwissTournament.yaml'
         "400":
           description: The creation of the Swiss tournament failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/swiss/{id}:
     parameters:
@@ -3078,7 +3078,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SwissTournament'
+                $ref: './schemas/SwissTournament.yaml'
 
   /api/swiss/{id}/edit:
     post:
@@ -3199,7 +3199,7 @@ paths:
                     - 604800
                     - 99999999
                 variant:
-                  $ref: '#/components/schemas/VariantKey'
+                  $ref: './schemas/VariantKey.yaml'
                 description:
                   type: string
                   description: Anything you want to tell players about the tournament
@@ -3275,19 +3275,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SwissTournament'
+                $ref: './schemas/SwissTournament.yaml'
         "400":
           description: Updating the swiss failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
         "401":
           description: This user cannot update this Swiss.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SwissUnauthorisedEdit'
+                $ref: './schemas/SwissUnauthorisedEdit.yaml'
 
   /api/swiss/{id}/schedule-next-round:
     post:
@@ -3335,13 +3335,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
         "401":
           description: This user cannot update this Swiss.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SwissUnauthorisedEdit'
+                $ref: './schemas/SwissUnauthorisedEdit.yaml'
 
   /api/swiss/{id}/join:
     post:
@@ -3383,13 +3383,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: Joining the tournament failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/swiss/{id}/withdraw:
     post:
@@ -3421,7 +3421,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
 
   /api/swiss/{id}/terminate:
     post:
@@ -3452,13 +3452,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: Terminating the Swiss tournament failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /swiss/{id}.trf:
     get:
@@ -3595,10 +3595,10 @@ paths:
           content:
             application/x-chess-pgn:
               schema:
-                $ref: '#/components/schemas/GamePgn'
+                $ref: './schemas/GamePgn.yaml'
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/GameJson'
+                $ref: './schemas/GameJson.yaml'
 
   /api/swiss/{id}/results:
     get:
@@ -3688,7 +3688,7 @@ paths:
           content:
             application/nd-json:
               schema:
-                $ref: '#/components/schemas/SwissTournament'
+                $ref: './schemas/SwissTournament.yaml'
 
   /api/study/{studyId}/{chapterId}.pgn:
     get:
@@ -3763,7 +3763,7 @@ paths:
           content:
             application/x-chess-pgn:
               schema:
-                $ref: '#/components/schemas/StudyPgn'
+                $ref: './schemas/StudyPgn.yaml'
 
   /api/study/{studyId}.pgn:
     get:
@@ -3841,7 +3841,7 @@ paths:
           content:
             application/x-chess-pgn:
               schema:
-                $ref: '#/components/schemas/StudyPgn'
+                $ref: './schemas/StudyPgn.yaml'
     head:
       operationId: studyAllChaptersHead
       summary: Study metadata
@@ -3919,7 +3919,7 @@ paths:
                     - black
                   default: white
                 variant:
-                  $ref: '#/components/schemas/VariantKey'
+                  $ref: './schemas/VariantKey.yaml'
               required:
                 - name
                 - pgn
@@ -3934,13 +3934,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StudyImportPgnChapters'
+                $ref: './schemas/StudyImportPgnChapters.yaml'
         "400":
           description: The creation of the Swiss tournament failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /study/by/{username}/export.pgn:
     get:
@@ -4014,7 +4014,7 @@ paths:
           content:
             application/x-chess-pgn:
               schema:
-                $ref: '#/components/schemas/StudyPgn'
+                $ref: './schemas/StudyPgn.yaml'
 
   /api/study/by/{username}:
     get:
@@ -4052,7 +4052,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/StudyMetadata'
+                  $ref: './schemas/StudyMetadata.yaml'
 
   /api/broadcast:
     get:
@@ -4087,7 +4087,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/BroadcastTour'
+                  $ref: './schemas/BroadcastTour.yaml'
 
   /broadcast/new:
     post:
@@ -4105,7 +4105,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/BroadcastForm'
+              $ref: './schemas/BroadcastForm.yaml'
       responses:
         "200":
           description: The broadcast tournament was successfully created.
@@ -4117,13 +4117,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BroadcastTour'
+                $ref: './schemas/BroadcastTour.yaml'
         "400":
           description: The creation of the broadcast tournament failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /broadcast/{slug}/{broadcastTournamentId}:
     get:
@@ -4154,7 +4154,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BroadcastTour'
+                $ref: './schemas/BroadcastTour.yaml'
 
   /broadcast/{broadcastTournamentId}/edit:
       post:
@@ -4180,7 +4180,7 @@ paths:
           content:
             application/x-www-form-urlencoded:
               schema:
-                $ref: '#/components/schemas/BroadcastForm'
+                $ref: './schemas/BroadcastForm.yaml'
         responses:
           "200":
             description: The broadcast tournament was successfully edited.
@@ -4192,13 +4192,13 @@ paths:
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/Ok'
+                  $ref: './schemas/Ok.yaml'
           "400":
             description: The edition of the broadcast tournament failed.
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/Error'
+                  $ref: './schemas/Error.yaml'
 
   /broadcast/{broadcastTournamentId}/new:
     post:
@@ -4282,13 +4282,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BroadcastRound'
+                $ref: './schemas/BroadcastRound.yaml'
         "400":
           description: The creation of the broadcast failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/broadcast/{broadcastTournamentSlug}/{broadcastRoundSlug}/{broadcastRoundId}:
     get:
@@ -4323,7 +4323,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BroadcastRound'
+                $ref: './schemas/BroadcastRound.yaml'
 
   /broadcast/round/{broadcastRoundId}/edit:
     post:
@@ -4407,13 +4407,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: The edition of the broadcast tournament failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /broadcast/round/{broadcastRoundId}/push:
     post:
@@ -4506,7 +4506,7 @@ paths:
           content:
             application/x-chess-pgn:
               schema:
-                $ref: '#/components/schemas/StudyPgn'
+                $ref: './schemas/StudyPgn.yaml'
 
   /api/broadcast/round/{broadcastRoundId}.pgn:
     get:
@@ -4541,7 +4541,7 @@ paths:
           content:
             application/x-chess-pgn:
               schema:
-                $ref: '#/components/schemas/StudyPgn'
+                $ref: './schemas/StudyPgn.yaml'
 
   /api/broadcast/{broadcastTournamentId}.pgn:
     get:
@@ -4576,7 +4576,7 @@ paths:
           content:
             application/x-chess-pgn:
               schema:
-                $ref: '#/components/schemas/StudyPgn'
+                $ref: './schemas/StudyPgn.yaml'
 
   /api/broadcast/my-rounds:
     get:
@@ -4605,7 +4605,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BroadcastMyRound'
+                $ref: './schemas/BroadcastMyRound.yaml'
 
   /api/simul:
     get:
@@ -4637,19 +4637,19 @@ paths:
                   pending:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Simul'
+                      $ref: './schemas/Simul.yaml'
                   created:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Simul'
+                      $ref: './schemas/Simul.yaml'
                   started:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Simul'
+                      $ref: './schemas/Simul.yaml'
                   finished:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Simul'
+                      $ref: './schemas/Simul.yaml'
 
   /api/team/{teamId}:
     get:
@@ -4676,7 +4676,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Team'
+                $ref: './schemas/Team.yaml'
 
   /api/team/all:
     get:
@@ -4705,7 +4705,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TeamPaginatorJson'
+                $ref: './schemas/TeamPaginatorJson.yaml'
 
   /api/team/of/{username}:
     get:
@@ -4736,7 +4736,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Team'
+                  $ref: './schemas/Team.yaml'
 
   /api/team/search:
     get:
@@ -4770,7 +4770,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TeamPaginatorJson'
+                $ref: './schemas/TeamPaginatorJson.yaml'
 
   /api/team/{teamId}/users:
     get:
@@ -4803,7 +4803,7 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/UserExtended'
+                $ref: './schemas/UserExtended.yaml'
 
   /api/team/{teamId}/arena:
     get:
@@ -4844,7 +4844,7 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/ArenaTournament'
+                $ref: './schemas/ArenaTournament.yaml'
 
   /team/{teamId}/join:
     post:
@@ -4887,7 +4887,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
 
   /team/{teamId}/quit:
     post:
@@ -4913,7 +4913,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
 
   /api/team/{teamId}/requests:
     get:
@@ -4944,7 +4944,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/TeamRequestWithUser'
+                  $ref: './schemas/TeamRequestWithUser.yaml'
                 example: [
         {
             "request": {
@@ -5017,7 +5017,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
 
   /api/team/{teamId}/request/{userId}/decline:
     post:
@@ -5047,7 +5047,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
 
   /api/team/{teamId}/kick/{userId}:
     post:
@@ -5079,7 +5079,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
 
   /team/{teamId}/pm-all:
     post:
@@ -5120,13 +5120,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: The sending of message to all team members has failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/streamer/live:
     get:
@@ -5153,7 +5153,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LightUser'
+                  $ref: './schemas/LightUser.yaml'
                 example: [
                   {
                     "id": "chess-network",
@@ -5215,7 +5215,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Crosstable'
+                $ref: './schemas/Crosstable.yaml'
 
   /api/player/autocomplete:
     get:
@@ -5269,7 +5269,7 @@ paths:
                       result:
                         type: array
                         items:
-                          $ref: '#/components/schemas/LightUserOnline'
+                          $ref: './schemas/LightUserOnline.yaml'
 
   /api/user/{username}/note:
     post:
@@ -5306,7 +5306,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
     get:
       operationId: readNote
       summary: Get notes for a user
@@ -5336,7 +5336,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserNote'
+                  $ref: './schemas/UserNote.yaml'
                 example: [
                   {
                     "from": {
@@ -5376,7 +5376,7 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/UserExtended'
+                $ref: './schemas/UserExtended.yaml'
 
   /api/rel/follow/{username}:
     post:
@@ -5401,7 +5401,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
 
   /api/rel/unfollow/{username}:
     post:
@@ -5426,7 +5426,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
 
   /api/stream/event:
     get:
@@ -5460,11 +5460,11 @@ paths:
             application/x-ndjson:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/GameStartEvent'
-                  - $ref: '#/components/schemas/GameFinishEvent'
-                  - $ref: '#/components/schemas/ChallengeEvent'
-                  - $ref: '#/components/schemas/ChallengeCanceledEvent'
-                  - $ref: '#/components/schemas/ChallengeDeclinedEvent'
+                  - $ref: './schemas/GameStartEvent.yaml'
+                  - $ref: './schemas/GameFinishEvent.yaml'
+                  - $ref: './schemas/ChallengeEvent.yaml'
+                  - $ref: './schemas/ChallengeCanceledEvent.yaml'
+                  - $ref: './schemas/ChallengeDeclinedEvent.yaml'
               examples:
                 challenge:
                   $ref: '#/components/examples/challenge'
@@ -5537,7 +5537,7 @@ paths:
                     - 10
                     - 14
                 variant:
-                  $ref: '#/components/schemas/VariantKey'
+                  $ref: './schemas/VariantKey.yaml'
                 color:
                   type: string
                   description: The color to play. Better left empty to automatically get 50% white.
@@ -5567,7 +5567,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/board/game/stream/{gameId}:
     get:
@@ -5606,10 +5606,10 @@ paths:
             application/x-ndjson:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/GameFullEvent'
-                  - $ref: '#/components/schemas/GameStateEvent'
-                  - $ref: '#/components/schemas/ChatLineEvent'
-                  - $ref: '#/components/schemas/OpponentGone'
+                  - $ref: './schemas/GameFullEvent.yaml'
+                  - $ref: './schemas/GameStateEvent.yaml'
+                  - $ref: './schemas/ChatLineEvent.yaml'
+                  - $ref: './schemas/OpponentGone.yaml'
               examples:
                 gameFull:
                   $ref: '#/components/examples/gameFull'
@@ -5630,7 +5630,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: './schemas/NotFound.yaml'
 
   /api/board/game/{gameId}/move/{move}:
     post:
@@ -5674,13 +5674,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: The move failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/board/game/{gameId}/chat:
     parameters:
@@ -5728,13 +5728,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: The posting of the message in the chat failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
     get:
       operationId: boardGameChatGet
       summary: Fetch the game chat
@@ -5755,7 +5755,7 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/GameChat'
+                $ref: './schemas/GameChat.yaml'
 
   /api/board/game/{gameId}/abort:
     post:
@@ -5785,13 +5785,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: The abortion of the game failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/board/game/{gameId}/resign:
     post:
@@ -5821,13 +5821,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: The resigning from the game failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/board/game/{gameId}/draw/{accept}:
     post:
@@ -5868,13 +5868,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: The draw offering failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/board/game/{gameId}/takeback/{accept}:
     post:
@@ -5915,13 +5915,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: The takeback offering failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/board/game/{gameId}/claim-victory:
     post:
@@ -5951,13 +5951,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: The victory claim has failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/board/game/{gameId}/berserk:
     post:
@@ -5988,13 +5988,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: The berserk has failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/bot/online:
     get:
@@ -6023,7 +6023,7 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: './schemas/User.yaml'
 
   /api/bot/account/upgrade:
     post:
@@ -6055,13 +6055,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: The upgrade of the bot account failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/bot/game/stream/{gameId}:
     get:
@@ -6099,10 +6099,10 @@ paths:
             application/x-ndjson:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/GameFullEvent'
-                  - $ref: '#/components/schemas/GameStateEvent'
-                  - $ref: '#/components/schemas/ChatLineEvent'
-                  - $ref: '#/components/schemas/OpponentGone'
+                  - $ref: './schemas/GameFullEvent.yaml'
+                  - $ref: './schemas/GameStateEvent.yaml'
+                  - $ref: './schemas/ChatLineEvent.yaml'
+                  - $ref: './schemas/OpponentGone.yaml'
               examples:
                 gameFull:
                   $ref: '#/components/examples/gameFull'
@@ -6123,7 +6123,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: './schemas/NotFound.yaml'
 
   /api/bot/game/{gameId}/move/{move}:
     post:
@@ -6167,13 +6167,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: The bot move failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/bot/game/{gameId}/chat:
     post:
@@ -6221,13 +6221,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: The posting of the  message in chat failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
     get:
       operationId: botGameChatGet
       summary: Fetch the game chat
@@ -6255,7 +6255,7 @@ paths:
           content:
             application/x-ndjson:
               schema:
-                $ref: '#/components/schemas/GameChat'
+                $ref: './schemas/GameChat.yaml'
 
   /api/bot/game/{gameId}/abort:
     post:
@@ -6285,13 +6285,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: The abortion of the game failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/bot/game/{gameId}/resign:
     post:
@@ -6321,13 +6321,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: Resigning the game failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/bot/game/{gameId}/draw/{accept}:
     post:
@@ -6368,13 +6368,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: The draw offering failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
 
   /api/challenge:
@@ -6404,12 +6404,12 @@ paths:
                     type: array
                     description: Incoming challenges i.e. targeted at you
                     items:
-                      $ref: '#/components/schemas/ChallengeJson'
+                      $ref: './schemas/ChallengeJson.yaml'
                   out:
                     type: array
                     description: Outgoing challenges i.e. created by you
                     items:
-                      $ref: '#/components/schemas/ChallengeJson'
+                      $ref: './schemas/ChallengeJson.yaml'
 
   /api/challenge/{username}:
     post:
@@ -6478,9 +6478,9 @@ paths:
                     - black
                   default: 'random'
                 variant:
-                  $ref: '#/components/schemas/VariantKey'
+                  $ref: './schemas/VariantKey.yaml'
                 fen:
-                  $ref: '#/components/schemas/FromPositionFEN'
+                  $ref: './schemas/FromPositionFEN.yaml'
                 keepAliveStream:
                   type: boolean
                   description: |
@@ -6514,13 +6514,13 @@ paths:
                 type: object
                 properties:
                   challenge:
-                    $ref: '#/components/schemas/ChallengeJson'
+                    $ref: './schemas/ChallengeJson.yaml'
         "400":
           description: The creation of the challenge failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/challenge/{challengeId}/accept:
     post:
@@ -6552,13 +6552,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "404":
           description: The challenge to accept was not found.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: './schemas/NotFound.yaml'
 
   /api/challenge/{challengeId}/decline:
     post:
@@ -6611,13 +6611,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "404":
           description: The challenge to decline was not found.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: './schemas/NotFound.yaml'
 
   /api/challenge/{challengeId}/cancel:
     post:
@@ -6655,13 +6655,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "404":
           description: The challenge to cancel was not found.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: './schemas/NotFound.yaml'
 
   /api/challenge/ai:
     post:
@@ -6720,9 +6720,9 @@ paths:
                     - black
                   default: 'random'
                 variant:
-                  $ref: '#/components/schemas/VariantKey'
+                  $ref: './schemas/VariantKey.yaml'
                 fen:
-                  $ref: '#/components/schemas/FromPositionFEN'
+                  $ref: './schemas/FromPositionFEN.yaml'
       responses:
         "201":
           description: The game with Lichess AI was successfully started.
@@ -6734,13 +6734,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GameJson'
+                $ref: './schemas/GameJson.yaml'
         "400":
           description: The creation of a game with Lichess AI failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/challenge/open:
     post:
@@ -6800,9 +6800,9 @@ paths:
                     - 10
                     - 14
                 variant:
-                  $ref: '#/components/schemas/VariantKey'
+                  $ref: './schemas/VariantKey.yaml'
                 fen:
-                  $ref: '#/components/schemas/FromPositionFEN'
+                  $ref: './schemas/FromPositionFEN.yaml'
                 name:
                   type: string
                   description: Optional name for the challenge, that players will see on the challenge page.
@@ -6839,13 +6839,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ChallengeOpenJson'
+                $ref: './schemas/ChallengeOpenJson.yaml'
         "400":
           description: The creation of the challenge failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/challenge/{gameId}/start-clocks:
     post:
@@ -6889,7 +6889,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
 
   /api/bulk-pairing:
     get:
@@ -6914,7 +6914,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/BulkPairing'
+                  $ref: './schemas/BulkPairing.yaml'
     post:
       operationId: bulkPairingCreate
       summary: Create a bulk pairing
@@ -7011,9 +7011,9 @@ paths:
                   description: Game is rated and impacts players ratings
                   default: false
                 variant:
-                  $ref: '#/components/schemas/VariantKey'
+                  $ref: './schemas/VariantKey.yaml'
                 fen:
-                  $ref: '#/components/schemas/FromPositionFEN'
+                  $ref: './schemas/FromPositionFEN.yaml'
                 message:
                   type: string
                   description: |
@@ -7046,13 +7046,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BulkPairing'
+                $ref: './schemas/BulkPairing.yaml'
         "400":
           description: The creation of the bulk pairings failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/bulk-pairing/{id}/start-clocks:
     post:
@@ -7089,13 +7089,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "404":
           description: The bulk pairing was not found.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: './schemas/NotFound.yaml'
 
   /api/bulk-pairing/{id}:
     get:
@@ -7126,13 +7126,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BulkPairing'
+                $ref: './schemas/BulkPairing.yaml'
         "404":
           description: The bulk pairing was not found.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: './schemas/NotFound.yaml'
     delete:
       operationId: bulkPairingDelete
       summary: Cancel a bulk pairing
@@ -7165,13 +7165,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "404":
           description: The bulk pairing to delete was not found.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: './schemas/NotFound.yaml'
 
 
   /api/round/{gameId}/add-time/{seconds}:
@@ -7210,7 +7210,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
 
   /api/token/admin-challenge:
     post:
@@ -7260,7 +7260,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /inbox/{username}:
     post:
@@ -7297,13 +7297,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
         "400":
           description: The sending of the private message has failed.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: './schemas/Error.yaml'
 
   /api/cloud-eval:
     get:
@@ -7339,7 +7339,7 @@ paths:
           name: variant
           description: Variant
           schema:
-            $ref: '#/components/schemas/VariantKey'
+            $ref: './schemas/VariantKey.yaml'
       responses:
         "200":
           description: The evaluation of the position.
@@ -7385,7 +7385,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ExternalEngine'
+                  $ref: './schemas/ExternalEngine.yaml'
     post:
       operationId: apiExternalEngineCreate
       summary: Create external engine
@@ -7404,7 +7404,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ExternalEngineRegistration'
+              $ref: './schemas/ExternalEngineRegistration.yaml'
       responses:
         "200":
           description: The registered engine.
@@ -7416,7 +7416,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExternalEngine'
+                $ref: './schemas/ExternalEngine.yaml'
 
   /api/external-engine/{id}:
     parameters:
@@ -7447,7 +7447,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExternalEngine'
+                $ref: './schemas/ExternalEngine.yaml'
     put:
       operationId: apiExternalEnginePut
       summary: Update external engine
@@ -7463,7 +7463,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ExternalEngineRegistration'
+              $ref: './schemas/ExternalEngineRegistration.yaml'
       responses:
         "200":
           description: A registered engine.
@@ -7475,7 +7475,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExternalEngine'
+                $ref: './schemas/ExternalEngine.yaml'
     delete:
       operationId: apiExternalEngineDelete
       summary: Delete external engine
@@ -7491,7 +7491,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ok'
+                $ref: './schemas/Ok.yaml'
 
   /api/external-engine/{id}/analyse:
     servers:
@@ -7531,7 +7531,7 @@ paths:
                   type: string
                   example: ees_mdF2hK0hlKGSPeC6
                 work:
-                  $ref: '#/components/schemas/ExternalEngineWork'
+                  $ref: './schemas/ExternalEngineWork.yaml'
               required:
                 - clientSecret
                 - work
@@ -7645,9 +7645,9 @@ paths:
                     type: string
                     example: aingoohiJee2sius
                   work:
-                    $ref: '#/components/schemas/ExternalEngineWork'
+                    $ref: './schemas/ExternalEngineWork.yaml'
                   engine:
-                    $ref: '#/components/schemas/ExternalEngine'
+                    $ref: './schemas/ExternalEngine.yaml'
                 required:
                   - id
                   - engine
@@ -7860,7 +7860,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OAuthError'
+                $ref: './schemas/OAuthError.yaml'
     delete:
       operationId: apiTokenDelete
       summary: Revoke access token
@@ -7997,7 +7997,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OpeningExplorerJson'
+                $ref: './schemas/OpeningExplorerJson.yaml'
 
   /lichess:
     servers:
@@ -8019,7 +8019,7 @@ paths:
           name: variant
           description: Variant
           schema:
-            $ref: '#/components/schemas/VariantKey'
+            $ref: './schemas/VariantKey.yaml'
             default: standard
         - in: query
           name: fen
@@ -8044,7 +8044,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/Speed'
+              $ref: './schemas/Speed.yaml'
         - in: query
           name: ratings
           description: |
@@ -8115,7 +8115,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OpeningExplorerJson'
+                $ref: './schemas/OpeningExplorerJson.yaml'
 
   /player:
     servers:
@@ -8151,7 +8151,7 @@ paths:
           name: variant
           description: Variant
           schema:
-            $ref: '#/components/schemas/VariantKey'
+            $ref: './schemas/VariantKey.yaml'
             default: standard
         - in: query
           name: fen
@@ -8176,7 +8176,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/Speed'
+              $ref: './schemas/Speed.yaml'
         - in: query
           name: modes
           description: Comma separated list of modes
@@ -8222,7 +8222,7 @@ paths:
           content:
             application/nd-json:
               schema:
-                $ref: '#/components/schemas/OpeningExplorerPlayerJson'
+                $ref: './schemas/OpeningExplorerPlayerJson.yaml'
 
   /master/pgn/{gameId}:
     servers:
@@ -8254,7 +8254,7 @@ paths:
           content:
             application/x-chess-pgn:
               schema:
-                $ref: '#/components/schemas/MasterGamePgn'
+                $ref: './schemas/MasterGamePgn.yaml'
 
   /standard:
     servers:
@@ -8287,7 +8287,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TablebaseJson'
+                $ref: './schemas/TablebaseJson.yaml'
   /atomic:
     servers:
       - url: https://tablebase.lichess.ovh
@@ -11413,6 +11413,7 @@ components:
       }
     }
 
+    $ref: './schemas/_index.yaml'
   securitySchemes:
     OAuth2:
       type: oauth2
