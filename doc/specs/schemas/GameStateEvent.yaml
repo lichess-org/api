@@ -19,7 +19,7 @@ properties:
     type: integer
     description: Integer of Black Fisher increment.
   status:
-    $ref: '#/components/schemas/GameStatus'
+    $ref: './GameStatus.yaml'
   winner:
     type: string
     description: Color of the winner, if any

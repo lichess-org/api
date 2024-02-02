@@ -29,7 +29,7 @@ properties:
     description: Requested number of principal variations.
     example: 1
   variant:
-    $ref: '#/components/schemas/UciVariant'
+    $ref: './UciVariant.yaml'
   initialFen:
     type: string
     description: Initial position of the game.
