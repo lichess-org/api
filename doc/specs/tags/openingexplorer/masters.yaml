@@ -1,0 +1,65 @@
+servers:
+  - url: https://explorer.lichess.ovh
+get:
+  operationId: openingExplorerMaster
+  summary: Masters database
+  description: |
+    **Endpoint: <https://explorer.lichess.ovh/masters>**
+    Example: `curl https://explorer.lichess.ovh/masters?play=d2d4,d7d5,c2c4,c7c6,c4d5`
+  tags:
+    - Opening Explorer
+  security: []
+  parameters:
+    - in: query
+      name: fen
+      description: FEN of the root position
+      schema:
+        type: string
+      example: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+    - in: query
+      name: play
+      description: |
+        Comma separated sequence of legal moves in UCI notation.
+        Play additional moves starting from `fen`.
+        Required to find an opening name, if `fen` is not an exact match
+        for a named position.
+      schema:
+        type: string
+        default: ""
+      example: e2e4,e7e5,c2c4,c7c6,c4e5
+    - in: query
+      name: since
+      description: Include only games from this year or later
+      schema:
+        type: number
+        default: 1952
+    - in: query
+      name: until
+      description: Include only games from this year or earlier
+      schema:
+        type: number
+    - in: query
+      name: moves
+      description: Number of most common moves to display
+      schema:
+        type: number
+        default: 12
+    - in: query
+      name: topGames
+      description: Number of top games to display
+      schema:
+        type: number
+        default: 15
+        maximum: 15
+  responses:
+    "200":
+      description: Opening statistics and game references for the position.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/OpeningExplorerJson.yaml'

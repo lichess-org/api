@@ -1,0 +1,27 @@
+parameters:
+ - in: path
+   name: id
+   description: The Swiss tournament ID.
+   schema:
+     type: string
+   required: true
+get:
+  operationId: swiss
+  summary: Get info about a Swiss tournament
+  description: |
+    Get detailed info about a Swiss tournament.
+  tags:
+    - "Swiss tournaments"
+  security: []
+  responses:
+    "200":
+      description: The information of the Swiss tournament.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/SwissTournament.yaml'

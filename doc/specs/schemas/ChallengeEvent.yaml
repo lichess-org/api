@@ -1,0 +1,7 @@
+type: object
+properties:
+  type:
+    type: string
+    const: challenge
+  challenge:
+    $ref: './ChallengeJson.yaml'

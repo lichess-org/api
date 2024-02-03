@@ -1,0 +1,18 @@
+type: object
+properties:
+  date:
+    type: number
+    example: 1514505150384
+  win:
+    type: boolean
+    example: true
+  puzzle:
+    type: object
+    example: {
+      "id": "K69di",
+      "fen": "6k1/6b1/8/4p1N1/7Q/2P2pP1/1Pq2P1K/8 w - - 14 49",
+      "plays": 1970,
+      "rating": 2022,
+      "solution": [ "e1e7", "f4f6", "e7f6" ],
+      "themes": [ "short", "queenRookEndgame", "endgame", "mateIn2" ]
+    }

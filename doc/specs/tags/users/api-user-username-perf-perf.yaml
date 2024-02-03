@@ -1,0 +1,32 @@
+get:
+  operationId: apiUserPerf
+  summary: Get performance statistics of a user
+  description: |
+    Read performance statistics of a user, for a single performance.
+    Similar to the [performance pages on the website](https://lichess.org/@/thibault/perf/bullet).
+  tags:
+    - Users
+  security: []
+  parameters:
+    - in: path
+      name: username
+      schema:
+        type: string
+      required: true
+    - in: path
+      name: perf
+      schema:
+        $ref: '../../schemas/PerfType.yaml'
+      required: true
+  responses:
+    "200":
+      description: The performance statistics of the user
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PerfStat.yaml'

@@ -1,0 +1,32 @@
+type: object
+properties:
+  chess960:
+    $ref: './Perf.yaml'
+  atomic:
+    $ref: './Perf.yaml'
+  racingKings:
+    $ref: './Perf.yaml'
+  ultraBullet:
+    $ref: './Perf.yaml'
+  blitz:
+    $ref: './Perf.yaml'
+  kingOfTheHill:
+    $ref: './Perf.yaml'
+  bullet:
+    $ref: './Perf.yaml'
+  correspondence:
+    $ref: './Perf.yaml'
+  horde:
+    $ref: './Perf.yaml'
+  puzzle:
+    $ref: './Perf.yaml'
+  classical:
+    $ref: './Perf.yaml'
+  rapid:
+    $ref: './Perf.yaml'
+  storm:
+    $ref: './PuzzleModePerf.yaml'
+  racer:
+    $ref: './PuzzleModePerf.yaml'
+  streak:
+    $ref: './PuzzleModePerf.yaml'

@@ -1,0 +1,37 @@
+get:
+  operationId: apiTeamArena
+  summary: Get team Arena tournaments
+  description: |
+    Get all Arena tournaments relevant to a team.
+    Tournaments are sorted by reverse chronological order of start date (last starting first).
+    Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+  tags:
+    - Teams
+    - "Arena tournaments"
+  security: []
+  parameters:
+    - in: path
+      name: teamId
+      description: ID of the team
+      schema:
+        type: string
+      required: true
+    - in: query
+      name: max
+      description: How many tournaments to download.
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+  responses:
+    "200":
+      description: The list of Arena tournaments of a team.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            $ref: '../../schemas/ArenaTournament.yaml'

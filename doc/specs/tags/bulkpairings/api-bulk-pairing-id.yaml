@@ -1,0 +1,72 @@
+get:
+  operationId: bulkPairingGet
+  summary: Show a bulk pairing
+  description: |
+    Get a single bulk pairing by its ID.
+  tags:
+    - Bulk pairings
+  security:
+    - OAuth2: ["challenge:bulk"]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+        description: The ID of the bulk pairing
+        example: "5IrD6Gzz"
+      required: true
+  responses:
+    "200":
+      description: The bulk pairing.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/BulkPairing.yaml'
+    "404":
+      description: The bulk pairing was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/NotFound.yaml'
+delete:
+  operationId: bulkPairingDelete
+  summary: Cancel a bulk pairing
+  description: |
+    Cancel and delete a bulk pairing that is scheduled in the future.
+    If the games have already been created, then this does nothing.
+    Canceling a bulk pairing does not refund the rate limit cost of that bulk pairing.
+  tags:
+    - Bulk pairings
+  security:
+    - OAuth2: ["challenge:bulk"]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+        description: The ID of the bulk pairing
+        example: "5IrD6Gzz"
+      required: true
+  responses:
+    "200":
+      description: The bulk pairing was successfully deleted.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'
+    "404":
+      description: The bulk pairing to delete was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/NotFound.yaml'

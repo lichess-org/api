@@ -1,0 +1,72 @@
+get:
+  operationId: teamRequests
+  summary: Get join requests
+  description: Get pending join requests of your team
+  tags:
+    - Teams
+  security:
+    - OAuth2: ["team:read"]
+  parameters:
+    - in: path
+      name: teamId
+      schema:
+        type: string
+      required: true
+    - in: query
+      name: declined
+      description: Get the declined join requests
+      schema:
+        type: boolean
+        default: false
+  responses:
+    "200":
+      description: The list of pending join requests on your team
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/TeamRequestWithUser.yaml'
+            example: [
+    {
+        "request": {
+            "date": 1644232474472,
+            "message": "Hello, I would like to join the team!",
+            "teamId": "coders",
+            "userId": "neio"
+        },
+        "user": {
+            "createdAt": 1338509698620,
+            "id": "neio",
+            "perfs": {
+                "blitz": {
+                    "games": 70,
+                    "prog": 81,
+                    "prov": true,
+                    "rating": 1729,
+                    "rd": 124
+                },
+                "chess960": {
+                    "games": 2,
+                    "prog": 0,
+                    "prov": true,
+                    "rating": 1528,
+                    "rd": 266
+                },
+            },
+            "playTime": {
+                "total": 152902,
+                "tv": 20800
+            },
+            "profile": {
+                "bio": "yuwnt uyn",
+                "country": "AL",
+                "firstName": "wyutn w[fuyt",
+                "lastName": "ywut wyufth",
+            },
+            "seenAt": 1644232201429,
+            "title": "NM",
+            "username": "Neio"
+        }
+    }
+]

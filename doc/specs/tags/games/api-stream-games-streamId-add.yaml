@@ -1,0 +1,38 @@
+post:
+  operationId: gamesByIdsAdd
+  summary: Add game IDs to stream
+  description: |
+    Add new game IDs for [an existing stream](#operation/gamesByIds) to watch.
+    The stream will immediately outputs the games that already exists, then emit an event each time a game is started or finished.
+  tags:
+    - Games
+  security: []
+  parameters:
+    - in: path
+      name: streamId
+      schema:
+        type: string
+        description: The stream ID you used to [create the stream](#operation/gamesByIds).
+        example: "myAppName-someRandomId"
+      required: true
+  requestBody:
+    description: |
+      Up to 500 or 1000 game IDs separated by commas.
+      Example: `gameId04,gameId05,gameId06`
+    required: true
+    content:
+      text/plain:
+        schema:
+          type: string
+  responses:
+    "200":
+      description: The game IDs have been added to the stream.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'

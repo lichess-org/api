@@ -1,0 +1,107 @@
+post:
+  operationId: challengeCreate
+  summary: Create a challenge
+  description: |
+    Challenge someone to play. The targeted player can choose to accept or decline.
+    If the challenge is accepted, you will be notified on the [event stream](#operation/apiStreamEvent)
+    that a new game has started. The game ID will be the same as the challenge ID.
+    Challenges for realtime games (not correspondence) expire after 20s if not accepted.
+    To prevent that, use the `keepAliveStream` flag described below.
+  tags:
+    - Challenges
+  security:
+    - OAuth2: ["challenge:write", "bot:play", "board:play"]
+  parameters:
+    - in: path
+      name: username
+      schema:
+        type: string
+        example: "LeelaChess"
+      required: true
+  requestBody:
+    description: Parameters of the challenge
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            rated:
+              type: boolean
+              description: Game is rated and impacts players ratings
+              default: false
+            'clock.limit':
+              type: number
+              description: Clock initial time in seconds. If empty, a correspondence game is created. Valid values are 0, 15, 30, 45, 60, 90, and any multiple of 60 up to 10800 (3 hours).
+              example: 300
+              minimum: 0
+              maximum: 10800
+            'clock.increment':
+              type: integer
+              description: Clock increment in seconds. If empty, a correspondence game is created.
+              example: 1
+              minimum: 0
+              maximum: 60
+            days:
+              type: integer
+              description: Days per move, for correspondence games. Clock settings must be omitted.
+              enum:
+                - 1
+                - 2
+                - 3
+                - 5
+                - 7
+                - 10
+                - 14
+            color:
+              type: string
+              description: Which color you get to play
+              enum:
+                - random
+                - white
+                - black
+              default: 'random'
+            variant:
+              $ref: '../../schemas/VariantKey.yaml'
+            fen:
+              $ref: '../../schemas/FromPositionFEN.yaml'
+            keepAliveStream:
+              type: boolean
+              description: |
+                If set, the response is streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+                The challenge is kept alive until the connection is closed by the client.
+                When the challenge is accepted, declined or canceled, a message of the form `{"done":"accepted"}` is sent,
+                then the connection is closed by the server.
+                If not set, the response is not streamed, and the challenge expires after 20s if not accepted.
+            rules:
+              type: string
+              enum:
+                - noAbort
+                - noRematch
+                - noGiveTime
+                - noClaimWin
+                - noEarlyDraw
+              description: |
+                Extra game rules separated by commas.
+                Example: `noAbort,noRematch`
+  responses:
+    "200":
+      description: The challenge was successfully created.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              challenge:
+                $ref: '../../schemas/ChallengeJson.yaml'
+    "400":
+      description: The creation of the challenge failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'

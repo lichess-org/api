@@ -1,0 +1,68 @@
+post:
+  operationId: apiStudyImportPGN
+  summary: Import PGN into a study
+  description: |
+    Imports arbitrary PGN into an existing [study](https://lichess.org/study). Creates a new chapter in the study.
+    If the PGN contains multiple games (separated by 2 or more newlines)
+    then multiple chapters will be created within the study.
+    Note that a study can contain at most 64 chapters.
+  tags:
+    - Studies
+  security:
+    - OAuth2: ["study:write"]
+  parameters:
+    - in: path
+      name: studyId
+      description: ID of the study
+      schema:
+        type: string
+      required: true
+  requestBody:
+    description: Parameters of the import
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              description: |
+                Name of the new chapter.
+                If multiple chapters are created, the names will be infered from the PGN tags.
+              minLength: 1
+              maxLength: 100
+            pgn:
+              type: string
+              description: |
+                PGN to import. Can contain multiple games separated by 2 or more newlines.
+            orientation:
+              type: string
+              description: Default board orientation.
+              enum:
+                - white
+                - black
+              default: white
+            variant:
+              $ref: '../../schemas/VariantKey.yaml'
+          required:
+            - name
+            - pgn
+  responses:
+    "200":
+      description: The chapters that were created.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/StudyImportPgnChapters.yaml'
+    "400":
+      description: The creation of the Swiss tournament failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'

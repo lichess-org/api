@@ -1,0 +1,53 @@
+get:
+  operationId: playerTopNbPerfType
+  summary: Get one leaderboard
+  tags:
+    - Users
+  security: []
+  description: |
+    Get the leaderboard for a single speed or variant (a.k.a. `perfType`).
+    There is no leaderboard for correspondence or puzzles.
+    See <https://lichess.org/player/top/200/bullet>.
+  parameters:
+    - in: path
+      name: nb
+      description: How many users to fetch
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 200
+        example: 100
+      required: true
+    - in: path
+      name: perfType
+      description: The speed or variant
+      schema:
+        type: string
+        example: bullet
+        enum:
+          - ultraBullet
+          - bullet
+          - blitz
+          - rapid
+          - classical
+          - chess960
+          - crazyhouse
+          - antichess
+          - atomic
+          - horde
+          - kingOfTheHill
+          - racingKings
+          - threeCheck
+      required: true
+  responses:
+    "200":
+      description: The list of top players for the variant.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/vnd.lichess.v3+json:
+          schema:
+            $ref: '../../schemas/Leaderboard.yaml'

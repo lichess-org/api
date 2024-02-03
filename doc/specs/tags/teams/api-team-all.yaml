@@ -1,0 +1,27 @@
+get:
+  operationId: teamAll
+  summary: Get popular teams
+  description: |
+    Paginator of the most popular teams.
+  tags:
+    - Teams
+  security: []
+  parameters:
+    - in: query
+      name: page
+      schema:
+        type: number
+        example: 1
+        default: 1
+  responses:
+    "200":
+      description: A paginated list of the most popular teams.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/TeamPaginatorJson.yaml'

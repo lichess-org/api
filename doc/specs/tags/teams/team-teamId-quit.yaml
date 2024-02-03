@@ -1,0 +1,24 @@
+post:
+  operationId: teamIdQuit
+  summary: Leave a team
+  description: |
+    Leave a team.
+    - <https://lichess.org/team>
+  tags:
+    - Teams
+  security:
+    - OAuth2: ["team:write"]
+  parameters:
+    - in: path
+      name: teamId
+      schema:
+        type: string
+        example: "coders"
+      required: true
+  responses:
+    "200":
+      description: The logged in user has successfully left the team.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'

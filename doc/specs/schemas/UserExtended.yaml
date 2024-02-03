@@ -1,0 +1,37 @@
+allOf:
+  - $ref: './User.yaml'
+  - properties:
+      url:
+        type: string
+        format: uri
+        example: https://lichess.org/@/georges
+      playing:
+        type: string
+        format: uri
+        example: https://lichess.org/yqfLYJ5E/black
+      count:
+        $ref: './Count.yaml'
+      streaming:
+        type: boolean
+        example: false
+      streamer:
+        example: {
+          "twitch": {
+            "channel": "https://www.twitch.tv/lichessdotorg"
+          },
+          "youTube": {
+            "channel": "https://www.youtube.com/c/LichessDotOrg"
+          }
+        }
+      followable:
+        type: boolean
+        example: true
+      following:
+        type: boolean
+        example: false
+      blocking:
+        type: boolean
+        example: false
+      followsYou:
+        type: boolean
+        example: false

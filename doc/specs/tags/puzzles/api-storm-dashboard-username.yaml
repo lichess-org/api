@@ -1,0 +1,37 @@
+get:
+  operationId: apiStormDashboard
+  summary: Get the storm dashboard of a player
+  description: |
+    Download the [storm dashboard](https://lichess.org/storm/dashboard/mrbasso) of any player as JSON.
+    Contains the aggregated highscores, and the history of storm runs aggregated by days.
+    Use `?days=0` if you only care about the highscores.
+  tags:
+    - Puzzles
+  security: []
+  parameters:
+    - in: path
+      name: username
+      description: Username of the player
+      schema:
+        type: string
+      required: true
+    - in: query
+      name: days
+      description: How many days of history to return
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 365
+        default: 30
+  responses:
+    "200":
+      description: The storm dashboard of a player.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/StormDashboardJson.yaml'

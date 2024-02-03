@@ -1,0 +1,51 @@
+get:
+  operationId: apiAccountPlaying
+  summary: Get my ongoing games
+  description: |
+    Get the ongoing games of the current user.
+    Real-time and correspondence games are included.
+    The most urgent games are listed first.
+  tags:
+    - Games
+  security:
+    - OAuth2: []
+  parameters:
+    - in: query
+      name: nb
+      description: Max number of games to fetch
+      schema:
+        type: integer
+        default: 9
+        minimum: 1
+        maximum: 50
+  responses:
+    "200":
+      description: The ongoing games of the logged in user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            example: {
+              "nowPlaying": [
+                {
+                  "gameId": "rCRw1AuO",
+                  "fullId": "rCRw1AuOvonq",
+                  "color": "black",
+                  "fen": "r1bqkbnr/pppp2pp/2n1pp2/8/8/3PP3/PPPB1PPP/RN1QKBNR w KQkq - 2 4",
+                  "hasMoved": true,
+                  "isMyTurn": false,
+                  "lastMove": "b8c6",
+                  "opponent": { "id": "philippe", "rating": 1790, "username": "Philippe" },
+                  "perf": "correspondence",
+                  "rated": false,
+                  "secondsLeft": 1209600,
+                  "source": "friend",
+                  "speed": "correspondence",
+                  "variant": { "key": "standard", "name": "Standard" }
+                }
+              ]
+            }

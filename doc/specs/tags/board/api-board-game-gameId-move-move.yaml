@@ -1,0 +1,47 @@
+post:
+  operationId: boardGameMove
+  summary: Make a Board move
+  description: |
+    Make a move in a game being played with the Board API.
+    The move can also contain a draw offer/agreement.
+  tags:
+    - Board
+  security:
+    - OAuth2: ["board:play"]
+  parameters:
+    - in: path
+      name: gameId
+      schema:
+        type: string
+        example: "5IrD6Gzz"
+      required: true
+    - in: path
+      name: move
+      required: true
+      description: The move to play, in UCI format
+      schema:
+        type: string
+        example: "e2e4"
+    - in: query
+      name: offeringDraw
+      description: Whether to offer (or agree to) a draw
+      schema:
+        type: boolean
+  responses:
+    "200":
+      description: The move was successfully made.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'
+    "400":
+      description: The move failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'

@@ -1,0 +1,30 @@
+post:
+  operationId: teamIdKickUserId
+  summary: Kick a user from your team
+  description: |
+    Kick a member out of one of your teams.
+    - <https://lichess.org/team>
+  tags:
+    - Teams
+  security:
+    - OAuth2: ["team:lead"]
+  parameters:
+    - in: path
+      name: teamId
+      schema:
+        type: string
+        example: "coders"
+      required: true
+    - in: path
+      name: userId
+      schema:
+        type: string
+        example: "neio"
+      required: true
+  responses:
+    "200":
+      description: The member has been kicked from the team.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'

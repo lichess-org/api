@@ -1,0 +1,99 @@
+servers:
+  - url: https://engine.lichess.ovh
+parameters:
+  - in: path
+    name: id
+    required: true
+    description: The external engine id.
+    schema:
+      type: string
+    example: eei_aTKImBJOnv6j
+post:
+  operationId: apiExternalEngineAnalyse
+  summary: Analyse with external engine
+  tags:
+    - External engine
+  security: []
+  description: |
+    **Endpoint: `https://engine.lichess.ovh/api/external-engine/{id}/analyse`**
+    Request analysis from an external engine.
+    Response content is streamed as [newline delimited JSON](#section/Introduction/Streaming-with-ND-JSON).
+    The properties are based on the [UCI specification](https://backscattering.de/chess/uci/#engine).
+    Analysis stops when the client goes away, the requested limit
+    is reached, or the provider goes away.
+  requestBody:
+    description: Engine credentials and analysis request.
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            clientSecret:
+              type: string
+              example: ees_mdF2hK0hlKGSPeC6
+            work:
+              $ref: '../../schemas/ExternalEngineWork.yaml'
+          required:
+            - clientSecret
+            - work
+  responses:
+    "200":
+      description: Stream of analysis output
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            type: object
+            properties:
+              time:
+                type: integer
+                description: Number of milliseconds the search has been going on
+                example: 6880
+                minimum: 0
+              depth:
+                type: integer
+                description: Current search depth
+                example: 25
+                minimum: 0
+              nodes:
+                type: integer
+                description: Number of nodes visited so far
+                example: 7230340
+                minimum: 0
+              pvs:
+                type: array
+                description: Information about up to 5 pvs, with the primary pv at index 0.
+                items:
+                  type: object
+                  properties:
+                    depth:
+                      type: integer
+                      description: Current search depth of the pv
+                      example: 25
+                      minimum: 0
+                    cp:
+                      type: integer
+                      description: Evaluation in centi-pawns, from White's point of view
+                      example: 40
+                    mate:
+                      type: integer
+                      description: Evaluation in signed moves to mate, from White's point of view
+                    moves:
+                      type: array
+                      description: Variation in UCI notation
+                      items:
+                        type: string
+                      example: ["e2e4", "c7c6", "g1f3", "d7d5", "d2d3", "d5e4"]
+                  required:
+                    - depth
+                    - moves
+            required:
+              - time
+              - depth
+              - nodes
+              - pvs

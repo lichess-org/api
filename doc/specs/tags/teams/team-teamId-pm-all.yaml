@@ -1,0 +1,45 @@
+post:
+  operationId: teamIdPmAll
+  summary: Message all members
+  description: |
+    Send a private message to all members of a team.
+    You must be a team leader with the "Messages" permission.
+  tags:
+    - Teams
+  security:
+    - OAuth2: ["team:lead"]
+  parameters:
+    - in: path
+      name: teamId
+      schema:
+        type: string
+        example: "coders"
+      required: true
+  requestBody:
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              description: The message to send to all your team members.
+  responses:
+    "200":
+      description: The message has successfully been sent to all team members.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'
+    "400":
+      description: The sending of message to all team members has failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'

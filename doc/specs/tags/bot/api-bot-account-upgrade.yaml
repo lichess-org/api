@@ -1,0 +1,33 @@
+post:
+  operationId: botAccountUpgrade
+  summary: Upgrade to Bot account
+  description: |
+    Upgrade a lichess player account into a Bot account. Only Bot accounts can use the Bot API.
+    The account **cannot have played any game** before becoming a Bot account. The upgrade is **irreversible**. The account will only be able to play as a Bot.
+    To upgrade an account to Bot, use the [official lichess-bot client](https://github.com/lichess-bot-devs/lichess-bot), or follow these steps:
+    - Create an [API access token](https://lichess.org/account/oauth/token/create?scopes[]=bot:play) with "Play bot moves" permission.
+    - `curl -d '' https://lichess.org/api/bot/account/upgrade -H "Authorization: Bearer <yourTokenHere>"`
+    To know if an account has already been upgraded, use the [Get my profile API](#operation/accountMe):
+    the `title` field should be set to `BOT`.
+  tags:
+    - Bot
+  security:
+    - OAuth2: ["bot:play"]
+  responses:
+    "200":
+      description: The bot account was successfully upgraded.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'
+    "400":
+      description: The upgrade of the bot account failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'

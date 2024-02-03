@@ -1,0 +1,35 @@
+get:
+  operationId: apiUser
+  summary: Get user public data
+  description: |
+    Read public data of a user.
+    If the request is [authenticated with OAuth2](#section/Introduction/Authentication),
+    then extra fields might be present in the response: `followable`, `following`, `blocking`, `followsYou`.
+  tags:
+    - Users
+  security:
+    - OAuth2: []
+  parameters:
+    - in: path
+      name: username
+      schema:
+        type: string
+      required: true
+    - in: query
+      name: trophies
+      description: Include user trophies
+      schema:
+        type: boolean
+        default: false
+  responses:
+    "200":
+      description: The information of the user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/UserExtended.yaml'

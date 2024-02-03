@@ -1,0 +1,20 @@
+get:
+  operationId: apiImportedGamesUser
+  summary: Export your imported games
+  description : Download all games imported by you. Games are exported in PGN format.
+  tags: 
+    - Games
+  security: 
+    - OAuth2: []
+  responses: 
+    "200":
+      description: "Imported games in PGN format"
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-chess-pgn:
+          schema:
+            $ref: '../../schemas/GamePgn.yaml'

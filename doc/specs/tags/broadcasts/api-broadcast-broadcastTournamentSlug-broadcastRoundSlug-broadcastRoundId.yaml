@@ -1,0 +1,33 @@
+get:
+  operationId: broadcastRoundGet
+  summary: Get a broadcast round
+  description: |
+    Get information about a broadcast round.
+  tags:
+    - Broadcasts
+  parameters:
+    - in: path
+      name: broadcastTournamentSlug
+      description: The broadcast tournament slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastRoundId` is actually used.
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: broadcastRoundSlug
+      description: The broadcast round slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastRoundId` is actually used.
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: broadcastRoundId
+      description: The broadcast Round ID (8 characters).
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: The information about the broadcast round.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/BroadcastRound.yaml'

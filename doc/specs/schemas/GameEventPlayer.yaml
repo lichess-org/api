@@ -1,0 +1,14 @@
+type: object
+properties:
+  aiLevel:
+    type: number
+  id:
+    type: string
+  name:
+    type: string
+  title:
+    type: [string, 'null']
+  rating:
+    type: number
+  provisional:
+    type: boolean

@@ -1,0 +1,52 @@
+example: {
+  "bullet": [
+    {
+      "id": "bahadirozen",
+      "username": "BahadirOzen",
+      "perfs": {
+        "bullet": {
+          "rating": 3018,
+          "progress": 18
+        }
+      },
+      "online": true,
+      "title": "FM"
+    },
+    {
+      "id": "penguingim1",
+      "username": "penguingim1",
+      "perfs": {
+        "bullet": {
+          "rating": 2983,
+          "progress": -36
+        }
+      },
+      "title": "GM",
+      "online": true,
+      "patron": true
+    },
+    {
+      "id": "night-king96",
+      "username": "Night-King96",
+      "perfs": {
+        "bullet": {
+          "rating": 2958,
+          "progress": 35
+        }
+      },
+      "title": "GM"
+    },
+  ],
+  "blitz": [],
+  "rapid": [],
+  "classical": [],
+  "ultraBullet": [],
+  "chess960": [],
+  "crazyhouse": [],
+  "antichess": [],
+  "atomic": [],
+  "horde": [],
+  "kingOfTheHill": [],
+  "racingKings": [],
+  "threeCheck": []
+}

@@ -1,0 +1,53 @@
+get:
+  operationId: resultsByTournament
+  summary: Get results of an Arena tournament
+  description: |
+    Players of an Arena tournament, with their score and performance, sorted by rank (best first).
+    **Players are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON)**, i.e. one JSON object per line.
+    If called on an ongoing tournament, results can be inconsistent
+    due to ranking changes while the players are being streamed.
+    Use on finished tournaments for guaranteed consistency.
+  tags:
+    - "Arena tournaments"
+  security: []
+  parameters:
+    - in: path
+      name: id
+      description: The tournament ID.
+      schema:
+        type: string
+      required: true
+    - in: query
+      name: nb
+      description: Max number of players to fetch
+      schema:
+        type: integer
+        minimum: 1
+    - in: query
+      name: sheet
+      description: |
+        Add a `sheet` field to the player document.
+        It's an expensive server computation that slows down the stream.
+      schema:
+        type: boolean
+        default: false
+  responses:
+    "200":
+      description: The results of the Arena tournament.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            example: {
+              "rank": 4,
+              "score": 389,
+              "rating": 2618,
+              "username": "opperwezen",
+              "title": "IM",
+              "performance": 2423,
+              "team": "coders"
+            }

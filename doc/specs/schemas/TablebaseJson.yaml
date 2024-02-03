@@ -1,0 +1,78 @@
+type: object
+properties:
+  category:
+    type: string
+    enum:
+      - win
+      - unknown
+      - maybe-win
+      - cursed-win
+      - draw
+      - blessed-loss
+      - maybe-loss
+      - loss
+    description: |
+      `cursed-win` and `blessed-loss` means the 50-move rule prevents
+      the decisive result.
+
+      `maybe-win` and `maybe-loss` means exact result is unknown due to
+      [DTZ rounding](https://syzygy-tables.info/metrics#dtz), i.e., the
+      win or loss could also be prevented by the 50-move rule if
+      the user has deviated from the tablebase recommendation since the
+      last pawn move or capture.
+  dtz:
+    type: integer
+    description: |
+      [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) or null if unknown
+  precise_dtz:
+    type: integer
+    description: |
+      DTZ50'' (only if guaranteed to be not rounded) or null if unknown
+  dtm:
+    type: integer
+    description: Distance to mate (only for positions with not more than 5 pieces)
+  checkmate:
+    type: boolean
+  stalemate:
+    type: boolean
+  variant_win:
+    type: boolean
+    description: Only in chess variants
+  variant_loss:
+    type: boolean
+    description: Only in chess variants
+  insufficient_material:
+    type: boolean
+  moves:
+    type: array
+    description: Information about legal moves, best first
+    items:
+      $ref: './Move.yaml'
+example:
+  {
+    "dtz": 1,
+    "precise_dtz": 1,
+    "dtm": 17,
+    "checkmate": false,
+    "stalemate": false,
+    "variant_win": false,
+    "variant_loss": false,
+    "insufficient_material": false,
+    "category": "win",
+    "moves": [
+      {
+        "uci": "h7h8q",
+        "san": "h8=Q+",
+        "dtz": -2,
+        "precise_dtz": -2,
+        "dtm": -16,
+        "zeroing": true,
+        "checkmate": false,
+        "stalemate": false,
+        "variant_win": false,
+        "variant_loss": false,
+        "insufficient_material": false,
+        "category": "loss"
+      }
+    ]
+  }

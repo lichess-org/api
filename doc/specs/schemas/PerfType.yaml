@@ -1,0 +1,16 @@
+type: string
+enum:
+  - ultraBullet
+  - bullet
+  - blitz
+  - rapid
+  - classical
+  - correspondence
+  - chess960
+  - crazyhouse
+  - antichess
+  - atomic
+  - horde
+  - kingOfTheHill
+  - racingKings
+  - threeCheck

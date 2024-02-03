@@ -1,0 +1,121 @@
+example: {
+  "white": 359,
+  "draws": 23,
+  "black": 273,
+  "moves": [
+    {
+      "uci": "c2c4",
+      "san": "c4",
+      "averageOpponentRating": 1695,
+      "performance": 1744,
+      "white": 354,
+      "draws": 23,
+      "black": 266,
+      "game": null
+    },
+    {
+      "uci": "c2c3",
+      "san": "c3",
+      "averageOpponentRating": 1796,
+      "performance": 1796,
+      "white": 2,
+      "draws": 0,
+      "black": 2,
+      "game": null
+    },
+    {
+      "uci": "e2e4",
+      "san": "e4",
+      "averageOpponentRating": 1762,
+      "performance": 1640,
+      "white": 1,
+      "draws": 0,
+      "black": 2,
+      "game": null
+    },
+    {
+      "uci": "g1f3",
+      "san": "Nf3",
+      "averageOpponentRating": 1496,
+      "performance": 1374,
+      "white": 1,
+      "draws": 0,
+      "black": 2,
+      "game": null
+    },
+    {
+      "uci": "h2h3",
+      "san": "h3",
+      "averageOpponentRating": 1696,
+      "performance": 2496,
+      "white": 1,
+      "draws": 0,
+      "black": 0,
+      "game": {
+        "id": "zyI4GGKv",
+        "winner": "white",
+        "speed": "bullet",
+        "mode": "rated",
+        "black": {
+          "name": "gocool99",
+          "rating": 1696
+        },
+        "white": {
+          "name": "revoof",
+          "rating": 1702
+        },
+        "year": 2020,
+        "month": "2020-07"
+      }
+    },
+    {
+      "uci": "h2h4",
+      "san": "h4",
+      "averageOpponentRating": 1674,
+      "performance": 874,
+      "white": 0,
+      "draws": 0,
+      "black": 1,
+      "game": {
+        "id": "9vA24xBn",
+        "winner": "black",
+        "speed": "bullet",
+        "mode": "rated",
+        "black": {
+          "name": "MentalBlood",
+          "rating": 1674
+        },
+        "white": {
+          "name": "revoof",
+          "rating": 1657
+        },
+        "year": 2020,
+        "month": "2020-06"
+      }
+    }
+  ],
+  "recentGames": [
+    {
+      "uci": "c2c4",
+      "id": "BGLmUtv7",
+      "winner": "white",
+      "speed": "bullet",
+      "mode": "rated",
+      "black": {
+        "name": "yigithanyiigit",
+        "rating": 1227
+      },
+      "white": {
+        "name": "revoof",
+        "rating": 1717
+      },
+      "year": 2022,
+      "month": "2022-03"
+    }
+  ],
+  "opening": {
+    "eco": "D00",
+    "name": "Queen's Pawn Game"
+  },
+  "queuePosition": 0
+}

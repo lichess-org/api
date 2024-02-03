@@ -1,0 +1,21 @@
+get:
+  operationId: accountMe
+  summary: Get my profile
+  description: |
+    Public information about the logged in user.
+  tags:
+    - Account
+  security:
+    - OAuth2: []
+  responses:
+    "200":
+      description: The public information about the logged in user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/UserExtended.yaml'

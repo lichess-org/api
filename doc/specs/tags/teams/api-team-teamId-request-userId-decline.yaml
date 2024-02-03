@@ -1,0 +1,28 @@
+post:
+  operationId: teamRequestDecline
+  summary: Decline join request
+  description: Decline someone's request to join your team
+  tags:
+    - Teams
+  security:
+    - OAuth2: ["team:lead"]
+  parameters:
+    - in: path
+      name: teamId
+      schema:
+        type: string
+        example: "coders"
+      required: true
+    - in: path
+      name: userId
+      schema:
+        type: string
+        example: "neio"
+      required: true
+  responses:
+    "200":
+      description: The join request has been declined and is no longer pending.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'

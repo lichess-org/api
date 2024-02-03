@@ -1,0 +1,47 @@
+get:
+  operationId: apiStreamEvent
+  summary: Stream incoming events
+  description: "\n
+  \ Stream the events reaching a lichess user in real time as [ndjson](#section/Introduction/Streaming-with-ND-JSON).\n\n
+  \ An empty line is sent every 6 seconds for keep alive purposes.\n\n
+  \ Each non-empty line is a JSON object containing a `type` field. Possible values are:\n
+  \ - `gameStart` Start of a game\n
+  \ - `gameFinish` Completion of a game\n
+  \ - `challenge` A player sends you a challenge or you challenge someone\n
+  \ - `challengeCanceled` A player cancels their challenge to you\n
+  \ - `challengeDeclined` The opponent declines your challenge\n
+  \n
+  \ When the stream opens, all current challenges and games are sent."
+  tags:
+    - Board
+    - Bot
+  security:
+    - OAuth2: ["challenge:read", "bot:play", "board:play"]
+  responses:
+    "200":
+      description: The stream of events reaching the logged in user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            oneOf:
+              - $ref: '../../schemas/GameStartEvent.yaml'
+              - $ref: '../../schemas/GameFinishEvent.yaml'
+              - $ref: '../../schemas/ChallengeEvent.yaml'
+              - $ref: '../../schemas/ChallengeCanceledEvent.yaml'
+              - $ref: '../../schemas/ChallengeDeclinedEvent.yaml'
+          examples:
+            challenge:
+              $ref: '../../examples/challenge.yaml'
+            challengeCanceled:
+              $ref: '../../examples/challengeCanceled.yaml'
+            challengeDeclined:
+              $ref: '../../examples/challengeDeclined.yaml'
+            gameStart:
+              $ref: '../../examples/gameStart.yaml'
+            gameFinish:
+              $ref: '../../examples/gameFinish.yaml'

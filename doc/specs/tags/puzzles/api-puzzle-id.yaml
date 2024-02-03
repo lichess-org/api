@@ -1,0 +1,26 @@
+get:
+  operationId: apiPuzzleId
+  summary: Get a puzzle by its ID
+  description: Get a single Lichess puzzle in JSON format.
+  tags:
+    - Puzzles
+  security: []
+  parameters:
+    - in: path
+      name: id
+      required: true
+      description: The puzzle ID
+      schema:
+        type: string
+  responses:
+    "200":
+      description: The requested puzzle.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PuzzleAndGame.yaml'

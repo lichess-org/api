@@ -1,0 +1,260 @@
+VariantKey:
+  $ref: './VariantKey.yaml'
+
+Variant:
+  $ref: './Variant.yaml'
+
+UciVariant:
+  $ref: './UciVariant.yaml'
+
+Speed:
+  $ref: './Speed.yaml'
+
+PerfType:
+  $ref: './PerfType.yaml'
+
+Clock:
+  $ref: './Clock.yaml'
+
+GameStatus:
+  $ref: './GameStatus.yaml'
+
+FromPositionFEN:
+  $ref: './FromPositionFEN.yaml'
+
+ChallengeUser:
+  $ref: './ChallengeUser.yaml'
+
+ChallengeJson:
+  $ref: './ChallengeJson.yaml'
+
+ChallengeCanceledJson:
+  $ref: './ChallengeCanceledJson.yaml'
+
+ChallengeOpenJson:
+  $ref: './ChallengeOpenJson.yaml'
+
+BulkPairing:
+  $ref: './BulkPairing.yaml'
+
+GameUser:
+  $ref: './GameUser.yaml'
+
+GameJson:
+  $ref: './GameJson.yaml'
+
+GamePgn:
+  $ref: './GamePgn.yaml'
+
+MasterGamePgn:
+  $ref: './MasterGamePgn.yaml'
+
+StudyPgn:
+  $ref: './StudyPgn.yaml'
+
+StudyMetadata:
+  $ref: './StudyMetadata.yaml'
+
+StudyImportPgnChapters:
+  $ref: './StudyImportPgnChapters.yaml'
+
+Title:
+  $ref: './Title.yaml'
+
+LightUser:
+  $ref: './LightUser.yaml'
+
+LightUserOnline:
+  $ref: './LightUserOnline.yaml'
+
+Perf:
+  $ref: './Perf.yaml'
+
+PuzzleModePerf:
+  $ref: './PuzzleModePerf.yaml'
+
+Perfs:
+  $ref: './Perfs.yaml'
+
+UserNote:
+  $ref: './UserNote.yaml'
+
+PlayTime:
+  $ref: './PlayTime.yaml'
+
+Profile:
+  $ref: './Profile.yaml'
+
+Count:
+  $ref: './Count.yaml'
+
+User:
+  $ref: './User.yaml'
+
+UserExtended:
+  $ref: './UserExtended.yaml'
+
+Crosstable:
+  $ref: './Crosstable.yaml'
+
+GameChat:
+  $ref: './GameChat.yaml'
+
+PuzzleAndGame:
+  $ref: './PuzzleAndGame.yaml'
+
+PuzzleRoundJson:
+  $ref: './PuzzleRoundJson.yaml'
+
+PuzzleDashboardJson:
+  $ref: './PuzzleDashboardJson.yaml'
+
+PuzzleRaceJson:
+  $ref: './PuzzleRaceJson.yaml'
+
+StormDashboardJson:
+  $ref: './StormDashboardJson.yaml'
+
+RatingHistory:
+  $ref: './RatingHistory.yaml'
+
+PerfStat:
+  $ref: './PerfStat.yaml'
+
+Top10s:
+  $ref: './Top10s.yaml'
+
+Leaderboard:
+  $ref: './Leaderboard.yaml'
+
+UserPreferences:
+  $ref: './UserPreferences.yaml'
+
+ArenaTournaments:
+  $ref: './ArenaTournaments.yaml'
+
+ArenaStatus:
+  $ref: './ArenaStatus.yaml'
+
+ArenaPerf:
+  $ref: './ArenaPerf.yaml'
+
+ArenaRatingObj:
+  $ref: './ArenaRatingObj.yaml'
+
+ArenaPosition:
+  $ref: './ArenaPosition.yaml'
+
+ArenaTournament:
+  $ref: './ArenaTournament.yaml'
+
+ArenaTournamentVariantIsKey:
+  $ref: './ArenaTournamentVariantIsKey.yaml'
+
+SwissTournament:
+  $ref: './SwissTournament.yaml'
+
+Simul:
+  $ref: './Simul.yaml'
+
+BroadcastForm:
+  $ref: './BroadcastForm.yaml'
+
+BroadcastTour:
+  $ref: './BroadcastTour.yaml'
+
+BroadcastRound:
+  $ref: './BroadcastRound.yaml'
+
+BroadcastMyRound:
+  $ref: './BroadcastMyRound.yaml'
+
+OpeningExplorerJson:
+  $ref: './OpeningExplorerJson.yaml'
+
+OpeningExplorerPlayerJson:
+  $ref: './OpeningExplorerPlayerJson.yaml'
+
+TablebaseJson:
+  $ref: './TablebaseJson.yaml'
+
+Move:
+  $ref: './Move.yaml'
+
+Team:
+  $ref: './Team.yaml'
+
+TeamPaginatorJson:
+  $ref: './TeamPaginatorJson.yaml'
+
+TeamRequest:
+  $ref: './TeamRequest.yaml'
+
+TeamRequestWithUser:
+  $ref: './TeamRequestWithUser.yaml'
+
+GameEventPlayer:
+  $ref: './GameEventPlayer.yaml'
+
+GameFullEvent:
+  $ref: './GameFullEvent.yaml'
+
+GameStateEvent:
+  $ref: './GameStateEvent.yaml'
+
+ChatLineEvent:
+  $ref: './ChatLineEvent.yaml'
+
+OpponentGone:
+  $ref: './OpponentGone.yaml'
+
+GameEventInfo:
+  $ref: './GameEventInfo.yaml'
+
+GameStartEvent:
+  $ref: './GameStartEvent.yaml'
+
+GameFinishEvent:
+  $ref: './GameFinishEvent.yaml'
+
+ChallengeEvent:
+  $ref: './ChallengeEvent.yaml'
+
+ChallengeCanceledEvent:
+  $ref: './ChallengeCanceledEvent.yaml'
+
+ChallengeDeclinedEvent:
+  $ref: './ChallengeDeclinedEvent.yaml'
+
+Ok:
+  $ref: './Ok.yaml'
+
+Error:
+  $ref: './Error.yaml'
+
+OAuthError:
+  $ref: './OAuthError.yaml'
+
+NotFound:
+  $ref: './NotFound.yaml'
+
+SwissUnauthorisedEdit:
+  $ref: './SwissUnauthorisedEdit.yaml'
+
+GameStream:
+  $ref: './GameStream.yaml'
+
+MoveStream:
+  $ref: './MoveStream.yaml'
+
+ExternalEngineRegistration:
+  $ref: './ExternalEngineRegistration.yaml'
+
+ExternalEngine:
+  $ref: './ExternalEngine.yaml'
+
+ExternalEngineWork:
+  $ref: './ExternalEngineWork.yaml'
+
+Timeline:
+  $ref: './Timeline.yaml'

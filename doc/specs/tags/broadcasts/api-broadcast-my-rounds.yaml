@@ -1,0 +1,27 @@
+get:
+  operationId: broadcastMyRoundsGet
+  summary: Get your broadcast rounds
+  description: |
+    Stream all broadcast rounds you are a member of.
+    Also includes broadcasts rounds you did not create, but were invited to.
+    Also includes broadcasts rounds where you're a non-writing member. See the `writeable` flag in the response.
+    Rounds are ordered by rank, which is roughly chronological, most recent first, slightly pondered with popularity.
+  tags:
+    - Broadcasts
+  security:
+    - OAuth2: ["study:read"]
+  parameters:
+    - in: query
+      name: nb
+      description: How many rounds to get
+      schema:
+        type: integer
+        minimum: 1
+        example: 20
+  responses:
+    "200":
+      description: The broadcast rounds with their tournament and a `study.writeable` flag.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/BroadcastMyRound.yaml'

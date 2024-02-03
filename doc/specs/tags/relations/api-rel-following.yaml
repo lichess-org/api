@@ -1,0 +1,21 @@
+get:
+  operationId: apiUserFollowing
+  summary: Get users followed by the logged in user
+  description: |
+    Users are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+  tags:
+    - Relations
+  security:
+    - OAuth2: ["follow:read"]
+  responses:
+    "200":
+      description: The list of users followed by a user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            $ref: '../../schemas/UserExtended.yaml'

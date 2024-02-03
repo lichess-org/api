@@ -1,0 +1,6 @@
+properties:
+  error:
+    type: string
+    description: The cause of the error.
+example:
+  error: "This request is invalid because [...]"

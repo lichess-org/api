@@ -1,0 +1,29 @@
+get:
+  operationId: teamOfUsername
+  summary: Teams of a player
+  description: |
+    All the teams a player is a member of.
+  tags:
+    - Teams
+  security: []
+  parameters:
+    - in: path
+      name: username
+      schema:
+        type: string
+        example: "thibault"
+      required: true
+  responses:
+    "200":
+      description: The list of teams the user is a member of.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/Team.yaml'

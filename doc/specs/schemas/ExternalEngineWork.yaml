@@ -1,0 +1,50 @@
+type: object
+properties:
+  sessionId:
+    type: string
+    description: |
+      Arbitary string that identifies the analysis session.
+      Providers may wish to clear the hash table between sessions.
+    example: "abcd1234"
+  threads:
+    type: integer
+    minimum: 1
+    description: Number of threads to use for analysis.
+    example: 4
+  hash:
+    type: integer
+    minimum: 1
+    description: Hash table size to use for analysis, in MiB.
+    example: 128
+  infinite:
+    type: boolean
+    description: |
+      Request an infinite search (rather than roughly aiming for
+      `defaultDepth`).
+    example: false
+  multiPv:
+    type: integer
+    minimum: 1
+    maximum: 5
+    description: Requested number of principal variations.
+    example: 1
+  variant:
+    $ref: './UciVariant.yaml'
+  initialFen:
+    type: string
+    description: Initial position of the game.
+    example: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+  moves:
+    type: array
+    description: List of moves played from the initial position, in UCI notation.
+    items:
+      type: string
+    example: ["e2e4", "g8f6"]
+required:
+  - sessionId
+  - threads
+  - hash
+  - multiPv
+  - variant
+  - initialFen
+  - moves

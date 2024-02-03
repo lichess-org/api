@@ -1,0 +1,25 @@
+get:
+  operationId: accountEmail
+  summary: Get my email address
+  description: |
+    Read the email address of the logged in user.
+  tags:
+    - Account
+  security:
+    - OAuth2: ["email:read"]
+  responses:
+    "200":
+      description: The email address of the logged in user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            properties:
+              email:
+                type: string
+            example:
+              email: abathur@mail.org

@@ -1,0 +1,59 @@
+servers:
+  - url: https://engine.lichess.ovh
+post:
+  operationId: apiExternalEngineAcquire
+  summary: Acquire analysis request
+  tags:
+    - External engine
+  security: []
+  description: |
+    **Endpoint: `https://engine.lichess.ovh/api/external-engine/work`**
+    Wait for an analysis requests to any of the external engines that
+    have been registered with the given `secret`.
+    Uses long polling.
+    After acquiring a request, the provider should immediately
+    [start streaming the results](#tag/External-engine/operation/apiExternalEngineSubmit).
+  requestBody:
+    description: Provider credentials.
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            providerSecret:
+              type: string
+              example: Dee3uwieZei9ahpaici9bee2yahsai0K
+          required:
+            - secret
+  responses:
+    "200":
+      description: Analysis has been requested
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+                example: aingoohiJee2sius
+              work:
+                $ref: '../../schemas/ExternalEngineWork.yaml'
+              engine:
+                $ref: '../../schemas/ExternalEngine.yaml'
+            required:
+              - id
+              - engine
+              - work
+    "204":
+      description: No pending analysis
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"

@@ -1,0 +1,73 @@
+parameters:
+  - in: path
+    name: id
+    required: true
+    description: The external engine id.
+    schema:
+      type: string
+    example: eei_aTKImBJOnv6j
+get:
+  operationId: apiExternalEngineGet
+  summary: Get external engine
+  tags:
+    - External engine
+  security:
+    - OAuth2: ["engine:read"]
+  description: |
+    Get properties and credentials of an external engine.
+  responses:
+    "200":
+      description: A registered engine.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ExternalEngine.yaml'
+put:
+  operationId: apiExternalEnginePut
+  summary: Update external engine
+  tags:
+    - External engine
+  security:
+    - OAuth2: ["engine:write"]
+  description: |
+    Updates the properties of an external engine.
+  requestBody:
+    description: A modified engine registration.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/ExternalEngineRegistration.yaml'
+  responses:
+    "200":
+      description: A registered engine.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ExternalEngine.yaml'
+delete:
+  operationId: apiExternalEngineDelete
+  summary: Delete external engine
+  tags:
+    - External engine
+  security:
+    - OAuth2: ["engine:write"]
+  description: |
+    Unregisters an external engine.
+  responses:
+    "200":
+      description: Engine successfully deleted
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'

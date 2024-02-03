@@ -1,0 +1,84 @@
+get:
+  operationId: oauth
+  summary: Request authorization code
+  tags:
+    - OAuth
+  security: []
+  description: |
+    OAuth2 authorization endpoint.
+    Start the OAuth2 Authorization Code Flow with PKCE by securely
+    generating two random strings unique to each authorization
+    request:
+    * `code_verifier`
+    * `state`
+    Store these in session storage. Make sure not to reveal `code_verifier`
+    to eavesdroppers. Do not show it in URLs, do not abuse `state` to store
+    it, do not send it over insecure connections. However it is fine if
+    the user themselves can extract `code_verifier`, which will always be
+    possible for fully client-side apps.
+    Then send the user to this endpoint. They will be prompted to grant
+    authorization and then be redirected back to the given `redirect_uri`.
+    If the authorization failed, the following query string parameters will
+    be appended to the redirection:
+    * `error`, in particular with value `access_denied` if the user
+       cancelled authorization
+    * `error_description` to aid debugging
+    * `state`, exactly as passed in the `state` parameter
+    If the authorization succeeded, the following query string parameters
+    will be appended to the redirection:
+    * `code`, containing a fresh short-lived authorization code
+    * `state`, exactly as passed in the `state` parameter
+    Next, to defend against cross site request forgery, check that the
+    returned `state` matches the `state` you originally generated.
+    Finally, continue by using the authorization code to
+    [obtain an access token](#operation/apiToken).
+  parameters:
+    - in: query
+      name: response_type
+      description: Must be `code`.
+      required: true
+      schema:
+        type: string
+    - in: query
+      name: client_id
+      description: Arbitrary identifier that uniquely identifies your application.
+      example: example.com
+      required: true
+      schema:
+        type: string
+    - in: query
+      name: redirect_uri
+      description: The absolute URL that the user should be redirected to with the authorization result.
+      required: true
+      schema:
+        type: string
+    - in: query
+      name: code_challenge_method
+      description: Must be `S256`.
+      required: true
+      schema:
+        type: string
+    - in: query
+      name: code_challenge
+      description: Compute `BASE64URL(SHA256(code_verifier))`.
+      required: true
+      schema:
+        type: string
+    - in: query
+      name: scope
+      description: Space separated list of requested OAuth scopes, if any.
+      schema:
+        type: string
+    - in: query
+      name: username
+      description: Hint that you want the user to log in with a specific Lichess username.
+      schema:
+        type: string
+    - in: query
+      name: state
+      description: Arbitrary state that will be returned verbatim with the authorization result.
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Authorization prompt will be displayed to the user.

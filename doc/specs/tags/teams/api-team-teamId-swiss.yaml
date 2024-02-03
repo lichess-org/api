@@ -1,0 +1,37 @@
+get:
+  operationId: apiTeamSwiss
+  summary: Get team swiss tournaments
+  description: |
+    Get all swiss tournaments of a team.
+    Tournaments are sorted by reverse chronological order of start date (last starting first).
+    Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+  tags:
+    - Teams
+    - "Swiss tournaments"
+  security: []
+  parameters:
+    - in: path
+      name: teamId
+      schema:
+        type: string
+      required: true
+      example: coders
+    - in: query
+      name: max
+      description: How many tournaments to download.
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+  responses:
+    "200":
+      description: The list of Swiss tournaments of a team.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/nd-json:
+          schema:
+            $ref: '../../schemas/SwissTournament.yaml'

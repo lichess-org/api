@@ -1,0 +1,55 @@
+post:
+  operationId: broadcastPush
+  summary: Push PGN to your broadcast round
+  description: |
+    Update your broadcast with new PGN.
+    Only for broadcast without a source URL.
+  tags:
+    - Broadcasts
+  security:
+    - OAuth2: ["study:write"]
+  parameters:
+   - in: path
+     name: broadcastRoundId
+     description: The broadcast round ID (8 characters).
+     required: true
+     schema:
+       type: string
+  requestBody:
+    description: The PGN. It can contain up to 64 games, separated by a double new line.
+    required: true
+    content:
+      text/plain:
+        schema:
+          type: string
+  responses:
+    "200":
+      description: The broadcast was successfully updated.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            properties:
+              moves:
+                type: integer
+            example:
+              moves: 12
+    "400":
+      description: There was a problem with the pushed PGN.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            properties:
+              error:
+                type: string
+            example:
+              error: "Cannot parse moves"

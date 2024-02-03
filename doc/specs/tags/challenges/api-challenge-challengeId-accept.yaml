@@ -1,0 +1,35 @@
+post:
+  operationId: challengeAccept
+  summary: Accept a challenge
+  description: |
+    Accept an incoming challenge.
+    You should receive a `gameStart` event on the [incoming events stream](#operation/apiStreamEvent).
+  tags:
+    - Challenges
+  security:
+    - OAuth2: ["challenge:write", "bot:play", "board:play"]
+  parameters:
+    - in: path
+      name: challengeId
+      schema:
+        type: string
+        example: "5IrD6Gzz"
+      required: true
+  responses:
+    "200":
+      description: The challenge was successfully accepted.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'
+    "404":
+      description: The challenge to accept was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/NotFound.yaml'

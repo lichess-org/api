@@ -1,0 +1,14 @@
+type: object
+properties:
+  key:
+    type: string
+    example: "blitz"
+  name:
+    type: string
+    example: "Blitz"
+  position:
+    type: integer
+    example: 1
+  icon:
+    type: string
+    example: ")"

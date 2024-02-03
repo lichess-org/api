@@ -1,0 +1,19 @@
+type: object
+properties:
+  type:
+    type: string
+    const: chatLine
+  room:
+    type: string
+    enum:
+      - player
+      - spectator
+  username:
+    type: string
+  text:
+    type: string
+required:
+  - type
+  - room
+  - username
+  - text

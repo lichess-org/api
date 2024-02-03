@@ -1,0 +1,8 @@
+type: integer
+description: |
+  10: created, 20: started, 30: finished
+enum:
+  - 10
+  - 20
+  - 30
+example: 30

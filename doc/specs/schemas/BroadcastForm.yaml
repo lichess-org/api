@@ -1,0 +1,45 @@
+type: object
+properties:
+  name:
+    type: string
+    description: |
+      Name of the broadcast tournament. Length must be between 3 and 80 characters.
+
+      Example: `Sinquefield Cup`
+  description:
+    type: string
+    description: |
+      Short description of the broadcast tournament. Length must be between 3 and 400 characters.
+
+      Example: `An 11 round classical tournament featuring the 9 highest rated players in the world. Including Carlsen, Caruana, Ding, Aronian, Nakamura and more.`
+  autoLeaderboard:
+    type: boolean
+    description: Compute and display a simple leaderboard based on game results
+  markdown:
+    type: string
+    description: Optional long description of the broadcast. Markdown is supported. Length must be less than 20,000 characters.
+  tier:
+    type: integer
+    description: |
+      Optional, for Lichess admins only, use to feature on /broadcast.
+
+      * `3` for normal
+      * `4` for high
+      * `5` for best
+  players:
+    description: |
+      Optional replace player names, ratings and titles.
+
+      One line per player, formatted as such:
+
+      `Original name; Replacement name; Optional replacement rating; Optional replacement title`
+
+      Example:
+
+      DrNykterstein;Magnus Carlsen;2863
+
+      AnishGiri;Anish Giri;2764;GM
+required:
+  - name
+  - description
+  - autoLeaderboard

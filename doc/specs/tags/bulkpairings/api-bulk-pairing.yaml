@@ -1,0 +1,149 @@
+get:
+  operationId: bulkPairingList
+  summary: View your bulk pairings
+  description: |
+    Get a list of bulk pairings you created.
+  tags:
+    - Bulk pairings
+  security:
+    - OAuth2: ["challenge:bulk"]
+  responses:
+    "200":
+      description: The list of bulk pairing the logged in user created.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/BulkPairing.yaml'
+post:
+  operationId: bulkPairingCreate
+  summary: Create a bulk pairing
+  description: |
+    Schedule many games at once, up to 24h in advance.
+    OAuth tokens are required for all paired players, with the `challenge:write` scope.
+    You can schedule up to 500 games every 10 minutes. [Contact us](mailto:contact@lichess.org) if you need higher limits.
+    If games have a real-time clock, each player must have only one pairing.
+    For correspondence games, players can have multiple pairings within the same bulk.
+    The entire bulk is rejected if:
+      - a token is missing
+      - a token is present more than once (except in correspondence)
+      - a token lacks the `challenge:write` scope
+      - a player account is closed
+      - a player is paired more than once (except in correspondence)
+      - a bulk is already scheduled to start at the same time with the same player
+      - you have 20 scheduled bulks
+      - you have 1000 scheduled games
+    Partial bulks are never created. Either it all fails, or it all succeeds.
+    When it fails, it does so with an error message explaining the issue.
+    Failed bulks are not counted in the rate limiting, they are free.
+    Fix the issues, manually or programmatically, then retry to schedule the bulk.
+    A successful bulk creation returns a JSON bulk document. Its ID can be used for further operations.
+  tags:
+    - Bulk pairings
+  security:
+    - OAuth2: ["challenge:bulk"]
+  requestBody:
+    description: Parameters of the pairings
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            players:
+              type: string
+              description: |
+                OAuth tokens of all the players to pair, with the syntax `tokenOfWhitePlayerInGame1:tokenOfBlackPlayerInGame1,tokenOfWhitePlayerInGame2:tokenOfBlackPlayerInGame2,...`.
+                The 2 tokens of the players of a game are separated with `:`. The first token gets the white pieces. Games are separated with `,`.
+                Up to 1000 tokens can be sent, for a max of 500 games.
+                Each token must be included at most once.
+                Example: `token1:token2,token3:token4,token5:token6`
+            'clock.limit':
+              type: number
+              description: |
+                Clock initial time in seconds. Example: `600`
+              minimum: 0
+              maximum: 10800
+            'clock.increment':
+              type: integer
+              description: |
+                Clock increment in seconds. Example: `2`
+              minimum: 0
+              maximum: 60
+            days:
+              type: integer
+              description: Days per turn. For correspondence games only.
+              enum:
+                - 1
+                - 2
+                - 3
+                - 5
+                - 7
+                - 10
+                - 14
+            pairAt:
+              description: |
+                Date at which the games will be created as a Unix timestamp in milliseconds.
+                Up to 7 days in the future.
+                Omit, or set to current date and time, to start the games immediately.
+                Example: `1612289869919`
+              type: integer
+            startClocksAt:
+              description: |
+                Date at which the clocks will be automatically started as a Unix timestamp in milliseconds.
+                Up to 7 days in the future.
+                Note that the clocks can start earlier than specified, if players start making moves in the game.
+                If omitted, the clocks will not start automatically.
+                Example: `1612289869919`
+              type: integer
+            rated:
+              type: boolean
+              description: Game is rated and impacts players ratings
+              default: false
+            variant:
+              $ref: '../../schemas/VariantKey.yaml'
+            fen:
+              $ref: '../../schemas/FromPositionFEN.yaml'
+            message:
+              type: string
+              description: |
+                Message that will be sent to each player, when the game is created.  It is sent from your user account.
+                `{opponent}` and `{game}` are placeholders that will be replaced with the opponent and the game URLs.
+                You can omit this field to send the default message,
+                but if you set your own message, it must at least contain the `{game}` placeholder.
+              default: "Your game with {opponent} is ready: {game}."
+            rules:
+              type: string
+              enum:
+                - noAbort
+                - noRematch
+                - noGiveTime
+                - noClaimWin
+                - noEarlyDraw
+              description: |
+                Extra game rules separated by commas.
+                Example: `noAbort,noRematch`
+  responses:
+    "200":
+      description: The bulk pairing has been successfully created.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/BulkPairing.yaml'
+    "400":
+      description: The creation of the bulk pairings failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'

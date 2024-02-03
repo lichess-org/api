@@ -1,0 +1,40 @@
+post:
+  operationId: challengeStartClocks
+  summary: Start clocks of a game
+  description: |
+    Start the clocks of a game immediately, even if a player has not yet made a move.
+    Requires the OAuth tokens of both players with `challenge:write` scope.
+    If the clocks have already started, the call will have no effect.
+  tags:
+    - Challenges
+  security:
+    - OAuth2: ["challenge:write"]
+  parameters:
+    - in: path
+      name: gameId
+      schema:
+        type: string
+        description: ID of the game
+      required: true
+    - in: query
+      name: token1
+      description: OAuth token of a player
+      schema:
+        type: string
+    - in: query
+      name: token2
+      description: OAuth token of the other player
+      schema:
+        type: string
+  responses:
+    "200":
+      description: The clock of a game was successfully started.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'

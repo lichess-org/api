@@ -1,0 +1,22 @@
+example: {
+  "tour": {
+      "description": "April 18th - 28th  |  10-round Swiss  |  Classical time control",
+      "id": "x7WskVz3",
+      "name": "Moonway Chess Festival",
+      "tier": "high",
+      "slug": "moonway-chess-festival"
+  },
+  "round": {
+      "finished": true,
+      "id": "LXfsdxuf",
+      "name": "Round 5",
+      "slug": "round-5",
+      "startsAt": 1682168400000,
+      "url": "https://lichess.org/broadcast/moonway-chess-festival/round-5/LXfsdxuf"
+  },
+  "study": {
+      "writeable": true
+  },
+}
+
+

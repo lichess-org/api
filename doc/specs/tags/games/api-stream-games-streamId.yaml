@@ -1,0 +1,41 @@
+post:
+  operationId: gamesByIds
+  summary: Stream games by IDs
+  description: |
+    Creates a stream of games from an arbitrary streamId, and a list of game IDs.
+    The stream first outputs the games that already exists, then emits an event each time a game is started or finished.
+    Games are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+    Maximum number of games: 500 for anonymous requests, or 1000 for [OAuth2 authenticated](#section/Introduction/Authentication) requests.
+    While the stream is open, it is possible to [add new game IDs to watch](#operation/gamesByIdsAdd).
+  tags:
+    - Games
+  security: []
+  parameters:
+    - in: path
+      name: streamId
+      schema:
+        type: string
+        description: Arbitrary stream ID that you can later use to add game IDs to the stream.
+        example: "myAppName-someRandomId"
+      required: true
+  requestBody:
+    description: |
+      Up to 500 or 1000 game IDs separated by commas.
+      Example: `gameId01,gameId02,gameId03`
+    required: true
+    content:
+      text/plain:
+        schema:
+          type: string
+  responses:
+    "200":
+      description: The stream of the games matching the requested IDs.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            $ref: '../../schemas/GameStream.yaml'

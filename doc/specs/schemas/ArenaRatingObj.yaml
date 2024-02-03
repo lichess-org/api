@@ -1,0 +1,7 @@
+type: object
+properties:
+  perf:
+    $ref: './PerfType.yaml'
+  rating:
+    type: integer
+    example: 1700

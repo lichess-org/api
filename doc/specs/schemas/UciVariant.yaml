@@ -1,0 +1,12 @@
+type: string
+enum:
+  - chess
+  - crazyhouse
+  - antichess
+  - atomic
+  - horde
+  - kingofthehill
+  - racingkings
+  - 3check
+example: chess
+default: chess

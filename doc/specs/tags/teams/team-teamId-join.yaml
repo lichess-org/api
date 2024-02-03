@@ -1,0 +1,41 @@
+post:
+  operationId: teamIdJoin
+  summary: Join a team
+  description: |
+    Join a team.
+    If the team requires a password but the `password` field is incorrect,
+    then the call fails with `403 Forbidden`.
+    Similarly, if the team join policy requires a confirmation but the
+    `message` parameter is not given, then the call fails with
+    `403 Forbidden`.
+  tags:
+    - Teams
+  security:
+    - OAuth2: ["team:write"]
+  parameters:
+    - in: path
+      name: teamId
+      schema:
+        type: string
+        example: "coders"
+      required: true
+  requestBody:
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Optional request message, if the team requires one.
+            password:
+              type: string
+              description: Optional password, if the team requires one.
+  responses:
+    "200":
+      description: The request to join a team was successfully sent.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'

@@ -1,0 +1,21 @@
+get:
+  operationId: player
+  summary: Get all top 10
+  tags:
+    - Users
+  security: []
+  description: |
+    Get the top 10 players for each speed and variant.
+    See <https://lichess.org/player>.
+  responses:
+    "200":
+      description: The list of variants with their respective top players.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Top10s.yaml'

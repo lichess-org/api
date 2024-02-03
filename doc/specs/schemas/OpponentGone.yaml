@@ -1,0 +1,12 @@
+type: object
+properties:
+  type:
+    type: string
+    const: opponentGone
+  gone:
+    type: boolean
+  claimWinInSeconds:
+    type: number
+required:
+  - type
+  - gone

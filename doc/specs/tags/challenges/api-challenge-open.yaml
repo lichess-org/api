@@ -1,0 +1,98 @@
+post:
+  operationId: challengeOpen
+  summary: Open-ended challenge
+  description: |
+    Create a challenge that any 2 players can join.
+    Share the URL of the challenge. the first 2 players to click it will be paired for a game.
+    The response body also contains `whiteUrl` and `blackUrl`.
+    You can control which color each player gets by giving them these URLs,
+    instead of the main challenge URL.
+    Open challenges expire after 24h.
+    If the challenge creation is [authenticated with OAuth2](#section/Introduction/Authentication),
+    then you can use the [challenge cancel endpoint](#operation/challengeCancel) to cancel it.
+    To directly pair 2 known players, use [this endpoint](#operation/bulkPairingList) instead.
+  tags:
+    - Challenges
+  security: []
+  requestBody:
+    description: Parameters of the game
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            rated:
+              type: boolean
+              description: Game is rated and impacts players ratings
+              default: false
+            'clock.limit':
+              type: number
+              description: Clock initial time in seconds. If empty, a correspondence game is created.
+              example: 300
+              minimum: 0
+              maximum: 10800
+            'clock.increment':
+              type: integer
+              description: Clock increment in seconds. If empty, a correspondence game is created.
+              example: 1
+              minimum: 0
+              maximum: 60
+            days:
+              type: integer
+              description: Days per turn. For correspondence challenges.
+              enum:
+                - 1
+                - 2
+                - 3
+                - 5
+                - 7
+                - 10
+                - 14
+            variant:
+              $ref: '../../schemas/VariantKey.yaml'
+            fen:
+              $ref: '../../schemas/FromPositionFEN.yaml'
+            name:
+              type: string
+              description: Optional name for the challenge, that players will see on the challenge page.
+            rules:
+              type: string
+              enum:
+                - noRematch
+                - noGiveTime
+                - noClaimWin
+                - noEarlyDraw
+                - noAbort
+              description: |
+                Extra game rules separated by commas.
+                Example: `noRematch,noGiveTime`
+                The `noAbort` rule is available for Lichess admins only
+            users:
+              type: string
+              description: |
+                Optional pair of usernames, separated by a comma.
+                If set, only these users will be allowed to join the game.
+                The first username gets the white pieces.
+                Example: `Username1,Username2`
+            expiresAt:
+              type: integer
+              description: Timestamp in milliseconds to expire the challenge. Defaults to 24h after creation. Can't be more than 2 weeks after creation.
+  responses:
+    "200":
+      description: The challenge was successfully created.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ChallengeOpenJson.yaml'
+    "400":
+      description: The creation of the challenge failed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Error.yaml'

@@ -1,0 +1,29 @@
+get:
+  operationId: swissTrf
+  summary: Export TRF of a Swiss tournament
+  description: |
+    Download a tournament in the Tournament Report File format, the FIDE standard.
+    Documentation: <https://www.fide.com/FIDE/handbook/C04Annex2_TRF16.pdf>
+    Example: <https://lichess.org/swiss/j8rtJ5GL.trf>
+  tags:
+    - "Swiss tournaments"
+  security: []
+  parameters:
+    - in: path
+      name: id
+      description: The tournament ID.
+      schema:
+        type: string
+      required: true
+  responses:
+    "200":
+      description: The TRF representation of a Swiss tournament.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        text/plain:
+          schema:
+            type: string

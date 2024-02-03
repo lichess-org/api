@@ -1,0 +1,37 @@
+type: object
+properties:
+  id:
+    type: string
+  source:
+    type: string
+    enum:
+      - lobby
+      - friend
+      - ai
+      - api
+      - tournament
+      - position
+      - import
+      - importlive
+      - simul
+      - relay
+      - pool
+      - swiss
+  status:
+    type: object
+    properties:
+      id:
+        type: integer
+        enum: [10, 20, 25, 30, 31, 32, 33, 34, 35, 36, 37, 38, 60]
+      name:
+        $ref: './GameStatus.yaml'
+  winner:
+    type: string
+    enum: [white, black]
+  compat:
+    type: object
+    properties:
+      bot:
+        type: boolean
+      board:
+        type: boolean

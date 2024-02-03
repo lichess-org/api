@@ -1,0 +1,29 @@
+get:
+  operationId: apiUserRatingHistory
+  summary: Get rating history of a user
+  description: |
+    Read rating history of a user, for all perf types.
+    There is at most one entry per day.
+    Format of an entry is `[year, month, day, rating]`.
+    `month` starts at zero (January).
+  tags:
+    - Users
+  security: []
+  parameters:
+    - in: path
+      name: username
+      schema:
+        type: string
+      required: true
+  responses:
+    "200":
+      description: The rating history of the user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/RatingHistory.yaml'
