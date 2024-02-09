@@ -1,0 +1,30 @@
+get:
+  operationId: broadcastByUser
+  summary: Get broadcasts by a user
+  description: |
+    Returns all of the tournaments being broadcast by a user. Results are paginated.
+  tags:
+    - Broadcasts
+  security: []
+  parameters:
+    - in: path
+      name: username
+      required: true
+      schema:
+        type: string
+    - in: query
+      name: page
+      required: false
+      description: Selects the desired page of results.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 19
+        default: 1
+  responses:
+    "200":
+      description: The list of tournaments being broadcast by a user. Returns html for the webpage that shows all tournaments that are being broadcast by the user.
+      content:
+        text/html:
+          schema:
+            type: object
