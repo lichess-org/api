@@ -5,8 +5,6 @@ get:
     Get information about a broadcast tournament.
   tags:
     - Broadcasts
-  security:
-    - OAuth2: ['study:read']
   parameters:
     - in: path
       name: slug

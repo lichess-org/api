@@ -426,8 +426,8 @@ paths:
   /broadcast/new:
     $ref: './tags/broadcasts/broadcast-new.yaml'
 
-  /broadcast/{slug}/{broadcastTournamentId}:
-    $ref: './tags/broadcasts/broadcast-slug-broadcastTournamentId.yaml'
+  /api/broadcast/{broadcastTournamentId}:
+    $ref: './tags/broadcasts/broadcast-broadcastTournamentId.yaml'
 
   /broadcast/{broadcastTournamentId}/edit:
     $ref: './tags/broadcasts/broadcast-broadcastTournamentId-edit.yaml'
