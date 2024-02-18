@@ -1,12 +1,12 @@
 get:
   operationId: broadcastTourGet
-  summary: Get your broadcast tournament
+  summary: Get a broadcast tournament
   description: |
     Get information about a broadcast tournament.
   tags:
     - Broadcasts
   security:
-    - OAuth2: ["study:read"]
+    - OAuth2: ['study:read']
   parameters:
     - in: path
       name: slug
@@ -21,7 +21,7 @@ get:
       schema:
         type: string
   responses:
-    "200":
+    '200':
       description: The information about the broadcast tournament.
       content:
         application/json:
