@@ -7,12 +7,6 @@ get:
     - Broadcasts
   parameters:
     - in: path
-      name: slug
-      description: The broadcast tournament slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastTournamentId` is actually used.
-      required: true
-      schema:
-        type: string
-    - in: path
       name: broadcastTournamentId
       description: The broadcast tournament ID (8 characters).
       required: true
