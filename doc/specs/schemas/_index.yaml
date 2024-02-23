@@ -258,3 +258,6 @@ ExternalEngineWork:
 
 Timeline:
   $ref: './Timeline.yaml'
+
+BroadcastPgnPush:
+  $ref: './BroadcastPgnPush.yaml'
