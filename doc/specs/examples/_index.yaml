@@ -33,3 +33,9 @@ opponentGoneFalse:
 
 gameStateResign:
   $ref: './gameStateResign.yaml'
+
+broadcastPgnPushRequest:
+  $ref: './broadcastPgnPushRequest.yaml'
+
+broadcastPgnPushResponse:
+  $ref: './broadcastPgnPushResponse.yaml'
