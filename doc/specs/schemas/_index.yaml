@@ -261,3 +261,6 @@ Timeline:
 
 BroadcastPgnPush:
   $ref: './BroadcastPgnPush.yaml'
+
+TvFeed:
+  $ref: './TvFeed.yaml'

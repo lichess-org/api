@@ -14,23 +14,9 @@ get:
       content:
         application/x-ndjson:
           schema:
-            example: {
-              "t": "featured",
-              "d": {
-                "id": "qVSOPtMc",
-                "orientation": "black",
-                "players": [
-                  {
-                    "color": "white",
-                    "user": { "name": "lizen9", "id": "lizen9", "title": "GM" },
-                    "rating": 2531
-                  },
-                  {
-                    "color": "black",
-                    "user": { "name": "lizen29", "title": "WGM", "id": "lizen29" },
-                    "rating": 2594
-                  }
-                ],
-                "fen": "rnbqk1r1/ppp1ppbp/8/N2p2p1/8/1PQPP3/P1P2PPn/R1B1K1NR"
-              }
-            }
+            $ref: '../../schemas/TvFeed.yaml'
+          examples:
+            first line:
+              $ref: '../../examples/tvFeedFirst.yaml'
+            subsequent lines:
+              $ref: '../../examples/tvFeedFen.yaml'
