@@ -1,0 +1,22 @@
+value: {
+  "t": "featured",
+  "d": {
+    "id": "qVSOPtMc",
+    "orientation": "black",
+    "players": [
+      {
+        "color": "white",
+        "user": { "name": "lizen9", "id": "lizen9", "title": "GM" },
+        "rating": 2531,
+        "seconds": 60
+      },
+      {
+        "color": "black",
+        "user": { "name": "lizen29", "title": "WGM", "id": "lizen29" },
+        "rating": 2594,
+        "seconds": 60
+      }
+    ],
+    "fen": "rnbqk1r1/ppp1ppbp/8/N2p2p1/8/1PQPP3/P1P2PPn/R1B1K1NR"
+  }
+}

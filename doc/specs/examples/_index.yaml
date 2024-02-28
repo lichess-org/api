@@ -39,3 +39,9 @@ broadcastPgnPushRequest:
 
 broadcastPgnPushResponse:
   $ref: './broadcastPgnPushResponse.yaml'
+
+tvFeedFirst:
+  $ref: './tvFeedFirst.yaml'
+
+tvFeedFen:
+  $ref: './tvFeedFirst.yaml'

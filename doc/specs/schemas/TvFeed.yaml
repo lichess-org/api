@@ -1,0 +1,6 @@
+type: object
+properties:
+  t:
+    type: string
+  d:
+    type: object

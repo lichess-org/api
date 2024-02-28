@@ -339,6 +339,9 @@ paths:
   /api/tv/feed:
     $ref: './tags/tv/api-tv-feed.yaml'
 
+  /api/tv/{channel}/feed:
+    $ref: './tags/tv/api-tv-channel-feed.yaml'
+
   /api/tv/{channel}:
     $ref: './tags/tv/api-tv-channel.yaml'
 
