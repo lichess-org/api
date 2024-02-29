@@ -1,0 +1,19 @@
+delete:
+  operationId: apiStudyStudyIdChapterIdDelete
+  summary: Delete a study chapter
+  tags:
+    - Studies
+  security:
+    - OAuth2: ['study:write']
+  description: |
+    Delete a chapter of a study you own. This is definitive.
+    A study must have at least one chapter; so if you delete the last chapter,
+    an empty one will be automatically created to replace it.
+  responses:
+    '204':
+      description: Chapter successfully deleted
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"

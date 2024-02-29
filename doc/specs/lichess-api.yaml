@@ -423,6 +423,9 @@ paths:
   /api/study/by/{username}:
     $ref: './tags/studies/api-study-by-username.yaml'
 
+  /api/study/{studyId}/{chapterId}:
+    $ref: './tags/studies/api-study-studyId-chapterId.yaml'
+
   /api/broadcast:
     $ref: './tags/broadcasts/api-broadcast.yaml'
 
