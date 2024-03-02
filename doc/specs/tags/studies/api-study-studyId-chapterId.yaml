@@ -5,6 +5,19 @@ delete:
     - Studies
   security:
     - OAuth2: ['study:write']
+  parameters:
+    - in: path
+      name: studyId
+      description: The study ID (8 characters).
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: chapterId
+      description: The chapter ID (8 characters).
+      required: true
+      schema:
+        type: string
   description: |
     Delete a chapter of a study you own. This is definitive.
     A study must have at least one chapter; so if you delete the last chapter,
