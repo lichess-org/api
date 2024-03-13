@@ -1,0 +1,17 @@
+get:
+  operationId: broadcastLeaderboardGet
+  summary: Get a broadcast leaderboard
+  description: |
+    Get the leaderboard of a broadcast tournament, if available.
+  tags:
+    - Broadcasts
+  parameters:
+    - in: path
+      name: broadcastTournamentId
+      description: The broadcast tournament ID (8 characters).
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: The broadcast leaderboard players
