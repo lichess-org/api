@@ -1,0 +1,23 @@
+type: object
+properties:
+  name:
+    type: string
+    example: Hernandez Riera, Jose
+  score:
+    type: number
+    example: 2.5
+  played:
+    type: integer
+    example: 7
+  rating:
+    type: integer
+    example: 2149
+  title:
+    type: string
+    example: FM
+  fideId:
+    type: integer
+    example: 3408230
+  fed:
+    type: string
+    example: CHI
