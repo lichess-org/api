@@ -264,3 +264,6 @@ BroadcastPgnPush:
 
 TvFeed:
   $ref: './TvFeed.yaml'
+
+BroadcastLeaderboardEntry:
+  $ref: './BroadcastLeaderboardEntry.yaml'

@@ -15,3 +15,9 @@ get:
   responses:
     '200':
       description: The broadcast leaderboard players
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/BroadcastLeaderboardEntry.yaml'
