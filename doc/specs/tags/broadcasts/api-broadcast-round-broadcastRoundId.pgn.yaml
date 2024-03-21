@@ -4,7 +4,7 @@ get:
   description: |
     Download all games of a single round of a broadcast tournament in PGN format.
     You *could* poll this endpoint to get updates about a tournament, but it would be slow,
-    and very inneficient.
+    and very inefficient.
     Instead, consider [streaming the tournament](#operation/broadcastStreamRoundPgn) to get
     a new PGN every time a game is updated, in real-time.
   tags:
