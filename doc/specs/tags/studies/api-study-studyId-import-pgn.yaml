@@ -61,7 +61,7 @@ post:
           schema:
             $ref: '../../schemas/StudyImportPgnChapters.yaml'
     "400":
-      description: The creation of the Swiss tournament failed.
+      description: The creation of the chapter(s) failed.
       content:
         application/json:
           schema:
