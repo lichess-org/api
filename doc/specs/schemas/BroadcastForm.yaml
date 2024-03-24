@@ -39,7 +39,8 @@ properties:
       `Magnus Carlsen = 1503014`
 
       Player names ignore case and punctuation, and match all possible combinations of 2 words:
-      "Jorge Rick Vito" will match "Jorge Rick", "jorge vito", "Rick, Vito", etc.
+      "Jorge Rick Vito" will match "Jorge Rick", "jorge vito", "Rick, Vito", etc.  
+
       Alternatively, you may set tags manually, like so:
 
       `player name / rating / title / new name`
