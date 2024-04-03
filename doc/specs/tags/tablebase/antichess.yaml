@@ -10,7 +10,7 @@ get:
   security: []
   responses:
     "200":
-      description: The tablebase information for the position in atomic chess.
+      description: The tablebase information for the position in antichess.
       content:
         text/plain:
           schema:
