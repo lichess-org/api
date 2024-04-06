@@ -1,10 +1,10 @@
 post:
-  operationId: botGameDraw
-  summary: Handle draw offers
+  operationId: botGameTakeback
+  summary: Handle takeback offers
   description: |
-    Create/accept/decline draw offers with the Bot API.
-    - `yes`: Offer a draw, or accept the opponent's draw offer.
-    - `no`: Decline a draw offer from the opponent.
+    Create/accept/decline takebacks with the Bot API.
+    - `yes`: Propose a takeback, or accept the opponent's takeback offer.
+    - `no`: Decline a takeback offer from the opponent.
   tags:
     - Bot
   security:
@@ -27,7 +27,7 @@ post:
       required: true
   responses:
     "200":
-      description: The draw offer was successfully sent.
+      description: The takeback offer was successfully sent.
       headers:
         Access-Control-Allow-Origin:
           schema:
@@ -38,7 +38,7 @@ post:
           schema:
             $ref: '../../schemas/Ok.yaml'
     "400":
-      description: The draw offering failed.
+      description: The takeback offering failed.
       content:
         application/json:
           schema:

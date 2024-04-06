@@ -585,6 +585,9 @@ paths:
   /api/bot/game/{gameId}/draw/{accept}:
     $ref: './tags/bot/api-bot-game-gameId-draw-accept.yaml'
 
+  /api/bot/game/{gameId}/takeback/{accept}:
+    $ref: './tags/bot/api-bot-game-gameId-takeback-accept.yaml'
+
   /api/challenge:
     $ref: './tags/challenges/api-challenge.yaml'
 
