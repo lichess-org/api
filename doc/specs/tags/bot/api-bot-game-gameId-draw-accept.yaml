@@ -1,8 +1,8 @@
 post:
   operationId: botGameDraw
-  summary: Handle draw offers in bot games
+  summary: Handle draw offers
   description: |
-    Create/accept/decline draw offers in bot games
+    Create/accept/decline draw offers with the Bot API.
     - `yes`: Offer a draw, or accept the opponent's draw offer.
     - `no`: Decline a draw offer from the opponent.
   tags:

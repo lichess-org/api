@@ -1,8 +1,8 @@
 post:
   operationId: botGameTakeback
-  summary: Handle Bot takeback offers
+  summary: Handle takeback offers
   description: |
-    Create/accept/decline takebacks with Bot API.
+    Create/accept/decline takebacks with the Bot API.
     - `yes`: Propose a takeback, or accept the opponent's takeback offer.
     - `no`: Decline a takeback offer from the opponent.
   tags:
