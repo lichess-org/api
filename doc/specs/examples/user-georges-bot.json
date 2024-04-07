@@ -1,0 +1,124 @@
+{
+  "id": "georges-bot",
+  "username": "Georges-bot",
+  "perfs": {
+    "chess960": {
+      "games": 2945,
+      "rating": 1609,
+      "rd": 60,
+      "prog": -22,
+      "prov": true
+    },
+    "atomic": {
+      "games": 2945,
+      "rating": 1609,
+      "rd": 60,
+      "prog": -22,
+      "prov": true
+    },
+    "racingKings": {
+      "games": 2945,
+      "rating": 1609,
+      "rd": 60,
+      "prog": -22,
+      "prov": true
+    },
+    "ultraBullet": {
+      "games": 2945,
+      "rating": 1609,
+      "rd": 60,
+      "prog": -22,
+      "prov": true
+    },
+    "blitz": {
+      "games": 2945,
+      "rating": 1609,
+      "rd": 60,
+      "prog": -22,
+      "prov": true
+    },
+    "kingOfTheHill": {
+      "games": 2945,
+      "rating": 1609,
+      "rd": 60,
+      "prog": -22,
+      "prov": true
+    },
+    "bullet": {
+      "games": 2945,
+      "rating": 1609,
+      "rd": 60,
+      "prog": -22,
+      "prov": true
+    },
+    "correspondence": {
+      "games": 2945,
+      "rating": 1609,
+      "rd": 60,
+      "prog": -22,
+      "prov": true
+    },
+    "horde": {
+      "games": 2945,
+      "rating": 1609,
+      "rd": 60,
+      "prog": -22,
+      "prov": true
+    },
+    "puzzle": {
+      "games": 2945,
+      "rating": 1609,
+      "rd": 60,
+      "prog": -22,
+      "prov": true
+    },
+    "classical": {
+      "games": 2945,
+      "rating": 1609,
+      "rd": 60,
+      "prog": -22,
+      "prov": true
+    },
+    "rapid": {
+      "games": 2945,
+      "rating": 1609,
+      "rd": 60,
+      "prog": -22,
+      "prov": true
+    },
+    "storm": {
+      "runs": 44,
+      "score": 61
+    },
+    "racer": {
+      "runs": 44,
+      "score": 61
+    },
+    "streak": {
+      "runs": 44,
+      "score": 61
+    }
+  },
+  "createdAt": 1290415680000,
+  "disabled": false,
+  "tosViolation": false,
+  "profile": {
+    "country": "EC",
+    "location": "string",
+    "bio": "Free bugs!",
+    "firstName": "Thibault",
+    "lastName": "Duplessis",
+    "fideRating": 1500,
+    "uscfRating": 1500,
+    "ecfRating": 1500,
+    "links": "github.com/ornicar\r\ntwitter.com/ornicar"
+  },
+  "seenAt": 1522636452014,
+  "patron": true,
+  "verified": true,
+  "playTime": {
+    "total": 3296897,
+    "tv": 12134
+  },
+  "title": "BOT"
+}
