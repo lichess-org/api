@@ -1,0 +1,36 @@
+type: object
+properties:
+  id:
+    type: string
+    example: georges-bot
+  username:
+    type: string
+    example: Georges-bot
+  perfs:
+    $ref: './Perfs.yaml'
+  createdAt:
+    type: integer
+    format: int64
+    example: 1290415680000
+  disabled:
+    type: boolean
+    example: false
+  tosViolation:
+    type: boolean
+    example: false
+  profile:
+    $ref: './Profile.yaml'
+  seenAt:
+    type: integer
+    format: int64
+    example: 1522636452014
+  patron:
+    type: boolean
+    example: true
+  verified:
+    type: boolean
+    example: true
+  playTime:
+    $ref: './PlayTime.yaml'
+  title:
+    $ref: './BotTitle.yaml'
