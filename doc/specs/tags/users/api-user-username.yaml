@@ -31,5 +31,5 @@ get:
             default: "'*'"
       content:
         application/json:
-          schema:
-            $ref: '../../schemas/UserExtended.yaml'
+          example:
+            $ref: '../../examples/user-flair.json'
