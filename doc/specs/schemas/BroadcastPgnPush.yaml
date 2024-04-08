@@ -2,17 +2,12 @@ type: object
 properties:
   games:
     type: array
-    item:
-      oneOf:
-        - type: object
-          properties:
-            tags:
-              type: object
-            moves:
-              type: integer
-        - type: object
-          properties:
-            tags:
-              type: object
-            error:
-              type: string
+    items:
+      type: object
+      properties:
+        tags:
+          type: object
+        moves:
+          type: integer
+        error:
+          type: string

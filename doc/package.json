@@ -7,7 +7,8 @@
     "@stoplight/spectral-cli": "^6.11.1"
   },
   "scripts": {
-    "lint": "spectral lint --fail-severity=warn specs/*.yaml",
+    "spectral": "spectral lint --fail-severity=warn specs/*.yaml",
+    "lint": "npx @redocly/cli lint specs/lichess-api.yaml",
     "build": "npx @redocly/cli build-docs specs/lichess-api.yaml --output public/index.html",
     "serve": "npx @redocly/cli preview-docs specs/lichess-api.yaml --port 8089"
   }

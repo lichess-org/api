@@ -19,5 +19,6 @@ Make modifications to `doc/specs/lichess-api.yaml`, and reload the page to see y
 ### Check the yaml files for syntax errors:
 
 ```shell
+npm run spectral
 npm run lint
 ```

@@ -5,6 +5,7 @@ get:
     Get the leaderboard of a broadcast tournament, if available.
   tags:
     - Broadcasts
+  security: []
   parameters:
     - in: path
       name: broadcastTournamentId

@@ -5,6 +5,7 @@ get:
     Get information about a broadcast round.
   tags:
     - Broadcasts
+  security: []
   parameters:
     - in: path
       name: broadcastTournamentSlug
