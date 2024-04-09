@@ -7,3 +7,9 @@ extends:
 
 rules:
   operation-4xx-response: off
+  no-ambiguous-paths: off # 25 warnings, 2024-04-09
+  # Example ambiguous paths:
+  # /api/tournament/{id1}/join
+  # /api/tournament/team-battle/{id2}
+  # If id1 has value "team-battle", and id2 has value "join",
+  # these paths would be identical...
