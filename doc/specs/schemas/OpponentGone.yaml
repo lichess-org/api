@@ -10,3 +10,5 @@ properties:
 required:
   - type
   - gone
+example:
+  $ref: '../examples/opponentGone.json'

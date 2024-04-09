@@ -37,21 +37,6 @@ get:
               - $ref: '../../schemas/GameStateEvent.yaml'
               - $ref: '../../schemas/ChatLineEvent.yaml'
               - $ref: '../../schemas/OpponentGone.yaml'
-          examples:
-            gameFull:
-              $ref: '../../examples/gameFull.yaml'
-            gameState:
-              $ref: '../../examples/gameState.yaml'
-            chatLine:
-              $ref: '../../examples/chatLine.yaml'
-            chatLineSpectator:
-              $ref: '../../examples/chatLineSpectator.yaml'
-            opponentGoneTrue:
-              $ref: '../../examples/opponentGoneTrue.yaml'
-            opponentGoneFalse:
-              $ref: '../../examples/opponentGoneFalse.yaml'
-            gameStateResign:
-              $ref: '../../examples/gameStateResign.yaml'
     "404":
       description: The bot game was not found.
       content:
