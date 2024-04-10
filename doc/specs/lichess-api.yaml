@@ -715,7 +715,3 @@ components:
             "board:play": Play with the Board API
             "bot:play": Play with the Bot API. Only for [Bot accounts](#operation/botAccountUpgrade)
             "web:mod": Use moderator tools (within the bounds of your permissions)
-
-  examples:
-    $ref: './examples/_index.yaml'
-

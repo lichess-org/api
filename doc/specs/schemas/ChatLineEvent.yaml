@@ -17,3 +17,5 @@ required:
   - room
   - username
   - text
+example:
+  $ref: '../examples/chatLine.json'
