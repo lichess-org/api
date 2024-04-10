@@ -5,3 +5,5 @@ properties:
     const: challengeCanceled
   challenge:
     $ref: './ChallengeJson.yaml'
+example:
+  $ref: '../examples/challengeCanceled.json'

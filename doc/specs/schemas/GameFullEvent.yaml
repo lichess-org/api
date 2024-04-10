@@ -48,3 +48,5 @@ required:
   - black
   - initialFen
   - state
+example:
+  $ref: '../examples/gameFull.json'

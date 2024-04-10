@@ -5,3 +5,5 @@ properties:
     const: gameFinish
   game:
     $ref: './GameEventInfo.yaml'
+example:
+  $ref: '../examples/gameFinish.json'

@@ -1,9 +1,9 @@
-value: {
-  "type":"challengeCanceled",
+{
+  "type":"challenge",
   "challenge": {
     "id":"7pGLxJ4F",
     "url": "https://lichess.org/VU0nyvsW",
-    "status": "canceled",
+    "status":"created",
     "compat": {
       "bot": false,
       "board": true
@@ -38,7 +38,7 @@ value: {
       "show":"5+25"
     },
     "color":"random",
-    "finalColor": "black",
+    "finalColor": "white",
     "speed":"rapid",
     "perf": {
       "icon":"#",
@@ -46,5 +46,3 @@ value: {
     }
   }
 }
-
-

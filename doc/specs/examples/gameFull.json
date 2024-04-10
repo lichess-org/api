@@ -1,4 +1,4 @@
-value: {
+{
   "type": "gameFull",
   "id": "5IrD6Gzz",
   "rated": true,
@@ -26,7 +26,7 @@ value: {
   "black": {
     "id": "leela",
     "name": "leela",
-    "rating": 2390,
+    "rating": 2390
   },
   "initialFen": "startpos",
   "state": {

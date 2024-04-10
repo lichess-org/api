@@ -43,3 +43,5 @@ required:
   - winc
   - binc
   - status
+example:
+  $ref: '../examples/gameState.json'
