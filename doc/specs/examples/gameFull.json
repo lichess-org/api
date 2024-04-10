@@ -36,8 +36,8 @@
     "btime": 8395220,
     "winc": 10000,
     "binc": 10000,
-    "wdraw": true,
-    "bdraw": true,
+    "wdraw": false,
+    "bdraw": false,
     "status": "started"
   }
 }
