@@ -111,6 +111,8 @@
     "fideRating": 1500,
     "uscfRating": 1500,
     "ecfRating": 1500,
+    "cfcRating": 1500,
+    "dsbRating": 1500,
     "links": "github.com/ornicar\r\ntwitter.com/ornicar"
   },
   "seenAt": 1522636452014,

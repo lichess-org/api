@@ -26,12 +26,18 @@ allOf:
       followable:
         type: boolean
         example: true
+        description: only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication)
       following:
         type: boolean
         example: false
+        description: only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication)
       blocking:
         type: boolean
         example: false
+        description: only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication)
       followsYou:
         type: boolean
         example: false
+        description: only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication)
+
+
