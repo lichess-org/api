@@ -14,3 +14,4 @@ properties:
     example: -22
   prov:
     type: boolean
+    description: only appears if a user's perf rating are [provisional](https://lichess.org/faq#provisional)

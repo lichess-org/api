@@ -17,12 +17,23 @@ properties:
   fideRating:
     type: integer
     example: 1500
+    description: only appears if a user has set them
   uscfRating:
     type: integer
     example: 1500
+    description: only appears if a user has set them
   ecfRating:
     type: integer
     example: 1500
+    description: only appears if a user has set them
+  cfcRating:
+    type: integer
+    example: 1500
+    description: only appears if a user has set them
+  dsbRating:
+    type: integer
+    example: 1500
+    description: only appears if a user has set them
   links:
     type: string
     example: "github.com/ornicar\r\ntwitter.com/ornicar"

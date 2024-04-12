@@ -9,6 +9,7 @@ get:
     - Users
   security:
     - OAuth2: []
+
   parameters:
     - in: path
       name: username
@@ -21,6 +22,7 @@ get:
       schema:
         type: boolean
         default: false
+
   responses:
     "200":
       description: The information of the user.
