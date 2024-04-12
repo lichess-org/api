@@ -5,6 +5,15 @@ get:
     Read public data of a user.
     If the request is [authenticated with OAuth2](#section/Introduction/Authentication),
     then extra fields might be present in the response: `followable`, `following`, `blocking`, `followsYou`.
+    
+    **Optional Fields:**
+    - `prov` a boolean value, only appears if a user's perf (blitz, bullet, etc) rating are [provisional](https://lichess.org/faq#provisional)
+    - `disabled` a boolean value, only appears if a user's account is closed
+    - `tosViolation` a boolean value, only appears if a user's account is closed via violation of [Lichess TOS](https://lichess.org/terms-of-service)
+    - `fideRating`, `uscfRating`, `ecfRating`, `cfcRating`, `dsbRating` a integer rating value, only appears if a user has set them
+    
+    
+
   tags:
     - Users
   security:
