@@ -22,7 +22,7 @@ properties:
   tosViolation:
     type: boolean
     example: false
-    description: only appears if a user's account is closed via violation of [Lichess TOS](https://lichess.org/terms-of-service)
+    description: only appears if a user's account is marked for the violation of [Lichess TOS](https://lichess.org/terms-of-service)
   profile:
     $ref: './Profile.yaml'
   seenAt:
