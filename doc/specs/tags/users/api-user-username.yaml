@@ -3,8 +3,6 @@ get:
   summary: Get user public data
   description: |
     Read public data of a user.
-    If the request is [authenticated with OAuth2](#section/Introduction/Authentication),
-    then extra fields might be present in the response: `followable`, `following`, `blocking`, `followsYou`.
   tags:
     - Users
   security:
