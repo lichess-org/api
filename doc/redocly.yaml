@@ -3,7 +3,7 @@ theme:
     htmlTemplate: ./template.hbs
 
 extends:
-  - recommended
+  - recommended-strict
 
 rules:
   operation-4xx-response: off
