@@ -8,9 +8,9 @@ value: |
   [Result "1-0"]
   [WhiteElo "2632"]
   [WhiteTitle "GM"]
-  
+
   1. d4 d5
-  
+
   [White "Joseph Girel"]
   [Black "Matthias Bluebaum"]
   [BlackElo "2658"]
@@ -20,5 +20,5 @@ value: |
   [Result "0-1"]
   [WhiteElo "2484"]
   [WhiteTitle "IM"]
-  
+
   1. a8

@@ -1,7 +1,7 @@
 type: object
 properties:
   user:
-    $ref: "./LightUser.yaml"
+    $ref: './LightUser.yaml'
   rating:
     type: number
   ratingDiff:

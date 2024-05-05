@@ -1,41 +1,43 @@
-example: {
-    "round": {
-        "id": "BueO56UJ",
-        "name": "Finals Day 1",
-        "slug": "finals-day-1",
-        "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ",
-        "createdAt": 1525789431889
-    },
-    "tour": {
-        "id": "QYiOYnl1",
-        "name": "New in Chess Classic | Finals",
-        "slug": "new-in-chess-classic--finals",
-        "description": "Match for 1st 2nd and 3rd place.",
-        "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/phgcXuBl",
-        "createdAt": 1525789431889
-    },
-    "study": {
-      "writeable": true
-    },
-    "games": [
+example:
+  {
+    'round':
       {
-        "id": "GRjidNTw",
-        "name": "Martin Fargac - Vit Kostka",
-        "ongoing": true,
-        "res": "*",
-        "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/round-4/iCEwAzEX/GRjidNTw"
+        'id': 'BueO56UJ',
+        'name': 'Finals Day 1',
+        'slug': 'finals-day-1',
+        'url': 'https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ',
+        'createdAt': 1525789431889,
       },
+    'tour':
       {
-        "id": "81TcKCWT",
-        "name": "Pavel Zabystrzan - Kilian Slovak",
-        "res": "½-½",
-        "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/round-4/iCEwAzEX/tJpK7gbl"
+        'id': 'QYiOYnl1',
+        'name': 'New in Chess Classic | Finals',
+        'slug': 'new-in-chess-classic--finals',
+        'description': 'Match for 1st 2nd and 3rd place.',
+        'url': 'https://lichess.org/broadcast/new-in-chess-classic--finals/phgcXuBl',
+        'createdAt': 1525789431889,
       },
-      {
-        "id": "xEfufedI",
-        "name": "Roman Pilch - Bartolomej Buchta",
-        "res": "1-0",
-        "url": "https://lichess.org/broadcast/new-in-chess-classic--finals/round-4/iCEwAzEX/xEfufedI"
-      }
-    ]
+    'study': { 'writeable': true },
+    'games':
+      [
+        {
+          'id': 'GRjidNTw',
+          'name': 'Martin Fargac - Vit Kostka',
+          'ongoing': true,
+          'res': '*',
+          'url': 'https://lichess.org/broadcast/new-in-chess-classic--finals/round-4/iCEwAzEX/GRjidNTw',
+        },
+        {
+          'id': '81TcKCWT',
+          'name': 'Pavel Zabystrzan - Kilian Slovak',
+          'res': '½-½',
+          'url': 'https://lichess.org/broadcast/new-in-chess-classic--finals/round-4/iCEwAzEX/tJpK7gbl',
+        },
+        {
+          'id': 'xEfufedI',
+          'name': 'Roman Pilch - Bartolomej Buchta',
+          'res': '1-0',
+          'url': 'https://lichess.org/broadcast/new-in-chess-classic--finals/round-4/iCEwAzEX/xEfufedI',
+        },
+      ],
   }

@@ -1,32 +1,20 @@
-example: {
-  "days": 30,
-  "global": {
-    "firstWins": 276,
-    "nb": 501,
-    "performance": 1570,
-    "puzzleRatingAvg": 1523,
-    "replayWins": 2
-  },
-  "themes": {
-    "advancedPawn": {
-      "results": {
-        "firstWins": 19,
-        "nb": 39,
-        "performance": 1438,
-        "puzzleRatingAvg": 1476,
-        "replayWins": 1
+example:
+  {
+    'days': 30,
+    'global': { 'firstWins': 276, 'nb': 501, 'performance': 1570, 'puzzleRatingAvg': 1523, 'replayWins': 2 },
+    'themes':
+      {
+        'advancedPawn':
+          {
+            'results':
+              { 'firstWins': 19, 'nb': 39, 'performance': 1438, 'puzzleRatingAvg': 1476, 'replayWins': 1 },
+            'theme': 'Advanced pawn',
+          },
+        'anastasiaMate':
+          {
+            'results':
+              { 'firstWins': 5, 'nb': 6, 'performance': 1720, 'puzzleRatingAvg': 1387, 'replayWins': 0 },
+            'theme': "Anastasia's mate",
+          },
       },
-      "theme": "Advanced pawn"
-    },
-    "anastasiaMate": {
-      "results": {
-        "firstWins": 5,
-        "nb": 6,
-        "performance": 1720,
-        "puzzleRatingAvg": 1387,
-        "replayWins": 0
-      },
-      "theme": "Anastasia's mate"
-    }
   }
-}

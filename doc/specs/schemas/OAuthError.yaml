@@ -6,5 +6,5 @@ properties:
     type: string
     description: The reason why the request was rejected.
 example:
-  error: "invalid_grant"
-  error_description: "hash of code_verifier does not match code_challenge"
+  error: 'invalid_grant'
+  error_description: 'hash of code_verifier does not match code_challenge'

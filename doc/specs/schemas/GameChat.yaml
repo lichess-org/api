@@ -1,12 +1,6 @@
-example: [{
-    "text": "Takeback sent",
-    "user": "lichess"
-  },
-  {
-    "text": "Takeback accepted",
-    "user": "lichess"
-  },
-  {
-    "text": "Good game, well played",
-    "user": "thibault"
-  }]
+example:
+  [
+    { 'text': 'Takeback sent', 'user': 'lichess' },
+    { 'text': 'Takeback accepted', 'user': 'lichess' },
+    { 'text': 'Good game, well played', 'user': 'thibault' },
+  ]

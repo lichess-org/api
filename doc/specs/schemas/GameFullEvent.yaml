@@ -30,7 +30,7 @@ properties:
     $ref: './GameEventPlayer.yaml'
   initialFen:
     type: string
-    default: "startpos"
+    default: 'startpos'
   state:
     $ref: './GameStateEvent.yaml'
   tournamentId:

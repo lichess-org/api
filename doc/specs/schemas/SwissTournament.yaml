@@ -1,32 +1,28 @@
-example: {
-  "rated": true,
-  "clock": {
-      "increment": 0,
-      "limit": 300
-  },
-  "createdBy": "thibault",
-  "id": "ZmKWCOye",
-  "name": "Wang",
-  "nbOngoing": 0,
-  "nbPlayers": 0,
-  "nbRounds": 2,
-  "nextRound": {
-      "at": "2020-05-11T12:23:18.233-06:00",
-      "in": 600
-  },
-  "round": 0,
-  "startsAt": "2020-05-11T12:23:18.233-06:00",
-  "status": "created",
-  "variant": "standard",
-  "isRecentlyFinished": false,
-  "password": true,
-  "stats": {
-      "absences": 1608,
-      "averageRating": 1588,
-      "blackWins": 42541,
-      "byes": 12,
-      "draws": 0,
-      "games": 42689,
-      "whiteWins": 42837
+example:
+  {
+    'rated': true,
+    'clock': { 'increment': 0, 'limit': 300 },
+    'createdBy': 'thibault',
+    'id': 'ZmKWCOye',
+    'name': 'Wang',
+    'nbOngoing': 0,
+    'nbPlayers': 0,
+    'nbRounds': 2,
+    'nextRound': { 'at': '2020-05-11T12:23:18.233-06:00', 'in': 600 },
+    'round': 0,
+    'startsAt': '2020-05-11T12:23:18.233-06:00',
+    'status': 'created',
+    'variant': 'standard',
+    'isRecentlyFinished': false,
+    'password': true,
+    'stats':
+      {
+        'absences': 1608,
+        'averageRating': 1588,
+        'blackWins': 42541,
+        'byes': 12,
+        'draws': 0,
+        'games': 42689,
+        'whiteWins': 42837,
+      },
   }
-}

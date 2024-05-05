@@ -15,14 +15,11 @@ allOf:
         type: boolean
         example: false
       streamer:
-        example: {
-          "twitch": {
-            "channel": "https://www.twitch.tv/lichessdotorg"
-          },
-          "youTube": {
-            "channel": "https://www.youtube.com/c/LichessDotOrg"
+        example:
+          {
+            'twitch': { 'channel': 'https://www.twitch.tv/lichessdotorg' },
+            'youTube': { 'channel': 'https://www.youtube.com/c/LichessDotOrg' },
           }
-        }
       followable:
         type: boolean
         example: true
@@ -39,5 +36,3 @@ allOf:
         type: boolean
         example: false
         description: only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication)
-
-

@@ -50,29 +50,30 @@ properties:
       $ref: './Move.yaml'
 example:
   {
-    "dtz": 1,
-    "precise_dtz": 1,
-    "dtm": 17,
-    "checkmate": false,
-    "stalemate": false,
-    "variant_win": false,
-    "variant_loss": false,
-    "insufficient_material": false,
-    "category": "win",
-    "moves": [
-      {
-        "uci": "h7h8q",
-        "san": "h8=Q+",
-        "dtz": -2,
-        "precise_dtz": -2,
-        "dtm": -16,
-        "zeroing": true,
-        "checkmate": false,
-        "stalemate": false,
-        "variant_win": false,
-        "variant_loss": false,
-        "insufficient_material": false,
-        "category": "loss"
-      }
-    ]
+    'dtz': 1,
+    'precise_dtz': 1,
+    'dtm': 17,
+    'checkmate': false,
+    'stalemate': false,
+    'variant_win': false,
+    'variant_loss': false,
+    'insufficient_material': false,
+    'category': 'win',
+    'moves':
+      [
+        {
+          'uci': 'h7h8q',
+          'san': 'h8=Q+',
+          'dtz': -2,
+          'precise_dtz': -2,
+          'dtm': -16,
+          'zeroing': true,
+          'checkmate': false,
+          'stalemate': false,
+          'variant_win': false,
+          'variant_loss': false,
+          'insufficient_material': false,
+          'category': 'loss',
+        },
+      ],
   }

@@ -16,7 +16,7 @@ get:
       description: User IDs separated by commas. Up to 100 IDs.
       schema:
         type: string
-      example: aliquantus,chess-network,lovlas
+      example: thibault,maia1,maia5
     - in: query
       name: withGameIds
       required: false

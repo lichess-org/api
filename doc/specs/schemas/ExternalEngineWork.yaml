@@ -5,7 +5,7 @@ properties:
     description: |
       Arbitary string that identifies the analysis session.
       Providers may wish to clear the hash table between sessions.
-    example: "abcd1234"
+    example: 'abcd1234'
   threads:
     type: integer
     minimum: 1
@@ -33,13 +33,13 @@ properties:
   initialFen:
     type: string
     description: Initial position of the game.
-    example: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+    example: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
   moves:
     type: array
     description: List of moves played from the initial position, in UCI notation.
     items:
       type: string
-    example: ["e2e4", "g8f6"]
+    example: ['e2e4', 'g8f6']
 required:
   - sessionId
   - threads

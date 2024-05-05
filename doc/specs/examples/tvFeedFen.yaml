@@ -1,9 +1,5 @@
-value: {
-  "t": "fen",
-  "d": {
-    "fen": "5rk1/6p1/p4q2/4p3/2p5/2P2bNQ/PP3P1P/1K1RR3 w - - 4 32",
-    "lm": "h8g8",
-    "wc": 14,
-    "bc": 30
+value:
+  {
+    't': 'fen',
+    'd': { 'fen': '5rk1/6p1/p4q2/4p3/2p5/2P2bNQ/PP3P1P/1K1RR3 w - - 4 32', 'lm': 'h8g8', 'wc': 14, 'bc': 30 },
   }
-}

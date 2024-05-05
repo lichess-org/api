@@ -1,51 +1,44 @@
 {
   "type": "challengeDeclined",
   "challenge": {
-    "id":"7pGLxJ4F",
-    "url": "https://lichess.org/VU0nyvsW",
+    "id": "BDQR876K",
+    "url": "http://lichess.org/BDQR876K",
     "status": "declined",
-    "compat": {
-      "bot": false,
-      "board": true
-    },
     "challenger": {
-      "id":"lovlas",
-      "name":"Lovlas",
-      "title":"IM",
-      "rating": 2506,
-      "patron": true,
+      "id": "pedro",
+      "name": "Pedro",
+      "rating": 2402,
       "online": true,
-      "lag": 24
+      "lag": 4
     },
     "destUser": {
-      "id":"thibot",
-      "name":"thibot",
-      "title":null,
-      "rating": 1500,
-      "provisional": true,
+      "id": "bobby",
+      "name": "Bobby",
+      "rating": 1946,
+      "title": "GM",
       "online": true,
-      "lag": 45
+      "lag": 4
     },
     "variant": {
-      "key":"standard",
-      "name":"Standard",
-      "short":"Std"
+      "key": "standard",
+      "name": "Standard",
+      "short": "Std"
     },
     "rated": true,
+    "speed": "blitz",
     "timeControl": {
-      "type":"clock",
+      "type": "clock",
       "limit": 300,
-      "increment": 25,
-      "show":"5+25"
+      "increment": 0,
+      "show": "5+0"
     },
-    "color":"random",
-    "finalColor": "white",
-    "speed":"rapid",
+    "color": "random",
+    "finalColor": "black",
     "perf": {
-      "icon":"#",
-      "name":"Rapid"
+      "icon": "",
+      "name": "Blitz"
     },
-    "declineReason": "I'm not accepting challenges at the moment.",
-    "declineReasonKey": "generic"
+    "declineReason": "This is not the right time for me, please ask again later.",
+    "declineReasonKey": "later"
   }
 }

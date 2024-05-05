@@ -1,5 +1,5 @@
 {
-  "type":"gameFinish",
+  "type": "gameFinish",
   "game": {
     "gameId": "rCRw1AuO",
     "fullId": "rCRw1AuOvonq",
@@ -8,7 +8,12 @@
     "hasMoved": true,
     "isMyTurn": false,
     "lastMove": "b8c6",
-    "opponent": { "id": "philippe", "username": "Philippe", "rating": 1790, "ratingDiff": -12 },
+    "opponent": {
+      "id": "philippe",
+      "username": "Philippe",
+      "rating": 1790,
+      "ratingDiff": -12
+    },
     "perf": "correspondence",
     "rated": true,
     "secondsLeft": 1209600,

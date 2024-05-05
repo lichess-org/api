@@ -2,8 +2,4 @@ type: object
 properties:
   id:
     type: string
-example: {
-  "id": "VU0nyvsW"
-}
-
-
+example: { 'id': 'VU0nyvsW' }

@@ -26,3 +26,5 @@ get:
               language:
                 type: string
                 example: en-GB
+            example:
+              $ref: '../../examples/userPreferences.json'
