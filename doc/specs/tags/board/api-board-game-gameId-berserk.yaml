@@ -17,7 +17,7 @@ post:
       required: true
   responses:
     "200":
-      description: The player successfully whent berserk.
+      description: The player successfully went berserk.
       headers:
         Access-Control-Allow-Origin:
           schema:
