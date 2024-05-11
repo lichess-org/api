@@ -58,6 +58,13 @@ info:
     - `curl https://lichess.org/api/account -H "Authorization: Bearer {token}"`
     - [NodeJS example](https://github.com/lichess-org/api/tree/master/example/oauth-personal-token)
 
+    ### Token Security
+    - Keep your tokens secret. Do not share them in public repositories or public forums.
+    - Do not hardcode tokens in your application. Use environment variables or a secure storage.
+    - If you suspect a token has been compromised, revoke it immediately.
+
+    To see your active tokens or revoke them, see [your Personal API access tokens](https://lichess.org/account/oauth/token).
+
     ### Authorization Code Flow with PKCE
     The authorization code flow with PKCE allows your users to **login with Lichess**.
     Lichess supports unregistered and public clients (no client authentication, choose any unique client id).
