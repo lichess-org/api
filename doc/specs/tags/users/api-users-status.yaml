@@ -26,8 +26,17 @@ get:
       schema:
         type: boolean
       example: true
+    - in: query
+      name: withGameMetas
+      required: false
+      description: |
+        Also return the id, time control and variant of the game being played, if any, for each player, in a `playing` field.
+        Defaults to `false` to preserve server resources. Disables `withGameIds`.
+      schema:
+        type: boolean
+      example: true
   responses:
-    "200":
+    '200':
       description: The list of users and their respective statuses.
       headers:
         Access-Control-Allow-Origin:
@@ -58,18 +67,16 @@ get:
               required:
                 - id
                 - name
-            example: [
-              {
-                "id": "aliquantus",
-                "name": "Aliquantus"
-              },
-              {
-                "id": "chess-network",
-                "name": "Chess-Network",
-                "title": "NM",
-                "online": true,
-                "playing": true,
-                "streaming": true,
-                "patron": true
-              }
-            ]
+            example:
+              [
+                { 'id': 'aliquantus', 'name': 'Aliquantus' },
+                {
+                  'id': 'chess-network',
+                  'name': 'Chess-Network',
+                  'title': 'NM',
+                  'online': true,
+                  'playing': true,
+                  'streaming': true,
+                  'patron': true,
+                },
+              ]
