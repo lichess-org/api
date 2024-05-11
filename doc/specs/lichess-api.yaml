@@ -60,6 +60,7 @@ info:
 
     ### Token Security
     - Keep your tokens secret. Do not share them in public repositories or public forums.
+    - Your tokens can be used to make your account perform arbitrary actions (within the limits of the tokens' scope). You remain responsible for all activities on your account.
     - Do not hardcode tokens in your application's code. Use environment variables or a secure storage and ensure they are not shipped/exposed to users. Be especially careful that they are not included in frontend bundles or apps that are shipped to users.
     - If you suspect a token has been compromised, revoke it immediately.
 
