@@ -18,6 +18,16 @@ get:
         type: string
       example: aliquantus,chess-network,lovlas
     - in: query
+      name: withSignal
+      required: false
+      description: |
+        Also return the network signal of the player, when available.
+        It ranges from 1 (poor connection, lag > 500ms) to 4 (great connection, lag < 150ms)
+        Defaults to `false` to preserve server resources.
+      schema:
+        type: boolean
+      example: true
+    - in: query
       name: withGameIds
       required: false
       description: |
