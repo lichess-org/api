@@ -60,7 +60,7 @@ info:
 
     ### Token Security
     - Keep your tokens secret. Do not share them in public repositories or public forums.
-    - Do not hardcode tokens in your application. Use environment variables or a secure storage.
+    - Do not hardcode tokens in your application's code. Use environment variables or a secure storage and ensure they are not shipped/exposed to users. Be especially careful that they are not included in frontend bundles or apps that are shipped to users.
     - If you suspect a token has been compromised, revoke it immediately.
 
     To see your active tokens or revoke them, see [your Personal API access tokens](https://lichess.org/account/oauth/token).
