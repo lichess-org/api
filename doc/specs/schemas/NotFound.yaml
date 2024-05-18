@@ -2,4 +2,4 @@ properties:
   error:
     type: string
 example:
-  error: "Not found."
+  error: 'Not found.'

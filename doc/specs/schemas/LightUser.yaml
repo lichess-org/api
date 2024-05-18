@@ -2,10 +2,10 @@ type: object
 properties:
   id:
     type: string
-    example: "chess-network"
+    example: 'chess-network'
   name:
     type: string
-    example: "Chess-Network"
+    example: 'Chess-Network'
   title:
     $ref: './Title.yaml'
   patron:

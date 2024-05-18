@@ -2,13 +2,13 @@ type: object
 properties:
   id:
     type: string
-    example: "QITRjufu"
+    example: 'QITRjufu'
   createdBy:
     type: string
-    example: "lichess"
+    example: 'lichess'
   system:
     type: string
-    const: "arena"
+    const: 'arena'
   minutes:
     type: integer
     example: 57
@@ -19,7 +19,7 @@ properties:
     example: true
   fullName:
     type: string
-    example: "U1700 SuperBlitz Arena"
+    example: 'U1700 SuperBlitz Arena'
   nbPlayers:
     type: integer
     example: 154
@@ -53,13 +53,13 @@ properties:
         example: 20
       perf:
         $ref: './PerfType.yaml'
-        example: "blitz"
+        example: 'blitz'
   onlyTitled:
     type: boolean
     example: false
   teamMember:
     type: string
-    example: "coders"
+    example: 'coders'
   private:
     type: boolean
     example: true
@@ -70,10 +70,10 @@ properties:
     properties:
       freq:
         type: string
-        example: "hourly"
+        example: 'hourly'
       speed:
         type: string
-        example: "superblitz"
+        example: 'superblitz'
   teamBattle:
     type: object
     properties:
@@ -81,7 +81,7 @@ properties:
         type: array
         items:
           type: string
-          example: "coders"
+          example: 'coders'
       nbLeaders:
         type: integer
         example: 3
@@ -90,9 +90,9 @@ properties:
     properties:
       id:
         type: string
-        example: "lichess"
+        example: 'lichess'
       name:
         type: string
-        example: "lichess"
+        example: 'lichess'
       title:
         $ref: './Title.yaml'

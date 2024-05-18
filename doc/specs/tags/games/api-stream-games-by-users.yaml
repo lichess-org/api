@@ -15,7 +15,7 @@ post:
   requestBody:
     description: |
       Up to 300 user IDs separated by commas.
-      Example: `aliquantus,chess-network,lovlas`
+      Example: `thibault,maia1,maia5`
     required: true
     content:
       text/plain:

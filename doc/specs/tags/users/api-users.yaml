@@ -17,7 +17,7 @@ post:
       text/plain:
         schema:
           type: string
-        example: "aliquantus,chess-network,lovlas"
+        example: "thibault,maia1,maia5"
   responses:
     "200":
       description: The list of users.

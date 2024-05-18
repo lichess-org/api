@@ -1,6 +1,1 @@
-example: {
-  "chapters": [{
-    "id": "WTvnkWAL",
-    "name": "Game 2"
-  }],
-}
+example: { 'chapters': [{ 'id': 'WTvnkWAL', 'name': 'Game 2' }] }

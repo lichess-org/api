@@ -1,4 +1,1 @@
-example: {
-  "id": "Kj1t0",
-  "url": "https://lichess.org/racer/Kj1t0"
-}
+example: { 'id': 'Kj1t0', 'url': 'https://lichess.org/racer/Kj1t0' }

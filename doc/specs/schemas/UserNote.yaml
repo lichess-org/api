@@ -6,7 +6,7 @@ properties:
     $ref: './LightUser.yaml'
   text:
     type: string
-    example: "This is a note"
+    example: 'This is a note'
   date:
     type: integer
     format: int64

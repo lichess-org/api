@@ -7,3 +7,5 @@ properties:
     type: boolean
   online:
     type: boolean
+  lag:
+    type: number
