@@ -50,7 +50,7 @@ post:
                 example: Bearer
               access_token:
                 type: string
-                example: liu_pLwAbN7lFPklzY2m8lTOI1DGApS84u57
+                example: lio_pLwAbN7lFPklzY2m8lTOI1DGApS84u57
               expires_in:
                 type: integer
                 example: 31536000
