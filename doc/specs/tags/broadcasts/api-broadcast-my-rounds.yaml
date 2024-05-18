@@ -22,6 +22,6 @@ get:
     "200":
       description: The broadcast rounds with their tournament and a `study.writeable` flag.
       content:
-        application/json:
+        application/x-ndjson:
           schema:
             $ref: '../../schemas/BroadcastMyRound.yaml'

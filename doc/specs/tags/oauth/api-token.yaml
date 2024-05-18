@@ -43,7 +43,21 @@ post:
             default: "'*'"
       content:
         application/json:
-          example: {"token_type": "Bearer", "access_token": "lio_pLwAbN7lFPklzY2m8lTOI1DGApS84u57", "expires_in": 31536000}
+          schema:
+            properties:
+              token_type:
+                type: string
+                example: Bearer
+              access_token:
+                type: string
+                example: liu_pLwAbN7lFPklzY2m8lTOI1DGApS84u57
+              expires_in:
+                type: integer
+                example: 31536000
+            required:
+              - token_type
+              - access_token
+              - expires_in
     "400":
       description: Failed to obtain access token.
       headers:

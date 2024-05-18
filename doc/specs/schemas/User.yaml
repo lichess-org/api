@@ -39,3 +39,6 @@ properties:
     $ref: './PlayTime.yaml'
   title:
     $ref: './Title.yaml'
+required:
+  - id
+  - username

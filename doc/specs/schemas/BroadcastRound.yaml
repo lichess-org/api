@@ -1,43 +1,131 @@
+type: object
+properties:
+  round:
+    $ref: './BroadcastRoundInfo.yaml'
+  tour:
+    $ref: './BroadcastRoundTournamentInfo.yaml'
+  study:
+    $ref: './BroadcastRoundStudyInfo.yaml'
+  games:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        fen:
+          type: string
+        players:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              title:
+                type: string
+              rating:
+                type: integer
+              clock:
+                type: integer
+              fed:
+                type: string
+        lastMove:
+          type: string
+        thinkTime:
+          type: integer
+        status:
+          description: The result of the game
+          type: string
+          enum:
+            - "*"
+            - "1-0"
+            - "0-1"
+            - "½-½"
+      required:
+        - id
+        - name
+
+required:
+  - round
+  - tour
+  - study
+  - games
+
 example:
   {
-    'round':
+    "round":
       {
-        'id': 'BueO56UJ',
-        'name': 'Finals Day 1',
-        'slug': 'finals-day-1',
-        'url': 'https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ',
-        'createdAt': 1525789431889,
+        "id": "p9DoebWl",
+        "name": "Round 1",
+        "slug": "round-1",
+        "createdAt": 1716014105255,
+        "ongoing": true,
+        "startsAt": 1716045300000,
+        "url": "https://lichess.org/broadcast/casablanca-chess-2024/round-1/p9DoebWl",
       },
-    'tour':
+    "tour":
       {
-        'id': 'QYiOYnl1',
-        'name': 'New in Chess Classic | Finals',
-        'slug': 'new-in-chess-classic--finals',
-        'description': 'Match for 1st 2nd and 3rd place.',
-        'url': 'https://lichess.org/broadcast/new-in-chess-classic--finals/phgcXuBl',
-        'createdAt': 1525789431889,
+        "id": "ZuOkdeXK",
+        "name": "Casablanca Chess 2024",
+        "slug": "casablanca-chess-2024",
+        "description": "May 18th - 19th  | 4-player double round-robin | Rapid time control | Carlsen, Nakamura, Anand",
+        "createdAt": 1716014078747,
+        "tier": 5,
+        "image": "https://image.lichess1.org/display?h=400&op=thumbnail&path=loepare:relay:ZuOkdeXK:iq0feQJe.jpg&w=800&sig=36e58a1a648af5b9fe6d3f5725c7a2f52d853153",
       },
-    'study': { 'writeable': true },
-    'games':
+    "study": { "writeable": false },
+    "games":
       [
         {
-          'id': 'GRjidNTw',
-          'name': 'Martin Fargac - Vit Kostka',
-          'ongoing': true,
-          'res': '*',
-          'url': 'https://lichess.org/broadcast/new-in-chess-classic--finals/round-4/iCEwAzEX/GRjidNTw',
+          "id": "59lrdLPv",
+          "name": "Carlsen, Magnus - Anand, Viswanathan",
+          "fen": "r1b2rk1/pppp1ppp/1bn5/n2RP1B1/Q1B1P3/N1P2N2/Pq4PP/1R5K b - - 3 16",
+          "players":
+            [
+              {
+                "name": "Carlsen, Magnus",
+                "title": "GM",
+                "rating": 2828,
+                "clock": 56000,
+                "fed": "NOR",
+              },
+              {
+                "name": "Anand, Viswanathan",
+                "title": "GM",
+                "rating": 2749,
+                "clock": 56000,
+                "fed": "IND",
+              },
+            ],
+          "lastMove": "a1b1",
+          "thinkTime": 63,
+          "status": "*",
         },
         {
-          'id': '81TcKCWT',
-          'name': 'Pavel Zabystrzan - Kilian Slovak',
-          'res': '½-½',
-          'url': 'https://lichess.org/broadcast/new-in-chess-classic--finals/round-4/iCEwAzEX/tJpK7gbl',
-        },
-        {
-          'id': 'xEfufedI',
-          'name': 'Roman Pilch - Bartolomej Buchta',
-          'res': '1-0',
-          'url': 'https://lichess.org/broadcast/new-in-chess-classic--finals/round-4/iCEwAzEX/xEfufedI',
+          "id": "upvSjlTk",
+          "name": "Nakamura, Hikaru - Amin, Bassem",
+          "fen": "r1b2rk1/pp1p1ppp/6n1/3p2B1/4P2P/5N2/P4PP1/b2Q1BK1 b - - 1 18",
+          "players":
+            [
+              {
+                "name": "Nakamura, Hikaru",
+                "title": "GM",
+                "rating": 2746,
+                "fed": "USA",
+              },
+              {
+                "name": "Amin, Bassem",
+                "title": "GM",
+                "rating": 2583,
+                "fed": "EGY",
+              },
+            ],
+          "lastMove": "b3d1",
+          "thinkTime": 4,
+          "status": "*",
         },
       ],
   }

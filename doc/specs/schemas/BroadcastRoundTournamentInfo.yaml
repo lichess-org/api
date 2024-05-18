@@ -1,0 +1,26 @@
+type: object
+
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  slug:
+    type: string
+  description:
+    type: string
+  createdAt:
+    type: integer
+    format: int64
+  tier:
+    type: integer
+  image:
+    description: URL of the tournament image
+    type: string
+
+required:
+  - id
+  - name
+  - slug
+  - description
+  - createdAt

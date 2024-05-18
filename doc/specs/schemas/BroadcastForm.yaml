@@ -21,7 +21,7 @@ properties:
   tier:
     type: integer
     description: |
-      Optional, for Lichess admins only, use to feature on /broadcast.
+      Optional, for Lichess admins only, used to feature on /broadcast.
 
       * `3` for normal
       * `4` for high
