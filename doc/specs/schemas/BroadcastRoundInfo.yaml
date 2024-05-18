@@ -1,0 +1,30 @@
+type: object
+
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  slug:
+    type: string
+  createdAt:
+    type: integer
+    format: int64
+  ongoing:
+    type: boolean
+  startsAt:
+    type: integer
+    format: int64
+  finished:
+    type: boolean
+  url:
+    type: string
+  delay:
+    type: integer
+    format: int64
+required:
+  - id
+  - name
+  - slug
+  - url
+  - createdAt

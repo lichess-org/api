@@ -1,0 +1,6 @@
+type: object
+
+properties:
+  writeable:
+    description: Whether the currently authenticated user has permission to update the study
+    type: boolean

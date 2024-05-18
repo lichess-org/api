@@ -1,21 +1,37 @@
+type: object
+
+properties:
+  round:
+    $ref: './BroadcastRoundInfo.yaml'
+  tour:
+    $ref: './BroadcastRoundTournamentInfo.yaml'
+  study:
+    $ref: './BroadcastRoundStudyInfo.yaml'
+
+required:
+  - round
+  - tour
+  - study
+
 example:
   {
-    'tour':
+    "round":
       {
-        'description': 'April 18th - 28th  |  10-round Swiss  |  Classical time control',
-        'id': 'x7WskVz3',
-        'name': 'Moonway Chess Festival',
-        'tier': 'high',
-        'slug': 'moonway-chess-festival',
+        "id": "0gLwMpx8",
+        "name": "Round 1",
+        "slug": "round-1",
+        "createdAt": 1716048406676,
+        "startsAt": 1713456000000,
+        "url": "https://lichess.org/broadcast/moonway-chess-festival/round-1/0gLwMpx8",
+        "delay": 600,
       },
-    'round':
+    "tour":
       {
-        'finished': true,
-        'id': 'LXfsdxuf',
-        'name': 'Round 5',
-        'slug': 'round-5',
-        'startsAt': 1682168400000,
-        'url': 'https://lichess.org/broadcast/moonway-chess-festival/round-5/LXfsdxuf',
+        "id": "noRt7b8A",
+        "name": "Moonway Chess Festival",
+        "slug": "moonway-chess-festival",
+        "description": "April 18th - 28th  |  10-round Swiss  |  Classical time control",
+        "createdAt": 1716048385395,
       },
-    'study': { 'writeable': true },
+    "study": { "writeable": true },
   }
