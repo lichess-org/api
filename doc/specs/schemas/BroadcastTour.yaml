@@ -12,18 +12,22 @@ example:
     'rounds':
       [
         {
-          'id': 'BueO56UJ',
-          'name': 'Finals Day 1',
-          'slug': 'finals-day-1',
-          'url': 'https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ',
-          'createdAt': 1525789431889,
-        },
-        {
           'id': 'yeGGfkfY',
           'name': 'Finals Day 2',
           'slug': 'finals-day-2',
           'url': 'https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-2/yeGGfkfY',
-          'createdAt': 1525789431889,
+          'createdAt': 1715858059529,
+          'ongoing': true,
+          'startsAt': 1716279000000,
+        },
+        {
+          'id': 'BueO56UJ',
+          'name': 'Finals Day 1',
+          'slug': 'finals-day-1',
+          'url': 'https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ',
+          'createdAt': 1715858037525,
+          'finished': true,
+          'startsAt': 1716214200000,
         },
       ],
   }
