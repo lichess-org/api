@@ -103,7 +103,7 @@
   "disabled": false,
   "tosViolation": false,
   "profile": {
-    "country": "EC",
+    "flag": "EC",
     "location": "string",
     "bio": "Free bugs!",
     "firstName": "Thibault",
