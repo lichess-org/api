@@ -1,0 +1,40 @@
+type: object
+
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  fen:
+    type: string
+  players:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        title:
+          type: string
+        rating:
+          type: integer
+        clock:
+          type: integer
+        fed:
+          type: string
+  lastMove:
+    type: string
+  thinkTime:
+    type: integer
+  status:
+    description: The result of the game
+    type: string
+    enum:
+      - '*'
+      - '1-0'
+      - '0-1'
+      - '½-½'
+
+required:
+  - id
+  - name
