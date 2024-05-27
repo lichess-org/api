@@ -13,63 +13,80 @@ properties:
   d:
     type: object
     description: The data of the message
-    properties:
-      id:
-        type: string
-        description: The game ID
-      orientation:
-        type: string
-        enum:
-          - "white"
-          - "black"
-      players:
-        type: array
-        items:
-          type: object
-          properties:
-            color:
-              type: string
-              enum:
-                - "white"
-                - "black"
-            rating:
-              type: integer
-            seconds:
-              type: integer
-              description: The player's remaining time in seconds
-            user:
+    oneOf:
+      - type: object
+        title: featured
+        properties:
+          id:
+            type: string
+            description: The game ID
+          orientation:
+            type: string
+            enum:
+              - "white"
+              - "black"
+          players:
+            type: array
+            items:
               type: object
               properties:
-                id:
+                color:
                   type: string
-                name:
-                  type: string
-                title:
-                  type: string
+                  enum:
+                    - "white"
+                    - "black"
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    id:
+                      type: string
+                    title:
+                      type: string
+                  required:
+                    - id
+                    - name
+                rating:
+                  type: integer
+                seconds:
+                  type: integer
+                  description: The player's remaining time in seconds
               required:
-                - id
-                - name
-          required:
-            - color
-            - rating
-            - seconds
-            - user
-        minItems: 2
-        maxItems: 2
-      fen:
-        type: string
-        description: The FEN of the current position
-      lm:
-        type: string
-        description: The last move in UCI format
-      wc:
-        type: integer
-        description: White's clock in seconds
-      bc:
-        type: integer
-        description: Black's clock in seconds
-    required:
-      - fen
+                - color
+                - rating
+                - seconds
+                - user
+            minItems: 2
+            maxItems: 2
+          fen:
+            type: string
+            description: The FEN of the current position
+        required:
+          - id
+          - orientation
+          - players
+          - fen
+      - type: object
+        title: fen
+        properties:
+          fen:
+            type: string
+            description: The FEN of the current position
+          lm:
+            type: string
+            description: The last move in UCI format
+          wc:
+            type: integer
+            description: White's clock in seconds
+          bc:
+            type: integer
+            description: Black's clock in seconds
+        required:
+          - fen
+          - lm
+          - wc
+          - bc
 
 required:
   - t
