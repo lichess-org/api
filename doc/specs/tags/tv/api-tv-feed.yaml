@@ -3,7 +3,6 @@ get:
   summary: Stream current TV game
   description: |
     Stream positions and moves of the current [TV game](https://lichess.org/tv) in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-    A summary of the game is sent as a first message, and when the featured game changes.
     Try it with `curl https://lichess.org/api/tv/feed`.
   tags:
     - TV
