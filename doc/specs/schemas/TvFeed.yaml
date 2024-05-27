@@ -54,6 +54,8 @@ properties:
             - rating
             - seconds
             - user
+        minItems: 2
+        maxItems: 2
       fen:
         type: string
         description: The FEN of the current position
