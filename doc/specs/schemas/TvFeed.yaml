@@ -1,6 +1,61 @@
 type: object
+
 properties:
   t:
     type: string
+    enum:
+      - "featured"
+      - "fen"
   d:
     type: object
+    properties:
+      id:
+        type: string
+        description: The game ID
+      orientation:
+        type: string
+        enum:
+          - "white"
+          - "black"
+      players:
+        type: array
+        items:
+          type: object
+          properties:
+            color:
+              type: string
+              enum:
+                - "white"
+                - "black"
+            rating:
+              type: integer
+            seconds:
+              type: integer
+              description: The player's remaining time in seconds
+            user:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                title:
+                  type: string
+      fen:
+        type: string
+        description: The FEN of the current position
+      lm:
+        type: string
+        description: The last move in UCI format
+      wc:
+        type: integer
+        description: White's clock in seconds
+      bc:
+        type: integer
+        description: Black's clock in seconds
+    required:
+      - fen
+
+required:
+  - t
+  - d
