@@ -41,6 +41,9 @@ properties:
                   type: string
                 title:
                   type: string
+              required:
+                - id
+                - name
       fen:
         type: string
         description: The FEN of the current position
