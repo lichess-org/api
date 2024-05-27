@@ -44,6 +44,11 @@ properties:
               required:
                 - id
                 - name
+          required:
+            - color
+            - rating
+            - seconds
+            - user
       fen:
         type: string
         description: The FEN of the current position
