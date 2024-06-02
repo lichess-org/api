@@ -1,33 +1,35 @@
-example:
-  {
-    'tour':
-      {
-        'id': 'QYiOYnl1',
-        'name': 'New in Chess Classic | Finals',
-        'slug': 'new-in-chess-classic--finals',
-        'description': 'Match for 1st 2nd and 3rd place.',
-        'url': 'https://lichess.org/broadcast/new-in-chess-classic--finals/phgcXuBl',
-        'createdAt': 1525789431889,
-      },
-    'rounds':
-      [
-        {
-          'id': 'yeGGfkfY',
-          'name': 'Finals Day 2',
-          'slug': 'finals-day-2',
-          'url': 'https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-2/yeGGfkfY',
-          'createdAt': 1715858059529,
-          'ongoing': true,
-          'startsAt': 1716279000000,
-        },
-        {
-          'id': 'BueO56UJ',
-          'name': 'Finals Day 1',
-          'slug': 'finals-day-1',
-          'url': 'https://lichess.org/broadcast/new-in-chess-classic--finals/finals-day-1/BueO56UJ',
-          'createdAt': 1715858037525,
-          'finished': true,
-          'startsAt': 1716214200000,
-        },
-      ],
-  }
+type: object
+
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  slug:
+    type: string
+  description:
+    type: string
+  createdAt:
+    type: number
+  tier:
+    type: number
+    description: "Used to designate featured tournaments on Lichess"
+  image:
+    type: string
+  markup:
+    type: string
+    description: "HTML markup of the tour description"
+  leaderboard:
+    type: boolean
+  teamTable:
+    type: boolean
+  url:
+    type: string
+
+required:
+  - id
+  - name
+  - slug
+  - description
+  - createdAt
+  - url

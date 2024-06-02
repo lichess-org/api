@@ -1,0 +1,454 @@
+get:
+  operationId: broadcastsByUser
+  summary: Get broadcasts created by a user
+  description: |
+    Get all incoming, ongoing, and finished official broadcasts.
+    The broadcasts are sorted by created date, most recent first.
+  tags:
+    - Broadcasts
+  security: []
+  parameters:
+    - in: path
+      name: username
+      schema:
+        type: string
+      required: true
+    - in: query
+      name: page
+      schema:
+        type: number
+        example: 1
+        default: 1
+  responses:
+    '200':
+      description: A paginated list of the broadcasts created by a user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              currentPage:
+                type: number
+                example: 4
+              maxPerPage:
+                type: number
+                example: 15
+              currentPageResults:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    tour:
+                      $ref: '../../schemas/BroadcastTour.yaml'
+                    lastRound:
+                      $ref: '../../schemas/BroadcastRoundInfo.yaml'
+              nbResults:
+                type: number
+                example: 205194
+              previousPage:
+                type: [number, 'null']
+                example: 3
+              nextPage:
+                type: [number, 'null']
+                example: 5
+              nbPages:
+                type: number
+                example: 13680
+
+            example:
+              {
+                  "currentPage": 1,
+                  "currentPageResults": [
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249588469,
+                              "id": "6YXGF5e1",
+                              "name": "Round 1",
+                              "slug": "round-1",
+                              "startsAt": 1743388986537,
+                              "url": "https://lichess.org/broadcast/torphy-group-invitational/round-1/6YXGF5e1"
+                          },
+                          "tour": {
+                              "createdAt": 1717249588462,
+                              "description": "Dolor tres abeo caritas cubo tres tero averto causa.",
+                              "id": "fvYXzVY6",
+                              "markup": "<p>Amicitia censura arma versus adsuesco sunt ver illo. Thymum decens ultio veritatis aequus. Conturbo adfero aegre nam terra amplitudo calco.</p>\n",
+                              "name": "Torphy Group Invitational",
+                              "slug": "torphy-group-invitational",
+                              "url": "https://lichess.org/broadcast/torphy-group-invitational/fvYXzVY6"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249588444,
+                              "id": "orDz0AFK",
+                              "name": "Round 4",
+                              "slug": "round-4",
+                              "startsAt": 1748230972395,
+                              "url": "https://lichess.org/broadcast/tremblay-jacobson-and-hackett-invitational/round-4/orDz0AFK"
+                          },
+                          "tour": {
+                              "createdAt": 1717249588411,
+                              "description": "Ut adversus ago auditor degero.",
+                              "id": "hFpLaxpD",
+                              "markup": "<p>Corona odio cur caelum. Provident ad suffoco atque uterque. Absens tyrannus conservo caveo patruus.</p>\n",
+                              "name": "Tremblay, Jacobson and Hackett Invitational",
+                              "slug": "tremblay-jacobson-and-hackett-invitational",
+                              "url": "https://lichess.org/broadcast/tremblay-jacobson-and-hackett-invitational/hFpLaxpD"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249588387,
+                              "id": "dIjr8Egv",
+                              "name": "Round 3",
+                              "slug": "round-3",
+                              "startsAt": 1747057627205,
+                              "url": "https://lichess.org/broadcast/schneider-rodriguez-and-spencer-invitational/round-3/dIjr8Egv"
+                          },
+                          "tour": {
+                              "createdAt": 1717249588360,
+                              "description": "Doloribus ascit arto ab somniculosus tempore minima odio.",
+                              "id": "DXtmymWf",
+                              "markup": "<p>Decretum admoneo vulticulus commodo curvo.<br>Cogito calculus cognomen confugo facilis autem.<br>Occaecati aperiam amor callide timor.</p>\n",
+                              "name": "Schneider, Rodriguez and Spencer Invitational",
+                              "slug": "schneider-rodriguez-and-spencer-invitational",
+                              "url": "https://lichess.org/broadcast/schneider-rodriguez-and-spencer-invitational/DXtmymWf"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249588325,
+                              "id": "mU0eAY2J",
+                              "name": "Round 2",
+                              "slug": "round-2",
+                              "startsAt": 1745099050618,
+                              "url": "https://lichess.org/broadcast/osinski-schmitt-invitational/round-2/mU0eAY2J"
+                          },
+                          "tour": {
+                              "createdAt": 1717249588305,
+                              "description": "Auctor degusto quae textor sophismata uxor autus studio supra tamquam.",
+                              "id": "1iADebBs",
+                              "markup": "<p>Incidunt corrupti congregatio admoveo reiciendis. Exercitationem articulus charisma aegrotatio. Conservo stipes curtus ultra cruciamentum trans.</p>\n",
+                              "name": "Osinski - Schmitt Invitational",
+                              "slug": "osinski-schmitt-invitational",
+                              "url": "https://lichess.org/broadcast/osinski-schmitt-invitational/1iADebBs"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249588290,
+                              "id": "1sKzcoXR",
+                              "name": "Round 4",
+                              "slug": "round-4",
+                              "startsAt": 1742118641508,
+                              "url": "https://lichess.org/broadcast/deckow-oconner-and-maggio-invitational/round-4/1sKzcoXR"
+                          },
+                          "tour": {
+                              "createdAt": 1717249588249,
+                              "description": "Confero cometes at succurro avarus ex stabilis derelinquo certe.",
+                              "id": "vk04toRU",
+                              "markup": "<p>Tristis canto adipisci vita assumenda thermae. Decerno sponte cohaero. Pauper quasi doloremque vomica alii consequuntur degero.</p>\n",
+                              "name": "Deckow, O'Conner and Maggio Invitational",
+                              "slug": "deckow-oconner-and-maggio-invitational",
+                              "url": "https://lichess.org/broadcast/deckow-oconner-and-maggio-invitational/vk04toRU"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249588227,
+                              "id": "AXgZWVTw",
+                              "name": "Round 3",
+                              "slug": "round-3",
+                              "startsAt": 1745331516995,
+                              "url": "https://lichess.org/broadcast/reinger-breitenberg-and-durgan-invitational/round-3/AXgZWVTw"
+                          },
+                          "tour": {
+                              "createdAt": 1717249588203,
+                              "description": "Curis accusator nam claro adversus dolores vulnero cetera theologus ars.",
+                              "id": "B0w1miCj",
+                              "markup": "<p>Tamquam vobis aequus astrum solvo celo decretum cras arcesso aspicio. Somnus veniam sollers. Similique libero cura vomito celebrer quasi.</p>\n",
+                              "name": "Reinger, Breitenberg and Durgan Invitational",
+                              "slug": "reinger-breitenberg-and-durgan-invitational",
+                              "url": "https://lichess.org/broadcast/reinger-breitenberg-and-durgan-invitational/B0w1miCj"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249588171,
+                              "id": "hKb1OBFk",
+                              "name": "Round 2",
+                              "slug": "round-2",
+                              "startsAt": 1744437837114,
+                              "url": "https://lichess.org/broadcast/schmitt-paucek-and-quitzon-invitational/round-2/hKb1OBFk"
+                          },
+                          "tour": {
+                              "createdAt": 1717249588157,
+                              "description": "Natus adsum adipiscor video umbra angelus audio.",
+                              "id": "6n1DFnzd",
+                              "markup": "<p>Aranea textus averto suppono. Conculco patria autem angulus. Eveniet taceo aedificium summopere conculco tristis.<br>Vomer subvenio tibi tamdiu solitudo anser cogito. Utroque vallum ancilla suggero aiunt bellum carbo. Derideo vulgus paens vesco victus audax.<br>Amicitia umerus terra. Degero subiungo quibusdam. Trans ubi apparatus cohibeo video eius ater deorsum ea surculus.</p>\n",
+                              "name": "Schmitt, Paucek and Quitzon Invitational",
+                              "slug": "schmitt-paucek-and-quitzon-invitational",
+                              "url": "https://lichess.org/broadcast/schmitt-paucek-and-quitzon-invitational/6n1DFnzd"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249588150,
+                              "id": "osmUpkLb",
+                              "name": "Round 5",
+                              "slug": "round-5",
+                              "startsAt": 1739567218096,
+                              "url": "https://lichess.org/broadcast/boyle-medhurst-invitational/round-5/osmUpkLb"
+                          },
+                          "tour": {
+                              "createdAt": 1717249588108,
+                              "description": "Decerno deinde voluptate crebro tabula testimonium.",
+                              "id": "oNqkeaBL",
+                              "markup": "<p>Ancilla alii terra argentum adulescens acquiro comis pectus truculenter. Vita tempus rerum. Via cunctatio subnecto vel cupiditate tonsor statua abundans curtus tracto.<br>Cariosus tergum tracto uredo vitiosus aestas uter asper comprehendo. Optio depraedor subvenio repellat ultra omnis desparatus rem summisse veritas. Casso desidero timidus.<br>Velit cuppedia xiphias. Centum terreo tripudio spargo chirographum. Mollitia absens advenio volup coruscus quas vulnero.</p>\n",
+                              "name": "Boyle - Medhurst Invitational",
+                              "slug": "boyle-medhurst-invitational",
+                              "url": "https://lichess.org/broadcast/boyle-medhurst-invitational/oNqkeaBL"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249588046,
+                              "id": "lCi6kFSf",
+                              "name": "Round 1",
+                              "slug": "round-1",
+                              "startsAt": 1748507308700,
+                              "url": "https://lichess.org/broadcast/johnson-roberts-and-kris-invitational/round-1/lCi6kFSf"
+                          },
+                          "tour": {
+                              "createdAt": 1717249588039,
+                              "description": "Conturbo celer conturbo amaritudo magni attero velut necessitatibus.",
+                              "id": "5c1bHVJY",
+                              "leaderboard": true,
+                              "markup": "<p>Vita sub ago venustas alioqui tenuis bos ademptio. Valens doloribus currus voluptatem. Arca caries summopere aestas.<br>Bibo tertius deprecator terra supra volutabrum. Commodo vos patior vociferor perspiciatis suadeo arbustum adduco verecundia. Thesaurus umerus arceo sponte tenax eius.<br>Deduco coniecto arcesso. Cetera adstringo ars apud usque aut calculus nemo textilis. Advoco administratio omnis super autus provident dens.</p>\n",
+                              "name": "Johnson, Roberts and Kris Invitational",
+                              "slug": "johnson-roberts-and-kris-invitational",
+                              "url": "https://lichess.org/broadcast/johnson-roberts-and-kris-invitational/5c1bHVJY"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249587997,
+                              "id": "kZ8swp05",
+                              "name": "Round 1",
+                              "slug": "round-1",
+                              "startsAt": 1747486148891,
+                              "url": "https://lichess.org/broadcast/mann-murray-invitational/round-1/kZ8swp05"
+                          },
+                          "tour": {
+                              "createdAt": 1717249587989,
+                              "description": "Tertius admoveo cetera officia.",
+                              "id": "pEXcJ961",
+                              "markup": "<p>Varietas vere comedo.<br>Carcer cilicium dens delinquo tutis desino.<br>Similique celer crudelis ciminatio cupio thymum spargo depulso.<br>Consuasor aureus bene.</p>\n",
+                              "name": "Mann - Murray Invitational",
+                              "slug": "mann-murray-invitational",
+                              "url": "https://lichess.org/broadcast/mann-murray-invitational/pEXcJ961"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249587974,
+                              "id": "C4HPF2sH",
+                              "name": "Round 4",
+                              "slug": "round-4",
+                              "startsAt": 1739866037530,
+                              "url": "https://lichess.org/broadcast/hintz-and-sons-invitational/round-4/C4HPF2sH"
+                          },
+                          "tour": {
+                              "createdAt": 1717249587938,
+                              "description": "Varius desolo delectus versus via totus capillus.",
+                              "id": "MmcRvM8p",
+                              "markup": "<p>Vicinus approbo tener commodi rerum.</p>\n",
+                              "name": "Hintz and Sons Invitational",
+                              "slug": "hintz-and-sons-invitational",
+                              "url": "https://lichess.org/broadcast/hintz-and-sons-invitational/MmcRvM8p"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249587912,
+                              "id": "IhjZOhz6",
+                              "name": "Round 3",
+                              "slug": "round-3",
+                              "startsAt": 1746063004594,
+                              "url": "https://lichess.org/broadcast/schroeder-mcglynn-invitational/round-3/IhjZOhz6"
+                          },
+                          "tour": {
+                              "createdAt": 1717249587888,
+                              "description": "Perspiciatis apto avaritia surculus cena carus tantum teres.",
+                              "id": "HSUhT9Ra",
+                              "markup": "<p>Tempora villa claudeo.<br>Terminatio astrum suggero voluptates anser acerbitas absum teres trado.<br>Correptius voluptas ter fugiat suscipit clamo tamen color aureus cultellus.</p>\n",
+                              "name": "Schroeder - McGlynn Invitational",
+                              "slug": "schroeder-mcglynn-invitational",
+                              "url": "https://lichess.org/broadcast/schroeder-mcglynn-invitational/HSUhT9Ra"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249587845,
+                              "id": "ARcIOPvd",
+                              "name": "Round 2",
+                              "slug": "round-2",
+                              "startsAt": 1739020538475,
+                              "url": "https://lichess.org/broadcast/klein-will-and-friesen-invitational/round-2/ARcIOPvd"
+                          },
+                          "tour": {
+                              "createdAt": 1717249587820,
+                              "description": "Delibero concido ex dolore basium maxime statim arbitro.",
+                              "id": "jGVDbKeF",
+                              "markup": "<p>Quibusdam urbs temptatio usque abbas derideo toties nisi contigo. Conduco tabula facilis. Cura delicate usque sponte avarus curis carmen ago vilicus stillicidium.<br>Civis aer patruus cum cupiditas torqueo ciminatio ulterius. Magni libero succedo. Apud ipsam illo atrocitas.<br>Solvo ipsam avarus aegrotatio vesper numquam tardus defluo cena. Circumvenio accommodo damnatio aduro textus tandem adamo corrupti. Corona advoco pax.</p>\n",
+                              "name": "Klein, Will and Friesen Invitational",
+                              "slug": "klein-will-and-friesen-invitational",
+                              "url": "https://lichess.org/broadcast/klein-will-and-friesen-invitational/jGVDbKeF"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249587778,
+                              "id": "w1Xsv0y0",
+                              "name": "Round 1",
+                              "slug": "round-1",
+                              "startsAt": 1739288061496,
+                              "url": "https://lichess.org/broadcast/schmeler-inc-invitational/round-1/w1Xsv0y0"
+                          },
+                          "tour": {
+                              "createdAt": 1717249587769,
+                              "description": "Sequi error ocer talis terminatio.",
+                              "id": "PBMMcqlM",
+                              "markup": "<p>Qui velociter aeger attollo confugo summopere synagoga consectetur coaegresco.<br>Vitium cras valens dapifer via deorsum.<br>Cervus amplus currus eaque viridis cunabula aspernatur.</p>\n",
+                              "name": "Schmeler Inc Invitational",
+                              "slug": "schmeler-inc-invitational",
+                              "url": "https://lichess.org/broadcast/schmeler-inc-invitational/PBMMcqlM"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249587727,
+                              "id": "lp9SfzBM",
+                              "name": "Round 1",
+                              "slug": "round-1",
+                              "startsAt": 1744323809959,
+                              "url": "https://lichess.org/broadcast/langworth-mosciski-invitational/round-1/lp9SfzBM"
+                          },
+                          "tour": {
+                              "createdAt": 1717249587713,
+                              "description": "Conicio cena ventus dolore quo.",
+                              "id": "SoYixY0L",
+                              "markup": "<p>Somnus corrigo vulnero despecto depopulo canto convoco sint. Video constans bardus xiphias umerus trepide audeo. Bellicus reiciendis velut laborum inflammatio deludo doloribus creator. Triduana cibo subvenio. Ocer decor magni. Villa commemoro unus maxime denuncio voluptas sollicito uberrime testimonium.</p>\n",
+                              "name": "Langworth - Mosciski Invitational",
+                              "slug": "langworth-mosciski-invitational",
+                              "url": "https://lichess.org/broadcast/langworth-mosciski-invitational/SoYixY0L"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249587664,
+                              "id": "jHUP0402",
+                              "name": "Round 1",
+                              "slug": "round-1",
+                              "startsAt": 1746827217161,
+                              "url": "https://lichess.org/broadcast/morissette-group-invitational/round-1/jHUP0402"
+                          },
+                          "tour": {
+                              "createdAt": 1717249587657,
+                              "description": "Maxime debeo ver ubi audacia ars stultus.",
+                              "id": "1AO90Qw6",
+                              "markup": "<p>Adflicto deporto veniam. Absum verus certus doloremque benigne conservo at pax nobis. Abeo amiculum tondeo contabesco asperiores veritas a absorbeo approbo.</p>\n",
+                              "name": "Morissette Group Invitational",
+                              "slug": "morissette-group-invitational",
+                              "url": "https://lichess.org/broadcast/morissette-group-invitational/1AO90Qw6"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249587641,
+                              "id": "2TvylXcE",
+                              "name": "Round 4",
+                              "slug": "round-4",
+                              "startsAt": 1748223520772,
+                              "url": "https://lichess.org/broadcast/auer-witting-and-gulgowski-invitational/round-4/2TvylXcE"
+                          },
+                          "tour": {
+                              "createdAt": 1717249587607,
+                              "description": "Denego adaugeo bos ex tersus ubi.",
+                              "id": "OwZsFgC4",
+                              "markup": "<p>Capitulus cohaero comburo. Angulus desino cunae vinculum collum.</p>\n",
+                              "name": "Auer, Witting and Gulgowski Invitational",
+                              "slug": "auer-witting-and-gulgowski-invitational",
+                              "url": "https://lichess.org/broadcast/auer-witting-and-gulgowski-invitational/OwZsFgC4"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249587572,
+                              "id": "lu48KbHl",
+                              "name": "Round 2",
+                              "slug": "round-2",
+                              "startsAt": 1744223346980,
+                              "url": "https://lichess.org/broadcast/prosacco-group-invitational/round-2/lu48KbHl"
+                          },
+                          "tour": {
+                              "createdAt": 1717249587553,
+                              "description": "Atrocitas alius crapula villa debitis vulgo contra clam.",
+                              "id": "kaxrGnsQ",
+                              "markup": "<p>Deserunt vociferor velociter abstergo aufero. Aro certe clementia admitto attollo aufero cito. Charisma deduco acervus ad praesentium volup cui cogito vesica advoco. Clementia asperiores artificiose supplanto baiulus. Viriliter tenetur capitulus crustulum mollitia.</p>\n",
+                              "name": "Prosacco Group Invitational",
+                              "slug": "prosacco-group-invitational",
+                              "url": "https://lichess.org/broadcast/prosacco-group-invitational/kaxrGnsQ"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249587542,
+                              "id": "vPePjvo8",
+                              "name": "Round 5",
+                              "slug": "round-5",
+                              "startsAt": 1748713305442,
+                              "url": "https://lichess.org/broadcast/langworth-west-and-kling-invitational/round-5/vPePjvo8"
+                          },
+                          "tour": {
+                              "createdAt": 1717249587494,
+                              "description": "Supplanto sono collum rerum.",
+                              "id": "d1m26zEz",
+                              "markup": "<p>Commemoro victoria ambulo arca voro.</p>\n",
+                              "name": "Langworth, West and Kling Invitational",
+                              "slug": "langworth-west-and-kling-invitational",
+                              "url": "https://lichess.org/broadcast/langworth-west-and-kling-invitational/d1m26zEz"
+                          }
+                      },
+                      {
+                          "lastRound": {
+                              "createdAt": 1717249587424,
+                              "id": "JKjDqiEb",
+                              "name": "Round 1",
+                              "slug": "round-1",
+                              "startsAt": 1745920680927,
+                              "url": "https://lichess.org/broadcast/lockman-hauck-and-wunsch-invitational/round-1/JKjDqiEb"
+                          },
+                          "tour": {
+                              "createdAt": 1717249587417,
+                              "description": "Vivo acervus allatus altus utor alioqui verus verbum.",
+                              "id": "cmsPzocQ",
+                              "markup": "<p>Xiphias tabula combibo ut.</p>\n",
+                              "name": "Lockman, Hauck and Wunsch Invitational",
+                              "slug": "lockman-hauck-and-wunsch-invitational",
+                              "url": "https://lichess.org/broadcast/lockman-hauck-and-wunsch-invitational/cmsPzocQ"
+                          }
+                      }
+                  ],
+                  "maxPerPage": 20,
+                  "nbPages": 5,
+                  "nbResults": 100,
+                  "nextPage": 2,
+                  "previousPage": null
+              }

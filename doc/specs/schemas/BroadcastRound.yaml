@@ -3,7 +3,7 @@ properties:
   round:
     $ref: './BroadcastRoundInfo.yaml'
   tour:
-    $ref: './BroadcastRoundTournamentInfo.yaml'
+    $ref: './BroadcastTour.yaml'
   study:
     $ref: './BroadcastRoundStudyInfo.yaml'
   games:
@@ -38,6 +38,7 @@ example:
         "createdAt": 1716014078747,
         "tier": 5,
         "image": "https://image.lichess1.org/display?h=400&op=thumbnail&path=loepare:relay:ZuOkdeXK:iq0feQJe.jpg&w=800&sig=36e58a1a648af5b9fe6d3f5725c7a2f52d853153",
+        "url": "https://lichess.org/broadcast/casablanca-chess-2024/ZuOkdeXK",
       },
     "study": { "writeable": false },
     "games":

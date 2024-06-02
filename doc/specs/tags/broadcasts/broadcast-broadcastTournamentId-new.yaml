@@ -74,7 +74,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/BroadcastRound.yaml'
+            $ref: '../../schemas/BroadcastRoundNew.yaml'
     "400":
       description: The creation of the broadcast failed.
       content:

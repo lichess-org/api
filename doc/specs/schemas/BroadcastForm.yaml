@@ -53,4 +53,3 @@ properties:
 required:
   - name
   - description
-  - autoLeaderboard
