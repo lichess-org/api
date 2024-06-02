@@ -19,6 +19,10 @@ properties:
   markup:
     type: string
     description: "HTML markup of the tour description"
+  leaderboard:
+    type: boolean
+  teamTable:
+    type: boolean
   url:
     type: string
 
