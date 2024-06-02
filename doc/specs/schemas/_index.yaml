@@ -148,8 +148,8 @@ ArenaPosition:
 ArenaTournament:
   $ref: './ArenaTournament.yaml'
 
-ArenaTournamentVariantIsKey:
-  $ref: './ArenaTournamentVariantIsKey.yaml'
+ArenaTournamentFull:
+  $ref: './ArenaTournamentFull.yaml'
 
 SwissTournament:
   $ref: './SwissTournament.yaml'
