@@ -19,4 +19,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/BroadcastTour.yaml'
+            $ref: '../../schemas/BroadcastWithRounds.yaml'

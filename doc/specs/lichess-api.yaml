@@ -435,7 +435,10 @@ paths:
     $ref: './tags/studies/api-study-studyId-chapterId.yaml'
 
   /api/broadcast:
-    $ref: './tags/broadcasts/api-broadcast.yaml'
+    $ref: './tags/broadcasts/api-broadcasts-official.yaml'
+
+  /api/broadcast/by/{username}:
+    $ref: './tags/broadcasts/api-broadcasts-by-user.yaml'
 
   /broadcast/new:
     $ref: './tags/broadcasts/broadcast-new.yaml'
