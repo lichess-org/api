@@ -1,0 +1,30 @@
+type: object
+
+properties:
+  eval:
+    type: number
+    description: Evaluation in centipawns
+  mate:
+    type: number
+    description: Number of moves until forced mate
+  best:
+    type: string
+    example: c2c3
+    description: Best move in UCI notation (only if played move was inaccurate)
+  variation:
+    type: string
+    example: c3 Nc6 d4 Qb6 Be2 Nge7 Na3 cxd4 cxd4 Nf5
+    description: Best variation in SAN notation (only if played move was inaccurate)
+  judgment:
+    type: object
+    description: Judgment annotation (only if played move was inaccurate)
+    properties:
+      name:
+        type: string
+        enum:
+          - Inaccuracy
+          - Mistake
+          - Blunder
+      comment:
+        type: string
+        example: Blunder. Nxg6 was best.

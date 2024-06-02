@@ -1,0 +1,33 @@
+type: object
+
+properties:
+  name:
+    type: string
+  rank:
+    type: number
+  title:
+    type: string
+  patron:
+    type: boolean
+  rating:
+    type: number
+  score:
+    type: number
+  sheet:
+    type: object
+    properties:
+      scores:
+        type: string
+      fire:
+        type: boolean
+  nb:
+    type: object
+    properties:
+      game:
+        type: number
+      beserk:
+        type: number
+      win:
+        type: number
+  performance:
+    type: number

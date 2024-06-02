@@ -34,7 +34,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/ArenaTournamentVariantIsKey.yaml'
+            $ref: '../../schemas/ArenaTournamentFull.yaml'
 post:
   operationId: apiTournamentUpdate
   summary: Update an Arena tournament
@@ -167,7 +167,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/ArenaTournamentVariantIsKey.yaml'
+            $ref: '../../schemas/ArenaTournamentFull.yaml'
     "400":
       description: The update of the Arena tournament failed.
       content:

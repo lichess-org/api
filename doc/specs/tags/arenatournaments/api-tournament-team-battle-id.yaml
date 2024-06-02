@@ -46,7 +46,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/ArenaTournamentVariantIsKey.yaml'
+            $ref: '../../schemas/ArenaTournamentFull.yaml'
     "400":
       description: The update of the team battle tournament failed.
       content:

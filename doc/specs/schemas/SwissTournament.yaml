@@ -1,3 +1,79 @@
+type: object
+
+properties:
+  id:
+    type: string
+  createdBy:
+    type: string
+  startsAt:
+    type: string
+  name:
+    type: string
+  clock:
+    type: object
+    properties:
+      limit:
+        type: number
+      increment:
+        type: number
+    required:
+      - limit
+      - increment
+  variant:
+    type: string
+  round:
+    type: number
+  nbRounds:
+    type: number
+  nbPlayers:
+    type: number
+  nbOngoing:
+    type: number
+  status:
+    type: string
+  stats:
+    type: object
+    properties:
+      games:
+        type: number
+      whiteWins:
+        type: number
+      blackWins:
+        type: number
+      draws:
+        type: number
+      byes:
+        type: number
+      absences:
+        type: number
+      averageRating:
+        type: number
+    required:
+      - games
+      - whiteWins
+      - blackWins
+      - draws
+      - byes
+      - absences
+      - averageRating
+  rated:
+    type: boolean
+
+required:
+  - id
+  - createdBy
+  - startsAt
+  - name
+  - clock
+  - variant
+  - round
+  - nbRounds
+  - nbPlayers
+  - nbOngoing
+  - status
+  - stats
+  - rated
+
 example:
   {
     'rated': true,
