@@ -169,6 +169,9 @@ BroadcastRound:
 BroadcastMyRound:
   $ref: './BroadcastMyRound.yaml'
 
+BroadcastByUser:
+  $ref: './BroadcastByUser.yaml'
+
 OpeningExplorerJson:
   $ref: './OpeningExplorerJson.yaml'
 

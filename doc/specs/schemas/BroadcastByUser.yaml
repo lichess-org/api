@@ -1,0 +1,11 @@
+type: object
+
+properties:
+  tour:
+    $ref: './BroadcastTour.yaml'
+  lastRound:
+    $ref: './BroadcastRoundInfo.yaml'
+
+required:
+  - tour
+  - lastRound

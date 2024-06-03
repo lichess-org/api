@@ -41,12 +41,7 @@ get:
               currentPageResults:
                 type: array
                 items:
-                  type: object
-                  properties:
-                    tour:
-                      $ref: '../../schemas/BroadcastTour.yaml'
-                    lastRound:
-                      $ref: '../../schemas/BroadcastRoundInfo.yaml'
+                  $ref: '../../schemas/BroadcastByUser.yaml'
               nbResults:
                 type: number
                 example: 205194
@@ -59,7 +54,14 @@ get:
               nbPages:
                 type: number
                 example: 13680
-
+            required:
+                - currentPage
+                - maxPerPage
+                - currentPageResults
+                - nbResults
+                - previousPage
+                - nextPage
+                - nbPages
             example:
               {
                   "currentPage": 1,
