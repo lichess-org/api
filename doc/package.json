@@ -9,6 +9,7 @@
   "scripts": {
     "spectral": "spectral lint --fail-severity=warn specs/*.yaml",
     "lint": "npx @redocly/cli lint specs/lichess-api.yaml",
+    "bundle": "npx @redocly/cli bundle specs/lichess-api.yaml --output public/openapi.yaml",
     "build": "npx @redocly/cli build-docs specs/lichess-api.yaml --output public/index.html",
     "serve": "npx @redocly/cli preview-docs specs/lichess-api.yaml --port 8089"
   }
