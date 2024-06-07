@@ -103,17 +103,17 @@ GameChat:
 PuzzleAndGame:
   $ref: './PuzzleAndGame.yaml'
 
-PuzzleRoundJson:
-  $ref: './PuzzleRoundJson.yaml'
+PuzzleActivity:
+  $ref: './PuzzleActivity.yaml'
 
-PuzzleDashboardJson:
-  $ref: './PuzzleDashboardJson.yaml'
+PuzzleDashboard:
+  $ref: './PuzzleDashboard.yaml'
 
-PuzzleRaceJson:
-  $ref: './PuzzleRaceJson.yaml'
+PuzzleRacer:
+  $ref: './PuzzleRacer.yaml'
 
-StormDashboardJson:
-  $ref: './StormDashboardJson.yaml'
+PuzzleStormDashboard:
+  $ref: './PuzzleStormDashboard.yaml'
 
 RatingHistory:
   $ref: './RatingHistory.yaml'

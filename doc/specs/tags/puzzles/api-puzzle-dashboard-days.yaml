@@ -28,4 +28,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/PuzzleDashboardJson.yaml'
+            $ref: '../../schemas/PuzzleDashboard.yaml'

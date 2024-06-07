@@ -33,4 +33,4 @@ get:
       content:
         application/x-ndjson:
           schema:
-            $ref: '../../schemas/PuzzleRoundJson.yaml'
+            $ref: '../../schemas/PuzzleActivity.yaml'

@@ -1,0 +1,18 @@
+type: object
+
+properties:
+  id:
+    type: string
+  url:
+    type: string
+    format: uri
+
+required:
+    - id
+    - url
+
+example:
+    {
+        "id": "MT4hr",
+        "url": "https://lichess.org/racer/MT4hr"
+    }
