@@ -1,25 +1,139 @@
+type: object
+
+properties:
+  game:
+    type: object
+    properties:
+      clock:
+        type: string
+      id:
+        type: string
+      perf:
+        type: object
+        properties:
+          key:
+            $ref: './PerfType.yaml'
+          name:
+            type: string
+        required:
+          - key
+          - name
+      pgn:
+        type: string
+      players:
+        type: array
+        items:
+          type: object
+          properties:
+            color:
+              type: string
+            flair:
+              type: string
+            id:
+              type: string
+            name:
+              type: string
+            patron:
+              type: boolean
+            rating:
+              type: integer
+            title:
+              $ref: './Title.yaml'
+          required:
+            - color
+            - id
+            - name
+            - rating
+          minItems: 2
+          maxItems: 2
+      rated:
+        type: boolean
+    required:
+      - clock
+      - id
+      - perf
+      - pgn
+      - players
+      - rated
+    additionalProperties: false
+  puzzle:
+    type: object
+    properties:
+      id:
+        type: string
+      initialPly:
+        type: integer
+      plays:
+        type: integer
+      rating:
+        type: integer
+      solution:
+        type: array
+        items:
+          type: string
+      themes:
+        type: array
+        items:
+          type: string
+    required:
+      - id
+      - initialPly
+      - plays
+      - rating
+      - solution
+      - themes
+    additionalProperties: false
+
+required:
+  - game
+  - puzzle
+
 example:
-  {
-    'game':
-      {
-        'clock': '10+0',
-        'id': 'VpVdGbna',
-        'perf': { 'key': 'rapid', 'name': 'Rapid' },
-        'pgn': 'd4 Nf6 Nf3 g6 Nc3 d6 e4 c5 Be3 cxd4 Bxd4 Nc6 Be3 Qa5 Bd2 Bg7 Be2 O-O O-O Qb6 Rb1 Bg4 h3 Bxf3 Bxf3 Nd4 Be3 Nxf3+ Qxf3 Qc6 Bd4 a6 Bxf6 Bxf6 Nd5 Qxc2 Nxf6+ exf6 Qxf6 Qxe4 Qxd6 Rad8 Qb6 Rfe8 Rfe1 Qxe1+ Rxe1 Rxe1+ Kh2 Rd2 Kg3 Ree2 Qxb7 Rxb2 Qxa6 Rxa2 Qc8+ Kg7 Qc3+ Kg8 Qc5 Rxf2 Qc8+ Kg7 Qc3+ Kh6 Qe3+ Kg7 Qe5+ Kf8 Qh8+ Ke7 Qe5+ Kf8 Qb8+ Kg7 Qe5+ f6 Qe7+ Kh6 Qf8+ Kg5 h4+ Kh5 Qc5+ f5 Qc1 Rxg2+ Kh3 Rh2+ Kg3 Rag2+ Kf3 Rg4 Qd1 Rhxh4 Kf2 Rh2+ Kf3 Rh3+ Ke2 Rg2+ Kf1+ Rg4 Kf2 g5 Qd8 h6 Qe8+ Kh4 Kf1 h5 Qe1+ Rhg3 Qe5 f4 Qe1 f3 Kf2 Rf4 Qh1+ Rh3 Qe1 g4',
-        'players':
-          [
-            { 'color': 'white', 'name': 'borska (2013)', 'userId': 'borska' },
-            { 'color': 'black', 'name': 'Xxn00bkillar69xX (1990)', 'userId': 'xxn00bkillar69xx' },
-          ],
-        'rated': true,
-      },
-    'puzzle':
-      {
-        'id': 'K69di',
-        'initialPly': 123,
-        'plays': 1970,
-        'rating': 2022,
-        'solution': ['e1e7', 'f4f6', 'e7f6'],
-        'themes': ['short', 'queenRookEndgame', 'endgame', 'mateIn2'],
-      },
-  }
+    {
+        "game": {
+            "clock": "3+0",
+            "id": "AHGPPS44",
+            "perf": {
+                "key": "blitz",
+                "name": "Blitz"
+            },
+            "pgn": "d4 d5 Bf4 Bf5 Nf3 e6 c4 Nf6 Nc3 Bd6 Bg3 Nbd7 e3 O-O c5 Bxg3 hxg3 h6 Bd3 Ne4 Qc2 Ndf6 Nd2 Nxc3 Bxf5 exf5 bxc3 Ne4 Nxe4 fxe4 Rb1 b6 Rh5 bxc5 Rb5 cxd4 cxd4 c6 Qxc6 Rc8 Qxd5 Qf6 Qxe4 Rc1+ Ke2 Qa6 Qd5 Rc2+ Kf3 g6 Rxh6 Qf6+ Ke4",
+            "players": [
+                {
+                    "color": "white",
+                    "flair": "travel-places.ambulance",
+                    "id": "ericrosen",
+                    "name": "EricRosen",
+                    "patron": true,
+                    "rating": 2642,
+                    "title": "IM"
+                },
+                {
+                    "color": "black",
+                    "id": "anton_volovikov",
+                    "name": "Anton_Volovikov",
+                    "rating": 2619,
+                    "title": "FM"
+                }
+            ],
+            "rated": true
+        },
+        "puzzle": {
+            "id": "PSjmf",
+            "initialPly": 52,
+            "plays": 566,
+            "rating": 2705,
+            "solution": [
+                "g8g7",
+                "d5e5",
+                "f6e5"
+            ],
+            "themes": [
+                "endgame",
+                "master",
+                "short",
+                "masterVsMaster",
+                "crushing"
+            ]
+        }
+    }

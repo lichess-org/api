@@ -21,4 +21,4 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/PuzzleRaceJson.yaml'
+            $ref: '../../schemas/PuzzleRacer.yaml'

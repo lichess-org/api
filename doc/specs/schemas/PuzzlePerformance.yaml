@@ -1,0 +1,20 @@
+type: object
+
+properties:
+  firstWins:
+    type: integer
+  nb:
+    type: integer
+  performance:
+    type: integer
+  puzzleRatingAvg:
+    type: integer
+  replayWins:
+    type: integer
+
+required:
+  - firstWins
+  - nb
+  - performance
+  - puzzleRatingAvg
+  - replayWins

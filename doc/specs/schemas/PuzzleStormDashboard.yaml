@@ -1,0 +1,75 @@
+type: object
+
+properties:
+  days:
+    type: array
+    items:
+      type: object
+      properties:
+        _id:
+          type: string
+        combo:
+          type: integer
+        errors:
+          type: integer
+        highest:
+          type: integer
+        moves:
+          type: integer
+        runs:
+          type: integer
+        score:
+          type: integer
+        time:
+          type: integer
+      required:
+        - _id
+        - combo
+        - errors
+        - highest
+        - moves
+        - runs
+        - score
+        - time
+  high:
+    type: object
+    properties:
+      allTime:
+        type: integer
+      day:
+        type: integer
+      month:
+        type: integer
+      week:
+        type: integer
+    required:
+      - allTime
+      - day
+      - month
+      - week
+
+required:
+  - days
+  - high
+
+example:
+    {
+        "days": [
+            {
+                "_id": "2024/6/4",
+                "combo": 32,
+                "errors": 5,
+                "highest": 1590,
+                "moves": 60,
+                "runs": 1,
+                "score": 24,
+                "time": 174
+            }
+        ],
+        "high": {
+            "allTime": 24,
+            "day": 24,
+            "month": 24,
+            "week": 24
+        }
+    }
