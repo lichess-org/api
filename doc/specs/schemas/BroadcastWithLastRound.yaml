@@ -1,0 +1,9 @@
+type: object
+
+properties:
+  group:
+    type: string
+  tour:
+    $ref: "./BroadcastTour.yaml"
+  lastRound:
+    $ref: "./BroadcastRoundInfo.yaml"

@@ -437,6 +437,9 @@ paths:
   /api/broadcast:
     $ref: './tags/broadcasts/api-broadcasts-official.yaml'
 
+  /api/broadcast/top:
+    $ref: './tags/broadcasts/api-broadcasts-top.yaml'
+
   /api/broadcast/by/{username}:
     $ref: './tags/broadcasts/api-broadcasts-by-user.yaml'
 

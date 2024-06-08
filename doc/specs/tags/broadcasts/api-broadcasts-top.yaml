@@ -1,0 +1,29 @@
+get:
+  operationId: broadcastsTop
+  summary: Get paginated top broadcast previews
+  description: |
+    The same data, in the same order, as can be seen on [https://lichess.org/broadcast](/broadcast).
+  tags:
+    - Broadcasts
+  security: []
+  parameters:
+    - in: query
+      name: page
+      description: Which page to fetch. Only page 1 has "active" and "upcoming" broadcasts.
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
+        maximum: 20
+  responses:
+    "200":
+      description: Paginated top broadcast previews.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            $ref: "../../schemas/BroadcastTop.yaml"
