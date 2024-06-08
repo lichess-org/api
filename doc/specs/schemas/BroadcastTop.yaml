@@ -22,15 +22,9 @@ properties:
         type: array
         items:
           $ref: "./BroadcastWithLastRound.yaml"
-      nbResults:
-        type: number
-        example: 205194
       previousPage:
         type: [number, "null"]
         example: 3
       nextPage:
         type: [number, "null"]
         example: 5
-      nbPages:
-        type: number
-        example: 13680
