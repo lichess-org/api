@@ -16,12 +16,6 @@ properties:
     minimum: 1
     description: Hash table size to use for analysis, in MiB.
     example: 128
-  infinite:
-    type: boolean
-    description: |
-      Request an infinite search (rather than roughly aiming for
-      `defaultDepth`).
-    example: false
   multiPv:
     type: integer
     minimum: 1
@@ -40,6 +34,18 @@ properties:
     items:
       type: string
     example: ['e2e4', 'g8f6']
+  movetime:
+    type: integer
+    description: Amount of time to analyse the position, in milliseconds.
+    minimum: 1
+  depth:
+    type: integer
+    description: Analysis target depth
+    minimum: 1
+  nodes:
+    type: integer
+    description: Number of nodes to analyse in the position
+    minimum: 1
 required:
   - sessionId
   - threads

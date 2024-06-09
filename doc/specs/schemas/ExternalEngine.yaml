@@ -33,12 +33,6 @@ properties:
     example: 2048
     minimum: 1
     maximum: 1048576
-  defaultDepth:
-    type: integer
-    description: Estimated depth of normal search.
-    example: 24
-    minimum: 0
-    maximum: 246
   variants:
     type: array
     description: List of supported chess variants.
@@ -60,5 +54,4 @@ required:
   - name
   - maxThreads
   - maxHash
-  - defaultDepth
   - variants
