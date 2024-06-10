@@ -1,0 +1,28 @@
+get:
+  operationId: challengeShow
+  summary: Show one challenge
+  description: |
+    Get details about a challenge, even if it has been recently accepted, canceled or declined.
+  tags:
+    - Challenges
+  security:
+    - OAuth2: ["challenge:read"]
+  parameters:
+    - in: path
+      name: id
+      required: true
+      description: The challenge ID
+      schema:
+        type: string
+  responses:
+    "200":
+      description: The challenge for that ID.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/ChallengeJson.yaml"
