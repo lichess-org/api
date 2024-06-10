@@ -608,8 +608,8 @@ paths:
   /api/challenge/{username}:
     $ref: './tags/challenges/api-challenge-username.yaml'
 
-  /api/challenge/{challengeId}:
-    $ref: './tags/challenges/api-challenge-id.yaml'
+  /api/challenge/{challengeId}/show:
+    $ref: './tags/challenges/api-challenge-id-show.yaml'
 
   /api/challenge/{challengeId}/accept:
     $ref: './tags/challenges/api-challenge-challengeId-accept.yaml'

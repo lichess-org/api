@@ -9,7 +9,7 @@ get:
     - OAuth2: ["challenge:read"]
   parameters:
     - in: path
-      name: id
+      name: challengeId
       required: true
       description: The challenge ID
       schema:
