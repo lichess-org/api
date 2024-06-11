@@ -2,11 +2,11 @@ type: object
 
 properties:
   round:
-    $ref: './BroadcastRoundInfo.yaml'
+    $ref: "./BroadcastRoundInfo.yaml"
   tour:
-    $ref: './BroadcastTour.yaml'
+    $ref: "./BroadcastTour.yaml"
   study:
-    $ref: './BroadcastRoundStudyInfo.yaml'
+    $ref: "./BroadcastRoundStudyInfo.yaml"
 
 required:
   - round
@@ -15,20 +15,22 @@ required:
 
 example:
   {
-      "round": {
-          "id": "n8JeQIeY",
-          "name": "round 1",
-          "slug": "round-1",
-          "createdAt": 1717344905926,
-          "url": "https://lichess.org/broadcast/new-name/round-1/n8JeQIeY"
+    "round":
+      {
+        "id": "n8JeQIeY",
+        "name": "round 1",
+        "slug": "round-1",
+        "createdAt": 1717344905926,
+        "url": "https://lichess.org/broadcast/new-name/round-1/n8JeQIeY",
       },
-      "tour": {
-          "id": "HdRP6fce",
-          "name": "New Name",
-          "slug": "new-name",
-          "description": "test",
-          "createdAt": 1717342164861,
-          "url": "https://lichess.org/broadcast/new-name/HdRP6fce"
+    "tour":
+      {
+        "id": "HdRP6fce",
+        "name": "New Name",
+        "slug": "new-name",
+        "description": "test",
+        "createdAt": 1717342164861,
+        "url": "https://lichess.org/broadcast/new-name/HdRP6fce",
       },
-      "study": { "writeable": true }
+    "study": { "writeable": true },
   }

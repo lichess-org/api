@@ -1,15 +1,17 @@
 type: object
 properties:
   round:
-    $ref: './BroadcastRoundInfo.yaml'
+    $ref: "./BroadcastRoundInfo.yaml"
   tour:
-    $ref: './BroadcastTour.yaml'
+    $ref: "./BroadcastTour.yaml"
   study:
-    $ref: './BroadcastRoundStudyInfo.yaml'
+    $ref: "./BroadcastRoundStudyInfo.yaml"
   games:
     type: array
     items:
-      $ref: './BroadcastRoundGame.yaml'
+      $ref: "./BroadcastRoundGame.yaml"
+  group:
+    $ref: "./BroadcastGroup.yaml"
 
 required:
   - round
