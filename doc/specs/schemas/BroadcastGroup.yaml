@@ -1,0 +1,9 @@
+type: object
+
+properties:
+  name:
+    type: string
+  tours:
+    type: array
+    items:
+      $ref: "./BroadcastGroupTour.yaml"

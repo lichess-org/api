@@ -2,8 +2,10 @@ type: object
 
 properties:
   tour:
-    $ref: './BroadcastTour.yaml'
+    $ref: "./BroadcastTour.yaml"
+  group:
+    $ref: "./BroadcastGroup.yaml"
   rounds:
     type: array
     items:
-      $ref: './BroadcastRoundInfo.yaml'
+      $ref: "./BroadcastRoundInfo.yaml"
