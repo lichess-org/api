@@ -94,4 +94,14 @@ example:
           "status": "*",
         },
       ],
+    "group":
+      {
+        "name": "UzChess Cup 2024",
+        "tours":
+          [
+            { "id": "YtMYEYu9", "name": "Masters" },
+            { "id": "d6fsqyMV", "name": "Challengers" },
+            { "id": "vntwlrw6", "name": "Futures" },
+          ],
+      },
   }

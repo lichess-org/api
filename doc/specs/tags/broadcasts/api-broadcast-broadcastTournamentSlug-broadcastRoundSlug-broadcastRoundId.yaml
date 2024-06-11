@@ -31,4 +31,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/BroadcastRound.yaml'
+            $ref: "../../schemas/BroadcastRound.yaml"
