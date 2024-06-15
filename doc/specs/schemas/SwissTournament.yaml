@@ -58,6 +58,8 @@ properties:
       - averageRating
   rated:
     type: boolean
+  verdicts:
+    $ref: './Verdicts.yaml'
 
 required:
   - id
@@ -73,32 +75,45 @@ required:
   - status
   - stats
   - rated
+  - verdicts
 
 example:
   {
-    'rated': true,
-    'clock': { 'increment': 0, 'limit': 300 },
-    'createdBy': 'thibault',
-    'id': 'ZmKWCOye',
-    'name': 'Wang',
-    'nbOngoing': 0,
-    'nbPlayers': 0,
-    'nbRounds': 2,
-    'nextRound': { 'at': '2020-05-11T12:23:18.233-06:00', 'in': 600 },
-    'round': 0,
-    'startsAt': '2020-05-11T12:23:18.233-06:00',
-    'status': 'created',
-    'variant': 'standard',
-    'isRecentlyFinished': false,
-    'password': true,
-    'stats':
-      {
-        'absences': 1608,
-        'averageRating': 1588,
-        'blackWins': 42541,
-        'byes': 12,
-        'draws': 0,
-        'games': 42689,
-        'whiteWins': 42837,
-      },
+    "clock": {
+      "increment": 0,
+      "limit": 600
+    },
+    "createdBy": "lichess",
+    "id": "SuwsOIhE",
+    "name": "Rapid",
+    "nbOngoing": 0,
+    "nbPlayers": 37,
+    "nbRounds": 7,
+    "rated": true,
+    "round": 7,
+    "startsAt": "2024-06-11T02:00:00Z",
+    "stats": {
+      "absences": 133,
+      "averageRating": 1896,
+      "blackWins": 44,
+      "byes": 5,
+      "draws": 6,
+      "games": 53,
+      "whiteWins": 56
+    },
+    "status": "finished",
+    "variant": "standard",
+    "verdicts": {
+      "accepted": true,
+      "list": [
+        {
+          "condition": "≥ 8 Rapid rated games",
+          "verdict": "ok"
+        },
+        {
+          "condition": "Play your games",
+          "verdict": "ok"
+        }
+      ]
+    }
   }

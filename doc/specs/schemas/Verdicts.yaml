@@ -1,0 +1,21 @@
+type: object
+
+properties:
+  accepted:
+    type: boolean
+  list:
+    type: array
+    items:
+      type: object
+      properties:
+        condition:
+          type: string
+        verdict:
+          type: string
+      required:
+        - condition
+        - verdict
+
+required:
+  - accepted
+  - list
