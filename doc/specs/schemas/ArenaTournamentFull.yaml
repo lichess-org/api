@@ -47,19 +47,7 @@ properties:
     nbPlayers:
         type: number
     verdicts:
-        type: object
-        properties:
-            accepted:
-                type: boolean
-            list:
-                type: array
-                items:
-                    type: object
-                    properties:
-                        condition:
-                            type: string
-                        verdict:
-                            type: string
+        $ref: './Verdicts.yaml'
     perf:
         type: object
         properties:
