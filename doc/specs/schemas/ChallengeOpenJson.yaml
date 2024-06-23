@@ -1,22 +1,110 @@
+type: object
+properties:
+  id:
+    type: string
+  url:
+    type: string
+  status:
+    type: string
+    enum:
+      - created
+      - offline
+      - canceled
+      - declined
+      - accepted
+  challenger:
+    type: 'null'
+  destUser:
+    type: 'null'
+  variant:
+    $ref: './Variant.yaml'
+  rated:
+    type: boolean
+  speed:
+    $ref: './Speed.yaml'
+  timeControl:
+    oneOf:
+      - type: object
+        properties:
+          type:
+            type: string
+            example: clock
+          limit:
+            type: number
+          increment:
+            type: number
+          show:
+            example: 5+2
+            type: string
+        additionalProperties: false
+      - type: object
+        properties:
+          type:
+            type: string
+            example: correspondence
+          daysPerTurn:
+            type: number
+        additionalProperties: false
+      - type: object
+        properties:
+          type:
+            type: string
+            example: unlimited
+        additionalProperties: false
+  color:
+    type: string
+    enum: ['white', 'black', 'random']
+  finalColor:
+    type: string
+    enum: ['white', 'black']
+  perf:
+    type: object
+    properties:
+      icon:
+        type: string
+      name:
+        type: string
+  initialFen:
+    type: string
+required:
+  - id
+  - url
+  - status
+  - challenger
+  - destUser
+  - variant
+  - rated
+  - speed
+  - timeControl
+  - color
+  - perf
 example:
   {
-    'challenge':
-      {
-        'id': 'zVfT67rO',
-        'url': 'https://lichess.org/zVfT67rO',
-        'status': 'created',
-        'challenger': null,
-        'destUser': null,
-        'variant': { 'key': 'standard', 'name': 'Standard', 'short': 'Std' },
-        'rated': true,
-        'speed': 'rapid',
-        'timeControl': { 'type': 'clock', 'limit': 600, 'increment': 0, 'show': '10+0' },
-        'color': 'random',
-        'finalColor': 'black',
-        'perf': { 'icon': '', 'name': 'Rapid' },
-        'open': {},
-      },
-    'socketVersion': 0,
-    'urlWhite': 'https://lichess.org/zVfT67rO?color=white',
-    'urlBlack': 'https://lichess.org/zVfT67rO?color=black',
+    "id": "3gH5lybT",
+    "url": "https://lichess.org/3gH5lybT",
+    "status": "created",
+    "challenger": null,
+    "destUser": null,
+    "variant": {
+      "key": "standard",
+      "name": "Standard",
+      "short": "Std"
+    },
+    "rated": false,
+    "speed": "rapid",
+    "timeControl": {
+      "type": "clock",
+      "limit": 600,
+      "increment": 5,
+      "show": "10+5"
+    },
+    "color": "random",
+    "finalColor": "black",
+    "perf": {
+      "icon": "",
+      "name": "Rapid"
+    },
+    "open": {},
+    "urlWhite": "https://lichess.org/3gH5lybT?color=white",
+    "urlBlack": "https://lichess.org/3gH5lybT?color=black"
   }
