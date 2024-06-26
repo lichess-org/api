@@ -66,6 +66,19 @@ properties:
         type: string
   initialFen:
     type: string
+  urlWhite:
+    type: string
+  urlBlack:
+    type: string
+  open:
+    type: object
+    properties:
+      userIds:
+        description: "An optional array of two user ids. If set, only these users will be allowed to join the game. The first username gets the white pieces."
+        type: array
+        items:
+          type: string
+
 required:
   - id
   - url
@@ -78,6 +91,9 @@ required:
   - timeControl
   - color
   - perf
+  - urlWhite
+  - urlBlack
+  - open
 example:
   {
     "id": "3gH5lybT",
