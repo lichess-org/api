@@ -4,7 +4,7 @@ get:
   description: |
     Members are sorted by reverse chronological order of joining the team (most recent first).
     OAuth is only required if the list of members is private.
-    Members are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+    Up to 5,000 users are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
   tags:
     - Teams
   security:
@@ -16,6 +16,14 @@ get:
         type: string
         example: "coders"
       required: true
+    - in: query
+      name: full
+      description: |
+        Full user documents with performance ratings.
+        This limits the response to 1,000 users.
+      schema:
+        type: boolean
+        default: false
   responses:
     "200":
       description: The list of users in the team.
@@ -27,4 +35,23 @@ get:
       content:
         application/x-ndjson:
           schema:
-            $ref: '../../schemas/UserExtended.yaml'
+            type: object
+            properties:
+              joinedTeamAt:
+                type: number
+                format: int64
+                example: 1716930043067
+              id:
+                type: string
+                example: "chess-network"
+              name:
+                type: string
+                example: "Chess-Network"
+              title:
+                $ref: "../../schemas/Title.yaml"
+              patron:
+                type: boolean
+                example: true
+            required:
+              - id
+              - name
