@@ -13,3 +13,6 @@ rules:
   # /api/tournament/team-battle/{id2}
   # If id1 has value "team-battle", and id2 has value "join",
   # these paths would be identical...
+  no-invalid-schema-examples:
+    severity: error
+    allowAdditionalProperties: false
