@@ -1,24 +1,20 @@
-post:
-  operationId: gamesExportIds
-  summary: Export games by IDs
+get:
+  operationId: bulkPairingIdGamesGet
+  summary: Export games of a bulk pairing
   description: |
-    Download games by IDs in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
-    Games are sorted by reverse chronological order (most recent first)
-    The method is `POST` so a longer list of IDs can be sent in the request body.
-    300 IDs can be submitted.
-    Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
+    Download games of a bulk in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
   tags:
-    - Games
-  security: []
-  requestBody:
-    description: Game IDs separated by commas. Up to 300.
-    required: true
-    content:
-      text/plain:
-        schema:
-          type: string
-        example: "TJxUmbWK,4OtIh2oh,ILwozzRZ"
+    - Bulk pairings
+  security:
+    - OAuth2: ["challenge:bulk"]
   parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+        description: The ID of the bulk pairing
+        example: "5IrD6Gzz"
+      required: true
     - in: query
       name: moves
       description: Include the PGN moves.
@@ -86,13 +82,6 @@ post:
       schema:
         type: boolean
         default: false
-    - in: query
-      name: players
-      description: |
-        URL of a text file containing real names and ratings, to replace Lichess usernames and ratings in the PGN.
-        Example: <https://gist.githubusercontent.com/ornicar/6bfa91eb61a2dcae7bcd14cce1b2a4eb/raw/768b9f6cc8a8471d2555e47ba40fb0095e5fba37/gistfile1.txt>
-      schema:
-        type: string
   responses:
     "200":
       description: The representation of the games.

@@ -638,6 +638,9 @@ paths:
   /api/bulk-pairing/{id}:
     $ref: './tags/bulkpairings/api-bulk-pairing-id.yaml'
 
+  /api/bulk-pairing/{id}/games:
+    $ref: './tags/bulkpairings/api-bulk-pairing-id-games.yaml'
+
   /api/round/{gameId}/add-time/{seconds}:
     $ref: './tags/challenges/api-round-gameId-add-time-seconds.yaml'
 
