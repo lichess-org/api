@@ -5,5 +5,5 @@ properties:
     type: string
   tour:
     $ref: "./BroadcastTour.yaml"
-  lastRound:
+  round:
     $ref: "./BroadcastRoundInfo.yaml"
