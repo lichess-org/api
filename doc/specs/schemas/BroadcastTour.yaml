@@ -7,10 +7,29 @@ properties:
     type: string
   slug:
     type: string
-  description:
-    type: string
   createdAt:
     type: number
+    example: 1722169800000
+  dates:
+    type: array
+    items:
+      type: number
+    description: "Start and end dates of the tournament, as Unix timestamps in milliseconds"
+    maxItems: 2
+    example: [1722169800000, 1722666600000]
+  info:
+    type: object
+    description: "Additional display information about the tournament"
+    properties:
+      format:
+        type: string
+        description: "Tournament format"
+      players:
+        type: string
+        description: "Featured players"
+      tc:
+        type: string
+        description: "Time control"
   tier:
     type: number
     description: "Used to designate featured tournaments on Lichess"
@@ -30,6 +49,5 @@ required:
   - id
   - name
   - slug
-  - description
   - createdAt
   - url
