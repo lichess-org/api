@@ -20,7 +20,7 @@ get:
           schema:
             type: array
             items:
-              $ref: '../../schemas/BulkPairing.yaml'
+              $ref: "../../schemas/BulkPairing.yaml"
 post:
   operationId: bulkPairingCreate
   summary: Create a bulk pairing
@@ -30,7 +30,8 @@ post:
     You can schedule up to 500 games every 10 minutes. [Contact us](mailto:contact@lichess.org) if you need higher limits.
     If games have a real-time clock, each player must have only one pairing.
     For correspondence games, players can have multiple pairings within the same bulk.
-    The entire bulk is rejected if:
+
+    **The entire bulk is rejected if:**
       - a token is missing
       - a token is present more than once (except in correspondence)
       - a token lacks the `challenge:write` scope
@@ -39,6 +40,7 @@ post:
       - a bulk is already scheduled to start at the same time with the same player
       - you have 20 scheduled bulks
       - you have 1000 scheduled games
+
     Partial bulks are never created. Either it all fails, or it all succeeds.
     When it fails, it does so with an error message explaining the issue.
     Failed bulks are not counted in the rate limiting, they are free.
@@ -64,13 +66,13 @@ post:
                 Up to 1000 tokens can be sent, for a max of 500 games.
                 Each token must be included at most once.
                 Example: `token1:token2,token3:token4,token5:token6`
-            'clock.limit':
+            "clock.limit":
               type: number
               description: |
                 Clock initial time in seconds. Example: `600`
               minimum: 0
               maximum: 10800
-            'clock.increment':
+            "clock.increment":
               type: integer
               description: |
                 Clock increment in seconds. Example: `2`
@@ -107,9 +109,9 @@ post:
               description: Game is rated and impacts players ratings
               default: false
             variant:
-              $ref: '../../schemas/VariantKey.yaml'
+              $ref: "../../schemas/VariantKey.yaml"
             fen:
-              $ref: '../../schemas/FromPositionFEN.yaml'
+              $ref: "../../schemas/FromPositionFEN.yaml"
             message:
               type: string
               description: |
@@ -140,10 +142,10 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/BulkPairing.yaml'
+            $ref: "../../schemas/BulkPairing.yaml"
     "400":
       description: The creation of the bulk pairings failed.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Error.yaml'
+            $ref: "../../schemas/Error.yaml"
