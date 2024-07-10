@@ -1,0 +1,28 @@
+post:
+  operationId: broadcastRoundReset
+  summary: Reset a broadcast round
+  description: |
+    Remove any games from the broadcast round and reset it to its initial state.
+  tags:
+    - Broadcasts
+  security:
+    - OAuth2: ["study:write"]
+  parameters:
+    - in: path
+      name: broadcastRoundId
+      description: The broadcast round ID (8 characters).
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: The broadcast round was successfully reset.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'

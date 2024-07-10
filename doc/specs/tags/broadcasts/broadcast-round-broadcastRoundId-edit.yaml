@@ -1,8 +1,8 @@
 post:
   operationId: broadcastRoundUpdate
-  summary: Update your broadcast round
+  summary: Update a broadcast round
   description: |
-    Update information about a broadcast round that you created.
+    Update information about a broadcast round.
     This endpoint accepts the same form data as the web form.
     All fields must be populated with data. Missing fields will override the broadcast with empty data.
     For instance, if you omit `startDate`, then any pre-existing start date will be removed.
