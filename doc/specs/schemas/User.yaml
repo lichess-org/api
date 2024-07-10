@@ -10,8 +10,7 @@ properties:
   perfs:
     $ref: './Perfs.yaml'
   flair:
-    type: string
-    example: nature.water-wave
+    $ref: './Flair.yaml'
   createdAt:
     type: integer
     format: int64
