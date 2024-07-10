@@ -28,7 +28,7 @@ properties:
             color:
               type: string
             flair:
-              type: string
+              $ref: './Flair.yaml'
             id:
               type: string
             name:

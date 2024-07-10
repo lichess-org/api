@@ -1,21 +1,55 @@
 type: object
+
 properties:
   id:
     type: string
-    example: coders
   name:
     type: string
-    example: Coders
   description:
     type: string
-    example: "There are 10 kinds of people in the world: those who understand binary, and the others.\r\n\r\nIf you want to join the team, prove (briefly) that you can code in the request message!"
-  open:
-    type: boolean
-    example: false
+  leader:
+    $ref: './LightUser.yaml'
+  flair:
+    $ref: './Flair.yaml'
   leaders:
     type: array
     items:
       $ref: './LightUser.yaml'
   nbMembers:
     type: integer
-    example: 3129
+  open:
+    type: boolean
+  joined:
+    type: boolean
+  requested:
+    type: boolean
+
+required:
+  - id
+  - name
+
+example:
+  {
+    "id": "lichess-swiss",
+    "name": "Lichess Swiss",
+    "description": "The official Lichess Swiss team. We organize regular swiss tournaments for all to join.",
+    "flair": "food-drink.cheese-wedge",
+    "leader": {
+        "flair": "activity.lichess",
+        "id": "lichess",
+        "name": "Lichess",
+        "patron": true
+    },
+    "leaders": [
+        {
+            "flair": "activity.lichess",
+            "id": "lichess",
+            "name": "Lichess",
+            "patron": true
+        }
+    ],
+    "nbMembers": 487629,
+    "open": true,
+    "joined": false,
+    "requested": false
+  }
