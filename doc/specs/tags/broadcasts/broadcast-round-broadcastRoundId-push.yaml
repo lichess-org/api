@@ -1,9 +1,9 @@
 post:
   operationId: broadcastPush
-  summary: Push PGN to your broadcast round
+  summary: Push PGN to a broadcast round
   description: |
-    Update your broadcast with new PGN.
-    Only for broadcast without a source URL.
+    Update a broadcast with new PGN.
+    Only for broadcasts without a source URL.
   tags:
     - Broadcasts
   security:
