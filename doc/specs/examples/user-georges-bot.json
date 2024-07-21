@@ -106,14 +106,13 @@
     "flag": "EC",
     "location": "string",
     "bio": "Free bugs!",
-    "firstName": "Thibault",
-    "lastName": "Duplessis",
+    "realName": "Georges Bot",
     "fideRating": 1500,
     "uscfRating": 1500,
     "ecfRating": 1500,
     "cfcRating": 1500,
     "dsbRating": 1500,
-    "links": "github.com/ornicar\r\ntwitter.com/ornicar"
+    "links": "github.com/lichess-bot-devs/lichess-bot"
   },
   "seenAt": 1522636452014,
   "patron": true,
