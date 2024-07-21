@@ -95,10 +95,7 @@ post:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              challenge:
-                $ref: '../../schemas/ChallengeJson.yaml'
+            $ref: '../../schemas/ChallengeJson.yaml'
     "400":
       description: The creation of the challenge failed.
       content:
