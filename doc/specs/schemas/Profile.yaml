@@ -8,12 +8,9 @@ properties:
   bio:
     type: string
     example: Free bugs!
-  firstName:
+  realName:
     type: string
-    example: Thibault
-  lastName:
-    type: string
-    example: Duplessis
+    example: Thibault Duplessis
   fideRating:
     type: integer
     example: 1500
