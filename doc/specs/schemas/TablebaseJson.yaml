@@ -21,18 +21,18 @@ properties:
       the user has deviated from the tablebase recommendation since the
       last pawn move or capture.
   dtz:
-    type: integer
+    type: ['null', 'integer']
     description: |
       [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) or null if unknown
   precise_dtz:
-    type: integer
+    type: ['null', 'integer']
     description: |
       DTZ50'' (only if guaranteed to be not rounded) or null if unknown
   dtm:
-    type: integer
-    description: Depth To Mate (only for positions with not more than 5 pieces)
+    type: ['null', 'integer']
+    description: Depth To Mate (only for Standard positions with not more than 5 pieces)
   dtw:
-    type: integer
+    type: ['null', 'integer']
     description: Depth To Win (only for Antichess positions with not more than 4 pieces)
   checkmate:
     type: boolean
