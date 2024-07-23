@@ -30,7 +30,10 @@ properties:
       DTZ50'' (only if guaranteed to be not rounded) or null if unknown
   dtm:
     type: integer
-    description: Distance to mate (only for positions with not more than 5 pieces)
+    description: Depth To Mate (only for positions with not more than 5 pieces)
+  dtw:
+    type: integer
+    description: Depth To Win (only for Antichess positions with not more than 4 pieces)
   checkmate:
     type: boolean
   stalemate:
@@ -53,6 +56,7 @@ example:
     'dtz': 1,
     'precise_dtz': 1,
     'dtm': 17,
+    'dtw': null,
     'checkmate': false,
     'stalemate': false,
     'variant_win': false,
@@ -67,6 +71,7 @@ example:
           'dtz': -2,
           'precise_dtz': -2,
           'dtm': -16,
+          'dtw': null,
           'zeroing': true,
           'checkmate': false,
           'stalemate': false,
