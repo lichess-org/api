@@ -28,7 +28,9 @@ post:
           properties:
             message:
               type: string
-              description: Optional request message, if the team requires one.
+              description: Required if team manually reviews admission requests.
+              minLength: 30
+              maxLength: 2000
             password:
               type: string
               description: Optional password, if the team requires one.
