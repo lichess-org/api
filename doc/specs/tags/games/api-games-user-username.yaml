@@ -162,6 +162,14 @@ get:
         type: boolean
         default: false
     - in: query
+      name: withBookmarked
+      description: |
+        Add a `bookmarked: true` JSON field when the logged in user has bookmarked the game.
+        The response type must be set to `application/x-ndjson` by the request `Accept` header.
+      schema:
+        type: boolean
+        default: false
+    - in: query
       name: players
       description: |
         URL of a text file containing real names and ratings, to replace Lichess usernames and ratings in the PGN.
