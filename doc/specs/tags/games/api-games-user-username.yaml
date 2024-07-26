@@ -51,12 +51,13 @@ get:
         type: boolean
     - in: query
       name: perfType
-      description: "[Filter] Only games in these speeds or variants.\n
-      \nMultiple perf types can be specified, separated by a comma.\n
-      \nExample: blitz,rapid,classical"
+      description: |
+        [Filter] Only games in these speeds or variants.
+        Multiple perf types can be specified, separated by a comma.
+        Example: blitz,rapid,classical
       schema:
         allOf:
-          - $ref: '../../schemas/PerfType.yaml'
+          - $ref: "../../schemas/PerfType.yaml"
           - default: null
     - in: query
       name: color
@@ -126,7 +127,7 @@ get:
         default: false
     - in: query
       name: division
-      description: | 
+      description: |
         Plies which mark the beginning of the middlegame and endgame.
         Only available in JSON
       schema:
@@ -187,7 +188,7 @@ get:
       content:
         application/x-chess-pgn:
           schema:
-            $ref: '../../schemas/GamePgn.yaml'
+            $ref: "../../schemas/GamePgn.yaml"
         application/x-ndjson:
           schema:
-            $ref: '../../schemas/GameJson.yaml'
+            $ref: "../../schemas/GameJson.yaml"
