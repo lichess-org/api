@@ -67,7 +67,7 @@ get:
         default: true
     - in: query
       name: division
-      description: | 
+      description: |
         Plies which mark the beginning of the middlegame and endgame.
         Only available in JSON
       schema:
@@ -78,6 +78,14 @@ get:
       description: |
         Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
         Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: withBookmarked
+      description: |
+        Add a `bookmarked: true` JSON field when the logged in user has bookmarked the game.
+        The response type must be set to `application/x-ndjson` by the request `Accept` header.
       schema:
         type: boolean
         default: false
@@ -99,7 +107,7 @@ get:
       content:
         application/x-chess-pgn:
           schema:
-            $ref: '../../schemas/GamePgn.yaml'
+            $ref: "../../schemas/GamePgn.yaml"
         application/json:
           schema:
-            $ref: '../../schemas/GameJson.yaml'
+            $ref: "../../schemas/GameJson.yaml"
