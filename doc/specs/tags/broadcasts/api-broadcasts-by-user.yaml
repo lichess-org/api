@@ -19,8 +19,14 @@ get:
         type: number
         example: 1
         default: 1
+    - in: query
+      name: html
+      description: Convert the "description" field from markdown to HTML
+      schema:
+        type: boolean
+      example: true
   responses:
-    '200':
+    "200":
       description: A paginated list of the broadcasts created by a user.
       headers:
         Access-Control-Allow-Origin:
@@ -41,523 +47,65 @@ get:
               currentPageResults:
                 type: array
                 items:
-                  $ref: '../../schemas/BroadcastByUser.yaml'
+                  $ref: "../../schemas/BroadcastByUser.yaml"
               nbResults:
                 type: number
                 example: 205194
               previousPage:
-                type: [number, 'null']
+                type: [number, "null"]
                 example: 3
               nextPage:
-                type: [number, 'null']
+                type: [number, "null"]
                 example: 5
               nbPages:
                 type: number
                 example: 13680
             required:
-                - currentPage
-                - maxPerPage
-                - currentPageResults
-                - nbResults
-                - previousPage
-                - nextPage
-                - nbPages
+              - currentPage
+              - maxPerPage
+              - currentPageResults
+              - nbResults
+              - previousPage
+              - nextPage
+              - nbPages
             example:
-                {
-                    "currentPage": 1,
-                    "currentPageResults": [
+              {
+                "currentPage": 1,
+                "currentPageResults":
+                  [
+                    {
+                      "round":
                         {
-                            "round": {
-                                "createdAt": 1720095354279,
-                                "id": "jSgSK1A4",
-                                "name": "Round 2",
-                                "slug": "round-2",
-                                "startsAt": 1745662413247,
-                                "url": "https://lichess.org/broadcast/boyle-wuckert-and-rath-open/round-2/jSgSK1A4"
-                            },
-                            "tour": {
-                                "createdAt": 1720095354255,
-                                "dates": [
-                                    1723877459735,
-                                    1745662413247
-                                ],
-                                "id": "PNHcuWSf",
-                                "info": {},
-                                "markup": "<p>Nesciunt ver vehemens. Calcar tyrannus eligendi. Xiphias congregatio viduo.<br>Abutor arbitro deinde solutio balbus conventus vulticulus aedificium ustulo totam. Ea bos adstringo barba. Attonbitus cilicium tamen usque.<br>Demitto venio aufero aegrotatio beatus acidus. Sublime cenaculum concido. Dolor talio cometes.</p>\n",
-                                "name": "Boyle, Wuckert and Rath Open",
-                                "slug": "boyle-wuckert-and-rath-open",
-                                "tier": 4,
-                                "url": "https://lichess.org/broadcast/boyle-wuckert-and-rath-open/PNHcuWSf"
-                            }
+                          "createdAt": 1720095354279,
+                          "id": "jSgSK1A4",
+                          "name": "Round 2",
+                          "slug": "round-2",
+                          "startsAt": 1745662413247,
+                          "url": "https://lichess.org/broadcast/boyle-wuckert-and-rath-open/round-2/jSgSK1A4",
                         },
+                      "tour":
                         {
-                            "round": {
-                                "createdAt": 1720095354033,
-                                "id": "9PI0vTqF",
-                                "name": "Round 2",
-                                "slug": "round-2",
-                                "startsAt": 1750446111018,
-                                "url": "https://lichess.org/broadcast/gulgowskiview-invitational/round-2/9PI0vTqF"
+                          "createdAt": 1720095354255,
+                          "dates": [1723877459735, 1745662413247],
+                          "id": "PNHcuWSf",
+                          "info":
+                            {
+                              "format": "5-round Swiss",
+                              "players": "featured, players, listed, here",
+                              "tc": "Classical",
                             },
-                            "tour": {
-                                "createdAt": 1720095354011,
-                                "dates": [
-                                    1730438131991,
-                                    1750446111018
-                                ],
-                                "id": "6xq9uWSV",
-                                "info": {},
-                                "markup": "<p>Derideo claudeo suscipit fugit numquam spero sumo. Nihil artificiose id vorax avaritia cerno curso suppellex claustrum. Perferendis tondeo bis cauda tersus concedo antea agnosco. Vacuus varietas vallum antea coadunatio peior defungo cogo decor. Chirographum anser commodi. Vetus conicio conitor tremo delectatio defungo theologus.</p>\n",
-                                "name": "Gulgowskiview Invitational",
-                                "slug": "gulgowskiview-invitational",
-                                "tier": 4,
-                                "url": "https://lichess.org/broadcast/gulgowskiview-invitational/6xq9uWSV"
-                            }
+                          "description": "The **Norway Chess 2024** is a 6-player double round-robin tournament, held from the 27th of May to the 7th of June in Stavanger, Norway, featuring the former and current World Champions [Magnus Carlsen][Carlsen] and [Ding Liren][Ding], [Fabiano Caruana][Caruana], [Hikaru Nakamura][Nakamura], [R Praggnanandhaa][Praggnanandhaa] and [Alireza Firouzja][Firouzja].",
+                          "name": "Boyle, Wuckert and Rath Open",
+                          "slug": "boyle-wuckert-and-rath-open",
+                          "tier": 4,
+                          "url": "https://lichess.org/broadcast/boyle-wuckert-and-rath-open/PNHcuWSf",
                         },
-                        {
-                            "round": {
-                                "createdAt": 1720095353890,
-                                "id": "LiccDZkm",
-                                "name": "Round 1",
-                                "slug": "round-1",
-                                "startsAt": 1732781656841,
-                                "url": "https://lichess.org/broadcast/east-dylan-rapid/round-1/LiccDZkm"
-                            },
-                            "tour": {
-                                "createdAt": 1720095353879,
-                                "dates": [
-                                    1732781656841
-                                ],
-                                "id": "Nfw4LmPf",
-                                "info": {},
-                                "markup": "<p>Adsum damno talis cuppedia pectus. Abscido approbo cubo nostrum. Advoco illum tam decimus tenetur solum unus victoria. Villa benigne minus incidunt theologus venia sit. Textilis voluptatem strues solio thorax aurum avaritia soluta tempora coerceo.</p>\n",
-                                "name": "East Dylan Rapid",
-                                "slug": "east-dylan-rapid",
-                                "tier": 4,
-                                "url": "https://lichess.org/broadcast/east-dylan-rapid/Nfw4LmPf"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095353829,
-                                "id": "El9ihrUr",
-                                "name": "Round 4",
-                                "slug": "round-4",
-                                "startsAt": 1744713072528,
-                                "url": "https://lichess.org/broadcast/new-haliechester-championship/round-4/El9ihrUr"
-                            },
-                            "tour": {
-                                "createdAt": 1720095353767,
-                                "dates": [
-                                    1724602259839,
-                                    1744713072528
-                                ],
-                                "id": "7QOHwVe0",
-                                "info": {},
-                                "markup": "<p>Voluptatem valeo virtus perspiciatis verus bos. Cauda amita sursum varius asper utique adipisci substantia apud. Vere pauper comminor vinitor textus curis torrens creptio.<br>Adinventitias voluptas tendo artificiose. Vulticulus cerno nostrum autus tredecim. Aliqua asper annus.<br>Degusto volo absque quis coepi caries aedificium desipio creator. Una calco tristis bene confido architecto spes conscendo. Amplus triduana ulciscor quaerat nulla vomica totam pauper commemoro surculus.</p>\n",
-                                "name": "New Haliechester Championship",
-                                "slug": "new-haliechester-championship",
-                                "tier": 4,
-                                "url": "https://lichess.org/broadcast/new-haliechester-championship/7QOHwVe0"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095353633,
-                                "finished": true,
-                                "id": "X9n9XoHN",
-                                "name": "Round 3",
-                                "slug": "round-3",
-                                "startsAt": 1745194294725,
-                                "url": "https://lichess.org/broadcast/lockman-open/round-3/X9n9XoHN"
-                            },
-                            "tour": {
-                                "createdAt": 1720095353586,
-                                "dates": [
-                                    1729246437165,
-                                    1745194294725
-                                ],
-                                "id": "SDZMX12r",
-                                "info": {},
-                                "markup": "<p>Suffoco ullus damnatio vulariter communis volup amet alo texo. Recusandae vivo ustulo amet amet inflammatio. Iste audax virgo absorbeo. Coadunatio summisse cur socius nulla coadunatio decimus arca contabesco. Praesentium callide valens comes attollo delinquo claudeo convoco commodi vicinus. Audeo tepidus stabilis peior.</p>\n",
-                                "name": "Lockman Open",
-                                "slug": "lockman-open",
-                                "tier": 3,
-                                "url": "https://lichess.org/broadcast/lockman-open/SDZMX12r"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095353511,
-                                "id": "Esjul3VE",
-                                "name": "Round 5",
-                                "slug": "round-5",
-                                "startsAt": 1750560409830,
-                                "url": "https://lichess.org/broadcast/brunei-darussalam-invitational/round-5/Esjul3VE"
-                            },
-                            "tour": {
-                                "createdAt": 1720095353436,
-                                "dates": [
-                                    1724719373834,
-                                    1750560409830
-                                ],
-                                "id": "nyrb3uRP",
-                                "info": {
-                                    "format": "5-round Swiss",
-                                    "players": "featured, players, listed, here",
-                                    "tc": "Rapid"
-                                },
-                                "markup": "<p>Desino illo comprehendo conitor tubineus aro arma decens.<br>Tabella cribro ago conculco contego color coepi pauper barba.<br>Voveo eligendi crinis.<br>Contabesco curriculum cultura.</p>\n",
-                                "name": "Brunei Darussalam Invitational",
-                                "slug": "brunei-darussalam-invitational",
-                                "tier": 5,
-                                "url": "https://lichess.org/broadcast/brunei-darussalam-invitational/nyrb3uRP"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095353331,
-                                "finished": true,
-                                "id": "yOOo81ZC",
-                                "name": "Round 1",
-                                "slug": "round-1",
-                                "startsAt": 1740724094988,
-                                "url": "https://lichess.org/broadcast/antigua-and-barbuda-classic/round-1/yOOo81ZC"
-                            },
-                            "tour": {
-                                "createdAt": 1720095353320,
-                                "dates": [
-                                    1735218535455,
-                                    1740724094988
-                                ],
-                                "id": "CBdHT6yS",
-                                "info": {},
-                                "markup": "<p>Magni cogito pariatur. Adimpleo natus vespillo coerceo caste.</p>\n",
-                                "name": "Antigua and Barbuda Classic",
-                                "slug": "antigua-and-barbuda-classic",
-                                "tier": 5,
-                                "url": "https://lichess.org/broadcast/antigua-and-barbuda-classic/CBdHT6yS"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095353111,
-                                "id": "kuwIsZOj",
-                                "name": "Round 1",
-                                "slug": "round-1",
-                                "startsAt": 1735109711875,
-                                "url": "https://lichess.org/broadcast/kohler-open/round-1/kuwIsZOj"
-                            },
-                            "tour": {
-                                "createdAt": 1720095353098,
-                                "dates": [
-                                    1723391433978,
-                                    1735109711875
-                                ],
-                                "id": "vd5OJu8H",
-                                "info": {},
-                                "markup": "<p>Uxor comburo virtus centum reiciendis.</p>\n",
-                                "name": "Kohler Open",
-                                "slug": "kohler-open",
-                                "tier": 3,
-                                "url": "https://lichess.org/broadcast/kohler-open/vd5OJu8H"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095352761,
-                                "id": "ZI34DB5d",
-                                "name": "Round 1",
-                                "slug": "round-1",
-                                "startsAt": 1747579850523,
-                                "url": "https://lichess.org/broadcast/greenholt-group-rapid/round-1/ZI34DB5d"
-                            },
-                            "tour": {
-                                "createdAt": 1720095352745,
-                                "dates": [
-                                    1747579850523
-                                ],
-                                "id": "VaGQRrrC",
-                                "info": {},
-                                "markup": "<p>Amaritudo cogito vomica colligo sui condico tandem cattus spoliatio. Veniam tantillus demum supellex inventore tollo antepono capio cito. Crustulum incidunt decor asporto cruentus certe consectetur. Ascisco crastinus consequatur damnatio artificiose accusator civis virtus.</p>\n",
-                                "name": "Greenholt Group Rapid",
-                                "slug": "greenholt-group-rapid",
-                                "tier": 5,
-                                "url": "https://lichess.org/broadcast/greenholt-group-rapid/VaGQRrrC"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095352568,
-                                "finished": true,
-                                "id": "J78yCMO9",
-                                "name": "Round 3",
-                                "slug": "round-3",
-                                "startsAt": 1750069928329,
-                                "url": "https://lichess.org/broadcast/fadel-open/round-3/J78yCMO9"
-                            },
-                            "tour": {
-                                "createdAt": 1720095352530,
-                                "dates": [
-                                    1744299324094,
-                                    1750069928329
-                                ],
-                                "id": "ggZaKJxq",
-                                "info": {},
-                                "markup": "<p>Aliquid utrum sonitus conventus autus subiungo commemoro ante delectus doloremque. Distinctio deficio carpo termes admoveo. Universe corpus convoco cicuta aliquid tergiversatio laborum assumenda blanditiis deprecator.</p>\n",
-                                "name": "Fadel Open",
-                                "slug": "fadel-open",
-                                "tier": 4,
-                                "url": "https://lichess.org/broadcast/fadel-open/ggZaKJxq"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095351976,
-                                "id": "PQN3u9cQ",
-                                "name": "Round 1",
-                                "slug": "round-1",
-                                "startsAt": 1748754151516,
-                                "url": "https://lichess.org/broadcast/lebsack-llc-invitational/round-1/PQN3u9cQ"
-                            },
-                            "tour": {
-                                "createdAt": 1720095351960,
-                                "dates": [
-                                    1728496822660,
-                                    1748754151516
-                                ],
-                                "id": "NgXB5PgF",
-                                "info": {},
-                                "markup": "<p>Careo attollo dedico illum certus aranea. Adduco celo dedico consequuntur in urbs abscido. Cuius adstringo cribro dedico. Tracto possimus tergo tenax victus denuo labore speciosus absque. Terminatio conitor tubineus nam subnecto doloremque necessitatibus carcer.</p>\n",
-                                "name": "Lebsack LLC Invitational",
-                                "slug": "lebsack-llc-invitational",
-                                "tier": 3,
-                                "url": "https://lichess.org/broadcast/lebsack-llc-invitational/NgXB5PgF"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095351868,
-                                "id": "q2KP0dPD",
-                                "name": "Round 2",
-                                "slug": "round-2",
-                                "startsAt": 1742293821746,
-                                "url": "https://lichess.org/broadcast/gorczany-classic/round-2/q2KP0dPD"
-                            },
-                            "tour": {
-                                "createdAt": 1720095351842,
-                                "dates": [
-                                    1722721291809,
-                                    1742293821746
-                                ],
-                                "id": "cSmDYpch",
-                                "info": {},
-                                "markup": "<p>Voluptas taedium ipsum amaritudo undique communis sonitus trepide.<br>Coepi sufficio sordeo talus decumbo cui avarus.<br>Cubicularis sint vindico alveus cras.</p>\n",
-                                "name": "Gorczany Classic",
-                                "slug": "gorczany-classic",
-                                "tier": 4,
-                                "url": "https://lichess.org/broadcast/gorczany-classic/cSmDYpch"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095351664,
-                                "finished": true,
-                                "id": "FcbNmPvi",
-                                "name": "Round 1",
-                                "slug": "round-1",
-                                "startsAt": 1733524745462,
-                                "url": "https://lichess.org/broadcast/pagac-legros-invitational/round-1/FcbNmPvi"
-                            },
-                            "tour": {
-                                "createdAt": 1720095351650,
-                                "dates": [
-                                    1726184474011,
-                                    1733524745462
-                                ],
-                                "id": "O7i9nGIt",
-                                "info": {},
-                                "markup": "<p>Territo theca coniecto amet corona demitto corrigo.<br>Conitor ut cur alter.</p>\n",
-                                "name": "Pagac - Legros Invitational",
-                                "slug": "pagac-legros-invitational",
-                                "tier": 3,
-                                "url": "https://lichess.org/broadcast/pagac-legros-invitational/O7i9nGIt"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095351636,
-                                "id": "sPIzslgW",
-                                "name": "Round 1",
-                                "slug": "round-1",
-                                "startsAt": 1729373137116,
-                                "url": "https://lichess.org/broadcast/okeefe-robel-invitational/round-1/sPIzslgW"
-                            },
-                            "tour": {
-                                "createdAt": 1720095351623,
-                                "dates": [
-                                    1729373137116
-                                ],
-                                "id": "ziAPfTwt",
-                                "info": {},
-                                "leaderboard": true,
-                                "markup": "<p>Adhuc aedificium deleo taceo nostrum aegrus vinco venio.</p>\n",
-                                "name": "O'Keefe - Robel Invitational",
-                                "slug": "okeefe-robel-invitational",
-                                "tier": 5,
-                                "url": "https://lichess.org/broadcast/okeefe-robel-invitational/ziAPfTwt"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095351570,
-                                "finished": true,
-                                "id": "9RcVXHrd",
-                                "name": "Round 5",
-                                "slug": "round-5",
-                                "startsAt": 1748386095535,
-                                "url": "https://lichess.org/broadcast/ankundingland-classic/round-5/9RcVXHrd"
-                            },
-                            "tour": {
-                                "createdAt": 1720095351500,
-                                "dates": [
-                                    1721826221147,
-                                    1748386095535
-                                ],
-                                "id": "0LLsgxCy",
-                                "info": {},
-                                "markup": "<p>Debeo sui suus necessitatibus illo solutio sunt tantillus. Iusto argentum turbo amplus urbs cupressus. Eveniet sopor strues adficio sonitus torrens.</p>\n",
-                                "name": "Ankundingland Classic",
-                                "slug": "ankundingland-classic",
-                                "tier": 5,
-                                "url": "https://lichess.org/broadcast/ankundingland-classic/0LLsgxCy"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095351079,
-                                "id": "VE80nN0W",
-                                "name": "Round 5",
-                                "slug": "round-5",
-                                "startsAt": 1737863818469,
-                                "url": "https://lichess.org/broadcast/breitenberg-invitational/round-5/VE80nN0W"
-                            },
-                            "tour": {
-                                "createdAt": 1720095350900,
-                                "dates": [
-                                    1722048964616,
-                                    1737863818469
-                                ],
-                                "id": "J45tjqP1",
-                                "info": {},
-                                "markup": "<p>Coerceo vetus virtus corrigo corroboro uredo conqueror ullus adsum commemoro. Amaritudo atavus brevis saepe turba thorax. Succurro vomito totidem. Aiunt ulciscor despecto spes custodia benevolentia decet laudantium validus. Callide socius corporis agnosco curiositas patrocinor. Vado desolo eveniet cubicularis caelestis mollitia uter congregatio tergiversatio rem.</p>\n",
-                                "name": "Breitenberg Invitational",
-                                "slug": "breitenberg-invitational",
-                                "tier": 4,
-                                "url": "https://lichess.org/broadcast/breitenberg-invitational/J45tjqP1"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095350709,
-                                "finished": true,
-                                "id": "ZoegF50Y",
-                                "name": "Round 2",
-                                "slug": "round-2",
-                                "startsAt": 1749658847432,
-                                "url": "https://lichess.org/broadcast/iran-cup/round-2/ZoegF50Y"
-                            },
-                            "tour": {
-                                "createdAt": 1720095350671,
-                                "dates": [
-                                    1722036850297,
-                                    1749658847432
-                                ],
-                                "id": "7nDVvoGv",
-                                "info": {},
-                                "markup": "<p>Sordeo tutamen comprehendo.<br>Porro contego paulatim ex vinculum.<br>Vinco suffoco voluptatibus cogito abduco aestivus natus amiculum sodalitas apto.<br>Viscus ut velociter.</p>\n",
-                                "name": "Iran Cup",
-                                "slug": "iran-cup",
-                                "tier": 3,
-                                "url": "https://lichess.org/broadcast/iran-cup/7nDVvoGv"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095350298,
-                                "id": "JhGknYf1",
-                                "name": "Round 3",
-                                "slug": "round-3",
-                                "startsAt": 1742435732251,
-                                "url": "https://lichess.org/broadcast/poland-rapid/round-3/JhGknYf1"
-                            },
-                            "tour": {
-                                "createdAt": 1720095350238,
-                                "dates": [
-                                    1720457205145,
-                                    1742435732251
-                                ],
-                                "id": "mId8E7zQ",
-                                "info": {},
-                                "markup": "<p>Desolo coniecto arbor currus excepturi teres ustilo versus. Pecto cursus aspernatur aro torqueo approbo.</p>\n",
-                                "name": "Poland Rapid",
-                                "slug": "poland-rapid",
-                                "tier": 5,
-                                "url": "https://lichess.org/broadcast/poland-rapid/mId8E7zQ"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095350198,
-                                "id": "fx4Ky8Dm",
-                                "name": "Round 3",
-                                "slug": "round-3",
-                                "startsAt": 1750389403976,
-                                "url": "https://lichess.org/broadcast/saint-barthelemy-cup/round-3/fx4Ky8Dm"
-                            },
-                            "tour": {
-                                "createdAt": 1720095350139,
-                                "dates": [
-                                    1721173539052,
-                                    1750389403976
-                                ],
-                                "id": "uTG3CeOk",
-                                "info": {},
-                                "markup": "<p>Defleo blanditiis defluo averto conculco.</p>\n",
-                                "name": "Saint Barthelemy Cup",
-                                "slug": "saint-barthelemy-cup",
-                                "tier": 4,
-                                "url": "https://lichess.org/broadcast/saint-barthelemy-cup/uTG3CeOk"
-                            }
-                        },
-                        {
-                            "round": {
-                                "createdAt": 1720095350114,
-                                "id": "0tB3G1au",
-                                "name": "Round 6",
-                                "slug": "round-6",
-                                "startsAt": 1750865293177,
-                                "url": "https://lichess.org/broadcast/goodwin-classic/round-6/0tB3G1au"
-                            },
-                            "tour": {
-                                "createdAt": 1720095349978,
-                                "dates": [
-                                    1720772565561,
-                                    1750865293177
-                                ],
-                                "id": "hp8u9T1R",
-                                "info": {},
-                                "markup": "<p>Curriculum natus animus ipsum strues ad.<br>Turpis crepusculum cubicularis.<br>Compello succurro sufficio stultus accendo quidem umquam utor praesentium.</p>\n",
-                                "name": "Goodwin Classic",
-                                "slug": "goodwin-classic",
-                                "tier": 5,
-                                "url": "https://lichess.org/broadcast/goodwin-classic/hp8u9T1R"
-                            }
-                        }
-                    ],
-                    "maxPerPage": 20,
-                    "nbPages": 2,
-                    "nbResults": 34,
-                    "nextPage": 2,
-                    "previousPage": null
-                }
+                    },
+                  ],
+                "maxPerPage": 20,
+                "nbPages": 2,
+                "nbResults": 34,
+                "nextPage": 2,
+                "previousPage": null,
+              }
+
