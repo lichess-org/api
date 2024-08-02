@@ -6,12 +6,20 @@ properties:
       Name of the broadcast tournament. Length must be between 3 and 80 characters.
 
       Example: `Sinquefield Cup`
-  description:
+  info.format:
     type: string
     description: |
-      Short description of the broadcast tournament. Length must be between 3 and 400 characters.
-
-      Example: `An 11 round classical tournament featuring the 9 highest rated players in the world. Including Carlsen, Caruana, Ding, Aronian, Nakamura and more.`
+      Tournament format.
+      Example: `"8-player round-robin" or "5-round Swiss"`
+  info.tc:
+    type: string
+    description: |
+      Time control.
+      Example: `"Classical" or "Rapid" or "Rapid & Blitz"`
+  info.players:
+    type: string
+    description: |
+      Mention up to 4 of the best players participating.
   autoLeaderboard:
     type: boolean
     description: Compute and display a simple leaderboard based on game results
