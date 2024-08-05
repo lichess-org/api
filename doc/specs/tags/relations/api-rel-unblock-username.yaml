@@ -1,0 +1,23 @@
+post:
+  operationId: unblockUser
+  summary: Unblock a player
+  description: |
+    Unblock a player, removing them from your list of blocked Lichess users.
+  tags:
+    - Relations
+  security:
+    - OAuth2: ["follow:write"]
+  parameters:
+    - in: path
+      name: username
+      schema:
+        type: string
+        example: "thibault"
+      required: true
+  responses:
+    "200":
+      description: The player was successfully removed.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Ok.yaml'

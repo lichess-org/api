@@ -545,6 +545,12 @@ paths:
   /api/rel/unfollow/{username}:
     $ref: './tags/relations/api-rel-unfollow-username.yaml'
 
+  /api/rel/block/{username}:
+    $ref: './tags/relations/api-rel-block-username.yaml'
+
+  /api/rel/unblock/{username}:
+    $ref: './tags/relations/api-rel-unblock-username.yaml'
+
   /api/stream/event:
     $ref: './tags/board/api-stream-event.yaml'
 
