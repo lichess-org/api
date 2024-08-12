@@ -48,6 +48,19 @@ properties:
         type: number
     verdicts:
         $ref: './Verdicts.yaml'
+    quote:
+        type: object
+        properties:
+            text:
+                type: string
+            author:
+                type: string
+        description: "The quote displayed on the tournament page"
+    allowList:
+        type: array
+        items:
+            type: string
+        description: "List of usernames allowed to join the tournament"
     perf:
         type: object
         properties:
