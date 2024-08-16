@@ -20,44 +20,82 @@ properties:
     type: string
     description: |
       Mention up to 4 of the best players participating.
-  autoLeaderboard:
-    type: boolean
-    description: Compute and display a simple leaderboard based on game results
   markdown:
     type: string
-    description: Optional long description of the broadcast. Markdown is supported. Length must be less than 20,000 characters.
-  tier:
-    type: integer
+    description: | 
+      Optional long description of the broadcast. Markdown is supported. Length must be less than 20,000 characters.
+  autoLeaderboard:
+    type: boolean
+    description: | 
+      Compute and display a simple leaderboard based on game results
+  teamTable:
+    type: boolean
     description: |
-      Optional, for Lichess admins only, used to feature on /broadcast.
-
-      * `3` for normal
-      * `4` for high
-      * `5` for best
+      Show a team leaderboard. Requires WhiteTeam and BlackTeam PGN tags.
   players:
+    type: string
     description: |
       Optional replace player names, ratings and titles.
 
       One line per player, formatted as such:
 
-      `player name = FIDE ID`
+      ```txt
+      player name = FIDE ID
+      ```
 
       Example:
 
-      `Magnus Carlsen = 1503014`
+      ```txt
+      Magnus Carlsen = 1503014
+      ```
 
-      Player names ignore case and punctuation, and match all possible combinations of 2 words:
-      "Jorge Rick Vito" will match "Jorge Rick", "jorge vito", "Rick, Vito", etc.  
+      Player names ignore case and punctuation, and match all possible combinations of 2 words: "Jorge Rick Vito" will match "Jorge Rick", "jorge vito", "Rick, Vito", etc.
+      
+      If the player is NM or WNM, you can:
+      
+      ```txt
+      Player Name = FIDE ID / Title
+      ```
 
       Alternatively, you may set tags manually, like so:
 
-      `player name / rating / title / new name`
+      ```txt
+      player name / rating / title / new name
+      ```
 
       All values are optional. Example:
+      ```txt
+      Magnus Carlsen / 2863 / GM
+      YouGotLittUp / 1890 / / Louis Litt
+      ```
+  teams:
+    type: string
+    description: |
+      Optional: assign players to teams
 
-      `Magnus Carlsen / 2863 / GM`  
-      `YouGotLittUp / 1890 / / Louis Litt`
+      One line per player, formatted as such:
+      ```txt
+      Team name; Fide Id or Player name
+      ```
+      
+      Example:
+      ```txt
+      Team Cats ; 3408230
+      Team Dogs ; Scooby Doo
+      ```
+      
+      By default the PGN tags WhiteTeam and BlackTeam are used.
+  tier:
+    type: integer
+    description: |
+      Optional, for Lichess admins only, used to feature on /broadcast.
+
+      * `3` for Official: normal tier
+      * `4` for Official: high tier
+      * `5` for Official: best tier
+      * `-1` for Private
+  
+  
 
 required:
   - name
-  - description
