@@ -113,6 +113,8 @@ post:
                 - 99999999
             variant:
               $ref: '../../schemas/VariantKey.yaml'
+            position:
+              $ref: '../../schemas/SwissFromPositionFEN.yaml'
             description:
               type: string
               description: Anything you want to tell players about the tournament
