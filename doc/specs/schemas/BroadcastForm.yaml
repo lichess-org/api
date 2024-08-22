@@ -24,10 +24,14 @@ properties:
     type: string
     description: | 
       Optional long description of the broadcast. Markdown is supported. Length must be less than 20,000 characters.
-  autoLeaderboard:
+  showScores:
     type: boolean
     description: | 
-      Compute and display a simple leaderboard based on game results
+      Show players scores based on game results
+  showRatingDiffs:
+    type: boolean
+    description: | 
+      Show player's rating diffs
   teamTable:
     type: boolean
     description: |
