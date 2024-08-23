@@ -2,38 +2,47 @@ type: object
 properties:
   name:
     type: string
+    maxLength: 80
+    minLength: 3
     description: |
       Name of the broadcast tournament. Length must be between 3 and 80 characters.
 
       Example: `Sinquefield Cup`
   info.format:
     type: string
+    maxLength: 80
     description: |
       Tournament format.
       Example: `"8-player round-robin" or "5-round Swiss"`
   info.tc:
     type: string
+    maxLength: 80
     description: |
       Time control.
       Example: `"Classical" or "Rapid" or "Rapid & Blitz"`
   info.players:
     type: string
+    maxLength: 120
     description: |
       Mention up to 4 of the best players participating.
   markdown:
     type: string
+    maxLength: 20_000
     description: | 
-      Optional long description of the broadcast. Markdown is supported. Length must be less than 20,000 characters.
+      Optional long description of the broadcast. Markdown is supported.
   showScores:
     type: boolean
+    default: true
     description: | 
       Show players scores based on game results
   showRatingDiffs:
     type: boolean
+    default: true
     description: | 
       Show player's rating diffs
   teamTable:
     type: boolean
+    default: false
     description: |
       Show a team leaderboard. Requires WhiteTeam and BlackTeam PGN tags.
   players:
@@ -91,6 +100,7 @@ properties:
       By default the PGN tags WhiteTeam and BlackTeam are used.
   tier:
     type: integer
+    enum: [3, 4, 5 , -1]
     description: |
       Optional, for Lichess admins only, used to feature on /broadcast.
 

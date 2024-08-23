@@ -2,6 +2,8 @@ type: object
 properties:
   name:
     type: string
+    maxLength: 80
+    minLength: 3
     description: |
       Name of the broadcast round. Length must be between 3 and 80 characters.
       Example: `Round 1`
