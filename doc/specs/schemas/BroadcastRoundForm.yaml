@@ -2,8 +2,10 @@ type: object
 properties:
   name:
     type: string
+    maxLength: 80
+    minLength: 3
     description: |
-      Name of the broadcast round. Length must be between 3 and 80 characters.
+      Name of the broadcast round.
       Example: `Round 1`
   syncUrl:
     type: string
