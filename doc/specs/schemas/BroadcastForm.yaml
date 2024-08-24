@@ -5,7 +5,7 @@ properties:
     maxLength: 80
     minLength: 3
     description: |
-      Name of the broadcast tournament. Length must be between 3 and 80 characters.
+      Name of the broadcast tournament.
 
       Example: `Sinquefield Cup`
   info.format:
