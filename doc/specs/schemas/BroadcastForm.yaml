@@ -20,6 +20,11 @@ properties:
     description: |
       Time control.
       Example: `"Classical" or "Rapid" or "Rapid & Blitz"`
+  info.fideTc:
+    type: string
+    enum: [standard, rapid, blitz]
+    description: |
+      FIDE rating category. Which FIDE ratings to use
   info.players:
     type: string
     maxLength: 120
