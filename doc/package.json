@@ -4,7 +4,8 @@
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
     "@redocly/cli": "^1.25.3",
-    "@stoplight/spectral-cli": "^6.13.1"
+    "@stoplight/spectral-cli": "^6.13.1",
+    "@stoplight/spectral-rulesets": "1.18.1"
   },
   "scripts": {
     "spectral": "spectral lint --fail-severity=warn specs/*.yaml",
