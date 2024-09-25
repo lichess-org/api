@@ -14,6 +14,11 @@ properties:
     description: |
       Tournament format.
       Example: `"8-player round-robin" or "5-round Swiss"`
+  info.location:
+    type: string
+    maxLength: 80
+    description: |
+      Tournament Location
   info.tc:
     type: string
     maxLength: 80
@@ -30,6 +35,14 @@ properties:
     maxLength: 120
     description: |
       Mention up to 4 of the best players participating.
+  info.website:
+    type: string
+    description: |
+      Official Website. External website URL
+  info.standings:
+    type: string
+    description: |
+      Official Standings. External website URL, e.g. chess-results.com, info64.org
   markdown:
     type: string
     maxLength: 20_000
