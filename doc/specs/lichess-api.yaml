@@ -143,7 +143,7 @@ tags:
   \n### Restrictions\n\
   \ - Engine assistance, or any kind of outside help, is [forbidden](https://lichess.org/page/fair-play)\n\
   \ - Time controls: [Rapid, Classical and Correspondence](https://lichess.org/faq#time-controls) only.\n\
-  \   For direct challenges and games vs AI, Blitz is also possible.\n\
+  \   For direct challenges, games vs AI, and bulk pairing, Blitz is also possible.\n\
   \n### Links\n\
   \ - [Announcement](https://lichess.org/blog/XlRW5REAAB8AUJJ-/welcome-lichess-boards)\n\
   \ - [Implementation example](https://github.com/lichess-org/api-demo) and [live demo](https://lichess-org.github.io/api-demo/)\n\n
