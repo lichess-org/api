@@ -57,14 +57,6 @@ post:
                 - 14
             variant:
               $ref: '../../schemas/VariantKey.yaml'
-            color:
-              type: string
-              description: The color to play. Better left empty to automatically get 50% white.
-              enum:
-                - random
-                - white
-                - black
-              default: random
             ratingRange:
               type: string
               description: |
