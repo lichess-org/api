@@ -30,6 +30,11 @@ properties:
     enum: [standard, rapid, blitz]
     description: |
       FIDE rating category. Which FIDE ratings to use
+  info.timeZone:
+    type: string
+    description: |
+      Timezone of the tournament. Example: `America/New_York`.
+      See [list of possible timezone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more.
   info.players:
     type: string
     maxLength: 120
@@ -37,10 +42,12 @@ properties:
       Mention up to 4 of the best players participating.
   info.website:
     type: string
+    format: uri
     description: |
-      Official Website. External website URL
+      Official website. External website URL
   info.standings:
     type: string
+    format: uri
     description: |
       Official Standings. External website URL, e.g. chess-results.com, info64.org
   markdown:
