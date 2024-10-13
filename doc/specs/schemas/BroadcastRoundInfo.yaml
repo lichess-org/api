@@ -22,6 +22,7 @@ properties:
     type: boolean
   url:
     type: string
+    format: uri
   delay:
     type: integer
     format: int64

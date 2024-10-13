@@ -55,6 +55,7 @@ properties:
     description: "Used to designate featured tournaments on Lichess"
   image:
     type: string
+    format: uri
   description:
     type: string
     description: "Full tournament description in markdown format, or in HTML if the html=1 query parameter is set."
@@ -64,6 +65,7 @@ properties:
     type: boolean
   url:
     type: string
+    format: uri
 
 required:
   - id

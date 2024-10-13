@@ -9,10 +9,11 @@ properties:
       Example: `Round 1`
   syncUrl:
     type: string
+    format: uri
     description: |
       URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
       
-      Example: 
+      Example:
       ```txt
       https://myserver.org/myevent/round-10/games.pgn
       ```
@@ -21,9 +22,9 @@ properties:
   syncUrls:
     type: string
     description: |
-      URLs that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
+      URLs that Lichess will poll to get updates about the games, separated by newlines. They must be publicly accessible from the Internet.
       
-      Example: 
+      Example:
       ```txt
       https://myserver.org/myevent/round-10/game-1.pgn
       https://myserver.org/myevent/round-10/game-2.pgn
@@ -34,7 +35,7 @@ properties:
     type: string
     description: |
       Lichess game IDs - Up to 64 Lichess game IDs, separated by spaces.
-      
+      on
       Choose one between `syncUrl`, `syncUrls` and `syncIds`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush)
   onlyRound:
     type: integer
@@ -97,6 +98,6 @@ properties:
       (Only for Admins) Waiting time for each poll.
     minimum: 2
     maximum: 60
-          
+
 required:
   - name
