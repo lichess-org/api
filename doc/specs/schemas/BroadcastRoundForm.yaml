@@ -8,38 +8,113 @@ allOf:
         description: |
           Name of the broadcast round.
           Example: `Round 1`
-      onlyRound:
-        type: integer
-        maximum: 999
-        minimum: 1
-        description: |
-          Filter games by round number
+  
+  - oneOf:
+    - type: object
+      title: send games via push
+    - type: object
+      title: send game via PGN url
+      properties:
+        syncUrl:
+          type: string
+          format: uri
+          description: |
+            URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
+            
+            Example:
+            ```txt
+            https://myserver.org/myevent/round-10/games.pgn
+            ```
+            Choose one between `syncUrl`, `syncUrls` and `syncIds`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush)
+        onlyRound:
+          type: integer
+          maximum: 999
+          minimum: 1
+          description: |
+            Filter games by round number
 
-          Optional, only keep games from the source that match a round number.
-          It uses the PGN **Round** tag. These would match round 3:
-          ```txt
-          [Round "3"]
-          [Round "3.1"]
-          ```
-          If you set a round number, then games without a **Round** tag are dropped.
+            Optional, only keep games from the source that match a round number.
+            It uses the PGN **Round** tag. These would match round 3:
+            ```txt
+            [Round "3"]
+            [Round "3.1"]
+            ```
+            If you set a round number, then games without a **Round** tag are dropped.
 
-          It only works if you chose `syncUrl` or `syncUrls` as the source.
-      slices:
-        type: string
-        description: |
-          Select slices of the games
+            It only works if you chose `syncUrl` or `syncUrls` as the source.
+        slices:
+          type: string
+          description: |
+            Select slices of the games
 
-          Optional. Select games based on their position in the source.
-          ```txt
-          1           only select the first board
-          1-4         only select the first 4 boards
-          1,2,3,4     same as above, first 4 boards
-          11-15,21-25 boards 11 to 15, and boards 21 to 25
-          2,3,7-9     boards 2, 3, 7, 8, and 9
-          ```
-          Slicing is done after filtering by round number.
+            Optional. Select games based on their position in the source.
+            ```txt
+            1           only select the first board
+            1-4         only select the first 4 boards
+            1,2,3,4     same as above, first 4 boards
+            11-15,21-25 boards 11 to 15, and boards 21 to 25
+            2,3,7-9     boards 2, 3, 7, 8, and 9
+            ```
+            Slicing is done after filtering by round number.
 
-          It only works if you chose `syncUrl` or `syncUrls` as the source.
+            It only works if you chose `syncUrl` or `syncUrls` as the source.
+    - type: object
+      title: send game via mutiple PGN urls
+      properties:
+        syncUrls:
+          type: string
+          description: |
+            URLs that Lichess will poll to get updates about the games, separated by newlines. They must be publicly accessible from the Internet.
+            
+            Example:
+            ```txt
+            https://myserver.org/myevent/round-10/game-1.pgn
+            https://myserver.org/myevent/round-10/game-2.pgn
+            ```
+            Choose one between `syncUrl`, `syncUrls` and `syncIds`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush)
+        onlyRound:
+          type: integer
+          maximum: 999
+          minimum: 1
+          description: |
+            Filter games by round number
+
+            Optional, only keep games from the source that match a round number.
+            It uses the PGN **Round** tag. These would match round 3:
+            ```txt
+            [Round "3"]
+            [Round "3.1"]
+            ```
+            If you set a round number, then games without a **Round** tag are dropped.
+
+            It only works if you chose `syncUrl` or `syncUrls` as the source.
+        slices:
+          type: string
+          description: |
+            Select slices of the games
+
+            Optional. Select games based on their position in the source.
+            ```txt
+            1           only select the first board
+            1-4         only select the first 4 boards
+            1,2,3,4     same as above, first 4 boards
+            11-15,21-25 boards 11 to 15, and boards 21 to 25
+            2,3,7-9     boards 2, 3, 7, 8, and 9
+            ```
+            Slicing is done after filtering by round number.
+
+            It only works if you chose `syncUrl` or `syncUrls` as the source.
+    - type: object
+      title: Lichess Game Ids
+      properties:
+        syncIds:
+          type: string
+          description: |
+            Lichess game IDs - Up to 64 Lichess game IDs, separated by spaces.
+            Choose one between `syncUrl`, `syncUrls` and `syncIds`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush)
+  
+  - type: object
+    properties:
       startsAt:
         type: integer
         description: |
@@ -72,43 +147,3 @@ allOf:
 
     required:
       - name
-
-  - oneOf:
-    - type: object
-      title: send games via push
-    - type: object
-      title: syncUrl
-      properties:
-        syncUrl:
-          type: string
-          format: uri
-          description: |
-            URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
-            
-            Example:
-            ```txt
-            https://myserver.org/myevent/round-10/games.pgn
-            ```
-            Choose one between `syncUrl`, `syncUrls` and `syncIds`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush)
-    - type: object
-      title: syncUrls
-      properties:
-        syncUrls:
-          type: string
-          description: |
-            URLs that Lichess will poll to get updates about the games, separated by newlines. They must be publicly accessible from the Internet.
-            
-            Example:
-            ```txt
-            https://myserver.org/myevent/round-10/game-1.pgn
-            https://myserver.org/myevent/round-10/game-2.pgn
-            ```
-            Choose one between `syncUrl`, `syncUrls` and `syncIds`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush)
-    - type: object
-      title: syncIds
-      properties:
-        syncIds:
-          type: string
-          description: |
-            Lichess game IDs - Up to 64 Lichess game IDs, separated by spaces.
-            Choose one between `syncUrl`, `syncUrls` and `syncIds`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush)
