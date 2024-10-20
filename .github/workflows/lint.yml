@@ -14,6 +14,8 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: 20
-    - run: npm ci
-    - run: npm run spectral
-    - run: npm run lint
+    - uses: pnpm/action-setup@v4
+      with:
+        run_install: true
+    - run: pnpm spectral
+    - run: pnpm lint
