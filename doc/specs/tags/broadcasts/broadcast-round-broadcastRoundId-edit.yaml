@@ -22,48 +22,7 @@ post:
     content:
       application/x-www-form-urlencoded:
         schema:
-          type: object
-          properties:
-            name:
-              type: string
-              description: |
-                Name of the broadcast round. Length must be between 3 and 80 characters.
-                Example: `Round 10`
-            syncUrl:
-              type: string
-              description: |
-                URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
-                Example: `https://myserver.org/myevent/round-10/games.pgn`
-            syncUrlRound:
-              type: string
-              description: |
-                Required if `syncUrl` contains a livechesscloud link.
-            startsAt:
-              type: integer
-              description: |
-                Timestamp in milliseconds of broadcast start. Leave empty to manually start the broadcast.
-                Example: `1356998400070`
-              minimum: 1356998400070
-            delay:
-              type: integer
-              description: |
-                Delay in seconds for movements to appear on the broadcast. Leave it empty if you don't need it.
-                Example: `900` (15 min)
-              minimum: 0
-              maximum: 1800
-            period:
-              type: integer
-              description: |
-                (Only for Admins) Waiting time for each poll.
-              minimum: 2
-              maximum: 60
-            finished:
-              type: boolean
-              description: |
-                Mark whether the round has been completed.
-              default: false
-          required:
-            - name
+          $ref: '../../schemas/BroadcastRoundForm.yaml'
   responses:
     "200":
       description: The broadcast round was successfully edited.

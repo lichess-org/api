@@ -49,3 +49,12 @@ get:
               {"moves": "e7e6 d2d4 c7c5 c2c3 b8c6 g1f3 c8d7 b1a3 c5d4 c3d4", "cp": 24}
             ]
           }
+    "404":
+      description: The position was not found in the cloud evaluation database.
+      content:
+        application/json:
+          schema:
+            properties:
+              error:
+                type: string
+                example: "No cloud evaluation available for that position"

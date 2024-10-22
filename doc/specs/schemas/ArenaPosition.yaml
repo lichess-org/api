@@ -13,6 +13,7 @@ oneOf:
         example: 'rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -'
       url:
         type: string
+        format: uri
         example: 'https://lichess.org/opening/Philidor_Defense'
   - type: object
     title: Custom position
