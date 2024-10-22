@@ -3,9 +3,11 @@ properties:
   tournament:
     $ref: "./ArenaTournament.yaml"
   player:
-    games:
-      type: integer
-    score:
-      type: integer
-    rank:
-      type: integer
+    type: object
+    properties:
+      games:
+        type: integer
+      score:
+        type: integer
+      rank:
+        type: integer
