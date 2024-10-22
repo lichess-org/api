@@ -383,6 +383,9 @@ paths:
   /api/user/{username}/tournament/created:
     $ref: './tags/arenatournaments/api-user-username-tournament-created.yaml'
 
+  /api/user/{username}/tournament/played:
+    $ref: './tags/arenatournaments/api-user-username-tournament-played.yaml'
+
   /api/swiss/new/{teamId}:
     $ref: './tags/swisstournaments/api-swiss-new-teamId.yaml'
 

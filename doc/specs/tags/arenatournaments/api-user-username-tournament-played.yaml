@@ -1,0 +1,36 @@
+get:
+  operationId: apiUserNameTournamentPlayed
+  summary: Get tournaments played by a user
+  description: |
+    Get all tournaments played by a given user.
+    Tournaments are sorted by reverse chronological order of start date (last played first).
+    Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+  tags:
+    - "Arena tournaments"
+  security: []
+  parameters:
+    - in: path
+      name: username
+      description: The user whose played tournaments to fetch
+      schema:
+        type: string
+      required: true
+    - in: query
+      name: nb
+      description: Max number of tournaments to fetch
+      schema:
+        type: integer
+        minimum: 1
+  responses:
+    "200":
+      description: The list of tournaments played by the user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            tournament:
+              $ref: "../../schemas/ArenaTournamentPlayed.yaml"

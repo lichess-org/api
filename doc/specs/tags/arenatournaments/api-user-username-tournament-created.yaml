@@ -16,6 +16,12 @@ get:
         type: string
       required: true
     - in: query
+      name: nb
+      description: Max number of tournaments to fetch
+      schema:
+        type: integer
+        minimum: 1
+    - in: query
       name: status
       description: |
         Include tournaments in the given status: "Created" (10), "Started" (20), "Finished" (30)
@@ -24,7 +30,6 @@ get:
       schema:
         type: integer
         enum: [10, 20, 30]
-      required: false
   responses:
     "200":
       description: The list of tournaments created by the user.
@@ -36,4 +41,4 @@ get:
       content:
         application/x-ndjson:
           schema:
-            $ref: '../../schemas/ArenaTournament.yaml'
+            $ref: "../../schemas/ArenaTournament.yaml"
