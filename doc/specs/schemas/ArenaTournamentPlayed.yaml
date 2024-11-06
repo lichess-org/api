@@ -11,3 +11,10 @@ properties:
         type: integer
       rank:
         type: integer
+      performance:
+        type: integer
+    required:
+      - games
+      - score
+      - rank
+    example: { "games": 10, "score": 14, "rank": 30, "performance": 1935 }
