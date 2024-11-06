@@ -26,6 +26,13 @@ get:
       schema:
         type: integer
         minimum: 1
+    - in: query
+      name: performance
+      required: false
+      description: |
+        Include the player performance rating in the response, at some cost for the server.
+      schema:
+        type: boolean
   responses:
     "200":
       description: The list of tournaments played by the user.
