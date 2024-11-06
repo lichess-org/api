@@ -17,7 +17,6 @@ post:
       required: true
   requestBody:
     description: You may need these depending on the tournament to join
-    required: true
     content:
       application/x-www-form-urlencoded:
         schema:
