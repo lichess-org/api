@@ -28,6 +28,4 @@ get:
       content:
         application/x-ndjson:
           schema:
-            type: array
-            items:
-              $ref: '../../schemas/StudyMetadata.yaml'
+            $ref: '../../schemas/StudyMetadata.yaml'
