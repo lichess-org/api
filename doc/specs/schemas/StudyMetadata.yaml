@@ -1,2 +1,25 @@
+type: object
+
+properties:
+  id:
+    type: string
+    description: The study ID
+  name:
+    type: string
+    description: The study name
+  createdAt:
+    type: integer
+    format: int64
+    description: The study creation date
+  updatedAt:
+    type: integer
+    format: int64
+    description: The study last update date
+
 example:
-  { 'id': 'WTvnkWAL', 'name': 'Guess the move', 'createdAt': 1463756350225, 'updatedAt': 1469965025205 }
+  {
+    "id": "WTvnkWAL",
+    "name": "Guess the move",
+    "createdAt": 1463756350225,
+    "updatedAt": 1469965025205
+  }
