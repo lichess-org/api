@@ -85,7 +85,7 @@ head:
       schema:
         type: string
   responses:
-    "200":
+    204:
       description: The study headers.
       headers:
         Access-Control-Allow-Origin:
