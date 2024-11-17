@@ -34,9 +34,6 @@ ChallengeCanceledJson:
 ChallengeOpenJson:
   $ref: './ChallengeOpenJson.yaml'
 
-CloudEval:
-  $ref: './CloudEval.yaml'
-
 BulkPairing:
   $ref: './BulkPairing.yaml'
 

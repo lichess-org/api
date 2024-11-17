@@ -40,7 +40,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/CloudEval'
+            $ref: "../../schemas/CloudEval.yaml"
     "404":
       description: The position was not found in the cloud evaluation database.
       content:
