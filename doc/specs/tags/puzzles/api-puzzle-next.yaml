@@ -12,7 +12,7 @@ get:
   security:
     - OAuth2: ["puzzle:read"]
   parameters:
-    - in: path
+    - in: query
       name: angle
       required: false
       description: |
@@ -21,7 +21,7 @@ get:
         Available themes are listed in [the lichess source code](https://github.com/lichess-org/lila/blob/master/modules/puzzle/src/main/PuzzleTheme.scala).
       schema:
         type: string
-    - in: path
+    - in: query
       name: difficulty
       required: false
       description: The desired puzzle difficulty, relative to the authenticated user puzzle rating, or 1500 if anonymous.
