@@ -1,0 +1,46 @@
+get:
+  operationId: apiPuzzleNext
+  summary: Get a new puzzle
+  description: |
+    Get a random Lichess puzzle in JSON format.
+
+    If authenticated, only returns puzzles that the user has never seen before.
+
+    **DO NOT** use this endpoint to enumerate puzzles for mass download. Instead, download the [full public puzzle database](https://database.lichess.org/#puzzles).
+  tags:
+    - Puzzles
+  security:
+    - OAuth2: ["puzzle:read"]
+  parameters:
+    - in: path
+      name: angle
+      required: false
+      description: |
+        The theme or opening to filter puzzles with.
+
+        Available themes are listed in [the lichess source code](https://github.com/lichess-org/lila/blob/master/modules/puzzle/src/main/PuzzleTheme.scala).
+      schema:
+        type: string
+    - in: path
+      name: difficulty
+      required: false
+      description: The desired puzzle difficulty, relative to the authenticated user puzzle rating, or 1500 if anonymous.
+      schema:
+        enum:
+          - easiest
+          - easier
+          - normal
+          - harder
+          - hardest
+  responses:
+    "200":
+      description: The requested puzzle.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/PuzzleAndGame.yaml"

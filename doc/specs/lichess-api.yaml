@@ -278,6 +278,9 @@ paths:
   /api/puzzle/{id}:
     $ref: './tags/puzzles/api-puzzle-id.yaml'
 
+  /api/puzzle/next:
+    $ref: './tags/puzzles/api-puzzle-next.yaml'
+
   /api/puzzle/activity:
     $ref: './tags/puzzles/api-puzzle-activity.yaml'
 
