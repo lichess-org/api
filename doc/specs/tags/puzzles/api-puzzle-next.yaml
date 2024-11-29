@@ -18,7 +18,7 @@ get:
       description: |
         The theme or opening to filter puzzles with.
 
-        Available themes are listed in [the lichess source code](https://github.com/lichess-org/lila/blob/master/modules/puzzle/src/main/PuzzleTheme.scala).
+        Available themes are listed in [the lichess source code](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
       schema:
         type: string
     - in: query
