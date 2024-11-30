@@ -53,7 +53,7 @@ get:
     - in: query
       name: accuracy
       description: |
-        Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available.
+        Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
       schema:
         type: boolean
         default: false
