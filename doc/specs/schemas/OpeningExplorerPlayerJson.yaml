@@ -13,7 +13,7 @@ properties:
   recentGames:
     type: array
     items:
-      $ref: './OpeningExplorerRecentGame.yaml'
+      $ref: './OpeningExplorerPlayerRecentGame.yaml'
   opening:
     type: object
     properties:
