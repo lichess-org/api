@@ -23,6 +23,8 @@ properties:
         type: number
       acpl:
         type: number
+      accuracy:
+        type: number
     required: [inaccuracy, mistake, blunder, acpl]
   team:
     type: string
