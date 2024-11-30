@@ -1,4 +1,4 @@
-type: object,
+type: object
 properties: 
   white:
     type: number
