@@ -1,3 +1,28 @@
+type: object,
+properties: 
+  white:
+    type: number
+  draws:
+    type: number
+  black:
+    type: number
+  moves:
+    type: array
+    items:
+      $ref: './OpeningExplorerMove.yaml'
+  recentGames:
+    type: array
+    items:
+      $ref: './OpeningExplorerRecentGame.yaml'
+  opening:
+    type: object
+    properties:
+      eco:
+        type: string
+      name:
+        type: string
+  queuePosition:
+    type: number
 example:
   {
     'white': 359,
