@@ -1,1 +1,53 @@
-example: { 'chapters': [{ 'id': 'WTvnkWAL', 'name': 'Game 2' }] }
+type: object
+
+properties:
+  chapters:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The chapter ID
+        name:
+          type: string
+          description: The chapter name
+        players:
+          type: array
+          minItems: 2
+          maxItems: 2
+          items:
+            type: object
+            properties:
+              name:
+                type:
+                  - string
+                  - "null"
+                description: The player name
+              rating:
+                type: integer
+                description: The player rating
+        status:
+          type: string
+          description: The chapter status
+
+example:
+  {
+    "chapters": [
+      {
+        "id": "iBjmYBya",
+        "name": "test 2",
+        "players": [
+          {
+            "name": "Carlsen, Magnus",
+            "rating": 2837
+          },
+          {
+            "name": "Chadaev, Nikolay",
+            "rating": 2580
+          }
+        ],
+        "status": "1-0"
+      }
+    ]
+  }

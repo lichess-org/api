@@ -4,6 +4,7 @@ properties:
     type: string
   url:
     type: string
+    format: uri
   status:
     type: string
     enum:

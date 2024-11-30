@@ -8,8 +8,8 @@
 
 ```shell
 cd doc
-npm install
-npm run serve
+pnpm install
+pnpm serve
 ```
 
 Now open <http://localhost:8089/>. You should see the generated API doc.
@@ -19,6 +19,6 @@ Make modifications to `doc/specs/lichess-api.yaml`, and reload the page to see y
 ### Check the yaml files for syntax errors:
 
 ```shell
-npm run spectral
-npm run lint
+pnpm spectral
+pnpm lint
 ```

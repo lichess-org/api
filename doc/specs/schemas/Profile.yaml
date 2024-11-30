@@ -33,4 +33,4 @@ properties:
     description: only appears if a user has set them
   links:
     type: string
-    example: "github.com/ornicar\r\ntwitter.com/ornicar"
+    example: "github.com/ornicar\r\nmas.to/@thibault"

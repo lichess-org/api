@@ -21,9 +21,12 @@ jobs:
         working-directory: doc
     steps:
       - uses: actions/checkout@v4
-      - run: npm ci
-      - run: npm run build
-      - run: npm run bundle
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: doc/package.json
+          run_install: true
+      - run: pnpm build
+      - run: pnpm bundle
       - uses: actions/configure-pages@v3
       - uses: actions/upload-pages-artifact@v3
         with:

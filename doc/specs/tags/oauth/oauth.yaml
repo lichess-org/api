@@ -9,8 +9,10 @@ get:
     Start the OAuth2 Authorization Code Flow with PKCE by securely
     generating two random strings unique to each authorization
     request:
+
     * `code_verifier`
     * `state`
+
     Store these in session storage. Make sure not to reveal `code_verifier`
     to eavesdroppers. Do not show it in URLs, do not abuse `state` to store
     it, do not send it over insecure connections. However it is fine if
@@ -20,16 +22,21 @@ get:
     authorization and then be redirected back to the given `redirect_uri`.
     If the authorization failed, the following query string parameters will
     be appended to the redirection:
+
     * `error`, in particular with value `access_denied` if the user
        cancelled authorization
     * `error_description` to aid debugging
     * `state`, exactly as passed in the `state` parameter
+
     If the authorization succeeded, the following query string parameters
     will be appended to the redirection:
+
     * `code`, containing a fresh short-lived authorization code
     * `state`, exactly as passed in the `state` parameter
+
     Next, to defend against cross site request forgery, check that the
     returned `state` matches the `state` you originally generated.
+
     Finally, continue by using the authorization code to
     [obtain an access token](#operation/apiToken).
   parameters:

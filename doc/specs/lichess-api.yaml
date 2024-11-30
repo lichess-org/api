@@ -278,6 +278,9 @@ paths:
   /api/puzzle/{id}:
     $ref: './tags/puzzles/api-puzzle-id.yaml'
 
+  /api/puzzle/next:
+    $ref: './tags/puzzles/api-puzzle-next.yaml'
+
   /api/puzzle/activity:
     $ref: './tags/puzzles/api-puzzle-activity.yaml'
 
@@ -382,6 +385,9 @@ paths:
 
   /api/user/{username}/tournament/created:
     $ref: './tags/arenatournaments/api-user-username-tournament-created.yaml'
+
+  /api/user/{username}/tournament/played:
+    $ref: './tags/arenatournaments/api-user-username-tournament-played.yaml'
 
   /api/swiss/new/{teamId}:
     $ref: './tags/swisstournaments/api-swiss-new-teamId.yaml'

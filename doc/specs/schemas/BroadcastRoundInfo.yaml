@@ -18,10 +18,12 @@ properties:
   startsAfterPrevious:
     type: boolean
     description: "The start date/time is unknown and the round will start automatically when the previous round completes"
-  finished:
-    type: boolean
+  finishedAt:
+    type: integer
+    format: int64
   url:
     type: string
+    format: uri
   delay:
     type: integer
     format: int64

@@ -27,8 +27,9 @@ example:
         "name": "Round 1",
         "slug": "round-1",
         "createdAt": 1716014105255,
-        "ongoing": true,
+        "ongoing": false,
         "startsAt": 1716045300000,
+        "finishedAt": 1716062100000,
         "url": "https://lichess.org/broadcast/casablanca-chess-2024/round-1/p9DoebWl",
       },
     "tour":

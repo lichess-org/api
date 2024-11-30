@@ -17,7 +17,7 @@ get:
       description: FEN of the position
       schema:
         type: string
-      example: rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2
+      example: r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3
     - in: query
       name: multiPv
       description: Number of variations
@@ -39,13 +39,14 @@ get:
             default: "'*'"
       content:
         application/json:
-          example: {
-            "fen": "rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2",
-            "knodes": 13683,
-            "depth": 22,
-            "pvs": [
-              {"moves": "c8f5 d2d4 e7e6 g1f3 g8e7 c1e3 c7c5 d4c5 e7c6 b1c3", "cp": -13},
-              {"moves": "c7c5 c2c3 d5d4 g1f3 b8c6 c3d4 c6d4 b1c3 c8d7 f1d3", "cp": -1},
-              {"moves": "e7e6 d2d4 c7c5 c2c3 b8c6 g1f3 c8d7 b1a3 c5d4 c3d4", "cp": 24}
-            ]
-          }
+          schema:
+            $ref: "../../schemas/CloudEval.yaml"
+    "404":
+      description: The position was not found in the cloud evaluation database.
+      content:
+        application/json:
+          schema:
+            properties:
+              error:
+                type: string
+                example: "No cloud evaluation available for that position"

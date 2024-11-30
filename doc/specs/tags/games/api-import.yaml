@@ -33,5 +33,14 @@ post:
       content:
         application/json:
           schema:
+            type: object
+            properties:
+              id:
+                type: string
+                description: The game ID
+                example: "R6iLjwz5"
+              url:
+                type: string
+                format: uri
+                description: The game URL
             example: {"id": "R6iLjwz5", "url": "https://lichess.org/R6iLjwz5"}
-
