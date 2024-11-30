@@ -9,7 +9,7 @@ properties:
   moves:
     type: array
     items:
-      $ref: './OpeningExplorerMove.yaml'
+      $ref: './OpeningExplorerPlayerMove.yaml'
   recentGames:
     type: array
     items:
