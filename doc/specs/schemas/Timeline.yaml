@@ -10,112 +10,175 @@ properties:
               type: string
               enum:
                 - follow
-            u1:
-              type: string 
-            u2:
-              type: string
+            date:
+              type: number
+            data:
+              type: object
+              properties:
+                u1:
+                  type: string 
+                u2:
+                  type: string
+              required:
+                - u1
+                - u2
           required:
-            - u1
-            - u2
+            - type
+            - date
+            - data
         - type: object
           properties:
             type: 
               type: string
               enum:
                 - team-join
-            userId:
-              type: string
-            teamId:
-              type: string
+            date:
+              type: number
+            data:
+              type: object
+              properties:
+                userId:
+                  type: string
+                teamId:
+                  type: string
+              required:
+                - userId
+                - teamId
           required:
-            - userId
-            - teamId
+            - type
+            - date
+            - data
         - type: object
           properties:
             type: 
               type: string
               enum:
                 - team-create
-            userId:
-              type: string
-            teamId:
-              type: string
+            date:
+              type: number
+            data:
+              type: object
+              properties:
+                userId:
+                  type: string
+                teamId:
+                  type: string
+              required:
+                - userId
+                - teamId
           required:
-            - userId
-            - teamId
+            - type
+            - date
+            - data
         - type: object
           properties:
             type: 
               type: string
               enum:
                 - forum-post
-            userId:
-              type: string
-            topicId:
-              type: string
-            topicName:
-              type: string
-            postId:
-              type: string
+            date:
+              type: number
+            data:
+              type: object
+              properties:
+                userId:
+                  type: string
+                topicId:
+                  type: string
+                topicName:
+                  type: string
+                postId:
+                  type: string
+              required:
+                - userId
+                - topicId
+                - topicName
+                - postId
           required:
-            - userId
-            - topicId
-            - topicName
-            - postId
+            - type
+            - date
+            - data
         - type: object
           properties:
             type: 
               type: string
               enum:
                 - ublog-post
-            userId:
-              type: string
-            id:
-              type: string
-            slug:
-              type: string
-            title:
-              type: string
+            date:
+              type: number
+            data:
+              type: object
+              properties:
+                userId:
+                  type: string
+                id:
+                  type: string
+                slug:
+                  type: string
+                title:
+                  type: string
+              required:
+                - userId
+                - id
+                - slug
+                - title
           required:
-            - userId
-            - id
-            - slug
-            - title
+            - type
+            - date
+            - data
         - type: object
           properties:
             type: 
               type: string
               enum:
                 - tour-join
-            userId: 
-              type: string
-            tourId:
-              type: string
-            tourName:
-              type: string
+            date:
+              type: number
+            data:
+              type: object
+              properties:
+                userId: 
+                  type: string
+                tourId:
+                  type: string
+                tourName:
+                  type: string
+              required:
+                - userId
+                - tourId
+                - tourName
           required:
-            - userId
-            - tourId
-            - tourName
+            - type
+            - date
+            - data
         - type: object
           properties:
             type: 
               type: string
               enum:
                 - game-end
-            fullId:
-              type: string
-            opponent:
-              type: string
-            win:
-              type: boolean
-            perf:
-              $ref: './Perf.yaml'
+            date:
+              type: number
+            data:
+              type: object
+              properties:
+                fullId:
+                  type: string
+                opponent:
+                  type: string
+                win:
+                  type: boolean
+                perf:
+                  $ref: './Perf.yaml'
+              required:
+                - fullId
+                - opponent
+                - win
+                - perf
           required:
-            - fullId
-            - opponent
-            - win
-            - perf
+            - type
+            - date
+            - data
         - type: object
           properties:
             type: 
@@ -123,83 +186,137 @@ properties:
               enum:
                 - simul-create
                 - simul-join
-            userId:
-              type: string
-            simulId:
-              type: string
-            simulName:
-              type: string
+            date:
+              type: number
+            data:
+              type: object
+              properties:
+                userId:
+                  type: string
+                simulId:
+                  type: string
+                simulName:
+                  type: string
+              required:
+                - userId
+                - simulId
+                - simulName
           required:
-            - userId
-            - simulId
-            - simulName
+            - type
+            - date
+            - data
         - type: object
           properties:
             type: 
               type: string
               enum:
                 - study-like
-            userId:
-              type: string
-            studyId:
-              type: string
-            studyName:
-              type: string
+            date:
+              type: number
+            data:
+              type: object
+              properties:
+                userId:
+                  type: string
+                studyId:
+                  type: string
+                studyName:
+                  type: string
+              required:
+                - userId
+                - studyId
+                - studyName
           required:
-            - userId
-            - studyId
-            - studyName
+            - type
+            - date
+            - data
         - type: object
           properties:
             type: 
               type: string
               enum:
                 - plan-start
-            userId:
-              type: string
+            date:
+              type: number
+            data:
+              type: object
+              properties:
+                userId:
+                  type: string
+              required:
+                - userId
           required:
-            - userId
+            - type
+            - date
+            - data
         - type: object
           properties:
             type: 
               type: string
               enum:
                 - plan-renew
-            userId:
-              type: string
-            months:
+            date:
               type: number
+            data:
+              type: object
+              properties:
+                userId:
+                  type: string
+                months:
+                  type: number
+              required:
+                - userId
+                - months
           required:
-            - userId
-            - months
+            - type
+            - date
+            - data
         - type: object
           properties:
             type: 
               type: string
               enum:
                 - ublog-post-like
-            userId:
-              type: string
-            id:
-              type: string
-            title:
-              type: string
+            date:
+              type: number
+            data:
+              type: object
+              properties:
+                userId:
+                  type: string
+                id:
+                  type: string
+                title:
+                  type: string
+              required:
+                - userId
+                - id
+                - title
           required:
-            - userId
-            - id
-            - title
+            - type
+            - date
+            - data
         - type: object
           properties:
             type: 
               type: string
               enum:
                 - stream-start
-            id:
-              type: string
-            name: 
-              type: string
+            date:
+              type: number
+            data:
+              type: object
+              properties:
+                id:
+                  type: string
+                name: 
+                  type: string
+              required:
+                - id
           required:
-            - id
+            - type
+            - date
+            - data
       discriminator:
         propertyName: type
   users:
@@ -291,7 +408,7 @@ example:
         },
         {
           'type': 'stream-start',
-          'data': { 'userId': 'chess-network', 'title': 'Streamers Battle December !team | lichess.org' },
+          'data': { 'id': 'chess-network', 'title': 'Streamers Battle December !team | lichess.org' },
           'date': 1644232201429,
         },
       ],
