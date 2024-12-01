@@ -2,8 +2,221 @@ type: object
 properties:
   entries:
     type: array
+    items:
+      oneOf:
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - follow
+            u1:
+              type: string 
+            u2:
+              type: string
+          required:
+            - u1
+            - u2
+        - type: object
+          properties:
+            type: 
+              type: string
+              enum:
+                - team-join
+            userId:
+              type: string
+            teamId:
+              type: string
+          required:
+            - userId
+            - teamId
+        - type: object
+          properties:
+            type: 
+              type: string
+              enum:
+                - team-create
+            userId:
+              type: string
+            teamId:
+              type: string
+          required:
+            - userId
+            - teamId
+        - type: object
+          properties:
+            type: 
+              type: string
+              enum:
+                - forum-post
+            userId:
+              type: string
+            topicId:
+              type: string
+            topicName:
+              type: string
+            postId:
+              type: string
+          required:
+            - userId
+            - topicId
+            - topicName
+            - postId
+        - type: object
+          properties:
+            type: 
+              type: string
+              enum:
+                - ublog-post
+            userId:
+              type: string
+            id:
+              type: string
+            slug:
+              type: string
+            title:
+              type: string
+          required:
+            - userId
+            - id
+            - slug
+            - title
+        - type: object
+          properties:
+            type: 
+              type: string
+              enum:
+                - tour-join
+            userId: 
+              type: string
+            tourId:
+              type: string
+            tourName:
+              type: string
+          required:
+            - userId
+            - tourId
+            - tourName
+        - type: object
+          properties:
+            type: 
+              type: string
+              enum:
+                - game-end
+            fullId:
+              type: string
+            opponent:
+              type: string
+            win:
+              type: boolean
+            perf:
+              $ref: './Perf.yaml'
+          required:
+            - fullId
+            - opponent
+            - win
+            - perf
+        - type: object
+          properties:
+            type: 
+              type: string
+              enum:
+                - simul-create
+                - simul-join
+            userId:
+              type: string
+            simulId:
+              type: string
+            simulName:
+              type: string
+          required:
+            - userId
+            - simulId
+            - simulName
+        - type: object
+          properties:
+            type: 
+              type: string
+              enum:
+                - study-like
+            userId:
+              type: string
+            studyId:
+              type: string
+            studyName:
+              type: string
+          required:
+            - userId
+            - studyId
+            - studyName
+        - type: object
+          properties:
+            type: 
+              type: string
+              enum:
+                - plan-start
+            userId:
+              type: string
+          required:
+            - userId
+        - type: object
+          properties:
+            type: 
+              type: string
+              enum:
+                - plan-renew
+            userId:
+              type: string
+            months:
+              type: number
+          required:
+            - userId
+            - months
+        - type: object
+          properties:
+            type: 
+              type: string
+              enum:
+                - ublog-post-like
+            userId:
+              type: string
+            id:
+              type: string
+            title:
+              type: string
+          required:
+            - userId
+            - id
+            - title
+        - type: object
+          properties:
+            type: 
+              type: string
+              enum:
+                - stream-start
+            id:
+              type: string
+            name: string
+        required:
+            - id
+      discriminator:
+        propertyName: type
   users:
     type: object
+    additionalProperties:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        title:
+          $ref: './Title.yaml'
+        patron:
+          type: boolean
+      required:
+        - id
+        - name
 example:
   {
     'entries':
