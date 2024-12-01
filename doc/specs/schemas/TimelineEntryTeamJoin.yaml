@@ -4,18 +4,18 @@ properties:
     type: string
     enum:
       - team-join
-    date:
-      type: number
-    data:
-      type: object
-      properties:
-        userId:
-          type: string
-        teamId:
-          type: string
-      required:
-        - userId
-        - teamId
+  date:
+    type: number
+  data:
+    type: object
+    properties:
+      userId:
+        type: string
+      teamId:
+        type: string
+    required:
+      - userId
+      - teamId
 required:
   - type
   - date
