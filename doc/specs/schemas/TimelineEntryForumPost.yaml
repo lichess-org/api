@@ -1,0 +1,28 @@
+type: object
+  properties:
+    type: 
+      type: string
+      enum:
+        - forum-post
+    date:
+      type: number
+    data:
+      type: object
+      properties:
+        userId:
+          type: string
+        topicId:
+          type: string
+        topicName:
+          type: string
+        postId:
+          type: string
+      required:
+        - userId
+        - topicId
+        - topicName
+        - postId
+  required:
+    - type
+    - date
+    - data
