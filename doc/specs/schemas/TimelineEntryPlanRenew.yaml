@@ -1,0 +1,22 @@
+type: object
+properties:
+  type: 
+    type: string
+    enum:
+      - plan-renew
+  date:
+    type: number
+  data:
+    type: object
+    properties:
+      userId:
+        type: string
+      months:
+        type: number
+    required:
+      - userId
+      - months
+required:
+  - type
+  - date
+  - data
