@@ -1,0 +1,28 @@
+type: object
+  properties:
+    type: 
+      type: string
+      enum:
+        - game-end
+    date:
+      type: number
+    data:
+      type: object
+      properties:
+        fullId:
+          type: string
+        opponent:
+          type: string
+        win:
+          type: boolean
+        perf:
+          $ref: './PerfType.yaml'
+      required:
+        - fullId
+        - opponent
+        - win
+        - perf
+  required:
+    - type
+    - date
+    - data
