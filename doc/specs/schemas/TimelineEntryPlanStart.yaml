@@ -1,19 +1,19 @@
 type: object
-  properties:
-    type: 
-      type: string
-      enum:
-        - plan-start
-    date:
-      type: number
-    data:
-      type: object
-      properties:
-        userId:
-          type: string
-      required:
-        - userId
-  required:
-    - type
-    - date
-    - data
+properties:
+  type: 
+    type: string
+    enum:
+      - plan-start
+  date:
+    type: number
+  data:
+    type: object
+    properties:
+      userId:
+        type: string
+    required:
+      - userId
+required:
+  - type
+  - date
+  - data
