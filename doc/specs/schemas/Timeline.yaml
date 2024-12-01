@@ -103,6 +103,31 @@ properties:
             type: 
               type: string
               enum:
+                - blog-post
+            date:
+              type: number
+            data:
+              type: object
+              properties:
+                id:
+                  type: string
+                slug:
+                  type: string
+                title:
+                  type: string
+              required:
+                - id
+                - slug
+                - title
+          required:
+            - type
+            - date
+            - data
+        - type: object
+          properties:
+            type: 
+              type: string
+              enum:
                 - ublog-post
             date:
               type: number
