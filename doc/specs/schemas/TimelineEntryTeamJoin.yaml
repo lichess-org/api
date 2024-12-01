@@ -16,7 +16,7 @@ properties:
       required:
         - userId
         - teamId
-  required:
-    - type
-    - date
-    - data
+required:
+  - type
+  - date
+  - data
