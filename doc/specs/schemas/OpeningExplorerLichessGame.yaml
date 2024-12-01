@@ -1,0 +1,25 @@
+type: object
+properties:
+  id:
+    type: string
+  white:
+    $ref: './OpeningExplorerGamePlayer.yaml'
+  black:
+    $ref: './OpeningExplorerGamePlayer.yaml'
+  winner:
+    type: string
+    enum:
+      - white
+      - black
+    nullable: true
+  year:
+    type: number
+  month:
+    type: string
+required:
+  - id
+  - white
+  - black
+  - winner
+  - year
+  - month
