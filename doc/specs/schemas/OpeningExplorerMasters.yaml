@@ -26,30 +26,7 @@ properties:
         black:
           type: number
         game:
-          type: object
-          properties:
-            id:
-              type: string
-            white:
-              $ref: './OpeningExplorerGamePlayer.yaml'
-            black:
-              $ref: './OpeningExplorerGamePlayer.yaml'
-            winner:
-              type: string
-              enum:
-                - white
-                - black
-              nullable: true
-            year:
-              type: number
-            month:
-              type: string
-          required:
-            - id
-            - white
-            - black
-            - winner
-            - year
+          $ref: './OpeningExplorerMastersGame.yaml'
           nullable: true
         opening:
           $ref: './OpeningExplorerOpening.yaml'
@@ -66,33 +43,14 @@ properties:
   topGames:
     type: array
     items:
-      type: object
-      properties:
-        uci:
-          type: string
-        id:
-          type: string
-        white:
-          $ref: './OpeningExplorerGamePlayer.yaml'
-        black:
-          $ref: './OpeningExplorerGamePlayer.yaml'
-        winner:
-          type: string
-          enum:
-            - white
-            - black
-          nullable: true
-        year:
-          type: number
-        month:
-          type: string
-      required:
-        - uci
-        - id
-        - white
-        - black
-        - winner
-        - year
+      allOf:
+        - type: object
+          properties:
+            uci:
+              type: string
+          required:
+            - uci
+        - $ref: './OpeningExplorerMastersGame.yaml'
 required:
   - opening
   - white
