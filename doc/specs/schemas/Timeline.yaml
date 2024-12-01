@@ -196,7 +196,8 @@ properties:
                 - stream-start
             id:
               type: string
-            name: string
+            name: 
+              type: string
           required:
             - id
       discriminator:
