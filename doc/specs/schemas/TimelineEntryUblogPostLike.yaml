@@ -6,8 +6,8 @@ properties:
       - ublog-post-like
   date:
     type: number
-    data:
-      type: object
+  data:
+    type: object
     properties:
       userId:
         type: string
