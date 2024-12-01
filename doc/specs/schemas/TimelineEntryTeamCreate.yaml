@@ -1,0 +1,22 @@
+type: object
+  properties:
+    type: 
+      type: string
+      enum:
+        - team-create
+    date:
+      type: number
+    data:
+      type: object
+      properties:
+        userId:
+          type: string
+        teamId:
+          type: string
+      required:
+        - userId
+        - teamId
+  required:
+    - type
+    - date
+    - data
