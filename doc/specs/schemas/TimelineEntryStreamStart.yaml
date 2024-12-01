@@ -1,0 +1,21 @@
+type: object
+properties:
+  type: 
+    type: string
+    enum:
+      - stream-start
+  date:
+    type: number
+  data:
+    type: object
+    properties:
+      id:
+        type: string
+      name: 
+        type: string
+    required:
+      - id
+required:
+  - type
+  - date
+  - data

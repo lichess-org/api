@@ -1,0 +1,25 @@
+type: object
+properties:
+  type: 
+    type: string
+    enum:
+      - tour-join
+  date:
+    type: number
+  data:
+    type: object
+    properties:
+      userId: 
+        type: string
+      tourId:
+        type: string
+      tourName:
+        type: string
+    required:
+      - userId
+      - tourId
+      - tourName
+required:
+  - type
+  - date
+  - data

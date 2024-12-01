@@ -1,0 +1,26 @@
+type: object
+properties:
+  type: 
+    type: string
+    enum:
+      - simul-create
+      - simul-join
+  date:
+    type: number
+  data:
+    type: object
+    properties:
+      userId:
+        type: string
+      simulId:
+        type: string
+      simulName:
+        type: string
+    required:
+      - userId
+      - simulId
+      - simulName
+required:
+  - type
+  - date
+  - data

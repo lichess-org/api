@@ -1,0 +1,28 @@
+type: object
+properties:
+  type: 
+    type: string
+    enum:
+      - ublog-post
+  date:
+    type: number
+  data:
+    type: object
+    properties:
+      userId:
+        type: string
+      id:
+        type: string
+      slug:
+        type: string
+      title:
+        type: string
+    required:
+      - userId
+      - id
+      - slug
+      - title
+required:
+  - type
+  - date
+  - data
