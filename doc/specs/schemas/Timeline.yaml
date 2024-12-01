@@ -197,7 +197,7 @@ properties:
             id:
               type: string
             name: string
-        required:
+          required:
             - id
       discriminator:
         propertyName: type
