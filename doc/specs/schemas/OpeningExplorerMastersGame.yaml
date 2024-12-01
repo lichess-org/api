@@ -2,23 +2,22 @@ type: object
 properties:
   id:
     type: string
+  winner:
+    type: [string, 'null']
+    enum:
+      - white
+      - black
   white:
     $ref: './OpeningExplorerGamePlayer.yaml'
   black:
     $ref: './OpeningExplorerGamePlayer.yaml'
-  winner:
-    type: string
-    enum:
-      - white
-      - black
-    nullable: true
   year:
     type: number
   month:
     type: string
 required:
   - id
+  - winner
   - white
   - black
-  - winner
   - year

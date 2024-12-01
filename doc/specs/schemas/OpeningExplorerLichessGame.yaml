@@ -3,11 +3,10 @@ properties:
   id:
     type: string
   winner:
-    type: string
+    type: [string, 'null']
     enum:
       - white
       - black
-    nullable: true
   speed:
     $ref: './Speed.yaml'
   white:

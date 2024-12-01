@@ -1,8 +1,9 @@
 type: object
 properties:
   opening:
-    $ref: './OpeningExplorerOpening.yaml'
-    nullable: true
+    oneOf:
+      - $ref: './OpeningExplorerOpening.yaml'
+      - type: 'null'
   queuePosition:
     type: number
   white:
@@ -31,11 +32,13 @@ properties:
         black:
           type: number
         game:
-          $ref: './OpeningExplorerPlayerGame.yaml'
-          nullable: true
+          oneOf:
+            - $ref: './OpeningExplorerPlayerGame.yaml'
+            - type: 'null'
         opening:
-          $ref: './OpeningExplorerOpening.yaml'
-          nullable: true
+          oneOf:
+            - $ref: './OpeningExplorerOpening.yaml'
+            - type: 'null'
       required:
         - uci
         - san

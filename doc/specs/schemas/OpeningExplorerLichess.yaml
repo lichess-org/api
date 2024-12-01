@@ -1,8 +1,9 @@
 type: object
 properties:
   opening:
-    $ref: './OpeningExplorerOpening.yaml'
-    nullable: true
+    oneOf:
+      - $ref: './OpeningExplorerOpening.yaml'
+      - type: 'null'
   white:
     type: number
   draws:
@@ -27,11 +28,13 @@ properties:
         black:
           type: number
         game:
-          $ref: './OpeningExplorerLichessGame.yaml'
-          nullable: true
+          oneOf:
+            - $ref: './OpeningExplorerLichessGame.yaml'
+            - type: 'null'
         opening:
-          $ref: './OpeningExplorerOpening.yaml'
-          nullable: true
+          oneOf:
+            - $ref: './OpeningExplorerOpening.yaml'
+            - type: 'null'
       required:
         - uci
         - san
