@@ -1,0 +1,25 @@
+type: object
+  properties:
+    type: 
+      type: string
+      enum:
+        - study-like
+    date:
+      type: number
+    data:
+      type: object
+      properties:
+        userId:
+          type: string
+        studyId:
+          type: string
+        studyName:
+          type: string
+      required:
+        - userId
+        - studyId
+        - studyName
+  required:
+    - type
+    - date
+    - data
