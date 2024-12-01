@@ -10,6 +10,11 @@ properties:
     nullable: true
   speed:
     $ref: './Speed.yaml'
+  mode:
+    type: string
+    enum:
+      - rated
+      - casual
   white:
     $ref: './OpeningExplorerGamePlayer.yaml'
   black:
@@ -22,6 +27,7 @@ required:
   - id
   - winner
   - speed
+  - mode
   - white
   - black
   - year
