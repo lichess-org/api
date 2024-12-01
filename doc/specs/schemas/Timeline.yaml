@@ -169,7 +169,7 @@ properties:
                 win:
                   type: boolean
                 perf:
-                  $ref: './Perf.yaml'
+                  $ref: './PerfType.yaml'
               required:
                 - fullId
                 - opponent
