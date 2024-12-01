@@ -5,6 +5,7 @@ get:
   summary: OTB master game
   description: |
     **Endpoint: `https://explorer.lichess.ovh/masters/pgn/{gameId}`**
+
     Example: `curl https://explorer.lichess.ovh/masters/pgn/aAbqI4ey`
   tags:
     - Opening Explorer
