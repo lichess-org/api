@@ -16,7 +16,7 @@ properties:
       required:
         - u1
         - u2
-  required:
-    - type
-    - date
-    - data
+required:
+  - type
+  - date
+  - data
