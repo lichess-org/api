@@ -4,18 +4,18 @@ properties:
     type: string
     enum:
       - follow
-    date:
-      type: number
-    data:
-      type: object
-      properties:
-        u1:
-          type: string 
-        u2:
-          type: string
-      required:
-        - u1
-        - u2
+  date:
+    type: number
+  data:
+    type: object
+    properties:
+      u1:
+        type: string 
+      u2:
+        type: string
+    required:
+      - u1
+      - u2
 required:
   - type
   - date
