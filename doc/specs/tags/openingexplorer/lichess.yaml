@@ -33,7 +33,7 @@ get:
       schema:
         type: string
         default: ""
-      example: e2e4,e7e5,c2c4,c7c6,c4e5
+      example: d2d4,d7d5,c2c4,c7c6,c4d5
     - in: query
       name: speeds
       description: Comma separated list of game speeds to filter by
@@ -111,4 +111,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/OpeningExplorerJson.yaml'
+            $ref: '../../schemas/OpeningExplorerLichess.yaml'

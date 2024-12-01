@@ -5,6 +5,7 @@ get:
   summary: Masters database
   description: |
     **Endpoint: <https://explorer.lichess.ovh/masters>**
+
     Example: `curl https://explorer.lichess.ovh/masters?play=d2d4,d7d5,c2c4,c7c6,c4d5`
   tags:
     - Opening Explorer
@@ -26,7 +27,7 @@ get:
       schema:
         type: string
         default: ""
-      example: e2e4,e7e5,c2c4,c7c6,c4e5
+      example: d2d4,d7d5,c2c4,c7c6,c4d5
     - in: query
       name: since
       description: Include only games from this year or later
@@ -62,4 +63,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/OpeningExplorerJson.yaml'
+            $ref: '../../schemas/OpeningExplorerMasters.yaml'

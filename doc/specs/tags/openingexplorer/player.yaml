@@ -98,4 +98,4 @@ get:
       content:
         application/nd-json:
           schema:
-            $ref: '../../schemas/OpeningExplorerPlayerJson.yaml'
+            $ref: '../../schemas/OpeningExplorerPlayer.yaml'

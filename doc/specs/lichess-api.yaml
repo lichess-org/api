@@ -237,7 +237,7 @@ tags:
   description: |
     Lookup positions from the [Lichess opening explorer](https://lichess.org/analysis#explorer).
 
-    Runs <https://github.com/niklasf/lila-openingexplorer>.
+    Runs <https://github.com/lichess-org/lila-openingexplorer>.
 
     **The endpoint hostname is not lichess.org but explorer.lichess.ovh.**
 - name: Tablebase

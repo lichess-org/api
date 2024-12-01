@@ -172,11 +172,14 @@ BroadcastMyRound:
 BroadcastByUser:
   $ref: './BroadcastByUser.yaml'
 
-OpeningExplorerJson:
-  $ref: './OpeningExplorerJson.yaml'
+OpeningExplorerMasters:
+  $ref: './OpeningExplorerMasters.yaml'
 
-OpeningExplorerPlayerJson:
-  $ref: './OpeningExplorerPlayerJson.yaml'
+OpeningExplorerLichess:
+  $ref: './OpeningExplorerLichess.yaml'
+
+OpeningExplorerPlayer:
+  $ref: './OpeningExplorerPlayer.yaml'
 
 TablebaseJson:
   $ref: './TablebaseJson.yaml'
