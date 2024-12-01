@@ -52,6 +52,9 @@ properties:
       required:
         - id
         - name
+required:
+  - entries
+  - users
 example:
   {
     'entries':
