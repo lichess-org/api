@@ -1,0 +1,34 @@
+type: object
+properties:
+  uci:
+    type: string
+  san:
+    type: string
+  averageRating:
+    type: number
+  white:
+    type: number
+  draws:
+    type: number
+  black:
+    type: number
+  game:
+    oneOf:
+      - type: 'null'
+      - type: object
+        properties:
+          id: 
+            type: string
+          winner:
+            type: [string, 'null']
+            enum:
+              - white 
+              - black
+          white:
+            $ref: './OpeningExplorerPlayer.yaml'
+          black:
+            $ref: './OpeningExplorerPlayer.yaml'
+          year:
+            type: number
+          month:
+            type: string

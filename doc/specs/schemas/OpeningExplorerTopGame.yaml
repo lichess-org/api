@@ -1,0 +1,19 @@
+type: object
+properties:
+  uci:
+    type: string
+  id:
+    type: string
+  winner:
+    type: [string, 'null']
+    enum:
+      - white
+      - black
+  white:
+    $ref: './OpeningExplorerPlayer.yaml'
+  black:
+    $ref: './OpeningExplorerPlayer.yaml'
+  year:
+    type: number
+  month:
+    type: string

@@ -1,3 +1,43 @@
+type: object
+properties:
+  opening:
+    type: object
+    properties:
+      eco:
+        type: string
+      name:
+        type: string
+  white:
+    type: number
+  draws:
+    type: number
+  black:
+    type: number
+  moves:
+    type: array
+    items:
+      $ref: './OpeningExplorerMove.yaml'
+  topGames:
+    type: array
+    items:
+      $ref: './OpeningExplorerTopGame.yaml'
+  recentGames:
+    type: array
+    items:
+      type: object
+  history:
+    type: array
+    items:
+      type: object
+      properties:
+        month:
+          type: string
+        white:
+          type: number
+        draws:
+          type: number
+        black:
+          type: number
 example:
   {
     'opening': { 'eco': 'D10', 'name': 'Slav Defense: Exchange Variation' },
