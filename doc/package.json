@@ -4,9 +4,9 @@
   "license": "AGPL-3.0-or-later",
   "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee",
   "devDependencies": {
-    "@redocly/cli": "^1.25.7",
-    "@stoplight/spectral-cli": "^6.13.1",
-    "@stoplight/spectral-rulesets": "1.18.1"
+    "@redocly/cli": "^1.25.15",
+    "@stoplight/spectral-cli": "^6.14.2",
+    "@stoplight/spectral-rulesets": "1.21.3"
   },
   "scripts": {
     "spectral": "spectral lint --fail-severity=warn specs/*.yaml",
