@@ -6,7 +6,7 @@
   "devDependencies": {
     "@redocly/cli": "^1.25.15",
     "@stoplight/spectral-cli": "^6.14.2",
-    "@stoplight/spectral-rulesets": "1.21.3"
+    "@stoplight/spectral-rulesets": "1.18.1"
   },
   "scripts": {
     "spectral": "spectral lint --fail-severity=warn specs/*.yaml",
