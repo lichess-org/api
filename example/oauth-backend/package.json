@@ -10,7 +10,7 @@
     "node": ">=18"
   },
   "dependencies": {
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "express-session": "^1.18.1"
   }
 }
