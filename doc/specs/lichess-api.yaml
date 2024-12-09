@@ -455,8 +455,8 @@ paths:
   /api/broadcast/{broadcastTournamentId}:
     $ref: './tags/broadcasts/broadcast-broadcastTournamentId.yaml'
 
-  /broadcast/{broadcastTournamentId}/leaderboard:
-    $ref: './tags/broadcasts/broadcast-broadcastTournamentId-leaderboard.yaml'
+  /broadcast/{broadcastTournamentId}/players:
+    $ref: './tags/broadcasts/broadcast-broadcastTournamentId-players.yaml'
 
   /broadcast/{broadcastTournamentId}/edit:
     $ref: './tags/broadcasts/broadcast-broadcastTournamentId-edit.yaml'
