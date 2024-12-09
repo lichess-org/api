@@ -1,275 +1,275 @@
 VariantKey:
-  $ref: './VariantKey.yaml'
+  $ref: "./VariantKey.yaml"
 
 Variant:
-  $ref: './Variant.yaml'
+  $ref: "./Variant.yaml"
 
 UciVariant:
-  $ref: './UciVariant.yaml'
+  $ref: "./UciVariant.yaml"
 
 Speed:
-  $ref: './Speed.yaml'
+  $ref: "./Speed.yaml"
 
 PerfType:
-  $ref: './PerfType.yaml'
+  $ref: "./PerfType.yaml"
 
 Clock:
-  $ref: './Clock.yaml'
+  $ref: "./Clock.yaml"
 
 GameStatus:
-  $ref: './GameStatus.yaml'
+  $ref: "./GameStatus.yaml"
 
 FromPositionFEN:
-  $ref: './FromPositionFEN.yaml'
+  $ref: "./FromPositionFEN.yaml"
 
 ChallengeUser:
-  $ref: './ChallengeUser.yaml'
+  $ref: "./ChallengeUser.yaml"
 
 ChallengeJson:
-  $ref: './ChallengeJson.yaml'
+  $ref: "./ChallengeJson.yaml"
 
 ChallengeCanceledJson:
-  $ref: './ChallengeCanceledJson.yaml'
+  $ref: "./ChallengeCanceledJson.yaml"
 
 ChallengeOpenJson:
-  $ref: './ChallengeOpenJson.yaml'
+  $ref: "./ChallengeOpenJson.yaml"
 
 BulkPairing:
-  $ref: './BulkPairing.yaml'
+  $ref: "./BulkPairing.yaml"
 
 GameUser:
-  $ref: './GameUser.yaml'
+  $ref: "./GameUser.yaml"
 
 GameJson:
-  $ref: './GameJson.yaml'
+  $ref: "./GameJson.yaml"
 
 GamePgn:
-  $ref: './GamePgn.yaml'
+  $ref: "./GamePgn.yaml"
 
 MasterGamePgn:
-  $ref: './MasterGamePgn.yaml'
+  $ref: "./MasterGamePgn.yaml"
 
 StudyPgn:
-  $ref: './StudyPgn.yaml'
+  $ref: "./StudyPgn.yaml"
 
 StudyMetadata:
-  $ref: './StudyMetadata.yaml'
+  $ref: "./StudyMetadata.yaml"
 
 StudyImportPgnChapters:
-  $ref: './StudyImportPgnChapters.yaml'
+  $ref: "./StudyImportPgnChapters.yaml"
 
 Title:
-  $ref: './Title.yaml'
+  $ref: "./Title.yaml"
 
 LightUser:
-  $ref: './LightUser.yaml'
+  $ref: "./LightUser.yaml"
 
 LightUserOnline:
-  $ref: './LightUserOnline.yaml'
+  $ref: "./LightUserOnline.yaml"
 
 Perf:
-  $ref: './Perf.yaml'
+  $ref: "./Perf.yaml"
 
 PuzzleModePerf:
-  $ref: './PuzzleModePerf.yaml'
+  $ref: "./PuzzleModePerf.yaml"
 
 Perfs:
-  $ref: './Perfs.yaml'
+  $ref: "./Perfs.yaml"
 
 UserNote:
-  $ref: './UserNote.yaml'
+  $ref: "./UserNote.yaml"
 
 PlayTime:
-  $ref: './PlayTime.yaml'
+  $ref: "./PlayTime.yaml"
 
 Profile:
-  $ref: './Profile.yaml'
+  $ref: "./Profile.yaml"
 
 Count:
-  $ref: './Count.yaml'
+  $ref: "./Count.yaml"
 
 User:
-  $ref: './User.yaml'
+  $ref: "./User.yaml"
 
 UserExtended:
-  $ref: './UserExtended.yaml'
+  $ref: "./UserExtended.yaml"
 
 Crosstable:
-  $ref: './Crosstable.yaml'
+  $ref: "./Crosstable.yaml"
 
 GameChat:
-  $ref: './GameChat.yaml'
+  $ref: "./GameChat.yaml"
 
 PuzzleAndGame:
-  $ref: './PuzzleAndGame.yaml'
+  $ref: "./PuzzleAndGame.yaml"
 
 PuzzleActivity:
-  $ref: './PuzzleActivity.yaml'
+  $ref: "./PuzzleActivity.yaml"
 
 PuzzleDashboard:
-  $ref: './PuzzleDashboard.yaml'
+  $ref: "./PuzzleDashboard.yaml"
 
 PuzzleRacer:
-  $ref: './PuzzleRacer.yaml'
+  $ref: "./PuzzleRacer.yaml"
 
 PuzzleStormDashboard:
-  $ref: './PuzzleStormDashboard.yaml'
+  $ref: "./PuzzleStormDashboard.yaml"
 
 RatingHistory:
-  $ref: './RatingHistory.yaml'
+  $ref: "./RatingHistory.yaml"
 
 PerfStat:
-  $ref: './PerfStat.yaml'
+  $ref: "./PerfStat.yaml"
 
 Top10s:
-  $ref: './Top10s.yaml'
+  $ref: "./Top10s.yaml"
 
 Leaderboard:
-  $ref: './Leaderboard.yaml'
+  $ref: "./Leaderboard.yaml"
 
 UserPreferences:
-  $ref: './UserPreferences.yaml'
+  $ref: "./UserPreferences.yaml"
 
 ArenaTournaments:
-  $ref: './ArenaTournaments.yaml'
+  $ref: "./ArenaTournaments.yaml"
 
 ArenaStatus:
-  $ref: './ArenaStatus.yaml'
+  $ref: "./ArenaStatus.yaml"
 
 ArenaPerf:
-  $ref: './ArenaPerf.yaml'
+  $ref: "./ArenaPerf.yaml"
 
 ArenaRatingObj:
-  $ref: './ArenaRatingObj.yaml'
+  $ref: "./ArenaRatingObj.yaml"
 
 ArenaPosition:
-  $ref: './ArenaPosition.yaml'
+  $ref: "./ArenaPosition.yaml"
 
 ArenaTournament:
-  $ref: './ArenaTournament.yaml'
+  $ref: "./ArenaTournament.yaml"
 
 ArenaTournamentFull:
-  $ref: './ArenaTournamentFull.yaml'
+  $ref: "./ArenaTournamentFull.yaml"
 
 SwissTournament:
-  $ref: './SwissTournament.yaml'
+  $ref: "./SwissTournament.yaml"
 
 Simul:
-  $ref: './Simul.yaml'
+  $ref: "./Simul.yaml"
 
 BroadcastForm:
-  $ref: './BroadcastForm.yaml'
+  $ref: "./BroadcastForm.yaml"
 
 BroadcastTour:
-  $ref: './BroadcastTour.yaml'
+  $ref: "./BroadcastTour.yaml"
 
 BroadcastRound:
-  $ref: './BroadcastRound.yaml'
+  $ref: "./BroadcastRound.yaml"
 
 BroadcastMyRound:
-  $ref: './BroadcastMyRound.yaml'
+  $ref: "./BroadcastMyRound.yaml"
 
 BroadcastByUser:
-  $ref: './BroadcastByUser.yaml'
+  $ref: "./BroadcastByUser.yaml"
 
 OpeningExplorerMasters:
-  $ref: './OpeningExplorerMasters.yaml'
+  $ref: "./OpeningExplorerMasters.yaml"
 
 OpeningExplorerLichess:
-  $ref: './OpeningExplorerLichess.yaml'
+  $ref: "./OpeningExplorerLichess.yaml"
 
 OpeningExplorerPlayer:
-  $ref: './OpeningExplorerPlayer.yaml'
+  $ref: "./OpeningExplorerPlayer.yaml"
 
 TablebaseJson:
-  $ref: './TablebaseJson.yaml'
+  $ref: "./TablebaseJson.yaml"
 
 Move:
-  $ref: './Move.yaml'
+  $ref: "./Move.yaml"
 
 Team:
-  $ref: './Team.yaml'
+  $ref: "./Team.yaml"
 
 TeamPaginatorJson:
-  $ref: './TeamPaginatorJson.yaml'
+  $ref: "./TeamPaginatorJson.yaml"
 
 TeamRequest:
-  $ref: './TeamRequest.yaml'
+  $ref: "./TeamRequest.yaml"
 
 TeamRequestWithUser:
-  $ref: './TeamRequestWithUser.yaml'
+  $ref: "./TeamRequestWithUser.yaml"
 
 GameEventPlayer:
-  $ref: './GameEventPlayer.yaml'
+  $ref: "./GameEventPlayer.yaml"
 
 GameFullEvent:
-  $ref: './GameFullEvent.yaml'
+  $ref: "./GameFullEvent.yaml"
 
 GameStateEvent:
-  $ref: './GameStateEvent.yaml'
+  $ref: "./GameStateEvent.yaml"
 
 ChatLineEvent:
-  $ref: './ChatLineEvent.yaml'
+  $ref: "./ChatLineEvent.yaml"
 
 OpponentGone:
-  $ref: './OpponentGone.yaml'
+  $ref: "./OpponentGone.yaml"
 
 GameEventInfo:
-  $ref: './GameEventInfo.yaml'
+  $ref: "./GameEventInfo.yaml"
 
 GameStartEvent:
-  $ref: './GameStartEvent.yaml'
+  $ref: "./GameStartEvent.yaml"
 
 GameFinishEvent:
-  $ref: './GameFinishEvent.yaml'
+  $ref: "./GameFinishEvent.yaml"
 
 ChallengeEvent:
-  $ref: './ChallengeEvent.yaml'
+  $ref: "./ChallengeEvent.yaml"
 
 ChallengeCanceledEvent:
-  $ref: './ChallengeCanceledEvent.yaml'
+  $ref: "./ChallengeCanceledEvent.yaml"
 
 ChallengeDeclinedEvent:
-  $ref: './ChallengeDeclinedEvent.yaml'
+  $ref: "./ChallengeDeclinedEvent.yaml"
 
 Ok:
-  $ref: './Ok.yaml'
+  $ref: "./Ok.yaml"
 
 Error:
-  $ref: './Error.yaml'
+  $ref: "./Error.yaml"
 
 OAuthError:
-  $ref: './OAuthError.yaml'
+  $ref: "./OAuthError.yaml"
 
 NotFound:
-  $ref: './NotFound.yaml'
+  $ref: "./NotFound.yaml"
 
 SwissUnauthorisedEdit:
-  $ref: './SwissUnauthorisedEdit.yaml'
+  $ref: "./SwissUnauthorisedEdit.yaml"
 
 GameStream:
-  $ref: './GameStream.yaml'
+  $ref: "./GameStream.yaml"
 
 MoveStream:
-  $ref: './MoveStream.yaml'
+  $ref: "./MoveStream.yaml"
 
 ExternalEngineRegistration:
-  $ref: './ExternalEngineRegistration.yaml'
+  $ref: "./ExternalEngineRegistration.yaml"
 
 ExternalEngine:
-  $ref: './ExternalEngine.yaml'
+  $ref: "./ExternalEngine.yaml"
 
 ExternalEngineWork:
-  $ref: './ExternalEngineWork.yaml'
+  $ref: "./ExternalEngineWork.yaml"
 
 Timeline:
-  $ref: './Timeline.yaml'
+  $ref: "./Timeline.yaml"
 
 BroadcastPgnPush:
-  $ref: './BroadcastPgnPush.yaml'
+  $ref: "./BroadcastPgnPush.yaml"
 
 TvFeed:
-  $ref: './TvFeed.yaml'
+  $ref: "./TvFeed.yaml"
 
-BroadcastLeaderboardEntry:
-  $ref: './BroadcastLeaderboardEntry.yaml'
+BroadcastPlayersEntry:
+  $ref: "./BroadcastPlayersEntry.yaml"
