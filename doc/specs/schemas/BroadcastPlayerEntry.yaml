@@ -12,6 +12,12 @@ properties:
   rating:
     type: integer
     example: 2149
+  ratingDiff:
+    type: integer
+    example: -5
+  performance:
+    type: integer
+    example: 2138
   title:
     type: string
     example: FM

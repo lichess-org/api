@@ -1,8 +1,8 @@
 get:
-  operationId: broadcastLeaderboardGet
-  summary: Get a broadcast leaderboard
+  operationId: broadcastPlayersGet
+  summary: Get players of a broadcast
   description: |
-    Get the leaderboard of a broadcast tournament, if available.
+    Get the list of players of a broadcast tournament, if available.
   tags:
     - Broadcasts
   security: []
@@ -14,11 +14,11 @@ get:
       schema:
         type: string
   responses:
-    '200':
-      description: The broadcast leaderboard players
+    "200":
+      description: The broadcast players
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../../schemas/BroadcastLeaderboardEntry.yaml'
+              $ref: "../../schemas/BroadcastPlayerEntry.yaml"
