@@ -9,7 +9,7 @@ get:
   parameters:
     - in: query
       name: page
-      description: Which page to fetch. Only page 1 has "active" and "upcoming" broadcasts.
+      description: Which page to fetch. Only page 1 has "active" broadcasts.
       schema:
         type: integer
         default: 1

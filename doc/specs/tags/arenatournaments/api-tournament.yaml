@@ -2,7 +2,7 @@ get:
   operationId: apiTournament
   summary: Get current tournaments
   description: |
-    Get recently finished, ongoing, and upcoming tournaments.
+    Get recently active and finished tournaments.
     This API is used to display the [Lichess tournament schedule](https://lichess.org/tournament).
   tags:
     - "Arena tournaments"
@@ -18,7 +18,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/ArenaTournaments.yaml'
+            $ref: "../../schemas/ArenaTournaments.yaml"
 post:
   operationId: apiTournamentPost
   summary: Create a new Arena tournament
@@ -83,7 +83,37 @@ post:
               type: integer
               description: How long the tournament lasts, in minutes
               example: 60
-              enum: [20, 25, 30, 35, 40, 45, 50, 55, 60, 70, 80, 90, 100, 110, 120, 150, 180, 210, 240, 270, 300, 330, 360, 420, 480, 540, 600, 720]
+              enum:
+                [
+                  20,
+                  25,
+                  30,
+                  35,
+                  40,
+                  45,
+                  50,
+                  55,
+                  60,
+                  70,
+                  80,
+                  90,
+                  100,
+                  110,
+                  120,
+                  150,
+                  180,
+                  210,
+                  240,
+                  270,
+                  300,
+                  330,
+                  360,
+                  420,
+                  480,
+                  540,
+                  600,
+                  720,
+                ]
             waitMinutes:
               type: integer
               description: How long to wait before starting the tournament, from now, in minutes
@@ -93,13 +123,13 @@ post:
               type: integer
               description: Timestamp (in milliseconds) to start the tournament at a given date and time. Overrides the `waitMinutes` setting
             variant:
-              $ref: '../../schemas/VariantKey.yaml'
+              $ref: "../../schemas/VariantKey.yaml"
             rated:
               type: boolean
               description: Games are rated and impact players ratings
               default: true
             position:
-               $ref: '../../schemas/FromPositionFEN.yaml'
+              $ref: "../../schemas/FromPositionFEN.yaml"
             berserkable:
               type: boolean
               description: Whether the players can use berserk. Only allowed if clockIncrement <= clockTime * 2
@@ -140,11 +170,47 @@ post:
             conditions.minRating.rating:
               type: integer
               description: Minimum rating to join. Leave empty to let everyone join the tournament.
-              enum: [1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600]
+              enum:
+                [
+                  1000,
+                  1100,
+                  1200,
+                  1300,
+                  1400,
+                  1500,
+                  1600,
+                  1700,
+                  1800,
+                  1900,
+                  2000,
+                  2100,
+                  2200,
+                  2300,
+                  2400,
+                  2500,
+                  2600,
+                ]
             conditions.maxRating.rating:
               type: integer
               description: Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
-              enum: [2200, 2100, 2000, 1900, 1800, 1700, 1600, 1500, 1400, 1300, 1200, 1100, 1000, 900, 800]
+              enum:
+                [
+                  2200,
+                  2100,
+                  2000,
+                  1900,
+                  1800,
+                  1700,
+                  1600,
+                  1500,
+                  1400,
+                  1300,
+                  1200,
+                  1100,
+                  1000,
+                  900,
+                  800,
+                ]
             conditions.nbRatedGame.nb:
               type: integer
               description: Minimum number of rated games required to join.
@@ -171,10 +237,10 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/ArenaTournamentFull.yaml'
+            $ref: "../../schemas/ArenaTournamentFull.yaml"
     "400":
       description: The creation of the Arena tournament failed.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Error.yaml'
+            $ref: "../../schemas/Error.yaml"
