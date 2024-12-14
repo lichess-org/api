@@ -473,7 +473,7 @@ paths:
   /api/broadcast/round/{broadcastRoundId}/reset:
     $ref: './tags/broadcasts/broadcast-round-broadcastRoundId-reset.yaml'
 
-  /broadcast/round/{broadcastRoundId}/push:
+  /api/broadcast/round/{broadcastRoundId}/push:
     $ref: './tags/broadcasts/broadcast-round-broadcastRoundId-push.yaml'
 
   /api/stream/broadcast/round/{broadcastRoundId}.pgn:
