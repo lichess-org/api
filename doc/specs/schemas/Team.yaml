@@ -7,8 +7,6 @@ properties:
     type: string
   description:
     type: string
-  leader:
-    $ref: './LightUser.yaml'
   flair:
     $ref: './Flair.yaml'
   leaders:
