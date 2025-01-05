@@ -16,4 +16,21 @@ example:
           'black': { 'userId': 'er_or', 'rating': 2288 },
         },
     },
+    {
+      'id': 'A5fcMO3k',
+      'rated': true,
+      'variant': 'standard',
+      'speed': 'bullet',
+      'perf': 'bullet',
+      'createdAt': 1525789431889,
+      'status': 31,
+      'statusName': 'resign',
+      'clock': { 'initial': 60, 'increment': 0, 'totalTime': 60 },
+      'players':
+        {
+          'white': { 'userId': 'kastorcito', 'rating': 2617 },
+          'black': { 'userId': 'er_or', 'rating': 2288 },
+        },
+      'winner':'white',
+    },
   ]
