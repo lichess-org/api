@@ -1,0 +1,203 @@
+type: object
+
+properties:
+  interval:
+    type: object
+    required:
+      - start
+      - end
+    properties:
+      start:
+        type: number
+      end:
+        type: number
+  games:
+    type: object
+    properties:
+      chess960:
+        $ref: './UserActivityScore.yaml'
+      atomic:
+        $ref: './UserActivityScore.yaml'
+      racingKings:
+        $ref: './UserActivityScore.yaml'
+      ultraBullet:
+        $ref: './UserActivityScore.yaml'
+      blitz:
+        $ref: './UserActivityScore.yaml'
+      kingOfTheHill:
+        $ref: './UserActivityScore.yaml'
+      bullet:
+        $ref: './UserActivityScore.yaml'
+      correspondence:
+        $ref: './UserActivityScore.yaml'
+      horde:
+        $ref: './UserActivityScore.yaml'
+      puzzle:
+        $ref: './UserActivityScore.yaml'
+      classical:
+        $ref: './UserActivityScore.yaml'
+      rapid:
+        $ref: './UserActivityScore.yaml'
+
+  puzzles:
+    type: object
+    properties:
+      score:
+        $ref: './UserActivityScore.yaml'
+
+  storm:
+    type: object
+    properties:
+      runs:
+        type: number
+      score:
+        type: number
+  racer:
+    type: object
+    properties:
+      runs:
+        type: number
+      score:
+        type: number
+  streak:
+    type: object
+    properties:
+      runs:
+        type: number
+      score:
+        type: number
+  tournaments:
+    type: object
+    properties:
+      nb:
+        type: number
+      best:
+        type: array
+        items:
+          type: object
+          required:
+            - tournament
+            - nbGames
+            - score
+            - rank
+            - rankPercent
+          properties:
+            tournament:
+              type: object
+              required:
+                - id
+                - name
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+            nbGames:
+              type: number
+            score:
+              type: number
+            rank:
+              type: number
+            rankPercent:
+              type: number
+  practice:
+    type: array
+    items:
+      type: object
+      required:
+        - url
+        - name
+        - nbPositions
+      properties:
+        url:
+          type: string
+        name:
+          type: string
+        nbPositions:
+          type: number
+  simuls:
+    type: array
+    items:
+      type: string
+  correspondenceMoves:
+    type: object
+    required:
+      - nb
+      - games
+    properties:
+      nb:
+        type: number
+      games:
+        type: array
+        items:
+          $ref: './UserActivityCorrespondenceGame.yaml'
+  correspondenceEnds:
+    type: object
+    required:
+      - score
+      - games
+    properties:
+      score:
+        $ref: './UserActivityScore.yaml'
+      games:
+        type: array
+        items:
+          $ref: './UserActivityCorrespondenceGame.yaml'
+  follows:
+    type: object
+    properties:
+      in:
+        $ref: './UserActivityFollowList.yaml'
+      out:
+        $ref: './UserActivityFollowList.yaml'
+  studies:
+    type: object
+  teams:
+    type: array
+    items:
+      type: object
+      required:
+        - url
+        - name
+      properties:
+        url:
+          type: string
+        name:
+          type: string
+  posts:
+    type: array
+    items:
+      type: object
+      required:
+        - topicUrl
+        - topicName
+        - posts
+      properties:
+        topicUrl:
+          type: string
+        topicName:
+          type: string
+        posts:
+          type: array
+          items:
+            type: object
+            required:
+              - url
+              - text
+            properties:
+              url:
+                type: string
+              text:
+                type: string
+  patron:
+    type: object
+    required:
+      - months
+    properties:
+      months:
+        type: number
+  stream:
+    type: boolean
+
+required:
+  - interval
