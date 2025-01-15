@@ -1,0 +1,25 @@
+type: object
+
+properties:
+  user:
+    allOf:
+      - $ref: './LightUser.yaml'
+      - type: object
+        properties:
+          flair:
+            $ref: './Flair.yaml'
+  rating:
+    type: number
+  gameId:
+    type: string
+  color:
+    type: string
+    enum:
+      - 'white'
+      - 'black'
+
+required:
+  - user
+  - rating
+  - gameId
+  - color
