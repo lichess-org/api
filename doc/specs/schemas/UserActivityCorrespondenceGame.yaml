@@ -1,0 +1,40 @@
+type: object
+
+properties:
+  id:
+    type: string
+  color:
+    type: string
+    enum: ['white', 'black']
+  url:
+    type: string
+  variant:
+    $ref: './VariantKey.yaml'
+  speed:
+    type: string
+    const: correspondence
+  perf:
+    type: string
+    const: correspondence
+  rated:
+    type: boolean
+  opponent:
+    type: object
+    required:
+      - user
+      - rating
+    properties:
+      user:
+        type: string
+      rating:
+        type: number
+
+required:
+  - id
+  - color
+  - url
+  - variant
+  - speed
+  - perf
+  - rated
+  - opponent
