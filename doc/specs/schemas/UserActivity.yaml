@@ -130,7 +130,7 @@ properties:
       games:
         type: array
         items:
-          - $ref: './UserActivityCorrespondenceGame.yaml'
+          $ref: './UserActivityCorrespondenceGame.yaml'
   correspondenceEnds:
     type: object
     required:
@@ -142,7 +142,7 @@ properties:
       games:
         type: array
         items:
-          - $ref: './UserActivityCorrespondenceGame.yaml'
+          $ref: './UserActivityCorrespondenceGame.yaml'
   follows:
     type: object
     properties:
