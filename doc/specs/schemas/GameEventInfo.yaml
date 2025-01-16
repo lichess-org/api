@@ -3,20 +3,7 @@ properties:
   id:
     type: string
   source:
-    type: string
-    enum:
-      - lobby
-      - friend
-      - ai
-      - api
-      - tournament
-      - position
-      - import
-      - importlive
-      - simul
-      - relay
-      - pool
-      - swiss
+    $ref: './GameSource.yaml'
   status:
     type: object
     properties:
