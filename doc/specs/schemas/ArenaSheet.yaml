@@ -1,0 +1,8 @@
+type: object
+required:
+  - scores
+properties:
+  scores:
+    type: string
+  fire:
+    type: boolean

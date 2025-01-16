@@ -8,7 +8,7 @@ get:
     due to ranking changes while the players are being streamed.
     Use on finished tournaments for guaranteed consistency.
   tags:
-    - "Arena tournaments"
+    - 'Arena tournaments'
   security: []
   parameters:
     - in: path
@@ -32,7 +32,7 @@ get:
         type: boolean
         default: false
   responses:
-    "200":
+    '200':
       description: The results of the Arena tournament.
       headers:
         Access-Control-Allow-Origin:
@@ -42,12 +42,41 @@ get:
       content:
         application/x-ndjson:
           schema:
-            example: {
-              "rank": 4,
-              "score": 389,
-              "rating": 2618,
-              "username": "opperwezen",
-              "title": "IM",
-              "performance": 2423,
-              "team": "coders"
-            }
+            type: object
+            required:
+              - rank
+              - score
+              - rating
+              - username
+              - performance
+              - team
+            properties:
+              rank:
+                type: number
+              score:
+                type: number
+              rating:
+                type: number
+              username:
+                type: string
+              performance:
+                type: number
+              title:
+                $ref: '../../schemas/Title.yaml'
+              team:
+                type: string
+              flair:
+                $ref: '../../schemas/Flair.yaml'
+              sheet:
+                $ref: '../../schemas/ArenaSheet.yaml'
+            example:
+              {
+                'rank': 4,
+                'score': 389,
+                'rating': 2618,
+                'username': 'opperwezen',
+                'title': 'IM',
+                'performance': 2423,
+                'team': 'coders',
+                'sheet': { 'scores': '1022112122211221' },
+              }
