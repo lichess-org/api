@@ -8,7 +8,7 @@ get:
     due to ranking changes while the players are being streamed.
     Use on finished tournaments for guaranteed consistency.
   tags:
-    - "Swiss tournaments"
+    - 'Swiss tournaments'
   security: []
   parameters:
     - in: path
@@ -24,7 +24,7 @@ get:
         type: integer
         minimum: 1
   responses:
-    "200":
+    '200':
       description: The results of a Swiss tournament.
       headers:
         Access-Control-Allow-Origin:
@@ -34,12 +34,38 @@ get:
       content:
         application/x-ndjson:
           schema:
-            example: {
-              "rank": 4,
-              "points": 8.5,
-              "tieBreak": 77,
-              "rating": 2618,
-              "username": "opperwezen",
-              "title": "IM",
-              "performance": 2423
-            }
+            type: object
+            required:
+              - rank
+              - points
+              - tieBreak
+              - rating
+              - username
+              - performance
+            properties:
+              absent:
+                type: boolean
+              rank:
+                type: number
+              points:
+                type: number
+              tieBreak:
+                type: number
+              rating:
+                type: number
+              username:
+                type: string
+              title:
+                $ref: '../../schemas/Title.yaml'
+              performance:
+                type: number
+            example:
+              {
+                'rank': 4,
+                'points': 8.5,
+                'tieBreak': 77,
+                'rating': 2618,
+                'username': 'opperwezen',
+                'title': 'IM',
+                'performance': 2423,
+              }
