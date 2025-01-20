@@ -58,6 +58,14 @@ post:
                     example: 15
                     minimum: 0
                     maximum: 180
+                  color:
+                    type: string
+                    description: The color to play. Better left empty to automatically get 50% white.
+                    enum:
+                      - random
+                      - white
+                      - black
+                    default: random
               - type: object
                 title: correspondence
                 required:
