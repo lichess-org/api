@@ -13,13 +13,10 @@ properties:
     type: number
   score:
     type: number
+  flair:
+    $ref: './Flair.yaml'
   sheet:
-    type: object
-    properties:
-      scores:
-        type: string
-      fire:
-        type: boolean
+    $ref: './ArenaSheet.yaml'
   nb:
     type: object
     properties:

@@ -24,43 +24,56 @@ post:
     content:
       application/x-www-form-urlencoded:
         schema:
-          type: object
-          properties:
-            rated:
-              type: boolean
-              description: Whether the game is rated and impacts players ratings.
-              example: true
-              default: false
-            time:
-              type: number
-              description: Clock initial time in minutes. Required for real-time seeks.
-              example: 15
-              minimum: 0
-              maximum: 180
-            increment:
-              type: integer
-              description: Clock increment in seconds. Required for real-time seeks.
-              example: 15
-              minimum: 0
-              maximum: 180
-            days:
-              type: integer
-              description: Days per turn. Required for correspondence seeks.
-              enum:
-                - 1
-                - 2
-                - 3
-                - 5
-                - 7
-                - 10
-                - 14
-            variant:
-              $ref: '../../schemas/VariantKey.yaml'
-            ratingRange:
-              type: string
-              description: |
-                The rating range of potential opponents. Better left empty.
-                Example: 1500-1800
+          allOf:
+            - type: object
+              properties:
+                rated:
+                  type: boolean
+                  description: Whether the game is rated and impacts players ratings.
+                  example: true
+                  default: false
+                variant:
+                  $ref: '../../schemas/VariantKey.yaml'
+                ratingRange:
+                  type: string
+                  description: |
+                    The rating range of potential opponents. Better left empty.
+                    Example: 1500-1800
+            - oneOf:
+              - type: object
+                title: real-time
+                required:
+                  - time
+                  - increment
+                properties:
+                  time:
+                    type: number
+                    description: Clock initial time in minutes. Required for real-time seeks.
+                    example: 15
+                    minimum: 0
+                    maximum: 180
+                  increment:
+                    type: integer
+                    description: Clock increment in seconds. Required for real-time seeks.
+                    example: 15
+                    minimum: 0
+                    maximum: 180
+              - type: object
+                title: correspondence
+                required:
+                  - days
+                properties:
+                  days:
+                    type: integer
+                    description: Days per turn. Required for correspondence seeks.
+                    enum:
+                      - 1
+                      - 2
+                      - 3
+                      - 5
+                      - 7
+                      - 10
+                      - 14
   responses:
     "200":
       description: The seek was successfully created.
@@ -70,8 +83,22 @@ post:
             type: string
             default: "'*'"
       content:
-        text/plain:
-          example: ""
+        application/json:
+          schema:
+            type: object
+            description: Only happens when doing a correspondence seek
+            required:
+              - id
+            properties:
+              id:
+                type: string
+            example: {
+              id: 'gwkzmEBY'
+            }
+        application/x-ndjson:
+          schema:
+            description: Only happens when doing a real-time seek
+            example: ''
     "400":
       description: The creation of the seek failed.
       content:

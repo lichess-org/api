@@ -4,7 +4,7 @@ get:
   description: |
     Teams of a team battle tournament, with top players, sorted by rank (best first).
   tags:
-    - "Arena tournaments"
+    - 'Arena tournaments'
   security: []
   parameters:
     - in: path
@@ -14,7 +14,7 @@ get:
         type: string
       required: true
   responses:
-    "200":
+    '200':
       description: The list of teams of a team battle tournament, with their respective top players.
       headers:
         Access-Control-Allow-Origin:
@@ -24,17 +24,54 @@ get:
       content:
         application/json:
           schema:
-            example: {
-              "id": "CdPg1ey4",
-              "teams": [
-                {
-                  "rank": 1,
-                  "id": "cat-lovers",
-                  "score": 842,
-                  "players": [
-                    { "user": { "name": "lizen69", "id": "lizen69" }, "score": 54 },
-                    { "user": { "name": "lizen249", "id": "lizen249" } }
-                  ]
-                }
-              ]
-            }
+            type: object
+            required:
+              - id
+              - teams
+            properties:
+              id:
+                type: string
+              teams:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - rank
+                    - id
+                    - score
+                    - players
+                  properties:
+                    rank:
+                      type: number
+                    id:
+                      type: string
+                    score:
+                      type: number
+                    players:
+                      type: array
+                      items:
+                        type: object
+                        required:
+                          - user
+                        properties:
+                          user:
+                            $ref: '../../schemas/LightUser.yaml'
+                          score:
+                            type: number
+            example:
+              {
+                'id': 'CdPg1ey4',
+                'teams':
+                  [
+                    {
+                      'rank': 1,
+                      'id': 'cat-lovers',
+                      'score': 842,
+                      'players':
+                        [
+                          { 'user': { 'name': 'lizen69', 'id': 'lizen69' }, 'score': 54 },
+                          { 'user': { 'name': 'lizen249', 'id': 'lizen249' } },
+                        ],
+                    },
+                  ],
+              }

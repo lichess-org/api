@@ -1,3 +1,4 @@
+type: string
 example: |
   [Event "Rated Blitz game"]
   [Site "https://lichess.org/fY44h4OY"]
