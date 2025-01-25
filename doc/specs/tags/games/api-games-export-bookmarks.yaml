@@ -1,0 +1,131 @@
+get:
+  operationId: apiExportBookmarks
+  summary: Export your bookmarked games
+  description: |
+    Download all games bookmarked by you, in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
+    Games are sorted by reverse chronological order (most recent first).
+    We recommend streaming the response, for it can be very long.
+  tags:
+    - Games
+  security:
+    - OAuth2: []
+  parameters:
+    - in: query
+      name: since
+      description: Download games bookmarked since this timestamp. Defaults to account creation date.
+      schema:
+        type: integer
+        minimum: 1356998400070
+    - in: query
+      name: until
+      description: Download games bookmarked until this timestamp. Defaults to now.
+      schema:
+        type: integer
+        minimum: 1356998400070
+    - in: query
+      name: max
+      description: How many bookmarked games to download. Leave empty to download all bookmarked games.
+      schema:
+        type: integer
+        minimum: 1
+    - in: query
+      name: moves
+      description: Include the PGN moves.
+      schema:
+        type: boolean
+        default: true
+    - in: query
+      name: pgnInJson
+      description:
+        Include the full PGN within the JSON response, in a `pgn` field.
+        The response type must be set to `application/x-ndjson` by the request `Accept` header.
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: tags
+      description: Include the PGN tags.
+      schema:
+        type: boolean
+        default: true
+    - in: query
+      name: clocks
+      description: |
+        Include clock status when available.
+        Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+        Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: evals
+      description: |
+        Include analysis evaluations and comments, when available.
+        Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+        Or in an `analysis` JSON field, depending on the response type.
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: accuracy
+      description: |
+        Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: opening
+      description: |
+        Include the opening name.
+        Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: division
+      description: |
+        Plies which mark the beginning of the middlegame and endgame.
+        Only available in JSON
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: literate
+      description: |
+        Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
+        Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: lastFen
+      description: |
+        Include the FEN notation of the last position of the game.
+        The response type must be set to `application/x-ndjson` by the request `Accept` header.
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: sort
+      description: Sort order of the bookmarks.
+      schema:
+        type: string
+        default: dateDesc
+        enum:
+          - dateAsc
+          - dateDesc
+  responses:
+    "200":
+      description: The bookmarked games of the user.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-chess-pgn:
+          schema:
+            $ref: "../../schemas/GamePgn.yaml"
+        application/x-ndjson:
+          schema:
+            $ref: "../../schemas/GameJson.yaml"

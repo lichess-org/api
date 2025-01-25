@@ -344,6 +344,9 @@ paths:
   /api/games/export/imports:
     $ref: './tags/games/api-games-export-imports.yaml'
 
+  /api/games/export/bookmarks:
+    $ref: './tags/games/api-games-export-bookmarks.yaml'
+
   /api/tv/channels:
     $ref: './tags/tv/api-tv-channels.yaml'
 
