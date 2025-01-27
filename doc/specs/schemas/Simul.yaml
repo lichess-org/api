@@ -1,3 +1,58 @@
+type: object
+required:
+  - id
+  - host
+  - name
+  - fullName
+  - variants
+  - isCreated
+  - isFinished
+  - isRunning
+  - nbApplicants
+  - nbPairings
+properties:
+  id:
+    type: string
+  host:
+    type: object
+    allOf:
+      - $ref: './LightUser.yaml'
+      - type: object
+        properties:
+          rating:
+            type: number
+          provisional:
+            type: boolean
+          gameId:
+            type: string
+          online:
+            type: boolean
+  name:
+    type: string
+  fullName:
+    type: string
+  variants:
+    type: array
+    items:
+      $ref: './Variant.yaml'
+  isCreated:
+    type: boolean
+  isFinished:
+    type: boolean
+  isRunning:
+    type: boolean
+  text:
+    type: string
+  estimatedStartAt:
+    type: number
+  startedAt:
+    type: number
+  finishedAt:
+    type: number
+  nbApplicants:
+    type: number
+  nbPairings:
+    type: number
 example:
   {
     'id': 'pDGbxhUe',
