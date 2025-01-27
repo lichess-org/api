@@ -1,4 +1,15 @@
 type: object
+required:
+  - id
+  - host
+  - name
+  - fullName
+  - variants
+  - isCreated
+  - isFinished
+  - isRunning
+  - nbApplicants
+  - nbPairings
 properties:
   id:
     type: string
