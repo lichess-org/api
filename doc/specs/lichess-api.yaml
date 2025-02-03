@@ -220,6 +220,11 @@ tags:
 
     Broadcasts are organized in tournaments, which have several rounds, which have several games.
     You must first create a tournament, then you can add rounds to them.
+- name: FIDE
+  description: |
+    FIDE players and federations from [their public download](https://ratings.fide.com/download_lists.phtml).
+
+    <https://lichess.org/fide>
 - name: Analysis
   description: |
     Access Lichess cloud evaluations database.
@@ -490,6 +495,9 @@ paths:
 
   /api/broadcast/my-rounds:
     $ref: './tags/broadcasts/api-broadcast-my-rounds.yaml'
+
+  /api/fide/player/{playerId}:
+    $ref: './tags/fide/api-fide-player-playerId.yaml'
 
   /api/simul:
     $ref: './tags/simuls/api-simul.yaml'

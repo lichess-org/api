@@ -1,0 +1,32 @@
+type: object
+properties:
+  id:
+    type: number
+    example: 35009192
+  name:
+    type: string
+    example: 'Erigaisi Arjun'
+  title:
+    $ref: './Title.yaml'
+  federation:
+    type: string
+    example: 'IND'
+  year:
+    type: number
+    example: 2003
+  inactive:
+    type: boolean
+    example: true
+  standard:
+    type: number
+    example: 2797
+  rapid:
+    type: number
+    example: 2698
+  blitz:
+    type: number
+    example: 2738
+required:
+  - id
+  - name
+  - federation

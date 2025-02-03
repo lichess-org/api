@@ -1,0 +1,22 @@
+get:
+  operationId: fidePlayerGet
+  summary: Get a FIDE player
+  description: |
+    Get information about a FIDE player.
+  tags:
+    - FIDE
+  security: []
+  parameters:
+    - in: path
+      name: playerId
+      description: The FIDE player ID.
+      required: true
+      schema:
+        type: number
+  responses:
+    '200':
+      description: The information about the FIDE player.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/FIDEPlayer.yaml'
