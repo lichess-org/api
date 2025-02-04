@@ -1,0 +1,30 @@
+get:
+  operationId: fidePlayerSearch
+  summary: Search FIDE players
+  description: |
+    List of FIDE players search results for a query.
+  tags:
+    - FIDE
+  security: []
+  parameters:
+    - in: query
+      name: q
+      description: The search query.
+      required: true
+      schema:
+        type: string
+        example: Erigaisi Arjun
+  responses:
+    "200":
+      description: The list of FIDE players.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/FIDEPlayer.yaml'

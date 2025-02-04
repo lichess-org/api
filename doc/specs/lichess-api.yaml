@@ -499,6 +499,9 @@ paths:
   /api/fide/player/{playerId}:
     $ref: './tags/fide/api-fide-player-playerId.yaml'
 
+  /api/fide/player:
+    $ref: './tags/fide/api-fide-player-search.yaml'
+
   /api/simul:
     $ref: './tags/simuls/api-simul.yaml'
 
