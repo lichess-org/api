@@ -5,6 +5,8 @@ post:
     Start the clocks of a game immediately, even if a player has not yet made a move.
     Requires the OAuth tokens of both players with `challenge:write` scope.
     If the clocks have already started, the call will have no effect.
+
+    For AI games with only one player, omit the `token2` parameter.
   tags:
     - Challenges
   security:
@@ -21,9 +23,10 @@ post:
       description: OAuth token of a player
       schema:
         type: string
+      required: true
     - in: query
       name: token2
-      description: OAuth token of the other player
+      description: OAuth token of the other player. Omit for AI games that have only one player.
       schema:
         type: string
   responses:
