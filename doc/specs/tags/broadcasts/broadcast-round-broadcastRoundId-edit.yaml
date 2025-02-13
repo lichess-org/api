@@ -36,7 +36,7 @@ post:
           schema:
             $ref: '../../schemas/Ok.yaml'
     "400":
-      description: The edition of the broadcast tournament failed.
+      description: The broadcast round update failed.
       content:
         application/json:
           schema:

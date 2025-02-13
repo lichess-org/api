@@ -147,11 +147,15 @@ allOf:
           Example: `900` (15 min)
         minimum: 0
         maximum: 3600
-      finished:
-        type: boolean
+      status:
+        type: string
+        enum:
+          - new
+          - started
+          - finished
         description: |
-          Mark whether the round has been completed.
-        default: false
+          Lichess can usually detect the round status, but you can also set it manually if needed.
+        default: new
       period:
         type: integer
         description: |
