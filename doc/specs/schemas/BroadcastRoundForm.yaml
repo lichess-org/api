@@ -8,12 +8,16 @@ allOf:
         description: |
           Name of the broadcast round.
           Example: `Round 1`
-  
+    required:
+      - name
+
   - oneOf:
     - type: object
       title: send games via push
     - type: object
-      title: send game via PGN url
+      title: retrieve games via PGN url
+      required:
+        - syncUrl
       properties:
         syncUrl:
           type: string
@@ -25,7 +29,6 @@ allOf:
             ```txt
             https://myserver.org/myevent/round-10/games.pgn
             ```
-            Choose one between `syncUrl`, `syncUrls` and `syncIds`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush)
         onlyRound:
           type: integer
           maximum: 999
@@ -59,7 +62,9 @@ allOf:
 
             It only works if you chose `syncUrl` or `syncUrls` as the source.
     - type: object
-      title: send game via mutiple PGN urls
+      title: retrieve games via mutiple PGN urls
+      required:
+        - syncUrls
       properties:
         syncUrls:
           type: string
@@ -71,7 +76,6 @@ allOf:
             https://myserver.org/myevent/round-10/game-1.pgn
             https://myserver.org/myevent/round-10/game-2.pgn
             ```
-            Choose one between `syncUrl`, `syncUrls` and `syncIds`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush)
         onlyRound:
           type: integer
           maximum: 999
@@ -105,14 +109,24 @@ allOf:
 
             It only works if you chose `syncUrl` or `syncUrls` as the source.
     - type: object
-      title: Lichess Game Ids
+      title: retrieve games via Lichess game IDs
+      required:
+        - syncIds
       properties:
         syncIds:
           type: string
           description: |
             Lichess game IDs - Up to 64 Lichess game IDs, separated by spaces.
-            Choose one between `syncUrl`, `syncUrls` and `syncIds`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush)
-  
+    - type: object
+      title: retrieve games via Lichess usernames
+      required:
+        - syncUsers
+      properties:
+        syncUsers:
+          type: string
+          description: |
+            Up to 100 Lichess usernames, separated by spaces
+
   - type: object
     properties:
       startsAt:
@@ -144,6 +158,3 @@ allOf:
           (Only for Admins) Waiting time for each poll.
         minimum: 2
         maximum: 60
-
-    required:
-      - name
