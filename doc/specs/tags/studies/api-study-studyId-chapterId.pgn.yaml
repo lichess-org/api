@@ -9,16 +9,20 @@ get:
   parameters:
     - in: path
       name: studyId
-      description: The study ID (8 characters).
+      description: The study ID
       required: true
       schema:
         type: string
+        minLength: 8
+        maxLength: 8
     - in: path
       name: chapterId
-      description: The chapter ID (8 characters).
+      description: The chapter ID
       required: true
       schema:
         type: string
+        minLength: 8
+        maxLength: 8
     - in: query
       name: clocks
       description: |

@@ -13,10 +13,12 @@ post:
   parameters:
     - in: path
       name: broadcastRoundId
-      description: The broadcast round ID (8 characters).
+      description: The broadcast round ID
       required: true
       schema:
         type: string
+        minLength: 8
+        maxLength: 8
   requestBody:
     required: true
     content:

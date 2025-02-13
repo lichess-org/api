@@ -12,10 +12,12 @@ post:
   parameters:
     - in: path
       name: broadcastTournamentId
-      description: The broadcast ID (8 characters).
+      description: The broadcast ID
       required: true
       schema:
         type: string
+        minLength: 8
+        maxLength: 8
   requestBody:
     required: true
     content:

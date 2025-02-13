@@ -9,10 +9,12 @@ get:
   parameters:
     - in: path
       name: studyId
-      description: The study ID (8 characters).
+      description: The study ID
       required: true
       schema:
         type: string
+        minLength: 8
+        maxLength: 8
     - in: query
       name: clocks
       description: |
@@ -80,10 +82,12 @@ head:
   parameters:
     - in: path
       name: studyId
-      description: The study ID (8 characters).
+      description: The study ID
       required: true
       schema:
         type: string
+        minLength: 8
+        maxLength: 8
   responses:
     "204":
       description: The study headers.

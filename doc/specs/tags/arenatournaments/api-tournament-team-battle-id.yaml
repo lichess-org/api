@@ -11,10 +11,12 @@ post:
   parameters:
     - in: path
       name: id
-      description: The tournament ID (8 characters)..
+      description: The tournament ID
       required: true
       schema:
         type: string
+        minLength: 8
+        maxLength: 8
   requestBody:
     required: true
     content:
