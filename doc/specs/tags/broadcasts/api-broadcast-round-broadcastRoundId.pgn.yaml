@@ -13,10 +13,12 @@ get:
   parameters:
     - in: path
       name: broadcastRoundId
-      description: The round ID (8 characters).
+      description: The round ID
       required: true
       schema:
         type: string
+        minLength: 8
+        maxLength: 8
   responses:
     "200":
       description: The PGN representation of the round.

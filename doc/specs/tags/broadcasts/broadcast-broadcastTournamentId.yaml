@@ -9,10 +9,12 @@ get:
   parameters:
     - in: path
       name: broadcastTournamentId
-      description: The broadcast tournament ID (8 characters).
+      description: The broadcast tournament ID
       required: true
       schema:
         type: string
+        minLength: 8
+        maxLength: 8
   responses:
     '200':
       description: The information about the broadcast tournament.

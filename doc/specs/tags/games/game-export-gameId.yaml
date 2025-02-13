@@ -10,10 +10,12 @@ get:
   parameters:
     - in: path
       name: gameId
-      description: The game ID (8 characters).
+      description: The game ID
       required: true
       schema:
         type: string
+        minLength: 8
+        maxLength: 8
     - in: query
       name: moves
       description: Include the PGN moves.
