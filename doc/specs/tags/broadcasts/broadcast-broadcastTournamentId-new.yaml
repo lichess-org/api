@@ -4,6 +4,8 @@ post:
   description: |
     Create a new broadcast round to relay external games.
     This endpoint accepts the same form data as the web form.
+
+    Choose one between `syncUrl`, `syncUrls`, `syncIds` and `syncUsers`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush)
   tags:
     - Broadcasts
   security:
@@ -11,10 +13,12 @@ post:
   parameters:
     - in: path
       name: broadcastTournamentId
-      description: The broadcast tournament ID (8 characters).
+      description: The broadcast tournament ID
       required: true
       schema:
         type: string
+        minLength: 8
+        maxLength: 8
   requestBody:
     required: true
     content:
