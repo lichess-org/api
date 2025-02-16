@@ -1,24 +1,20 @@
 allOf:
-  - type: object
-    properties:
-      name:
-        type: string
-        maxLength: 80
-        minLength: 3
-        description: |
-          Name of the broadcast round.
-          Example: `Round 1`
-    required:
-      - name
-
   - oneOf:
     - type: object
       title: send games via push
+      required:
+        - name
+      properties:
+        name:
+          $ref: './BroadcastRoundFormName.yaml'
     - type: object
       title: retrieve games via PGN url
       required:
+        - name
         - syncUrl
       properties:
+        name:
+          $ref: './BroadcastRoundFormName.yaml'
         syncUrl:
           type: string
           format: uri
@@ -64,8 +60,11 @@ allOf:
     - type: object
       title: retrieve games via mutiple PGN urls
       required:
+        - name
         - syncUrls
       properties:
+        name:
+          $ref: './BroadcastRoundFormName.yaml'
         syncUrls:
           type: string
           description: |
@@ -111,8 +110,11 @@ allOf:
     - type: object
       title: retrieve games via Lichess game IDs
       required:
+        - name
         - syncIds
       properties:
+        name:
+          $ref: './BroadcastRoundFormName.yaml'
         syncIds:
           type: string
           description: |
@@ -120,8 +122,11 @@ allOf:
     - type: object
       title: retrieve games via Lichess usernames
       required:
+        - name
         - syncUsers
       properties:
+        name:
+          $ref: './BroadcastRoundFormName.yaml'
         syncUsers:
           type: string
           description: |

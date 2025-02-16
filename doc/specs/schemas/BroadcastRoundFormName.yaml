@@ -1,0 +1,8 @@
+type: string
+
+minLength: 3
+maxLength: 80
+
+description: |
+  Name of the broadcast round.
+  Example: `Round 1`
