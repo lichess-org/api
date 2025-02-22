@@ -61,6 +61,21 @@ properties:
         items:
             type: string
         description: "List of usernames allowed to join the tournament"
+    hasMaxRating:
+        type: boolean
+    maxRating:
+        $ref: './ArenaRatingObj.yaml'
+    minRating:
+        $ref: './ArenaRatingObj.yaml'
+    minRatedGames:
+        type: object
+        properties:
+            nb:
+                type: integer
+    botsAllowed:
+        type: boolean
+    minAccountAgeInDays:
+        type: integer
     perf:
         type: object
         properties:
