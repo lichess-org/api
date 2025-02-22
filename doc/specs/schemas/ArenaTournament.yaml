@@ -7,11 +7,11 @@ properties:
     type: string
   system:
     type: string
-    const: 'arena'
+    const: "arena"
   minutes:
     type: integer
   clock:
-    $ref: './Clock.yaml'
+    $ref: "./Clock.yaml"
   rated:
     type: boolean
   fullName:
@@ -19,23 +19,23 @@ properties:
   nbPlayers:
     type: integer
   variant:
-    $ref: './Variant.yaml'
+    $ref: "./Variant.yaml"
   startsAt:
     type: integer
   finishesAt:
     type: integer
   status:
-    $ref: './ArenaStatus.yaml'
+    $ref: "./ArenaStatus.yaml"
   perf:
-    $ref: './ArenaPerf.yaml'
+    $ref: "./ArenaPerf.yaml"
   secondsToStart:
     type: integer
   hasMaxRating:
     type: boolean
   maxRating:
-    $ref: './ArenaRatingObj.yaml'
+    $ref: "./ArenaRatingObj.yaml"
   minRating:
-    $ref: './ArenaRatingObj.yaml'
+    $ref: "./ArenaRatingObj.yaml"
   minRatedGames:
     type: object
     properties:
@@ -52,7 +52,7 @@ properties:
   private:
     type: boolean
   position:
-    $ref: './ArenaPosition.yaml'
+    $ref: "./ArenaPosition.yaml"
   schedule:
     type: object
     properties:
@@ -77,7 +77,7 @@ properties:
       name:
         type: string
       title:
-        $ref: './Title.yaml'
+        $ref: "./Title.yaml"
 
 example:
   {
@@ -85,33 +85,16 @@ example:
     "createdBy": "lichess",
     "system": "arena",
     "minutes": 27,
-    "clock": {
-      "limit": 60,
-      "increment": 0
-    },
+    "clock": { "limit": 60, "increment": 0 },
     "rated": true,
     "fullName": "Hourly Bullet Arena",
     "nbPlayers": 4,
-    "variant": {
-      "key": "standard",
-      "short": "Std",
-      "name": "Standard"
-    },
+    "variant": { "key": "standard", "short": "Std", "name": "Standard" },
     "startsAt": 1716930043067,
     "finishesAt": 1716931663067,
     "status": 10,
-    "perf": {
-      "key": "bullet",
-      "name": "Bullet",
-      "position": 0,
-      "icon": "T"
-    },
+    "perf": { "key": "bullet", "name": "Bullet", "position": 0, "icon": "T" },
     "secondsToStart": 871,
-    "minRatedGames": {
-      "nb": 20
-    },
-    "schedule": {
-      "freq": "hourly",
-      "speed": "bullet"
-    }
+    "minRatedGames": { "nb": 20 },
+    "schedule": { "freq": "hourly", "speed": "bullet" },
   }

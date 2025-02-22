@@ -34,4 +34,4 @@ get:
       content:
         application/x-ndjson:
           schema:
-            $ref: '../../schemas/ArenaTournament.yaml'
+            $ref: "../../schemas/ArenaTournament.yaml"

@@ -1,6 +1,6 @@
 type: object
 properties:
-  type: 
+  type:
     type: string
     enum:
       - team-create

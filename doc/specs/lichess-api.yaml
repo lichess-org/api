@@ -95,643 +95,648 @@ info:
 servers:
   - url: https://lichess.org
 tags:
-- name: Account
-  description: |
-    Read and write account information and preferences.
-    <https://lichess.org/account/preferences/game-display>
-- name: Users
-  description: |
-    Access registered users on Lichess.
-    <https://lichess.org/player>
+  - name: Account
+    description: |
+      Read and write account information and preferences.
+      <https://lichess.org/account/preferences/game-display>
+  - name: Users
+    description: |
+      Access registered users on Lichess.
+      <https://lichess.org/player>
 
-    - Each user blog exposes an atom (RSS) feed, like <https://lichess.org/@/thibault/blog.atom>
-    - User blogs mashup feed: https://lichess.org/blog/community.atom
-    - User blogs mashup feed for a language: https://lichess.org/blog/community/fr.atom
+      - Each user blog exposes an atom (RSS) feed, like <https://lichess.org/@/thibault/blog.atom>
+      - User blogs mashup feed: https://lichess.org/blog/community.atom
+      - User blogs mashup feed for a language: https://lichess.org/blog/community/fr.atom
 
-- name: Relations
-  description: |
-    Access relations between users.
-- name: Games
-  description: |
-    Access games played on Lichess.
-    <https://lichess.org/games>
-- name: TV
-  description: |
-    Access Lichess TV channels and games.
-    <https://lichess.org/tv> & <https://lichess.org/games>
-- name: Puzzles
-  description: |
-    Access Lichess [puzzle history and dashboard](https://lichess.org/training).
+  - name: Relations
+    description: |
+      Access relations between users.
+  - name: Games
+    description: |
+      Access games played on Lichess.
+      <https://lichess.org/games>
+  - name: TV
+    description: |
+      Access Lichess TV channels and games.
+      <https://lichess.org/tv> & <https://lichess.org/games>
+  - name: Puzzles
+    description: |
+      Access Lichess [puzzle history and dashboard](https://lichess.org/training).
 
-    Our collection of puzzles is in the public domain, you can [download it here](https://database.lichess.org/#puzzles).
-    For a list of our puzzle themes with their description, check out the [theme translation file](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
-    The daily puzzle can be [posted in your slack workspace](https://lichess.org/daily-puzzle-slack).
-- name: Teams
-  description: |
-    Access and manage Lichess teams and their members.
-    <https://lichess.org/team>
-- name: Board
-  description: "Play on Lichess with physical boards and third-party clients.\n
-  \ Works with normal Lichess accounts. Engine play or assistance is [forbidden](https://lichess.org/page/fair-play).\n\n\
-  \n### Features\n\
-  \ - [Stream incoming chess moves](#operation/boardGameStream)\n\
-  \ - [Play chess moves](#operation/boardGameMove)\n\
-  \ - [Read](#operation/boardGameStream) and [write](#operation/boardGameChatPost) in the player and spectator chats\n\
-  \ - [Receive](#operation/apiStreamEvent), [create](#operation/challengeCreate) and [accept](#operation/challengeAccept) (or [decline](#operation/challengeDecline)) challenges\n\
-  \ - [Abort](#operation/boardGameAbort) and [resign](#operation/boardGameResign) games\n\
-  \ - Compatible with normal Lichess accounts\n\n
-  \n### Restrictions\n\
-  \ - Engine assistance, or any kind of outside help, is [forbidden](https://lichess.org/page/fair-play)\n\
-  \ - Time controls: [Rapid, Classical and Correspondence](https://lichess.org/faq#time-controls) only.\n\
-  \   For direct challenges, games vs AI, and bulk pairing, Blitz is also possible.\n\
-  \n### Links\n\
-  \ - [Announcement](https://lichess.org/blog/XlRW5REAAB8AUJJ-/welcome-lichess-boards)\n\
-  \ - [Implementation example](https://github.com/lichess-org/api-demo) and [live demo](https://lichess-org.github.io/api-demo/)\n\n
-  \ - [Certabo support](https://github.com/haklein/certabo-lichess)\n\
-  \ - [Lichs (play from command-line)](https://github.com/Cqsi/lichs)\n\
-  \ - [Lichess discord bot](https://top.gg/bot/707287095911120968)\n\
-  \ - [cli-chess](https://github.com/trevorbayless/cli-chess/)"
-- name: Bot
-  description: "Play on Lichess as a bot. Allows engine play.\n
-  \ Read the [blog post announcement of lichess bots](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots).\n\n
-  \ Only works with [Bot accounts](#operation/botAccountUpgrade).\n\n\
-  \n### Features\n\
-  \ - [Stream incoming chess moves](#operation/botGameStream)\n\
-  \ - [Play chess moves](#operation/botGameMove)\n\
-  \ - [Read](#operation/botGameStream) and [write](#operation/botGameChat) in the player and spectator chats\n\
-  \ - [Receive](#operation/apiStreamEvent), [create](#operation/challengeCreate) and [accept](#operation/challengeAccept) (or [decline](#operation/challengeDecline)) challenges\n\
-  \ - [Abort](#operation/botGameAbort) and [resign](#operation/botGameResign) games\n\
-  \ - Engine assistance is [allowed](https://lichess.org/page/fair-play)\n\
-  \n### Restrictions\n\
-  \ - Bots can only play challenge games:  pools and tournaments are off-limits\n\
-  \ - Bots cannot play UltraBullet (¼+0) because it requires making too many requests. But 0+1 and ½+0 are allowed.\n\
-  \ - Bots must follow [Lichess TOS](https://lichess.org/terms-of-service) specifically Sandbagging, Constant Aborting, Boosting, etc\n\
-  \ - Bot devs are advised to make their Bots play casual only when testing their Bots logic and to avoid breaking Lichess TOS.\n\
-  \n### Integrations\n\
-  \ - [Python3 lichess-bot](https://github.com/lichess-bot-devs/lichess-bot) (official)\n\
-  \ - [Python3 lichess UCI bot](https://github.com/Torom/BotLi)\n\
-  \ - [JavaScript bot-o-tron](https://github.com/tailuge/bot-o-tron)\n\
-  \ - [Golang lichess-bot](https://github.com/dolegi/lichess-bot)\n\
-  \ - [Electronic Chessboard](http://www.oliviermercier.com/res/projects/chessboard/)
-  \ - Yours? Please make [an issue or pull request](https://github.com/lichess-org/api).\n\
-  \n### Links\n\
-  \ - [Announcement](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots)\n\
-  \ - Join the [Lichess Bots team](https://lichess.org/team/lichess-bots) with your bot account\n\
-  \ - [Get help in the discord channel](https://discord.gg/quwueFd)\n\
-  \ - Watch [Lichess Bot TV](https://lichess.org/tv/bot)"
-- name: Challenges
-  description: |
-    Send and receive challenges to play.
+      Our collection of puzzles is in the public domain, you can [download it here](https://database.lichess.org/#puzzles).
+      For a list of our puzzle themes with their description, check out the [theme translation file](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
+      The daily puzzle can be [posted in your slack workspace](https://lichess.org/daily-puzzle-slack).
+  - name: Teams
+    description: |
+      Access and manage Lichess teams and their members.
+      <https://lichess.org/team>
+  - name: Board
+    description: |
+      Play on Lichess with physical boards and third-party clients.
+      Works with normal Lichess accounts. Engine play or assistance is [forbidden](https://lichess.org/page/fair-play).
 
-    To create a lot of challenges, consider [bulk pairing](#operation/bulkPairingCreate) instead.
-- name: Bulk pairings
-  description: |
-    Create many games for other players.
+      ### Features
+      - [Stream incoming chess moves](#operation/boardGameStream)
+      - [Play chess moves](#operation/boardGameMove)
+      - [Read](#operation/boardGameStream) and [write](#operation/boardGameChatPost) in the player and spectator chats
+      - [Receive](#operation/apiStreamEvent), [create](#operation/challengeCreate) and [accept](#operation/challengeAccept) (or [decline](#operation/challengeDecline)) challenges
+      - [Abort](#operation/boardGameAbort) and [resign](#operation/boardGameResign) games
+      - Compatible with normal Lichess accounts
 
-    These endpoints are intended for tournament organisers.
-- name: Arena tournaments
-  description: |
-    Access Arena tournaments played on Lichess.
-    [Official Arena tournaments](https://lichess.org/tournament) are maintained by Lichess,
-    but you can [create your own Arena tournaments](https://lichess.org/tournament/new) as well.
-- name: Swiss tournaments
-  description: |
-    Access Swiss tournaments played on Lichess.
-    [Read more about Swiss tournaments.](https://lichess.org/swiss).
-- name: Simuls
-  description: |
-    Access simuls played on Lichess.
-    <https://lichess.org/simul>
-- name: Studies
-  description: |
-    Access Lichess studies.
-    <https://lichess.org/study>
-- name: Messaging
-  description: |
-    Private messages with other players.
-    <https://lichess.org/inbox>
-- name: Broadcasts
-  description: |
-    Relay chess events on Lichess.
-    [Official broadcasts](https://lichess.org/broadcast) are maintained by Lichess,
-    but you can [create your own broadcasts](https://lichess.org/broadcast/new) to cover any live game or chess event.
-    You will need to publish PGN on a public URL so that Lichess can pull updates from it.
-    Alternatively, you can push PGN updates to Lichess using [this API endpoint](#tag/Broadcasts/operation/broadcastPush).
+      ### Restrictions
+      - Engine assistance, or any kind of outside help, is [forbidden](https://lichess.org/page/fair-play)
+      - Time controls: [Rapid, Classical and Correspondence](https://lichess.org/faq#time-controls) only.
+        For direct challenges, games vs AI, and bulk pairing, Blitz is also possible.
 
-    Broadcasts are organized in tournaments, which have several rounds, which have several games.
-    You must first create a tournament, then you can add rounds to them.
-- name: FIDE
-  description: |
-    FIDE players and federations from [their public download](https://ratings.fide.com/download_lists.phtml).
+      ### Links
+      - [Announcement](https://lichess.org/blog/XlRW5REAAB8AUJJ-/welcome-lichess-boards)
+      - [Implementation example](https://github.com/lichess-org/api-demo) and [live demo](https://lichess-org.github.io/api-demo/)
+      - [Certabo support](https://github.com/haklein/certabo-lichess)
+      - [Lichs (play from command-line)](https://github.com/Cqsi/lichs)
+      - [Lichess discord bot](https://top.gg/bot/707287095911120968)
+      - [cli-chess](https://github.com/trevorbayless/cli-chess/)
+  - name: Bot
+    description: |
+      Play on Lichess as a bot. Allows engine play.
+      Read the [blog post announcement of lichess bots](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots).
 
-    <https://lichess.org/fide>
-- name: Analysis
-  description: |
-    Access Lichess cloud evaluations database.
-    <https://lichess.org/analysis>
-- name: External engine
-  description: |
-    **This API is in alpha and subject to change.**
+      Only works with [Bot accounts](#operation/botAccountUpgrade).
 
-    Use or provide external engine analysis.
+      ### Features
+      - [Stream incoming chess moves](#operation/botGameStream)
+      - [Play chess moves](#operation/botGameMove)
+      - [Read](#operation/botGameStream) and [write](#operation/botGameChat) in the player and spectator chats
+      - [Receive](#operation/apiStreamEvent), [create](#operation/challengeCreate) and [accept](#operation/challengeAccept) (or [decline](#operation/challengeDecline)) challenges
+      - [Abort](#operation/botGameAbort) and [resign](#operation/botGameResign) games
+      - Engine assistance is [allowed](https://lichess.org/page/fair-play)
+      ### Restrictions
+      - Bots can only play challenge games:  pools and tournaments are off-limits
+      - Bots cannot play UltraBullet (¼+0) because it requires making too many requests. But 0+1 and ½+0 are allowed.
+      - Bots must follow [Lichess TOS](https://lichess.org/terms-of-service) specifically Sandbagging, Constant Aborting, Boosting, etc
+      - Bot devs are advised to make their Bots play casual only when testing their Bots logic and to avoid breaking Lichess TOS.
+      ### Integrations
+      - [Python3 lichess-bot](https://github.com/lichess-bot-devs/lichess-bot) (official)
+      - [Python3 lichess UCI bot](https://github.com/Torom/BotLi)
+      - [JavaScript bot-o-tron](https://github.com/tailuge/bot-o-tron)
+      - [Golang lichess-bot](https://github.com/dolegi/lichess-bot)
+      - [Electronic Chessboard](http://www.oliviermercier.com/res/projects/chessboard/)
+      - Yours? Please make [an issue or pull request](https://github.com/lichess-org/api).
+      ### Links
+      - [Announcement](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots)
+      - Join the [Lichess Bots team](https://lichess.org/team/lichess-bots) with your bot account
+      - [Get help in the discord channel](https://discord.gg/quwueFd)
+      - Watch [Lichess Bot TV](https://lichess.org/tv/bot)
+  - name: Challenges
+    description: |
+      Send and receive challenges to play.
 
-    External engines can provide analysis on pages like the
-    [analysis board](https://lichess.org/analysis), running as a service
-    outside of the browser, or even on a different machine.
-- name: Opening Explorer
-  description: |
-    Lookup positions from the [Lichess opening explorer](https://lichess.org/analysis#explorer).
+      To create a lot of challenges, consider [bulk pairing](#operation/bulkPairingCreate) instead.
+  - name: Bulk pairings
+    description: |
+      Create many games for other players.
 
-    Runs <https://github.com/lichess-org/lila-openingexplorer>.
+      These endpoints are intended for tournament organisers.
+  - name: Arena tournaments
+    description: |
+      Access Arena tournaments played on Lichess.
+      [Official Arena tournaments](https://lichess.org/tournament) are maintained by Lichess,
+      but you can [create your own Arena tournaments](https://lichess.org/tournament/new) as well.
+  - name: Swiss tournaments
+    description: |
+      Access Swiss tournaments played on Lichess.
+      [Read more about Swiss tournaments.](https://lichess.org/swiss).
+  - name: Simuls
+    description: |
+      Access simuls played on Lichess.
+      <https://lichess.org/simul>
+  - name: Studies
+    description: |
+      Access Lichess studies.
+      <https://lichess.org/study>
+  - name: Messaging
+    description: |
+      Private messages with other players.
+      <https://lichess.org/inbox>
+  - name: Broadcasts
+    description: |
+      Relay chess events on Lichess.
+      [Official broadcasts](https://lichess.org/broadcast) are maintained by Lichess,
+      but you can [create your own broadcasts](https://lichess.org/broadcast/new) to cover any live game or chess event.
+      You will need to publish PGN on a public URL so that Lichess can pull updates from it.
+      Alternatively, you can push PGN updates to Lichess using [this API endpoint](#tag/Broadcasts/operation/broadcastPush).
 
-    **The endpoint hostname is not lichess.org but explorer.lichess.ovh.**
-- name: Tablebase
-  description: |
-    Lookup positions from the [Lichess tablebase server](https://lichess.org/blog/W3WeMyQAACQAdfAL/7-piece-syzygy-tablebases-are-complete).
+      Broadcasts are organized in tournaments, which have several rounds, which have several games.
+      You must first create a tournament, then you can add rounds to them.
+  - name: FIDE
+    description: |
+      FIDE players and federations from [their public download](https://ratings.fide.com/download_lists.phtml).
 
-    **The endpoint hostname is not lichess.org but tablebase.lichess.ovh.**
-- name: OAuth
-  description: |
-    Obtaining and revoking OAuth tokens.
+      <https://lichess.org/fide>
+  - name: Analysis
+    description: |
+      Access Lichess cloud evaluations database.
+      <https://lichess.org/analysis>
+  - name: External engine
+    description: |
+      **This API is in alpha and subject to change.**
 
-    [Read about the Lichess API authentication methods and code examples](https://github.com/lichess-org/api/blob/master/example/README.md).
+      Use or provide external engine analysis.
+
+      External engines can provide analysis on pages like the
+      [analysis board](https://lichess.org/analysis), running as a service
+      outside of the browser, or even on a different machine.
+  - name: Opening Explorer
+    description: |
+      Lookup positions from the [Lichess opening explorer](https://lichess.org/analysis#explorer).
+
+      Runs <https://github.com/lichess-org/lila-openingexplorer>.
+
+      **The endpoint hostname is not lichess.org but explorer.lichess.ovh.**
+  - name: Tablebase
+    description: |
+      Lookup positions from the [Lichess tablebase server](https://lichess.org/blog/W3WeMyQAACQAdfAL/7-piece-syzygy-tablebases-are-complete).
+
+      **The endpoint hostname is not lichess.org but tablebase.lichess.ovh.**
+  - name: OAuth
+    description: |
+      Obtaining and revoking OAuth tokens.
+
+      [Read about the Lichess API authentication methods and code examples](https://github.com/lichess-org/api/blob/master/example/README.md).
 paths:
   /api/users/status:
-    $ref: './tags/users/api-users-status.yaml'
+    $ref: "./tags/users/api-users-status.yaml"
 
   /api/player:
-    $ref: './tags/users/api-player.yaml'
+    $ref: "./tags/users/api-player.yaml"
 
   /api/player/top/{nb}/{perfType}:
-    $ref: './tags/users/api-player-top-nb-perfType.yaml'
+    $ref: "./tags/users/api-player-top-nb-perfType.yaml"
 
   /api/user/{username}:
-    $ref: './tags/users/api-user-username.yaml'
+    $ref: "./tags/users/api-user-username.yaml"
 
   /api/user/{username}/rating-history:
-    $ref: './tags/users/api-user-username-rating-history.yaml'
+    $ref: "./tags/users/api-user-username-rating-history.yaml"
 
   /api/user/{username}/perf/{perf}:
-    $ref: './tags/users/api-user-username-perf-perf.yaml'
+    $ref: "./tags/users/api-user-username-perf-perf.yaml"
 
   /api/user/{username}/activity:
-    $ref: './tags/users/api-user-username-activity.yaml'
+    $ref: "./tags/users/api-user-username-activity.yaml"
 
   /api/puzzle/daily:
-    $ref: './tags/puzzles/api-puzzle-daily.yaml'
+    $ref: "./tags/puzzles/api-puzzle-daily.yaml"
 
   /api/puzzle/{id}:
-    $ref: './tags/puzzles/api-puzzle-id.yaml'
+    $ref: "./tags/puzzles/api-puzzle-id.yaml"
 
   /api/puzzle/next:
-    $ref: './tags/puzzles/api-puzzle-next.yaml'
+    $ref: "./tags/puzzles/api-puzzle-next.yaml"
 
   /api/puzzle/activity:
-    $ref: './tags/puzzles/api-puzzle-activity.yaml'
+    $ref: "./tags/puzzles/api-puzzle-activity.yaml"
 
   /api/puzzle/dashboard/{days}:
-    $ref: './tags/puzzles/api-puzzle-dashboard-days.yaml'
+    $ref: "./tags/puzzles/api-puzzle-dashboard-days.yaml"
 
   /api/storm/dashboard/{username}:
-    $ref: './tags/puzzles/api-storm-dashboard-username.yaml'
+    $ref: "./tags/puzzles/api-storm-dashboard-username.yaml"
 
   /api/racer:
-    $ref: './tags/puzzles/api-racer.yaml'
+    $ref: "./tags/puzzles/api-racer.yaml"
 
   /api/users:
-    $ref: './tags/users/api-users.yaml'
+    $ref: "./tags/users/api-users.yaml"
 
   /api/account:
-    $ref: './tags/account/api-account.yaml'
+    $ref: "./tags/account/api-account.yaml"
 
   /api/account/email:
-    $ref: './tags/account/api-account-email.yaml'
+    $ref: "./tags/account/api-account-email.yaml"
 
   /api/account/preferences:
-    $ref: './tags/account/api-account-preferences.yaml'
+    $ref: "./tags/account/api-account-preferences.yaml"
 
   /api/account/kid:
-    $ref: './tags/account/api-account-kid.yaml'
+    $ref: "./tags/account/api-account-kid.yaml"
 
   /api/timeline:
-    $ref: './tags/account/api-timeline.yaml'
+    $ref: "./tags/account/api-timeline.yaml"
 
   /game/export/{gameId}:
-    $ref: './tags/games/game-export-gameId.yaml'
+    $ref: "./tags/games/game-export-gameId.yaml"
 
   /api/user/{username}/current-game:
-    $ref: './tags/games/api-user-username-current-game.yaml'
+    $ref: "./tags/games/api-user-username-current-game.yaml"
 
   /api/games/user/{username}:
-    $ref: './tags/games/api-games-user-username.yaml'
+    $ref: "./tags/games/api-games-user-username.yaml"
 
   /api/games/export/_ids:
-    $ref: './tags/games/api-games-export-_ids.yaml'
+    $ref: "./tags/games/api-games-export-_ids.yaml"
 
   /api/stream/games-by-users:
-    $ref: './tags/games/api-stream-games-by-users.yaml'
+    $ref: "./tags/games/api-stream-games-by-users.yaml"
 
   /api/stream/games/{streamId}:
-    $ref: './tags/games/api-stream-games-streamId.yaml'
+    $ref: "./tags/games/api-stream-games-streamId.yaml"
 
   /api/stream/games/{streamId}/add:
-    $ref: './tags/games/api-stream-games-streamId-add.yaml'
+    $ref: "./tags/games/api-stream-games-streamId-add.yaml"
 
   /api/account/playing:
-    $ref: './tags/games/api-account-playing.yaml'
+    $ref: "./tags/games/api-account-playing.yaml"
 
   /api/stream/game/{id}:
-    $ref: './tags/games/api-stream-game-id.yaml'
+    $ref: "./tags/games/api-stream-game-id.yaml"
 
   /api/import:
-    $ref: './tags/games/api-import.yaml'
+    $ref: "./tags/games/api-import.yaml"
 
   /api/games/export/imports:
-    $ref: './tags/games/api-games-export-imports.yaml'
+    $ref: "./tags/games/api-games-export-imports.yaml"
 
   /api/games/export/bookmarks:
-    $ref: './tags/games/api-games-export-bookmarks.yaml'
+    $ref: "./tags/games/api-games-export-bookmarks.yaml"
 
   /api/tv/channels:
-    $ref: './tags/tv/api-tv-channels.yaml'
+    $ref: "./tags/tv/api-tv-channels.yaml"
 
   /api/tv/feed:
-    $ref: './tags/tv/api-tv-feed.yaml'
+    $ref: "./tags/tv/api-tv-feed.yaml"
 
   /api/tv/{channel}/feed:
-    $ref: './tags/tv/api-tv-channel-feed.yaml'
+    $ref: "./tags/tv/api-tv-channel-feed.yaml"
 
   /api/tv/{channel}:
-    $ref: './tags/tv/api-tv-channel.yaml'
+    $ref: "./tags/tv/api-tv-channel.yaml"
 
   /api/tournament:
-    $ref: './tags/arenatournaments/api-tournament.yaml'
+    $ref: "./tags/arenatournaments/api-tournament.yaml"
 
   /api/tournament/{id}:
-    $ref: './tags/arenatournaments/api-tournament-id.yaml'
+    $ref: "./tags/arenatournaments/api-tournament-id.yaml"
 
   /api/tournament/{id}/join:
-    $ref: './tags/arenatournaments/api-tournament-id-join.yaml'
+    $ref: "./tags/arenatournaments/api-tournament-id-join.yaml"
 
   /api/tournament/{id}/withdraw:
-    $ref: './tags/arenatournaments/api-tournament-id-withdraw.yaml'
+    $ref: "./tags/arenatournaments/api-tournament-id-withdraw.yaml"
 
   /api/tournament/{id}/terminate:
-    $ref: './tags/arenatournaments/api-tournament-id-terminate.yaml'
+    $ref: "./tags/arenatournaments/api-tournament-id-terminate.yaml"
 
   /api/tournament/team-battle/{id}:
-    $ref: './tags/arenatournaments/api-tournament-team-battle-id.yaml'
+    $ref: "./tags/arenatournaments/api-tournament-team-battle-id.yaml"
 
   /api/tournament/{id}/games:
-    $ref: './tags/arenatournaments/api-tournament-id-games.yaml'
+    $ref: "./tags/arenatournaments/api-tournament-id-games.yaml"
 
   /api/tournament/{id}/results:
-    $ref: './tags/arenatournaments/api-tournament-id-results.yaml'
+    $ref: "./tags/arenatournaments/api-tournament-id-results.yaml"
 
   /api/tournament/{id}/teams:
-    $ref: './tags/arenatournaments/api-tournament-id-teams.yaml'
+    $ref: "./tags/arenatournaments/api-tournament-id-teams.yaml"
 
   /api/user/{username}/tournament/created:
-    $ref: './tags/arenatournaments/api-user-username-tournament-created.yaml'
+    $ref: "./tags/arenatournaments/api-user-username-tournament-created.yaml"
 
   /api/user/{username}/tournament/played:
-    $ref: './tags/arenatournaments/api-user-username-tournament-played.yaml'
+    $ref: "./tags/arenatournaments/api-user-username-tournament-played.yaml"
 
   /api/swiss/new/{teamId}:
-    $ref: './tags/swisstournaments/api-swiss-new-teamId.yaml'
+    $ref: "./tags/swisstournaments/api-swiss-new-teamId.yaml"
 
   /api/swiss/{id}:
-    $ref: './tags/swisstournaments/api-swiss-id.yaml'
+    $ref: "./tags/swisstournaments/api-swiss-id.yaml"
 
   /api/swiss/{id}/edit:
-    $ref: './tags/swisstournaments/api-swiss-id-edit.yaml'
+    $ref: "./tags/swisstournaments/api-swiss-id-edit.yaml"
 
   /api/swiss/{id}/schedule-next-round:
-    $ref: './tags/swisstournaments/api-swiss-id-schedule-next-round.yaml'
+    $ref: "./tags/swisstournaments/api-swiss-id-schedule-next-round.yaml"
 
   /api/swiss/{id}/join:
-    $ref: './tags/swisstournaments/api-swiss-id-join.yaml'
+    $ref: "./tags/swisstournaments/api-swiss-id-join.yaml"
 
   /api/swiss/{id}/withdraw:
-    $ref: './tags/swisstournaments/api-swiss-id-withdraw.yaml'
+    $ref: "./tags/swisstournaments/api-swiss-id-withdraw.yaml"
 
   /api/swiss/{id}/terminate:
-    $ref: './tags/swisstournaments/api-swiss-id-terminate.yaml'
+    $ref: "./tags/swisstournaments/api-swiss-id-terminate.yaml"
 
   /swiss/{id}.trf:
-    $ref: './tags/swisstournaments/swiss-id.trf.yaml'
+    $ref: "./tags/swisstournaments/swiss-id.trf.yaml"
 
   /api/swiss/{id}/games:
-    $ref: './tags/swisstournaments/api-swiss-id-games.yaml'
+    $ref: "./tags/swisstournaments/api-swiss-id-games.yaml"
 
   /api/swiss/{id}/results:
-    $ref: './tags/swisstournaments/api-swiss-id-results.yaml'
+    $ref: "./tags/swisstournaments/api-swiss-id-results.yaml"
 
   /api/team/{teamId}/swiss:
-    $ref: './tags/teams/api-team-teamId-swiss.yaml'
+    $ref: "./tags/teams/api-team-teamId-swiss.yaml"
 
   /api/study/{studyId}/{chapterId}.pgn:
-    $ref: './tags/studies/api-study-studyId-chapterId.pgn.yaml'
+    $ref: "./tags/studies/api-study-studyId-chapterId.pgn.yaml"
 
   /api/study/{studyId}.pgn:
-    $ref: './tags/studies/api-study-studyId.pgn.yaml'
+    $ref: "./tags/studies/api-study-studyId.pgn.yaml"
 
   /api/study/{studyId}/import-pgn:
-    $ref: './tags/studies/api-study-studyId-import-pgn.yaml'
+    $ref: "./tags/studies/api-study-studyId-import-pgn.yaml"
 
   /study/by/{username}/export.pgn:
-    $ref: './tags/studies/study-by-username-export.pgn.yaml'
+    $ref: "./tags/studies/study-by-username-export.pgn.yaml"
 
   /api/study/by/{username}:
-    $ref: './tags/studies/api-study-by-username.yaml'
+    $ref: "./tags/studies/api-study-by-username.yaml"
 
   /api/study/{studyId}/{chapterId}:
-    $ref: './tags/studies/api-study-studyId-chapterId.yaml'
+    $ref: "./tags/studies/api-study-studyId-chapterId.yaml"
 
   /api/broadcast:
-    $ref: './tags/broadcasts/api-broadcasts-official.yaml'
+    $ref: "./tags/broadcasts/api-broadcasts-official.yaml"
 
   /api/broadcast/top:
-    $ref: './tags/broadcasts/api-broadcasts-top.yaml'
+    $ref: "./tags/broadcasts/api-broadcasts-top.yaml"
 
   /api/broadcast/by/{username}:
-    $ref: './tags/broadcasts/api-broadcasts-by-user.yaml'
+    $ref: "./tags/broadcasts/api-broadcasts-by-user.yaml"
 
   /broadcast/new:
-    $ref: './tags/broadcasts/broadcast-new.yaml'
+    $ref: "./tags/broadcasts/broadcast-new.yaml"
 
   /api/broadcast/{broadcastTournamentId}:
-    $ref: './tags/broadcasts/broadcast-broadcastTournamentId.yaml'
+    $ref: "./tags/broadcasts/broadcast-broadcastTournamentId.yaml"
 
   /broadcast/{broadcastTournamentId}/players:
-    $ref: './tags/broadcasts/broadcast-broadcastTournamentId-players.yaml'
+    $ref: "./tags/broadcasts/broadcast-broadcastTournamentId-players.yaml"
 
   /broadcast/{broadcastTournamentId}/edit:
-    $ref: './tags/broadcasts/broadcast-broadcastTournamentId-edit.yaml'
+    $ref: "./tags/broadcasts/broadcast-broadcastTournamentId-edit.yaml"
 
   /broadcast/{broadcastTournamentId}/new:
-    $ref: './tags/broadcasts/broadcast-broadcastTournamentId-new.yaml'
+    $ref: "./tags/broadcasts/broadcast-broadcastTournamentId-new.yaml"
 
   /api/broadcast/{broadcastTournamentSlug}/{broadcastRoundSlug}/{broadcastRoundId}:
-    $ref: './tags/broadcasts/api-broadcast-broadcastTournamentSlug-broadcastRoundSlug-broadcastRoundId.yaml'
+    $ref: "./tags/broadcasts/api-broadcast-broadcastTournamentSlug-broadcastRoundSlug-broadcastRoundId.yaml"
 
   /broadcast/round/{broadcastRoundId}/edit:
-    $ref: './tags/broadcasts/broadcast-round-broadcastRoundId-edit.yaml'
+    $ref: "./tags/broadcasts/broadcast-round-broadcastRoundId-edit.yaml"
 
   /api/broadcast/round/{broadcastRoundId}/reset:
-    $ref: './tags/broadcasts/broadcast-round-broadcastRoundId-reset.yaml'
+    $ref: "./tags/broadcasts/broadcast-round-broadcastRoundId-reset.yaml"
 
   /api/broadcast/round/{broadcastRoundId}/push:
-    $ref: './tags/broadcasts/broadcast-round-broadcastRoundId-push.yaml'
+    $ref: "./tags/broadcasts/broadcast-round-broadcastRoundId-push.yaml"
 
   /api/stream/broadcast/round/{broadcastRoundId}.pgn:
-    $ref: './tags/broadcasts/api-stream-broadcast-round-broadcastRoundId.pgn.yaml'
+    $ref: "./tags/broadcasts/api-stream-broadcast-round-broadcastRoundId.pgn.yaml"
 
   /api/broadcast/round/{broadcastRoundId}.pgn:
-    $ref: './tags/broadcasts/api-broadcast-round-broadcastRoundId.pgn.yaml'
+    $ref: "./tags/broadcasts/api-broadcast-round-broadcastRoundId.pgn.yaml"
 
   /api/broadcast/{broadcastTournamentId}.pgn:
-    $ref: './tags/broadcasts/api-broadcast-broadcastTournamentId.pgn.yaml'
+    $ref: "./tags/broadcasts/api-broadcast-broadcastTournamentId.pgn.yaml"
 
   /api/broadcast/my-rounds:
-    $ref: './tags/broadcasts/api-broadcast-my-rounds.yaml'
+    $ref: "./tags/broadcasts/api-broadcast-my-rounds.yaml"
 
   /api/fide/player/{playerId}:
-    $ref: './tags/fide/api-fide-player-playerId.yaml'
+    $ref: "./tags/fide/api-fide-player-playerId.yaml"
 
   /api/fide/player:
-    $ref: './tags/fide/api-fide-player-search.yaml'
+    $ref: "./tags/fide/api-fide-player-search.yaml"
 
   /api/simul:
-    $ref: './tags/simuls/api-simul.yaml'
+    $ref: "./tags/simuls/api-simul.yaml"
 
   /api/team/{teamId}:
-    $ref: './tags/teams/api-team-teamId.yaml'
+    $ref: "./tags/teams/api-team-teamId.yaml"
 
   /api/team/all:
-    $ref: './tags/teams/api-team-all.yaml'
+    $ref: "./tags/teams/api-team-all.yaml"
 
   /api/team/of/{username}:
-    $ref: './tags/teams/api-team-of-username.yaml'
+    $ref: "./tags/teams/api-team-of-username.yaml"
 
   /api/team/search:
-    $ref: './tags/teams/api-team-search.yaml'
+    $ref: "./tags/teams/api-team-search.yaml"
 
   /api/team/{teamId}/users:
-    $ref: './tags/teams/api-team-teamId-users.yaml'
+    $ref: "./tags/teams/api-team-teamId-users.yaml"
 
   /api/team/{teamId}/arena:
-    $ref: './tags/teams/api-team-teamId-arena.yaml'
+    $ref: "./tags/teams/api-team-teamId-arena.yaml"
 
   /team/{teamId}/join:
-    $ref: './tags/teams/team-teamId-join.yaml'
+    $ref: "./tags/teams/team-teamId-join.yaml"
 
   /team/{teamId}/quit:
-    $ref: './tags/teams/team-teamId-quit.yaml'
+    $ref: "./tags/teams/team-teamId-quit.yaml"
 
   /api/team/{teamId}/requests:
-    $ref: './tags/teams/api-team-teamId-requests.yaml'
+    $ref: "./tags/teams/api-team-teamId-requests.yaml"
 
   /api/team/{teamId}/request/{userId}/accept:
-    $ref: './tags/teams/api-team-teamId-request-userId-accept.yaml'
+    $ref: "./tags/teams/api-team-teamId-request-userId-accept.yaml"
 
   /api/team/{teamId}/request/{userId}/decline:
-    $ref: './tags/teams/api-team-teamId-request-userId-decline.yaml'
+    $ref: "./tags/teams/api-team-teamId-request-userId-decline.yaml"
 
   /api/team/{teamId}/kick/{userId}:
-    $ref: './tags/teams/api-team-teamId-kick-userId.yaml'
+    $ref: "./tags/teams/api-team-teamId-kick-userId.yaml"
 
   /team/{teamId}/pm-all:
-    $ref: './tags/teams/team-teamId-pm-all.yaml'
+    $ref: "./tags/teams/team-teamId-pm-all.yaml"
 
   /api/streamer/live:
-    $ref: './tags/users/api-streamer-live.yaml'
+    $ref: "./tags/users/api-streamer-live.yaml"
 
   /api/crosstable/{user1}/{user2}:
-    $ref: './tags/users/api-crosstable-user1-user2.yaml'
+    $ref: "./tags/users/api-crosstable-user1-user2.yaml"
 
   /api/player/autocomplete:
-    $ref: './tags/users/api-player-autocomplete.yaml'
+    $ref: "./tags/users/api-player-autocomplete.yaml"
 
   /api/user/{username}/note:
-    $ref: './tags/users/api-user-username-note.yaml'
+    $ref: "./tags/users/api-user-username-note.yaml"
 
   /api/rel/following:
-    $ref: './tags/relations/api-rel-following.yaml'
+    $ref: "./tags/relations/api-rel-following.yaml"
 
   /api/rel/follow/{username}:
-    $ref: './tags/relations/api-rel-follow-username.yaml'
+    $ref: "./tags/relations/api-rel-follow-username.yaml"
 
   /api/rel/unfollow/{username}:
-    $ref: './tags/relations/api-rel-unfollow-username.yaml'
+    $ref: "./tags/relations/api-rel-unfollow-username.yaml"
 
   /api/rel/block/{username}:
-    $ref: './tags/relations/api-rel-block-username.yaml'
+    $ref: "./tags/relations/api-rel-block-username.yaml"
 
   /api/rel/unblock/{username}:
-    $ref: './tags/relations/api-rel-unblock-username.yaml'
+    $ref: "./tags/relations/api-rel-unblock-username.yaml"
 
   /api/stream/event:
-    $ref: './tags/board/api-stream-event.yaml'
+    $ref: "./tags/board/api-stream-event.yaml"
 
   /api/board/seek:
-    $ref: './tags/board/api-board-seek.yaml'
+    $ref: "./tags/board/api-board-seek.yaml"
 
   /api/board/game/stream/{gameId}:
-    $ref: './tags/board/api-board-game-stream-gameId.yaml'
+    $ref: "./tags/board/api-board-game-stream-gameId.yaml"
 
   /api/board/game/{gameId}/move/{move}:
-    $ref: './tags/board/api-board-game-gameId-move-move.yaml'
+    $ref: "./tags/board/api-board-game-gameId-move-move.yaml"
 
   /api/board/game/{gameId}/chat:
-    $ref: './tags/board/api-board-game-gameId-chat.yaml'
+    $ref: "./tags/board/api-board-game-gameId-chat.yaml"
 
   /api/board/game/{gameId}/abort:
-    $ref: './tags/board/api-board-game-gameId-abort.yaml'
+    $ref: "./tags/board/api-board-game-gameId-abort.yaml"
 
   /api/board/game/{gameId}/resign:
-    $ref: './tags/board/api-board-game-gameId-resign.yaml'
+    $ref: "./tags/board/api-board-game-gameId-resign.yaml"
 
   /api/board/game/{gameId}/draw/{accept}:
-    $ref: './tags/board/api-board-game-gameId-draw-accept.yaml'
+    $ref: "./tags/board/api-board-game-gameId-draw-accept.yaml"
 
   /api/board/game/{gameId}/takeback/{accept}:
-    $ref: './tags/board/api-board-game-gameId-takeback-accept.yaml'
+    $ref: "./tags/board/api-board-game-gameId-takeback-accept.yaml"
 
   /api/board/game/{gameId}/claim-victory:
-    $ref: './tags/board/api-board-game-gameId-claim-victory.yaml'
+    $ref: "./tags/board/api-board-game-gameId-claim-victory.yaml"
 
   /api/board/game/{gameId}/berserk:
-    $ref: './tags/board/api-board-game-gameId-berserk.yaml'
+    $ref: "./tags/board/api-board-game-gameId-berserk.yaml"
 
   /api/bot/online:
-    $ref: './tags/bot/api-bot-online.yaml'
+    $ref: "./tags/bot/api-bot-online.yaml"
 
   /api/bot/account/upgrade:
-    $ref: './tags/bot/api-bot-account-upgrade.yaml'
+    $ref: "./tags/bot/api-bot-account-upgrade.yaml"
 
   /api/bot/game/stream/{gameId}:
-    $ref: './tags/bot/api-bot-game-stream-gameId.yaml'
+    $ref: "./tags/bot/api-bot-game-stream-gameId.yaml"
 
   /api/bot/game/{gameId}/move/{move}:
-    $ref: './tags/bot/api-bot-game-gameId-move-move.yaml'
+    $ref: "./tags/bot/api-bot-game-gameId-move-move.yaml"
 
   /api/bot/game/{gameId}/chat:
-    $ref: './tags/bot/api-bot-game-gameId-chat.yaml'
+    $ref: "./tags/bot/api-bot-game-gameId-chat.yaml"
 
   /api/bot/game/{gameId}/abort:
-    $ref: './tags/bot/api-bot-game-gameId-abort.yaml'
+    $ref: "./tags/bot/api-bot-game-gameId-abort.yaml"
 
   /api/bot/game/{gameId}/resign:
-    $ref: './tags/bot/api-bot-game-gameId-resign.yaml'
+    $ref: "./tags/bot/api-bot-game-gameId-resign.yaml"
 
   /api/bot/game/{gameId}/draw/{accept}:
-    $ref: './tags/bot/api-bot-game-gameId-draw-accept.yaml'
+    $ref: "./tags/bot/api-bot-game-gameId-draw-accept.yaml"
 
   /api/bot/game/{gameId}/takeback/{accept}:
-    $ref: './tags/bot/api-bot-game-gameId-takeback-accept.yaml'
+    $ref: "./tags/bot/api-bot-game-gameId-takeback-accept.yaml"
 
   /api/challenge:
-    $ref: './tags/challenges/api-challenge.yaml'
+    $ref: "./tags/challenges/api-challenge.yaml"
 
   /api/challenge/{username}:
-    $ref: './tags/challenges/api-challenge-username.yaml'
+    $ref: "./tags/challenges/api-challenge-username.yaml"
 
   /api/challenge/{challengeId}/show:
-    $ref: './tags/challenges/api-challenge-id-show.yaml'
+    $ref: "./tags/challenges/api-challenge-id-show.yaml"
 
   /api/challenge/{challengeId}/accept:
-    $ref: './tags/challenges/api-challenge-challengeId-accept.yaml'
+    $ref: "./tags/challenges/api-challenge-challengeId-accept.yaml"
 
   /api/challenge/{challengeId}/decline:
-    $ref: './tags/challenges/api-challenge-challengeId-decline.yaml'
+    $ref: "./tags/challenges/api-challenge-challengeId-decline.yaml"
 
   /api/challenge/{challengeId}/cancel:
-    $ref: './tags/challenges/api-challenge-challengeId-cancel.yaml'
+    $ref: "./tags/challenges/api-challenge-challengeId-cancel.yaml"
 
   /api/challenge/ai:
-    $ref: './tags/challenges/api-challenge-ai.yaml'
+    $ref: "./tags/challenges/api-challenge-ai.yaml"
 
   /api/challenge/open:
-    $ref: './tags/challenges/api-challenge-open.yaml'
+    $ref: "./tags/challenges/api-challenge-open.yaml"
 
   /api/challenge/{gameId}/start-clocks:
-    $ref: './tags/challenges/api-challenge-gameId-start-clocks.yaml'
+    $ref: "./tags/challenges/api-challenge-gameId-start-clocks.yaml"
 
   /api/bulk-pairing:
-    $ref: './tags/bulkpairings/api-bulk-pairing.yaml'
+    $ref: "./tags/bulkpairings/api-bulk-pairing.yaml"
 
   /api/bulk-pairing/{id}/start-clocks:
-    $ref: './tags/bulkpairings/api-bulk-pairing-id-start-clocks.yaml'
+    $ref: "./tags/bulkpairings/api-bulk-pairing-id-start-clocks.yaml"
 
   /api/bulk-pairing/{id}:
-    $ref: './tags/bulkpairings/api-bulk-pairing-id.yaml'
+    $ref: "./tags/bulkpairings/api-bulk-pairing-id.yaml"
 
   /api/bulk-pairing/{id}/games:
-    $ref: './tags/bulkpairings/api-bulk-pairing-id-games.yaml'
+    $ref: "./tags/bulkpairings/api-bulk-pairing-id-games.yaml"
 
   /api/round/{gameId}/add-time/{seconds}:
-    $ref: './tags/challenges/api-round-gameId-add-time-seconds.yaml'
+    $ref: "./tags/challenges/api-round-gameId-add-time-seconds.yaml"
 
   /api/token/admin-challenge:
-    $ref: './tags/challenges/api-token-admin-challenge.yaml'
+    $ref: "./tags/challenges/api-token-admin-challenge.yaml"
 
   /inbox/{username}:
-    $ref: './tags/messaging/inbox-username.yaml'
+    $ref: "./tags/messaging/inbox-username.yaml"
 
   /api/cloud-eval:
-    $ref: './tags/analysis/api-cloud-eval.yaml'
+    $ref: "./tags/analysis/api-cloud-eval.yaml"
 
   /api/external-engine:
-    $ref: './tags/externalengine/api-external-engine.yaml'
+    $ref: "./tags/externalengine/api-external-engine.yaml"
 
   /api/external-engine/{id}:
-    $ref: './tags/externalengine/api-external-engine-id.yaml'
+    $ref: "./tags/externalengine/api-external-engine-id.yaml"
 
   /api/external-engine/{id}/analyse:
-    $ref: './tags/externalengine/api-external-engine-id-analyse.yaml'
+    $ref: "./tags/externalengine/api-external-engine-id-analyse.yaml"
 
   /api/external-engine/work:
-    $ref: './tags/externalengine/api-external-engine-work.yaml'
+    $ref: "./tags/externalengine/api-external-engine-work.yaml"
 
   /api/external-engine/work/{id}:
-    $ref: './tags/externalengine/api-external-engine-work-id.yaml'
+    $ref: "./tags/externalengine/api-external-engine-work-id.yaml"
 
   /oauth:
-    $ref: './tags/oauth/oauth.yaml'
+    $ref: "./tags/oauth/oauth.yaml"
 
   /api/token:
-    $ref: './tags/oauth/api-token.yaml'
+    $ref: "./tags/oauth/api-token.yaml"
 
   /api/token/test:
-    $ref: './tags/oauth/api-token-test.yaml'
+    $ref: "./tags/oauth/api-token-test.yaml"
 
   /masters:
-    $ref: './tags/openingexplorer/masters.yaml'
+    $ref: "./tags/openingexplorer/masters.yaml"
 
   /lichess:
-    $ref: './tags/openingexplorer/lichess.yaml'
+    $ref: "./tags/openingexplorer/lichess.yaml"
 
   /player:
-    $ref: './tags/openingexplorer/player.yaml'
+    $ref: "./tags/openingexplorer/player.yaml"
 
   /master/pgn/{gameId}:
-    $ref: './tags/openingexplorer/master-pgn-gameId.yaml'
+    $ref: "./tags/openingexplorer/master-pgn-gameId.yaml"
 
   /standard:
-    $ref: './tags/tablebase/standard.yaml'
+    $ref: "./tags/tablebase/standard.yaml"
 
   /atomic:
-    $ref: './tags/tablebase/atomic.yaml'
+    $ref: "./tags/tablebase/atomic.yaml"
 
   /antichess:
-    $ref: './tags/tablebase/antichess.yaml'
-
-
+    $ref: "./tags/tablebase/antichess.yaml"
 
 components:
   schemas:
-    $ref: './schemas/_index.yaml'
+    $ref: "./schemas/_index.yaml"
   securitySchemes:
     OAuth2:
       type: oauth2

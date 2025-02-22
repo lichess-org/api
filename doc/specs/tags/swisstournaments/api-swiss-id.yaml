@@ -1,10 +1,10 @@
 parameters:
- - in: path
-   name: id
-   description: The Swiss tournament ID.
-   schema:
-     type: string
-   required: true
+  - in: path
+    name: id
+    description: The Swiss tournament ID.
+    schema:
+      type: string
+    required: true
 get:
   operationId: swiss
   summary: Get info about a Swiss tournament
@@ -24,4 +24,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/SwissTournament.yaml'
+            $ref: "../../schemas/SwissTournament.yaml"

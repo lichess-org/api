@@ -17,7 +17,7 @@ get:
       name: variant
       description: Variant
       schema:
-        $ref: '../../schemas/VariantKey.yaml'
+        $ref: "../../schemas/VariantKey.yaml"
         default: standard
     - in: query
       name: fen
@@ -42,7 +42,7 @@ get:
       schema:
         type: array
         items:
-          $ref: '../../schemas/Speed.yaml'
+          $ref: "../../schemas/Speed.yaml"
     - in: query
       name: ratings
       description: |
@@ -113,4 +113,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/OpeningExplorerLichess.yaml'
+            $ref: "../../schemas/OpeningExplorerLichess.yaml"

@@ -1,5 +1,5 @@
 allOf:
-  - $ref: './User.yaml'
+  - $ref: "./User.yaml"
 
   - properties:
       url:
@@ -11,7 +11,7 @@ allOf:
         format: uri
         example: https://lichess.org/yqfLYJ5E/black
       count:
-        $ref: './Count.yaml'
+        $ref: "./Count.yaml"
       streaming:
         type: boolean
         example: false

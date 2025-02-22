@@ -17,10 +17,4 @@ required:
   - room
   - username
   - text
-example:
-  {
-    "type": "chatLine",
-    "username": "thibault",
-    "text": "Good luck, have fun",
-    "room": "player"
-  }
+example: { "type": "chatLine", "username": "thibault", "text": "Good luck, have fun", "room": "player" }

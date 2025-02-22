@@ -41,28 +41,17 @@ required:
   - win
 
 example:
-    {
-        "date": 1717460624888,
-        "puzzle": {
-            "fen": "6k1/3rqpp1/5b1p/p1p1pP1Q/1pB4P/1P1R1PP1/P7/6K1 w - - 1 1",
-            "id": "BlOLL",
-            "lastMove": "c7d7",
-            "plays": 14703,
-            "rating": 2018,
-            "solution": [
-                "h5f7",
-                "e7f7",
-                "d3d7",
-                "f7c4",
-                "b3c4"
-            ],
-            "themes": [
-                "endgame",
-                "crushing",
-                "long",
-                "sacrifice",
-                "pin"
-            ]
-        },
-        "win": true
-    }
+  {
+    "date": 1717460624888,
+    "puzzle":
+      {
+        "fen": "6k1/3rqpp1/5b1p/p1p1pP1Q/1pB4P/1P1R1PP1/P7/6K1 w - - 1 1",
+        "id": "BlOLL",
+        "lastMove": "c7d7",
+        "plays": 14703,
+        "rating": 2018,
+        "solution": ["h5f7", "e7f7", "d3d7", "f7c4", "b3c4"],
+        "themes": ["endgame", "crushing", "long", "sacrifice", "pin"],
+      },
+    "win": true,
+  }

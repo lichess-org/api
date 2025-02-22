@@ -1,6 +1,6 @@
 type: object
 properties:
   request:
-    $ref: './TeamRequest.yaml'
+    $ref: "./TeamRequest.yaml"
   user:
-    $ref: './User.yaml'
+    $ref: "./User.yaml"

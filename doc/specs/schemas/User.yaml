@@ -8,9 +8,9 @@ properties:
     type: string
     example: Georges
   perfs:
-    $ref: './Perfs.yaml'
+    $ref: "./Perfs.yaml"
   flair:
-    $ref: './Flair.yaml'
+    $ref: "./Flair.yaml"
   createdAt:
     type: integer
     format: int64
@@ -24,7 +24,7 @@ properties:
     example: false
     description: only appears if a user's account is marked for the violation of [Lichess TOS](https://lichess.org/terms-of-service)
   profile:
-    $ref: './Profile.yaml'
+    $ref: "./Profile.yaml"
   seenAt:
     type: integer
     format: int64
@@ -36,9 +36,9 @@ properties:
     type: boolean
     example: true
   playTime:
-    $ref: './PlayTime.yaml'
+    $ref: "./PlayTime.yaml"
   title:
-    $ref: './Title.yaml'
+    $ref: "./Title.yaml"
 
 required:
   - id

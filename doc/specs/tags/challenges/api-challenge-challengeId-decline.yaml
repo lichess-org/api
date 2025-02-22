@@ -48,10 +48,10 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Ok.yaml'
+            $ref: "../../schemas/Ok.yaml"
     "404":
       description: The challenge to decline was not found.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/NotFound.yaml'
+            $ref: "../../schemas/NotFound.yaml"

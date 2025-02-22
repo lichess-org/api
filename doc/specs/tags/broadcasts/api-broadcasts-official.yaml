@@ -42,11 +42,7 @@ get:
                   "name": "Norway Chess 2024 | Open",
                   "slug": "norway-chess-2024--open",
                   "info":
-                    {
-                      "format": "5-round Swiss",
-                      "players": "featured, players, listed, here",
-                      "tc": "Classical",
-                    },
+                    { "format": "5-round Swiss", "players": "featured, players, listed, here", "tc": "Classical" },
                   "createdAt": 1716672627410,
                   "dates": [1724719373834, 1750560409830],
                   "tier": 5,

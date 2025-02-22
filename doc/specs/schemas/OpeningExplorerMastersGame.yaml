@@ -3,14 +3,14 @@ properties:
   id:
     type: string
   winner:
-    type: [string, 'null']
+    type: [string, "null"]
     enum:
       - white
       - black
   white:
-    $ref: './OpeningExplorerGamePlayer.yaml'
+    $ref: "./OpeningExplorerGamePlayer.yaml"
   black:
-    $ref: './OpeningExplorerGamePlayer.yaml'
+    $ref: "./OpeningExplorerGamePlayer.yaml"
   year:
     type: number
   month:

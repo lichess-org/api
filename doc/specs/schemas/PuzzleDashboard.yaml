@@ -4,14 +4,14 @@ properties:
   days:
     type: integer
   global:
-    $ref: './PuzzlePerformance.yaml'
+    $ref: "./PuzzlePerformance.yaml"
   themes:
     type: object
     additionalProperties:
       type: object
       properties:
         results:
-          $ref: './PuzzlePerformance.yaml'
+          $ref: "./PuzzlePerformance.yaml"
         theme:
           type: string
       required:
@@ -24,55 +24,30 @@ required:
   - themes
 
 example:
-    {
-        "days": 30,
-        "global": {
-            "firstWins": 1,
-            "nb": 2,
-            "performance": 2032,
-            "puzzleRatingAvg": 2032,
-            "replayWins": 0
-        },
-        "themes": {
-            "defensiveMove": {
-                "results": {
-                    "firstWins": 0,
-                    "nb": 1,
-                    "performance": 1547,
-                    "puzzleRatingAvg": 2047,
-                    "replayWins": 0
-                },
-                "theme": "Defensive move"
-            },
-            "endgame": {
-                "results": {
-                    "firstWins": 1,
-                    "nb": 2,
-                    "performance": 2032,
-                    "puzzleRatingAvg": 2032,
-                    "replayWins": 0
-                },
-                "theme": "Endgame"
-            },
-            "pin": {
-                "results": {
-                    "firstWins": 1,
-                    "nb": 1,
-                    "performance": 2518,
-                    "puzzleRatingAvg": 2018,
-                    "replayWins": 0
-                },
-                "theme": "Pin"
-            },
-            "sacrifice": {
-                "results": {
-                    "firstWins": 1,
-                    "nb": 1,
-                    "performance": 2518,
-                    "puzzleRatingAvg": 2018,
-                    "replayWins": 0
-                },
-                "theme": "Sacrifice"
-            }
-        }
-    }
+  {
+    "days": 30,
+    "global": { "firstWins": 1, "nb": 2, "performance": 2032, "puzzleRatingAvg": 2032, "replayWins": 0 },
+    "themes":
+      {
+        "defensiveMove":
+          {
+            "results": { "firstWins": 0, "nb": 1, "performance": 1547, "puzzleRatingAvg": 2047, "replayWins": 0 },
+            "theme": "Defensive move",
+          },
+        "endgame":
+          {
+            "results": { "firstWins": 1, "nb": 2, "performance": 2032, "puzzleRatingAvg": 2032, "replayWins": 0 },
+            "theme": "Endgame",
+          },
+        "pin":
+          {
+            "results": { "firstWins": 1, "nb": 1, "performance": 2518, "puzzleRatingAvg": 2018, "replayWins": 0 },
+            "theme": "Pin",
+          },
+        "sacrifice":
+          {
+            "results": { "firstWins": 1, "nb": 1, "performance": 2518, "puzzleRatingAvg": 2018, "replayWins": 0 },
+            "theme": "Sacrifice",
+          },
+      },
+  }

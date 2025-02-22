@@ -19,7 +19,7 @@ properties:
     type: integer
     description: Integer of Black Fisher increment.
   status:
-    $ref: './GameStatus.yaml'
+    $ref: "./GameStatus.yaml"
   winner:
     type: string
     description: Color of the winner, if any
@@ -53,5 +53,5 @@ example:
     "binc": 10000,
     "wdraw": false,
     "bdraw": false,
-    "status": "started"
+    "status": "started",
   }

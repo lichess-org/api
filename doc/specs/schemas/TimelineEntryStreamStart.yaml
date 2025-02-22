@@ -1,6 +1,6 @@
 type: object
 properties:
-  type: 
+  type:
     type: string
     enum:
       - stream-start
@@ -11,7 +11,7 @@ properties:
     properties:
       id:
         type: string
-      name: 
+      name:
         type: string
     required:
       - id

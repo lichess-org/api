@@ -27,4 +27,4 @@ get:
           schema:
             type: array
             items:
-              $ref: '../../schemas/FIDEPlayer.yaml'
+              $ref: "../../schemas/FIDEPlayer.yaml"

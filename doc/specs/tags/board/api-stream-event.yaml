@@ -1,17 +1,19 @@
 get:
   operationId: apiStreamEvent
   summary: Stream incoming events
-  description: "\n
-  \ Stream the events reaching a lichess user in real time as [ndjson](#section/Introduction/Streaming-with-ND-JSON).\n\n
-  \ An empty line is sent every 6 seconds for keep alive purposes.\n\n
-  \ Each non-empty line is a JSON object containing a `type` field. Possible values are:\n
-  \ - `gameStart` Start of a game\n
-  \ - `gameFinish` Completion of a game\n
-  \ - `challenge` A player sends you a challenge or you challenge someone\n
-  \ - `challengeCanceled` A player cancels their challenge to you\n
-  \ - `challengeDeclined` The opponent declines your challenge\n
-  \n
-  \ When the stream opens, all current challenges and games are sent."
+  description: |
+    Stream the events reaching a lichess user in real time as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+
+    An empty line is sent every 6 seconds for keep alive purposes.
+
+    Each non-empty line is a JSON object containing a `type` field. Possible values are:
+    - `gameStart` Start of a game
+    - `gameFinish` Completion of a game
+    - `challenge` A player sends you a challenge or you challenge someone
+    - `challengeCanceled` A player cancels their challenge to you
+    - `challengeDeclined` The opponent declines your challenge
+
+    When the stream opens, all current challenges and games are sent.
   tags:
     - Board
     - Bot
@@ -29,8 +31,8 @@ get:
         application/x-ndjson:
           schema:
             oneOf:
-              - $ref: '../../schemas/GameStartEvent.yaml'
-              - $ref: '../../schemas/GameFinishEvent.yaml'
-              - $ref: '../../schemas/ChallengeEvent.yaml'
-              - $ref: '../../schemas/ChallengeCanceledEvent.yaml'
-              - $ref: '../../schemas/ChallengeDeclinedEvent.yaml'
+              - $ref: "../../schemas/GameStartEvent.yaml"
+              - $ref: "../../schemas/GameFinishEvent.yaml"
+              - $ref: "../../schemas/ChallengeEvent.yaml"
+              - $ref: "../../schemas/ChallengeCanceledEvent.yaml"
+              - $ref: "../../schemas/ChallengeDeclinedEvent.yaml"

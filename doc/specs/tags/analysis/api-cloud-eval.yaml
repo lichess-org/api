@@ -28,7 +28,7 @@ get:
       name: variant
       description: Variant
       schema:
-        $ref: '../../schemas/VariantKey.yaml'
+        $ref: "../../schemas/VariantKey.yaml"
   responses:
     "200":
       description: The evaluation of the position.

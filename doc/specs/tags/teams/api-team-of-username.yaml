@@ -26,4 +26,4 @@ get:
           schema:
             type: array
             items:
-              $ref: '../../schemas/Team.yaml'
+              $ref: "../../schemas/Team.yaml"

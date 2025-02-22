@@ -1,17 +1,17 @@
 example:
   {
-    'id': 'RVAcwgg7',
-    'games':
+    "id": "RVAcwgg7",
+    "games":
       [
-        { 'id': 'NKop9IyD', 'black': 'lizen1', 'white': 'thibault' },
-        { 'id': 'KT8374ut', 'black': 'lizen3', 'white': 'lizen2' },
-        { 'id': 'wInQr8Sk', 'black': 'lizen5', 'white': 'lizen4' },
+        { "id": "NKop9IyD", "black": "lizen1", "white": "thibault" },
+        { "id": "KT8374ut", "black": "lizen3", "white": "lizen2" },
+        { "id": "wInQr8Sk", "black": "lizen5", "white": "lizen4" },
       ],
-    'variant': 'standard',
-    'clock': { 'increment': 0, 'limit': 300 },
-    'pairAt': 1612289869919,
-    'pairedAt': null,
-    'rated': false,
-    'startClocksAt': 1612200422971,
-    'scheduledAt': 1612203514628,
+    "variant": "standard",
+    "clock": { "increment": 0, "limit": 300 },
+    "pairAt": 1612289869919,
+    "pairedAt": null,
+    "rated": false,
+    "startClocksAt": 1612200422971,
+    "scheduledAt": 1612203514628,
   }

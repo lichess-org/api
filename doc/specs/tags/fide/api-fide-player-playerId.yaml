@@ -14,9 +14,9 @@ get:
       schema:
         type: number
   responses:
-    '200':
+    "200":
       description: The information about the FIDE player.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/FIDEPlayer.yaml'
+            $ref: "../../schemas/FIDEPlayer.yaml"

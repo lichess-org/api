@@ -25,16 +25,16 @@ get:
               pending:
                 type: array
                 items:
-                  $ref: '../../schemas/Simul.yaml'
+                  $ref: "../../schemas/Simul.yaml"
               created:
                 type: array
                 items:
-                  $ref: '../../schemas/Simul.yaml'
+                  $ref: "../../schemas/Simul.yaml"
               started:
                 type: array
                 items:
-                  $ref: '../../schemas/Simul.yaml'
+                  $ref: "../../schemas/Simul.yaml"
               finished:
                 type: array
                 items:
-                  $ref: '../../schemas/Simul.yaml'
+                  $ref: "../../schemas/Simul.yaml"

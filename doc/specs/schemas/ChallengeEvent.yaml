@@ -4,4 +4,4 @@ properties:
     type: string
     const: challenge
   challenge:
-    $ref: './ChallengeJson.yaml'
+    $ref: "./ChallengeJson.yaml"

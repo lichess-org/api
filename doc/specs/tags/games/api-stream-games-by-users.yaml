@@ -39,4 +39,4 @@ post:
       content:
         application/x-ndjson:
           schema:
-            $ref: '../../schemas/GameStream.yaml'
+            $ref: "../../schemas/GameStream.yaml"

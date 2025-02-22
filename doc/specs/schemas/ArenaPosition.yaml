@@ -4,23 +4,23 @@ oneOf:
     properties:
       eco:
         type: string
-        example: 'C41'
+        example: "C41"
       name:
         type: string
-        example: 'Philidor Defense'
+        example: "Philidor Defense"
       fen:
         type: string
-        example: 'rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -'
+        example: "rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -"
       url:
         type: string
         format: uri
-        example: 'https://lichess.org/opening/Philidor_Defense'
+        example: "https://lichess.org/opening/Philidor_Defense"
   - type: object
     title: Custom position
     properties:
       name:
         type: string
-        const: 'Custom position'
+        const: "Custom position"
       fen:
         type: string
-        example: 'rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 2 3'
+        example: "rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 2 3"

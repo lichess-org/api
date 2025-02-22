@@ -2,8 +2,8 @@ type: object
 properties:
   opening:
     oneOf:
-      - $ref: './OpeningExplorerOpening.yaml'
-      - type: 'null'
+      - $ref: "./OpeningExplorerOpening.yaml"
+      - type: "null"
   white:
     type: number
   draws:
@@ -29,12 +29,12 @@ properties:
           type: number
         game:
           oneOf:
-            - $ref: './OpeningExplorerLichessGame.yaml'
-            - type: 'null'
+            - $ref: "./OpeningExplorerLichessGame.yaml"
+            - type: "null"
         opening:
           oneOf:
-            - $ref: './OpeningExplorerOpening.yaml'
-            - type: 'null'
+            - $ref: "./OpeningExplorerOpening.yaml"
+            - type: "null"
       required:
         - uci
         - san
@@ -54,7 +54,7 @@ properties:
               type: string
           required:
             - uci
-        - $ref: './OpeningExplorerLichessGame.yaml'
+        - $ref: "./OpeningExplorerLichessGame.yaml"
   recentGames:
     type: array
     items:
@@ -65,7 +65,7 @@ properties:
               type: string
           required:
             - uci
-        - $ref: './OpeningExplorerLichessGame.yaml'
+        - $ref: "./OpeningExplorerLichessGame.yaml"
   history:
     type: array
     items:
@@ -94,91 +94,65 @@ required:
   - recentGames
 example:
   {
-    "opening": {
-      "eco": "D10",
-      "name": "Slav Defense: Exchange Variation"
-    },
+    "opening": { "eco": "D10", "name": "Slav Defense: Exchange Variation" },
     "white": 4164079,
     "draws": 405547,
     "black": 3668091,
-    "moves": [
-      {
-        "uci": "c6d5",
-        "san": "cxd5",
-        "averageRating": 1801,
-        "white": 3716043,
-        "draws": 370963,
-        "black": 3304807,
-        "game": null,
-        "opening": null
-      },
-      {
-        "uci": "d8d5",
-        "san": "Qxd5",
-        "averageRating": 1658,
-        "white": 195544,
-        "draws": 14378,
-        "black": 140001,
-        "game": null,
-        "opening": null
-      }
-    ],
-    "recentGames": [
-      {
-        "uci": "c6d5",
-        "id": "ilsfX0gq",
-        "winner": "black",
-        "speed": "blitz",
-        "mode": "rated",
-        "black": {
-          "name": "captan64",
-          "rating": 2201
+    "moves":
+      [
+        {
+          "uci": "c6d5",
+          "san": "cxd5",
+          "averageRating": 1801,
+          "white": 3716043,
+          "draws": 370963,
+          "black": 3304807,
+          "game": null,
+          "opening": null,
         },
-        "white": {
-          "name": "ElsaPato33",
-          "rating": 2324
+        {
+          "uci": "d8d5",
+          "san": "Qxd5",
+          "averageRating": 1658,
+          "white": 195544,
+          "draws": 14378,
+          "black": 140001,
+          "game": null,
+          "opening": null,
         },
-        "year": 2024,
-        "month": "2024-10"
-      }
-    ],
-    "topGames": [
-      {
-        "uci": "g8f6",
-        "id": "EqJcFS1j",
-        "winner": "white",
-        "speed": "ultraBullet",
-        "mode": "rated",
-        "black": {
-          "name": "toivok",
-          "rating": 2708
+      ],
+    "recentGames":
+      [
+        {
+          "uci": "c6d5",
+          "id": "ilsfX0gq",
+          "winner": "black",
+          "speed": "blitz",
+          "mode": "rated",
+          "black": { "name": "captan64", "rating": 2201 },
+          "white": { "name": "ElsaPato33", "rating": 2324 },
+          "year": 2024,
+          "month": "2024-10",
         },
-        "white": {
-          "name": "penguingim1",
-          "rating": 2969
+      ],
+    "topGames":
+      [
+        {
+          "uci": "g8f6",
+          "id": "EqJcFS1j",
+          "winner": "white",
+          "speed": "ultraBullet",
+          "mode": "rated",
+          "black": { "name": "toivok", "rating": 2708 },
+          "white": { "name": "penguingim1", "rating": 2969 },
+          "year": 2018,
+          "month": "2018-04",
         },
-        "year": 2018,
-        "month": "2018-04"
-      }
-    ],
-    "history": [
-      {
-        "month": "2013-01",
-        "white": 60,
-        "draws": 2,
-        "black": 54
-      },
-      {
-        "month": "2013-02",
-        "white": 71,
-        "draws": 8,
-        "black": 75
-      },
-      {
-        "month": "2013-03",
-        "white": 83,
-        "draws": 4,
-        "black": 72
-      }
-    ]
+      ],
+    "history":
+      [
+        { "month": "2013-01", "white": 60, "draws": 2, "black": 54 },
+        { "month": "2013-02", "white": 71, "draws": 8, "black": 75 },
+        { "month": "2013-03", "white": 83, "draws": 4, "black": 72 },
+      ],
   }

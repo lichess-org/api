@@ -2,9 +2,9 @@ type: object
 
 properties:
   tour:
-    $ref: './BroadcastTour.yaml'
+    $ref: "./BroadcastTour.yaml"
   round:
-    $ref: './BroadcastRoundInfo.yaml'
+    $ref: "./BroadcastRoundInfo.yaml"
 
 required:
   - tour
