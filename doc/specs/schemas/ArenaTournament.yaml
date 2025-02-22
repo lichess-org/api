@@ -41,6 +41,10 @@ properties:
     properties:
       nb:
         type: integer
+  botsAllowed:
+    type: boolean
+  minAccountAgeInDays:
+    type: integer
   onlyTitled:
     type: boolean
   teamMember:
