@@ -35,6 +35,7 @@ info:
     - [Python Board API for Certabo](https://github.com/haklein/certabo-lichess)
     - [Java general API](https://github.com/tors42/chariot)
     - [JavaScript & TypeScript general API](https://github.com/devjiwonchoi/equine)
+    - [LichessNET - C# API Wrapper](https://github.com/Rabergsel/LichessNET)
 
     ## Rate limiting
     All requests are rate limited using various strategies,
