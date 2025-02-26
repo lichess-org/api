@@ -24,7 +24,7 @@ post:
     content:
       application/x-www-form-urlencoded:
         schema:
-          $ref: '../../schemas/BroadcastRoundForm.yaml'
+          $ref: "../../schemas/BroadcastRoundForm.yaml"
   responses:
     "200":
       description: The broadcast round was successfully edited.
@@ -36,10 +36,10 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Ok.yaml'
+            $ref: "../../schemas/Ok.yaml"
     "400":
       description: The broadcast round update failed.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Error.yaml'
+            $ref: "../../schemas/Error.yaml"

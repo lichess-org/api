@@ -21,18 +21,18 @@ properties:
       the user has deviated from the tablebase recommendation since the
       last pawn move or capture.
   dtz:
-    type: ['null', 'integer']
+    type: ["null", "integer"]
     description: |
       [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) or null if unknown
   precise_dtz:
-    type: ['null', 'integer']
+    type: ["null", "integer"]
     description: |
       DTZ50'' (only if guaranteed to be not rounded) or null if unknown
   dtm:
-    type: ['null', 'integer']
+    type: ["null", "integer"]
     description: Depth To Mate (only for Standard positions with not more than 5 pieces)
   dtw:
-    type: ['null', 'integer']
+    type: ["null", "integer"]
     description: Depth To Win (only for Antichess positions with not more than 4 pieces)
   checkmate:
     type: boolean
@@ -50,35 +50,35 @@ properties:
     type: array
     description: Information about legal moves, best first
     items:
-      $ref: './Move.yaml'
+      $ref: "./Move.yaml"
 example:
   {
-    'dtz': 1,
-    'precise_dtz': 1,
-    'dtm': 17,
-    'dtw': null,
-    'checkmate': false,
-    'stalemate': false,
-    'variant_win': false,
-    'variant_loss': false,
-    'insufficient_material': false,
-    'category': 'win',
-    'moves':
+    "dtz": 1,
+    "precise_dtz": 1,
+    "dtm": 17,
+    "dtw": null,
+    "checkmate": false,
+    "stalemate": false,
+    "variant_win": false,
+    "variant_loss": false,
+    "insufficient_material": false,
+    "category": "win",
+    "moves":
       [
         {
-          'uci': 'h7h8q',
-          'san': 'h8=Q+',
-          'dtz': -2,
-          'precise_dtz': -2,
-          'dtm': -16,
-          'dtw': null,
-          'zeroing': true,
-          'checkmate': false,
-          'stalemate': false,
-          'variant_win': false,
-          'variant_loss': false,
-          'insufficient_material': false,
-          'category': 'loss',
+          "uci": "h7h8q",
+          "san": "h8=Q+",
+          "dtz": -2,
+          "precise_dtz": -2,
+          "dtm": -16,
+          "dtw": null,
+          "zeroing": true,
+          "checkmate": false,
+          "stalemate": false,
+          "variant_win": false,
+          "variant_loss": false,
+          "insufficient_material": false,
+          "category": "loss",
         },
       ],
   }

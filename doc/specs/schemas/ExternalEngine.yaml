@@ -38,7 +38,7 @@ properties:
     description: List of supported chess variants.
     example: [chess]
     items:
-      $ref: './UciVariant.yaml'
+      $ref: "./UciVariant.yaml"
   providerData:
     type: string
     description: |

@@ -75,7 +75,7 @@ get:
         default: false
     - in: query
       name: division
-      description: | 
+      description: |
         Plies which mark the beginning of the middlegame and endgame.
         Only available in JSON
       schema:
@@ -92,7 +92,7 @@ get:
       content:
         application/x-chess-pgn:
           schema:
-            $ref: '../../schemas/GamePgn.yaml'
+            $ref: "../../schemas/GamePgn.yaml"
         application/x-ndjson:
           schema:
-            $ref: '../../schemas/GameJson.yaml'
+            $ref: "../../schemas/GameJson.yaml"

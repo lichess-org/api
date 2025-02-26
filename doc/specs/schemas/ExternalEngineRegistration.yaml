@@ -22,7 +22,7 @@ properties:
     type: array
     description: Optional list of supported chess variants.
     items:
-      $ref: './UciVariant.yaml'
+      $ref: "./UciVariant.yaml"
   #officialStockfish:
   #  type: boolean
   #  description: |

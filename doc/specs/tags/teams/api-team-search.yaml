@@ -29,4 +29,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/TeamPaginatorJson.yaml'
+            $ref: "../../schemas/TeamPaginatorJson.yaml"

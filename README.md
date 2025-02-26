@@ -22,3 +22,9 @@ Make modifications to `doc/specs/lichess-api.yaml`, and reload the page to see y
 pnpm spectral
 pnpm lint
 ```
+
+### Format the yaml files
+
+```shell
+pnpm format
+```

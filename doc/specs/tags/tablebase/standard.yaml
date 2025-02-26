@@ -27,4 +27,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/TablebaseJson.yaml'
+            $ref: "../../schemas/TablebaseJson.yaml"

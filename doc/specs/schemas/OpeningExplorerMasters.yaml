@@ -2,8 +2,8 @@ type: object
 properties:
   opening:
     oneOf:
-      - $ref: './OpeningExplorerOpening.yaml'
-      - type: 'null'
+      - $ref: "./OpeningExplorerOpening.yaml"
+      - type: "null"
   white:
     type: number
   draws:
@@ -28,12 +28,12 @@ properties:
           type: number
         game:
           oneOf:
-            - $ref: './OpeningExplorerMastersGame.yaml'
-            - type: 'null'
+            - $ref: "./OpeningExplorerMastersGame.yaml"
+            - type: "null"
         opening:
           oneOf:
-            - $ref: './OpeningExplorerOpening.yaml'
-            - type: 'null'
+            - $ref: "./OpeningExplorerOpening.yaml"
+            - type: "null"
       required:
         - uci
         - san
@@ -53,7 +53,7 @@ properties:
               type: string
           required:
             - uci
-        - $ref: './OpeningExplorerMastersGame.yaml'
+        - $ref: "./OpeningExplorerMastersGame.yaml"
 required:
   - opening
   - white
@@ -63,63 +63,60 @@ required:
   - topGames
 example:
   {
-    "opening": {
-      "eco": "D10",
-      "name": "Slav Defense: Exchange Variation"
-    },
+    "opening": { "eco": "D10", "name": "Slav Defense: Exchange Variation" },
     "white": 1828,
     "draws": 4904,
     "black": 1403,
-    "moves": [
-      {
-        "uci": "c6d5",
-        "san": "cxd5",
-        "averageRating": 2414,
-        "white": 1828,
-        "draws": 4904,
-        "black": 1402,
-        "game": null,
-        "opening": null
-      },
-      {
-        "uci": "g8f6",
-        "san": "Nf6",
-        "averageRating": 2515,
-        "white": 0,
-        "draws": 0,
-        "black": 1,
-        "game": {
-          "id": "1EErB5jc",
-          "winner": "black",
-          "black": {"name": "Dobrov, Vladimir", "rating": 2515},
-          "white": {"name": "Drozdovskij, Yuri", "rating": 2509},
-          "year": 2006,
-          "month": "2006-01"
+    "moves":
+      [
+        {
+          "uci": "c6d5",
+          "san": "cxd5",
+          "averageRating": 2414,
+          "white": 1828,
+          "draws": 4904,
+          "black": 1402,
+          "game": null,
+          "opening": null,
         },
-        "opening": {
-          "eco":"D06",
-          "name":"Queen's Gambit Declined: Marshall Defense, Tan Gambit"
-        }
-      }
-    ],
-    "topGames": [
-      {
-        "uci": "c6d5",
-        "id": "kN6d9l2i",
-        "winner": "black",
-        "black": {"name": "Anand, V.", "rating": 2785},
-        "white": {"name": "Carlsen, M.", "rating":2881},
-        "year": 2014,
-        "month": "2014-06"
-      },
-      {
-        "uci": "c6d5",
-        "id": "qeYPJL2y",
-        "winner": "white",
-        "black": {"name": "Carlsen, M.", "rating": 2843},
-        "white": {"name": "So, W.", "rating": 2778},
-        "year": 2018,
-        "month": "2018-06"
-      }
-    ]
+        {
+          "uci": "g8f6",
+          "san": "Nf6",
+          "averageRating": 2515,
+          "white": 0,
+          "draws": 0,
+          "black": 1,
+          "game":
+            {
+              "id": "1EErB5jc",
+              "winner": "black",
+              "black": { "name": "Dobrov, Vladimir", "rating": 2515 },
+              "white": { "name": "Drozdovskij, Yuri", "rating": 2509 },
+              "year": 2006,
+              "month": "2006-01",
+            },
+          "opening": { "eco": "D06", "name": "Queen's Gambit Declined: Marshall Defense, Tan Gambit" },
+        },
+      ],
+    "topGames":
+      [
+        {
+          "uci": "c6d5",
+          "id": "kN6d9l2i",
+          "winner": "black",
+          "black": { "name": "Anand, V.", "rating": 2785 },
+          "white": { "name": "Carlsen, M.", "rating": 2881 },
+          "year": 2014,
+          "month": "2014-06",
+        },
+        {
+          "uci": "c6d5",
+          "id": "qeYPJL2y",
+          "winner": "white",
+          "black": { "name": "Carlsen, M.", "rating": 2843 },
+          "white": { "name": "So, W.", "rating": 2778 },
+          "year": 2018,
+          "month": "2018-06",
+        },
+      ],
   }

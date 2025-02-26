@@ -34,4 +34,4 @@ get:
       content:
         application/nd-json:
           schema:
-            $ref: '../../schemas/SwissTournament.yaml'
+            $ref: "../../schemas/SwissTournament.yaml"

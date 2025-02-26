@@ -14,9 +14,9 @@ properties:
   score:
     type: number
   flair:
-    $ref: './Flair.yaml'
+    $ref: "./Flair.yaml"
   sheet:
-    $ref: './ArenaSheet.yaml'
+    $ref: "./ArenaSheet.yaml"
   nb:
     type: object
     properties:

@@ -8,11 +8,7 @@ properties:
     format: uri
 
 required:
-    - id
-    - url
+  - id
+  - url
 
-example:
-    {
-        "id": "MT4hr",
-        "url": "https://lichess.org/racer/MT4hr"
-    }
+example: { "id": "MT4hr", "url": "https://lichess.org/racer/MT4hr" }

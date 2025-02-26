@@ -4,6 +4,6 @@ properties:
     type: string
     const: challengeDeclined
   challenge:
-    $ref: './ChallengeCanceledJson.yaml'
+    $ref: "./ChallengeCanceledJson.yaml"
 example:
-  $ref: '../examples/challengeDeclined.json'
+  $ref: "../examples/challengeDeclined.json"

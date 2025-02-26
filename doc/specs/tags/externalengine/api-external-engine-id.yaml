@@ -26,7 +26,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/ExternalEngine.yaml'
+            $ref: "../../schemas/ExternalEngine.yaml"
 put:
   operationId: apiExternalEnginePut
   summary: Update external engine
@@ -42,7 +42,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../../schemas/ExternalEngineRegistration.yaml'
+          $ref: "../../schemas/ExternalEngineRegistration.yaml"
   responses:
     "200":
       description: A registered engine.
@@ -54,7 +54,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/ExternalEngine.yaml'
+            $ref: "../../schemas/ExternalEngine.yaml"
 delete:
   operationId: apiExternalEngineDelete
   summary: Delete external engine
@@ -70,4 +70,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Ok.yaml'
+            $ref: "../../schemas/Ok.yaml"

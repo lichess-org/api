@@ -18,4 +18,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Top10s.yaml'
+            $ref: "../../schemas/Top10s.yaml"

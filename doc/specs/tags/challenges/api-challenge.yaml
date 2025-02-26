@@ -24,9 +24,9 @@ get:
                 type: array
                 description: Incoming challenges i.e. targeted at you
                 items:
-                  $ref: '../../schemas/ChallengeJson.yaml'
+                  $ref: "../../schemas/ChallengeJson.yaml"
               out:
                 type: array
                 description: Outgoing challenges i.e. created by you
                 items:
-                  $ref: '../../schemas/ChallengeJson.yaml'
+                  $ref: "../../schemas/ChallengeJson.yaml"

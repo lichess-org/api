@@ -33,4 +33,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Timeline.yaml'
+            $ref: "../../schemas/Timeline.yaml"

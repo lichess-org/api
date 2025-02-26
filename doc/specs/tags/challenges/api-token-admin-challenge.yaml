@@ -8,7 +8,7 @@ post:
   tags:
     - Challenges
   security:
-    - OAuth2: ['web:mod']
+    - OAuth2: ["web:mod"]
   requestBody:
     required: true
     content:
@@ -23,12 +23,12 @@ post:
             description:
               description: User visible description of the token
               type: string
-              example: 'FIDE tournament XYZ'
+              example: "FIDE tournament XYZ"
           required:
             - users
             - description
   responses:
-    '200':
+    "200":
       description: The `challenge:write` tokens of each user
       headers:
         Access-Control-Allow-Origin:
@@ -43,14 +43,14 @@ post:
               type: string
             example:
               {
-                'thibault': 'lLOEkpH58W599xH9',
-                'neio': 'nAYTIJphwWFwKmKk',
-                'lizen2': '1cnHhuWKHROgiPC4',
-                'lizen3': 'SszJ9Sj1bto0UQCK',
+                "thibault": "lLOEkpH58W599xH9",
+                "neio": "nAYTIJphwWFwKmKk",
+                "lizen2": "1cnHhuWKHROgiPC4",
+                "lizen3": "SszJ9Sj1bto0UQCK",
               }
-    '400':
+    "400":
       description: The creation of the tokens failed.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Error.yaml'
+            $ref: "../../schemas/Error.yaml"

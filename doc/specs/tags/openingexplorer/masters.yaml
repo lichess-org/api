@@ -63,4 +63,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/OpeningExplorerMasters.yaml'
+            $ref: "../../schemas/OpeningExplorerMasters.yaml"

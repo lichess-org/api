@@ -24,4 +24,4 @@ get:
       content:
         application/x-ndjson:
           schema:
-            $ref: '../../schemas/BroadcastMyRound.yaml'
+            $ref: "../../schemas/BroadcastMyRound.yaml"

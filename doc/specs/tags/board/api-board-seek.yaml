@@ -1,20 +1,27 @@
 post:
   operationId: apiBoardSeek
   summary: Create a seek
-  description: "\n
-  \ Create a public seek, to start a game with a random player.\n\n
-  \ ### Real-time seek\n\n
-  \ Specify the `time` and `increment` clock values.
-  \ The response is streamed but doesn't contain any information.\n\n
-  \ **Keep the connection open to keep the seek active**.\n\n
-  \ If the client closes the connection, the seek is canceled. This way, if the client terminates, the user won't be paired in a game they wouldn't play.\n
-  \ When the seek is accepted, or expires, the server closes the connection.\n\n
-  \ **Make sure to also have an [Event stream](#operation/apiStreamEvent) open**, to be notified when a game starts.\n
-  \ We recommend opening the [Event stream](#operation/apiStreamEvent) first, then the seek stream. This way,\n
-  \ you won't miss the game event if the seek is accepted immediately.\n\n
-  \ ### Correspondence seek\n\n
-  \ Specify the `days` per turn value.
-  \ The response is not streamed, it immediately completes with the seek ID. The seek remains active on the server until it is joined by someone."
+  description: |
+    Create a public seek, to start a game with a random player.
+
+    ### Real-time seek
+
+    Specify the `time` and `increment` clock values.
+    The response is streamed but doesn't contain any information.
+
+    **Keep the connection open to keep the seek active**.
+
+    If the client closes the connection, the seek is canceled. This way, if the client terminates, the user won't be paired in a game they wouldn't play.
+    When the seek is accepted, or expires, the server closes the connection.
+
+    **Make sure to also have an [Event stream](#operation/apiStreamEvent) open**, to be notified when a game starts.
+    We recommend opening the [Event stream](#operation/apiStreamEvent) first, then the seek stream. This way,
+    you won't miss the game event if the seek is accepted immediately.
+
+    ### Correspondence seek
+
+    Specify the `days` per turn value.
+    The response is not streamed, it immediately completes with the seek ID. The seek remains active on the server until it is joined by someone.
   tags:
     - Board
   security:
@@ -33,55 +40,55 @@ post:
                   example: true
                   default: false
                 variant:
-                  $ref: '../../schemas/VariantKey.yaml'
+                  $ref: "../../schemas/VariantKey.yaml"
                 ratingRange:
                   type: string
                   description: |
                     The rating range of potential opponents. Better left empty.
                     Example: 1500-1800
             - oneOf:
-              - type: object
-                title: real-time
-                required:
-                  - time
-                  - increment
-                properties:
-                  time:
-                    type: number
-                    description: Clock initial time in minutes. Required for real-time seeks.
-                    example: 15
-                    minimum: 0
-                    maximum: 180
-                  increment:
-                    type: integer
-                    description: Clock increment in seconds. Required for real-time seeks.
-                    example: 15
-                    minimum: 0
-                    maximum: 180
-                  color:
-                    type: string
-                    description: The color to play. Better left empty to automatically get 50% white.
-                    enum:
-                      - random
-                      - white
-                      - black
-                    default: random
-              - type: object
-                title: correspondence
-                required:
-                  - days
-                properties:
-                  days:
-                    type: integer
-                    description: Days per turn. Required for correspondence seeks.
-                    enum:
-                      - 1
-                      - 2
-                      - 3
-                      - 5
-                      - 7
-                      - 10
-                      - 14
+                - type: object
+                  title: real-time
+                  required:
+                    - time
+                    - increment
+                  properties:
+                    time:
+                      type: number
+                      description: Clock initial time in minutes. Required for real-time seeks.
+                      example: 15
+                      minimum: 0
+                      maximum: 180
+                    increment:
+                      type: integer
+                      description: Clock increment in seconds. Required for real-time seeks.
+                      example: 15
+                      minimum: 0
+                      maximum: 180
+                    color:
+                      type: string
+                      description: The color to play. Better left empty to automatically get 50% white.
+                      enum:
+                        - random
+                        - white
+                        - black
+                      default: random
+                - type: object
+                  title: correspondence
+                  required:
+                    - days
+                  properties:
+                    days:
+                      type: integer
+                      description: Days per turn. Required for correspondence seeks.
+                      enum:
+                        - 1
+                        - 2
+                        - 3
+                        - 5
+                        - 7
+                        - 10
+                        - 14
   responses:
     "200":
       description: The seek was successfully created.
@@ -100,16 +107,14 @@ post:
             properties:
               id:
                 type: string
-            example: {
-              id: 'gwkzmEBY'
-            }
+            example: { id: "gwkzmEBY" }
         application/x-ndjson:
           schema:
             description: Only happens when doing a real-time seek
-            example: ''
+            example: ""
     "400":
       description: The creation of the seek failed.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Error.yaml'
+            $ref: "../../schemas/Error.yaml"

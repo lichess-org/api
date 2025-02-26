@@ -24,8 +24,8 @@ post:
             room:
               type: string
               enum:
-              - player
-              - spectator
+                - player
+                - spectator
             text:
               type: string
               example: "Thank you for the game!"
@@ -43,13 +43,13 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Ok.yaml'
+            $ref: "../../schemas/Ok.yaml"
     "400":
       description: The posting of the  message in chat failed.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Error.yaml'
+            $ref: "../../schemas/Error.yaml"
 get:
   operationId: botGameChatGet
   summary: Fetch the game chat
@@ -77,4 +77,4 @@ get:
       content:
         application/x-ndjson:
           schema:
-            $ref: '../../schemas/GameChat.yaml'
+            $ref: "../../schemas/GameChat.yaml"

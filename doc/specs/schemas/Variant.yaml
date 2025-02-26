@@ -1,7 +1,7 @@
 type: object
 properties:
   key:
-    $ref: './VariantKey.yaml'
+    $ref: "./VariantKey.yaml"
   name:
     type: string
   short:

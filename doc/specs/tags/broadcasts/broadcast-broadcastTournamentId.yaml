@@ -16,9 +16,9 @@ get:
         minLength: 8
         maxLength: 8
   responses:
-    '200':
+    "200":
       description: The information about the broadcast tournament.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/BroadcastWithRounds.yaml'
+            $ref: "../../schemas/BroadcastWithRounds.yaml"

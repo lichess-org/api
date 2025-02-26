@@ -1,16 +1,20 @@
 get:
   operationId: boardGameStream
   summary: Stream Board game state
-  description: "\
-  \ Stream the state of a game being played with the Board API, as [ndjson](#section/Introduction/Streaming-with-ND-JSON).\n\
-  \nUse this endpoint to get updates about the game in real-time, with a single request.\n\
-  \nEach line is a JSON object containing a `type` field. Possible values are:\n
-  \ - `gameFull` Full game data. All values are immutable, except for the `state` field.\n
-  \ - `gameState` Current state of the game. Immutable values not included. Sent when a move is played, a draw is offered, or when the game ends.\n
-  \ - `chatLine` Chat message sent by a user in the `room` \"player\" or \"spectator\".\n\n
-  \ - `opponentGone` Whether the opponent has left the game, and how long before you can claim a win or draw.\n\n
-  \nThe first line is always of type `gameFull`.\n\n
-  \nThe server closes the stream when the game ends, or if the game has already ended."
+  description: |
+    Stream the state of a game being played with the Board API, as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+
+    Use this endpoint to get updates about the game in real-time, with a single request.
+
+    Each line is a JSON object containing a `type` field. Possible values are:
+      - `gameFull` Full game data. All values are immutable, except for the `state` field.
+      - `gameState` Current state of the game. Immutable values not included. Sent when a move is played, a draw is offered, or when the game ends.
+      - `chatLine` Chat message sent by a user in the `room` "player" or "spectator".
+      - `opponentGone` Whether the opponent has left the game, and how long before you can claim a win or draw.
+
+    The first line is always of type `gameFull`.
+
+    The server closes the stream when the game ends, or if the game has already ended.
   tags:
     - Board
   security:
@@ -34,13 +38,13 @@ get:
         application/x-ndjson:
           schema:
             oneOf:
-              - $ref: '../../schemas/GameFullEvent.yaml'
-              - $ref: '../../schemas/GameStateEvent.yaml'
-              - $ref: '../../schemas/ChatLineEvent.yaml'
-              - $ref: '../../schemas/OpponentGone.yaml'
+              - $ref: "../../schemas/GameFullEvent.yaml"
+              - $ref: "../../schemas/GameStateEvent.yaml"
+              - $ref: "../../schemas/ChatLineEvent.yaml"
+              - $ref: "../../schemas/OpponentGone.yaml"
     "404":
       description: The game was not found.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/NotFound.yaml'
+            $ref: "../../schemas/NotFound.yaml"

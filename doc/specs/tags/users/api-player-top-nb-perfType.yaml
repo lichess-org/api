@@ -50,4 +50,4 @@ get:
       content:
         application/vnd.lichess.v3+json:
           schema:
-            $ref: '../../schemas/Leaderboard.yaml'
+            $ref: "../../schemas/Leaderboard.yaml"

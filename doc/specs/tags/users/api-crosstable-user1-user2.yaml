@@ -34,4 +34,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Crosstable.yaml'
+            $ref: "../../schemas/Crosstable.yaml"

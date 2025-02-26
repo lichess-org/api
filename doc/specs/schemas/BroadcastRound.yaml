@@ -52,20 +52,8 @@ example:
           "fen": "r1b2rk1/pppp1ppp/1bn5/n2RP1B1/Q1B1P3/N1P2N2/Pq4PP/1R5K b - - 3 16",
           "players":
             [
-              {
-                "name": "Carlsen, Magnus",
-                "title": "GM",
-                "rating": 2828,
-                "clock": 56000,
-                "fed": "NOR",
-              },
-              {
-                "name": "Anand, Viswanathan",
-                "title": "GM",
-                "rating": 2749,
-                "clock": 56000,
-                "fed": "IND",
-              },
+              { "name": "Carlsen, Magnus", "title": "GM", "rating": 2828, "clock": 56000, "fed": "NOR" },
+              { "name": "Anand, Viswanathan", "title": "GM", "rating": 2749, "clock": 56000, "fed": "IND" },
             ],
           "lastMove": "a1b1",
           "thinkTime": 63,
@@ -77,18 +65,8 @@ example:
           "fen": "r1b2rk1/pp1p1ppp/6n1/3p2B1/4P2P/5N2/P4PP1/b2Q1BK1 b - - 1 18",
           "players":
             [
-              {
-                "name": "Nakamura, Hikaru",
-                "title": "GM",
-                "rating": 2746,
-                "fed": "USA",
-              },
-              {
-                "name": "Amin, Bassem",
-                "title": "GM",
-                "rating": 2583,
-                "fed": "EGY",
-              },
+              { "name": "Nakamura, Hikaru", "title": "GM", "rating": 2746, "fed": "USA" },
+              { "name": "Amin, Bassem", "title": "GM", "rating": 2583, "fed": "EGY" },
             ],
           "lastMove": "b3d1",
           "thinkTime": 4,

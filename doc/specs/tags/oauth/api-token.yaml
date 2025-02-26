@@ -68,7 +68,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/OAuthError.yaml'
+            $ref: "../../schemas/OAuthError.yaml"
 delete:
   operationId: apiTokenDelete
   summary: Revoke access token

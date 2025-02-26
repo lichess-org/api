@@ -14,15 +14,15 @@ properties:
       - declined
       - accepted
   challenger:
-    type: 'null'
+    type: "null"
   destUser:
-    type: 'null'
+    type: "null"
   variant:
-    $ref: './Variant.yaml'
+    $ref: "./Variant.yaml"
   rated:
     type: boolean
   speed:
-    $ref: './Speed.yaml'
+    $ref: "./Speed.yaml"
   timeControl:
     oneOf:
       - type: object
@@ -54,10 +54,10 @@ properties:
         additionalProperties: false
   color:
     type: string
-    enum: ['white', 'black', 'random']
+    enum: ["white", "black", "random"]
   finalColor:
     type: string
-    enum: ['white', 'black']
+    enum: ["white", "black"]
   perf:
     type: object
     properties:
@@ -102,26 +102,14 @@ example:
     "status": "created",
     "challenger": null,
     "destUser": null,
-    "variant": {
-      "key": "standard",
-      "name": "Standard",
-      "short": "Std"
-    },
+    "variant": { "key": "standard", "name": "Standard", "short": "Std" },
     "rated": false,
     "speed": "rapid",
-    "timeControl": {
-      "type": "clock",
-      "limit": 600,
-      "increment": 5,
-      "show": "10+5"
-    },
+    "timeControl": { "type": "clock", "limit": 600, "increment": 5, "show": "10+5" },
     "color": "random",
     "finalColor": "black",
-    "perf": {
-      "icon": "",
-      "name": "Rapid"
-    },
+    "perf": { "icon": "", "name": "Rapid" },
     "open": {},
     "urlWhite": "https://lichess.org/3gH5lybT?color=white",
-    "urlBlack": "https://lichess.org/3gH5lybT?color=black"
+    "urlBlack": "https://lichess.org/3gH5lybT?color=black",
   }

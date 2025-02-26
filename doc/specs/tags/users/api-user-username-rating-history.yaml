@@ -26,4 +26,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/RatingHistory.yaml'
+            $ref: "../../schemas/RatingHistory.yaml"

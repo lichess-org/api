@@ -21,9 +21,9 @@ get:
       content:
         application/x-ndjson:
           schema:
-            $ref: '../../schemas/TvFeed.yaml'
+            $ref: "../../schemas/TvFeed.yaml"
           examples:
             first line:
-              $ref: '../../examples/tvFeedFirst.yaml'
+              $ref: "../../examples/tvFeedFirst.yaml"
             subsequent lines:
-              $ref: '../../examples/tvFeedFen.yaml'
+              $ref: "../../examples/tvFeedFen.yaml"

@@ -49,4 +49,4 @@ get:
                   result:
                     type: array
                     items:
-                      $ref: '../../schemas/LightUserOnline.yaml'
+                      $ref: "../../schemas/LightUserOnline.yaml"

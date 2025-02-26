@@ -8,11 +8,11 @@ properties:
   description:
     type: string
   flair:
-    $ref: './Flair.yaml'
+    $ref: "./Flair.yaml"
   leaders:
     type: array
     items:
-      $ref: './LightUser.yaml'
+      $ref: "./LightUser.yaml"
   nbMembers:
     type: integer
   open:
@@ -32,22 +32,10 @@ example:
     "name": "Lichess Swiss",
     "description": "The official Lichess Swiss team. We organize regular swiss tournaments for all to join.",
     "flair": "food-drink.cheese-wedge",
-    "leader": {
-        "flair": "activity.lichess",
-        "id": "lichess",
-        "name": "Lichess",
-        "patron": true
-    },
-    "leaders": [
-        {
-            "flair": "activity.lichess",
-            "id": "lichess",
-            "name": "Lichess",
-            "patron": true
-        }
-    ],
+    "leader": { "flair": "activity.lichess", "id": "lichess", "name": "Lichess", "patron": true },
+    "leaders": [{ "flair": "activity.lichess", "id": "lichess", "name": "Lichess", "patron": true }],
     "nbMembers": 487629,
     "open": true,
     "joined": false,
-    "requested": false
+    "requested": false,
   }

@@ -18,4 +18,4 @@ get:
       content:
         application/x-ndjson:
           schema:
-            $ref: '../../schemas/UserExtended.yaml'
+            $ref: "../../schemas/UserExtended.yaml"

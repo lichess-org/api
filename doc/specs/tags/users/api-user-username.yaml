@@ -32,4 +32,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/UserExtended.yaml'
+            $ref: "../../schemas/UserExtended.yaml"

@@ -25,13 +25,13 @@ post:
               type: boolean
               description: Game is rated and impacts players ratings
               default: false
-            'clock.limit':
+            "clock.limit":
               type: number
               description: Clock initial time in seconds. If empty, a correspondence game is created.
               example: 300
               minimum: 0
               maximum: 10800
-            'clock.increment':
+            "clock.increment":
               type: integer
               description: Clock increment in seconds. If empty, a correspondence game is created.
               example: 1
@@ -49,9 +49,9 @@ post:
                 - 10
                 - 14
             variant:
-              $ref: '../../schemas/VariantKey.yaml'
+              $ref: "../../schemas/VariantKey.yaml"
             fen:
-              $ref: '../../schemas/FromPositionFEN.yaml'
+              $ref: "../../schemas/FromPositionFEN.yaml"
             name:
               type: string
               description: Optional name for the challenge, that players will see on the challenge page.
@@ -88,10 +88,10 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/ChallengeOpenJson.yaml'
+            $ref: "../../schemas/ChallengeOpenJson.yaml"
     "400":
       description: The creation of the challenge failed.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Error.yaml'
+            $ref: "../../schemas/Error.yaml"

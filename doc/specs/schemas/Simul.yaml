@@ -16,7 +16,7 @@ properties:
   host:
     type: object
     allOf:
-      - $ref: './LightUser.yaml'
+      - $ref: "./LightUser.yaml"
       - type: object
         properties:
           rating:
@@ -34,7 +34,7 @@ properties:
   variants:
     type: array
     items:
-      $ref: './Variant.yaml'
+      $ref: "./Variant.yaml"
   isCreated:
     type: boolean
   isFinished:
@@ -55,18 +55,18 @@ properties:
     type: number
 example:
   {
-    'id': 'pDGbxhUe',
-    'name': 'GM ChessWeeb',
-    'fullName': 'GM ChessWeeb simul',
-    'host': { 'id': 'chessweeb', 'name': 'ChessWeeb', 'rating': 1500, 'title': 'GM' },
-    'isCreated': false,
-    'isFinished': true,
-    'isRunning': false,
-    'estimatedStartAt': 1620029815106,
-    'startedAt': 1620029815106,
-    'finishedAt': 1620029937283,
-    'nbApplicants': 0,
-    'nbPairings': 24,
-    'text': '',
-    'variants': [{ 'icon': '+', 'key': 'standard', 'name': 'Standard' }],
+    "id": "pDGbxhUe",
+    "name": "GM ChessWeeb",
+    "fullName": "GM ChessWeeb simul",
+    "host": { "id": "chessweeb", "name": "ChessWeeb", "rating": 1500, "title": "GM" },
+    "isCreated": false,
+    "isFinished": true,
+    "isRunning": false,
+    "estimatedStartAt": 1620029815106,
+    "startedAt": 1620029815106,
+    "finishedAt": 1620029937283,
+    "nbApplicants": 0,
+    "nbPairings": 24,
+    "text": "",
+    "variants": [{ "icon": "+", "key": "standard", "name": "Standard" }],
   }

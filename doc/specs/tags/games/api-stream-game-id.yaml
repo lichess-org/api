@@ -24,4 +24,4 @@ get:
       content:
         application/x-ndjson:
           schema:
-            $ref: '../../schemas/MoveStream.yaml'
+            $ref: "../../schemas/MoveStream.yaml"

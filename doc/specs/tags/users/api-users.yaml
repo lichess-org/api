@@ -31,4 +31,4 @@ post:
           schema:
             type: array
             items:
-              $ref: '../../schemas/User.yaml'
+              $ref: "../../schemas/User.yaml"

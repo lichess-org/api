@@ -33,7 +33,7 @@ post:
               type: string
               example: ees_mdF2hK0hlKGSPeC6
             work:
-              $ref: '../../schemas/ExternalEngineWork.yaml'
+              $ref: "../../schemas/ExternalEngineWork.yaml"
           required:
             - clientSecret
             - work

@@ -5,11 +5,11 @@ properties:
     type: string
   color:
     type: string
-    enum: ['white', 'black']
+    enum: ["white", "black"]
   url:
     type: string
   variant:
-    $ref: './VariantKey.yaml'
+    $ref: "./VariantKey.yaml"
   speed:
     type: string
     const: correspondence

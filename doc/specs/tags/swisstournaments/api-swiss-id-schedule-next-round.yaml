@@ -41,10 +41,10 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Error.yaml'
+            $ref: "../../schemas/Error.yaml"
     "401":
       description: This user cannot update this Swiss.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/SwissUnauthorisedEdit.yaml'
+            $ref: "../../schemas/SwissUnauthorisedEdit.yaml"

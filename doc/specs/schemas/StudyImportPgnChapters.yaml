@@ -33,21 +33,13 @@ properties:
 
 example:
   {
-    "chapters": [
-      {
-        "id": "iBjmYBya",
-        "name": "test 2",
-        "players": [
-          {
-            "name": "Carlsen, Magnus",
-            "rating": 2837
-          },
-          {
-            "name": "Chadaev, Nikolay",
-            "rating": 2580
-          }
-        ],
-        "status": "1-0"
-      }
-    ]
+    "chapters":
+      [
+        {
+          "id": "iBjmYBya",
+          "name": "test 2",
+          "players": [{ "name": "Carlsen, Magnus", "rating": 2837 }, { "name": "Chadaev, Nikolay", "rating": 2580 }],
+          "status": "1-0",
+        },
+      ],
   }

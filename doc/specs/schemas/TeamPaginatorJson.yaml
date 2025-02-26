@@ -9,15 +9,15 @@ properties:
   currentPageResults:
     type: array
     items:
-      $ref: './Team.yaml'
+      $ref: "./Team.yaml"
   nbResults:
     type: number
     example: 205194
   previousPage:
-    type: [number, 'null']
+    type: [number, "null"]
     example: 3
   nextPage:
-    type: [number, 'null']
+    type: [number, "null"]
     example: 5
   nbPages:
     type: number

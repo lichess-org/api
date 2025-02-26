@@ -1,6 +1,6 @@
 type: object
 properties:
-  type: 
+  type:
     type: string
     enum:
       - game-end
@@ -16,7 +16,7 @@ properties:
       win:
         type: boolean
       perf:
-        $ref: './PerfType.yaml'
+        $ref: "./PerfType.yaml"
     required:
       - fullId
       - opponent

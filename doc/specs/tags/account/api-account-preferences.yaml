@@ -22,9 +22,9 @@ get:
           schema:
             properties:
               prefs:
-                $ref: '../../schemas/UserPreferences.yaml'
+                $ref: "../../schemas/UserPreferences.yaml"
               language:
                 type: string
                 example: en-GB
             example:
-              $ref: '../../examples/userPreferences.json'
+              $ref: "../../examples/userPreferences.json"
