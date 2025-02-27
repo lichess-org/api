@@ -1,8 +1,8 @@
 extends: spectral:oas
-formats: [ oas3.1 ]
+formats: [oas3.1]
 overrides:
   - files:
-    - "specs/lichess-api.yaml#/components/schemas"
-    - "specs/lichess-api.yaml#/components/examples"
+      - "specs/lichess-api.yaml#/components/schemas"
+      - "specs/lichess-api.yaml#/components/examples"
     rules:
       oas3-unused-component: "off"

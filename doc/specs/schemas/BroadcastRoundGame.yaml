@@ -30,10 +30,10 @@ properties:
     description: The result of the game
     type: string
     enum:
-      - '*'
-      - '1-0'
-      - '0-1'
-      - '½-½'
+      - "*"
+      - "1-0"
+      - "0-1"
+      - "½-½"
 
 required:
   - id

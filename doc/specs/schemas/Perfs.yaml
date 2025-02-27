@@ -1,32 +1,32 @@
 type: object
 properties:
   chess960:
-    $ref: './Perf.yaml'
+    $ref: "./Perf.yaml"
   atomic:
-    $ref: './Perf.yaml'
+    $ref: "./Perf.yaml"
   racingKings:
-    $ref: './Perf.yaml'
+    $ref: "./Perf.yaml"
   ultraBullet:
-    $ref: './Perf.yaml'
+    $ref: "./Perf.yaml"
   blitz:
-    $ref: './Perf.yaml'
+    $ref: "./Perf.yaml"
   kingOfTheHill:
-    $ref: './Perf.yaml'
+    $ref: "./Perf.yaml"
   bullet:
-    $ref: './Perf.yaml'
+    $ref: "./Perf.yaml"
   correspondence:
-    $ref: './Perf.yaml'
+    $ref: "./Perf.yaml"
   horde:
-    $ref: './Perf.yaml'
+    $ref: "./Perf.yaml"
   puzzle:
-    $ref: './Perf.yaml'
+    $ref: "./Perf.yaml"
   classical:
-    $ref: './Perf.yaml'
+    $ref: "./Perf.yaml"
   rapid:
-    $ref: './Perf.yaml'
+    $ref: "./Perf.yaml"
   storm:
-    $ref: './PuzzleModePerf.yaml'
+    $ref: "./PuzzleModePerf.yaml"
   racer:
-    $ref: './PuzzleModePerf.yaml'
+    $ref: "./PuzzleModePerf.yaml"
   streak:
-    $ref: './PuzzleModePerf.yaml'
+    $ref: "./PuzzleModePerf.yaml"

@@ -9,14 +9,14 @@ post:
   security:
     - OAuth2: ["study:write"]
   parameters:
-   - in: path
-     name: broadcastRoundId
-     description: The broadcast round ID
-     required: true
-     schema:
-       type: string
-       minLength: 8
-       maxLength: 8
+    - in: path
+      name: broadcastRoundId
+      description: The broadcast round ID
+      required: true
+      schema:
+        type: string
+        minLength: 8
+        maxLength: 8
   requestBody:
     description: The PGN. It can contain up to 64 games, separated by a double new line.
     required: true
@@ -26,7 +26,7 @@ post:
           type: string
         examples:
           broadcastPgnPushRequest:
-            $ref: '../../examples/broadcastPgnPushRequest.yaml'
+            $ref: "../../examples/broadcastPgnPushRequest.yaml"
   responses:
     "200":
       description: The broadcast was successfully updated.
@@ -38,7 +38,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/BroadcastPgnPush.yaml'
+            $ref: "../../schemas/BroadcastPgnPush.yaml"
     "400":
       description: There was a problem with the pushed PGN.
       headers:

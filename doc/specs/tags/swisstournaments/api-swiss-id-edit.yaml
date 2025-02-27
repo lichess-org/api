@@ -112,9 +112,9 @@ post:
                 - 604800
                 - 99999999
             variant:
-              $ref: '../../schemas/VariantKey.yaml'
+              $ref: "../../schemas/VariantKey.yaml"
             position:
-              $ref: '../../schemas/SwissFromPositionFEN.yaml'
+              $ref: "../../schemas/SwissFromPositionFEN.yaml"
             description:
               type: string
               description: Anything you want to tell players about the tournament
@@ -149,7 +149,8 @@ post:
             conditions.minRating.rating:
               type: integer
               description: Minimum rating to join. Leave empty to let everyone join the tournament.
-              enum: [1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600]
+              enum:
+                [1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600]
             conditions.maxRating.rating:
               type: integer
               description: Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
@@ -188,16 +189,16 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/SwissTournament.yaml'
+            $ref: "../../schemas/SwissTournament.yaml"
     "400":
       description: Updating the swiss failed.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Error.yaml'
+            $ref: "../../schemas/Error.yaml"
     "401":
       description: This user cannot update this Swiss.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/SwissUnauthorisedEdit.yaml'
+            $ref: "../../schemas/SwissUnauthorisedEdit.yaml"

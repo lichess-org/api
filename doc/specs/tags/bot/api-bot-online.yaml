@@ -24,6 +24,6 @@ get:
       content:
         application/x-ndjson:
           schema:
-            $ref: '../../schemas/User.yaml'
+            $ref: "../../schemas/User.yaml"
           example:
-            $ref: '../../examples/user-georges-bot.json'
+            $ref: "../../examples/user-georges-bot.json"

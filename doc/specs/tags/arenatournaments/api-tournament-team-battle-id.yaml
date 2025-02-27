@@ -48,10 +48,10 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/ArenaTournamentFull.yaml'
+            $ref: "../../schemas/ArenaTournamentFull.yaml"
     "400":
       description: The update of the team battle tournament failed.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Error.yaml'
+            $ref: "../../schemas/Error.yaml"

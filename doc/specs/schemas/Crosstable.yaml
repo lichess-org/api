@@ -1,6 +1,6 @@
 example:
   {
-    'users': { 'neio': 201.5, 'thibault': 144.5 },
-    'nbGames': 346,
-    'matchup': { 'users': { 'neio': 44, 'thibault': 43 }, 'nbGames': 87 },
+    "users": { "neio": 201.5, "thibault": 144.5 },
+    "nbGames": 346,
+    "matchup": { "users": { "neio": 44, "thibault": 43 }, "nbGames": 87 },
   }

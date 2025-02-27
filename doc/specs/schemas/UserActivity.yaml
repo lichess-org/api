@@ -15,35 +15,35 @@ properties:
     type: object
     properties:
       chess960:
-        $ref: './UserActivityScore.yaml'
+        $ref: "./UserActivityScore.yaml"
       atomic:
-        $ref: './UserActivityScore.yaml'
+        $ref: "./UserActivityScore.yaml"
       racingKings:
-        $ref: './UserActivityScore.yaml'
+        $ref: "./UserActivityScore.yaml"
       ultraBullet:
-        $ref: './UserActivityScore.yaml'
+        $ref: "./UserActivityScore.yaml"
       blitz:
-        $ref: './UserActivityScore.yaml'
+        $ref: "./UserActivityScore.yaml"
       kingOfTheHill:
-        $ref: './UserActivityScore.yaml'
+        $ref: "./UserActivityScore.yaml"
       bullet:
-        $ref: './UserActivityScore.yaml'
+        $ref: "./UserActivityScore.yaml"
       correspondence:
-        $ref: './UserActivityScore.yaml'
+        $ref: "./UserActivityScore.yaml"
       horde:
-        $ref: './UserActivityScore.yaml'
+        $ref: "./UserActivityScore.yaml"
       puzzle:
-        $ref: './UserActivityScore.yaml'
+        $ref: "./UserActivityScore.yaml"
       classical:
-        $ref: './UserActivityScore.yaml'
+        $ref: "./UserActivityScore.yaml"
       rapid:
-        $ref: './UserActivityScore.yaml'
+        $ref: "./UserActivityScore.yaml"
 
   puzzles:
     type: object
     properties:
       score:
-        $ref: './UserActivityScore.yaml'
+        $ref: "./UserActivityScore.yaml"
 
   storm:
     type: object
@@ -130,7 +130,7 @@ properties:
       games:
         type: array
         items:
-          $ref: './UserActivityCorrespondenceGame.yaml'
+          $ref: "./UserActivityCorrespondenceGame.yaml"
   correspondenceEnds:
     type: object
     required:
@@ -138,18 +138,18 @@ properties:
       - games
     properties:
       score:
-        $ref: './UserActivityScore.yaml'
+        $ref: "./UserActivityScore.yaml"
       games:
         type: array
         items:
-          $ref: './UserActivityCorrespondenceGame.yaml'
+          $ref: "./UserActivityCorrespondenceGame.yaml"
   follows:
     type: object
     properties:
       in:
-        $ref: './UserActivityFollowList.yaml'
+        $ref: "./UserActivityFollowList.yaml"
       out:
-        $ref: './UserActivityFollowList.yaml'
+        $ref: "./UserActivityFollowList.yaml"
   studies:
     type: object
   teams:

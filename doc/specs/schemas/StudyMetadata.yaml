@@ -16,10 +16,4 @@ properties:
     format: int64
     description: The study last update date
 
-example:
-  {
-    "id": "WTvnkWAL",
-    "name": "Guess the move",
-    "createdAt": 1463756350225,
-    "updatedAt": 1469965025205
-  }
+example: { "id": "WTvnkWAL", "name": "Guess the move", "createdAt": 1463756350225, "updatedAt": 1469965025205 }

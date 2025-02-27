@@ -66,11 +66,11 @@ get:
         Last-Modified:
           schema:
             type: string
-            example: 'Tue, 25 Apr 2023 13:23:09 GMT'
+            example: "Tue, 25 Apr 2023 13:23:09 GMT"
       content:
         application/x-chess-pgn:
           schema:
-            $ref: '../../schemas/StudyPgn.yaml'
+            $ref: "../../schemas/StudyPgn.yaml"
 head:
   operationId: studyAllChaptersHead
   summary: Study metadata
@@ -99,4 +99,4 @@ head:
         Last-Modified:
           schema:
             type: string
-            example: 'Tue, 25 Apr 2023 13:23:09 GMT'
+            example: "Tue, 25 Apr 2023 13:23:09 GMT"

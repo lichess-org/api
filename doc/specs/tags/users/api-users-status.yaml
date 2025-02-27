@@ -46,7 +46,7 @@ get:
         type: boolean
       example: true
   responses:
-    '200':
+    "200":
       description: The list of users and their respective statuses.
       headers:
         Access-Control-Allow-Origin:
@@ -79,14 +79,14 @@ get:
                 - name
             example:
               [
-                { 'id': 'aliquantus', 'name': 'Aliquantus' },
+                { "id": "aliquantus", "name": "Aliquantus" },
                 {
-                  'id': 'chess-network',
-                  'name': 'Chess-Network',
-                  'title': 'NM',
-                  'online': true,
-                  'playing': true,
-                  'streaming': true,
-                  'patron': true,
+                  "id": "chess-network",
+                  "name": "Chess-Network",
+                  "title": "NM",
+                  "online": true,
+                  "playing": true,
+                  "streaming": true,
+                  "patron": true,
                 },
               ]

@@ -23,7 +23,7 @@ post:
     content:
       application/x-www-form-urlencoded:
         schema:
-          $ref: '../../schemas/BroadcastForm.yaml'
+          $ref: "../../schemas/BroadcastForm.yaml"
   responses:
     "200":
       description: The broadcast tournament was successfully edited.
@@ -35,10 +35,10 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Ok.yaml'
+            $ref: "../../schemas/Ok.yaml"
     "400":
       description: The broadcast tournament update failed.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Error.yaml'
+            $ref: "../../schemas/Error.yaml"

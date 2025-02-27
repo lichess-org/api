@@ -80,8 +80,7 @@ get:
         default: true
     - in: query
       name: pgnInJson
-      description:
-        Include the full PGN within the JSON response, in a `pgn` field.
+      description: Include the full PGN within the JSON response, in a `pgn` field.
         The response type must be set to `application/x-ndjson` by the request `Accept` header.
       schema:
         type: boolean

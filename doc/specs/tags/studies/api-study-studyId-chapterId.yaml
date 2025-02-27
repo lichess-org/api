@@ -4,7 +4,7 @@ delete:
   tags:
     - Studies
   security:
-    - OAuth2: ['study:write']
+    - OAuth2: ["study:write"]
   parameters:
     - in: path
       name: studyId
@@ -27,7 +27,7 @@ delete:
     A study must have at least one chapter; so if you delete the last chapter,
     an empty one will be automatically created to replace it.
   responses:
-    '204':
+    "204":
       description: Chapter successfully deleted
       headers:
         Access-Control-Allow-Origin:

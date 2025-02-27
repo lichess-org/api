@@ -3,12 +3,12 @@ properties:
   created:
     type: array
     items:
-      $ref: './ArenaTournament.yaml'
+      $ref: "./ArenaTournament.yaml"
   started:
     type: array
     items:
-      $ref: './ArenaTournament.yaml'
+      $ref: "./ArenaTournament.yaml"
   finished:
     type: array
     items:
-      $ref: './ArenaTournament.yaml'
+      $ref: "./ArenaTournament.yaml"

@@ -21,7 +21,7 @@ get:
           schema:
             type: array
             items:
-              $ref: '../../schemas/ExternalEngine.yaml'
+              $ref: "../../schemas/ExternalEngine.yaml"
 post:
   operationId: apiExternalEngineCreate
   summary: Create external engine
@@ -39,7 +39,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../../schemas/ExternalEngineRegistration.yaml'
+          $ref: "../../schemas/ExternalEngineRegistration.yaml"
   responses:
     "200":
       description: The registered engine.
@@ -51,4 +51,4 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/ExternalEngine.yaml'
+            $ref: "../../schemas/ExternalEngine.yaml"

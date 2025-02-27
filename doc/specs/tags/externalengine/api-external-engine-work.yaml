@@ -43,9 +43,9 @@ post:
                 type: string
                 example: aingoohiJee2sius
               work:
-                $ref: '../../schemas/ExternalEngineWork.yaml'
+                $ref: "../../schemas/ExternalEngineWork.yaml"
               engine:
-                $ref: '../../schemas/ExternalEngine.yaml'
+                $ref: "../../schemas/ExternalEngine.yaml"
             required:
               - id
               - engine

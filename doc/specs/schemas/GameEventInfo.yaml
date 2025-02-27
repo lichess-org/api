@@ -3,7 +3,7 @@ properties:
   id:
     type: string
   source:
-    $ref: './GameSource.yaml'
+    $ref: "./GameSource.yaml"
   status:
     type: object
     properties:
@@ -11,7 +11,7 @@ properties:
         type: integer
         enum: [10, 20, 25, 30, 31, 32, 33, 34, 35, 36, 37, 38, 60]
       name:
-        $ref: './GameStatus.yaml'
+        $ref: "./GameStatus.yaml"
   winner:
     type: string
     enum: [white, black]

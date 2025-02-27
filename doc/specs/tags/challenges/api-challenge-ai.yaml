@@ -21,13 +21,13 @@ post:
               description: AI strength
               minimum: 1
               maximum: 8
-            'clock.limit':
+            "clock.limit":
               type: number
               description: Clock initial time in seconds. If empty, a correspondence game is created.
               example: 300
               minimum: 0
               maximum: 10800
-            'clock.increment':
+            "clock.increment":
               type: integer
               description: Clock increment in seconds. If empty, a correspondence game is created.
               example: 1
@@ -51,11 +51,11 @@ post:
                 - random
                 - white
                 - black
-              default: 'random'
+              default: "random"
             variant:
-              $ref: '../../schemas/VariantKey.yaml'
+              $ref: "../../schemas/VariantKey.yaml"
             fen:
-              $ref: '../../schemas/FromPositionFEN.yaml'
+              $ref: "../../schemas/FromPositionFEN.yaml"
   responses:
     "201":
       description: The game with Lichess AI was successfully started.
@@ -67,10 +67,10 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/GameJson.yaml'
+            $ref: "../../schemas/GameJson.yaml"
     "400":
       description: The creation of a game with Lichess AI failed.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Error.yaml'
+            $ref: "../../schemas/Error.yaml"

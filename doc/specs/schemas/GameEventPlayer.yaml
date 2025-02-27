@@ -7,7 +7,7 @@ properties:
   name:
     type: string
   title:
-    type: [string, 'null']
+    type: [string, "null"]
   rating:
     type: number
   provisional:

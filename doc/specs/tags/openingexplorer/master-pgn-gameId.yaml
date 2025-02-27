@@ -27,4 +27,4 @@ get:
       content:
         application/x-chess-pgn:
           schema:
-            $ref: '../../schemas/MasterGamePgn.yaml'
+            $ref: "../../schemas/MasterGamePgn.yaml"

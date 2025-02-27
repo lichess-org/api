@@ -1,5 +1,5 @@
 allOf:
-  - $ref: './LightUser.yaml'
+  - $ref: "./LightUser.yaml"
 properties:
   rating:
     type: number

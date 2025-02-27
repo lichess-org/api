@@ -10,7 +10,7 @@ properties:
     type: object
     properties:
       u1:
-        type: string 
+        type: string
       u2:
         type: string
     required:

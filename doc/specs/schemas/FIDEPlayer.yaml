@@ -5,12 +5,12 @@ properties:
     example: 35009192
   name:
     type: string
-    example: 'Erigaisi Arjun'
+    example: "Erigaisi Arjun"
   title:
-    $ref: './Title.yaml'
+    $ref: "./Title.yaml"
   federation:
     type: string
-    example: 'IND'
+    example: "IND"
   year:
     type: number
     example: 2003

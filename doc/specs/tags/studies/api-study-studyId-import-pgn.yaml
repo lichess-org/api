@@ -44,7 +44,7 @@ post:
                 - black
               default: white
             variant:
-              $ref: '../../schemas/VariantKey.yaml'
+              $ref: "../../schemas/VariantKey.yaml"
           required:
             - name
             - pgn
@@ -59,10 +59,10 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/StudyImportPgnChapters.yaml'
+            $ref: "../../schemas/StudyImportPgnChapters.yaml"
     "400":
       description: The creation of the chapter(s) failed.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Error.yaml'
+            $ref: "../../schemas/Error.yaml"

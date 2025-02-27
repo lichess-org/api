@@ -53,17 +53,17 @@ properties:
   markdown:
     type: string
     maxLength: 20_000
-    description: | 
+    description: |
       Optional long description of the broadcast. Markdown is supported.
   showScores:
     type: boolean
     default: true
-    description: | 
+    description: |
       Show players scores based on game results
   showRatingDiffs:
     type: boolean
     default: true
-    description: | 
+    description: |
       Show player's rating diffs
   teamTable:
     type: boolean
@@ -88,9 +88,9 @@ properties:
       ```
 
       Player names ignore case and punctuation, and match all possible combinations of 2 words: "Jorge Rick Vito" will match "Jorge Rick", "jorge vito", "Rick, Vito", etc.
-      
+
       If the player is NM or WNM, you can:
-      
+
       ```txt
       Player Name = FIDE ID / Title
       ```
@@ -115,17 +115,17 @@ properties:
       ```txt
       Team name; Fide Id or Player name
       ```
-      
+
       Example:
       ```txt
       Team Cats ; 3408230
       Team Dogs ; Scooby Doo
       ```
-      
+
       By default the PGN tags WhiteTeam and BlackTeam are used.
   tier:
     type: integer
-    enum: [3, 4, 5 , -1]
+    enum: [3, 4, 5, -1]
     description: |
       Optional, for Lichess admins only, used to feature on /broadcast.
 
@@ -133,8 +133,6 @@ properties:
       * `4` for Official: high tier
       * `5` for Official: best tier
       * `-1` for Private
-  
-  
 
 required:
   - name

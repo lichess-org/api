@@ -19,7 +19,7 @@ get:
         minimum: 1
         maximum: 50
   responses:
-    '200':
+    "200":
       description: The ongoing games of the logged in user.
       headers:
         Access-Control-Allow-Origin:
@@ -67,15 +67,15 @@ get:
                     lastMove:
                       type: string
                     source:
-                      $ref: '../../schemas/GameSource.yaml'
+                      $ref: "../../schemas/GameSource.yaml"
                     status:
-                      $ref: '../../schemas/GameStatus.yaml'
+                      $ref: "../../schemas/GameStatus.yaml"
                     variant:
-                      $ref: '../../schemas/Variant.yaml'
+                      $ref: "../../schemas/Variant.yaml"
                     speed:
-                      $ref: '../../schemas/Speed.yaml'
+                      $ref: "../../schemas/Speed.yaml"
                     perf:
-                      $ref: '../../schemas/PerfType.yaml'
+                      $ref: "../../schemas/PerfType.yaml"
                     rated:
                       type: boolean
                     hasMoved:
@@ -113,23 +113,23 @@ get:
                       type: number
             example:
               {
-                'nowPlaying':
+                "nowPlaying":
                   [
                     {
-                      'gameId': 'rCRw1AuO',
-                      'fullId': 'rCRw1AuOvonq',
-                      'color': 'black',
-                      'fen': 'r1bqkbnr/pppp2pp/2n1pp2/8/8/3PP3/PPPB1PPP/RN1QKBNR w KQkq - 2 4',
-                      'hasMoved': true,
-                      'isMyTurn': false,
-                      'lastMove': 'b8c6',
-                      'opponent': { 'id': 'philippe', 'rating': 1790, 'username': 'Philippe' },
-                      'perf': 'correspondence',
-                      'rated': false,
-                      'secondsLeft': 1209600,
-                      'source': 'friend',
-                      'speed': 'correspondence',
-                      'variant': { 'key': 'standard', 'name': 'Standard' },
+                      "gameId": "rCRw1AuO",
+                      "fullId": "rCRw1AuOvonq",
+                      "color": "black",
+                      "fen": "r1bqkbnr/pppp2pp/2n1pp2/8/8/3PP3/PPPB1PPP/RN1QKBNR w KQkq - 2 4",
+                      "hasMoved": true,
+                      "isMyTurn": false,
+                      "lastMove": "b8c6",
+                      "opponent": { "id": "philippe", "rating": 1790, "username": "Philippe" },
+                      "perf": "correspondence",
+                      "rated": false,
+                      "secondsLeft": 1209600,
+                      "source": "friend",
+                      "speed": "correspondence",
+                      "variant": { "key": "standard", "name": "Standard" },
                     },
                   ],
               }

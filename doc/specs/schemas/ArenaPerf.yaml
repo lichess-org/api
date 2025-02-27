@@ -2,13 +2,13 @@ type: object
 properties:
   key:
     type: string
-    example: 'blitz'
+    example: "blitz"
   name:
     type: string
-    example: 'Blitz'
+    example: "Blitz"
   position:
     type: integer
     example: 1
   icon:
     type: string
-    example: ')'
+    example: ")"

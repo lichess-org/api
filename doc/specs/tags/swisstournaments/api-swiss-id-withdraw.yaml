@@ -27,4 +27,4 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Ok.yaml'
+            $ref: "../../schemas/Ok.yaml"

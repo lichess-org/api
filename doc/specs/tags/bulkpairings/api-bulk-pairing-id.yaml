@@ -26,13 +26,13 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/BulkPairing.yaml'
+            $ref: "../../schemas/BulkPairing.yaml"
     "404":
       description: The bulk pairing was not found.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/NotFound.yaml'
+            $ref: "../../schemas/NotFound.yaml"
 delete:
   operationId: bulkPairingDelete
   summary: Cancel a bulk pairing
@@ -63,10 +63,10 @@ delete:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/Ok.yaml'
+            $ref: "../../schemas/Ok.yaml"
     "404":
       description: The bulk pairing to delete was not found.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/NotFound.yaml'
+            $ref: "../../schemas/NotFound.yaml"
