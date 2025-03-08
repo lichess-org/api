@@ -103,6 +103,9 @@ GameChat:
 PuzzleAndGame:
   $ref: "./PuzzleAndGame.yaml"
 
+PuzzleReplay:
+  $ref: "./PuzzleReplay.yaml"
+
 PuzzleActivity:
   $ref: "./PuzzleActivity.yaml"
 

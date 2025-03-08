@@ -1,0 +1,42 @@
+get:
+  operationId: apiPuzzleReplay
+  summary: Get puzzles to replay
+  description: Gets the puzzle IDs of remaining puzzles to re-attempt in JSON format.
+  tags:
+    - Puzzles
+  security:
+    - OAuth2: ["puzzle:read"]
+  parameters:
+    - in: path
+      name: days
+      required: true
+      description: How many days to look back when aggregating puzzle results. 30 is sensible.
+      schema:
+        type: number
+    - in: path
+      name: theme
+      required: true
+      description: The theme or opening to filter puzzles with.
+      schema:
+        type: string
+  responses:
+    "200":
+      description: The requested puzzles to replay.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/PuzzleReplay.yaml"
+    "404":
+      description: No puzzles to replay were found
+      content:
+        application/json:
+          schema:
+            properties:
+              error:
+                type: string
+                example: "No puzzles to replay"
