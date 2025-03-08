@@ -297,6 +297,9 @@ paths:
   /api/puzzle/activity:
     $ref: "./tags/puzzles/api-puzzle-activity.yaml"
 
+  /api/puzzle/replay/{days}/{theme}:
+    $ref: "./tags/puzzles/api-puzzle-replay-days-theme.yaml"
+
   /api/puzzle/dashboard/{days}:
     $ref: "./tags/puzzles/api-puzzle-dashboard-days.yaml"
 
