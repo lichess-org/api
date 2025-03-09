@@ -53,5 +53,7 @@ example:
     "binc": 10000,
     "wdraw": false,
     "bdraw": false,
+    "wtakeback": false,
+    "btakeback": false,
     "status": "started",
   }
