@@ -69,6 +69,10 @@ example:
         "btime": 286000,
         "winc": 0,
         "binc": 0,
+        "wdraw": false,
+        "bdraw": false,
+        "wtakeback": false,
+        "btakeback": false,
         "status": "started",
       },
   }
