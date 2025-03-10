@@ -23,6 +23,26 @@ get:
         type: integer
         minimum: 1
         default: 100
+    - in: query
+      name: status
+      description: |
+        [Filter] Only swiss tournaments in this current state.
+      schema:
+        allOf:
+          - $ref: "../../schemas/SwissStatus.yaml"
+          - default: null
+    - in: query
+      name: createdBy
+      description: |
+        [Filter] Only swiss tournaments created by a given user.
+      schema:
+        type: string
+    - in: query
+      name: name
+      description: |
+        [Filter] Only swiss tournaments with a given name.
+      schema:
+        type: string
   responses:
     "200":
       description: The list of Swiss tournaments of a team.
