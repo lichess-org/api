@@ -30,7 +30,7 @@ properties:
   nbOngoing:
     type: number
   status:
-    type: string
+    $ref: "./SwissStatus.yaml"
   stats:
     type: object
     properties:
