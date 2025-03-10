@@ -25,17 +25,17 @@ post:
         schema:
           type: object
           properties:
-            name:
-              type: string
-              description: |
-                Name of the new chapter.
-                If multiple chapters are created, the names will be infered from the PGN tags.
-              minLength: 1
-              maxLength: 100
             pgn:
               type: string
               description: |
                 PGN to import. Can contain multiple games separated by 2 or more newlines.
+            name:
+              type: string
+              description: |
+                Name of the new chapter.
+                If not specified, or if multiple chapters are created, the names will be inferred from the PGN tags.
+              minLength: 1
+              maxLength: 100
             orientation:
               type: string
               description: Default board orientation.
@@ -46,7 +46,6 @@ post:
             variant:
               $ref: "../../schemas/VariantKey.yaml"
           required:
-            - name
             - pgn
   responses:
     "200":
