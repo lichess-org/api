@@ -64,6 +64,7 @@ example:
   {
     "dtz": 1,
     "precise_dtz": 1,
+    "dtc": null,
     "dtm": 17,
     "dtw": null,
     "checkmate": false,
@@ -79,6 +80,7 @@ example:
           "san": "h8=Q+",
           "dtz": -2,
           "precise_dtz": -2,
+          "dtc": null,
           "dtm": -16,
           "dtw": null,
           "zeroing": true,
