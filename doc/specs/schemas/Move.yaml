@@ -11,11 +11,13 @@ properties:
     enum:
       - loss
       - unknown
+      - syzygy-loss
       - maybe-loss
       - blessed-loss
       - draw
       - cursed-win
       - maybe-win
+      - syzygy-win
       - win
   dtz:
     type: ["null", "integer"]
@@ -24,6 +26,9 @@ properties:
     type: ["null", "integer"]
     description: |
       DTZ50'' (only if guaranteed to be not rounded) or null if unknown
+  dtc:
+    type: ["null", "integer"]
+    description: Depth to Conversion (experimental)
   dtm:
     type: ["null", "integer"]
     description: Depth To Mate (only for Standard positions with not more than 5 pieces)
