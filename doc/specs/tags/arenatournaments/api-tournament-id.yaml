@@ -136,6 +136,7 @@ post:
               enum: [1, 2, 3, 5, 10, 15, 20, 30, 45, 60]
             startDate:
               type: integer
+              format: int64
               description: Timestamp (in milliseconds) to start the tournament at a given date and time. Overrides the `waitMinutes` setting
             variant:
               $ref: "../../schemas/VariantKey.yaml"

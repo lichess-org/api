@@ -83,6 +83,7 @@ post:
               maximum: 100
             startsAt:
               type: integer
+              format: int64
               description: Timestamp in milliseconds to start the tournament at a given date and time. By default, it starts 10 minutes after creation.
             roundInterval:
               type: integer

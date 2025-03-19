@@ -76,6 +76,7 @@ post:
                 Example: `Username1,Username2`
             expiresAt:
               type: integer
+              format: int64
               description: Timestamp in milliseconds to expire the challenge. Defaults to 24h after creation. Can't be more than 2 weeks after creation.
   responses:
     "200":
