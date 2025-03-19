@@ -27,6 +27,7 @@ post:
           properties:
             date:
               type: integer
+              format: int64
               description: Timestamp in milliseconds to start the next round at a given date and time.
   responses:
     "204":

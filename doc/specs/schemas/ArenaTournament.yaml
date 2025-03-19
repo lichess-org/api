@@ -22,8 +22,10 @@ properties:
     $ref: "./Variant.yaml"
   startsAt:
     type: integer
+    format: int64
   finishesAt:
     type: integer
+    format: int64
   status:
     $ref: "./ArenaStatus.yaml"
   perf:

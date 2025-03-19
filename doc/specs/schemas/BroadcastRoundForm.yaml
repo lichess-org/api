@@ -136,6 +136,7 @@ allOf:
     properties:
       startsAt:
         type: integer
+        format: int64
         description: |
           Timestamp in milliseconds of broadcast round start. Leave empty to manually start the broadcast round.
           Example: `1356998400070`
