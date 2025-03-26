@@ -1,0 +1,7 @@
+type: string
+description: The current state of the arena tournament
+enum:
+  - "created"
+  - "started"
+  - "finished"
+example: "created"
