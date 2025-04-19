@@ -26,7 +26,7 @@ jobs:
       - run: pnpm format
       - name: Check for changes
         id: check_changes
-        run: echo "changed_files=$(git status --porcelain)"
+        run: echo "changed_files=$(git status --porcelain)" >> "$GITHUB_OUTPUT"
       - name: Publish to npm
         if: steps.check_changes.outputs.changed_files != ''
         env:
@@ -37,4 +37,4 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         if: steps.check_changes.outputs.changed_files != ''
         with:
-          commit_message: 'Update type definitions'
+          commit_message: 'Update npm types package'
