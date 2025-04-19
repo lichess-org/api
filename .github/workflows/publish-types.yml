@@ -1,0 +1,40 @@
+name: Publish types
+
+on:
+    schedule:
+      - cron: '0 10 * * *'
+    workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    defaults:
+      run:
+        working-directory: types
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          registry-url: 'https://registry.npmjs.org'
+      - run: |
+          npm install --global pnpm
+          pnpm install
+      - run: pnpm gen
+      - run: pnpm format
+      - name: Check for changes
+        id: check_changes
+        run: echo "changed_files=$(git status --porcelain)"
+      - name: Publish to npm
+        if: steps.check_changes.outputs.changed_files != ''
+        env:
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm version patch --no-git-tag-version
+          npm publish --provenance
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        if: steps.check_changes.outputs.changed_files != ''
+        with:
+          commit_message: 'Update type definitions'
