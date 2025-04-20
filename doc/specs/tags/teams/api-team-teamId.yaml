@@ -23,3 +23,5 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/Team.yaml"
+          example:
+            $ref: "../../examples/teams-getSingleTeam.json"

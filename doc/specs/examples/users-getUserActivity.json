@@ -1,0 +1,215 @@
+[
+  {
+    "interval": {
+      "start": 1745020800000,
+      "end": 1745107200000
+    },
+    "games": {
+      "blitz": {
+        "win": 1,
+        "loss": 0,
+        "draw": 0,
+        "rp": {
+          "before": 1712,
+          "after": 1717
+        }
+      }
+    },
+    "follows": {
+      "in": {
+        "ids": ["aadhya5", "mrbernhardknarkson", "biggiantsandwich", "kanishkaandana2010", "zhemouren", "tquach5712"]
+      }
+    }
+  },
+  {
+    "interval": {
+      "start": 1744934400000,
+      "end": 1745020800000
+    },
+    "games": {
+      "blitz": {
+        "win": 0,
+        "loss": 2,
+        "draw": 0,
+        "rp": {
+          "before": 1724,
+          "after": 1712
+        }
+      }
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "muinthechamp",
+          "yazdanpour",
+          "acra2025",
+          "kirillbro201212",
+          "kostia_semianov",
+          "muaythaichess365",
+          "ignacy_2014",
+          "razanjr",
+          "mastermind22022",
+          "honeybadger0302"
+        ]
+      }
+    }
+  },
+  {
+    "interval": {
+      "start": 1744848000000,
+      "end": 1744934400000
+    },
+    "puzzles": {
+      "score": {
+        "win": 0,
+        "loss": 1,
+        "draw": 0,
+        "rp": {
+          "before": 1911,
+          "after": 1911
+        }
+      }
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "midnight_marauder",
+          "aryanraj2014",
+          "sadt_25007221",
+          "kenancinar",
+          "deadpool2988",
+          "toggui",
+          "erdan2016",
+          "fedorizprostokvawino",
+          "super-super",
+          "bonestorm",
+          "pavel_sizikov2015",
+          "wtxs",
+          "strategist_1"
+        ]
+      }
+    }
+  },
+  {
+    "interval": {
+      "start": 1744761600000,
+      "end": 1744848000000
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "maiagrimaldigarcia",
+          "schach4",
+          "alamin2424",
+          "endeadfallezing",
+          "egor-v",
+          "ko5tya",
+          "cr7kenanoop",
+          "vihaankrishnam",
+          "max49000",
+          "nowbadger",
+          "pp4h"
+        ]
+      }
+    }
+  },
+  {
+    "interval": {
+      "start": 1744675200000,
+      "end": 1744761600000
+    },
+    "games": {
+      "blitz": {
+        "win": 23,
+        "loss": 10,
+        "draw": 0,
+        "rp": {
+          "before": 1651,
+          "after": 1724
+        }
+      }
+    },
+    "puzzles": {
+      "score": {
+        "win": 1,
+        "loss": 0,
+        "draw": 0,
+        "rp": {
+          "before": 1904,
+          "after": 1911
+        }
+      }
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "ivanbenitez11",
+          "bethechess",
+          "boomraiser",
+          "jameswebb1",
+          "ethanmatthewhunt_exe",
+          "lishanth03",
+          "mishikachess",
+          "jamesbehan",
+          "blackvoid",
+          "phwhjssjjsiia"
+        ]
+      }
+    }
+  },
+  {
+    "interval": {
+      "start": 1744588800000,
+      "end": 1744675200000
+    },
+    "games": {
+      "blitz": {
+        "win": 3,
+        "loss": 9,
+        "draw": 1,
+        "rp": {
+          "before": 1680,
+          "after": 1651
+        }
+      }
+    },
+    "follows": {
+      "in": {
+        "ids": ["dihaan1207", "janclan25", "chess_in_hikaru", "pd2011", "abir1981", "ar_rd"]
+      }
+    }
+  },
+  {
+    "interval": {
+      "start": 1744502400000,
+      "end": 1744588800000
+    },
+    "games": {
+      "blitz": {
+        "win": 7,
+        "loss": 8,
+        "draw": 3,
+        "rp": {
+          "before": 1686,
+          "after": 1680
+        }
+      }
+    },
+    "puzzles": {
+      "score": {
+        "win": 0,
+        "loss": 1,
+        "draw": 0,
+        "rp": {
+          "before": 1925,
+          "after": 1904
+        }
+      }
+    },
+    "follows": {
+      "in": {
+        "ids": ["sawwent", "tks-kans-harrisonf", "iamabigcheesefan", "menons", "cr_123", "xavier-b"]
+      }
+    }
+  }
+]

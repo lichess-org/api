@@ -1,0 +1,106 @@
+{
+  "tour": {
+    "id": "MKDRilWY",
+    "name": "grenke Chess Festival 2025 | Freestyle Chess Open B",
+    "slug": "grenke-chess-festival-2025--freestyle-chess-open-b",
+    "info": {
+      "website": "https://grenkechessopen.de/en",
+      "location": "Karlsruhe, Germany",
+      "tc": "90 min + 30 sec / move",
+      "fideTc": "standard",
+      "timeZone": "Europe/Berlin",
+      "standings": "https://chess-results.com/tnr1160040.aspx?art=1",
+      "format": "9-round Swiss"
+    },
+    "createdAt": 1744900702786,
+    "url": "https://lichess.org/broadcast/grenke-chess-festival-2025--freestyle-chess-open-b/MKDRilWY",
+    "tier": 5,
+    "dates": [1744908300000, 1745244900000],
+    "image": "https://image.lichess1.org/display?fmt=webp&h=400&op=thumbnail&path=relay:yoLFj08r:V3dFH3cK.webp&w=800&sig=b9790c0ba64ccc15c698e42e83fa5648ce879841"
+  },
+  "rounds": [
+    {
+      "id": "GiMVRhRK",
+      "name": "Round 1",
+      "slug": "round-1",
+      "createdAt": 1744369313265,
+      "finishedAt": 1744925596863,
+      "finished": true,
+      "startsAt": 1744908300000,
+      "url": "https://lichess.org/broadcast/grenke-chess-festival-2025--freestyle-chess-open-b/round-1/GiMVRhRK"
+    },
+    {
+      "id": "hR7iyFga",
+      "name": "Round 2",
+      "slug": "round-2",
+      "createdAt": 1744370185567,
+      "finishedAt": 1744977850173,
+      "finished": true,
+      "startsAt": 1744964100000,
+      "url": "https://lichess.org/broadcast/grenke-chess-festival-2025--freestyle-chess-open-b/round-2/hR7iyFga"
+    },
+    {
+      "id": "E5q44CoA",
+      "name": "Round 3",
+      "slug": "round-3",
+      "createdAt": 1744370214646,
+      "finishedAt": 1744998803474,
+      "finished": true,
+      "startsAt": 1744985700000,
+      "url": "https://lichess.org/broadcast/grenke-chess-festival-2025--freestyle-chess-open-b/round-3/E5q44CoA"
+    },
+    {
+      "id": "x6EItbei",
+      "name": "Round 4",
+      "slug": "round-4",
+      "createdAt": 1744370294925,
+      "finishedAt": 1745061722992,
+      "finished": true,
+      "startsAt": 1745050500000,
+      "url": "https://lichess.org/broadcast/grenke-chess-festival-2025--freestyle-chess-open-b/round-4/x6EItbei"
+    },
+    {
+      "id": "U0pX1EWs",
+      "name": "Round 5",
+      "slug": "round-5",
+      "createdAt": 1744370326316,
+      "finishedAt": 1745090612671,
+      "finished": true,
+      "startsAt": 1745072100000,
+      "url": "https://lichess.org/broadcast/grenke-chess-festival-2025--freestyle-chess-open-b/round-5/U0pX1EWs"
+    },
+    {
+      "id": "fQbMG29G",
+      "name": "Round 6",
+      "slug": "round-6",
+      "createdAt": 1744370390348,
+      "startsAt": 1745136900000,
+      "url": "https://lichess.org/broadcast/grenke-chess-festival-2025--freestyle-chess-open-b/round-6/fQbMG29G"
+    },
+    {
+      "id": "BGdkwz5M",
+      "name": "Round 7",
+      "slug": "round-7",
+      "createdAt": 1744370411847,
+      "startsAt": 1745158500000,
+      "url": "https://lichess.org/broadcast/grenke-chess-festival-2025--freestyle-chess-open-b/round-7/BGdkwz5M"
+    },
+    {
+      "id": "hiUJJR72",
+      "name": "Round 8",
+      "slug": "round-8",
+      "createdAt": 1744370439196,
+      "startsAt": 1745223300000,
+      "url": "https://lichess.org/broadcast/grenke-chess-festival-2025--freestyle-chess-open-b/round-8/hiUJJR72"
+    },
+    {
+      "id": "l5I0XmL1",
+      "name": "Round 9",
+      "slug": "round-9",
+      "createdAt": 1744370472162,
+      "startsAt": 1745244900000,
+      "url": "https://lichess.org/broadcast/grenke-chess-festival-2025--freestyle-chess-open-b/round-9/l5I0XmL1"
+    }
+  ],
+  "defaultRoundId": "U0pX1EWs"
+}

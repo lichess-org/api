@@ -1,0 +1,603 @@
+{
+  "pending": [],
+  "created": [],
+  "started": [
+    {
+      "id": "xdIvW8eI",
+      "host": {
+        "name": "ManikandanPoco",
+        "id": "manikandanpoco",
+        "rating": 1139,
+        "provisional": false,
+        "gameId": "adpAQvso",
+        "online": true
+      },
+      "name": "Fun",
+      "fullName": "Fun simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": true,
+      "isFinished": false,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 2,
+      "estimatedStartAt": 1745110088679,
+      "startedAt": 1745110088679
+    }
+  ],
+  "finished": [
+    {
+      "id": "luX8AzvZ",
+      "host": {
+        "name": "darkhorse_98",
+        "title": "IM",
+        "patron": true,
+        "id": "darkhorse_98",
+        "rating": 2005,
+        "provisional": true
+      },
+      "name": "Rebecca Chess School",
+      "fullName": "Rebecca Chess School simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "Closed simul for students only. Thanks!",
+      "nbApplicants": 0,
+      "nbPairings": 3,
+      "estimatedStartAt": 1745080553117,
+      "startedAt": 1745080553117,
+      "finishedAt": 1745083461206
+    },
+    {
+      "id": "Qu5P94Cg",
+      "host": {
+        "name": "Kornilova_EG",
+        "title": "WFM",
+        "id": "kornilova_eg",
+        "rating": 1500,
+        "provisional": true
+      },
+      "name": "Join to win",
+      "fullName": "Join to win simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 5,
+      "estimatedStartAt": 1745062867409,
+      "startedAt": 1745062867409,
+      "finishedAt": 1745064829192
+    },
+    {
+      "id": "o2PqZErf",
+      "host": {
+        "name": "AsanovTimur",
+        "title": "IM",
+        "id": "asanovtimur",
+        "rating": 2535,
+        "provisional": false
+      },
+      "name": "IM AsanovTimur - 2444 elo fide",
+      "fullName": "IM AsanovTimur - 2444 elo fide simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "To play, you need to log in to my twitch https://www.twitch.tv/ustinovtimur1984 and subscribe to the channel and keep track too - and write your name on Lee Chess in the twitch chat so that I can add you to the simultaneous game session.",
+      "nbApplicants": 0,
+      "nbPairings": 7,
+      "estimatedStartAt": 1745060892786,
+      "startedAt": 1745060892786,
+      "finishedAt": 1745062029322
+    },
+    {
+      "id": "57sW2H2D",
+      "host": {
+        "name": "vnamb",
+        "title": "NM",
+        "id": "vnamb",
+        "rating": 2205,
+        "provisional": false
+      },
+      "name": "RCA 19th April",
+      "fullName": "RCA 19th April simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 2,
+      "estimatedStartAt": 1745057695868,
+      "startedAt": 1745057695868,
+      "finishedAt": 1745059558770
+    },
+    {
+      "id": "MNvhGrMC",
+      "host": {
+        "name": "Bezoro1976",
+        "title": "FM",
+        "id": "bezoro1976",
+        "rating": 1500,
+        "provisional": true
+      },
+      "name": "FM Bezoro1976",
+      "fullName": "FM Bezoro1976 simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 20,
+      "estimatedStartAt": 1745043603124,
+      "startedAt": 1745043603124,
+      "finishedAt": 1745047460545
+    },
+    {
+      "id": "wlCnUVpQ",
+      "host": {
+        "name": "Martin_Petrov",
+        "title": "GM",
+        "id": "martin_petrov",
+        "rating": 2383,
+        "provisional": false
+      },
+      "name": "Easter 960 -  2",
+      "fullName": "Easter 960 -  2 simul",
+      "variants": [
+        {
+          "key": "chess960",
+          "icon": "",
+          "name": "Chess960"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 2,
+      "estimatedStartAt": 1745018944540,
+      "startedAt": 1745018944540,
+      "finishedAt": 1745020207508
+    },
+    {
+      "id": "rVHkrCz9",
+      "host": {
+        "name": "Martin_Petrov",
+        "title": "GM",
+        "id": "martin_petrov",
+        "rating": 2383,
+        "provisional": false
+      },
+      "name": "Easter 960",
+      "fullName": "Easter 960 simul",
+      "variants": [
+        {
+          "key": "chess960",
+          "icon": "",
+          "name": "Chess960"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 2,
+      "estimatedStartAt": 1745017928292,
+      "startedAt": 1745017928292,
+      "finishedAt": 1745018597630
+    },
+    {
+      "id": "YKMtBSBJ",
+      "host": {
+        "name": "Zhekoylas",
+        "title": "IM",
+        "id": "zhekoylas",
+        "rating": 2449,
+        "provisional": true
+      },
+      "name": "IM Zhekoylas",
+      "fullName": "IM Zhekoylas simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 10,
+      "estimatedStartAt": 1745011382829,
+      "startedAt": 1745011382829,
+      "finishedAt": 1745013315475
+    },
+    {
+      "id": "cvBCxaTD",
+      "host": {
+        "name": "Nozdrachev_Vladislav",
+        "title": "IM",
+        "id": "nozdrachev_vladislav",
+        "rating": 1500,
+        "provisional": true
+      },
+      "name": "Bogo 2",
+      "fullName": "Bogo 2 simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 25,
+      "estimatedStartAt": 1744999201270,
+      "startedAt": 1744999201270,
+      "finishedAt": 1745005581745
+    },
+    {
+      "id": "362WoM8y",
+      "host": {
+        "name": "spidy92",
+        "title": "GM",
+        "id": "spidy92",
+        "rating": 2267,
+        "provisional": true
+      },
+      "name": "Shyam's",
+      "fullName": "Shyam's simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "Lets have fun playing a good quality game!",
+      "nbApplicants": 0,
+      "nbPairings": 11,
+      "estimatedStartAt": 1744989645688,
+      "startedAt": 1744989645688,
+      "finishedAt": 1744993152542
+    },
+    {
+      "id": "jzpfwxQZ",
+      "host": {
+        "name": "ZicoenCuba",
+        "title": "FM",
+        "id": "zicoencuba",
+        "rating": 2612,
+        "provisional": false,
+        "online": true
+      },
+      "name": "FM ZicoenCuba",
+      "fullName": "FM ZicoenCuba simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 7,
+      "estimatedStartAt": 1744950010221,
+      "startedAt": 1744950010221,
+      "finishedAt": 1744952663294
+    },
+    {
+      "id": "E8JEjMs6",
+      "host": {
+        "name": "EdgarRodrigues",
+        "title": "FM",
+        "flair": "activity.trophy",
+        "patron": true,
+        "id": "edgarrodrigues",
+        "rating": 2444,
+        "provisional": false
+      },
+      "name": "FM EdgarRodrigues",
+      "fullName": "FM EdgarRodrigues simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 2,
+      "estimatedStartAt": 1744916359691,
+      "startedAt": 1744916359691,
+      "finishedAt": 1744918028470
+    },
+    {
+      "id": "hgfjXR4Q",
+      "host": {
+        "name": "MarkoMakaj",
+        "title": "FM",
+        "id": "markomakaj",
+        "rating": 2320,
+        "provisional": true
+      },
+      "name": "FM MarkoMakaj",
+      "fullName": "FM MarkoMakaj simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 8,
+      "estimatedStartAt": 1744912435822,
+      "startedAt": 1744912435822,
+      "finishedAt": 1744914359318
+    },
+    {
+      "id": "HwTSLbo9",
+      "host": {
+        "name": "VladislavKrasikov_FM",
+        "title": "FM",
+        "flair": "activity.heart-suit",
+        "id": "vladislavkrasikov_fm",
+        "rating": 2463,
+        "provisional": false
+      },
+      "name": "Thursday",
+      "fullName": "Thursday simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 5,
+      "estimatedStartAt": 1744909472680,
+      "startedAt": 1744909472680,
+      "finishedAt": 1744911873684
+    },
+    {
+      "id": "WRVPawCp",
+      "host": {
+        "name": "SLOM",
+        "title": "NM",
+        "flair": "nature.phoenix-bird",
+        "id": "slom",
+        "rating": 2365,
+        "provisional": true
+      },
+      "name": "Titled Players With Q and A",
+      "fullName": "Titled Players With Q and A simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "I am going to host a Q and A on my stream while I play against you guys in the simul. PLEASE join my stream and ask any questions that you have!\r\n\r\nI will be having titled player guests that will help me answer your questions! \r\n\r\nWe will start when we have 15-20 players!\r\n\r\nTo ask questions join the stream link down below to have us see your questions, both during and after the games:\r\n\r\nhttps://www.youtube.com/watch?v=yiljCiQSEx4",
+      "nbApplicants": 0,
+      "nbPairings": 21,
+      "estimatedStartAt": 1744905762223,
+      "startedAt": 1744905762223,
+      "finishedAt": 1744911468228
+    },
+    {
+      "id": "20rs2jUn",
+      "host": {
+        "name": "invoker11",
+        "title": "CM",
+        "flair": "smileys.angry-face-with-horns",
+        "id": "invoker11",
+        "rating": 2310,
+        "provisional": true
+      },
+      "name": "CM invoker11",
+      "fullName": "CM invoker11 simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 27,
+      "estimatedStartAt": 1744902795629,
+      "startedAt": 1744902795629,
+      "finishedAt": 1744903782414
+    },
+    {
+      "id": "eiRYlIHQ",
+      "host": {
+        "name": "Kornilova_EG",
+        "title": "WFM",
+        "id": "kornilova_eg",
+        "rating": 1500,
+        "provisional": true
+      },
+      "name": "Join to win",
+      "fullName": "Join to win simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 6,
+      "estimatedStartAt": 1744899242632,
+      "startedAt": 1744899242632,
+      "finishedAt": 1744903575603
+    },
+    {
+      "id": "H0SZ6rWf",
+      "host": {
+        "name": "kasparicy",
+        "title": "FM",
+        "id": "kasparicy",
+        "rating": 2252,
+        "provisional": true
+      },
+      "name": "FM kasparicy",
+      "fullName": "FM kasparicy simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 3,
+      "estimatedStartAt": 1744894264720,
+      "startedAt": 1744894264720,
+      "finishedAt": 1744895531249
+    },
+    {
+      "id": "dqA1f8AP",
+      "host": {
+        "name": "Kornilova_EG",
+        "title": "WFM",
+        "id": "kornilova_eg",
+        "rating": 1500,
+        "provisional": true
+      },
+      "name": "Join to win",
+      "fullName": "Join to win simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 6,
+      "estimatedStartAt": 1744828064888,
+      "startedAt": 1744828064888,
+      "finishedAt": 1744832578625
+    },
+    {
+      "id": "AJwBgLaX",
+      "host": {
+        "name": "cukierbd",
+        "title": "FM",
+        "id": "cukierbd",
+        "rating": 2390,
+        "provisional": true
+      },
+      "name": "Matowanie wieżą",
+      "fullName": "Matowanie wieżą simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 3,
+      "estimatedStartAt": 1744823341601,
+      "startedAt": 1744823341601,
+      "finishedAt": 1744823581255
+    }
+  ]
+}

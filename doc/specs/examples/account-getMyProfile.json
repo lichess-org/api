@@ -1,0 +1,125 @@
+{
+  "id": "bobby",
+  "username": "Bobby",
+  "perfs": {
+    "bullet": {
+      "games": 67,
+      "rating": 1675,
+      "rd": 53,
+      "prog": -13
+    },
+    "blitz": {
+      "games": 22,
+      "rating": 1844,
+      "rd": 115,
+      "prog": 38,
+      "prov": true
+    },
+    "rapid": {
+      "games": 16,
+      "rating": 1751,
+      "rd": 45,
+      "prog": 9
+    },
+    "classical": {
+      "games": 19,
+      "rating": 1804,
+      "rd": 48,
+      "prog": -26
+    },
+    "correspondence": {
+      "games": 476,
+      "rating": 1780,
+      "rd": 78,
+      "prog": 36
+    },
+    "chess960": {
+      "games": 44,
+      "rating": 1793,
+      "rd": 85,
+      "prog": -18
+    },
+    "kingOfTheHill": {
+      "games": 64,
+      "rating": 1702,
+      "rd": 95,
+      "prog": 0
+    },
+    "threeCheck": {
+      "games": 8,
+      "rating": 1693,
+      "rd": 62,
+      "prog": 16
+    },
+    "antichess": {
+      "games": 155,
+      "rating": 1632,
+      "rd": 45,
+      "prog": -17
+    },
+    "atomic": {
+      "games": 53,
+      "rating": 1777,
+      "rd": 100,
+      "prog": 31
+    },
+    "horde": {
+      "games": 136,
+      "rating": 1697,
+      "rd": 75,
+      "prog": 11
+    },
+    "crazyhouse": {
+      "games": 37,
+      "rating": 1830,
+      "rd": 47,
+      "prog": 28
+    },
+    "puzzle": {
+      "games": 387,
+      "rating": 1788,
+      "rd": 78,
+      "prog": -52
+    }
+  },
+  "flair": "smileys.grinning-squinting-face",
+  "patron": true,
+  "createdAt": 1741604475808,
+  "profile": {
+    "location": "Bobby City",
+    "cfcRating": 1686,
+    "rcfRating": 1894,
+    "flag": "AX",
+    "dsbRating": 1740,
+    "fideRating": 1725,
+    "ecfRating": 1674,
+    "uscfRating": 1623,
+    "bio": "Let us see, in the first place, what the two forms have in common.",
+    "links": "https://en.wikipedia.org/wiki/Srinivasa_Ramanujan"
+  },
+  "seenAt": 1743531507166,
+  "playTime": {
+    "total": 12865,
+    "tv": 0
+  },
+  "url": "http://localhost:8080/@/Bobby",
+  "count": {
+    "all": 3062,
+    "rated": 2449,
+    "ai": 0,
+    "draw": 218,
+    "drawH": 218,
+    "loss": 1453,
+    "lossH": 1453,
+    "win": 1391,
+    "winH": 1391,
+    "bookmark": 0,
+    "playing": 0,
+    "import": 0,
+    "me": 0
+  },
+  "kid": true,
+  "followable": true,
+  "following": false,
+  "blocking": false
+}

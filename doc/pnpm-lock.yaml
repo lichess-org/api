@@ -9,13 +9,13 @@ importers:
   .:
     devDependencies:
       '@redocly/cli':
-        specifier: ^1.34.1
-        version: 1.34.1(ajv@8.17.1)
+        specifier: ^1.34.2
+        version: 1.34.2(ajv@8.17.1)
       '@stoplight/spectral-cli':
         specifier: ^6.14.3
         version: 6.14.3
       '@stoplight/spectral-rulesets':
-        specifier: ^1.18.1
+        specifier: 1.18.1
         version: 1.18.1
       prettier:
         specifier: ^3.5.3
@@ -209,20 +209,20 @@ packages:
   '@redocly/ajv@8.11.2':
     resolution: {integrity: sha512-io1JpnwtIcvojV7QKDUSIuMN/ikdOUd1ReEnUnMKGfDVridQZ31J0MmIuqwuRjWDZfmvr+Q0MqCcfHM2gTivOg==}
 
-  '@redocly/cli@1.34.1':
-    resolution: {integrity: sha512-12aTw7A/0n+8T7yKM1E8qlFRFPZnm2i1me0sZ1WOAiGT4I2j4iUcCp+93B0nrjIs1ZdNmrT0TTrMYLhsMJYjaQ==}
+  '@redocly/cli@1.34.2':
+    resolution: {integrity: sha512-XnKG7yrr0GUZ7MyqHk9hRt//HGUSnLDwwEXI8HDQdyDFp+YFbddqcQPOWc/sDeDBTEiBXqwPOb3/VKA+8NtSMw==}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
     hasBin: true
 
   '@redocly/config@0.22.2':
     resolution: {integrity: sha512-roRDai8/zr2S9YfmzUfNhKjOF0NdcOIqF7bhf4MVC5UxpjIysDjyudvlAiVbpPHp3eDRWbdzUgtkK1a7YiDNyQ==}
 
-  '@redocly/openapi-core@1.34.1':
-    resolution: {integrity: sha512-KI1QOGvDk6oREbTu0JORxZX1NBxraXUbXczv0LYDs9EPp06coq874hQORqSHGEUV/DX2A6gjv4Ax33g/LFJBww==}
+  '@redocly/openapi-core@1.34.2':
+    resolution: {integrity: sha512-glfkQFJizLdq2fBkNvc2FJW0sxDb5exd0wIXhFk+WHaFLMREBC3CxRo2Zq7uJIdfV9U3YTceMbXJklpDfmmwFQ==}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
 
-  '@redocly/respect-core@1.34.1':
-    resolution: {integrity: sha512-Lzea25WqwxVK5+aCiq/pr7lUFdsZPYSqNzl05Z4jEtuP1DEIxJNG31ID75dZt30pPtyxjaa/dBuccruYlYflzw==}
+  '@redocly/respect-core@1.34.2':
+    resolution: {integrity: sha512-X6VR9bbHXrI01Wh5t6TIHxFCVHcP4Iy42micKLIk/Cg6EmHVbaSDGOD6mxChXtEIrwnY+bqyUbjlXr9+YM7B9A==}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
 
   '@rollup/plugin-commonjs@22.0.2':
@@ -352,8 +352,8 @@ packages:
   '@types/markdown-escape@1.1.3':
     resolution: {integrity: sha512-JIc1+s3y5ujKnt/+N+wq6s/QdL2qZ11fP79MijrVXsAAnzSxCbT2j/3prHRouJdZ2yFLN3vkP0HytfnoCczjOw==}
 
-  '@types/node@22.14.0':
-    resolution: {integrity: sha512-Kmpl+z84ILoG+3T/zQFyAJsU6EPTmOCj8/2+83fSN6djd6I4o7uOuGIH6vq3PrjY5BGitSbFuMN18j3iknubbA==}
+  '@types/node@22.14.1':
+    resolution: {integrity: sha512-u0HuPQwe/dHrItgHHpmw3N2fYCR6x4ivMNbPHRkBVP4CvN+kiRrKHWk3i8tXiO/joPwXLMYvF9TTF0eqgHIuOw==}
 
   '@types/sarif@2.1.7':
     resolution: {integrity: sha512-kRz0VEkJqWLf1LLVN4pT1cg1Z9wAuvI6L97V3m2f5B76Tg8d413ddvLBPTEHAZJlnn4XSvu0FkZtViCQGVyrXQ==}
@@ -631,8 +631,8 @@ packages:
     resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
     engines: {node: '>=12'}
 
-  dotenv@16.4.7:
-    resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
+  dotenv@16.5.0:
+    resolution: {integrity: sha512-m/C+AwOAr9/W1UOIZUo232ejMNnJAJtYQjUbHoNTBNTJSvqzzDh7vnrei3o3r3m9blf6ZoDkvcw0VmozNRFJxg==}
     engines: {node: '>=12'}
 
   dunder-proto@1.0.1:
@@ -1034,8 +1034,8 @@ packages:
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
-  long@5.3.1:
-    resolution: {integrity: sha512-ka87Jz3gcx/I7Hal94xaN2tZEOPoUOEVftkQqZx2EeQRN7LGdfLlI3FvZ+7WDplm+vK2Urx9ULrvSowtdCieng==}
+  long@5.3.2:
+    resolution: {integrity: sha512-mNAgZ1GmyNhD7AuqnTG3/VQ26o760+ZYBPKjPvugO8+nLbYfX6TVpJPseBvopbdY+qpZ/lKUnmEc1LeZYS3QAA==}
 
   loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
@@ -1191,8 +1191,8 @@ packages:
   once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
 
-  open@10.1.0:
-    resolution: {integrity: sha512-mnkeQ1qP5Ue2wd+aivTD3NHd/lZ96Lu0jgf0pwktLPtx6cTZiH7tyeGRRHs0zX0rbrahXPnXlUnbeXyaBBuIaw==}
+  open@10.1.1:
+    resolution: {integrity: sha512-zy1wx4+P3PfhXSEPJNtZmJXfhkkIaxU1VauWIrDZw1O7uJRDRJtKr9n3Ic4NgbA16KyOxOXO2ng9gYwCdXuSXA==}
     engines: {node: '>=18'}
 
   openapi-sampler@1.6.1:
@@ -1267,8 +1267,8 @@ packages:
   prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
 
-  protobufjs@7.4.0:
-    resolution: {integrity: sha512-mRUWCc3KUU4w1jU8sGxICXH/gNS94DvI1gxqDvBzhj1JpcsimQkYiOJfwsPUykUI5ZaspFbSgmBLER8IrQ3tqw==}
+  protobufjs@7.5.0:
+    resolution: {integrity: sha512-Z2E/kOY1QjoMlCytmexzYfDm/w5fKAiRwpSzGtdnXW1zC88Z2yXazHHrOtwCzn+7wSxyE8PYM4rvVcMphF9sOA==}
     engines: {node: '>=12.0.0'}
 
   queue-microtask@1.2.3:
@@ -1769,7 +1769,7 @@ snapshots:
       '@opentelemetry/sdk-logs': 0.53.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-metrics': 1.26.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-trace-base': 1.26.0(@opentelemetry/api@1.9.0)
-      protobufjs: 7.4.0
+      protobufjs: 7.5.0
 
   '@opentelemetry/propagator-b3@1.26.0(@opentelemetry/api@1.9.0)':
     dependencies:
@@ -1849,7 +1849,7 @@ snapshots:
       require-from-string: 2.0.2
       uri-js-replace: 1.0.1
 
-  '@redocly/cli@1.34.1(ajv@8.17.1)':
+  '@redocly/cli@1.34.2(ajv@8.17.1)':
     dependencies:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/exporter-trace-otlp-http': 0.53.0(@opentelemetry/api@1.9.0)
@@ -1857,13 +1857,13 @@ snapshots:
       '@opentelemetry/sdk-trace-node': 1.26.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.27.0
       '@redocly/config': 0.22.2
-      '@redocly/openapi-core': 1.34.1
-      '@redocly/respect-core': 1.34.1(ajv@8.17.1)
+      '@redocly/openapi-core': 1.34.2
+      '@redocly/respect-core': 1.34.2(ajv@8.17.1)
       abort-controller: 3.0.0
       chokidar: 3.6.0
       colorette: 1.4.0
       core-js: 3.41.0
-      dotenv: 16.4.7
+      dotenv: 16.5.0
       form-data: 4.0.2
       get-port-please: 3.1.2
       glob: 7.2.3
@@ -1887,7 +1887,7 @@ snapshots:
 
   '@redocly/config@0.22.2': {}
 
-  '@redocly/openapi-core@1.34.1':
+  '@redocly/openapi-core@1.34.2':
     dependencies:
       '@redocly/ajv': 8.11.2
       '@redocly/config': 0.22.2
@@ -1901,11 +1901,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@redocly/respect-core@1.34.1(ajv@8.17.1)':
+  '@redocly/respect-core@1.34.2(ajv@8.17.1)':
     dependencies:
       '@faker-js/faker': 7.6.0
       '@redocly/ajv': 8.11.2
-      '@redocly/openapi-core': 1.34.1
+      '@redocly/openapi-core': 1.34.2
       better-ajv-errors: 1.2.0(ajv@8.17.1)
       colorette: 2.0.20
       concat-stream: 2.0.0
@@ -1917,7 +1917,7 @@ snapshots:
       js-yaml: 4.1.0
       json-pointer: 0.6.2
       jsonpath-plus: 10.3.0
-      open: 10.1.0
+      open: 10.1.1
       openapi-sampler: 1.6.1
       outdent: 0.8.0
       set-cookie-parser: 2.7.1
@@ -2108,7 +2108,7 @@ snapshots:
       '@stoplight/spectral-rulesets': 1.18.1
       '@stoplight/spectral-runtime': 1.1.4
       '@stoplight/types': 13.20.0
-      '@types/node': 22.14.0
+      '@types/node': 22.14.1
       pony-cause: 1.1.1
       rollup: 2.79.2
       tslib: 2.8.1
@@ -2125,7 +2125,7 @@ snapshots:
       '@stoplight/spectral-runtime': 1.1.4
       '@stoplight/types': 13.20.0
       '@stoplight/yaml': 4.2.3
-      '@types/node': 22.14.0
+      '@types/node': 22.14.1
       ajv: 8.17.1
       ast-types: 0.14.2
       astring: 1.9.0
@@ -2201,7 +2201,7 @@ snapshots:
 
   '@types/es-aggregate-error@1.0.6':
     dependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.14.1
 
   '@types/estree@0.0.39': {}
 
@@ -2211,7 +2211,7 @@ snapshots:
 
   '@types/markdown-escape@1.1.3': {}
 
-  '@types/node@22.14.0':
+  '@types/node@22.14.1':
     dependencies:
       undici-types: 6.21.0
 
@@ -2483,7 +2483,7 @@ snapshots:
 
   dotenv@16.4.5: {}
 
-  dotenv@16.4.7: {}
+  dotenv@16.5.0: {}
 
   dunder-proto@1.0.1:
     dependencies:
@@ -2955,7 +2955,7 @@ snapshots:
 
   lodash@4.17.21: {}
 
-  long@5.3.1: {}
+  long@5.3.2: {}
 
   loose-envify@1.4.0:
     dependencies:
@@ -3101,7 +3101,7 @@ snapshots:
     dependencies:
       wrappy: 1.0.2
 
-  open@10.1.0:
+  open@10.1.1:
     dependencies:
       default-browser: 5.2.1
       define-lazy-prop: 3.0.0
@@ -3170,7 +3170,7 @@ snapshots:
       object-assign: 4.1.1
       react-is: 16.13.1
 
-  protobufjs@7.4.0:
+  protobufjs@7.5.0:
     dependencies:
       '@protobufjs/aspromise': 1.1.2
       '@protobufjs/base64': 1.1.2
@@ -3182,8 +3182,8 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 22.14.0
-      long: 5.3.1
+      '@types/node': 22.14.1
+      long: 5.3.2
 
   queue-microtask@1.2.3: {}
 
@@ -3220,7 +3220,7 @@ snapshots:
 
   redoc@2.4.0(core-js@3.41.0)(mobx@6.13.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(styled-components@6.1.17(react-dom@19.1.0(react@19.1.0))(react@19.1.0)):
     dependencies:
-      '@redocly/openapi-core': 1.34.1
+      '@redocly/openapi-core': 1.34.2
       classnames: 2.5.1
       core-js: 3.41.0
       decko: 1.2.0

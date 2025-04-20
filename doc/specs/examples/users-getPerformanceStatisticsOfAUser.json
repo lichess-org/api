@@ -1,0 +1,81 @@
+{
+  "user": {
+    "name": "Jose"
+  },
+  "perf": {
+    "glicko": {
+      "rating": 1153,
+      "deviation": 63.04
+    },
+    "nb": 682,
+    "progress": -44
+  },
+  "rank": 45,
+  "percentile": 29.7,
+  "stat": {
+    "count": {
+      "berserk": 33,
+      "win": 303,
+      "all": 682,
+      "seconds": 204600,
+      "opAvg": 0.48,
+      "draw": 101,
+      "tour": 49,
+      "disconnects": 15,
+      "rated": 486,
+      "loss": 278
+    },
+    "resultStreak": {
+      "win": {
+        "cur": {
+          "v": 0
+        },
+        "max": {
+          "v": 2
+        }
+      },
+      "loss": {
+        "cur": {
+          "v": 0
+        },
+        "max": {
+          "v": 1
+        }
+      }
+    },
+    "worstLosses": {
+      "results": []
+    },
+    "perfType": {
+      "key": "blitz",
+      "name": "Blitz"
+    },
+    "id": "jose/2",
+    "playStreak": {
+      "nb": {
+        "cur": {
+          "v": 0
+        },
+        "max": {
+          "v": 1
+        }
+      },
+      "time": {
+        "cur": {
+          "v": 0
+        },
+        "max": {
+          "v": 1
+        }
+      }
+    },
+    "bestWins": {
+      "results": []
+    },
+    "userId": {
+      "id": "jose",
+      "name": "Jose",
+      "title": null
+    }
+  }
+}

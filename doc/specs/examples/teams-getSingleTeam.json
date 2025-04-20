@@ -1,0 +1,36 @@
+{
+  "id": "lichess-swiss",
+  "name": "Lichess Swiss",
+  "description": "The official Lichess Swiss team. We organize regular swiss tournaments for all to join.",
+  "open": true,
+  "leader": {
+    "name": "Lichess",
+    "flair": "activity.lichess",
+    "patron": true,
+    "id": "lichess"
+  },
+  "nbMembers": 581942,
+  "flair": "food-drink.cheese-wedge",
+  "leaders": [
+    {
+      "name": "Lichess",
+      "flair": "activity.lichess",
+      "patron": true,
+      "id": "lichess"
+    },
+    {
+      "name": "thibault",
+      "flair": "symbols.vim-logo",
+      "patron": true,
+      "id": "thibault"
+    },
+    {
+      "name": "NoJoke",
+      "flair": "food-drink.watermelon",
+      "patron": true,
+      "id": "nojoke"
+    }
+  ],
+  "joined": false,
+  "requested": false
+}

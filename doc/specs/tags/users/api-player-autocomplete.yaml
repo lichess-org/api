@@ -50,3 +50,5 @@ get:
                     type: array
                     items:
                       $ref: "../../schemas/LightUserOnline.yaml"
+          example:
+            $ref: "../../examples/users-autocompleteUsernames.json"

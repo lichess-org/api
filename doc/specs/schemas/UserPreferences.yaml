@@ -2,16 +2,13 @@ type: object
 properties:
   dark:
     type: boolean
-    example: true
   transp:
     type: boolean
-    example: false
   bgImg:
     type: string
     format: uri
   is3d:
     type: boolean
-    example: false
   theme:
     type: string
     enum:
@@ -114,79 +111,57 @@ properties:
       - speech
   blindfold:
     type: integer
-    example: 0
   autoQueen:
     type: integer
-    example: 2
   autoThreefold:
     type: integer
-    example: 2
   takeback:
     type: integer
-    example: 3
   moretime:
     type: integer
-    example: 3
   clockTenths:
     type: integer
-    example: 1
   clockBar:
     type: boolean
-    example: true
   clockSound:
     type: boolean
-    example: true
   premove:
     type: boolean
-    example: true
   animation:
     type: integer
-    example: 2
+  pieceNotation:
+    type: integer
   captured:
     type: boolean
-    example: true
   follow:
     type: boolean
-    example: true
   highlight:
     type: boolean
-    example: true
   destination:
     type: boolean
-    example: true
   coords:
     type: integer
-    example: 2
   replay:
     type: integer
-    example: 2
   challenge:
     type: integer
-    example: 4
   message:
     type: integer
-    example: 3
-  coordColor:
-    type: integer
-    example: 2
   submitMove:
     type: integer
-    example: 4
   confirmResign:
     type: integer
-    example: 1
   insightShare:
     type: integer
-    example: 1
   keyboardMove:
     type: integer
-    example: 0
+  voiceMove:
+    type: boolean
   zen:
     type: integer
-    example: 0
+  ratings:
+    type: integer
   moveEvent:
     type: integer
-    example: 2
   rookCastle:
     type: integer
-    example: 1

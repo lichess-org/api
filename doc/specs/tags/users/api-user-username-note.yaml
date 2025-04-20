@@ -33,6 +33,8 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+          example:
+            $ref: "../../examples/users-addNoteForUser.json"
 get:
   operationId: readNote
   summary: Get notes for a user
@@ -63,12 +65,5 @@ get:
             type: array
             items:
               $ref: "../../schemas/UserNote.yaml"
-            example:
-              [
-                {
-                  "from": { "name": "thibault", "patron": true, "id": "thibault" },
-                  "to": { "name": "DrNykterstein", "title": "GM", "patron": true, "id": "drnykterstein" },
-                  "text": "This guy is good at chess",
-                  "date": 1690585691898,
-                },
-              ]
+          example:
+            $ref: "../../examples/users-getNotesForUser.json"

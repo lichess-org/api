@@ -27,6 +27,10 @@ properties:
     type: integer
     example: 1500
     description: only appears if a user has set them
+  rcfRating:
+    type: integer
+    example: 1500
+    description: only appears if a user has set them
   dsbRating:
     type: integer
     example: 1500

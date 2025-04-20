@@ -35,6 +35,8 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/ArenaTournamentFull.yaml"
+          example:
+            $ref: "../../examples/arenas-getArenaById.json"
 post:
   operationId: apiTournamentUpdate
   summary: Update an Arena tournament

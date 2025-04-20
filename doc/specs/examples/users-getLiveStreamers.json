@@ -1,0 +1,85 @@
+[
+  {
+    "name": "PokochajSzachy",
+    "title": "CM",
+    "flair": "symbols.orange-heart",
+    "patron": true,
+    "id": "pokochajszachy",
+    "stream": {
+      "service": "twitch",
+      "status": "CHess & Chill & Good Music !youtube !instagram lichess.org [EN] [PL]",
+      "lang": "pl"
+    },
+    "streamer": {
+      "name": "Pokochaj Szachy",
+      "headline": "Streaming in Polish and English. Come by and say hello! Pokochaj Szachy to miejsce dla pasjonatów królewskiej gry!",
+      "description": "Hi! Have a good time watching the stream! I very often play against viewers on DGT chessboard. So, if you would like to play against me just let me know during the stream.  Zapraszam wszystkich do oglądania, i aktywnego uczestnictwa. Łączą nas Szachy!",
+      "twitch": "https://www.twitch.tv/pokochajszachy",
+      "image": "https://image.lichess1.org/display?fmt=png&h=350&op=thumbnail&path=pokochajszachy:streamer:pokochajszachy:qfVf3nXP.png&w=350&sig=e329d57f8e6815da63dba66992fa8b3c4b100ba9"
+    }
+  },
+  {
+    "name": "RESET-101",
+    "id": "reset-101",
+    "stream": {
+      "service": "twitch",
+      "status": "Playing viewers and 2400 Rapid on lichess.org",
+      "lang": "en"
+    },
+    "streamer": {
+      "name": "RESET-101",
+      "headline": "I stream because I would like to meet similar minded people who share the same enthusiasm for chess",
+      "twitch": "https://www.twitch.tv/chess_dexter",
+      "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=reset-101:streamer:reset-101:KjGH8CPF.jpg&w=350&sig=a24efd256d7f5feeac638ebd5954ce2902326b2a"
+    }
+  },
+  {
+    "name": "neverplayslowanti",
+    "flair": "smileys.hugging-face",
+    "id": "neverplayslowanti",
+    "stream": {
+      "service": "twitch",
+      "status": "Night Antichess Grind on lichess.org !!",
+      "lang": "en"
+    },
+    "streamer": {
+      "name": "ASGM Preslav Petkov",
+      "headline": "Antichess World Champion & Chess Amateur trying his best to bring you (anti)chess-related content!",
+      "twitch": "https://www.twitch.tv/neversmartenough",
+      "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:neverplayslowanti:fl0ap4YM.webp&w=350&sig=568c0f86bf3afc85854bdb1cba80f7bc28b179b1"
+    }
+  },
+  {
+    "name": "XadrezTotalTV",
+    "flair": "objects.telescope",
+    "id": "xadreztotaltv",
+    "stream": {
+      "service": "youTube",
+      "status": "Xadrez Total | Analisando partidas e  batendo papo  Lichess.org",
+      "lang": "en-US"
+    },
+    "streamer": {
+      "name": "XadrezTotal",
+      "headline": "Empresa de Organizaçao de torenios FIDE com comentários de jogadores e árbitros titulados",
+      "description": "Xadrez Total é uma empresa que organiza torneios FIDE, sob a coordenação do Árbitro Internacional Mauro Amaral. \r\nTrabalhamos e/ou organizamos em masi de 15 páises, e em mais de 30 torneios do Calendário da FIDE, tais como Olimpíadas, Campeonatos Mundiais, Continetais FIDE, Pan-Americanos, Sul-Americanos e Zonais 2.4 FIDE, além de mais de uma centena de torneios Open e ITTs fechados de Norma de GM, MI, WGM e WIM ! ",
+      "twitch": "https://www.twitch.tv/xadreztotaltv",
+      "youTube": "https://www.youtube.com/channel/UCl0pW-vG9r8AT8N2bJdMu8Q/live",
+      "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=xadreztotaltv:streamer:xadreztotaltv:4DueCXhP.jpg&w=350&sig=e5fb7e683cb3ec7258778f727decd50b0495417a"
+    }
+  },
+  {
+    "name": "JaquetonEnigmatico",
+    "id": "jaquetonenigmatico",
+    "stream": {
+      "service": "twitch",
+      "status": "tratando de volver al prime lichess.org",
+      "lang": "es"
+    },
+    "streamer": {
+      "name": "JaquetonEnigmatico",
+      "headline": "jugador malo xd",
+      "description": "aprendi a jugar a los 10 y ahora voy a demostrar lo poco que se xd",
+      "twitch": "https://www.twitch.tv/gablots_gyt"
+    }
+  }
+]

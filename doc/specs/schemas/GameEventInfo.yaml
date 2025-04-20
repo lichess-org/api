@@ -1,6 +1,15 @@
 type: object
 properties:
-  id:
+  fullId:
+    type: string
+  gameId:
+    type: string
+  fen:
+    type: string
+  color:
+    type: string
+    enum: [white, black]
+  lastMove:
     type: string
   source:
     $ref: "./GameSource.yaml"
@@ -12,9 +21,34 @@ properties:
         enum: [10, 20, 25, 30, 31, 32, 33, 34, 35, 36, 37, 38, 60]
       name:
         $ref: "./GameStatus.yaml"
-  winner:
+  variant:
+    type: object
+    properties:
+      key:
+        type: string
+      name:
+        type: string
+  speed:
+    $ref: "./Speed.yaml"
+  perf:
     type: string
-    enum: [white, black]
+  rated:
+    type: boolean
+  hasMoved:
+    type: boolean
+  opponent:
+    type: object
+    properties:
+      id:
+        type: string
+      username:
+        type: string
+      rating:
+        type: integer
+  isMyTurn:
+    type: boolean
+  secondsLeft:
+    type: integer
   compat:
     type: object
     properties:
@@ -22,3 +56,26 @@ properties:
         type: boolean
       board:
         type: boolean
+  id:
+    type: string
+
+example:
+  {
+    "fullId": "9NaCTu2vz1c4",
+    "gameId": "9NaCTu2v",
+    "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "color": "white",
+    "lastMove": "",
+    "source": "friend",
+    "status": { "id": 20, "name": "started" },
+    "variant": { "key": "standard", "name": "Standard" },
+    "speed": "blitz",
+    "perf": "blitz",
+    "rated": false,
+    "hasMoved": false,
+    "opponent": { "id": "mary", "username": "Mary", "rating": 1007 },
+    "isMyTurn": true,
+    "secondsLeft": 300,
+    "compat": { "bot": false, "board": true },
+    "id": "9NaCTu2v",
+  }

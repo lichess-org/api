@@ -19,3 +19,5 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/UserExtended.yaml"
+          example:
+            $ref: "../../examples/account-getMyProfile.json"

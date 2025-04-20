@@ -32,3 +32,5 @@ post:
             type: array
             items:
               $ref: "../../schemas/User.yaml"
+          example:
+            $ref: "../../examples/users-getUsersById.json"

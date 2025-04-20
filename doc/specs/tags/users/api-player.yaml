@@ -19,3 +19,5 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/Top10s.yaml"
+          example:
+            $ref: "../../examples/users-getAllTop10.json"

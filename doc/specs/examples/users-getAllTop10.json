@@ -1,0 +1,1424 @@
+{
+  "bullet": [
+    {
+      "id": "rodosfatihi",
+      "username": "RoDoSfAtiHi",
+      "perfs": {
+        "bullet": {
+          "rating": 3302,
+          "progress": -10
+        }
+      }
+    },
+    {
+      "id": "aqua_blazing",
+      "username": "Aqua_Blazing",
+      "perfs": {
+        "bullet": {
+          "rating": 3300,
+          "progress": -19
+        }
+      }
+    },
+    {
+      "id": "arm-777777",
+      "username": "ARM-777777",
+      "perfs": {
+        "bullet": {
+          "rating": 3270,
+          "progress": 10
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "penguingim1",
+      "username": "penguingim1",
+      "perfs": {
+        "bullet": {
+          "rating": 3216,
+          "progress": 0
+        }
+      },
+      "title": "GM",
+      "patron": true
+    },
+    {
+      "id": "delta_horsey",
+      "username": "delta_horsey",
+      "perfs": {
+        "bullet": {
+          "rating": 3209,
+          "progress": 13
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "svodmevko",
+      "username": "SVODMEVKO",
+      "perfs": {
+        "bullet": {
+          "rating": 3200,
+          "progress": 10
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "andres4891",
+      "username": "Andres4891",
+      "perfs": {
+        "bullet": {
+          "rating": 3200,
+          "progress": -1
+        }
+      }
+    },
+    {
+      "id": "emmanuel1233",
+      "username": "Emmanuel1233",
+      "perfs": {
+        "bullet": {
+          "rating": 3188,
+          "progress": 9
+        }
+      }
+    },
+    {
+      "id": "angelitort",
+      "username": "AngelitoRT",
+      "perfs": {
+        "bullet": {
+          "rating": 3186,
+          "progress": -30
+        }
+      },
+      "title": "IM",
+      "patron": true
+    },
+    {
+      "id": "arka50",
+      "username": "Arka50",
+      "perfs": {
+        "bullet": {
+          "rating": 3184,
+          "progress": 21
+        }
+      },
+      "title": "GM"
+    }
+  ],
+  "blitz": [
+    {
+      "id": "ls_kokomo",
+      "username": "LS_kokomo",
+      "perfs": {
+        "blitz": {
+          "rating": 3053,
+          "progress": 26
+        }
+      }
+    },
+    {
+      "id": "bettercollsoul",
+      "username": "BetterCollSoul",
+      "perfs": {
+        "blitz": {
+          "rating": 2998,
+          "progress": -1
+        }
+      }
+    },
+    {
+      "id": "cutemouse83",
+      "username": "cutemouse83",
+      "perfs": {
+        "blitz": {
+          "rating": 2971,
+          "progress": 10
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "experience_chess",
+      "username": "Experience_Chess",
+      "perfs": {
+        "blitz": {
+          "rating": 2952,
+          "progress": 7
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "lintchevski_daniil",
+      "username": "Lintchevski_Daniil",
+      "perfs": {
+        "blitz": {
+          "rating": 2945,
+          "progress": 12
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "temurkuybokarov",
+      "username": "TemurKuybokarov",
+      "perfs": {
+        "blitz": {
+          "rating": 2942,
+          "progress": -6
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "athena-pallada",
+      "username": "athena-pallada",
+      "perfs": {
+        "blitz": {
+          "rating": 2936,
+          "progress": -12
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "tsoi_dima",
+      "username": "Tsoi_Dima",
+      "perfs": {
+        "blitz": {
+          "rating": 2934,
+          "progress": -36
+        }
+      },
+      "title": "FM"
+    },
+    {
+      "id": "aspiringstar",
+      "username": "aspiringstar",
+      "perfs": {
+        "blitz": {
+          "rating": 2928,
+          "progress": -3
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "delta_horsey",
+      "username": "delta_horsey",
+      "perfs": {
+        "blitz": {
+          "rating": 2909,
+          "progress": -18
+        }
+      },
+      "title": "GM"
+    }
+  ],
+  "rapid": [
+    {
+      "id": "realmadrid2007",
+      "username": "realmadrid2007",
+      "perfs": {
+        "rapid": {
+          "rating": 2969,
+          "progress": -18
+        }
+      }
+    },
+    {
+      "id": "pap-g",
+      "username": "Pap-G",
+      "perfs": {
+        "rapid": {
+          "rating": 2931,
+          "progress": 17
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "ilqar_7474",
+      "username": "ilqar_7474",
+      "perfs": {
+        "rapid": {
+          "rating": 2834,
+          "progress": 17
+        }
+      }
+    },
+    {
+      "id": "egor-kovalev",
+      "username": "Egor-Kovalev",
+      "perfs": {
+        "rapid": {
+          "rating": 2832,
+          "progress": 22
+        }
+      },
+      "title": "FM"
+    },
+    {
+      "id": "aborigen100500",
+      "username": "Aborigen100500",
+      "perfs": {
+        "rapid": {
+          "rating": 2789,
+          "progress": 20
+        }
+      },
+      "title": "NM"
+    },
+    {
+      "id": "vvchessli",
+      "username": "vvchessli",
+      "perfs": {
+        "rapid": {
+          "rating": 2768,
+          "progress": 0
+        }
+      },
+      "title": "IM"
+    },
+    {
+      "id": "tuzakli_egitim",
+      "username": "Tuzakli_Egitim",
+      "perfs": {
+        "rapid": {
+          "rating": 2765,
+          "progress": 19
+        }
+      },
+      "title": "FM"
+    },
+    {
+      "id": "drawdenied_twitch",
+      "username": "DrawDenied_Twitch",
+      "perfs": {
+        "rapid": {
+          "rating": 2764,
+          "progress": -9
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "abudabi22840",
+      "username": "abudabi22840",
+      "perfs": {
+        "rapid": {
+          "rating": 2748,
+          "progress": 17
+        }
+      }
+    },
+    {
+      "id": "chessmem",
+      "username": "chessmem",
+      "perfs": {
+        "rapid": {
+          "rating": 2745,
+          "progress": 10
+        }
+      },
+      "title": "FM"
+    }
+  ],
+  "classical": [
+    {
+      "id": "ojaijoao",
+      "username": "OjaiJoao",
+      "perfs": {
+        "classical": {
+          "rating": 2515,
+          "progress": 16
+        }
+      },
+      "title": "FM"
+    },
+    {
+      "id": "truemasterme",
+      "username": "Truemasterme",
+      "perfs": {
+        "classical": {
+          "rating": 2509,
+          "progress": 19
+        }
+      },
+      "title": "FM"
+    },
+    {
+      "id": "cod_dragon",
+      "username": "CoD_Dragon",
+      "perfs": {
+        "classical": {
+          "rating": 2508,
+          "progress": 17
+        }
+      },
+      "online": true
+    },
+    {
+      "id": "sos-shubham",
+      "username": "sos-shubham",
+      "perfs": {
+        "classical": {
+          "rating": 2477,
+          "progress": 2
+        }
+      },
+      "patron": true
+    },
+    {
+      "id": "vlad_lazarev79",
+      "username": "Vlad_Lazarev79",
+      "perfs": {
+        "classical": {
+          "rating": 2466,
+          "progress": -2
+        }
+      }
+    },
+    {
+      "id": "kc6",
+      "username": "kc6",
+      "perfs": {
+        "classical": {
+          "rating": 2416,
+          "progress": 18
+        }
+      },
+      "title": "IM"
+    },
+    {
+      "id": "marina_mocnaya",
+      "username": "Marina_mocnaya",
+      "perfs": {
+        "classical": {
+          "rating": 2415,
+          "progress": 37
+        }
+      }
+    },
+    {
+      "id": "slowchess666",
+      "username": "slowchess666",
+      "perfs": {
+        "classical": {
+          "rating": 2413,
+          "progress": -21
+        }
+      }
+    },
+    {
+      "id": "nesubamu",
+      "username": "NeSuBaMu",
+      "perfs": {
+        "classical": {
+          "rating": 2406,
+          "progress": 16
+        }
+      }
+    },
+    {
+      "id": "squaretaker",
+      "username": "Squaretaker",
+      "perfs": {
+        "classical": {
+          "rating": 2400,
+          "progress": -1
+        }
+      },
+      "title": "CM"
+    }
+  ],
+  "ultraBullet": [
+    {
+      "id": "ragehunter",
+      "username": "Ragehunter",
+      "perfs": {
+        "ultraBullet": {
+          "rating": 2693,
+          "progress": -1
+        }
+      },
+      "title": "FM"
+    },
+    {
+      "id": "konstantinkornienko",
+      "username": "KonstantinKornienko",
+      "perfs": {
+        "ultraBullet": {
+          "rating": 2670,
+          "progress": -16
+        }
+      },
+      "title": "CM"
+    },
+    {
+      "id": "amethyst27",
+      "username": "AmeThyst27",
+      "perfs": {
+        "ultraBullet": {
+          "rating": 2626,
+          "progress": 5
+        }
+      },
+      "patron": true,
+      "online": true
+    },
+    {
+      "id": "anxrxs_exe",
+      "username": "Anxrxs_exe",
+      "perfs": {
+        "ultraBullet": {
+          "rating": 2614,
+          "progress": 12
+        }
+      },
+      "patron": true
+    },
+    {
+      "id": "nihalsarin2004",
+      "username": "nihalsarin2004",
+      "perfs": {
+        "ultraBullet": {
+          "rating": 2596,
+          "progress": -10
+        }
+      },
+      "title": "GM",
+      "patron": true
+    },
+    {
+      "id": "mereseberserknhi",
+      "username": "MereseBerserkNhi",
+      "perfs": {
+        "ultraBullet": {
+          "rating": 2576,
+          "progress": -19
+        }
+      },
+      "patron": true
+    },
+    {
+      "id": "willzeitnot",
+      "username": "WillZeitnot",
+      "perfs": {
+        "ultraBullet": {
+          "rating": 2566,
+          "progress": 46
+        }
+      },
+      "title": "NM",
+      "online": true
+    },
+    {
+      "id": "sslimey",
+      "username": "sslimey",
+      "perfs": {
+        "ultraBullet": {
+          "rating": 2558,
+          "progress": -8
+        }
+      }
+    },
+    {
+      "id": "the_horde_player",
+      "username": "THE_HORDE_PLAYER",
+      "perfs": {
+        "ultraBullet": {
+          "rating": 2550,
+          "progress": 95
+        }
+      }
+    },
+    {
+      "id": "jaggust01",
+      "username": "Jaggust01",
+      "perfs": {
+        "ultraBullet": {
+          "rating": 2543,
+          "progress": 15
+        }
+      },
+      "title": "IM"
+    }
+  ],
+  "crazyhouse": [
+    {
+      "id": "larso",
+      "username": "larso",
+      "perfs": {
+        "crazyhouse": {
+          "rating": 2762,
+          "progress": -21
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "kingswitcher",
+      "username": "Kingswitcher",
+      "perfs": {
+        "crazyhouse": {
+          "rating": 2672,
+          "progress": 16
+        }
+      }
+    },
+    {
+      "id": "vikal00",
+      "username": "vikal00",
+      "perfs": {
+        "crazyhouse": {
+          "rating": 2661,
+          "progress": 8
+        }
+      }
+    },
+    {
+      "id": "jannlee",
+      "username": "JannLee",
+      "perfs": {
+        "crazyhouse": {
+          "rating": 2654,
+          "progress": -21
+        }
+      },
+      "title": "LM",
+      "patron": true
+    },
+    {
+      "id": "hanzotherazor",
+      "username": "HanzoTheRazor",
+      "perfs": {
+        "crazyhouse": {
+          "rating": 2650,
+          "progress": 9
+        }
+      }
+    },
+    {
+      "id": "johnstuckey",
+      "username": "JohnStuckey",
+      "perfs": {
+        "crazyhouse": {
+          "rating": 2624,
+          "progress": 19
+        }
+      }
+    },
+    {
+      "id": "neutralizerr",
+      "username": "Neutralizerr",
+      "perfs": {
+        "crazyhouse": {
+          "rating": 2615,
+          "progress": 20
+        }
+      }
+    },
+    {
+      "id": "tobyrizzo",
+      "username": "tobyrizzo",
+      "perfs": {
+        "crazyhouse": {
+          "rating": 2612,
+          "progress": 7
+        }
+      },
+      "title": "NM",
+      "online": true
+    },
+    {
+      "id": "oldhas-been",
+      "username": "OldHas-Been",
+      "perfs": {
+        "crazyhouse": {
+          "rating": 2610,
+          "progress": 6
+        }
+      },
+      "patron": true
+    },
+    {
+      "id": "samuraitonto",
+      "username": "Samuraitonto",
+      "perfs": {
+        "crazyhouse": {
+          "rating": 2605,
+          "progress": 13
+        }
+      },
+      "patron": true
+    }
+  ],
+  "chess960": [
+    {
+      "id": "zhigalko_sergei",
+      "username": "Zhigalko_Sergei",
+      "perfs": {
+        "chess960": {
+          "rating": 2871,
+          "progress": 18
+        }
+      },
+      "title": "GM",
+      "patron": true
+    },
+    {
+      "id": "abudabi22840",
+      "username": "abudabi22840",
+      "perfs": {
+        "chess960": {
+          "rating": 2685,
+          "progress": -42
+        }
+      }
+    },
+    {
+      "id": "athena-pallada",
+      "username": "athena-pallada",
+      "perfs": {
+        "chess960": {
+          "rating": 2671,
+          "progress": 27
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "willzeitnot",
+      "username": "WillZeitnot",
+      "perfs": {
+        "chess960": {
+          "rating": 2658,
+          "progress": 23
+        }
+      },
+      "title": "NM",
+      "online": true
+    },
+    {
+      "id": "andrey11976",
+      "username": "Andrey11976",
+      "perfs": {
+        "chess960": {
+          "rating": 2645,
+          "progress": 24
+        }
+      },
+      "title": "NM"
+    },
+    {
+      "id": "metiforce",
+      "username": "MetiForce",
+      "perfs": {
+        "chess960": {
+          "rating": 2641,
+          "progress": -16
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "gener4tion_kill",
+      "username": "GeNer4tion_KiLL",
+      "perfs": {
+        "chess960": {
+          "rating": 2617,
+          "progress": 33
+        }
+      },
+      "title": "CM"
+    },
+    {
+      "id": "nika_volkov",
+      "username": "Nika_Volkov",
+      "perfs": {
+        "chess960": {
+          "rating": 2610,
+          "progress": 26
+        }
+      },
+      "title": "CM"
+    },
+    {
+      "id": "ernur2008",
+      "username": "Ernur2008",
+      "perfs": {
+        "chess960": {
+          "rating": 2605,
+          "progress": 27
+        }
+      },
+      "title": "FM"
+    },
+    {
+      "id": "trixr4kidzzz",
+      "username": "TrixR4Kidzzz",
+      "perfs": {
+        "chess960": {
+          "rating": 2598,
+          "progress": 11
+        }
+      }
+    }
+  ],
+  "kingOfTheHill": [
+    {
+      "id": "zhigalko_sergei",
+      "username": "Zhigalko_Sergei",
+      "perfs": {
+        "kingOfTheHill": {
+          "rating": 2624,
+          "progress": 6
+        }
+      },
+      "title": "GM",
+      "patron": true
+    },
+    {
+      "id": "maybe_maybe",
+      "username": "maybe_maybe",
+      "perfs": {
+        "kingOfTheHill": {
+          "rating": 2588,
+          "progress": 18
+        }
+      },
+      "title": "IM"
+    },
+    {
+      "id": "aqua_blazing",
+      "username": "Aqua_Blazing",
+      "perfs": {
+        "kingOfTheHill": {
+          "rating": 2565,
+          "progress": 12
+        }
+      }
+    },
+    {
+      "id": "madeu",
+      "username": "MadeU",
+      "perfs": {
+        "kingOfTheHill": {
+          "rating": 2551,
+          "progress": -6
+        }
+      }
+    },
+    {
+      "id": "metiforce",
+      "username": "MetiForce",
+      "perfs": {
+        "kingOfTheHill": {
+          "rating": 2541,
+          "progress": 32
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "homayooont",
+      "username": "HomayooonT",
+      "perfs": {
+        "kingOfTheHill": {
+          "rating": 2514,
+          "progress": 18
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "bgah",
+      "username": "Bgah",
+      "perfs": {
+        "kingOfTheHill": {
+          "rating": 2503,
+          "progress": -10
+        }
+      },
+      "title": "FM"
+    },
+    {
+      "id": "yakov25",
+      "username": "Yakov25",
+      "perfs": {
+        "kingOfTheHill": {
+          "rating": 2503,
+          "progress": 27
+        }
+      }
+    },
+    {
+      "id": "koshulyan_egor",
+      "username": "Koshulyan_Egor",
+      "perfs": {
+        "kingOfTheHill": {
+          "rating": 2501,
+          "progress": 23
+        }
+      },
+      "title": "FM"
+    },
+    {
+      "id": "tribalchiefwwe",
+      "username": "TribalChiefWWE",
+      "perfs": {
+        "kingOfTheHill": {
+          "rating": 2500,
+          "progress": 14
+        }
+      }
+    }
+  ],
+  "threeCheck": [
+    {
+      "id": "niccless",
+      "username": "Niccless",
+      "perfs": {
+        "threeCheck": {
+          "rating": 2547,
+          "progress": -20
+        }
+      },
+      "title": "IM"
+    },
+    {
+      "id": "zhigalko_sergei",
+      "username": "Zhigalko_Sergei",
+      "perfs": {
+        "threeCheck": {
+          "rating": 2534,
+          "progress": -14
+        }
+      },
+      "title": "GM",
+      "patron": true
+    },
+    {
+      "id": "lion2006-45",
+      "username": "lion2006-45",
+      "perfs": {
+        "threeCheck": {
+          "rating": 2524,
+          "progress": 15
+        }
+      }
+    },
+    {
+      "id": "yakov25",
+      "username": "Yakov25",
+      "perfs": {
+        "threeCheck": {
+          "rating": 2503,
+          "progress": 14
+        }
+      }
+    },
+    {
+      "id": "knightrider-777",
+      "username": "Knightrider-777",
+      "perfs": {
+        "threeCheck": {
+          "rating": 2502,
+          "progress": -2
+        }
+      }
+    },
+    {
+      "id": "superbamir",
+      "username": "SuperbAmir",
+      "perfs": {
+        "threeCheck": {
+          "rating": 2495,
+          "progress": 26
+        }
+      },
+      "title": "FM"
+    },
+    {
+      "id": "tommy_pug",
+      "username": "tommy_pug",
+      "perfs": {
+        "threeCheck": {
+          "rating": 2472,
+          "progress": 52
+        }
+      }
+    },
+    {
+      "id": "luukdegrote",
+      "username": "LuukDeGrote",
+      "perfs": {
+        "threeCheck": {
+          "rating": 2470,
+          "progress": 8
+        }
+      },
+      "title": "FM",
+      "patron": true
+    },
+    {
+      "id": "chessbottler",
+      "username": "chessbottler",
+      "perfs": {
+        "threeCheck": {
+          "rating": 2461,
+          "progress": 45
+        }
+      },
+      "online": true
+    },
+    {
+      "id": "liamclerychess",
+      "username": "LiamCleryChess",
+      "perfs": {
+        "threeCheck": {
+          "rating": 2450,
+          "progress": 30
+        }
+      },
+      "patron": true
+    }
+  ],
+  "antichess": [
+    {
+      "id": "tetiksh1agrawal",
+      "username": "Tetiksh1Agrawal",
+      "perfs": {
+        "antichess": {
+          "rating": 2509,
+          "progress": -13
+        }
+      },
+      "patron": true
+    },
+    {
+      "id": "antichess_valentino",
+      "username": "Antichess_Valentino",
+      "perfs": {
+        "antichess": {
+          "rating": 2484,
+          "progress": 5
+        }
+      }
+    },
+    {
+      "id": "peanutbutter12345",
+      "username": "Peanutbutter12345",
+      "perfs": {
+        "antichess": {
+          "rating": 2462,
+          "progress": 1
+        }
+      },
+      "online": true
+    },
+    {
+      "id": "theunknownguyreborn",
+      "username": "TheUnknownGuyReborn",
+      "perfs": {
+        "antichess": {
+          "rating": 2438,
+          "progress": 4
+        }
+      }
+    },
+    {
+      "id": "avdna8",
+      "username": "AVDNA8",
+      "perfs": {
+        "antichess": {
+          "rating": 2417,
+          "progress": -17
+        }
+      }
+    },
+    {
+      "id": "aleksschtin",
+      "username": "aleksschtin",
+      "perfs": {
+        "antichess": {
+          "rating": 2410,
+          "progress": 8
+        }
+      },
+      "patron": true
+    },
+    {
+      "id": "vaaaaas24",
+      "username": "Vaaaaas24",
+      "perfs": {
+        "antichess": {
+          "rating": 2406,
+          "progress": 7
+        }
+      },
+      "patron": true
+    },
+    {
+      "id": "tolius",
+      "username": "tolius",
+      "perfs": {
+        "antichess": {
+          "rating": 2406,
+          "progress": 5
+        }
+      },
+      "patron": true
+    },
+    {
+      "id": "devansh2008",
+      "username": "devansh2008",
+      "perfs": {
+        "antichess": {
+          "rating": 2402,
+          "progress": 17
+        }
+      }
+    },
+    {
+      "id": "peeyush_sonkar",
+      "username": "Peeyush_Sonkar",
+      "perfs": {
+        "antichess": {
+          "rating": 2399,
+          "progress": 6
+        }
+      }
+    }
+  ],
+  "atomic": [
+    {
+      "id": "statham_13",
+      "username": "Statham_13",
+      "perfs": {
+        "atomic": {
+          "rating": 2481,
+          "progress": 19
+        }
+      },
+      "title": "FM"
+    },
+    {
+      "id": "rkrounit",
+      "username": "RKROUNIT",
+      "perfs": {
+        "atomic": {
+          "rating": 2411,
+          "progress": 21
+        }
+      }
+    },
+    {
+      "id": "jakestatefarm",
+      "username": "JakeStateFarm",
+      "perfs": {
+        "atomic": {
+          "rating": 2400,
+          "progress": -15
+        }
+      }
+    },
+    {
+      "id": "fast-tsunami",
+      "username": "fast-tsunami",
+      "perfs": {
+        "atomic": {
+          "rating": 2389,
+          "progress": -41
+        }
+      },
+      "title": "LM",
+      "patron": true,
+      "online": true
+    },
+    {
+      "id": "natso",
+      "username": "Natso",
+      "perfs": {
+        "atomic": {
+          "rating": 2385,
+          "progress": 12
+        }
+      },
+      "patron": true,
+      "online": true
+    },
+    {
+      "id": "wolfram_ep",
+      "username": "Wolfram_EP",
+      "perfs": {
+        "atomic": {
+          "rating": 2374,
+          "progress": -3
+        }
+      },
+      "patron": true
+    },
+    {
+      "id": "maxwellssilvrhammer",
+      "username": "MaxwellsSilvrHammer",
+      "perfs": {
+        "atomic": {
+          "rating": 2362,
+          "progress": -11
+        }
+      },
+      "online": true
+    },
+    {
+      "id": "randoomplayer",
+      "username": "RandoomPlayer",
+      "perfs": {
+        "atomic": {
+          "rating": 2361,
+          "progress": 10
+        }
+      }
+    },
+    {
+      "id": "elvenso",
+      "username": "elvenso",
+      "perfs": {
+        "atomic": {
+          "rating": 2325,
+          "progress": 4
+        }
+      }
+    },
+    {
+      "id": "trixr4kidzzz",
+      "username": "TrixR4Kidzzz",
+      "perfs": {
+        "atomic": {
+          "rating": 2320,
+          "progress": -50
+        }
+      }
+    }
+  ],
+  "horde": [
+    {
+      "id": "markuswebster",
+      "username": "MarkusWebster",
+      "perfs": {
+        "horde": {
+          "rating": 2747,
+          "progress": 0
+        }
+      },
+      "patron": true
+    },
+    {
+      "id": "horus_88",
+      "username": "Horus_88",
+      "perfs": {
+        "horde": {
+          "rating": 2718,
+          "progress": -4
+        }
+      }
+    },
+    {
+      "id": "matvei-e2e4",
+      "username": "Matvei-e2e4",
+      "perfs": {
+        "horde": {
+          "rating": 2715,
+          "progress": -23
+        }
+      },
+      "patron": true
+    },
+    {
+      "id": "lion2006-45",
+      "username": "lion2006-45",
+      "perfs": {
+        "horde": {
+          "rating": 2645,
+          "progress": 13
+        }
+      }
+    },
+    {
+      "id": "bijiy",
+      "username": "bijiy",
+      "perfs": {
+        "horde": {
+          "rating": 2639,
+          "progress": 21
+        }
+      },
+      "title": "FM"
+    },
+    {
+      "id": "kurdishrevolution",
+      "username": "KurdishRevolution",
+      "perfs": {
+        "horde": {
+          "rating": 2605,
+          "progress": 39
+        }
+      }
+    },
+    {
+      "id": "yakov25",
+      "username": "Yakov25",
+      "perfs": {
+        "horde": {
+          "rating": 2602,
+          "progress": 11
+        }
+      }
+    },
+    {
+      "id": "stubenfisch",
+      "username": "Stubenfisch",
+      "perfs": {
+        "horde": {
+          "rating": 2594,
+          "progress": 20
+        }
+      },
+      "patron": true
+    },
+    {
+      "id": "ayas0",
+      "username": "Ayas0",
+      "perfs": {
+        "horde": {
+          "rating": 2588,
+          "progress": -23
+        }
+      }
+    },
+    {
+      "id": "cpux",
+      "username": "cpuX",
+      "perfs": {
+        "horde": {
+          "rating": 2563,
+          "progress": 17
+        }
+      }
+    }
+  ],
+  "racingKings": [
+    {
+      "id": "queeneatingdragon",
+      "username": "QueenEatingDragon",
+      "perfs": {
+        "racingKings": {
+          "rating": 2471,
+          "progress": 3
+        }
+      },
+      "title": "NM",
+      "patron": true
+    },
+    {
+      "id": "huangyudong",
+      "username": "huangyudong",
+      "perfs": {
+        "racingKings": {
+          "rating": 2456,
+          "progress": 26
+        }
+      },
+      "online": true
+    },
+    {
+      "id": "r2300",
+      "username": "r2300",
+      "perfs": {
+        "racingKings": {
+          "rating": 2438,
+          "progress": 10
+        }
+      }
+    },
+    {
+      "id": "blunderpandazz",
+      "username": "BlunderPandaZz",
+      "perfs": {
+        "racingKings": {
+          "rating": 2436,
+          "progress": 58
+        }
+      },
+      "title": "GM",
+      "patron": true
+    },
+    {
+      "id": "seth_777",
+      "username": "seth_777",
+      "perfs": {
+        "racingKings": {
+          "rating": 2427,
+          "progress": 11
+        }
+      },
+      "online": true
+    },
+    {
+      "id": "cybershredder",
+      "username": "CyberShredder",
+      "perfs": {
+        "racingKings": {
+          "rating": 2414,
+          "progress": -23
+        }
+      }
+    },
+    {
+      "id": "bijiy",
+      "username": "bijiy",
+      "perfs": {
+        "racingKings": {
+          "rating": 2412,
+          "progress": -3
+        }
+      },
+      "title": "FM"
+    },
+    {
+      "id": "damo_1",
+      "username": "Damo_1",
+      "perfs": {
+        "racingKings": {
+          "rating": 2404,
+          "progress": -21
+        }
+      }
+    },
+    {
+      "id": "imakemanymistakes",
+      "username": "IMakeManyMistakes",
+      "perfs": {
+        "racingKings": {
+          "rating": 2383,
+          "progress": -4
+        }
+      }
+    },
+    {
+      "id": "mastervisa",
+      "username": "MasterVisa",
+      "perfs": {
+        "racingKings": {
+          "rating": 2353,
+          "progress": -24
+        }
+      }
+    }
+  ]
+}

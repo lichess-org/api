@@ -1,0 +1,237 @@
+[
+  {
+    "id": "thibault",
+    "username": "thibault",
+    "perfs": {
+      "ultraBullet": {
+        "games": 3,
+        "rating": 1688,
+        "rd": 345,
+        "prog": 0,
+        "prov": true
+      },
+      "bullet": {
+        "games": 7470,
+        "rating": 1778,
+        "rd": 63,
+        "prog": -26
+      },
+      "blitz": {
+        "games": 11308,
+        "rating": 1717,
+        "rd": 45,
+        "prog": 26
+      },
+      "rapid": {
+        "games": 873,
+        "rating": 1746,
+        "rd": 116,
+        "prog": -71,
+        "prov": true
+      },
+      "classical": {
+        "games": 24,
+        "rating": 1806,
+        "rd": 238,
+        "prog": -5,
+        "prov": true
+      },
+      "correspondence": {
+        "games": 377,
+        "rating": 1942,
+        "rd": 135,
+        "prog": -12,
+        "prov": true
+      },
+      "chess960": {
+        "games": 348,
+        "rating": 1551,
+        "rd": 247,
+        "prog": 61,
+        "prov": true
+      },
+      "kingOfTheHill": {
+        "games": 94,
+        "rating": 1744,
+        "rd": 268,
+        "prog": 14,
+        "prov": true
+      },
+      "threeCheck": {
+        "games": 66,
+        "rating": 1728,
+        "rd": 239,
+        "prog": 132,
+        "prov": true
+      },
+      "antichess": {
+        "games": 72,
+        "rating": 1512,
+        "rd": 265,
+        "prog": -20,
+        "prov": true
+      },
+      "atomic": {
+        "games": 99,
+        "rating": 1633,
+        "rd": 281,
+        "prog": 18,
+        "prov": true
+      },
+      "horde": {
+        "games": 46,
+        "rating": 1592,
+        "rd": 261,
+        "prog": -20,
+        "prov": true
+      },
+      "racingKings": {
+        "games": 13,
+        "rating": 1552,
+        "rd": 315,
+        "prog": -75,
+        "prov": true
+      },
+      "crazyhouse": {
+        "games": 50,
+        "rating": 1567,
+        "rd": 279,
+        "prog": -34,
+        "prov": true
+      },
+      "puzzle": {
+        "games": 5653,
+        "rating": 1911,
+        "rd": 71,
+        "prog": 0
+      },
+      "storm": {
+        "runs": 44,
+        "score": 33
+      },
+      "racer": {
+        "runs": 80,
+        "score": 51
+      },
+      "streak": {
+        "runs": 48,
+        "score": 33
+      }
+    },
+    "flair": "symbols.vim-logo",
+    "patron": true,
+    "verified": true,
+    "createdAt": 1290415680000,
+    "profile": {
+      "bio": "I turn coffee into bugs.",
+      "realName": "Thibault Duplessis",
+      "links": "github.com/ornicar\r\nmas.to/@thibault"
+    },
+    "seenAt": 1745095382270,
+    "playTime": {
+      "total": 6364259,
+      "tv": 17974
+    }
+  },
+  {
+    "id": "maia1",
+    "username": "maia1",
+    "perfs": {
+      "bullet": {
+        "games": 173254,
+        "rating": 1706,
+        "rd": 45,
+        "prog": 23
+      },
+      "blitz": {
+        "games": 318833,
+        "rating": 1377,
+        "rd": 45,
+        "prog": -3
+      },
+      "rapid": {
+        "games": 352464,
+        "rating": 1507,
+        "rd": 45,
+        "prog": -6
+      },
+      "classical": {
+        "games": 105722,
+        "rating": 1548,
+        "rd": 45,
+        "prog": -27
+      },
+      "correspondence": {
+        "games": 265,
+        "rating": 1527,
+        "rd": 197,
+        "prog": -18,
+        "prov": true
+      }
+    },
+    "title": "BOT",
+    "verified": true,
+    "createdAt": 1582579972726,
+    "profile": {
+      "bio": "Maia is a human-like neural network chess engine. This version was trained by learning from over 10 million Lichess games between 1100s. \r\n\r\nMaia Chess is an ongoing research project aiming to make a more human-friendly, useful, and fun chess AI. For more information go to maiachess.com. You can also play against @maia5 and @maia9. Developed by @ashtonanderson, @sidsen and @reidmcy.",
+      "realName": "Maia Chess 1100",
+      "links": "https://maiachess.com\r\nhttps://github.com/CSSLab/maia-chess\r\nhttps://twitter.com/maiachess"
+    },
+    "seenAt": 1745110218197,
+    "playTime": {
+      "total": 935316760,
+      "tv": 3007675
+    }
+  },
+  {
+    "id": "maia5",
+    "username": "maia5",
+    "perfs": {
+      "bullet": {
+        "games": 53987,
+        "rating": 1650,
+        "rd": 45,
+        "prog": 10
+      },
+      "blitz": {
+        "games": 149036,
+        "rating": 1594,
+        "rd": 45,
+        "prog": 17
+      },
+      "rapid": {
+        "games": 161663,
+        "rating": 1570,
+        "rd": 45,
+        "prog": -1
+      },
+      "classical": {
+        "games": 37902,
+        "rating": 1599,
+        "rd": 45,
+        "prog": 4
+      },
+      "correspondence": {
+        "games": 18,
+        "rating": 1792,
+        "rd": 220,
+        "prog": 30,
+        "prov": true
+      }
+    },
+    "title": "BOT",
+    "patron": true,
+    "verified": true,
+    "createdAt": 1582580198358,
+    "profile": {
+      "bio": "Maia is a human-like neural network chess engine. This version was trained by learning from over 10 million Lichess games between 1500s. Maia Chess is an ongoing research project aiming to make a more human-friendly, useful, and fun chess AI. For more information go to maiachess.com. You can also play @maia1 and @maia9. Developed by @ashtonanderson,  @sidsen and @reidmcy.",
+      "realName": "Maia Chess 1500",
+      "links": "https://maiachess.com\r\ngithub.com/CSSLab/maia-chess\r\nhttps://twitter.com/maiachess"
+    },
+    "seenAt": 1745110157537,
+    "playTime": {
+      "total": 457641084,
+      "tv": 3835931
+    }
+  }
+]
