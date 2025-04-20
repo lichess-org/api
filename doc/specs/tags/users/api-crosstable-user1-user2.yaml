@@ -35,3 +35,5 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/Crosstable.yaml"
+          example:
+            $ref: "../../examples/users-getCrosstable.json"

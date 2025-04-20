@@ -8,9 +8,16 @@ properties:
   variant:
     $ref: "./Variant.yaml"
   clock:
-    oneOf:
-      - $ref: "./Clock.yaml"
-      - type: "null"
+    type: object
+    properties:
+      initial:
+        type: integer
+        format: int64
+        description: Initial time in milliseconds
+      increment:
+        type: integer
+        format: int64
+        description: Increment time in milliseconds
   speed:
     $ref: "./Speed.yaml"
   perf:
@@ -50,29 +57,25 @@ required:
   - state
 example:
   {
-    "id": "QdzzBlzY",
+    "id": "BEOucQJo",
     "variant": { "key": "standard", "name": "Standard", "short": "Std" },
-    "speed": "blitz",
-    "perf": { "name": "Blitz" },
-    "rated": true,
-    "createdAt": 1714920830966,
-    "white": { "id": "bobby", "name": "Bobby", "title": "GM", "rating": 1956 },
-    "black": { "id": "bot1", "name": "Bot1", "title": "BOT", "rating": 1500, "provisional": true },
+    "speed": "rapid",
+    "perf": { "name": "Rapid" },
+    "rated": false,
+    "createdAt": 1745112707998,
+    "white": { "id": "bobby", "name": "Bobby", "title": null, "rating": 1751 },
+    "black": { "id": "mary", "name": "Mary", "title": null, "rating": 1021 },
     "initialFen": "startpos",
-    "clock": { "initial": 300000, "increment": 0 },
+    "clock": { "initial": 900000, "increment": 0 },
     "type": "gameFull",
     "state":
       {
         "type": "gameState",
-        "moves": "e2e4 e7e5 g1f3 b8c6 f1c4",
-        "wtime": 294810,
-        "btime": 286000,
+        "moves": "d2d3",
+        "wtime": 900000,
+        "btime": 900000,
         "winc": 0,
         "binc": 0,
-        "wdraw": false,
-        "bdraw": false,
-        "wtakeback": false,
-        "btakeback": false,
         "status": "started",
       },
   }

@@ -47,6 +47,8 @@ properties:
           type: string
         title:
           $ref: "./Title.yaml"
+        flair:
+          $ref: "./Flair.yaml"
         patron:
           type: boolean
       required:

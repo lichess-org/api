@@ -34,7 +34,14 @@ properties:
   variants:
     type: array
     items:
-      $ref: "./Variant.yaml"
+      type: object
+      properties:
+        key:
+          $ref: "./VariantKey.yaml"
+        icon:
+          type: string
+        name:
+          type: string
   isCreated:
     type: boolean
   isFinished:
@@ -53,20 +60,3 @@ properties:
     type: number
   nbPairings:
     type: number
-example:
-  {
-    "id": "pDGbxhUe",
-    "name": "GM ChessWeeb",
-    "fullName": "GM ChessWeeb simul",
-    "host": { "id": "chessweeb", "name": "ChessWeeb", "rating": 1500, "title": "GM" },
-    "isCreated": false,
-    "isFinished": true,
-    "isRunning": false,
-    "estimatedStartAt": 1620029815106,
-    "startedAt": 1620029815106,
-    "finishedAt": 1620029937283,
-    "nbApplicants": 0,
-    "nbPairings": 24,
-    "text": "",
-    "variants": [{ "icon": "+", "key": "standard", "name": "Standard" }],
-  }

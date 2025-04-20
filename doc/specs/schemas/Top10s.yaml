@@ -1,39 +1,29 @@
-example:
-  {
-    "bullet":
-      [
-        {
-          "id": "bahadirozen",
-          "username": "BahadirOzen",
-          "perfs": { "bullet": { "rating": 3018, "progress": 18 } },
-          "online": true,
-          "title": "FM",
-        },
-        {
-          "id": "penguingim1",
-          "username": "penguingim1",
-          "perfs": { "bullet": { "rating": 2983, "progress": -36 } },
-          "title": "GM",
-          "online": true,
-          "patron": true,
-        },
-        {
-          "id": "night-king96",
-          "username": "Night-King96",
-          "perfs": { "bullet": { "rating": 2958, "progress": 35 } },
-          "title": "GM",
-        },
-      ],
-    "blitz": [],
-    "rapid": [],
-    "classical": [],
-    "ultraBullet": [],
-    "chess960": [],
-    "crazyhouse": [],
-    "antichess": [],
-    "atomic": [],
-    "horde": [],
-    "kingOfTheHill": [],
-    "racingKings": [],
-    "threeCheck": [],
-  }
+type: object
+
+properties:
+  bullet:
+    $ref: "./PerfTop10.yaml"
+  blitz:
+    $ref: "./PerfTop10.yaml"
+  rapid:
+    $ref: "./PerfTop10.yaml"
+  classical:
+    $ref: "./PerfTop10.yaml"
+  ultraBullet:
+    $ref: "./PerfTop10.yaml"
+  crazyhouse:
+    $ref: "./PerfTop10.yaml"
+  chess960:
+    $ref: "./PerfTop10.yaml"
+  kingOfTheHill:
+    $ref: "./PerfTop10.yaml"
+  threeCheck:
+    $ref: "./PerfTop10.yaml"
+  antichess:
+    $ref: "./PerfTop10.yaml"
+  atomic:
+    $ref: "./PerfTop10.yaml"
+  horde:
+    $ref: "./PerfTop10.yaml"
+  racingKings:
+    $ref: "./PerfTop10.yaml"

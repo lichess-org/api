@@ -15,41 +15,41 @@ properties:
   pvs:
     type: array
     items:
-      allOf:
+      oneOf:
         - type: object
+          title: Non-mate variation
           required:
+            - cp
             - moves
           properties:
+            cp:
+              type: integer
+              description: Evaluation in centi-pawns, from White's point of view
             moves:
               type: string
               description: Variation in UCI notation
-        - oneOf:
-            - type: object
-              title: Non-mate variation
-              required:
-                - cp
-              properties:
-                cp:
-                  type: integer
-                  description: Evaluation in centi-pawns, from White's point of view
-            - type: object
-              title: Mate variation
-              required:
-                - mate
-              properties:
-                mate:
-                  type: integer
-                  description: Evaluation in moves to mate, from White's point of view
+        - type: object
+          title: Mate variation
+          required:
+            - mate
+            - moves
+          properties:
+            mate:
+              type: integer
+              description: Evaluation in moves to mate, from White's point of view
+            moves:
+              type: string
+              description: Variation in UCI notation
 
 example:
   {
-    "depth": 29,
     "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R",
     "knodes": 106325,
+    "depth": 29,
     "pvs":
       [
-        { "cp": 41, "moves": "d1e2 d8e7 a2a4 a7a6 b5c4 d7d6 d2d3 g8f6 c1e3 c6a5" },
-        { "cp": 39, "moves": "c2c3 a7a6 b5a4 g8f6 d2d3 b7b5 a4b3 h7h6 a2a4 c8b7" },
-        { "cp": 37, "moves": "d2d3 d8f6 c2c3 a7a6 b5a4 f8c5 d3d4 c5a7 c1e3 g8e7" },
+        { "moves": "d1e2 d8e7 a2a4 a7a6 b5c4 d7d6 d2d3 g8f6 c1e3 c6a5", "cp": 41 },
+        { "moves": "c2c3 a7a6 b5a4 g8f6 d2d3 b7b5 a4b3 h7h6 a2a4 c8b7", "cp": 39 },
+        { "moves": "d2d3 d8f6 c2c3 a7a6 b5a4 f8c5 d3d4 c5a7 c1e3 g8e7", "cp": 37 },
       ],
   }

@@ -30,3 +30,5 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/PerfStat.yaml"
+          example:
+            $ref: "../../examples/users-getPerformanceStatisticsOfAUser.json"

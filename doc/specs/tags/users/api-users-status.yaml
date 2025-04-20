@@ -64,6 +64,8 @@ get:
                   type: string
                 name:
                   type: string
+                flair:
+                  $ref: "../../schemas/Flair.yaml"
                 title:
                   type: string
                 online:
@@ -77,16 +79,5 @@ get:
               required:
                 - id
                 - name
-            example:
-              [
-                { "id": "aliquantus", "name": "Aliquantus" },
-                {
-                  "id": "chess-network",
-                  "name": "Chess-Network",
-                  "title": "NM",
-                  "online": true,
-                  "playing": true,
-                  "streaming": true,
-                  "patron": true,
-                },
-              ]
+          example:
+            $ref: "../../examples/users-getRealTimeUsersStatus.json"

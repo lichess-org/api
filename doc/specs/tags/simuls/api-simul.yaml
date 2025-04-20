@@ -38,3 +38,5 @@ get:
                 type: array
                 items:
                   $ref: "../../schemas/Simul.yaml"
+          example:
+            $ref: "../../examples/simuls-getCurrentSimuls.json"

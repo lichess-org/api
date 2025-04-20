@@ -1,0 +1,79 @@
+[
+  {
+    "name": "Bullet",
+    "points": [
+      [2025, 3, 13, 611],
+      [2025, 3, 16, 776]
+    ]
+  },
+  {
+    "name": "Blitz",
+    "points": [[2025, 3, 13, 854]]
+  },
+  {
+    "name": "Rapid",
+    "points": [[2025, 3, 13, 476]]
+  },
+  {
+    "name": "Classical",
+    "points": [[2025, 3, 13, 705]]
+  },
+  {
+    "name": "Correspondence",
+    "points": [
+      [2025, 3, 13, 1428],
+      [2025, 3, 18, 1043]
+    ]
+  },
+  {
+    "name": "Chess960",
+    "points": [[2025, 3, 13, 1122]]
+  },
+  {
+    "name": "King of the Hill",
+    "points": [
+      [2025, 3, 13, 974],
+      [2025, 3, 15, 1118],
+      [2025, 3, 17, 1144]
+    ]
+  },
+  {
+    "name": "Three-check",
+    "points": [
+      [2025, 3, 13, 1201],
+      [2025, 3, 17, 984]
+    ]
+  },
+  {
+    "name": "Antichess",
+    "points": [[2025, 3, 13, 1510]]
+  },
+  {
+    "name": "Atomic",
+    "points": [[2025, 3, 13, 1224]]
+  },
+  {
+    "name": "Horde",
+    "points": [
+      [2025, 3, 13, 1467],
+      [2025, 3, 15, 1385],
+      [2025, 3, 17, 1176]
+    ]
+  },
+  {
+    "name": "Racing Kings",
+    "points": []
+  },
+  {
+    "name": "Crazyhouse",
+    "points": [[2025, 3, 13, 834]]
+  },
+  {
+    "name": "Puzzles",
+    "points": [[2025, 3, 13, 699]]
+  },
+  {
+    "name": "UltraBullet",
+    "points": []
+  }
+]

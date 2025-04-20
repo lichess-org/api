@@ -32,25 +32,35 @@ get:
                 {
                   "request":
                     {
-                      "date": 1644232474472,
+                      "userId": "mary",
+                      "teamId": "my-private-team",
                       "message": "Hello, I would like to join the team!",
-                      "teamId": "coders",
-                      "userId": "neio",
+                      "date": 1745112259637,
                     },
                   "user":
                     {
-                      "createdAt": 1338509698620,
-                      "id": "neio",
+                      "id": "mary",
+                      "username": "Mary",
                       "perfs":
                         {
-                          "blitz": { "games": 70, "prog": 81, "prov": true, "rating": 1729, "rd": 124 },
-                          "chess960": { "games": 2, "prog": 0, "prov": true, "rating": 1528, "rd": 266 },
+                          "bullet": { "games": 119, "rating": 1066, "rd": 101, "prog": -1 },
+                          "blitz": { "games": 34, "rating": 1007, "rd": 55, "prog": -59 },
+                          "rapid": { "games": 134, "rating": 1021, "rd": 70, "prog": 26 },
+                          "classical": { "games": 451, "rating": 1136, "rd": 78, "prog": -1 },
+                          "correspondence": { "games": 35, "rating": 1049, "rd": 45, "prog": 15 },
+                          "chess960": { "games": 52, "rating": 996, "rd": 72, "prog": -9 },
+                          "kingOfTheHill": { "games": 1998, "rating": 1169, "rd": 79, "prog": -13 },
+                          "threeCheck": { "games": 6, "rating": 946, "rd": 52, "prog": 32 },
+                          "antichess": { "games": 79, "rating": 1143, "rd": 48, "prog": 61 },
+                          "atomic": { "games": 239, "rating": 978, "rd": 76, "prog": 22 },
+                          "horde": { "games": 246, "rating": 1031, "rd": 108, "prog": -28 },
+                          "crazyhouse": { "games": 473, "rating": 1063, "rd": 88, "prog": 2 },
+                          "puzzle": { "games": 37, "rating": 977, "rd": 86, "prog": 26 },
                         },
-                      "playTime": { "total": 152902, "tv": 20800 },
-                      "profile": { "bio": "yuwnt uyn", "country": "AL", "realName": "ywut wyufth" },
-                      "seenAt": 1644232201429,
-                      "title": "NM",
-                      "username": "Neio",
+                      "flair": "food-drink.coconut",
+                      "createdAt": 1744526339498,
+                      "seenAt": 1745112249912,
+                      "playTime": { "total": 14336, "tv": 0 },
                     },
                 },
               ]

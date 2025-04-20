@@ -12,6 +12,12 @@ properties:
     $ref: "./Perf.yaml"
   kingOfTheHill:
     $ref: "./Perf.yaml"
+  threeCheck:
+    $ref: "./Perf.yaml"
+  antichess:
+    $ref: "./Perf.yaml"
+  crazyhouse:
+    $ref: "./Perf.yaml"
   bullet:
     $ref: "./Perf.yaml"
   correspondence:

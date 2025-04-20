@@ -21,6 +21,8 @@ properties:
   finishedAt:
     type: integer
     format: int64
+  finished:
+    type: boolean
   url:
     type: string
     format: uri

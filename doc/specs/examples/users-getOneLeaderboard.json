@@ -1,0 +1,37 @@
+{
+  "users": [
+    {
+      "id": "lola",
+      "username": "Lola",
+      "perfs": {
+        "blitz": {
+          "rating": 2466,
+          "progress": 0
+        }
+      },
+      "title": "IM"
+    },
+    {
+      "id": "ana",
+      "username": "Ana",
+      "perfs": {
+        "blitz": {
+          "rating": 2396,
+          "progress": 0
+        }
+      },
+      "title": "GM"
+    },
+    {
+      "id": "yulia",
+      "username": "Yulia",
+      "perfs": {
+        "blitz": {
+          "rating": 2390,
+          "progress": 0
+        }
+      },
+      "title": "FM"
+    }
+  ]
+}

@@ -9,6 +9,8 @@ properties:
     type: string
   flair:
     $ref: "./Flair.yaml"
+  leader:
+    $ref: "./LightUser.yaml"
   leaders:
     type: array
     items:
@@ -25,17 +27,3 @@ properties:
 required:
   - id
   - name
-
-example:
-  {
-    "id": "lichess-swiss",
-    "name": "Lichess Swiss",
-    "description": "The official Lichess Swiss team. We organize regular swiss tournaments for all to join.",
-    "flair": "food-drink.cheese-wedge",
-    "leader": { "flair": "activity.lichess", "id": "lichess", "name": "Lichess", "patron": true },
-    "leaders": [{ "flair": "activity.lichess", "id": "lichess", "name": "Lichess", "patron": true }],
-    "nbMembers": 487629,
-    "open": true,
-    "joined": false,
-    "requested": false,
-  }

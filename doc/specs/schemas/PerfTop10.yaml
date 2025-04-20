@@ -1,0 +1,30 @@
+type: array
+
+minItems: 10
+maxItems: 10
+
+items:
+  type: object
+  properties:
+    id:
+      type: string
+    username:
+      type: string
+    title:
+      type: string
+    patron:
+      type: boolean
+    online:
+      type: boolean
+    perfs:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          rating:
+            type: integer
+          progress:
+            type: integer
+        required:
+          - rating
+          - progress
