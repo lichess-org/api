@@ -4,6 +4,9 @@
   "description": "Lichess.org API types",
   "homepage": "https://github.com/lichess-org/api",
   "license": "AGPL-3.0-or-later",
+  "repository": {
+    "url": "https://github.com/lichess-org/api"
+  },
   "main": "index.js",
   "types": "lichess-api.d.ts",
   "scripts": {
