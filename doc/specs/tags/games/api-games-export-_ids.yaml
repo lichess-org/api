@@ -108,3 +108,5 @@ post:
         application/x-ndjson:
           schema:
             $ref: "../../schemas/GameJson.yaml"
+          example:
+            $ref: "../../examples/games-gamesExportIds.json"

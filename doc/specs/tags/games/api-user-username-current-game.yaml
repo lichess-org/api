@@ -103,3 +103,5 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/GameJson.yaml"
+          example:
+            $ref: "../../examples/games-apiUserCurrentGameJson.json"
