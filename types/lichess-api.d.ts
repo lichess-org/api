@@ -3815,59 +3815,36 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
   schemas: {
-    /** @example {
-     *       "bullet": [
-     *         {
-     *           "id": "bahadirozen",
-     *           "username": "BahadirOzen",
-     *           "perfs": {
-     *             "bullet": {
-     *               "rating": 3018,
-     *               "progress": 18
-     *             }
-     *           },
-     *           "online": true,
-     *           "title": "FM"
-     *         },
-     *         {
-     *           "id": "penguingim1",
-     *           "username": "penguingim1",
-     *           "perfs": {
-     *             "bullet": {
-     *               "rating": 2983,
-     *               "progress": -36
-     *             }
-     *           },
-     *           "title": "GM",
-     *           "online": true,
-     *           "patron": true
-     *         },
-     *         {
-     *           "id": "night-king96",
-     *           "username": "Night-King96",
-     *           "perfs": {
-     *             "bullet": {
-     *               "rating": 2958,
-     *               "progress": 35
-     *             }
-     *           },
-     *           "title": "GM"
-     *         }
-     *       ],
-     *       "blitz": [],
-     *       "rapid": [],
-     *       "classical": [],
-     *       "ultraBullet": [],
-     *       "chess960": [],
-     *       "crazyhouse": [],
-     *       "antichess": [],
-     *       "atomic": [],
-     *       "horde": [],
-     *       "kingOfTheHill": [],
-     *       "racingKings": [],
-     *       "threeCheck": []
-     *     } */
-    Top10s: unknown;
+    /** @description See [available flair list and images](https://github.com/lichess-org/lila/tree/master/public/flair) */
+    Flair: string;
+    PerfTop10: {
+      id?: string;
+      username?: string;
+      title?: string;
+      patron?: boolean;
+      online?: boolean;
+      perfs?: {
+        [key: string]: {
+          rating: number;
+          progress: number;
+        };
+      };
+    }[];
+    Top10s: {
+      bullet?: components["schemas"]["PerfTop10"];
+      blitz?: components["schemas"]["PerfTop10"];
+      rapid?: components["schemas"]["PerfTop10"];
+      classical?: components["schemas"]["PerfTop10"];
+      ultraBullet?: components["schemas"]["PerfTop10"];
+      crazyhouse?: components["schemas"]["PerfTop10"];
+      chess960?: components["schemas"]["PerfTop10"];
+      kingOfTheHill?: components["schemas"]["PerfTop10"];
+      threeCheck?: components["schemas"]["PerfTop10"];
+      antichess?: components["schemas"]["PerfTop10"];
+      atomic?: components["schemas"]["PerfTop10"];
+      horde?: components["schemas"]["PerfTop10"];
+      racingKings?: components["schemas"]["PerfTop10"];
+    };
     /** @example {
      *       "users": [
      *         {
@@ -3934,6 +3911,9 @@ export interface components {
       ultraBullet?: components["schemas"]["Perf"];
       blitz?: components["schemas"]["Perf"];
       kingOfTheHill?: components["schemas"]["Perf"];
+      threeCheck?: components["schemas"]["Perf"];
+      antichess?: components["schemas"]["Perf"];
+      crazyhouse?: components["schemas"]["Perf"];
       bullet?: components["schemas"]["Perf"];
       correspondence?: components["schemas"]["Perf"];
       horde?: components["schemas"]["Perf"];
@@ -3944,8 +3924,6 @@ export interface components {
       racer?: components["schemas"]["PuzzleModePerf"];
       streak?: components["schemas"]["PuzzleModePerf"];
     };
-    /** @description See [available flair list and images](https://github.com/lichess-org/lila/tree/master/public/flair) */
-    Flair: string;
     Profile: {
       /** @example EC */
       flag?: string;
@@ -3978,6 +3956,11 @@ export interface components {
        * @description only appears if a user has set them
        * @example 1500
        */
+      rcfRating?: number;
+      /**
+       * @description only appears if a user has set them
+       * @example 1500
+       */
       dsbRating?: number;
       /** @example github.com/ornicar
        *     mas.to/@thibault */
@@ -3991,7 +3974,6 @@ export interface components {
     };
     /**
      * @description only appears if the user is a titled player or a bot user
-     * @example NM
      * @enum {string}
      */
     Title:
@@ -4784,13 +4766,10 @@ export interface components {
       url: string;
     };
     UserPreferences: {
-      /** @example true */
       dark?: boolean;
-      /** @example false */
       transp?: boolean;
       /** Format: uri */
       bgImg?: string;
-      /** @example false */
       is3d?: boolean;
       /** @enum {string} */
       theme?:
@@ -4887,57 +4866,33 @@ export interface components {
         | "robot"
         | "music"
         | "speech";
-      /** @example 0 */
       blindfold?: number;
-      /** @example 2 */
       autoQueen?: number;
-      /** @example 2 */
       autoThreefold?: number;
-      /** @example 3 */
       takeback?: number;
-      /** @example 3 */
       moretime?: number;
-      /** @example 1 */
       clockTenths?: number;
-      /** @example true */
       clockBar?: boolean;
-      /** @example true */
       clockSound?: boolean;
-      /** @example true */
       premove?: boolean;
-      /** @example 2 */
       animation?: number;
-      /** @example true */
+      pieceNotation?: number;
       captured?: boolean;
-      /** @example true */
       follow?: boolean;
-      /** @example true */
       highlight?: boolean;
-      /** @example true */
       destination?: boolean;
-      /** @example 2 */
       coords?: number;
-      /** @example 2 */
       replay?: number;
-      /** @example 4 */
       challenge?: number;
-      /** @example 3 */
       message?: number;
-      /** @example 2 */
-      coordColor?: number;
-      /** @example 4 */
       submitMove?: number;
-      /** @example 1 */
       confirmResign?: number;
-      /** @example 1 */
       insightShare?: number;
-      /** @example 0 */
       keyboardMove?: number;
-      /** @example 0 */
+      voiceMove?: boolean;
       zen?: number;
-      /** @example 2 */
+      ratings?: number;
       moveEvent?: number;
-      /** @example 1 */
       rookCastle?: number;
     };
     /** @example {
@@ -5079,7 +5034,7 @@ export interface components {
       date: number;
       data: {
         id: string;
-        name?: string;
+        title?: string;
       };
     };
     /** @example {
@@ -5252,6 +5207,7 @@ export interface components {
           id: string;
           name: string;
           title?: components["schemas"]["Title"];
+          flair?: components["schemas"]["Flair"];
           patron?: boolean;
         };
       };
@@ -5305,12 +5261,10 @@ export interface components {
       | "unknownFinish"
       | "variantEnd";
     LightUser: {
-      /** @example chess-network */
       id: string;
-      /** @example Chess-Network */
       name: string;
+      flair?: components["schemas"]["Flair"];
       title?: components["schemas"]["Title"];
-      /** @example true */
       patron?: boolean;
     };
     GameUser: {
@@ -5777,230 +5731,6 @@ export interface components {
       scores: string;
       fire?: boolean;
     };
-    ArenaPlayerPerformance: {
-      name?: string;
-      rank?: number;
-      title?: string;
-      patron?: boolean;
-      rating?: number;
-      score?: number;
-      flair?: components["schemas"]["Flair"];
-      sheet?: components["schemas"]["ArenaSheet"];
-      nb?: {
-        game?: number;
-        beserk?: number;
-        win?: number;
-      };
-      performance?: number;
-    };
-    /** @example {
-     *       "id": "may24lta",
-     *       "createdBy": "lichess",
-     *       "startsAt": "2024-05-25T18:00:00Z",
-     *       "system": "arena",
-     *       "fullName": "Titled Arena May 2024",
-     *       "minutes": 120,
-     *       "perf": {
-     *         "key": "bullet",
-     *         "name": "Bullet",
-     *         "icon": "T"
-     *       },
-     *       "clock": {
-     *         "limit": 60,
-     *         "increment": 0
-     *       },
-     *       "variant": "standard",
-     *       "rated": true,
-     *       "spotlight": {
-     *         "headline": "Titled only, $1,000 prize pool"
-     *       },
-     *       "berserkable": true,
-     *       "verdicts": {
-     *         "list": [
-     *           {
-     *             "condition": "Only titled players",
-     *             "verdict": "ok"
-     *           }
-     *         ],
-     *         "accepted": true
-     *       },
-     *       "schedule": {
-     *         "freq": "unique",
-     *         "speed": "bullet"
-     *       },
-     *       "description": "Prizes: $500/$250/$125/$75/$50\r\n\r\n[Warm-up event](https://lichess.org/tournament/may24wua)",
-     *       "onlyTitled": true,
-     *       "nbPlayers": 364,
-     *       "duels": [],
-     *       "isFinished": true,
-     *       "podium": [
-     *         {
-     *           "name": "RebeccaHarris",
-     *           "title": "GM",
-     *           "patron": true,
-     *           "rank": 1,
-     *           "rating": 3257,
-     *           "score": 148,
-     *           "nb": {
-     *             "game": 69,
-     *             "berserk": 25,
-     *             "win": 46
-     *           },
-     *           "performance": 3308
-     *         },
-     *         {
-     *           "name": "Ediz_Gurel",
-     *           "title": "GM",
-     *           "flair": "smileys.alien",
-     *           "rank": 2,
-     *           "rating": 3230,
-     *           "score": 146,
-     *           "nb": {
-     *             "game": 64,
-     *             "berserk": 12,
-     *             "win": 44
-     *           },
-     *           "performance": 3269
-     *         },
-     *         {
-     *           "name": "msb2",
-     *           "title": "GM",
-     *           "patron": true,
-     *           "rank": 3,
-     *           "rating": 3218,
-     *           "score": 131,
-     *           "nb": {
-     *             "game": 74,
-     *             "berserk": 9,
-     *             "win": 44
-     *           },
-     *           "performance": 3215
-     *         }
-     *       ],
-     *       "pairingsClosed": true,
-     *       "stats": {
-     *         "moves": 418545,
-     *         "averageRating": 2616,
-     *         "berserks": 729,
-     *         "blackWins": 2236,
-     *         "games": 5023,
-     *         "draws": 311,
-     *         "whiteWins": 2476
-     *       },
-     *       "standing": {
-     *         "page": 1,
-     *         "players": [
-     *           {
-     *             "name": "RebeccaHarris",
-     *             "title": "GM",
-     *             "patron": true,
-     *             "rank": 1,
-     *             "rating": 3257,
-     *             "score": 148,
-     *             "sheet": {
-     *               "scores": "030432005442204423030220045423044442201300204220300021033044444423033"
-     *             }
-     *           },
-     *           {
-     *             "name": "Ediz_Gurel",
-     *             "title": "GM",
-     *             "flair": "smileys.alien",
-     *             "rank": 2,
-     *             "rating": 3230,
-     *             "score": 146,
-     *             "sheet": {
-     *               "scores": "4454220224230200000044544432020002242204444220020320204445444422",
-     *               "fire": true
-     *             }
-     *           },
-     *           {
-     *             "name": "msb2",
-     *             "title": "GM",
-     *             "patron": true,
-     *             "rank": 3,
-     *             "rating": 3218,
-     *             "score": 131,
-     *             "sheet": {
-     *               "scores": "04221204220204220022244220200222423000022020044422044422124422010023303020"
-     *             }
-     *           },
-     *           {
-     *             "name": "nihalsarin2004",
-     *             "title": "GM",
-     *             "patron": true,
-     *             "rank": 4,
-     *             "rating": 3236,
-     *             "score": 124,
-     *             "sheet": {
-     *               "scores": "30302220030302044220220442204220210022244220202204444422223053200"
-     *             }
-     *           },
-     *           {
-     *             "name": "Arka50",
-     *             "title": "GM",
-     *             "patron": true,
-     *             "rank": 5,
-     *             "rating": 3215,
-     *             "score": 122,
-     *             "sheet": {
-     *               "scores": "303303002000200220444423002020210422110444444442200202002204444220"
-     *             }
-     *           },
-     *           {
-     *             "name": "chessbrahs",
-     *             "title": "GM",
-     *             "rank": 6,
-     *             "rating": 3115,
-     *             "score": 122,
-     *             "sheet": {
-     *               "scores": "220002002020442304542200020000204444422020445220200204220230545220",
-     *               "fire": true
-     *             }
-     *           },
-     *           {
-     *             "name": "neslraCsungaM77",
-     *             "title": "GM",
-     *             "rank": 7,
-     *             "rating": 3122,
-     *             "score": 121,
-     *             "sheet": {
-     *               "scores": "130030000042202422012442202044220204422020022221042213000201022020202044432"
-     *             }
-     *           },
-     *           {
-     *             "name": "ARM-777777",
-     *             "title": "GM",
-     *             "rank": 8,
-     *             "rating": 3154,
-     *             "score": 119,
-     *             "sheet": {
-     *               "scores": "044423030042301021044220220020000000100010200004220444422244444230220320"
-     *             }
-     *           },
-     *           {
-     *             "name": "Night-King96",
-     *             "title": "GM",
-     *             "patron": true,
-     *             "rank": 9,
-     *             "rating": 3131,
-     *             "score": 119,
-     *             "sheet": {
-     *               "scores": "0000300230302302044220030422044444220200000300003304230533023000305433"
-     *             }
-     *           },
-     *           {
-     *             "name": "tacticthunder",
-     *             "title": "IM",
-     *             "rank": 10,
-     *             "rating": 3051,
-     *             "score": 115,
-     *             "sheet": {
-     *               "scores": "20442202044444422100201200020200220044220044220222422022020220422010"
-     *             }
-     *           }
-     *         ]
-     *       }
-     *     } */
     ArenaTournamentFull: {
       id: string;
       fullName: string;
@@ -6050,6 +5780,7 @@ export interface components {
         freq: string;
         speed: string;
       };
+      description?: string;
       variant?: string;
       duels?: {
         id?: string;
@@ -6061,7 +5792,16 @@ export interface components {
       }[];
       standing?: {
         page?: number;
-        players?: components["schemas"]["ArenaPlayerPerformance"][];
+        players?: {
+          name?: string;
+          title?: components["schemas"]["Title"];
+          patron?: boolean;
+          flair?: components["schemas"]["Flair"];
+          rank?: number;
+          rating?: number;
+          score?: number;
+          sheet?: components["schemas"]["ArenaSheet"];
+        }[];
       };
       featured?: {
         id?: string;
@@ -6088,7 +5828,21 @@ export interface components {
           black?: number;
         };
       };
-      podium?: components["schemas"]["ArenaPlayerPerformance"][];
+      podium?: {
+        name?: string;
+        title?: components["schemas"]["Title"];
+        patron?: boolean;
+        flair?: components["schemas"]["Flair"];
+        rank?: number;
+        rating?: number;
+        score?: number;
+        nb?: {
+          game?: number;
+          berserk?: number;
+          win?: number;
+        };
+        performance?: number;
+      }[];
       stats: {
         games: number;
         moves: number;
@@ -6351,6 +6105,7 @@ export interface components {
       startsAfterPrevious?: boolean;
       /** Format: int64 */
       finishedAt?: number;
+      finished?: boolean;
       /** Format: uri */
       url: string;
       /** Format: int64 */
@@ -6360,6 +6115,7 @@ export interface components {
       tour: components["schemas"]["BroadcastTour"];
       group?: components["schemas"]["BroadcastGroup"];
       rounds: components["schemas"]["BroadcastRoundInfo"][];
+      defaultRoundId?: string;
     };
     BroadcastWithLastRound: {
       group?: string;
@@ -6709,96 +6465,6 @@ export interface components {
        */
       status?: "*" | "1-0" | "0-1" | "½-½";
     };
-    /** @example {
-     *       "round": {
-     *         "id": "p9DoebWl",
-     *         "name": "Round 1",
-     *         "slug": "round-1",
-     *         "createdAt": 1716014105255,
-     *         "ongoing": false,
-     *         "startsAt": 1716045300000,
-     *         "finishedAt": 1716062100000,
-     *         "url": "https://lichess.org/broadcast/casablanca-chess-2024/round-1/p9DoebWl"
-     *       },
-     *       "tour": {
-     *         "id": "ZuOkdeXK",
-     *         "name": "Casablanca Chess 2024",
-     *         "slug": "casablanca-chess-2024",
-     *         "description": "May 18th - 19th  | 4-player double round-robin | Rapid time control | Carlsen, Nakamura, Anand",
-     *         "createdAt": 1716014078747,
-     *         "tier": 5,
-     *         "image": "https://image.lichess1.org/display?h=400&op=thumbnail&path=loepare:relay:ZuOkdeXK:iq0feQJe.jpg&w=800&sig=36e58a1a648af5b9fe6d3f5725c7a2f52d853153",
-     *         "url": "https://lichess.org/broadcast/casablanca-chess-2024/ZuOkdeXK"
-     *       },
-     *       "study": {
-     *         "writeable": false
-     *       },
-     *       "games": [
-     *         {
-     *           "id": "59lrdLPv",
-     *           "name": "Carlsen, Magnus - Anand, Viswanathan",
-     *           "fen": "r1b2rk1/pppp1ppp/1bn5/n2RP1B1/Q1B1P3/N1P2N2/Pq4PP/1R5K b - - 3 16",
-     *           "players": [
-     *             {
-     *               "name": "Carlsen, Magnus",
-     *               "title": "GM",
-     *               "rating": 2828,
-     *               "clock": 56000,
-     *               "fed": "NOR"
-     *             },
-     *             {
-     *               "name": "Anand, Viswanathan",
-     *               "title": "GM",
-     *               "rating": 2749,
-     *               "clock": 56000,
-     *               "fed": "IND"
-     *             }
-     *           ],
-     *           "lastMove": "a1b1",
-     *           "thinkTime": 63,
-     *           "status": "*"
-     *         },
-     *         {
-     *           "id": "upvSjlTk",
-     *           "name": "Nakamura, Hikaru - Amin, Bassem",
-     *           "fen": "r1b2rk1/pp1p1ppp/6n1/3p2B1/4P2P/5N2/P4PP1/b2Q1BK1 b - - 1 18",
-     *           "players": [
-     *             {
-     *               "name": "Nakamura, Hikaru",
-     *               "title": "GM",
-     *               "rating": 2746,
-     *               "fed": "USA"
-     *             },
-     *             {
-     *               "name": "Amin, Bassem",
-     *               "title": "GM",
-     *               "rating": 2583,
-     *               "fed": "EGY"
-     *             }
-     *           ],
-     *           "lastMove": "b3d1",
-     *           "thinkTime": 4,
-     *           "status": "*"
-     *         }
-     *       ],
-     *       "group": {
-     *         "name": "UzChess Cup 2024",
-     *         "tours": [
-     *           {
-     *             "id": "YtMYEYu9",
-     *             "name": "Masters"
-     *           },
-     *           {
-     *             "id": "d6fsqyMV",
-     *             "name": "Challengers"
-     *           },
-     *           {
-     *             "id": "vntwlrw6",
-     *             "name": "Futures"
-     *           }
-     *         ]
-     *       }
-     *     } */
     BroadcastRound: {
       round: components["schemas"]["BroadcastRoundInfo"];
       tour: components["schemas"]["BroadcastTour"];
@@ -6892,33 +6558,6 @@ export interface components {
       /** @example 2738 */
       blitz?: number;
     };
-    /** @example {
-     *       "id": "pDGbxhUe",
-     *       "name": "GM ChessWeeb",
-     *       "fullName": "GM ChessWeeb simul",
-     *       "host": {
-     *         "id": "chessweeb",
-     *         "name": "ChessWeeb",
-     *         "rating": 1500,
-     *         "title": "GM"
-     *       },
-     *       "isCreated": false,
-     *       "isFinished": true,
-     *       "isRunning": false,
-     *       "estimatedStartAt": 1620029815106,
-     *       "startedAt": 1620029815106,
-     *       "finishedAt": 1620029937283,
-     *       "nbApplicants": 0,
-     *       "nbPairings": 24,
-     *       "text": "",
-     *       "variants": [
-     *         {
-     *           "icon": "+",
-     *           "key": "standard",
-     *           "name": "Standard"
-     *         }
-     *       ]
-     *     } */
     Simul: {
       id: string;
       host: components["schemas"]["LightUser"] & {
@@ -6929,7 +6568,11 @@ export interface components {
       };
       name: string;
       fullName: string;
-      variants: components["schemas"]["Variant"][];
+      variants: {
+        key?: components["schemas"]["VariantKey"];
+        icon?: string;
+        name?: string;
+      }[];
       isCreated: boolean;
       isFinished: boolean;
       isRunning: boolean;
@@ -6940,35 +6583,12 @@ export interface components {
       nbApplicants: number;
       nbPairings: number;
     };
-    /** @example {
-     *       "id": "lichess-swiss",
-     *       "name": "Lichess Swiss",
-     *       "description": "The official Lichess Swiss team. We organize regular swiss tournaments for all to join.",
-     *       "flair": "food-drink.cheese-wedge",
-     *       "leader": {
-     *         "flair": "activity.lichess",
-     *         "id": "lichess",
-     *         "name": "Lichess",
-     *         "patron": true
-     *       },
-     *       "leaders": [
-     *         {
-     *           "flair": "activity.lichess",
-     *           "id": "lichess",
-     *           "name": "Lichess",
-     *           "patron": true
-     *         }
-     *       ],
-     *       "nbMembers": 487629,
-     *       "open": true,
-     *       "joined": false,
-     *       "requested": false
-     *     } */
     Team: {
       id: string;
       name: string;
       description?: string;
       flair?: components["schemas"]["Flair"];
+      leader?: components["schemas"]["LightUser"];
       leaders?: components["schemas"]["LightUser"][];
       nbMembers?: number;
       open?: boolean;
@@ -7039,99 +6659,77 @@ export interface components {
        */
       date?: number;
     };
+    /** @example {
+     *       "fullId": "9NaCTu2vz1c4",
+     *       "gameId": "9NaCTu2v",
+     *       "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+     *       "color": "white",
+     *       "lastMove": "",
+     *       "source": "friend",
+     *       "status": {
+     *         "id": 20,
+     *         "name": "started"
+     *       },
+     *       "variant": {
+     *         "key": "standard",
+     *         "name": "Standard"
+     *       },
+     *       "speed": "blitz",
+     *       "perf": "blitz",
+     *       "rated": false,
+     *       "hasMoved": false,
+     *       "opponent": {
+     *         "id": "mary",
+     *         "username": "Mary",
+     *         "rating": 1007
+     *       },
+     *       "isMyTurn": true,
+     *       "secondsLeft": 300,
+     *       "compat": {
+     *         "bot": false,
+     *         "board": true
+     *       },
+     *       "id": "9NaCTu2v"
+     *     } */
     GameEventInfo: {
-      id?: string;
+      fullId?: string;
+      gameId?: string;
+      fen?: string;
+      /** @enum {string} */
+      color?: "white" | "black";
+      lastMove?: string;
       source?: components["schemas"]["GameSource"];
       status?: {
         /** @enum {integer} */
         id?: 10 | 20 | 25 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 60;
         name?: components["schemas"]["GameStatus"];
       };
-      /** @enum {string} */
-      winner?: "white" | "black";
+      variant?: {
+        key?: string;
+        name?: string;
+      };
+      speed?: components["schemas"]["Speed"];
+      perf?: string;
+      rated?: boolean;
+      hasMoved?: boolean;
+      opponent?: {
+        id?: string;
+        username?: string;
+        rating?: number;
+      };
+      isMyTurn?: boolean;
+      secondsLeft?: number;
       compat?: {
         bot?: boolean;
         board?: boolean;
       };
+      id?: string;
     };
-    /** @example {
-     *       "type": "gameStart",
-     *       "game": {
-     *         "gameId": "rCRw1AuO",
-     *         "fullId": "rCRw1AuOvonq",
-     *         "color": "black",
-     *         "fen": "r1bqkbnr/pppp2pp/2n1pp2/8/8/3PP3/PPPB1PPP/RN1QKBNR w KQkq - 2 4",
-     *         "hasMoved": true,
-     *         "isMyTurn": false,
-     *         "lastMove": "b8c6",
-     *         "opponent": {
-     *           "id": "philippe",
-     *           "rating": 1790,
-     *           "username": "Philippe"
-     *         },
-     *         "perf": "correspondence",
-     *         "rated": true,
-     *         "secondsLeft": 1209600,
-     *         "source": "friend",
-     *         "status": {
-     *           "id": 20,
-     *           "name": "started"
-     *         },
-     *         "speed": "correspondence",
-     *         "variant": {
-     *           "key": "standard",
-     *           "name": "Standard"
-     *         },
-     *         "compat": {
-     *           "bot": false,
-     *           "board": true
-     *         },
-     *         "id": "rCRw1AuO"
-     *       }
-     *     } */
     GameStartEvent: {
       /** @constant */
       type?: "gameStart";
       game?: components["schemas"]["GameEventInfo"];
     };
-    /** @example {
-     *       "type": "gameFinish",
-     *       "game": {
-     *         "gameId": "rCRw1AuO",
-     *         "fullId": "rCRw1AuOvonq",
-     *         "color": "black",
-     *         "fen": "r1bqkbnr/pppp2pp/2n1pp2/8/8/3PP3/PPPB1PPP/RN1QKBNR w KQkq - 2 4",
-     *         "hasMoved": true,
-     *         "isMyTurn": false,
-     *         "lastMove": "b8c6",
-     *         "opponent": {
-     *           "id": "philippe",
-     *           "username": "Philippe",
-     *           "rating": 1790,
-     *           "ratingDiff": -12
-     *         },
-     *         "perf": "correspondence",
-     *         "rated": true,
-     *         "secondsLeft": 1209600,
-     *         "source": "friend",
-     *         "status": {
-     *           "id": 31,
-     *           "name": "resign"
-     *         },
-     *         "speed": "correspondence",
-     *         "variant": {
-     *           "key": "standard",
-     *           "name": "Standard"
-     *         },
-     *         "compat": {
-     *           "bot": false,
-     *           "board": true
-     *         },
-     *         "winner": "black",
-     *         "ratingDiff": 8,
-     *         "id": "rCRw1AuO"
-     *       }
-     *     } */
     GameFinishEvent: {
       /** @constant */
       type?: "gameFinish";
@@ -7236,48 +6834,6 @@ export interface components {
       type?: "challenge";
       challenge?: components["schemas"]["ChallengeJson"];
     };
-    /** @example {
-     *       "type": "challengeCanceled",
-     *       "challenge": {
-     *         "id": "UiGWlUra",
-     *         "url": "https://lichess.org/UiGWlUra",
-     *         "status": "canceled",
-     *         "challenger": {
-     *           "id": "bobby",
-     *           "name": "Bobby",
-     *           "rating": 1946,
-     *           "title": "GM",
-     *           "online": true,
-     *           "lag": 4
-     *         },
-     *         "destUser": {
-     *           "id": "pedro",
-     *           "name": "Pedro",
-     *           "rating": 2402,
-     *           "online": true,
-     *           "lag": 4
-     *         },
-     *         "variant": {
-     *           "key": "standard",
-     *           "name": "Standard",
-     *           "short": "Std"
-     *         },
-     *         "rated": true,
-     *         "speed": "blitz",
-     *         "timeControl": {
-     *           "type": "clock",
-     *           "limit": 300,
-     *           "increment": 0,
-     *           "show": "5+0"
-     *         },
-     *         "color": "random",
-     *         "finalColor": "white",
-     *         "perf": {
-     *           "icon": "",
-     *           "name": "Blitz"
-     *         }
-     *       }
-     *     } */
     ChallengeCanceledEvent: {
       /** @constant */
       type?: "challengeCanceled";
@@ -7289,50 +6845,6 @@ export interface components {
     ChallengeCanceledJson: {
       id?: string;
     };
-    /** @example {
-     *       "type": "challengeDeclined",
-     *       "challenge": {
-     *         "id": "BDQR876K",
-     *         "url": "http://lichess.org/BDQR876K",
-     *         "status": "declined",
-     *         "challenger": {
-     *           "id": "pedro",
-     *           "name": "Pedro",
-     *           "rating": 2402,
-     *           "online": true,
-     *           "lag": 4
-     *         },
-     *         "destUser": {
-     *           "id": "bobby",
-     *           "name": "Bobby",
-     *           "rating": 1946,
-     *           "title": "GM",
-     *           "online": true,
-     *           "lag": 4
-     *         },
-     *         "variant": {
-     *           "key": "standard",
-     *           "name": "Standard",
-     *           "short": "Std"
-     *         },
-     *         "rated": true,
-     *         "speed": "blitz",
-     *         "timeControl": {
-     *           "type": "clock",
-     *           "limit": 300,
-     *           "increment": 0,
-     *           "show": "5+0"
-     *         },
-     *         "color": "random",
-     *         "finalColor": "black",
-     *         "perf": {
-     *           "icon": "",
-     *           "name": "Blitz"
-     *         },
-     *         "declineReason": "This is not the right time for me, please ask again later.",
-     *         "declineReasonKey": "later"
-     *       }
-     *     } */
     ChallengeDeclinedEvent: {
       /** @constant */
       type?: "challengeDeclined";
@@ -7385,48 +6897,43 @@ export interface components {
       btakeback?: boolean;
     };
     /** @example {
-     *       "id": "QdzzBlzY",
+     *       "id": "BEOucQJo",
      *       "variant": {
      *         "key": "standard",
      *         "name": "Standard",
      *         "short": "Std"
      *       },
-     *       "speed": "blitz",
+     *       "speed": "rapid",
      *       "perf": {
-     *         "name": "Blitz"
+     *         "name": "Rapid"
      *       },
-     *       "rated": true,
-     *       "createdAt": 1714920830966,
+     *       "rated": false,
+     *       "createdAt": 1745112707998,
      *       "white": {
      *         "id": "bobby",
      *         "name": "Bobby",
-     *         "title": "GM",
-     *         "rating": 1956
+     *         "title": null,
+     *         "rating": 1751
      *       },
      *       "black": {
-     *         "id": "bot1",
-     *         "name": "Bot1",
-     *         "title": "BOT",
-     *         "rating": 1500,
-     *         "provisional": true
+     *         "id": "mary",
+     *         "name": "Mary",
+     *         "title": null,
+     *         "rating": 1021
      *       },
      *       "initialFen": "startpos",
      *       "clock": {
-     *         "initial": 300000,
+     *         "initial": 900000,
      *         "increment": 0
      *       },
      *       "type": "gameFull",
      *       "state": {
      *         "type": "gameState",
-     *         "moves": "e2e4 e7e5 g1f3 b8c6 f1c4",
-     *         "wtime": 294810,
-     *         "btime": 286000,
+     *         "moves": "d2d3",
+     *         "wtime": 900000,
+     *         "btime": 900000,
      *         "winc": 0,
      *         "binc": 0,
-     *         "wdraw": false,
-     *         "bdraw": false,
-     *         "wtakeback": false,
-     *         "btakeback": false,
      *         "status": "started"
      *       }
      *     } */
@@ -7435,7 +6942,18 @@ export interface components {
       type: "gameFull";
       id: string;
       variant: components["schemas"]["Variant"];
-      clock: components["schemas"]["Clock"] | null;
+      clock: {
+        /**
+         * Format: int64
+         * @description Initial time in milliseconds
+         */
+        initial?: number;
+        /**
+         * Format: int64
+         * @description Increment time in milliseconds
+         */
+        increment?: number;
+      };
       speed: components["schemas"]["Speed"];
       perf: {
         /** @description Translated perf name (e.g. "Classical" or "Blitz") */
@@ -7603,21 +7121,21 @@ export interface components {
      *     } */
     BulkPairing: unknown;
     /** @example {
-     *       "depth": 29,
      *       "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R",
      *       "knodes": 106325,
+     *       "depth": 29,
      *       "pvs": [
      *         {
-     *           "cp": 41,
-     *           "moves": "d1e2 d8e7 a2a4 a7a6 b5c4 d7d6 d2d3 g8f6 c1e3 c6a5"
+     *           "moves": "d1e2 d8e7 a2a4 a7a6 b5c4 d7d6 d2d3 g8f6 c1e3 c6a5",
+     *           "cp": 41
      *         },
      *         {
-     *           "cp": 39,
-     *           "moves": "c2c3 a7a6 b5a4 g8f6 d2d3 b7b5 a4b3 h7h6 a2a4 c8b7"
+     *           "moves": "c2c3 a7a6 b5a4 g8f6 d2d3 b7b5 a4b3 h7h6 a2a4 c8b7",
+     *           "cp": 39
      *         },
      *         {
-     *           "cp": 37,
-     *           "moves": "d2d3 d8f6 c2c3 a7a6 b5a4 f8c5 d3d4 c5a7 c1e3 g8e7"
+     *           "moves": "d2d3 d8f6 c2c3 a7a6 b5a4 f8c5 d3d4 c5a7 c1e3 g8e7",
+     *           "cp": 37
      *         }
      *       ]
      *     } */
@@ -7625,19 +7143,20 @@ export interface components {
       depth: number;
       fen: string;
       knodes: number;
-      pvs: ({
-        /** @description Variation in UCI notation */
-        moves: string;
-      } & (
+      pvs: (
         | {
             /** @description Evaluation in centi-pawns, from White's point of view */
             cp: number;
+            /** @description Variation in UCI notation */
+            moves: string;
           }
         | {
             /** @description Evaluation in moves to mate, from White's point of view */
             mate: number;
+            /** @description Variation in UCI notation */
+            moves: string;
           }
-      ))[];
+      )[];
     };
     /**
      * @default chess
@@ -8369,6 +7888,7 @@ export interface operations {
           "application/json": {
             id: string;
             name: string;
+            flair?: components["schemas"]["Flair"];
             title?: string;
             online?: boolean;
             playing?: boolean;
@@ -8530,7 +8050,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["UserActivity"];
+          "application/json": components["schemas"]["UserActivity"][];
         };
       };
     };
@@ -12472,7 +11992,26 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["LightUser"][];
+          "application/json": (components["schemas"]["LightUser"] & {
+            stream?: {
+              /** @enum {string} */
+              service?: "twitch" | "youTube";
+              /** @description The stream title */
+              status?: string;
+              lang?: string;
+            };
+            streamer?: {
+              name?: string;
+              headline?: string;
+              description?: string;
+              /** Format: uri */
+              twitch?: string;
+              /** Format: uri */
+              youTube?: string;
+              /** Format: uri */
+              image?: string;
+            };
+          })[];
         };
       };
     };
