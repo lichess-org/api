@@ -1,0 +1,34 @@
+{
+  "id": "y9si673R",
+  "createdBy": "lichess",
+  "startsAt": "2025-04-24T23:30:00Z",
+  "name": "Rapid Increment",
+  "clock": {
+    "limit": 420,
+    "increment": 2
+  },
+  "variant": "standard",
+  "round": 0,
+  "nbRounds": 7,
+  "nbPlayers": 0,
+  "nbOngoing": 0,
+  "status": "created",
+  "nextRound": {
+    "at": "2025-04-24T23:30:00Z",
+    "in": 341166
+  },
+  "verdicts": {
+    "list": [
+      {
+        "condition": "≥ 8 Rapid rated games",
+        "verdict": "ok"
+      },
+      {
+        "condition": "Play your games",
+        "verdict": "ok"
+      }
+    ],
+    "accepted": true
+  },
+  "rated": true
+}

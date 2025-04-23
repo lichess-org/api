@@ -1,0 +1,92 @@
+{
+  "id": "gabriela",
+  "username": "Gabriela",
+  "perfs": {
+    "bullet": {
+      "games": 4,
+      "rating": 1602,
+      "rd": 116,
+      "prog": 35,
+      "prov": true
+    },
+    "blitz": {
+      "games": 713,
+      "rating": 1498,
+      "rd": 50,
+      "prog": -52
+    },
+    "rapid": {
+      "games": 111,
+      "rating": 1468,
+      "rd": 99,
+      "prog": 1
+    },
+    "classical": {
+      "games": 86,
+      "rating": 1595,
+      "rd": 56,
+      "prog": -19
+    },
+    "correspondence": {
+      "games": 85,
+      "rating": 1493,
+      "rd": 57,
+      "prog": 10
+    },
+    "chess960": {
+      "games": 945,
+      "rating": 1506,
+      "rd": 80,
+      "prog": -9
+    },
+    "kingOfTheHill": {
+      "games": 37,
+      "rating": 1578,
+      "rd": 56,
+      "prog": -40
+    },
+    "threeCheck": {
+      "games": 284,
+      "rating": 1605,
+      "rd": 45,
+      "prog": 25
+    },
+    "antichess": {
+      "games": 36,
+      "rating": 1496,
+      "rd": 87,
+      "prog": -32
+    },
+    "atomic": {
+      "games": 568,
+      "rating": 1542,
+      "rd": 68,
+      "prog": -2
+    },
+    "horde": {
+      "games": 2,
+      "rating": 1390,
+      "rd": 87,
+      "prog": -41
+    },
+    "crazyhouse": {
+      "games": 45,
+      "rating": 1391,
+      "rd": 100,
+      "prog": 0
+    },
+    "puzzle": {
+      "games": 70,
+      "rating": 1431,
+      "rd": 45,
+      "prog": -1
+    }
+  },
+  "createdAt": 1742061301314,
+  "seenAt": 1743193699350,
+  "playTime": {
+    "total": 11825,
+    "tv": 0
+  },
+  "url": "http://localhost:8080/@/Gabriela"
+}

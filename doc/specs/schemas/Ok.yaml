@@ -1,5 +1,3 @@
 properties:
   ok:
     type: boolean
-example:
-  ok: true

@@ -27,18 +27,7 @@ post:
           schema:
             $ref: "../../schemas/BroadcastWithRounds.yaml"
           example:
-            {
-              "tour":
-                {
-                  "createdAt": 1717342164861,
-                  "description": "This is a test",
-                  "id": "HdRP6fce",
-                  "name": "My New Tournament",
-                  "slug": "my-new-tournament",
-                  "url": "https://lichess.org/broadcast/my-new-tournament/HdRP6fce",
-                },
-              "rounds": [],
-            }
+            $ref: "../../examples/broadcasts-createBroadcastTournament.json"
     "400":
       description: The creation of the broadcast tournament failed.
       content:

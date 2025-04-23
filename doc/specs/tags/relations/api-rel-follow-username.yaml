@@ -21,3 +21,5 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+          example:
+            $ref: "../../examples/relations-followPlayer.json"

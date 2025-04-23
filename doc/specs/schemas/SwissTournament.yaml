@@ -60,6 +60,15 @@ properties:
     type: boolean
   verdicts:
     $ref: "./Verdicts.yaml"
+  nextRound:
+    type: object
+    properties:
+      at:
+        type: string
+        format: date-time
+      in:
+        type: integer
+        description: The number of seconds until the next round starts.
 
 required:
   - id
@@ -73,33 +82,5 @@ required:
   - nbPlayers
   - nbOngoing
   - status
-  - stats
   - rated
   - verdicts
-
-example:
-  {
-    "clock": { "increment": 0, "limit": 600 },
-    "createdBy": "lichess",
-    "id": "SuwsOIhE",
-    "name": "Rapid",
-    "nbOngoing": 0,
-    "nbPlayers": 37,
-    "nbRounds": 7,
-    "rated": true,
-    "round": 7,
-    "startsAt": "2024-06-11T02:00:00Z",
-    "stats":
-      { "absences": 133, "averageRating": 1896, "blackWins": 44, "byes": 5, "draws": 6, "games": 53, "whiteWins": 56 },
-    "status": "finished",
-    "variant": "standard",
-    "verdicts":
-      {
-        "accepted": true,
-        "list":
-          [
-            { "condition": "≥ 8 Rapid rated games", "verdict": "ok" },
-            { "condition": "Play your games", "verdict": "ok" },
-          ],
-      },
-  }

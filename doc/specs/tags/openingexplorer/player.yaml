@@ -111,6 +111,6 @@ get:
             type: string
             default: "'*'"
       content:
-        application/nd-json:
+        application/x-ndjson:
           schema:
             $ref: "../../schemas/OpeningExplorerPlayer.yaml"

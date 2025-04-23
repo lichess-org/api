@@ -1,0 +1,268 @@
+{
+  "currentPage": 1,
+  "maxPerPage": 15,
+  "currentPageResults": [
+    {
+      "id": "coders",
+      "name": "Coders",
+      "description": "If you want to join the team, prove (briefly) that you can code in the request message!",
+      "open": false,
+      "leader": {
+        "name": "thibault",
+        "flair": "nature.seedling",
+        "patron": true,
+        "id": "thibault"
+      },
+      "nbMembers": 434,
+      "flair": "objects.hammer-and-wrench",
+      "leaders": [
+        {
+          "name": "thibault",
+          "flair": "nature.seedling",
+          "patron": true,
+          "id": "thibault"
+        }
+      ]
+    },
+    {
+      "id": "bot-developing-team",
+      "name": "Bot Developing Team",
+      "description": "Here we develop bots For our bot developing team.\r\nJoin this team if you have question to ask in the forum. Leaders will respond in at least 7 days.\r\nAnd to be apply as a bot developer, you must be a coder, a developer can be asked by private message with @MrAllVariant. And you might need the [FAQ](https://lichess.org/forum/team-bot-developing-team/faq) , Wanted to be a [developer](https://lichess.org/@/Zkwong1877)? Contact [here](https://lichess.org/inbox/Zkwong1877)!\r\n![text](https://media.giphy.com/media/e4tOcMeLeG2rlCeSuW/giphy.gif)",
+      "open": true,
+      "leader": {
+        "name": "Zkwong1877",
+        "flair": "nature.fire",
+        "id": "zkwong1877"
+      },
+      "nbMembers": 5,
+      "leaders": []
+    },
+    {
+      "id": "codere",
+      "name": "Codere",
+      "description": "Cordere equipo                       \r\nTorneo de hoy Sabado 16 10 hs https://lichess.org/tournament/m8kOBnG8                                                                      .",
+      "open": false,
+      "leader": {
+        "name": "eugeealegre",
+        "flair": "nature.cherry-blossom",
+        "id": "eugeealegre"
+      },
+      "nbMembers": 4,
+      "leaders": [
+        {
+          "name": "eugeealegre",
+          "flair": "nature.cherry-blossom",
+          "id": "eugeealegre"
+        },
+        {
+          "name": "elplot",
+          "id": "elplot"
+        }
+      ]
+    },
+    {
+      "id": "statmattarmy",
+      "name": "statmattarmy",
+      "description": "A place where some of the greatest coders go",
+      "open": true,
+      "leader": {
+        "name": "statmatt",
+        "id": "statmatt"
+      },
+      "nbMembers": 4,
+      "leaders": [
+        {
+          "name": "statmatt",
+          "id": "statmatt"
+        }
+      ]
+    },
+    {
+      "id": "afternoon-coders",
+      "name": "Afternoon Coders",
+      "description": "Hello there we are the afternoon coders",
+      "open": false,
+      "leader": {
+        "name": "GabMons123456789",
+        "id": "gabmons123456789"
+      },
+      "nbMembers": 4,
+      "leaders": [
+        {
+          "name": "GabMons123456789",
+          "id": "gabmons123456789"
+        }
+      ]
+    },
+    {
+      "id": "hang-coder",
+      "name": "Hang coder",
+      "description": "skibidi toilet co cot truyen dinh cao vl",
+      "open": false,
+      "leader": {
+        "name": "Duc1234xxx1",
+        "id": "duc1234xxx1"
+      },
+      "nbMembers": 2,
+      "leaders": [
+        {
+          "name": "Duc1234xxx1",
+          "id": "duc1234xxx1"
+        }
+      ]
+    },
+    {
+      "id": "cool-coders",
+      "name": "Cool Coders",
+      "description": "Hi all! This team is for all computer programmers and coders.\r\nWe can code [here](https://studio.code.org)",
+      "open": true,
+      "leader": {
+        "name": "Jay1210",
+        "flair": "activity.chess",
+        "id": "jay1210"
+      },
+      "nbMembers": 2,
+      "leaders": [
+        {
+          "name": "vishnu_rainbow",
+          "id": "vishnu_rainbow"
+        }
+      ]
+    },
+    {
+      "id": "a-coders-destiny",
+      "name": "A Coder's Destiny",
+      "description": "Hello this is a team for coders and programmers\r\nEnjoy!",
+      "open": true,
+      "leader": {
+        "name": "Ayushman111",
+        "id": "ayushman111"
+      },
+      "nbMembers": 1,
+      "leaders": [
+        {
+          "name": "Ayushman111",
+          "id": "ayushman111"
+        }
+      ]
+    },
+    {
+      "id": "coders-club",
+      "name": "💻Coders Club💻",
+      "description": "Team Creater - ⏩⏩ @SiyahGiyenGencYT 🔥🔥\r\n\r\n------------✮✮------------\r\n💥FOR ANY PROBLEMS ..\r\nFORUM .. https://lichess.org/forum/team-coders-club\r\n✮✮✮✮✮✮✮✮✮✮✮✮\r\nLICHESS ID .. @SiyahGiyenGencYT\r\n------------✮✮------------\r\n💥TOURNAMENTS\r\nLINK .. https://lichess.org/team/coders-club/tournaments\r\n------------✮✮------------\r\n💥OUR TEAM SCORE\r\n\r\n------------✮✮----------\r\n💥 Coder WARRIORS💥\r\n\r\n-----------✮✮----------\r\n🔰: BOTC Select WorldCup 2020\r\n- ↪ Free Entry\r\n- ✔ Standard Initial Position\r\n- ✔ 1️⃣ Min\r\n- ✔ 🔟 Min\r\n- ✔ 3️⃣ Minute\r\n- ✔ Tournament's Time : Undefined\r\n- ❌ ♨️ Allowed Berserk\r\n- ✔ Arena Streak\r\n- ✔ Team Battle\r\n- ✔ 🎁 Prized\r\n------------✮✮----------\r\n🌈🌈OUR SPONSERS: @ATCThyKe\r\nPRIZES ARE..\r\n🥇 3 PDFs + 10$ \r\n🥈 2 PDFs + 5$\r\n🥉 1 PDFs \r\n🎁 LUCKY PRIZES 6,14 ,20,28\r\n🎁 PRIZES BY @ATChyKe 🎁\r\nTHANK YOU..🎇✨🎁\r\n------------✮✮------------\r\n🙏Thank you 🙏.\r\nKonum: 🌎WORLD 🌎",
+      "open": false,
+      "leader": {
+        "name": "SiyahGiyenGencYT",
+        "id": "siyahgiyengencyt"
+      },
+      "nbMembers": 1,
+      "leaders": [
+        {
+          "name": "SiyahGiyenGencYT",
+          "id": "siyahgiyengencyt"
+        }
+      ]
+    },
+    {
+      "id": "coders-community",
+      "name": "Coders Community",
+      "description": "Seja bem-vindo ao time da Coders Community: https://discord.gg/qydeyntwye\r\n\r\n**Para entrar, informe seu username do Discord!**",
+      "open": false,
+      "leader": {
+        "name": "intermezo",
+        "flair": "smileys.flushed-face",
+        "patron": true,
+        "id": "intermezo"
+      },
+      "nbMembers": 5,
+      "leaders": [
+        {
+          "name": "intermezo",
+          "flair": "smileys.flushed-face",
+          "patron": true,
+          "id": "intermezo"
+        }
+      ]
+    },
+    {
+      "id": "morse-code",
+      "name": "Morse Code",
+      "description": ".- / .-.. .. -.-. .... . ... ... / - . .- -- / ..-. --- .-. / - .... . / -- --- .-. ... . / -.-. --- -.. . / -.-. --- -- -- ..- -. .. - -.-- -.-.--\r\n\r\nTranslation for non Morse Coders: A lichess team for the Morse Code community!",
+      "open": true,
+      "leader": {
+        "name": "PhilMikeOck",
+        "id": "philmikeock"
+      },
+      "nbMembers": 0,
+      "leaders": []
+    },
+    {
+      "id": "replit",
+      "name": "Repl.it",
+      "description": "A lichess team for all Repl.it coders, we are a smart community willing to learn and improve at chess.",
+      "open": true,
+      "leader": {
+        "name": "SantiagoForero",
+        "id": "santiagoforero"
+      },
+      "nbMembers": 0,
+      "leaders": []
+    },
+    {
+      "id": "team-of-coders",
+      "name": "Team Of Coder'S",
+      "description": "Hi Welcome To Team Of Coder's. Here You Will Play Many Tournament's Like Blitz,Rapid,bullet,Hyperbullet,Ultrabullet & Main Team Battle On Every Sunday. In This Team You Are Requested To Be Follow Some Of Our Team Rule's\r\n\r\nRULE 1- NO CHEATING DURING TOURNEY'S\r\nRULE 2- REGULAR MESSAGE WILL BE SEND OF INFORMATIVE THING'S\r\nRULE 3- THERE WILL BE ONLY 2 LEADER. NO ONE ELSE WILL BE MADE LEADER\r\nRULE 4- IF A PERSON HAVE A BOT ID SO HE/SHE HAVE TO COME WITH THEIR REAL ID IN TOURNAMENT'S\r\nRULE 5- IF A PLAYER OF OUR TEAM MAY ACCUSED CHEATED BY LICHESS LIKE THIS PLAYER ARTIFICIALLY INCREASES AND DECREASE HIS/HER RATING THEN HE/SHE WILL BE KICKED\r\n\r\nNOTE ABOUT TEAM ETIQUETTE- lichess.org/page/team-etiquette\r\n\r\nThank You",
+      "open": true,
+      "leader": {
+        "name": "PartonWingsOfficial",
+        "id": "partonwingsofficial"
+      },
+      "nbMembers": 0,
+      "leaders": []
+    },
+    {
+      "id": "coders-start-here",
+      "name": "coders... start here!",
+      "description": "Coding is a lot like chess... it dosen't start ti'll the first move",
+      "open": false,
+      "leader": {
+        "name": "hiima1234134",
+        "flair": "objects.desktop-computer",
+        "id": "hiima1234134"
+      },
+      "nbMembers": 1,
+      "leaders": [
+        {
+          "name": "hiima1234134",
+          "flair": "objects.desktop-computer",
+          "id": "hiima1234134"
+        }
+      ]
+    },
+    {
+      "id": "f5-coders",
+      "name": "f5 coders",
+      "description": "Equipo de coders de factoria f5.\r\nRompemos el código y los tableros.",
+      "open": false,
+      "leader": {
+        "name": "RogerAiguas",
+        "id": "rogeraiguas"
+      },
+      "nbMembers": 16,
+      "leaders": [
+        {
+          "name": "RogerAiguas",
+          "id": "rogeraiguas"
+        },
+        {
+          "name": "ABPNET",
+          "id": "abpnet"
+        }
+      ]
+    }
+  ],
+  "previousPage": null,
+  "nextPage": 2,
+  "nbResults": 21,
+  "nbPages": 2
+}

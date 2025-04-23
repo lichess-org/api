@@ -5,6 +5,10 @@ properties:
     type: array
     items:
       $ref: "./BroadcastWithLastRound.yaml"
+  upcoming:
+    type: array
+    items:
+      $ref: "./BroadcastWithLastRound.yaml"
   past:
     type: object
     properties:

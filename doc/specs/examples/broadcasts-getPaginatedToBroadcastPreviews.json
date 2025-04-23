@@ -1,0 +1,33 @@
+{
+  "active": [
+    {
+      "tour": {
+        "id": "NNmDmYkA",
+        "name": "Knight Invitational",
+        "slug": "knight-invitational",
+        "info": {},
+        "createdAt": 1745372718836,
+        "url": "https://lichess.org/broadcast/knight-invitational/NNmDmYkA",
+        "tier": 5,
+        "dates": [1745376318843]
+      },
+      "round": {
+        "id": "N88W6LPM",
+        "name": "Round 1",
+        "slug": "round-1",
+        "createdAt": 1745372718853,
+        "ongoing": true,
+        "startsAt": 1745376318843,
+        "url": "http://localhost:8080/broadcast/knight-invitational/round-1/N88W6LPM"
+      }
+    }
+  ],
+  "upcoming": [],
+  "past": {
+    "currentPage": 1,
+    "maxPerPage": 24,
+    "currentPageResults": [],
+    "previousPage": null,
+    "nextPage": null
+  }
+}
