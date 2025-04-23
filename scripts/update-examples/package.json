@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@lichess-org/types": "../../types",
+    "@types/node": "^22.14.1",
+    "openapi-fetch": "^0.13.4",
+    "prettier": "^3.5.1"
+  },
+  "scripts": {
+    "format": "prettier --write ."
+  },
+  "packageManager": "pnpm@9.15.5+sha512.845196026aab1cc3f098a0474b64dfbab2afe7a1b4e91dd86895d8e4aa32a7a6d03049e2d0ad770bbe4de023a7122fb68c1a1d6e0d033c7076085f9d5d4800d4"
+}

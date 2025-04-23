@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "lib": ["DOM", "es2018"],
+    "target": "es2018",
+    "moduleResolution": "node",
+    "module": "ESNext"
+  }
+}

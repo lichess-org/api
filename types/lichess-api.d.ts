@@ -10802,7 +10802,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/nd-json": components["schemas"]["SwissTournament"];
+          "application/x-ndjson": components["schemas"]["SwissTournament"];
         };
       };
     };
@@ -14478,7 +14478,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/nd-json": components["schemas"]["OpeningExplorerPlayer"];
+          "application/x-ndjson": components["schemas"]["OpeningExplorerPlayer"];
         };
       };
     };

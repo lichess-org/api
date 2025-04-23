@@ -9,7 +9,7 @@
     "patron": true,
     "id": "lichess"
   },
-  "nbMembers": 581942,
+  "nbMembers": 582195,
   "flair": "food-drink.cheese-wedge",
   "leaders": [
     {
@@ -20,15 +20,9 @@
     },
     {
       "name": "thibault",
-      "flair": "symbols.vim-logo",
+      "flair": "nature.seedling",
       "patron": true,
       "id": "thibault"
-    },
-    {
-      "name": "NoJoke",
-      "flair": "food-drink.watermelon",
-      "patron": true,
-      "id": "nojoke"
     }
   ],
   "joined": false,
