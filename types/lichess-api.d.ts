@@ -4895,9 +4895,6 @@ export interface components {
       moveEvent?: number;
       rookCastle?: number;
     };
-    /** @example {
-     *       "ok": true
-     *     } */
     Ok: {
       ok?: boolean;
     };
@@ -5886,45 +5883,6 @@ export interface components {
      * @enum {string}
      */
     SwissStatus: "created" | "started" | "finished";
-    /** @example {
-     *       "clock": {
-     *         "increment": 0,
-     *         "limit": 600
-     *       },
-     *       "createdBy": "lichess",
-     *       "id": "SuwsOIhE",
-     *       "name": "Rapid",
-     *       "nbOngoing": 0,
-     *       "nbPlayers": 37,
-     *       "nbRounds": 7,
-     *       "rated": true,
-     *       "round": 7,
-     *       "startsAt": "2024-06-11T02:00:00Z",
-     *       "stats": {
-     *         "absences": 133,
-     *         "averageRating": 1896,
-     *         "blackWins": 44,
-     *         "byes": 5,
-     *         "draws": 6,
-     *         "games": 53,
-     *         "whiteWins": 56
-     *       },
-     *       "status": "finished",
-     *       "variant": "standard",
-     *       "verdicts": {
-     *         "accepted": true,
-     *         "list": [
-     *           {
-     *             "condition": "≥ 8 Rapid rated games",
-     *             "verdict": "ok"
-     *           },
-     *           {
-     *             "condition": "Play your games",
-     *             "verdict": "ok"
-     *           }
-     *         ]
-     *       }
-     *     } */
     SwissTournament: {
       id: string;
       createdBy: string;
@@ -5940,7 +5898,7 @@ export interface components {
       nbPlayers: number;
       nbOngoing: number;
       status: components["schemas"]["SwissStatus"];
-      stats: {
+      stats?: {
         games: number;
         whiteWins: number;
         blackWins: number;
@@ -5951,6 +5909,12 @@ export interface components {
       };
       rated: boolean;
       verdicts: components["schemas"]["Verdicts"];
+      nextRound?: {
+        /** Format: date-time */
+        at?: string;
+        /** @description The number of seconds until the next round starts. */
+        in?: number;
+      };
     };
     /** @example {
      *       "error": "This user cannot edit this swiss"
@@ -6124,6 +6088,7 @@ export interface components {
     };
     BroadcastTop: {
       active?: components["schemas"]["BroadcastWithLastRound"][];
+      upcoming?: components["schemas"]["BroadcastWithLastRound"][];
       past?: {
         /** @example 4 */
         currentPage?: number;
@@ -6138,7 +6103,6 @@ export interface components {
     };
     BroadcastByUser: {
       tour: components["schemas"]["BroadcastTour"];
-      round: components["schemas"]["BroadcastRoundInfo"];
     };
     BroadcastForm: {
       /** @description Name of the broadcast tournament.
