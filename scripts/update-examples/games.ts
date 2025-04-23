@@ -9,8 +9,9 @@ example(
         gameId: "q7ZvsdUF",
       },
       query: {
-          accuracy: true,
-          literate: true,
+        clocks: false,
+        accuracy: true,
+        literate: true,
       },
     },
     headers: {
@@ -28,9 +29,10 @@ example(
         username: "lance5500",
       },
       query: {
-          accuracy: true,
-          division: true,
-          literate: true,
+        clocks: false,
+        accuracy: true,
+        division: true,
+        literate: true,
       },
     },
     headers: {
@@ -47,7 +49,7 @@ await prodClient()
       },
       query: {
         max: 1,
-        clocks: true,
+        clocks: false,
         evals: true,
         accuracy: true,
         opening: true,
@@ -73,7 +75,7 @@ example(
     body: "TJxUmbWK",
     params: {
       query: {
-        clocks: true,
+        clocks: false,
         evals: true,
         accuracy: true,
         opening: true,
