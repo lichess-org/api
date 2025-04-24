@@ -5355,6 +5355,7 @@ export interface components {
       /** Format: int64 */
       lastMoveAt: number;
       status: components["schemas"]["GameStatus"];
+      source?: string;
       players: {
         white: components["schemas"]["GameUser"];
         black: components["schemas"]["GameUser"];
