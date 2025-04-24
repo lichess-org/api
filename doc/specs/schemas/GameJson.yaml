@@ -18,6 +18,8 @@ properties:
     format: int64
   status:
     $ref: "./GameStatus.yaml"
+  source:
+    type: string
   players:
     type: object
     properties:
