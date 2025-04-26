@@ -1811,11 +1811,11 @@ export interface paths {
       cookie?: never;
     };
     /**
-     * Stream an ongoing broadcast tournament as PGN
-     * @description This streaming endpoint first sends all games of a broadcast tournament in PGN format.
+     * Stream an ongoing broadcast round as PGN
+     * @description This streaming endpoint first sends all games of a broadcast round in PGN format.
      *     Then, it waits for new moves to be played. As soon as it happens, the entire PGN of the game is sent to the stream.
-     *     The stream will also send PGNs when games are added to the tournament.
-     *     This is the best way to get updates about an ongoing tournament. Streaming means no polling,
+     *     The stream will also send PGNs when games are added to the round.
+     *     This is the best way to get updates about an ongoing round. Streaming means no polling,
      *     and no pollings means no latency, and minimum impact on the server.
      *
      */
@@ -6386,26 +6386,6 @@ export interface components {
       /** @description Whether the currently authenticated user has permission to update the study */
       writeable?: boolean;
     };
-    /** @example {
-     *       "round": {
-     *         "createdAt": 1717344905926,
-     *         "id": "n8JeQIeY",
-     *         "name": "round 1",
-     *         "slug": "round-1",
-     *         "url": "https://lichess.org/broadcast/new-name/round-1/n8JeQIeY"
-     *       },
-     *       "study": {
-     *         "writeable": true
-     *       },
-     *       "tour": {
-     *         "createdAt": 1717342164861,
-     *         "description": "test",
-     *         "id": "HdRP6fce",
-     *         "name": "New Name",
-     *         "slug": "new-name",
-     *         "url": "https://lichess.org/broadcast/new-name/HdRP6fce"
-     *       }
-     *     } */
     BroadcastRoundNew: {
       round: components["schemas"]["BroadcastRoundInfo"];
       tour: components["schemas"]["BroadcastTour"];
@@ -6440,38 +6420,6 @@ export interface components {
     BroadcastPgnPushTags: {
       [key: string]: string;
     };
-    /** @example {
-     *       "games": [
-     *         {
-     *           "tags": {
-     *             "White": "Rasmus Svane",
-     *             "Black": "Rajat Makkar",
-     *             "BlackElo": "2453",
-     *             "BlackTeam": "France",
-     *             "BlackTitle": "FM",
-     *             "WhiteTeam": "Germany",
-     *             "Result": "1-0",
-     *             "WhiteElo": "2632",
-     *             "WhiteTitle": "GM"
-     *           },
-     *           "moves": 2
-     *         },
-     *         {
-     *           "tags": {
-     *             "White": "Joseph Girel",
-     *             "Black": "Matthias Bluebaum",
-     *             "BlackElo": "2658",
-     *             "BlackTeam": "Germany",
-     *             "BlackTitle": "GM",
-     *             "WhiteTeam": "France",
-     *             "Result": "0-1",
-     *             "WhiteElo": "2484",
-     *             "WhiteTitle": "IM"
-     *           },
-     *           "error": "No move found: Pawn a8"
-     *         }
-     *       ]
-     *     } */
     BroadcastPgnPush: {
       games: {
         tags: components["schemas"]["BroadcastPgnPushTags"];
@@ -6479,26 +6427,6 @@ export interface components {
         error?: string;
       }[];
     };
-    /** @example {
-     *       "round": {
-     *         "id": "n8JeQIeY",
-     *         "name": "round 1",
-     *         "slug": "round-1",
-     *         "createdAt": 1717344905926,
-     *         "url": "https://lichess.org/broadcast/new-name/round-1/n8JeQIeY"
-     *       },
-     *       "tour": {
-     *         "id": "HdRP6fce",
-     *         "name": "New Name",
-     *         "slug": "new-name",
-     *         "description": "test",
-     *         "createdAt": 1717342164861,
-     *         "url": "https://lichess.org/broadcast/new-name/HdRP6fce"
-     *       },
-     *       "study": {
-     *         "writeable": true
-     *       }
-     *     } */
     BroadcastMyRound: {
       round: components["schemas"]["BroadcastRoundInfo"];
       tour: components["schemas"]["BroadcastTour"];
@@ -11338,7 +11266,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Ok"];
+          "application/json": components["schemas"]["BroadcastRound"];
         };
       };
       /** @description The broadcast round update failed. */
@@ -11429,7 +11357,7 @@ export interface operations {
     };
     requestBody?: never;
     responses: {
-      /** @description The PGN representation of the tournament games, then the PGNs of games as they are updated. */
+      /** @description The PGN representation of the round games, then the PGNs of games as they are updated. */
       200: {
         headers: {
           "Access-Control-Allow-Origin"?: string;
@@ -14497,7 +14425,10 @@ export interface operations {
   };
   tablebaseAtomic: {
     parameters: {
-      query?: never;
+      query: {
+        /** @description FEN of the position. Underscores allowed. */
+        fen: string;
+      };
       header?: never;
       path?: never;
       cookie?: never;
@@ -14511,14 +14442,17 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "text/plain": string;
+          "application/json": components["schemas"]["TablebaseJson"];
         };
       };
     };
   };
   antichessAtomic: {
     parameters: {
-      query?: never;
+      query: {
+        /** @description FEN of the position. Underscores allowed. */
+        fen: string;
+      };
       header?: never;
       path?: never;
       cookie?: never;
@@ -14532,7 +14466,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "text/plain": string;
+          "application/json": components["schemas"]["TablebaseJson"];
         };
       };
     };
