@@ -4,15 +4,15 @@
   "currentPageResults": [
     {
       "tour": {
-        "id": "9UBIUimF",
+        "id": "qZf4ab2u",
         "name": "Bobby's Tournament",
         "slug": "bobbys-tournament",
         "info": {
           "format": "5-round Swiss",
           "location": "Chess Club"
         },
-        "createdAt": 1745372718932,
-        "url": "https://lichess.org/broadcast/bobbys-tournament/9UBIUimF"
+        "createdAt": 1745619386317,
+        "url": "https://lichess.org/broadcast/bobbys-tournament/qZf4ab2u"
       }
     }
   ],

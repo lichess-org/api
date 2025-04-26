@@ -1,0 +1,24 @@
+{
+  "round": {
+    "id": "6j92xrwH",
+    "name": "Final Round",
+    "slug": "final-round",
+    "createdAt": 1745619386270,
+    "ongoing": true,
+    "startsAt": 1745619386270,
+    "url": "https://lichess.org/broadcast/knight-invitational/final-round/6j92xrwH"
+  },
+  "tour": {
+    "id": "ZEB4BtHU",
+    "name": "Knight Invitational",
+    "slug": "knight-invitational",
+    "info": {},
+    "createdAt": 1745619386114,
+    "url": "https://lichess.org/broadcast/knight-invitational/ZEB4BtHU",
+    "tier": 5,
+    "dates": [1745622986125]
+  },
+  "study": {
+    "writeable": true
+  }
+}

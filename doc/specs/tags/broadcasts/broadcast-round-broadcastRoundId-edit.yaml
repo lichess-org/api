@@ -36,7 +36,9 @@ post:
       content:
         application/json:
           schema:
-            $ref: "../../schemas/Ok.yaml"
+            $ref: "../../schemas/BroadcastRound.yaml"
+          example:
+            $ref: "../../examples/broadcasts-updateBroadcastRound.json"
     "400":
       description: The broadcast round update failed.
       content:

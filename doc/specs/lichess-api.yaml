@@ -496,13 +496,13 @@ paths:
     $ref: "./tags/broadcasts/broadcast-round-broadcastRoundId-push.yaml"
 
   /api/stream/broadcast/round/{broadcastRoundId}.pgn:
-    $ref: "./tags/broadcasts/api-stream-broadcast-round-broadcastRoundId.pgn.yaml"
+    $ref: "./tags/broadcasts/api-stream-broadcast-round-broadcastRoundId-pgn.yaml"
 
   /api/broadcast/round/{broadcastRoundId}.pgn:
-    $ref: "./tags/broadcasts/api-broadcast-round-broadcastRoundId.pgn.yaml"
+    $ref: "./tags/broadcasts/api-broadcast-round-broadcastRoundId-pgn.yaml"
 
   /api/broadcast/{broadcastTournamentId}.pgn:
-    $ref: "./tags/broadcasts/api-broadcast-broadcastTournamentId.pgn.yaml"
+    $ref: "./tags/broadcasts/api-broadcast-broadcastTournamentId-pgn.yaml"
 
   /api/broadcast/my-rounds:
     $ref: "./tags/broadcasts/api-broadcast-my-rounds.yaml"
