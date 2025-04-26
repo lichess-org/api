@@ -1,0 +1,33 @@
+value: |
+  [Event "Knight Invitational"]
+  [Site "https://lichess.org/study/6j92xrwH/0APpZxve"]
+  [White "Player 1"]
+  [Black "Player 2"]
+  [Result "*"]
+  [Variant "Standard"]
+  [ECO "C20"]
+  [Opening "King's Pawn Game"]
+  [Annotator "https://lichess.org/broadcast/-/-/6j92xrwH"]
+  [StudyName "Final Round 2"]
+  [ChapterName "Player 1 - Player 2"]
+  [UTCDate "2025.04.25"]
+  [UTCTime "22:16:26"]
+
+  1. e4 e5 *
+
+
+  [Event "Knight Invitational"]
+  [Site "https://lichess.org/study/6j92xrwH/GzjMltBk"]
+  [White "Player 3"]
+  [Black "Player 4"]
+  [Result "*"]
+  [Variant "Standard"]
+  [ECO "D00"]
+  [Opening "Queen's Pawn Game"]
+  [Annotator "https://lichess.org/broadcast/-/-/6j92xrwH"]
+  [StudyName "Final Round 2"]
+  [ChapterName "Player 3 - Player 4"]
+  [UTCDate "2025.04.25"]
+  [UTCTime "22:16:26"]
+
+  1. d4 d5 *

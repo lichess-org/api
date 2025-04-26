@@ -24,9 +24,6 @@ post:
       text/plain:
         schema:
           type: string
-        examples:
-          broadcastPgnPushRequest:
-            $ref: "../../examples/broadcastPgnPushRequest.yaml"
   responses:
     "200":
       description: The broadcast was successfully updated.
@@ -39,6 +36,8 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/BroadcastPgnPush.yaml"
+          example:
+            $ref: "../../examples/broadcasts-pushPgnToBroadcastRound.json"
     "400":
       description: There was a problem with the pushed PGN.
       headers:
