@@ -1,13 +1,13 @@
 {
   "type": "module",
   "dependencies": {
-    "@lichess-org/types": "../../types",
-    "@types/node": "^22.14.1",
-    "openapi-fetch": "^0.13.4",
-    "prettier": "^3.5.1"
+    "@lichess-org/types": "link:../../types",
+    "@types/node": "^22.15.2",
+    "openapi-fetch": "^0.13.5",
+    "prettier": "^3.5.3"
   },
   "scripts": {
     "format": "prettier --write ."
   },
-  "packageManager": "pnpm@9.15.5+sha512.845196026aab1cc3f098a0474b64dfbab2afe7a1b4e91dd86895d8e4aa32a7a6d03049e2d0ad770bbe4de023a7122fb68c1a1d6e0d033c7076085f9d5d4800d4"
+  "packageManager": "pnpm@10.9.0+sha512.0486e394640d3c1fb3c9d43d49cf92879ff74f8516959c235308f5a8f62e2e19528a65cdc2a3058f587cde71eba3d5b56327c8c33a97e4c4051ca48a10ca2d5f"
 }
