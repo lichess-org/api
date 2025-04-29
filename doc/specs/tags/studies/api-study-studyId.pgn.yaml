@@ -40,14 +40,6 @@ get:
         type: boolean
         default: true
     - in: query
-      name: source
-      description: |
-        Add a `Source` PGN tag with the study chapter URL.
-        Example: `[Source "https://lichess.org/study/4NBHImfM/1Tk4IyTz"]`
-      schema:
-        type: boolean
-        default: false
-    - in: query
       name: orientation
       description: |
         Add a `Orientation` PGN tag with the chapter predefined orientation.

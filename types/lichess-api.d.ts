@@ -10715,10 +10715,6 @@ export interface operations {
          *     Example: `4. d4 Bb4+ (4... Nc6 5. Nf3 Bb4+ 6. Bd2 (6. Nbd2 O-O 7. O-O) 6... Bd6) 5. Nd2`
          *      */
         variations?: boolean;
-        /** @description Add a `Source` PGN tag with the study chapter URL.
-         *     Example: `[Source "https://lichess.org/study/4NBHImfM/1Tk4IyTz"]`
-         *      */
-        source?: boolean;
         /** @description Add a `Orientation` PGN tag with the chapter predefined orientation.
          *     Example: `[Orientation "white"]`
          *      */
@@ -10761,10 +10757,6 @@ export interface operations {
          *     Example: `4. d4 Bb4+ (4... Nc6 5. Nf3 Bb4+ 6. Bd2 (6. Nbd2 O-O 7. O-O) 6... Bd6) 5. Nd2`
          *      */
         variations?: boolean;
-        /** @description Add a `Source` PGN tag with the study chapter URL.
-         *     Example: `[Source "https://lichess.org/study/4NBHImfM/1Tk4IyTz"]`
-         *      */
-        source?: boolean;
         /** @description Add a `Orientation` PGN tag with the chapter predefined orientation.
          *     Example: `[Orientation "white"]`
          *      */
@@ -10883,10 +10875,6 @@ export interface operations {
          *     Example: `4. d4 Bb4+ (4... Nc6 5. Nf3 Bb4+ 6. Bd2 (6. Nbd2 O-O 7. O-O) 6... Bd6) 5. Nd2`
          *      */
         variations?: boolean;
-        /** @description Add a `Source` PGN tag with the study chapter URL.
-         *     Example: `[Source "https://lichess.org/study/4NBHImfM/1Tk4IyTz"]`
-         *      */
-        source?: boolean;
         /** @description Add a `Orientation` PGN tag with the chapter predefined orientation.
          *     Example: `[Orientation "white"]`
          *      */
