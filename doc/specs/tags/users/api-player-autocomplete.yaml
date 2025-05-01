@@ -23,12 +23,40 @@ get:
         type: boolean
         default: false
     - in: query
+      name: names
+      description: |
+        - `false` returns an array of usernames
+        - `true` returns an array of usernames with preferred casing
+      schema:
+        type: boolean
+        default: false
+    - in: query
       name: friend
       description: |
         Returns followed players matching `term` if any, else returns other players.
         Requires [OAuth](#tag/OAuth).
       schema:
         type: boolean
+    - in: query
+      name: team
+      description: |
+        Search within a team.
+        Use team ID/slug.
+      schema:
+        type: string
+    - in: query
+      name: tour
+      description: |
+        Search within a arena tournament.
+        Use tournament ID.
+      schema:
+        type: string
+    - in: query
+      name: swiss
+      description: |
+        Search within a Swiss tournament.
+      schema:
+        type: string
   responses:
     "200":
       description: An array of players which usernames start with the provided term.
@@ -50,5 +78,8 @@ get:
                     type: array
                     items:
                       $ref: "../../schemas/LightUserOnline.yaml"
-          example:
-            $ref: "../../examples/users-autocompleteUsernames.json"
+          examples:
+            list of usernames:
+              $ref: "../../examples/users-autocompleteUsernames-list.json.yaml"
+            array of user objects:
+              $ref: "../../examples/users-autocompleteUsernames-object.json.yaml"
