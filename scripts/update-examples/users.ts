@@ -112,7 +112,7 @@ example(
 
 example(
   "users",
-  "autocompleteUsernames",
+  "autocompleteUsernames-object",
   await localClient().GET("/api/player/autocomplete", {
     params: {
       query: {
@@ -121,6 +121,23 @@ example(
       },
     },
   }),
+  "json",
+  true,
+);
+
+example(
+  "users",
+  "autocompleteUsernames-list",
+  await localClient().GET("/api/player/autocomplete", {
+    params: {
+      query: {
+        term: "bob",
+        object: false,
+      },
+    },
+  }),
+  "json",
+  true,
 );
 
 example(

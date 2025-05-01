@@ -22,8 +22,9 @@ export function example(
   name: string,
   response: any,
   filetype: "json" | "pgn" = "json",
+  forceAsYaml: boolean = false,
 ) {
-  const saveAsYaml = filetype !== "json";
+  const saveAsYaml = forceAsYaml || filetype !== "json";
   const filename = join(
     resolve(
       dirname(fileURLToPath(import.meta.url)),
@@ -37,10 +38,10 @@ export function example(
   );
   console.log(`Writing ${filename}`);
 
-  const data: string = response.data ?? response;
+  const data: string = JSON.stringify(response.data ?? response, null, 2);
   let contents = saveAsYaml
-    ? convertStringToYaml(data)
-    : JSON.stringify(data, null, 2);
+    ? convertStringToYaml(data, filetype === "json")
+    : data;
   contents = contents.replace(
     /http:\/\/localhost:8080/g,
     "https://lichess.org",
@@ -49,12 +50,17 @@ export function example(
   writeFileSync(filename, contents);
 }
 
-const convertStringToYaml = (str: string) => {
-  let lines: string[] = ["value: |"];
-  const indent = " ".repeat(2);
-  const strLines = str.split("\n");
-  for (const line of strLines) {
-    lines.push(`${indent}${line}`);
+const convertStringToYaml = (str: string, isJson: boolean) => {
+  let lines: string[] = [];
+  if (isJson) {
+    lines.push("value: " + str);
+  } else {
+    lines.push("value: |");
+    const indent = " ".repeat(2);
+    const strLines = str.split("\n");
+    for (const line of strLines) {
+      lines.push(`${indent}${line}`);
+    }
   }
   return lines.join("\n");
 };
