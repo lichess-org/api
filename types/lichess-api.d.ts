@@ -11933,10 +11933,25 @@ export interface operations {
          *     - `true` returns an object with matching users
          *      */
         object?: boolean;
+        /** @description - `false` returns an array of usernames
+         *     - `true` returns an array of usernames with preferred casing
+         *      */
+        names?: boolean;
         /** @description Returns followed players matching `term` if any, else returns other players.
          *     Requires [OAuth](#tag/OAuth).
          *      */
         friend?: boolean;
+        /** @description Search within a team.
+         *     Use team ID/slug.
+         *      */
+        team?: string;
+        /** @description Search within a arena tournament.
+         *     Use tournament ID.
+         *      */
+        tour?: string;
+        /** @description Search within a Swiss tournament.
+         *      */
+        swiss?: string;
       };
       header?: never;
       path?: never;
