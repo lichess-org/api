@@ -27,4 +27,8 @@ get:
       content:
         application/x-chess-pgn:
           schema:
-            $ref: "../../schemas/MasterGamePgn.yaml"
+            type: string
+            description: Game PGN
+          examples:
+            pgn:
+              $ref: "../../examples/openingExplorer-otbMasterGame.pgn.yaml"

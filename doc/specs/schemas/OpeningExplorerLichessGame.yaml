@@ -7,6 +7,7 @@ properties:
     enum:
       - white
       - black
+      - null
   speed:
     $ref: "./Speed.yaml"
   white:
@@ -16,11 +17,10 @@ properties:
   year:
     type: number
   month:
-    type: string
+    type: [string, "null"]
 required:
   - id
   - winner
-  - speed
   - white
   - black
   - year

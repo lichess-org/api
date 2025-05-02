@@ -6,6 +6,7 @@ properties:
       - type: "null"
   queuePosition:
     type: number
+    description: Waiting for other players to be indexed first
   white:
     type: number
   draws:

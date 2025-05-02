@@ -7,6 +7,7 @@ properties:
     enum:
       - white
       - black
+      - null
   white:
     $ref: "./OpeningExplorerGamePlayer.yaml"
   black:
