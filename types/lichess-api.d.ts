@@ -7228,85 +7228,6 @@ export interface components {
       year: number;
       month?: string;
     };
-    /** @example {
-     *       "opening": {
-     *         "eco": "D10",
-     *         "name": "Slav Defense: Exchange Variation"
-     *       },
-     *       "white": 1828,
-     *       "draws": 4904,
-     *       "black": 1403,
-     *       "moves": [
-     *         {
-     *           "uci": "c6d5",
-     *           "san": "cxd5",
-     *           "averageRating": 2414,
-     *           "white": 1828,
-     *           "draws": 4904,
-     *           "black": 1402,
-     *           "game": null,
-     *           "opening": null
-     *         },
-     *         {
-     *           "uci": "g8f6",
-     *           "san": "Nf6",
-     *           "averageRating": 2515,
-     *           "white": 0,
-     *           "draws": 0,
-     *           "black": 1,
-     *           "game": {
-     *             "id": "1EErB5jc",
-     *             "winner": "black",
-     *             "black": {
-     *               "name": "Dobrov, Vladimir",
-     *               "rating": 2515
-     *             },
-     *             "white": {
-     *               "name": "Drozdovskij, Yuri",
-     *               "rating": 2509
-     *             },
-     *             "year": 2006,
-     *             "month": "2006-01"
-     *           },
-     *           "opening": {
-     *             "eco": "D06",
-     *             "name": "Queen's Gambit Declined: Marshall Defense, Tan Gambit"
-     *           }
-     *         }
-     *       ],
-     *       "topGames": [
-     *         {
-     *           "uci": "c6d5",
-     *           "id": "kN6d9l2i",
-     *           "winner": "black",
-     *           "black": {
-     *             "name": "Anand, V.",
-     *             "rating": 2785
-     *           },
-     *           "white": {
-     *             "name": "Carlsen, M.",
-     *             "rating": 2881
-     *           },
-     *           "year": 2014,
-     *           "month": "2014-06"
-     *         },
-     *         {
-     *           "uci": "c6d5",
-     *           "id": "qeYPJL2y",
-     *           "winner": "white",
-     *           "black": {
-     *             "name": "Carlsen, M.",
-     *             "rating": 2843
-     *           },
-     *           "white": {
-     *             "name": "So, W.",
-     *             "rating": 2778
-     *           },
-     *           "year": 2018,
-     *           "month": "2018-06"
-     *         }
-     *       ]
-     *     } */
     OpeningExplorerMasters: {
       opening: components["schemas"]["OpeningExplorerOpening"] | null;
       white: number;
@@ -7330,101 +7251,12 @@ export interface components {
       id: string;
       /** @enum {string|null} */
       winner: "white" | "black" | null;
-      speed: components["schemas"]["Speed"];
+      speed?: components["schemas"]["Speed"];
       white: components["schemas"]["OpeningExplorerGamePlayer"];
       black: components["schemas"]["OpeningExplorerGamePlayer"];
       year: number;
-      month: string;
+      month: string | null;
     };
-    /** @example {
-     *       "opening": {
-     *         "eco": "D10",
-     *         "name": "Slav Defense: Exchange Variation"
-     *       },
-     *       "white": 4164079,
-     *       "draws": 405547,
-     *       "black": 3668091,
-     *       "moves": [
-     *         {
-     *           "uci": "c6d5",
-     *           "san": "cxd5",
-     *           "averageRating": 1801,
-     *           "white": 3716043,
-     *           "draws": 370963,
-     *           "black": 3304807,
-     *           "game": null,
-     *           "opening": null
-     *         },
-     *         {
-     *           "uci": "d8d5",
-     *           "san": "Qxd5",
-     *           "averageRating": 1658,
-     *           "white": 195544,
-     *           "draws": 14378,
-     *           "black": 140001,
-     *           "game": null,
-     *           "opening": null
-     *         }
-     *       ],
-     *       "recentGames": [
-     *         {
-     *           "uci": "c6d5",
-     *           "id": "ilsfX0gq",
-     *           "winner": "black",
-     *           "speed": "blitz",
-     *           "mode": "rated",
-     *           "black": {
-     *             "name": "captan64",
-     *             "rating": 2201
-     *           },
-     *           "white": {
-     *             "name": "ElsaPato33",
-     *             "rating": 2324
-     *           },
-     *           "year": 2024,
-     *           "month": "2024-10"
-     *         }
-     *       ],
-     *       "topGames": [
-     *         {
-     *           "uci": "g8f6",
-     *           "id": "EqJcFS1j",
-     *           "winner": "white",
-     *           "speed": "ultraBullet",
-     *           "mode": "rated",
-     *           "black": {
-     *             "name": "toivok",
-     *             "rating": 2708
-     *           },
-     *           "white": {
-     *             "name": "penguingim1",
-     *             "rating": 2969
-     *           },
-     *           "year": 2018,
-     *           "month": "2018-04"
-     *         }
-     *       ],
-     *       "history": [
-     *         {
-     *           "month": "2013-01",
-     *           "white": 60,
-     *           "draws": 2,
-     *           "black": 54
-     *         },
-     *         {
-     *           "month": "2013-02",
-     *           "white": 71,
-     *           "draws": 8,
-     *           "black": 75
-     *         },
-     *         {
-     *           "month": "2013-03",
-     *           "white": 83,
-     *           "draws": 4,
-     *           "black": 72
-     *         }
-     *       ]
-     *     } */
     OpeningExplorerLichess: {
       opening: components["schemas"]["OpeningExplorerOpening"] | null;
       white: number;
@@ -7443,7 +7275,7 @@ export interface components {
       topGames: ({
         uci: string;
       } & components["schemas"]["OpeningExplorerLichessGame"])[];
-      recentGames: ({
+      recentGames?: ({
         uci: string;
       } & components["schemas"]["OpeningExplorerLichessGame"])[];
       history?: {
@@ -7577,6 +7409,7 @@ export interface components {
      *     } */
     OpeningExplorerPlayer: {
       opening: components["schemas"]["OpeningExplorerOpening"] | null;
+      /** @description Waiting for other players to be indexed first */
       queuePosition: number;
       white: number;
       draws: number;
@@ -7596,19 +7429,6 @@ export interface components {
         uci: string;
       } & components["schemas"]["OpeningExplorerPlayerGame"])[];
     };
-    /** @example [Event "Wch Blitz"]
-     *     [Site "Astana"]
-     *     [Date "2012.07.10"]
-     *     [Round "23"]
-     *     [White "Carlsen, Magnus"]
-     *     [Black "Chadaev, Nikolay"]
-     *     [Result "1-0"]
-     *     [WhiteElo "2837"]
-     *     [BlackElo "2580"]
-     *
-     *     1. e4 e5 2. f4 d5 3. exd5 exf4 4. Nf3 Nf6 5. c4 c6 6. d4 cxd5 7. c5 Nc6 8. Bb5 Be7 9. O-O O-O 10. Bxf4 Bg4 11. Nc3 Ne4 12. Qd3 Bf5 13. Qe3 Bf6 14. Bxc6 bxc6 15. Ne5 Bxe5 16. Bxe5 Bg6 17. Nxe4 Bxe4 18. Qg3 f6 19. Bd6 Re8 20. b4 Bg6 21. a4 a6 22. h4 Qd7 23. h5 Bxh5 24. Rxf6 Qg4 25. Qxg4 Bxg4 26. Rf4 Bh5 27. Raf1 h6 28. Be5 Ra7 29. b5 axb5 30. axb5 cxb5 31. c6 Raa8 32. c7 Kh7 33. Rb1 Be2 34. Rf7 Rg8 35. Re7 Bc4 36. Kh2 Rae8 37. Rd7 Ra8 38. Rb2 Raf8 39. g4 Ra8 40. Rf2 b4 41. Rff7 h5 42. Rxg7+ Rxg7 43. Rxg7+ 1-0
-     *      */
-    MasterGamePgn: unknown;
     Move: {
       /** @example h7h8q */
       uci?: string;
@@ -14397,7 +14217,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/x-chess-pgn": components["schemas"]["MasterGamePgn"];
+          "application/x-chess-pgn": string;
         };
       };
     };
