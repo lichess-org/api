@@ -117,4 +117,4 @@ get:
           schema:
             $ref: "../../schemas/GameJson.yaml"
           example:
-            $ref: "../../examples/games-getOneGameJson.json"
+            $ref: "../../examples/games-exportOneGame.json"
