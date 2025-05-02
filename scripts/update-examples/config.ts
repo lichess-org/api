@@ -38,7 +38,11 @@ export function example(
   );
   console.log(`Writing ${filename}`);
 
-  const data: string = JSON.stringify(response.data ?? response, null, 2);
+  const data =
+    filetype === "json"
+      ? JSON.stringify(response.data ?? response, null, 2)
+      : (response.data ?? response);
+
   let contents = saveAsYaml
     ? convertStringToYaml(data, filetype === "json")
     : data;

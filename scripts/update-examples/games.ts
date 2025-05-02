@@ -2,7 +2,7 @@ import { example, prodClient, readNdJson } from "./config";
 
 example(
   "games",
-  "getOneGameJson",
+  "exportOneGame",
   await prodClient().GET("/game/export/{gameId}", {
     params: {
       path: {
@@ -15,9 +15,31 @@ example(
       },
     },
     headers: {
-      "Accept": "application/json",
+      Accept: "application/json",
     },
   }),
+);
+
+example(
+  "games",
+  "exportOneGame",
+  await prodClient().GET("/game/export/{gameId}", {
+    params: {
+      path: {
+        gameId: "q7ZvsdUF",
+      },
+      query: {
+        clocks: false,
+        accuracy: true,
+        literate: true,
+      },
+    },
+    headers: {
+      Accept: "application/x-chess-pgn",
+    },
+    parseAs: "text",
+  }),
+  "pgn",
 );
 
 example(
@@ -36,7 +58,7 @@ example(
       },
     },
     headers: {
-      "Accept": "application/json",
+      Accept: "application/json",
     },
   }),
 );
@@ -58,13 +80,13 @@ await prodClient()
       },
     },
     headers: {
-      "Accept": "application/x-ndjson",
+      Accept: "application/x-ndjson",
     },
     parseAs: "stream",
   })
   .then((response) =>
     readNdJson(response.response, (line: any) => {
-        example("games", "apiGamesUserJson", line);
+      example("games", "apiGamesUserJson", line);
     }),
   );
 
@@ -85,9 +107,8 @@ example(
     },
     headers: {
       "Content-Type": "text/plain",
-      "Accept": "application/x-ndjson",
+      Accept: "application/x-ndjson",
     },
     bodySerializer: (body) => body,
   }),
 );
-
