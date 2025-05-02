@@ -46,9 +46,6 @@ GameJson:
 GamePgn:
   $ref: "./GamePgn.yaml"
 
-MasterGamePgn:
-  $ref: "./MasterGamePgn.yaml"
-
 StudyPgn:
   $ref: "./StudyPgn.yaml"
 

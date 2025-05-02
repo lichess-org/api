@@ -114,3 +114,5 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/OpeningExplorerLichess.yaml"
+          example:
+            $ref: "../../examples/openingExplorer-lichess.json"
