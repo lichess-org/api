@@ -1,0 +1,34 @@
+{
+  "game": {
+    "id": "HcVUWf38",
+    "perf": {
+      "key": "rapid",
+      "name": "Rapid"
+    },
+    "rated": true,
+    "players": [
+      {
+        "name": "ajdin_derlic",
+        "id": "ajdin_derlic",
+        "color": "white",
+        "rating": 1908
+      },
+      {
+        "name": "magnusrex",
+        "id": "magnusrex",
+        "color": "black",
+        "rating": 1843
+      }
+    ],
+    "pgn": "e4 d5 exd5 Nf6 c4 e6 dxe6 Bxe6 Nc3 Nc6 Nf3 Bc5 h3 Qe7 Be2 Bxc4 O-O O-O-O Bxc4 Nd4 Nxd4 Rxd4 Bb3 g5 Re1 Qd7 Bc2 g4 hxg4 Nxg4 Re4",
+    "clock": "5+5"
+  },
+  "puzzle": {
+    "id": "OT8q6",
+    "rating": 1837,
+    "plays": 105506,
+    "solution": ["g4f2", "d1h5", "f2e4"],
+    "themes": ["middlegame", "short", "advantage"],
+    "initialPly": 30
+  }
+}

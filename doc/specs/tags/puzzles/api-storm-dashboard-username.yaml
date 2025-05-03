@@ -35,3 +35,5 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/PuzzleStormDashboard.yaml"
+          example:
+            $ref: "../../examples/puzzles-getStormDashboardOfPlayer.json"

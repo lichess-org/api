@@ -22,3 +22,5 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/PuzzleRacer.yaml"
+          example:
+            $ref: "../../examples/puzzles-createAndJoinPuzzleRace.json"
