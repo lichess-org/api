@@ -1,0 +1,34 @@
+{
+  "game": {
+    "id": "HCQantrf",
+    "perf": {
+      "key": "bullet",
+      "name": "Bullet"
+    },
+    "rated": true,
+    "players": [
+      {
+        "name": "AB123456",
+        "id": "ab123456",
+        "color": "white",
+        "rating": 1998
+      },
+      {
+        "name": "taha_arowana",
+        "id": "taha_arowana",
+        "color": "black",
+        "rating": 1935
+      }
+    ],
+    "pgn": "d4 Nf6 c4 e6 Nf3 Be7 Nc3 O-O g3 b6 Bg2 Bb7 O-O c6 Qc2 d5 Bg5 Nbd7 cxd5 Nxd5 Bxe7 Nxe7 Ng5 Ng6 h4 Rc8 Rac1 h6 Nge4 Nxh4 gxh4 Qxh4 Ng3 f5 Qb3 Rf6 e4 f4 e5 Rg6 Nce4 fxg3 fxg3 Qe7 Nd6 Rb8 Nxb7 Rxb7 Bxc6 Rb8 Be4 Rg5 Qf3 Rf8 Qe3 Rg4 Kg2 Qh4 Bb1 Qe7 Rxf8+ Nxf8 Rf1 h5 Qd3 h4",
+    "clock": "2+1"
+  },
+  "puzzle": {
+    "id": "oH5Ar",
+    "rating": 1756,
+    "plays": 11281,
+    "solution": ["f1f8", "g8f8", "d3f3", "f8e8", "f3g4"],
+    "themes": ["endgame", "crushing", "attraction", "fork", "long", "sacrifice"],
+    "initialPly": 65
+  }
+}

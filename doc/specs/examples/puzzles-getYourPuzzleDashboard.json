@@ -1,0 +1,102 @@
+{
+  "days": 30,
+  "global": {
+    "nb": 10,
+    "firstWins": 4,
+    "replayWins": 0,
+    "puzzleRatingAvg": 1604,
+    "performance": 1504
+  },
+  "themes": {
+    "middlegame": {
+      "theme": "Middlegame",
+      "results": {
+        "nb": 7,
+        "firstWins": 3,
+        "replayWins": 0,
+        "puzzleRatingAvg": 1669,
+        "performance": 1598
+      }
+    },
+    "endgame": {
+      "theme": "Endgame",
+      "results": {
+        "nb": 3,
+        "firstWins": 1,
+        "replayWins": 0,
+        "puzzleRatingAvg": 1452,
+        "performance": 1285
+      }
+    },
+    "defensiveMove": {
+      "theme": "Defensive move",
+      "results": {
+        "nb": 3,
+        "firstWins": 1,
+        "replayWins": 0,
+        "puzzleRatingAvg": 1960,
+        "performance": 1793
+      }
+    },
+    "exposedKing": {
+      "theme": "Exposed king",
+      "results": {
+        "nb": 1,
+        "firstWins": 1,
+        "replayWins": 0,
+        "puzzleRatingAvg": 1958,
+        "performance": 2458
+      }
+    },
+    "hangingPiece": {
+      "theme": "Hanging piece",
+      "results": {
+        "nb": 1,
+        "firstWins": 1,
+        "replayWins": 0,
+        "puzzleRatingAvg": 1958,
+        "performance": 2458
+      }
+    },
+    "quietMove": {
+      "theme": "Quiet move",
+      "results": {
+        "nb": 1,
+        "firstWins": 0,
+        "replayWins": 0,
+        "puzzleRatingAvg": 1949,
+        "performance": 1449
+      }
+    },
+    "fork": {
+      "theme": "Fork",
+      "results": {
+        "nb": 1,
+        "firstWins": 1,
+        "replayWins": 0,
+        "puzzleRatingAvg": 907,
+        "performance": 1407
+      }
+    },
+    "capturingDefender": {
+      "theme": "Capture the defender",
+      "results": {
+        "nb": 1,
+        "firstWins": 1,
+        "replayWins": 0,
+        "puzzleRatingAvg": 1036,
+        "performance": 1536
+      }
+    },
+    "discoveredAttack": {
+      "theme": "Discovered attack",
+      "results": {
+        "nb": 1,
+        "firstWins": 0,
+        "replayWins": 0,
+        "puzzleRatingAvg": 1500,
+        "performance": 1000
+      }
+    }
+  }
+}

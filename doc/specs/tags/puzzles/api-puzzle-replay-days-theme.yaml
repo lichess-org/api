@@ -31,6 +31,8 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/PuzzleReplay.yaml"
+          example:
+            $ref: "../../examples/puzzles-getPuzzlesToReplay.json"
     "404":
       description: No puzzles to replay were found
       content:

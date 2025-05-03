@@ -29,3 +29,5 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/PuzzleDashboard.yaml"
+          example:
+            $ref: "../../examples/puzzles-getYourPuzzleDashboard.json"

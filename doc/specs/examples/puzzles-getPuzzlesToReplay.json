@@ -1,0 +1,13 @@
+{
+  "replay": {
+    "days": 90,
+    "theme": "mix",
+    "nb": 6,
+    "remaining": ["0e7Q3", "1EFXE", "C3VR4", "0UIdY", "E27v9", "3rPs6"]
+  },
+  "angle": {
+    "key": "mix",
+    "name": "Puzzle Themes",
+    "desc": "A mix of everything. You don't know what to expect, so you remain ready for anything! Just like in real games."
+  }
+}

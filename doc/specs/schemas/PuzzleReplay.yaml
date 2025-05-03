@@ -36,9 +36,3 @@ properties:
 required:
   - replay
   - angle
-
-example:
-  {
-    "replay": { "days": 30, "theme": "opening", "nb": 2, "remaining": ["M5KzH", "prIYT"] },
-    "angle": { "key": "opening", "name": "Opening", "desc": "A tactic during the first phase of the game." },
-  }

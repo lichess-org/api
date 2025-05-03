@@ -1,0 +1,13 @@
+{
+  "date": 1745994457811,
+  "win": true,
+  "puzzle": {
+    "id": "74O1b",
+    "rating": 1362,
+    "plays": 28182,
+    "solution": ["e4e3", "h6g6", "g8g6"],
+    "themes": ["middlegame", "short", "advantage"],
+    "fen": "6rk/p3p2p/5pbQ/1B6/Pn1Pp3/1Pq5/2P2PP1/1KR4R b - - 1 1",
+    "lastMove": "d1c1"
+  }
+}
