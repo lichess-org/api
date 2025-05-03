@@ -1,15 +1,19 @@
 import { example, localClient, readNdJson } from "./config";
 
+const abortController = new AbortController();
+const signal = abortController.signal;
 await localClient()
   .GET("/api/rel/following", {
     headers: {
       Accept: "application/x-ndjson",
     },
+    signal,
     parseAs: "stream",
   })
   .then((response) =>
     readNdJson(response.response, (line: any) => {
       example("relations", "getMyFollowing", line);
+      abortController.abort();
     }),
   );
 
