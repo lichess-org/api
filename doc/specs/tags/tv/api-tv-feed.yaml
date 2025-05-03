@@ -15,7 +15,7 @@ get:
           schema:
             $ref: "../../schemas/TvFeed.yaml"
           examples:
-            first line:
-              $ref: "../../examples/tvFeedFirst.yaml"
-            subsequent lines:
-              $ref: "../../examples/tvFeedFen.yaml"
+            new featured game:
+              $ref: "../../examples/tv-streamCurrentTvGame-newGame.json.yaml"
+            move:
+              $ref: "../../examples/tv-streamCurrentTvGame-move.json.yaml"

@@ -64,6 +64,11 @@ get:
         application/x-chess-pgn:
           schema:
             $ref: "../../schemas/GamePgn.yaml"
+          examples:
+            pgn:
+              $ref: "../../examples/tv-getBestOngoingGamesOfTvChannel.pgn.yaml"
         application/x-ndjson:
           schema:
             $ref: "../../schemas/GameJson.yaml"
+          example:
+            $ref: "../../examples/tv-getBestOngoingGamesOfTvChannel.json"

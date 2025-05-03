@@ -1,0 +1,47 @@
+{
+  "id": "7hqSgANR",
+  "rated": true,
+  "variant": "standard",
+  "speed": "bullet",
+  "perf": "bullet",
+  "createdAt": 1746239199251,
+  "lastMoveAt": 1746239280267,
+  "status": "started",
+  "source": "pool",
+  "players": {
+    "white": {
+      "user": {
+        "name": "AlfilOscuro2",
+        "flair": "nature.penguin",
+        "id": "alfiloscuro2"
+      },
+      "rating": 2991
+    },
+    "black": {
+      "user": {
+        "name": "German_Bazeev",
+        "title": "FM",
+        "id": "german_bazeev"
+      },
+      "rating": 2939
+    }
+  },
+  "opening": {
+    "eco": "A41",
+    "name": "Queen's Pawn Game",
+    "ply": 2
+  },
+  "moves": "d4 d6 Bf4 g6 Nc3 Bg7 e4 c6 Nf3 b5 Bd3 b4 Ne2 Bg4 Qd2 Bxf3 gxf3 a5 a3 bxa3 Rxa3 Nf6 Bg5 O-O h4 h5 f4 d5 e5 Ne4 Qe3 Nxg5 fxg5 e6 f4 Nd7 O-O Qb6 Rfa1 c5 dxc5 Nxc5 Qf2 Rfb8 b3 Bf8 R3a2 Qc7 Qf3 Nd7 Kg2 Bc5 c4 dxc4 Bxc4 Bb6 Rc1 Qd8 Rac2 Qe7 Nc3 Rd8 Ne4 Kg7 Rd1 Nc5",
+  "clocks": [
+    6000, 6000, 5948, 6000, 5814, 5950, 5723, 5892, 5614, 5820, 5541, 5757, 5442, 5625, 5376, 5513, 5345, 5357, 5285,
+    5229, 5285, 5178, 5191, 5064, 5138, 4897, 5071, 4620, 4961, 4540, 4885, 4408, 4831, 4408, 4724, 4334, 4647, 4137,
+    4553, 3903, 4367, 3903, 4165, 3804, 3982, 3708, 3822, 3493, 3689, 3374, 3623, 3374, 3152, 3227, 3148, 3103, 3085,
+    2799, 3085, 2687, 3033, 2606, 2968, 2564, 2870, 2477
+  ],
+  "pgn": "[Event \"Rated bullet game\"]\n[Site \"https://lichess.org/7hqSgANR\"]\n[Date \"2025.05.03\"]\n[White \"AlfilOscuro2\"]\n[Black \"German_Bazeev\"]\n[Result \"*\"]\n[GameId \"7hqSgANR\"]\n[UTCDate \"2025.05.03\"]\n[UTCTime \"02:26:39\"]\n[WhiteElo \"2991\"]\n[BlackElo \"2939\"]\n[BlackTitle \"FM\"]\n[Variant \"Standard\"]\n[TimeControl \"60+0\"]\n[ECO \"A41\"]\n[Opening \"Queen's Pawn Game\"]\n[Termination \"Unterminated\"]\n\n1. d4 { [%clk 0:01:00] } 1... d6 { [%clk 0:01:00] } 2. Bf4 { [%clk 0:00:59] } 2... g6 { [%clk 0:01:00] } 3. Nc3 { [%clk 0:00:58] } 3... Bg7 { [%clk 0:01:00] } 4. e4 { [%clk 0:00:57] } 4... c6 { [%clk 0:00:59] } 5. Nf3 { [%clk 0:00:56] } 5... b5 { [%clk 0:00:58] } 6. Bd3 { [%clk 0:00:55] } 6... b4 { [%clk 0:00:58] } 7. Ne2 { [%clk 0:00:54] } 7... Bg4 { [%clk 0:00:56] } 8. Qd2 { [%clk 0:00:54] } 8... Bxf3 { [%clk 0:00:55] } 9. gxf3 { [%clk 0:00:53] } 9... a5 { [%clk 0:00:54] } 10. a3 { [%clk 0:00:53] } 10... bxa3 { [%clk 0:00:52] } 11. Rxa3 { [%clk 0:00:53] } 11... Nf6 { [%clk 0:00:52] } 12. Bg5 { [%clk 0:00:52] } 12... O-O { [%clk 0:00:51] } 13. h4 { [%clk 0:00:51] } 13... h5 { [%clk 0:00:49] } 14. f4 { [%clk 0:00:51] } 14... d5 { [%clk 0:00:46] } 15. e5 { [%clk 0:00:50] } 15... Ne4 { [%clk 0:00:45] } 16. Qe3 { [%clk 0:00:49] } 16... Nxg5 { [%clk 0:00:44] } 17. fxg5 { [%clk 0:00:48] } 17... e6 { [%clk 0:00:44] } 18. f4 { [%clk 0:00:47] } 18... Nd7 { [%clk 0:00:43] } 19. O-O { [%clk 0:00:46] } 19... Qb6 { [%clk 0:00:41] } 20. Rfa1 { [%clk 0:00:46] } 20... c5 { [%clk 0:00:39] } 21. dxc5 { [%clk 0:00:44] } 21... Nxc5 { [%clk 0:00:39] } 22. Qf2 { [%clk 0:00:42] } 22... Rfb8 { [%clk 0:00:38] } 23. b3 { [%clk 0:00:40] } 23... Bf8 { [%clk 0:00:37] } 24. R3a2 { [%clk 0:00:38] } 24... Qc7 { [%clk 0:00:35] } 25. Qf3 { [%clk 0:00:37] } 25... Nd7 { [%clk 0:00:34] } 26. Kg2 { [%clk 0:00:36] } 26... Bc5 { [%clk 0:00:34] } 27. c4 { [%clk 0:00:32] } 27... dxc4 { [%clk 0:00:32] } 28. Bxc4 { [%clk 0:00:31] } 28... Bb6 { [%clk 0:00:31] } 29. Rc1 { [%clk 0:00:31] } 29... Qd8 { [%clk 0:00:28] } 30. Rac2 { [%clk 0:00:31] } 30... Qe7 { [%clk 0:00:27] } 31. Nc3 { [%clk 0:00:30] } 31... Rd8 { [%clk 0:00:26] } 32. Ne4 { [%clk 0:00:30] } 32... Kg7 { [%clk 0:00:26] } 33. Rd1 { [%clk 0:00:29] } 33... Nc5 { [%clk 0:00:25] } *\n\n\n",
+  "clock": {
+    "initial": 60,
+    "increment": 0,
+    "totalTime": 60
+  }
+}
