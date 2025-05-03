@@ -20,3 +20,5 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/FIDEPlayer.yaml"
+          example:
+            $ref: "../../examples/fide-getFidePlayer.json"
