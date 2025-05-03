@@ -2,12 +2,7 @@ type: object
 
 properties:
   user:
-    allOf:
-      - $ref: "./LightUser.yaml"
-      - type: object
-        properties:
-          flair:
-            $ref: "./Flair.yaml"
+    $ref: "./LightUser.yaml"
   rating:
     type: number
   gameId:

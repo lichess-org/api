@@ -36,17 +36,7 @@ properties:
                     - "white"
                     - "black"
                 user:
-                  type: object
-                  properties:
-                    name:
-                      type: string
-                    id:
-                      type: string
-                    title:
-                      type: string
-                  required:
-                    - id
-                    - name
+                  $ref: "./LightUser.yaml"
                 rating:
                   type: integer
                 seconds:

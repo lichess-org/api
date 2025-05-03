@@ -1,0 +1,32 @@
+value:
+  {
+    "t": "featured",
+    "d":
+      {
+        "id": "xYfwLFIi",
+        "orientation": "black",
+        "players":
+          [
+            {
+              "color": "white",
+              "user":
+                {
+                  "name": "chargemax23",
+                  "title": "IM",
+                  "flair": "objects.battery",
+                  "patron": true,
+                  "id": "chargemax23",
+                },
+              "rating": 2719,
+              "seconds": 169,
+            },
+            {
+              "color": "black",
+              "user": { "name": "Olexiy_Bilych", "title": "IM", "flair": "activity.trophy", "id": "olexiy_bilych" },
+              "rating": 2782,
+              "seconds": 169,
+            },
+          ],
+        "fen": "q4r2/4bppk/b3p3/Q3P3/8/3n1N2/1P1N1PPP/2B2RK1 b - - 3 25",
+      },
+  }

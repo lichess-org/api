@@ -1,0 +1,57 @@
+value: |
+  [Event "Rated bullet game"]
+  [Site "https://lichess.org/FRgSNyPs"]
+  [Date "2025.05.03"]
+  [White "imthatmf"]
+  [Black "James-Stiven"]
+  [Result "*"]
+  [GameId "FRgSNyPs"]
+  [UTCDate "2025.05.03"]
+  [UTCTime "02:27:53"]
+  [WhiteElo "2769"]
+  [BlackElo "2563"]
+  [Variant "Standard"]
+  [TimeControl "60+0"]
+  [ECO "A01"]
+  [Termination "Unterminated"]
+
+  1. b3 b6 2. Bb2 Bb7 3. Nf3 c5 4. d4 Nc6 5. d5 Nb8 6. c4 d6 7. e4 *
+
+
+  [Event "Rated bullet game"]
+  [Site "https://lichess.org/lSKZeraZ"]
+  [Date "2025.05.03"]
+  [White "kon77"]
+  [Black "McBeast"]
+  [Result "*"]
+  [GameId "lSKZeraZ"]
+  [UTCDate "2025.05.03"]
+  [UTCTime "02:27:40"]
+  [WhiteElo "2598"]
+  [BlackElo "2669"]
+  [BlackTitle "NM"]
+  [Variant "Standard"]
+  [TimeControl "60+0"]
+  [ECO "C42"]
+  [Termination "Unterminated"]
+
+  1. e4 e5 2. Nf3 Nf6 3. Bc4 Nxe4 4. Nxe5 d5 5. Be2 Bd6 6. d4 O-O 7. O-O Nd7 8. Nc3 Nxc3 9. bxc3 Nxe5 10. dxe5 Bxe5 11. Rb1 *
+
+
+  [Event "Rated bullet game"]
+  [Site "https://lichess.org/vQTKVHoE"]
+  [Date "2025.05.03"]
+  [White "MeurtrierMurilloXV"]
+  [Black "Eltablifero50"]
+  [Result "*"]
+  [GameId "vQTKVHoE"]
+  [UTCDate "2025.05.03"]
+  [UTCTime "02:27:19"]
+  [WhiteElo "2637"]
+  [BlackElo "2687"]
+  [Variant "Standard"]
+  [TimeControl "60+0"]
+  [ECO "D02"]
+  [Termination "Unterminated"]
+
+  1. Nf3 d5 2. d4 Nf6 3. g3 e6 4. Bg2 Be7 5. Kf1 O-O 6. c4 dxc4 7. Nbd2 b5 8. a4 c6 9. axb5 cxb5 10. Ne5 Nd5 11. e4 Nf6 12. b3 Qxd4 13. Ba3 Bxa3 *

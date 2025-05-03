@@ -1,0 +1,159 @@
+{
+  "chess960": {
+    "user": {
+      "name": "ADDRESP",
+      "flair": "nature.crab",
+      "id": "addresp"
+    },
+    "rating": 2217,
+    "gameId": "vR3yQVOA",
+    "color": "black"
+  },
+  "best": {
+    "user": {
+      "name": "Olexiy_Bilych",
+      "title": "IM",
+      "flair": "activity.trophy",
+      "id": "olexiy_bilych"
+    },
+    "rating": 2782,
+    "gameId": "xYfwLFIi",
+    "color": "black"
+  },
+  "antichess": {
+    "user": {
+      "name": "bwmtone",
+      "flair": "activity.tennis",
+      "patron": true,
+      "id": "bwmtone"
+    },
+    "rating": 2245,
+    "gameId": "wwVmRFKS",
+    "color": "black"
+  },
+  "computer": {
+    "user": {
+      "name": "mathpablo",
+      "id": "mathpablo"
+    },
+    "rating": 1949,
+    "gameId": "uAGDSlyB",
+    "color": "white"
+  },
+  "bullet": {
+    "user": {
+      "name": "JurgenSanchez97",
+      "title": "NM",
+      "id": "jurgensanchez97"
+    },
+    "rating": 2878,
+    "gameId": "HilOlgQm",
+    "color": "black"
+  },
+  "horde": {
+    "user": {
+      "name": "ASKCHESS",
+      "id": "askchess"
+    },
+    "rating": 2150,
+    "gameId": "ZPnpt4PD",
+    "color": "black"
+  },
+  "atomic": {
+    "user": {
+      "name": "AeFanMu12345",
+      "flair": "smileys.ghost",
+      "id": "aefanmu12345"
+    },
+    "rating": 1898,
+    "gameId": "J9obVj6r",
+    "color": "black"
+  },
+  "bot": {
+    "user": {
+      "name": "MayhemPI_cluster",
+      "title": "BOT",
+      "id": "mayhempi_cluster"
+    },
+    "rating": 3213,
+    "gameId": "TJ0vdQL7",
+    "color": "white"
+  },
+  "racingKings": {
+    "user": {
+      "name": "stillinflipflops",
+      "id": "stillinflipflops"
+    },
+    "rating": 2301,
+    "gameId": "enHMb9X9",
+    "color": "white"
+  },
+  "ultraBullet": {
+    "user": {
+      "name": "asteroid44",
+      "id": "asteroid44"
+    },
+    "rating": 1730,
+    "gameId": "W5khY2w7",
+    "color": "black"
+  },
+  "blitz": {
+    "user": {
+      "name": "Olexiy_Bilych",
+      "title": "IM",
+      "flair": "activity.trophy",
+      "id": "olexiy_bilych"
+    },
+    "rating": 2782,
+    "gameId": "xYfwLFIi",
+    "color": "black"
+  },
+  "kingOfTheHill": {
+    "user": {
+      "name": "MaxwellsSilvrHammer",
+      "flair": "nature.snail",
+      "id": "maxwellssilvrhammer"
+    },
+    "rating": 2213,
+    "gameId": "jXDBqUjs",
+    "color": "white"
+  },
+  "crazyhouse": {
+    "user": {
+      "name": "VRDeveloper",
+      "flair": "smileys.robot",
+      "id": "vrdeveloper"
+    },
+    "rating": 2263,
+    "gameId": "VlDXktTm",
+    "color": "black"
+  },
+  "threeCheck": {
+    "user": {
+      "name": "clippencough",
+      "id": "clippencough"
+    },
+    "rating": 1951,
+    "gameId": "aElB1lrQ",
+    "color": "black"
+  },
+  "classical": {
+    "user": {
+      "name": "Tsagaanuul0121",
+      "id": "tsagaanuul0121"
+    },
+    "rating": 1966,
+    "gameId": "YjEOekEz",
+    "color": "black"
+  },
+  "rapid": {
+    "user": {
+      "name": "FoxyMate1776",
+      "flair": "activity.chess-pawn",
+      "id": "foxymate1776"
+    },
+    "rating": 2465,
+    "gameId": "v050nHBP",
+    "color": "black"
+  }
+}
