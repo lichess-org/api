@@ -4505,54 +4505,6 @@ export interface components {
       };
       stream?: boolean;
     };
-    /** @example {
-     *       "game": {
-     *         "clock": "3+0",
-     *         "id": "AHGPPS44",
-     *         "perf": {
-     *           "key": "blitz",
-     *           "name": "Blitz"
-     *         },
-     *         "pgn": "d4 d5 Bf4 Bf5 Nf3 e6 c4 Nf6 Nc3 Bd6 Bg3 Nbd7 e3 O-O c5 Bxg3 hxg3 h6 Bd3 Ne4 Qc2 Ndf6 Nd2 Nxc3 Bxf5 exf5 bxc3 Ne4 Nxe4 fxe4 Rb1 b6 Rh5 bxc5 Rb5 cxd4 cxd4 c6 Qxc6 Rc8 Qxd5 Qf6 Qxe4 Rc1+ Ke2 Qa6 Qd5 Rc2+ Kf3 g6 Rxh6 Qf6+ Ke4",
-     *         "players": [
-     *           {
-     *             "color": "white",
-     *             "flair": "travel-places.ambulance",
-     *             "id": "ericrosen",
-     *             "name": "EricRosen",
-     *             "patron": true,
-     *             "rating": 2642,
-     *             "title": "IM"
-     *           },
-     *           {
-     *             "color": "black",
-     *             "id": "anton_volovikov",
-     *             "name": "Anton_Volovikov",
-     *             "rating": 2619,
-     *             "title": "FM"
-     *           }
-     *         ],
-     *         "rated": true
-     *       },
-     *       "puzzle": {
-     *         "id": "PSjmf",
-     *         "initialPly": 52,
-     *         "plays": 566,
-     *         "rating": 2705,
-     *         "solution": [
-     *           "g8g7",
-     *           "d5e5",
-     *           "f6e5"
-     *         ],
-     *         "themes": [
-     *           "endgame",
-     *           "master",
-     *           "short",
-     *           "masterVsMaster",
-     *           "crushing"
-     *         ]
-     *       }
-     *     } */
     PuzzleAndGame: {
       game: {
         clock: string;
@@ -4582,31 +4534,6 @@ export interface components {
         themes: string[];
       };
     };
-    /** @example {
-     *       "date": 1717460624888,
-     *       "puzzle": {
-     *         "fen": "6k1/3rqpp1/5b1p/p1p1pP1Q/1pB4P/1P1R1PP1/P7/6K1 w - - 1 1",
-     *         "id": "BlOLL",
-     *         "lastMove": "c7d7",
-     *         "plays": 14703,
-     *         "rating": 2018,
-     *         "solution": [
-     *           "h5f7",
-     *           "e7f7",
-     *           "d3d7",
-     *           "f7c4",
-     *           "b3c4"
-     *         ],
-     *         "themes": [
-     *           "endgame",
-     *           "crushing",
-     *           "long",
-     *           "sacrifice",
-     *           "pin"
-     *         ]
-     *       },
-     *       "win": true
-     *     } */
     PuzzleActivity: {
       date: number;
       puzzle: {
@@ -4620,22 +4547,6 @@ export interface components {
       };
       win: boolean;
     };
-    /** @example {
-     *       "replay": {
-     *         "days": 30,
-     *         "theme": "opening",
-     *         "nb": 2,
-     *         "remaining": [
-     *           "M5KzH",
-     *           "prIYT"
-     *         ]
-     *       },
-     *       "angle": {
-     *         "key": "opening",
-     *         "name": "Opening",
-     *         "desc": "A tactic during the first phase of the game."
-     *       }
-     *     } */
     PuzzleReplay: {
       replay: {
         days: number;
@@ -4656,58 +4567,6 @@ export interface components {
       puzzleRatingAvg: number;
       replayWins: number;
     };
-    /** @example {
-     *       "days": 30,
-     *       "global": {
-     *         "firstWins": 1,
-     *         "nb": 2,
-     *         "performance": 2032,
-     *         "puzzleRatingAvg": 2032,
-     *         "replayWins": 0
-     *       },
-     *       "themes": {
-     *         "defensiveMove": {
-     *           "results": {
-     *             "firstWins": 0,
-     *             "nb": 1,
-     *             "performance": 1547,
-     *             "puzzleRatingAvg": 2047,
-     *             "replayWins": 0
-     *           },
-     *           "theme": "Defensive move"
-     *         },
-     *         "endgame": {
-     *           "results": {
-     *             "firstWins": 1,
-     *             "nb": 2,
-     *             "performance": 2032,
-     *             "puzzleRatingAvg": 2032,
-     *             "replayWins": 0
-     *           },
-     *           "theme": "Endgame"
-     *         },
-     *         "pin": {
-     *           "results": {
-     *             "firstWins": 1,
-     *             "nb": 1,
-     *             "performance": 2518,
-     *             "puzzleRatingAvg": 2018,
-     *             "replayWins": 0
-     *           },
-     *           "theme": "Pin"
-     *         },
-     *         "sacrifice": {
-     *           "results": {
-     *             "firstWins": 1,
-     *             "nb": 1,
-     *             "performance": 2518,
-     *             "puzzleRatingAvg": 2018,
-     *             "replayWins": 0
-     *           },
-     *           "theme": "Sacrifice"
-     *         }
-     *       }
-     *     } */
     PuzzleDashboard: {
       days: number;
       global: components["schemas"]["PuzzlePerformance"];
@@ -4718,26 +4577,6 @@ export interface components {
         };
       };
     };
-    /** @example {
-     *       "days": [
-     *         {
-     *           "_id": "2024/6/4",
-     *           "combo": 32,
-     *           "errors": 5,
-     *           "highest": 1590,
-     *           "moves": 60,
-     *           "runs": 1,
-     *           "score": 24,
-     *           "time": 174
-     *         }
-     *       ],
-     *       "high": {
-     *         "allTime": 24,
-     *         "day": 24,
-     *         "month": 24,
-     *         "week": 24
-     *       }
-     *     } */
     PuzzleStormDashboard: {
       days: {
         _id: string;
@@ -4756,10 +4595,6 @@ export interface components {
         week: number;
       };
     };
-    /** @example {
-     *       "id": "MT4hr",
-     *       "url": "https://lichess.org/racer/MT4hr"
-     *     } */
     PuzzleRacer: {
       id: string;
       /** Format: uri */
@@ -13827,7 +13662,7 @@ export interface operations {
     parameters: {
       query: {
         /** @description Must be `code`. */
-        response_type: string;
+        response_type: "code";
         /**
          * @description Arbitrary identifier that uniquely identifies your application.
          * @example example.com
@@ -13836,7 +13671,7 @@ export interface operations {
         /** @description The absolute URL that the user should be redirected to with the authorization result. */
         redirect_uri: string;
         /** @description Must be `S256`. */
-        code_challenge_method: string;
+        code_challenge_method: "S256";
         /** @description Compute `BASE64URL(SHA256(code_verifier))`. */
         code_challenge: string;
         /** @description Space separated list of requested OAuth scopes, if any. */
@@ -13958,7 +13793,6 @@ export interface operations {
     /** @description OAuth tokens separated by commas. Up to 1000. */
     requestBody: {
       content: {
-        /** @example lip_AvsS88TozFeSMEaoLN5c,lip_badToken */
         "text/plain": string;
       };
     };
