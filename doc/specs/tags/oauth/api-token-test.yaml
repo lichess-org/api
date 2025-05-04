@@ -16,7 +16,9 @@ post:
       text/plain:
         schema:
           type: string
-        example: "lip_AvsS88TozFeSMEaoLN5c,lip_badToken"
+        examples:
+          body:
+            $ref: "../../examples/oauth-testMultipleOauthTokens-request.txt.yaml"
   responses:
     "200":
       description: The representation of the OAuth tokens.
@@ -40,9 +42,5 @@ post:
                         - "null"
                       description: Unix-timestampe in milliseconds or null if the token never expires.
                 - type: "null"
-            example:
-              {
-                "lip_AvsS88TozFeSnZa1LN5c":
-                  { "scopes": "challenge:read,challenge:write", "userId": "thibault", "expires": 1358509698620 },
-                "lip_badToken": null,
-              }
+          example:
+            $ref: "../../examples/oauth-testMultipleOauthTokens.json"

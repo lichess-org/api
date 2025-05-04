@@ -21,7 +21,7 @@ export function example(
   category: string,
   name: string,
   response: any,
-  filetype: "json" | "pgn" = "json",
+  filetype: "json" | "pgn" | "txt" = "json",
   forceAsYaml: boolean = false,
 ) {
   const saveAsYaml = forceAsYaml || filetype !== "json";

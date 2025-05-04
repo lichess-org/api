@@ -46,6 +46,7 @@ get:
       required: true
       schema:
         type: string
+        const: code
     - in: query
       name: client_id
       description: Arbitrary identifier that uniquely identifies your application.
@@ -65,6 +66,7 @@ get:
       required: true
       schema:
         type: string
+        const: S256
     - in: query
       name: code_challenge
       description: Compute `BASE64URL(SHA256(code_verifier))`.
