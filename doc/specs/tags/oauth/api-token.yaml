@@ -16,7 +16,7 @@ post:
             grant_type:
               type: string
               example: authorization_code
-              description: Must be `authorization_code`.
+              const: authorization_code
             code:
               type: string
               example: liu_iS1uOZg99Htmo58ex2jKgYziUfzsnAl0
