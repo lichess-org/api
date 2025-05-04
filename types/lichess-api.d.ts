@@ -13707,10 +13707,10 @@ export interface operations {
       content: {
         "application/x-www-form-urlencoded": {
           /**
-           * @description Must be `authorization_code`.
            * @example authorization_code
+           * @constant
            */
-          grant_type?: string;
+          grant_type?: "authorization_code";
           /**
            * @description The authorization code that was sent in the `code` parameter to your `redirect_uri`.
            * @example liu_iS1uOZg99Htmo58ex2jKgYziUfzsnAl0
