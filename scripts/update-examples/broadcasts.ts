@@ -114,6 +114,16 @@ example(
   }),
 );
 
+example("broadcasts", "searchBroadcasts",
+  await localClient().GET("/api/broadcast/search", {
+    params: {
+      query: {
+        q: "Knight",
+      },
+    },
+  }),
+);
+
 example("broadcasts", "createBroadcastTournament", newOfficialTournament.data);
 
 example(
