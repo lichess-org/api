@@ -468,6 +468,9 @@ paths:
   /api/broadcast/by/{username}:
     $ref: "./tags/broadcasts/api-broadcasts-by-user.yaml"
 
+  /api/broadcast/search:
+    $ref: "./tags/broadcasts/api-broadcasts-search.yaml"
+
   /broadcast/new:
     $ref: "./tags/broadcasts/broadcast-new.yaml"
 

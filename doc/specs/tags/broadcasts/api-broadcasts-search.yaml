@@ -1,0 +1,55 @@
+get:
+  operationId: broadcastsSearch
+  summary: Search broadcasts
+  description: |
+    Search across recent official broadcasts.
+  tags:
+    - Broadcasts
+  security: []
+  parameters:
+    - in: query
+      name: page
+      description: Which page to fetch. Only page 1 has "active" broadcasts.
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
+        maximum: 20
+    - in: query
+      name: q
+      description: Search term
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Paginated top broadcast previews.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              currentPage:
+                type: number
+              maxPerPage:
+                type: number
+              currentPageResults:
+                type: array
+                items:
+                  $ref: "../../schemas/BroadcastWithLastRound.yaml"
+              previousPage:
+                type: [number, "null"]
+              nextPage:
+                type: [number, "null"]
+            required:
+              - currentPage
+              - maxPerPage
+              - currentPageResults
+              - previousPage
+              - nextPage
+          example:
+            $ref: "../../examples/broadcasts-searchBroadcasts.json"
