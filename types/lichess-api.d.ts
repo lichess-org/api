@@ -1604,6 +1604,27 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/api/broadcast/search": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Search broadcasts
+     * @description Search across recent official broadcasts.
+     *
+     */
+    get: operations["broadcastsSearch"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/broadcast/new": {
     parameters: {
       query?: never;
@@ -10645,6 +10666,38 @@ export interface operations {
             nextPage: number | null;
             /** @example 13680 */
             nbPages: number;
+          };
+        };
+      };
+    };
+  };
+  broadcastsSearch: {
+    parameters: {
+      query?: {
+        /** @description Which page to fetch. Only page 1 has "active" broadcasts. */
+        page?: number;
+        /** @description Search term */
+        q?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Paginated top broadcast previews. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            currentPage: number;
+            maxPerPage: number;
+            currentPageResults: components["schemas"]["BroadcastWithLastRound"][];
+            previousPage: number | null;
+            nextPage: number | null;
           };
         };
       };
