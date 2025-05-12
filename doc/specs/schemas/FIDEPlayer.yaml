@@ -9,7 +9,7 @@ properties:
   federation:
     type: string
   year:
-    type: number
+    type: [number, "null"]
   inactive:
     type: boolean
   standard:
