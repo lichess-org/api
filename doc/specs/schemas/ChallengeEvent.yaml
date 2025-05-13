@@ -5,3 +5,10 @@ properties:
     const: challenge
   challenge:
     $ref: "./ChallengeJson.yaml"
+  compat:
+    type: object
+    properties:
+      bot:
+        type: boolean
+      board:
+        type: boolean

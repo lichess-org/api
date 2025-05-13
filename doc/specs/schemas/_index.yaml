@@ -16,11 +16,17 @@ PerfType:
 Clock:
   $ref: "./Clock.yaml"
 
+TimeControl:
+  $ref: "./TimeControl.yaml"
+
 GameStatus:
   $ref: "./GameStatus.yaml"
 
 FromPositionFEN:
   $ref: "./FromPositionFEN.yaml"
+
+ChallengeStatus:
+  $ref: "./ChallengeStatus.yaml"
 
 ChallengeUser:
   $ref: "./ChallengeUser.yaml"
@@ -30,6 +36,9 @@ ChallengeJson:
 
 ChallengeCanceledJson:
   $ref: "./ChallengeCanceledJson.yaml"
+
+ChallengeDeclinedJson:
+  $ref: "./ChallengeDeclinedJson.yaml"
 
 ChallengeOpenJson:
   $ref: "./ChallengeOpenJson.yaml"
