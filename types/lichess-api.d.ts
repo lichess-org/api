@@ -6246,7 +6246,7 @@ export interface components {
       name: string;
       title?: components["schemas"]["Title"];
       federation: string;
-      year?: number;
+      year?: number | null;
       inactive?: boolean;
       standard?: number;
       rapid?: number;
@@ -6329,16 +6329,14 @@ export interface components {
      *         "neio": 201.5,
      *         "thibault": 144.5
      *       },
-     *       "nbGames": 346,
-     *       "matchup": {
-     *         "users": {
-     *           "neio": 44,
-     *           "thibault": 43
-     *         },
-     *         "nbGames": 87
-     *       }
+     *       "nbGames": 346
      *     } */
-    Crosstable: unknown;
+    Crosstable: {
+      users: {
+        [key: string]: number;
+      };
+      nbGames: number;
+    };
     LightUserOnline: components["schemas"]["LightUser"] & {
       online?: boolean;
     };
