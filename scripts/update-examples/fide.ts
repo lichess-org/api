@@ -10,6 +10,22 @@ example(
       },
     },
   }),
+  "json",
+  true,
+);
+
+example(
+  "fide",
+  "getFidePlayer-nullYear",
+  await prodClient().GET("/api/fide/player/{playerId}", {
+    params: {
+      path: {
+        playerId: 8700761,
+      },
+    },
+  }),
+  "json",
+  true,
 );
 
 example(

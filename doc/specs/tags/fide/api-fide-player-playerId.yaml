@@ -20,5 +20,8 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/FIDEPlayer.yaml"
-          example:
-            $ref: "../../examples/fide-getFidePlayer.json"
+          examples:
+            example player:
+              $ref: "../../examples/fide-getFidePlayer.json.yaml"
+            example player without all values:
+              $ref: "../../examples/fide-getFidePlayer-nullYear.json.yaml"
