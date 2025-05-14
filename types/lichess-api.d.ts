@@ -5113,13 +5113,6 @@ export interface components {
       | "noStart"
       | "unknownFinish"
       | "variantEnd";
-    /** @enum {string} */
-    ChallengeStatus:
-      | "created"
-      | "offline"
-      | "canceled"
-      | "declined"
-      | "accepted";
     LightUser: {
       id: string;
       name: string;
@@ -5403,7 +5396,6 @@ export interface components {
       limit?: number;
       increment?: number;
     };
-    TimeControl: components["schemas"]["TimeControl"];
     /**
      * @description 10: created, 20: started, 30: finished
      *
@@ -6488,13 +6480,31 @@ export interface components {
       id: string;
       /** Format: uri */
       url: string;
-      status: components["schemas"]["ChallengeStatus"];
+      /** @enum {string} */
+      status: "created" | "offline" | "canceled" | "declined" | "accepted";
       challenger: components["schemas"]["ChallengeUser"];
       destUser: components["schemas"]["ChallengeUser"] | null;
       variant: components["schemas"]["Variant"];
       rated: boolean;
       speed: components["schemas"]["Speed"];
-      timeControl: components["schemas"]["TimeControl"];
+      timeControl:
+        | {
+            /** @example clock */
+            type?: string;
+            limit?: number;
+            increment?: number;
+            /** @example 5+2 */
+            show?: string;
+          }
+        | {
+            /** @example correspondence */
+            type?: string;
+            daysPerTurn?: number;
+          }
+        | {
+            /** @example unlimited */
+            type?: string;
+          };
       /** @enum {string} */
       color: "white" | "black" | "random";
       /** @enum {string} */
@@ -6515,15 +6525,11 @@ export interface components {
       /** @constant */
       type?: "challenge";
       challenge?: components["schemas"]["ChallengeJson"];
-      compat?: {
-        bot?: boolean;
-        board?: boolean; 
-      };
     };
     ChallengeCanceledEvent: {
       /** @constant */
       type?: "challengeCanceled";
-      challenge?: components["schemas"]["ChallengeCanceledJson"];
+      challenge?: components["schemas"]["ChallengeJson"];
     };
     /** @example {
      *       "id": "VU0nyvsW"
@@ -6534,7 +6540,7 @@ export interface components {
     ChallengeDeclinedEvent: {
       /** @constant */
       type?: "challengeDeclined";
-      challenge?: components["schemas"]["ChallengeDeclinedJson"];
+      challenge?: components["schemas"]["ChallengeCanceledJson"];
     };
     GameEventPlayer: {
       aiLevel?: number;
@@ -6741,7 +6747,24 @@ export interface components {
       variant: components["schemas"]["Variant"];
       rated: boolean;
       speed: components["schemas"]["Speed"];
-      timeControl: components["schemas"]["TimeControl"];
+      timeControl:
+        | {
+            /** @example clock */
+            type?: string;
+            limit?: number;
+            increment?: number;
+            /** @example 5+2 */
+            show?: string;
+          }
+        | {
+            /** @example correspondence */
+            type?: string;
+            daysPerTurn?: number;
+          }
+        | {
+            /** @example unlimited */
+            type?: string;
+          };
       /** @enum {string} */
       color: "white" | "black" | "random";
       /** @enum {string} */
