@@ -41,12 +41,6 @@ properties:
       - out
   initialFen:
     type: string
-  declineReason:
-    type: string
-    description: Human readable, possibly translated reason why the challenge was declined.
-  declineReasonKey:
-    type: string
-    description: Untranslated, computer-matchable reason why the challenge was declined.
 required:
   - id
   - url
