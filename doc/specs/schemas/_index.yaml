@@ -34,9 +34,6 @@ ChallengeUser:
 ChallengeJson:
   $ref: "./ChallengeJson.yaml"
 
-ChallengeCanceledJson:
-  $ref: "./ChallengeCanceledJson.yaml"
-
 ChallengeDeclinedJson:
   $ref: "./ChallengeDeclinedJson.yaml"
 
