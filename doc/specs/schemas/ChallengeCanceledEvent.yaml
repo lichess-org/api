@@ -2,6 +2,6 @@ type: object
 properties:
   type:
     type: string
-    const: challengeCanceled
+    const: challengeCancelled
   challenge:
     $ref: "./ChallengeJson.yaml"

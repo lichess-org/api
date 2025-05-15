@@ -11,7 +11,7 @@ post:
 
     **Keep the connection open to keep the seek active**.
 
-    If the client closes the connection, the seek is canceled. This way, if the client terminates, the user won't be paired in a game they wouldn't play.
+    If the client closes the connection, the seek is cancelled. This way, if the client terminates, the user won't be paired in a game they wouldn't play.
     When the seek is accepted, or expires, the server closes the connection.
 
     **Make sure to also have an [Event stream](#operation/apiStreamEvent) open**, to be notified when a game starts.

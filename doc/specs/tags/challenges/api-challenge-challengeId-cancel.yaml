@@ -18,7 +18,7 @@ post:
       required: true
     - in: query
       name: opponentToken
-      description: Optional `challenge:write` token of the opponent. If set, the game can be canceled even if both players have moved.
+      description: Optional `challenge:write` token of the opponent. If set, the game can be cancelled even if both players have moved.
       schema:
         type: string
   responses:

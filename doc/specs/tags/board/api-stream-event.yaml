@@ -10,7 +10,7 @@ get:
     - `gameStart` Start of a game
     - `gameFinish` Completion of a game
     - `challenge` A player sends you a challenge or you challenge someone
-    - `challengeCanceled` A player cancels their challenge to you
+    - `challengeCancelled` A player cancels their challenge to you
     - `challengeDeclined` The opponent declines your challenge
 
     When the stream opens, all current challenges and games are sent.
@@ -34,5 +34,5 @@ get:
               - $ref: "../../schemas/GameStartEvent.yaml"
               - $ref: "../../schemas/GameFinishEvent.yaml"
               - $ref: "../../schemas/ChallengeEvent.yaml"
-              - $ref: "../../schemas/ChallengeCanceledEvent.yaml"
+              - $ref: "../../schemas/ChallengeCancelledEvent.yaml"
               - $ref: "../../schemas/ChallengeDeclinedEvent.yaml"

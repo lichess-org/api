@@ -2,6 +2,6 @@ type: string
 enum:
   - created
   - offline
-  - canceled
+  - cancelled
   - declined
   - accepted

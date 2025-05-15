@@ -2,7 +2,7 @@ get:
   operationId: challengeShow
   summary: Show one challenge
   description: |
-    Get details about a challenge, even if it has been recently accepted, canceled or declined.
+    Get details about a challenge, even if it has been recently accepted, cancelled or declined.
   tags:
     - Challenges
   security:

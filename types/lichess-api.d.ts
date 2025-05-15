@@ -2483,7 +2483,7 @@ export interface paths {
      *     - `gameStart` Start of a game
      *     - `gameFinish` Completion of a game
      *     - `challenge` A player sends you a challenge or you challenge someone
-     *     - `challengeCanceled` A player cancels their challenge to you
+     *     - `challengeCancelled` A player cancels their challenge to you
      *     - `challengeDeclined` The opponent declines your challenge
      *
      *     When the stream opens, all current challenges and games are sent.
@@ -2518,7 +2518,7 @@ export interface paths {
      *
      *     **Keep the connection open to keep the seek active**.
      *
-     *     If the client closes the connection, the seek is canceled. This way, if the client terminates, the user won't be paired in a game they wouldn't play.
+     *     If the client closes the connection, the seek is cancelled. This way, if the client terminates, the user won't be paired in a game they wouldn't play.
      *     When the seek is accepted, or expires, the server closes the connection.
      *
      *     **Make sure to also have an [Event stream](#operation/apiStreamEvent) open**, to be notified when a game starts.
@@ -3039,7 +3039,7 @@ export interface paths {
     };
     /**
      * Show one challenge
-     * @description Get details about a challenge, even if it has been recently accepted, canceled or declined.
+     * @description Get details about a challenge, even if it has been recently accepted, cancelled or declined.
      *
      */
     get: operations["challengeShow"];
@@ -6431,7 +6431,7 @@ export interface components {
     ChallengeStatus:
       | "created"
       | "offline"
-      | "canceled"
+      | "cancelled"
       | "declined"
       | "accepted";
     ChallengeUser: {
@@ -6533,9 +6533,9 @@ export interface components {
         board?: boolean;
       };
     };
-    ChallengeCanceledEvent: {
+    ChallengeCancelledEvent: {
       /** @constant */
-      type?: "challengeCanceled";
+      type?: "challengeCancelled";
       challenge?: components["schemas"]["ChallengeJson"];
     };
     /** @example {
@@ -11855,7 +11855,7 @@ export interface operations {
             | components["schemas"]["GameStartEvent"]
             | components["schemas"]["GameFinishEvent"]
             | components["schemas"]["ChallengeEvent"]
-            | components["schemas"]["ChallengeCanceledEvent"]
+            | components["schemas"]["ChallengeCancelledEvent"]
             | components["schemas"]["ChallengeDeclinedEvent"];
         };
       };
@@ -12690,7 +12690,7 @@ export interface operations {
           fen?: components["schemas"]["FromPositionFEN"];
           /** @description If set, the response is streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
            *     The challenge is kept alive until the connection is closed by the client.
-           *     When the challenge is accepted, declined or canceled, a message of the form `{"done":"accepted"}` is sent,
+           *     When the challenge is accepted, declined or cancelled, a message of the form `{"done":"accepted"}` is sent,
            *     then the connection is closed by the server.
            *     If not set, the response is not streamed, and the challenge expires after 20s if not accepted.
            *      */
@@ -12845,7 +12845,7 @@ export interface operations {
   challengeCancel: {
     parameters: {
       query?: {
-        /** @description Optional `challenge:write` token of the opponent. If set, the game can be canceled even if both players have moved. */
+        /** @description Optional `challenge:write` token of the opponent. If set, the game can be cancelled even if both players have moved. */
         opponentToken?: string;
       };
       header?: never;

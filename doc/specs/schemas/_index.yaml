@@ -232,8 +232,8 @@ GameFinishEvent:
 ChallengeEvent:
   $ref: "./ChallengeEvent.yaml"
 
-ChallengeCanceledEvent:
-  $ref: "./ChallengeCanceledEvent.yaml"
+ChallengeCancelledEvent:
+  $ref: "./ChallengeCancelledEvent.yaml"
 
 ChallengeDeclinedEvent:
   $ref: "./ChallengeDeclinedEvent.yaml"

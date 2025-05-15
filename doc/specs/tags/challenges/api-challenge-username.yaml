@@ -69,7 +69,7 @@ post:
               description: |
                 If set, the response is streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
                 The challenge is kept alive until the connection is closed by the client.
-                When the challenge is accepted, declined or canceled, a message of the form `{"done":"accepted"}` is sent,
+                When the challenge is accepted, declined or cancelled, a message of the form `{"done":"accepted"}` is sent,
                 then the connection is closed by the server.
                 If not set, the response is not streamed, and the challenge expires after 20s if not accepted.
             rules:
