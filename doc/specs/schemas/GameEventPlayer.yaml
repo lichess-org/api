@@ -7,7 +7,9 @@ properties:
   name:
     type: string
   title:
-    type: [string, "null"]
+    oneOf:
+      - $ref: "./Title.yaml"
+      - type: "null"
   rating:
     type: number
   provisional:

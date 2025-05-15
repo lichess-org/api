@@ -11,7 +11,7 @@ items:
     username:
       type: string
     title:
-      type: string
+      $ref: "./Title.yaml"
     patron:
       type: boolean
     online:
