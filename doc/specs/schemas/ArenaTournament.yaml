@@ -7,7 +7,7 @@ properties:
     type: string
   system:
     type: string
-    const: "arena"
+    const: arena
   minutes:
     type: integer
   clock:
@@ -80,6 +80,21 @@ properties:
         type: string
       title:
         $ref: "./Title.yaml"
+
+required:
+  - id
+  - createdBy
+  - system
+  - minutes
+  - clock
+  - rated
+  - fullName
+  - nbPlayers
+  - variant
+  - startsAt
+  - finishesAt
+  - status
+  - perf
 
 example:
   {
