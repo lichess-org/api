@@ -53,17 +53,14 @@ post:
               time:
                 type: integer
                 description: Number of milliseconds the search has been going on
-                example: 6880
                 minimum: 0
               depth:
                 type: integer
                 description: Current search depth
-                example: 25
                 minimum: 0
               nodes:
                 type: integer
                 description: Number of nodes visited so far
-                example: 7230340
                 minimum: 0
               pvs:
                 type: array
@@ -74,12 +71,10 @@ post:
                     depth:
                       type: integer
                       description: Current search depth of the pv
-                      example: 25
                       minimum: 0
                     cp:
                       type: integer
                       description: Evaluation in centi-pawns, from White's point of view
-                      example: 40
                     mate:
                       type: integer
                       description: Evaluation in signed moves to mate, from White's point of view
@@ -88,7 +83,6 @@ post:
                       description: Variation in UCI notation
                       items:
                         type: string
-                      example: ["e2e4", "c7c6", "g1f3", "d7d5", "d2d3", "d5e4"]
                   required:
                     - depth
                     - moves
@@ -97,3 +91,5 @@ post:
               - depth
               - nodes
               - pvs
+          example:
+            $ref: "../../examples/externalEngine-analyseWithExternalEngine.json"

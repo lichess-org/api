@@ -4,6 +4,11 @@ import { writeFileSync } from "fs";
 import { dirname, join, resolve } from "path";
 import { fileURLToPath } from "url";
 
+export const prodClient = () =>
+  createClient<paths>({
+    baseUrl: "https://lichess.org",
+  });
+
 export const localClient = (as?: string) =>
   createClient<paths>({
     baseUrl: "http://localhost:8080",
@@ -12,9 +17,9 @@ export const localClient = (as?: string) =>
     },
   });
 
-export const prodClient = () =>
+export const localExternalEngineClient = () =>
   createClient<paths>({
-    baseUrl: "https://lichess.org",
+    baseUrl: "http://localhost:9666",
   });
 
 export function example(

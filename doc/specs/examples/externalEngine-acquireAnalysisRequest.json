@@ -1,0 +1,23 @@
+{
+  "id": "CNI9hZcXle9phmV5",
+  "work": {
+    "sessionId": "1",
+    "threads": 1,
+    "hash": 2048,
+    "depth": 1,
+    "multiPv": 1,
+    "variant": "chess",
+    "initialFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "moves": ["e2e4", "g8f6"]
+  },
+  "engine": {
+    "id": "eei_n7icubLdRJYm",
+    "name": "Stockfish 17.1",
+    "clientSecret": "ees_rR288clqHjNElDiP",
+    "userId": "bobby",
+    "maxThreads": 8,
+    "maxHash": 2048,
+    "variants": ["chess"],
+    "providerData": null
+  }
+}
