@@ -2,40 +2,42 @@ type: object
 properties:
   all:
     type: integer
-    example: 9265
   rated:
     type: integer
-    example: 7157
   ai:
     type: integer
-    example: 531
   draw:
     type: integer
-    example: 340
   drawH:
     type: integer
-    example: 331
   loss:
     type: integer
-    example: 4480
   lossH:
     type: integer
-    example: 4207
   win:
     type: integer
-    example: 4440
   winH:
     type: integer
-    example: 4378
   bookmark:
     type: integer
-    example: 71
   playing:
     type: integer
-    example: 6
   import:
     type: integer
-    example: 66
   me:
     type: integer
-    example: 0
+
+required:
+  - all
+  - rated
+  - ai
+  - draw
+  - drawH
+  - loss
+  - lossH
+  - win
+  - winH
+  - bookmark
+  - playing
+  - import
+  - me

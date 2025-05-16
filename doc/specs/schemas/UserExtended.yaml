@@ -44,3 +44,7 @@ allOf:
         type: boolean
         example: false
         description: only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication)
+
+required:
+  - url
+  - count

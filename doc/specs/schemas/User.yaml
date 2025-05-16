@@ -9,6 +9,8 @@ properties:
     example: Georges
   perfs:
     $ref: "./Perfs.yaml"
+  title:
+    $ref: "./Title.yaml"
   flair:
     $ref: "./Flair.yaml"
   createdAt:
@@ -29,17 +31,19 @@ properties:
     type: integer
     format: int64
     example: 1522636452014
+  playTime:
+    $ref: "./PlayTime.yaml"
   patron:
     type: boolean
     example: true
   verified:
     type: boolean
     example: true
-  playTime:
-    $ref: "./PlayTime.yaml"
-  title:
-    $ref: "./Title.yaml"
 
 required:
   - id
   - username
+  - perfs
+  - createdAt
+  - seenAt
+  - playTime
