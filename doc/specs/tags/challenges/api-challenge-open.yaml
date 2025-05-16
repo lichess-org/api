@@ -90,6 +90,8 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/ChallengeOpenJson.yaml"
+          example:
+            $ref: "../../examples/challenges-openEndedChallenge.json"
     "400":
       description: The creation of the challenge failed.
       content:

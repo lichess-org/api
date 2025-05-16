@@ -6,9 +6,4 @@ properties:
   challenge:
     $ref: "./ChallengeJson.yaml"
   compat:
-    type: object
-    properties:
-      bot:
-        type: boolean
-      board:
-        type: boolean
+    $ref: "./GameCompat.yaml"

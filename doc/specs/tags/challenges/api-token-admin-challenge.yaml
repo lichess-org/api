@@ -41,13 +41,8 @@ post:
             type: object
             additionalProperties:
               type: string
-            example:
-              {
-                "thibault": "lLOEkpH58W599xH9",
-                "neio": "nAYTIJphwWFwKmKk",
-                "lizen2": "1cnHhuWKHROgiPC4",
-                "lizen3": "SszJ9Sj1bto0UQCK",
-              }
+          example:
+            $ref: "../../examples/challenges-adminChallengeTokens.json"
     "400":
       description: The creation of the tokens failed.
       content:

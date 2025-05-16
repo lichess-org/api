@@ -50,12 +50,7 @@ properties:
   secondsLeft:
     type: integer
   compat:
-    type: object
-    properties:
-      bot:
-        type: boolean
-      board:
-        type: boolean
+    $ref: "./GameCompat.yaml"
   id:
     type: string
 

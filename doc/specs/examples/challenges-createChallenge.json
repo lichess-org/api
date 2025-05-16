@@ -1,0 +1,35 @@
+{
+  "id": "1jqMGJOv",
+  "url": "https://lichess.org/1jqMGJOv",
+  "status": "created",
+  "challenger": {
+    "id": "bobby",
+    "name": "Bobby",
+    "rating": 1612,
+    "title": null
+  },
+  "destUser": {
+    "id": "mary",
+    "name": "Mary",
+    "rating": 1064,
+    "title": null,
+    "flair": "objects.notebook"
+  },
+  "variant": {
+    "key": "standard",
+    "name": "Standard",
+    "short": "Std"
+  },
+  "rated": false,
+  "speed": "correspondence",
+  "timeControl": {
+    "type": "unlimited"
+  },
+  "color": "random",
+  "finalColor": "white",
+  "perf": {
+    "icon": "",
+    "name": "Correspondence"
+  },
+  "direction": "out"
+}

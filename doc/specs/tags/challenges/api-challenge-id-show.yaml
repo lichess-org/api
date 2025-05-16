@@ -26,3 +26,5 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/ChallengeJson.yaml"
+          example:
+            $ref: "../../examples/challenges-showOneChallenge.json"

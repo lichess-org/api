@@ -30,3 +30,5 @@ get:
                 description: Outgoing challenges i.e. created by you
                 items:
                   $ref: "../../schemas/ChallengeJson.yaml"
+          example:
+            $ref: "../../examples/challenges-listYourChallenges.json"
