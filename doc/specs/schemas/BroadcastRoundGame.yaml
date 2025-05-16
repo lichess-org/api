@@ -15,7 +15,7 @@ properties:
         name:
           type: string
         title:
-          type: string
+          $ref: "./Title.yaml"
         rating:
           type: integer
         clock:
