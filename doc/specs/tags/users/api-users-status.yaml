@@ -67,7 +67,7 @@ get:
                 flair:
                   $ref: "../../schemas/Flair.yaml"
                 title:
-                  type: string
+                  $ref: "../../schemas/Title.yaml"
                 online:
                   type: boolean
                 playing:

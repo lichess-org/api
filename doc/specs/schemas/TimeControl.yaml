@@ -1,9 +1,10 @@
 oneOf:
   - type: object
+    title: Real-time
     properties:
       type:
         type: string
-        example: clock
+        const: clock
       limit:
         type: number
       increment:
@@ -13,16 +14,18 @@ oneOf:
         type: string
     additionalProperties: false
   - type: object
+    title: Correspondence
     properties:
       type:
         type: string
-        example: correspondence
+        const: correspondence
       daysPerTurn:
         type: number
     additionalProperties: false
   - type: object
+    title: Unlimited
     properties:
       type:
         type: string
-        example: unlimited
+        const: unlimited
     additionalProperties: false

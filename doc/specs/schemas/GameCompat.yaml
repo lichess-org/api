@@ -1,0 +1,9 @@
+type: object
+
+properties:
+  bot:
+    type: boolean
+    description: Compatible with Bot API
+  board:
+    type: boolean
+    description: Compatible with Board API

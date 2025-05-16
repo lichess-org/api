@@ -3838,10 +3838,27 @@ export interface components {
   schemas: {
     /** @description See [available flair list and images](https://github.com/lichess-org/lila/tree/master/public/flair) */
     Flair: string;
+    /**
+     * @description only appears if the user is a titled player or a bot user
+     * @enum {string}
+     */
+    Title:
+      | "GM"
+      | "WGM"
+      | "IM"
+      | "WIM"
+      | "FM"
+      | "WFM"
+      | "NM"
+      | "CM"
+      | "WCM"
+      | "WNM"
+      | "LM"
+      | "BOT";
     PerfTop10: {
       id?: string;
       username?: string;
-      title?: string;
+      title?: components["schemas"]["Title"];
       patron?: boolean;
       online?: boolean;
       perfs?: {
@@ -3993,23 +4010,6 @@ export interface components {
       /** @example 12134 */
       tv?: number;
     };
-    /**
-     * @description only appears if the user is a titled player or a bot user
-     * @enum {string}
-     */
-    Title:
-      | "GM"
-      | "WGM"
-      | "IM"
-      | "WIM"
-      | "FM"
-      | "WFM"
-      | "NM"
-      | "CM"
-      | "WCM"
-      | "WNM"
-      | "LM"
-      | "BOT";
     User: {
       /** @example georges */
       id: string;
@@ -6054,7 +6054,7 @@ export interface components {
       /** @example 2138 */
       performance?: number;
       /** @example FM */
-      title?: string;
+      title?: components["schemas"]["Title"];
       /** @example 3408230 */
       fideId?: number;
       /** @example CHI */
@@ -6206,7 +6206,7 @@ export interface components {
       fen?: string;
       players?: {
         name?: string;
-        title?: string;
+        title?: components["schemas"]["Title"];
         rating?: number;
         clock?: number;
         fed?: string;
@@ -6351,6 +6351,12 @@ export interface components {
        */
       date?: number;
     };
+    GameCompat: {
+      /** @description Compatible with Bot API */
+      bot?: boolean;
+      /** @description Compatible with Board API */
+      board?: boolean;
+    };
     /** @example {
      *       "fullId": "9NaCTu2vz1c4",
      *       "gameId": "9NaCTu2v",
@@ -6411,10 +6417,7 @@ export interface components {
       };
       isMyTurn?: boolean;
       secondsLeft?: number;
-      compat?: {
-        bot?: boolean;
-        board?: boolean;
-      };
+      compat?: components["schemas"]["GameCompat"];
       id?: string;
     };
     GameStartEvent: {
@@ -6435,28 +6438,33 @@ export interface components {
       | "declined"
       | "accepted";
     ChallengeUser: {
+      id: string;
+      name: string;
       rating?: number;
+      title?: components["schemas"]["Title"] | null;
+      flair?: components["schemas"]["Flair"];
+      patron?: boolean;
       provisional?: boolean;
       online?: boolean;
       lag?: number;
-    } & components["schemas"]["LightUser"];
+    };
     TimeControl:
       | {
-          /** @example clock */
-          type?: string;
+          /** @constant */
+          type?: "clock";
           limit?: number;
           increment?: number;
           /** @example 5+2 */
           show?: string;
         }
       | {
-          /** @example correspondence */
-          type?: string;
+          /** @constant */
+          type?: "correspondence";
           daysPerTurn?: number;
         }
       | {
-          /** @example unlimited */
-          type?: string;
+          /** @constant */
+          type?: "unlimited";
         };
     /** @example {
      *       "id": "H9fIRZUk",
@@ -6528,10 +6536,7 @@ export interface components {
       /** @constant */
       type?: "challenge";
       challenge?: components["schemas"]["ChallengeJson"];
-      compat?: {
-        bot?: boolean;
-        board?: boolean;
-      };
+      compat?: components["schemas"]["GameCompat"];
     };
     ChallengeCanceledEvent: {
       /** @constant */
@@ -6612,7 +6617,7 @@ export interface components {
       aiLevel?: number;
       id?: string;
       name?: string;
-      title?: string | null;
+      title?: components["schemas"]["Title"] | null;
       rating?: number;
       provisional?: boolean;
     };
@@ -6772,36 +6777,10 @@ export interface components {
      *         "user": "thibault"
      *       }
      *     ] */
-    GameChat: unknown;
-    /** @example {
-     *       "id": "3gH5lybT",
-     *       "url": "https://lichess.org/3gH5lybT",
-     *       "status": "created",
-     *       "challenger": null,
-     *       "destUser": null,
-     *       "variant": {
-     *         "key": "standard",
-     *         "name": "Standard",
-     *         "short": "Std"
-     *       },
-     *       "rated": false,
-     *       "speed": "rapid",
-     *       "timeControl": {
-     *         "type": "clock",
-     *         "limit": 600,
-     *         "increment": 5,
-     *         "show": "10+5"
-     *       },
-     *       "color": "random",
-     *       "finalColor": "black",
-     *       "perf": {
-     *         "icon": "",
-     *         "name": "Rapid"
-     *       },
-     *       "open": {},
-     *       "urlWhite": "https://lichess.org/3gH5lybT?color=white",
-     *       "urlBlack": "https://lichess.org/3gH5lybT?color=black"
-     *     } */
+    GameChat: {
+      text?: string;
+      user?: string;
+    }[];
     ChallengeOpenJson: {
       id: string;
       /** Format: uri */
@@ -7449,7 +7428,7 @@ export interface operations {
             id: string;
             name: string;
             flair?: components["schemas"]["Flair"];
-            title?: string;
+            title?: components["schemas"]["Title"];
             online?: boolean;
             playing?: boolean;
             streaming?: boolean;
@@ -12889,7 +12868,7 @@ export interface operations {
       content: {
         "application/x-www-form-urlencoded": {
           /** @description AI strength */
-          level?: number;
+          level: number;
           /**
            * @description Clock initial time in seconds. If empty, a correspondence game is created.
            * @example 300
@@ -12924,7 +12903,39 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["GameJson"];
+          "application/json": {
+            id?: string;
+            variant?: components["schemas"]["Variant"];
+            speed?: components["schemas"]["Speed"];
+            perf?: components["schemas"]["PerfType"];
+            rated?: boolean;
+            fen?: string;
+            turns?: number;
+            source?: components["schemas"]["GameSource"];
+            status?: {
+              /** @enum {integer} */
+              id?:
+                | 10
+                | 20
+                | 25
+                | 30
+                | 31
+                | 32
+                | 33
+                | 34
+                | 35
+                | 36
+                | 37
+                | 38
+                | 60;
+              name?: components["schemas"]["GameStatus"];
+            };
+            /** Format: int64 */
+            createdAt?: number;
+            /** @enum {string} */
+            player?: "white" | "black";
+            fullId?: string;
+          };
         };
       };
       /** @description The creation of a game with Lichess AI failed. */
@@ -13331,7 +13342,7 @@ export interface operations {
       path: {
         gameId: string;
         /** @description How many seconds to give */
-        seconds: string;
+        seconds: number;
       };
       cookie?: never;
     };

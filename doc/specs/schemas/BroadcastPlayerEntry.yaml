@@ -19,7 +19,7 @@ properties:
     type: integer
     example: 2138
   title:
-    type: string
+    $ref: "./Title.yaml"
     example: FM
   fideId:
     type: integer

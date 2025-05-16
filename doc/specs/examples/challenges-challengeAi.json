@@ -1,0 +1,21 @@
+{
+  "id": "FLuFXFzs",
+  "variant": {
+    "key": "standard",
+    "name": "Standard",
+    "short": "Std"
+  },
+  "speed": "correspondence",
+  "perf": "correspondence",
+  "rated": false,
+  "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "turns": 0,
+  "source": "ai",
+  "status": {
+    "id": 20,
+    "name": "started"
+  },
+  "createdAt": 1747312530755,
+  "player": "white",
+  "fullId": "FLuFXFzs4NSG"
+}
