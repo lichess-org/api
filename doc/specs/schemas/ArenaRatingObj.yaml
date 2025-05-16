@@ -5,3 +5,6 @@ properties:
   rating:
     type: integer
     example: 1700
+
+required:
+  - rating

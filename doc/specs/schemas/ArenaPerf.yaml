@@ -1,8 +1,7 @@
 type: object
 properties:
   key:
-    type: string
-    example: "blitz"
+    $ref: "./PerfType.yaml"
   name:
     type: string
     example: "Blitz"
@@ -12,3 +11,8 @@ properties:
   icon:
     type: string
     example: ")"
+
+required:
+  - key
+  - name
+  - position
