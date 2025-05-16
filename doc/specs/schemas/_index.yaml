@@ -217,8 +217,8 @@ GameStateEvent:
 ChatLineEvent:
   $ref: "./ChatLineEvent.yaml"
 
-OpponentGone:
-  $ref: "./OpponentGone.yaml"
+OpponentGoneEvent:
+  $ref: "./OpponentGoneEvent.yaml"
 
 GameEventInfo:
   $ref: "./GameEventInfo.yaml"
