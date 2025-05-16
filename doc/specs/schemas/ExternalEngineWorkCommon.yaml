@@ -1,0 +1,40 @@
+type: object
+
+properties:
+  sessionId:
+    type: string
+    description: |
+      Arbitary string that identifies the analysis session.
+      Providers may wish to clear the hash table between sessions.
+  threads:
+    type: integer
+    minimum: 1
+    description: Number of threads to use for analysis.
+  hash:
+    type: integer
+    minimum: 1
+    description: Hash table size to use for analysis, in MiB.
+  multiPv:
+    type: integer
+    minimum: 1
+    maximum: 5
+    description: Requested number of principal variations.
+  variant:
+    $ref: "./UciVariant.yaml"
+  initialFen:
+    type: string
+    description: Initial position of the game.
+  moves:
+    type: array
+    description: List of moves played from the initial position, in UCI notation.
+    items:
+      type: string
+
+required:
+  - sessionId
+  - threads
+  - hash
+  - multiPv
+  - variant
+  - initialFen
+  - moves

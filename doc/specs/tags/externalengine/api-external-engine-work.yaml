@@ -50,6 +50,8 @@ post:
               - id
               - engine
               - work
+          example:
+            $ref: "../../examples/externalEngine-acquireAnalysisRequest.json"
     "204":
       description: No pending analysis
       headers:
