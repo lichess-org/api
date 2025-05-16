@@ -114,7 +114,9 @@ example(
   }),
 );
 
-example("broadcasts", "searchBroadcasts",
+example(
+  "broadcasts",
+  "searchBroadcasts",
   await localClient().GET("/api/broadcast/search", {
     params: {
       query: {

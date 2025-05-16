@@ -27,6 +27,8 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+          example:
+            $ref: "../../examples/challenges-acceptChallenge.json"
     "404":
       description: The challenge to accept was not found.
       content:
