@@ -22,12 +22,7 @@ properties:
       name:
         $ref: "./GameStatus.yaml"
   variant:
-    type: object
-    properties:
-      key:
-        type: string
-      name:
-        type: string
+    $ref: "./Variant.yaml"
   speed:
     $ref: "./Speed.yaml"
   perf:
