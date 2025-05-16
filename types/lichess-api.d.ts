@@ -6427,12 +6427,37 @@ export interface components {
       type?: "gameFinish";
       game?: components["schemas"]["GameEventInfo"];
     };
+    /** @enum {string} */
+    ChallengeStatus:
+      | "created"
+      | "offline"
+      | "canceled"
+      | "declined"
+      | "accepted";
     ChallengeUser: {
       rating?: number;
       provisional?: boolean;
       online?: boolean;
       lag?: number;
     } & components["schemas"]["LightUser"];
+    TimeControl:
+      | {
+          /** @example clock */
+          type?: string;
+          limit?: number;
+          increment?: number;
+          /** @example 5+2 */
+          show?: string;
+        }
+      | {
+          /** @example correspondence */
+          type?: string;
+          daysPerTurn?: number;
+        }
+      | {
+          /** @example unlimited */
+          type?: string;
+        };
     /** @example {
      *       "id": "H9fIRZUk",
      *       "url": "https://lichess.org/H9fIRZUk",
@@ -6480,31 +6505,13 @@ export interface components {
       id: string;
       /** Format: uri */
       url: string;
-      /** @enum {string} */
-      status: "created" | "offline" | "canceled" | "declined" | "accepted";
+      status: components["schemas"]["ChallengeStatus"];
       challenger: components["schemas"]["ChallengeUser"];
       destUser: components["schemas"]["ChallengeUser"] | null;
       variant: components["schemas"]["Variant"];
       rated: boolean;
       speed: components["schemas"]["Speed"];
-      timeControl:
-        | {
-            /** @example clock */
-            type?: string;
-            limit?: number;
-            increment?: number;
-            /** @example 5+2 */
-            show?: string;
-          }
-        | {
-            /** @example correspondence */
-            type?: string;
-            daysPerTurn?: number;
-          }
-        | {
-            /** @example unlimited */
-            type?: string;
-          };
+      timeControl: components["schemas"]["TimeControl"];
       /** @enum {string} */
       color: "white" | "black" | "random";
       /** @enum {string} */
@@ -6516,15 +6523,15 @@ export interface components {
       /** @enum {string} */
       direction?: "in" | "out";
       initialFen?: string;
-      /** @description Human readable, possibly translated reason why the challenge was declined. */
-      declineReason?: string;
-      /** @description Untranslated, computer-matchable reason why the challenge was declined. */
-      declineReasonKey?: string;
     };
     ChallengeEvent: {
       /** @constant */
       type?: "challenge";
       challenge?: components["schemas"]["ChallengeJson"];
+      compat?: {
+        bot?: boolean;
+        board?: boolean;
+      };
     };
     ChallengeCanceledEvent: {
       /** @constant */
@@ -6532,15 +6539,74 @@ export interface components {
       challenge?: components["schemas"]["ChallengeJson"];
     };
     /** @example {
-     *       "id": "VU0nyvsW"
+     *       "id": "H9fIRZUk",
+     *       "url": "https://lichess.org/H9fIRZUk",
+     *       "status": "created",
+     *       "challenger": {
+     *         "id": "bot1",
+     *         "name": "Bot1",
+     *         "rating": 1500,
+     *         "title": "BOT",
+     *         "provisional": true,
+     *         "online": true,
+     *         "lag": 4
+     *       },
+     *       "destUser": {
+     *         "id": "bobby",
+     *         "name": "Bobby",
+     *         "rating": 1635,
+     *         "title": "GM",
+     *         "provisional": true,
+     *         "online": true,
+     *         "lag": 4
+     *       },
+     *       "variant": {
+     *         "key": "standard",
+     *         "name": "Standard",
+     *         "short": "Std"
+     *       },
+     *       "rated": true,
+     *       "speed": "rapid",
+     *       "timeControl": {
+     *         "type": "clock",
+     *         "limit": 600,
+     *         "increment": 0,
+     *         "show": "10+0"
+     *       },
+     *       "color": "random",
+     *       "finalColor": "black",
+     *       "perf": {
+     *         "icon": "",
+     *         "name": "Rapid"
+     *       },
+     *       "direction": "out",
+     *       "declineReason": "I'm not accepting challenges at the moment.",
+     *       "declineReasonKey": "generic"
      *     } */
-    ChallengeCanceledJson: {
-      id?: string;
-    };
+    ChallengeDeclinedJson: {
+      /** @description Human readable, possibly translated reason why the challenge was declined. */
+      declineReason: string;
+      /**
+       * @description Untranslated, computer-matchable reason why the challenge was declined.
+       * @enum {string}
+       */
+      declineReasonKey:
+        | "generic"
+        | "later"
+        | "tooFast"
+        | "tooSlow"
+        | "timeControl"
+        | "rated"
+        | "casual"
+        | "standard"
+        | "variant"
+        | "noBot"
+        | "onlyBot";
+    } & components["schemas"]["ChallengeJson"];
     ChallengeDeclinedEvent: {
       /** @constant */
       type?: "challengeDeclined";
-      challenge?: components["schemas"]["ChallengeCanceledJson"];
+      challenge?: components["schemas"]["ChallengeDeclinedJson"];
     };
     GameEventPlayer: {
       aiLevel?: number;
@@ -6740,31 +6806,13 @@ export interface components {
       id: string;
       /** Format: uri */
       url: string;
-      /** @enum {string} */
-      status: "created" | "offline" | "canceled" | "declined" | "accepted";
+      status: components["schemas"]["ChallengeStatus"];
       challenger: null;
       destUser: null;
       variant: components["schemas"]["Variant"];
       rated: boolean;
       speed: components["schemas"]["Speed"];
-      timeControl:
-        | {
-            /** @example clock */
-            type?: string;
-            limit?: number;
-            increment?: number;
-            /** @example 5+2 */
-            show?: string;
-          }
-        | {
-            /** @example correspondence */
-            type?: string;
-            daysPerTurn?: number;
-          }
-        | {
-            /** @example unlimited */
-            type?: string;
-          };
+      timeControl: components["schemas"]["TimeControl"];
       /** @enum {string} */
       color: "white" | "black" | "random";
       /** @enum {string} */

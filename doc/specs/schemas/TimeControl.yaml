@@ -1,0 +1,31 @@
+anyOf:
+  - type: object
+    title: Real-time
+    properties:
+      type:
+        type: string
+        const: clock
+      limit:
+        type: number
+      increment:
+        type: number
+      show:
+        example: 5+2
+        type: string
+    additionalProperties: false
+  - type: object
+    title: Correspondence
+    properties:
+      type:
+        type: string
+        const: correspondence
+      daysPerTurn:
+        type: number
+    additionalProperties: false
+  - type: object
+    title: Unlimited
+    properties:
+      type:
+        type: string
+        const: unlimited
+    additionalProperties: false

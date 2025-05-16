@@ -6,13 +6,7 @@ properties:
     type: string
     format: uri
   status:
-    type: string
-    enum:
-      - created
-      - offline
-      - canceled
-      - declined
-      - accepted
+    $ref: "./ChallengeStatus.yaml"
   challenger:
     $ref: "./ChallengeUser.yaml"
   destUser:
@@ -26,34 +20,7 @@ properties:
   speed:
     $ref: "./Speed.yaml"
   timeControl:
-    oneOf:
-      - type: object
-        properties:
-          type:
-            type: string
-            example: clock
-          limit:
-            type: number
-          increment:
-            type: number
-          show:
-            example: 5+2
-            type: string
-        additionalProperties: false
-      - type: object
-        properties:
-          type:
-            type: string
-            example: correspondence
-          daysPerTurn:
-            type: number
-        additionalProperties: false
-      - type: object
-        properties:
-          type:
-            type: string
-            example: unlimited
-        additionalProperties: false
+    $ref: "./TimeControl.yaml"
   color:
     type: string
     enum: ["white", "black", "random"]
@@ -74,12 +41,6 @@ properties:
       - out
   initialFen:
     type: string
-  declineReason:
-    type: string
-    description: Human readable, possibly translated reason why the challenge was declined.
-  declineReasonKey:
-    type: string
-    description: Untranslated, computer-matchable reason why the challenge was declined.
 required:
   - id
   - url

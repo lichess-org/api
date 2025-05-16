@@ -56,6 +56,8 @@ post:
               $ref: "../../schemas/VariantKey.yaml"
             fen:
               $ref: "../../schemas/FromPositionFEN.yaml"
+          required:
+            - level
   responses:
     "201":
       description: The game with Lichess AI was successfully started.
@@ -67,7 +69,45 @@ post:
       content:
         application/json:
           schema:
-            $ref: "../../schemas/GameJson.yaml"
+            properties:
+              id:
+                type: string
+                minLength: 8
+                maxLength: 8
+              variant:
+                $ref: "../../schemas/Variant.yaml"
+              speed:
+                $ref: "../../schemas/Speed.yaml"
+              perf:
+                $ref: "../../schemas/PerfType.yaml"
+              rated:
+                type: boolean
+              fen:
+                type: string
+              turns:
+                type: integer
+              source:
+                $ref: "../../schemas/GameSource.yaml"
+              status:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    enum: [10, 20, 25, 30, 31, 32, 33, 34, 35, 36, 37, 38, 60]
+                  name:
+                    $ref: "../../schemas/GameStatus.yaml"
+              createdAt:
+                type: number
+                format: int64
+              player:
+                type: string
+                enum: ["white", "black"]
+              fullId:
+                type: string
+                minLength: 12
+                maxLength: 12
+          example:
+            $ref: "../../examples/challenges-challengeAi.json"
     "400":
       description: The creation of a game with Lichess AI failed.
       content:

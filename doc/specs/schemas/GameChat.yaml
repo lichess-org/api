@@ -1,3 +1,12 @@
+type: array
+items:
+  type: object
+  properties:
+    text:
+      type: string
+    user:
+      type: string
+
 example:
   [
     { "text": "Takeback sent", "user": "lichess" },

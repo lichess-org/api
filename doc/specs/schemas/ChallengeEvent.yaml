@@ -5,3 +5,5 @@ properties:
     const: challenge
   challenge:
     $ref: "./ChallengeJson.yaml"
+  compat:
+    $ref: "./GameCompat.yaml"
