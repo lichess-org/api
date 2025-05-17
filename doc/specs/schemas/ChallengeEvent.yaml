@@ -7,3 +7,7 @@ properties:
     $ref: "./ChallengeJson.yaml"
   compat:
     $ref: "./GameCompat.yaml"
+
+required:
+  - type
+  - challenge
