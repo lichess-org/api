@@ -3,7 +3,7 @@ properties:
   users:
     type: array
     items:
-      $ref: "./User.yaml"
+      $ref: "./TopUser.yaml"
 
 required:
   - users

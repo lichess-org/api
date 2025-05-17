@@ -1,0 +1,29 @@
+type: object
+
+properties:
+  id:
+    type: string
+  username:
+    type: string
+  perfs:
+    type: object
+    additionalProperties:
+      type: object
+      properties:
+        rating:
+          type: integer
+        progress:
+          type: integer
+      required:
+        - rating
+        - progress
+  title:
+    $ref: "./Title.yaml"
+  patron:
+    type: boolean
+  online:
+    type: boolean
+
+required:
+  - id
+  - username
