@@ -1,0 +1,4565 @@
+{
+  "created": [
+    {
+      "id": "0oPEhImG",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 60,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Daily Three-check Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "threeCheck",
+        "short": "3check",
+        "name": "Three-check"
+      },
+      "startsAt": 1747443600000,
+      "finishesAt": 1747447200000,
+      "status": 10,
+      "perf": {
+        "key": "threeCheck",
+        "name": "Three-check",
+        "position": 8
+      },
+      "secondsToStart": 1210,
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "daily",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "IAySbrk6",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly King of the Hill Arena",
+      "nbPlayers": 1,
+      "variant": {
+        "key": "kingOfTheHill",
+        "short": "KotH",
+        "name": "King of the Hill"
+      },
+      "startsAt": 1747443602500,
+      "finishesAt": 1747445222500,
+      "status": 10,
+      "perf": {
+        "key": "kingOfTheHill",
+        "name": "King of the Hill",
+        "position": 7
+      },
+      "secondsToStart": 1212,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "DkkxMBUL",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747443605000,
+      "finishesAt": 1747445225000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 1215,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "gRL4fjIo",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 120,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Antichess Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "antichess",
+        "short": "Anti",
+        "name": "Antichess"
+      },
+      "startsAt": 1747443607500,
+      "finishesAt": 1747447027500,
+      "status": 10,
+      "perf": {
+        "key": "antichess",
+        "name": "Antichess",
+        "position": 9
+      },
+      "secondsToStart": 1217,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "hippoBullet"
+      }
+    },
+    {
+      "id": "9n4WXA5Q",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1500 Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747443610000,
+      "finishesAt": 1747445230000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 1220,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1500
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "va4gybX4",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Horde Arena",
+      "nbPlayers": 1,
+      "variant": {
+        "key": "horde",
+        "short": "Horde",
+        "name": "Horde"
+      },
+      "startsAt": 1747443612500,
+      "finishesAt": 1747447032500,
+      "status": 10,
+      "perf": {
+        "key": "horde",
+        "name": "Horde",
+        "position": 11
+      },
+      "secondsToStart": 1222,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "gf0stPEQ",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly SuperBlitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747443615000,
+      "finishesAt": 1747447035000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 1225,
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "jqYvisxU",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 600,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1700 Rapid Arena",
+      "nbPlayers": 2,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747443620000,
+      "finishesAt": 1747447040000,
+      "status": 10,
+      "perf": {
+        "key": "rapid",
+        "name": "Rapid",
+        "position": 2,
+        "icon": "#"
+      },
+      "secondsToStart": 1230,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1700
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "rapid"
+      }
+    },
+    {
+      "id": "pkkh4hfx",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 2
+      },
+      "rated": true,
+      "fullName": "Hourly Blitz Arena",
+      "nbPlayers": 1,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747443625000,
+      "finishesAt": 1747447045000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 1235,
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "8IYcPWm1",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 30,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly HyperBullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747443630000,
+      "finishesAt": 1747445250000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 1240,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "hyperBullet"
+      }
+    },
+    {
+      "id": "xlmS6ZgV",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1300 SuperBlitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747443635000,
+      "finishesAt": 1747447055000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 1245,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1300
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "oAEQCiJ6",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 2
+      },
+      "rated": true,
+      "fullName": "≤2000 Blitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747443640000,
+      "finishesAt": 1747447060000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 1250,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 2000
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "wwGEFpAs",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 1
+      },
+      "rated": true,
+      "fullName": "≤1500 Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747445400000,
+      "finishesAt": 1747447020000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 3010,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1500
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "GwYoiPY9",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly King of the Hill Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "kingOfTheHill",
+        "short": "KotH",
+        "name": "King of the Hill"
+      },
+      "startsAt": 1747445410000,
+      "finishesAt": 1747447030000,
+      "status": 10,
+      "perf": {
+        "key": "kingOfTheHill",
+        "name": "King of the Hill",
+        "position": 7
+      },
+      "secondsToStart": 3020,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "ww26Or7j",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747445420000,
+      "finishesAt": 1747447040000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 3030,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "pVq4y2DP",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 15,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly UltraBullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747445440000,
+      "finishesAt": 1747447060000,
+      "status": 10,
+      "perf": {
+        "key": "ultraBullet",
+        "name": "UltraBullet",
+        "position": 4,
+        "icon": "{"
+      },
+      "secondsToStart": 3050,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "ultraBullet"
+      }
+    },
+    {
+      "id": "Fg4bx8mW",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 60,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Daily Horde Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "horde",
+        "short": "Horde",
+        "name": "Horde"
+      },
+      "startsAt": 1747447200000,
+      "finishesAt": 1747450800000,
+      "status": 10,
+      "perf": {
+        "key": "horde",
+        "name": "Horde",
+        "position": 11
+      },
+      "secondsToStart": 4810,
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "daily",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "2veoZ8cg",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1300 Blitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747447202500,
+      "finishesAt": 1747450622500,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 4812,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1300
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "bkq1WQ0u",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747447205000,
+      "finishesAt": 1747448825000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 4815,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "VTDKMqoh",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 1
+      },
+      "rated": true,
+      "fullName": "Hourly Crazyhouse Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "crazyhouse",
+        "short": "Crazy",
+        "name": "Crazyhouse"
+      },
+      "startsAt": 1747447207500,
+      "finishesAt": 1747450627500,
+      "status": 10,
+      "perf": {
+        "key": "crazyhouse",
+        "name": "Crazyhouse",
+        "position": 5
+      },
+      "secondsToStart": 4817,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "tCNliEyB",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1500 SuperBlitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747447210000,
+      "finishesAt": 1747450630000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 4820,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1500
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "klmEazou",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Atomic Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "atomic",
+        "short": "Atom",
+        "name": "Atomic"
+      },
+      "startsAt": 1747447212500,
+      "finishesAt": 1747448832500,
+      "status": 10,
+      "perf": {
+        "key": "atomic",
+        "name": "Atomic",
+        "position": 10
+      },
+      "secondsToStart": 4822,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "wYlD1lR6",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly SuperBlitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747447215000,
+      "finishesAt": 1747450635000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 4825,
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "6Mef6lyK",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 120,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Racing Kings Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "racingKings",
+        "short": "Racing",
+        "name": "Racing Kings"
+      },
+      "startsAt": 1747447217500,
+      "finishesAt": 1747450637500,
+      "status": 10,
+      "perf": {
+        "key": "racingKings",
+        "name": "Racing Kings",
+        "position": 12
+      },
+      "secondsToStart": 4827,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "hippoBullet"
+      }
+    },
+    {
+      "id": "4iCy5Vsm",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1700 Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747447220000,
+      "finishesAt": 1747448840000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 4830,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1700
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "bDIUGTfC",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Blitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747447225000,
+      "finishesAt": 1747450645000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 4835,
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "cOz8Xz1C",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 30,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly HyperBullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747447230000,
+      "finishesAt": 1747448850000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 4840,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "hyperBullet"
+      }
+    },
+    {
+      "id": "Z42YejqR",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 117,
+      "clock": {
+        "limit": 600,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Rapid Arena",
+      "nbPlayers": 1,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747447235000,
+      "finishesAt": 1747454255000,
+      "status": 10,
+      "perf": {
+        "key": "rapid",
+        "name": "Rapid",
+        "position": 2,
+        "icon": "#"
+      },
+      "secondsToStart": 4845,
+      "minRatedGames": {
+        "nb": 10
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "rapid"
+      }
+    },
+    {
+      "id": "AAqgnTCG",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 600,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤2000 Rapid Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747447240000,
+      "finishesAt": 1747450660000,
+      "status": 10,
+      "perf": {
+        "key": "rapid",
+        "name": "Rapid",
+        "position": 2,
+        "icon": "#"
+      },
+      "secondsToStart": 4850,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 2000
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "rapid"
+      }
+    },
+    {
+      "id": "PWgksPn6",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 1
+      },
+      "rated": true,
+      "fullName": "≤1700 Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747449000000,
+      "finishesAt": 1747450620000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 6610,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1700
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "fnTmDWLv",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Atomic Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "atomic",
+        "short": "Atom",
+        "name": "Atomic"
+      },
+      "startsAt": 1747449010000,
+      "finishesAt": 1747450630000,
+      "status": 10,
+      "perf": {
+        "key": "atomic",
+        "name": "Atomic",
+        "position": 10
+      },
+      "secondsToStart": 6620,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "sNmvhyeC",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747449020000,
+      "finishesAt": 1747450640000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 6630,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "NQcPCIq0",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 15,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly UltraBullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747449040000,
+      "finishesAt": 1747450660000,
+      "status": 10,
+      "perf": {
+        "key": "ultraBullet",
+        "name": "UltraBullet",
+        "position": 4,
+        "icon": "{"
+      },
+      "secondsToStart": 6650,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "ultraBullet"
+      }
+    },
+    {
+      "id": "LJAumcyt",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 60,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Daily Racing Kings Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "racingKings",
+        "short": "Racing",
+        "name": "Racing Kings"
+      },
+      "startsAt": 1747450800000,
+      "finishesAt": 1747454400000,
+      "status": 10,
+      "perf": {
+        "key": "racingKings",
+        "name": "Racing Kings",
+        "position": 12
+      },
+      "secondsToStart": 8410,
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "daily",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "y511pcWH",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Chess960 Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "chess960",
+        "short": "960",
+        "name": "Chess960"
+      },
+      "startsAt": 1747450802500,
+      "finishesAt": 1747454222500,
+      "status": 10,
+      "perf": {
+        "key": "chess960",
+        "name": "Chess960",
+        "position": 6
+      },
+      "secondsToStart": 8412,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "YIGZfLFx",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 30,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly HyperBullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747450805000,
+      "finishesAt": 1747452425000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 8415,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "hyperBullet"
+      }
+    },
+    {
+      "id": "3zcZTW3Z",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Antichess Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "antichess",
+        "short": "Anti",
+        "name": "Antichess"
+      },
+      "startsAt": 1747450807500,
+      "finishesAt": 1747454227500,
+      "status": 10,
+      "perf": {
+        "key": "antichess",
+        "name": "Antichess",
+        "position": 9
+      },
+      "secondsToStart": 8417,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "QmF9uTgA",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1700 SuperBlitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747450810000,
+      "finishesAt": 1747454230000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 8420,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1700
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "ruY08mxe",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Three-check Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "threeCheck",
+        "short": "3check",
+        "name": "Three-check"
+      },
+      "startsAt": 1747450812500,
+      "finishesAt": 1747452432500,
+      "status": 10,
+      "perf": {
+        "key": "threeCheck",
+        "name": "Three-check",
+        "position": 8
+      },
+      "secondsToStart": 8422,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "WwSb50bc",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly SuperBlitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747450815000,
+      "finishesAt": 1747454235000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 8425,
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "XMpewlGi",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤2000 Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747450820000,
+      "finishesAt": 1747452440000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 8430,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 2000
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "BitMWXPv",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Blitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747450825000,
+      "finishesAt": 1747454245000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 8435,
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "0PWNcToq",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1500 Blitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747450830000,
+      "finishesAt": 1747454250000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 8440,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1500
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "tm2cfNhb",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 600,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1300 Rapid Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747450835000,
+      "finishesAt": 1747454255000,
+      "status": 10,
+      "perf": {
+        "key": "rapid",
+        "name": "Rapid",
+        "position": 2,
+        "icon": "#"
+      },
+      "secondsToStart": 8445,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1300
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "rapid"
+      }
+    },
+    {
+      "id": "GMgp7dVR",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "French Defense Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747450840000,
+      "finishesAt": 1747452460000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 8450,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "position": {
+        "eco": "C11",
+        "name": "French Defense: Burn Variation",
+        "fen": "rnbqkb1r/ppp2ppp/4pn2/3p2B1/3PP3/2N5/PPP2PPP/R2QKBNR b KQkq -",
+        "url": "https://lichess.org/opening/French_Defense_Burn_Variation"
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "8s5zKV56",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 1
+      },
+      "rated": true,
+      "fullName": "≤2000 Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747452600000,
+      "finishesAt": 1747454220000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 10210,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 2000
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "SHOYB4Gv",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Three-check Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "threeCheck",
+        "short": "3check",
+        "name": "Three-check"
+      },
+      "startsAt": 1747452610000,
+      "finishesAt": 1747454230000,
+      "status": 10,
+      "perf": {
+        "key": "threeCheck",
+        "name": "Three-check",
+        "position": 8
+      },
+      "secondsToStart": 10220,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "kERJbxq3",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747452620000,
+      "finishesAt": 1747454240000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 10230,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "3k0p77Fh",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 15,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly UltraBullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747452640000,
+      "finishesAt": 1747454260000,
+      "status": 10,
+      "perf": {
+        "key": "ultraBullet",
+        "name": "UltraBullet",
+        "position": 4,
+        "icon": "{"
+      },
+      "secondsToStart": 10250,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "ultraBullet"
+      }
+    },
+    {
+      "id": "Z36IYI6V",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 60,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Eastern Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747454400000,
+      "finishesAt": 1747458000000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 12010,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "eastern",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "udYk0yKu",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly King of the Hill Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "kingOfTheHill",
+        "short": "KotH",
+        "name": "King of the Hill"
+      },
+      "startsAt": 1747454402500,
+      "finishesAt": 1747456022500,
+      "status": 10,
+      "perf": {
+        "key": "kingOfTheHill",
+        "name": "King of the Hill",
+        "position": 7
+      },
+      "secondsToStart": 12012,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "iqsVX0Tx",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 30,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly HyperBullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747454405000,
+      "finishesAt": 1747456025000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 12015,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "hyperBullet"
+      }
+    },
+    {
+      "id": "VaWHGCke",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Atomic Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "atomic",
+        "short": "Atom",
+        "name": "Atomic"
+      },
+      "startsAt": 1747454407500,
+      "finishesAt": 1747457827500,
+      "status": 10,
+      "perf": {
+        "key": "atomic",
+        "name": "Atomic",
+        "position": 10
+      },
+      "secondsToStart": 12017,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "sQl0uIwF",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1700 Blitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747454410000,
+      "finishesAt": 1747457830000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 12020,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1700
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "3GCoCCW3",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Horde Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "horde",
+        "short": "Horde",
+        "name": "Horde"
+      },
+      "startsAt": 1747454412500,
+      "finishesAt": 1747457832500,
+      "status": 10,
+      "perf": {
+        "key": "horde",
+        "name": "Horde",
+        "position": 11
+      },
+      "secondsToStart": 12022,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "juOxbHMH",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Blitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747454415000,
+      "finishesAt": 1747457835000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 12025,
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "DYUWMhkg",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤2000 SuperBlitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747454420000,
+      "finishesAt": 1747457840000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 12030,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 2000
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "nLKusq28",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 117,
+      "clock": {
+        "limit": 600,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Rapid Arena",
+      "nbPlayers": 1,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747454425000,
+      "finishesAt": 1747461445000,
+      "status": 10,
+      "perf": {
+        "key": "rapid",
+        "name": "Rapid",
+        "position": 2,
+        "icon": "#"
+      },
+      "secondsToStart": 12035,
+      "minRatedGames": {
+        "nb": 10
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "rapid"
+      }
+    },
+    {
+      "id": "oi3XntEj",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 600,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1500 Rapid Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747454430000,
+      "finishesAt": 1747457850000,
+      "status": 10,
+      "perf": {
+        "key": "rapid",
+        "name": "Rapid",
+        "position": 2,
+        "icon": "#"
+      },
+      "secondsToStart": 12040,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1500
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "rapid"
+      }
+    },
+    {
+      "id": "TqHMC8Tk",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1300 Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747454435000,
+      "finishesAt": 1747456055000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 12045,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1300
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "3eQi97ex",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "French Defense SuperBlitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747454440000,
+      "finishesAt": 1747457860000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 12050,
+      "minRatedGames": {
+        "nb": 15
+      },
+      "position": {
+        "eco": "C11",
+        "name": "French Defense: Burn Variation",
+        "fen": "rnbqkb1r/ppp2ppp/4pn2/3p2B1/3PP3/2N5/PPP2PPP/R2QKBNR b KQkq -",
+        "url": "https://lichess.org/opening/French_Defense_Burn_Variation"
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "n8SiqKkf",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 15,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly UltraBullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747456200000,
+      "finishesAt": 1747457820000,
+      "status": 10,
+      "perf": {
+        "key": "ultraBullet",
+        "name": "UltraBullet",
+        "position": 4,
+        "icon": "{"
+      },
+      "secondsToStart": 13810,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "ultraBullet"
+      }
+    },
+    {
+      "id": "nUxrjX0C",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly King of the Hill Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "kingOfTheHill",
+        "short": "KotH",
+        "name": "King of the Hill"
+      },
+      "startsAt": 1747456220000,
+      "finishesAt": 1747457840000,
+      "status": 10,
+      "perf": {
+        "key": "kingOfTheHill",
+        "name": "King of the Hill",
+        "position": 7
+      },
+      "secondsToStart": 13830,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "jiXPTrrT",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 1
+      },
+      "rated": true,
+      "fullName": "≤1300 Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747456240000,
+      "finishesAt": 1747457860000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 13850,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1300
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "JEAJwkXv",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 90,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Eastern SuperBlitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747458000000,
+      "finishesAt": 1747463400000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 15610,
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "eastern",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "rBXHOQzB",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Antichess Arena",
+      "nbPlayers": 1,
+      "variant": {
+        "key": "antichess",
+        "short": "Anti",
+        "name": "Antichess"
+      },
+      "startsAt": 1747458002500,
+      "finishesAt": 1747459622500,
+      "status": 10,
+      "perf": {
+        "key": "antichess",
+        "name": "Antichess",
+        "position": 9
+      },
+      "secondsToStart": 15612,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "JzF51xGH",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 30,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly HyperBullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747458005000,
+      "finishesAt": 1747459625000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 15615,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "hyperBullet"
+      }
+    },
+    {
+      "id": "DW8CjBKA",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Racing Kings Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "racingKings",
+        "short": "Racing",
+        "name": "Racing Kings"
+      },
+      "startsAt": 1747458007500,
+      "finishesAt": 1747461427500,
+      "status": 10,
+      "perf": {
+        "key": "racingKings",
+        "name": "Racing Kings",
+        "position": 12
+      },
+      "secondsToStart": 15617,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "TTWloAWz",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 600,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1700 Rapid Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747458010000,
+      "finishesAt": 1747461430000,
+      "status": 10,
+      "perf": {
+        "key": "rapid",
+        "name": "Rapid",
+        "position": 2,
+        "icon": "#"
+      },
+      "secondsToStart": 15620,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1700
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "rapid"
+      }
+    },
+    {
+      "id": "rMsdH4g5",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Bullet Arena",
+      "nbPlayers": 1,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747458015000,
+      "finishesAt": 1747459635000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 15625,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "GmLyfsYq",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤2000 Blitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747458020000,
+      "finishesAt": 1747461440000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 15630,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 2000
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "s9LUgchr",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1300 SuperBlitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747458025000,
+      "finishesAt": 1747461445000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 15635,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1300
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "VM6eqt4n",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1500 Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747458030000,
+      "finishesAt": 1747459650000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 15640,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1500
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "jR5UkoeS",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Crazyhouse Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "crazyhouse",
+        "short": "Crazy",
+        "name": "Crazyhouse"
+      },
+      "startsAt": 1747458035000,
+      "finishesAt": 1747461455000,
+      "status": 10,
+      "perf": {
+        "key": "crazyhouse",
+        "name": "Crazyhouse",
+        "position": 5
+      },
+      "secondsToStart": 15645,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "KPD0vhD3",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "French Defense Blitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747458040000,
+      "finishesAt": 1747461460000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 15650,
+      "minRatedGames": {
+        "nb": 15
+      },
+      "position": {
+        "eco": "C11",
+        "name": "French Defense: Burn Variation",
+        "fen": "rnbqkb1r/ppp2ppp/4pn2/3p2B1/3PP3/2N5/PPP2PPP/R2QKBNR b KQkq -",
+        "url": "https://lichess.org/opening/French_Defense_Burn_Variation"
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "ni6ySY3Y",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 1
+      },
+      "rated": true,
+      "fullName": "≤1500 Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747459800000,
+      "finishesAt": 1747461420000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 17410,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1500
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "U4uVZb8L",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Antichess Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "antichess",
+        "short": "Anti",
+        "name": "Antichess"
+      },
+      "startsAt": 1747459810000,
+      "finishesAt": 1747461430000,
+      "status": 10,
+      "perf": {
+        "key": "antichess",
+        "name": "Antichess",
+        "position": 9
+      },
+      "secondsToStart": 17420,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "gs5KDtSQ",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747459820000,
+      "finishesAt": 1747461440000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 17430,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "iOIEHv7F",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 15,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly UltraBullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747459840000,
+      "finishesAt": 1747461460000,
+      "status": 10,
+      "perf": {
+        "key": "ultraBullet",
+        "name": "UltraBullet",
+        "position": 4,
+        "icon": "{"
+      },
+      "secondsToStart": 17450,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "ultraBullet"
+      }
+    },
+    {
+      "id": "HQL1RjfF",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 120,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Eastern Blitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747461600000,
+      "finishesAt": 1747468800000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 19210,
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "eastern",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "lX3aGEa9",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Atomic Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "atomic",
+        "short": "Atom",
+        "name": "Atomic"
+      },
+      "startsAt": 1747461602500,
+      "finishesAt": 1747465022500,
+      "status": 10,
+      "perf": {
+        "key": "atomic",
+        "name": "Atomic",
+        "position": 10
+      },
+      "secondsToStart": 19212,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "X7wujxRj",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 30,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly HyperBullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747461605000,
+      "finishesAt": 1747463225000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 19215,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "hyperBullet"
+      }
+    },
+    {
+      "id": "YPpgi3oG",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Three-check Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "threeCheck",
+        "short": "3check",
+        "name": "Three-check"
+      },
+      "startsAt": 1747461607500,
+      "finishesAt": 1747463227500,
+      "status": 10,
+      "perf": {
+        "key": "threeCheck",
+        "name": "Three-check",
+        "position": 8
+      },
+      "secondsToStart": 19217,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "WHNzWugt",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1700 Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747461610000,
+      "finishesAt": 1747463230000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 19220,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1700
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "NcjnZPMx",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747461615000,
+      "finishesAt": 1747463235000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 19225,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "bMRSm3Nl",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 600,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤2000 Rapid Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747461620000,
+      "finishesAt": 1747465040000,
+      "status": 10,
+      "perf": {
+        "key": "rapid",
+        "name": "Rapid",
+        "position": 2,
+        "icon": "#"
+      },
+      "secondsToStart": 19230,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 2000
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "rapid"
+      }
+    },
+    {
+      "id": "TpqKApOx",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1300 Blitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747461625000,
+      "finishesAt": 1747465045000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 19235,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1300
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "HkqWqc8d",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1500 SuperBlitz Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747461630000,
+      "finishesAt": 1747465050000,
+      "status": 10,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "secondsToStart": 19240,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1500
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "mrveJOK9",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Chess960 Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "chess960",
+        "short": "960",
+        "name": "Chess960"
+      },
+      "startsAt": 1747461635000,
+      "finishesAt": 1747465055000,
+      "status": 10,
+      "perf": {
+        "key": "chess960",
+        "name": "Chess960",
+        "position": 6
+      },
+      "secondsToStart": 19245,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "Obip1d4Z",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 117,
+      "clock": {
+        "limit": 600,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "French Defense Rapid Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747461640000,
+      "finishesAt": 1747468660000,
+      "status": 10,
+      "perf": {
+        "key": "rapid",
+        "name": "Rapid",
+        "position": 2,
+        "icon": "#"
+      },
+      "secondsToStart": 19250,
+      "minRatedGames": {
+        "nb": 10
+      },
+      "position": {
+        "eco": "C11",
+        "name": "French Defense: Burn Variation",
+        "fen": "rnbqkb1r/ppp2ppp/4pn2/3p2B1/3PP3/2N5/PPP2PPP/R2QKBNR b KQkq -",
+        "url": "https://lichess.org/opening/French_Defense_Burn_Variation"
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "rapid"
+      }
+    },
+    {
+      "id": "0P28RC72",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 1
+      },
+      "rated": true,
+      "fullName": "≤1700 Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747463400000,
+      "finishesAt": 1747465020000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 21010,
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1700
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "40LN2BfY",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Three-check Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "threeCheck",
+        "short": "3check",
+        "name": "Three-check"
+      },
+      "startsAt": 1747463410000,
+      "finishesAt": 1747465030000,
+      "status": 10,
+      "perf": {
+        "key": "threeCheck",
+        "name": "Three-check",
+        "position": 8
+      },
+      "secondsToStart": 21020,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "zdUwC4to",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Bullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747463420000,
+      "finishesAt": 1747465040000,
+      "status": 10,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "secondsToStart": 21030,
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "RWRnpyxn",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 15,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly UltraBullet Arena",
+      "nbPlayers": 0,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747463440000,
+      "finishesAt": 1747465060000,
+      "status": 10,
+      "perf": {
+        "key": "ultraBullet",
+        "name": "UltraBullet",
+        "position": 4,
+        "icon": "{"
+      },
+      "secondsToStart": 21050,
+      "schedule": {
+        "freq": "hourly",
+        "speed": "ultraBullet"
+      }
+    }
+  ],
+  "started": [
+    {
+      "id": "66XBxKc7",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 600,
+      "clock": {
+        "limit": 1200,
+        "increment": 10
+      },
+      "rated": true,
+      "fullName": "Yearly Classical Arena",
+      "nbPlayers": 4393,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747414800000,
+      "finishesAt": 1747450800000,
+      "status": 20,
+      "perf": {
+        "key": "classical",
+        "name": "Classical",
+        "position": 3,
+        "icon": "+"
+      },
+      "schedule": {
+        "freq": "yearly",
+        "speed": "classical"
+      }
+    },
+    {
+      "id": "bXJmseMs",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤2000 SuperBlitz Arena",
+      "nbPlayers": 250,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747440000000,
+      "finishesAt": 1747443420000,
+      "status": 20,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 2000
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "Nn5IKurI",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1700 Blitz Arena",
+      "nbPlayers": 172,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747440040000,
+      "finishesAt": 1747443460000,
+      "status": 20,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1700
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "vBUOd4tr",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 600,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1500 Rapid Arena",
+      "nbPlayers": 82,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747440020000,
+      "finishesAt": 1747443440000,
+      "status": 20,
+      "perf": {
+        "key": "rapid",
+        "name": "Rapid",
+        "position": 2,
+        "icon": "#"
+      },
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1500
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "rapid"
+      }
+    },
+    {
+      "id": "TXdS2Z49",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 15,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly UltraBullet Arena",
+      "nbPlayers": 39,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747441800000,
+      "finishesAt": 1747443420000,
+      "status": 20,
+      "perf": {
+        "key": "ultraBullet",
+        "name": "UltraBullet",
+        "position": 4,
+        "icon": "{"
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "ultraBullet"
+      }
+    },
+    {
+      "id": "N0QEgt7j",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Bullet Arena",
+      "nbPlayers": 107,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747441840000,
+      "finishesAt": 1747443460000,
+      "status": 20,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "ftfUf0qv",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly SuperBlitz Arena",
+      "nbPlayers": 346,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747440005000,
+      "finishesAt": 1747443425000,
+      "status": 20,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "qw90ZswB",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Blitz Arena",
+      "nbPlayers": 163,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747440015000,
+      "finishesAt": 1747443435000,
+      "status": 20,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "Ur1RucPX",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 117,
+      "clock": {
+        "limit": 600,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Rapid Arena",
+      "nbPlayers": 134,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747440025000,
+      "finishesAt": 1747447045000,
+      "status": 20,
+      "perf": {
+        "key": "rapid",
+        "name": "Rapid",
+        "position": 2,
+        "icon": "#"
+      },
+      "minRatedGames": {
+        "nb": 10
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "rapid"
+      }
+    },
+    {
+      "id": "Psw6hRlz",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 1
+      },
+      "rated": true,
+      "fullName": "≤1300 Bullet Arena",
+      "nbPlayers": 19,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747441820000,
+      "finishesAt": 1747443440000,
+      "status": 20,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1300
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      }
+    },
+    {
+      "id": "v1vxNu1H",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 120,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Chess960 Arena",
+      "nbPlayers": 41,
+      "variant": {
+        "key": "chess960",
+        "short": "960",
+        "name": "Chess960"
+      },
+      "startsAt": 1747440002500,
+      "finishesAt": 1747443422500,
+      "status": 20,
+      "perf": {
+        "key": "chess960",
+        "name": "Chess960",
+        "position": 6
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "hippoBullet"
+      }
+    },
+    {
+      "id": "epfQAT3b",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Atomic Arena",
+      "nbPlayers": 35,
+      "variant": {
+        "key": "atomic",
+        "short": "Atom",
+        "name": "Atomic"
+      },
+      "startsAt": 1747440007500,
+      "finishesAt": 1747443427500,
+      "status": 20,
+      "perf": {
+        "key": "atomic",
+        "name": "Atomic",
+        "position": 10
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      }
+    },
+    {
+      "id": "MN3Lsr6r",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Three-check Arena",
+      "nbPlayers": 21,
+      "variant": {
+        "key": "threeCheck",
+        "short": "3check",
+        "name": "Three-check"
+      },
+      "startsAt": 1747440012500,
+      "finishesAt": 1747443432500,
+      "status": 20,
+      "perf": {
+        "key": "threeCheck",
+        "name": "Three-check",
+        "position": 8
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      }
+    },
+    {
+      "id": "Q7cXFyGA",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 60,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Daily Antichess Arena",
+      "nbPlayers": 51,
+      "variant": {
+        "key": "antichess",
+        "short": "Anti",
+        "name": "Antichess"
+      },
+      "startsAt": 1747440017500,
+      "finishesAt": 1747443617500,
+      "status": 20,
+      "perf": {
+        "key": "antichess",
+        "name": "Antichess",
+        "position": 9
+      },
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "daily",
+        "speed": "superBlitz"
+      }
+    }
+  ],
+  "finished": [
+    {
+      "id": "xnQHYmqD",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1300 Bullet Arena",
+      "nbPlayers": 26,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747440035000,
+      "finishesAt": 1747441655000,
+      "status": 30,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1300
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      },
+      "winner": {
+        "name": "HolyGhostPaulG",
+        "id": "holyghostpaulg"
+      }
+    },
+    {
+      "id": "ChAlz0yT",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Bullet Arena",
+      "nbPlayers": 184,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747440030000,
+      "finishesAt": 1747441650000,
+      "status": 30,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      },
+      "winner": {
+        "name": "Matanzas67",
+        "title": "IM",
+        "id": "matanzas67"
+      }
+    },
+    {
+      "id": "wKh4j11B",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 30,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly HyperBullet Arena",
+      "nbPlayers": 62,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747440010000,
+      "finishesAt": 1747441630000,
+      "status": 30,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "hyperBullet"
+      },
+      "winner": {
+        "name": "Sheldon9909",
+        "id": "sheldon9909"
+      }
+    },
+    {
+      "id": "dbA2yzFM",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 15,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly UltraBullet Arena",
+      "nbPlayers": 71,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747438240000,
+      "finishesAt": 1747439860000,
+      "status": 30,
+      "perf": {
+        "key": "ultraBullet",
+        "name": "UltraBullet",
+        "position": 4,
+        "icon": "{"
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "ultraBullet"
+      },
+      "winner": {
+        "name": "ManiacZerker",
+        "id": "maniaczerker"
+      }
+    },
+    {
+      "id": "iqHmCiYd",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Bullet Arena",
+      "nbPlayers": 225,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747438220000,
+      "finishesAt": 1747439840000,
+      "status": 30,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      },
+      "winner": {
+        "name": "Matanzas67",
+        "title": "IM",
+        "id": "matanzas67"
+      }
+    },
+    {
+      "id": "iTFreVwo",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Antichess Arena",
+      "nbPlayers": 27,
+      "variant": {
+        "key": "antichess",
+        "short": "Anti",
+        "name": "Antichess"
+      },
+      "startsAt": 1747438210000,
+      "finishesAt": 1747439830000,
+      "status": 30,
+      "perf": {
+        "key": "antichess",
+        "name": "Antichess",
+        "position": 9
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      },
+      "winner": {
+        "name": "llIVIll",
+        "flair": "nature.dragon",
+        "id": "llivill"
+      }
+    },
+    {
+      "id": "KjKBlMBL",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 1
+      },
+      "rated": true,
+      "fullName": "≤2000 Bullet Arena",
+      "nbPlayers": 85,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747438200000,
+      "finishesAt": 1747439820000,
+      "status": 30,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 2000
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      },
+      "winner": {
+        "name": "Radzhabov82",
+        "id": "radzhabov82"
+      }
+    },
+    {
+      "id": "WmJ01Nt0",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤2000 Bullet Arena",
+      "nbPlayers": 104,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747436440000,
+      "finishesAt": 1747438060000,
+      "status": 30,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 2000
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      },
+      "winner": {
+        "name": "Radzhabov82",
+        "id": "radzhabov82"
+      }
+    },
+    {
+      "id": "FxoUfjR7",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 600,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1300 Rapid Arena",
+      "nbPlayers": 66,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747436435000,
+      "finishesAt": 1747439855000,
+      "status": 30,
+      "perf": {
+        "key": "rapid",
+        "name": "Rapid",
+        "position": 2,
+        "icon": "#"
+      },
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1300
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "rapid"
+      },
+      "winner": {
+        "name": "Niko64",
+        "id": "niko64"
+      }
+    },
+    {
+      "id": "uKDvfl1n",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 30,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly HyperBullet Arena",
+      "nbPlayers": 63,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747436430000,
+      "finishesAt": 1747438050000,
+      "status": 30,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "hyperBullet"
+      },
+      "winner": {
+        "name": "Sheldon9909",
+        "id": "sheldon9909"
+      }
+    },
+    {
+      "id": "tQ3jS020",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Blitz Arena",
+      "nbPlayers": 249,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747436425000,
+      "finishesAt": 1747439845000,
+      "status": 30,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      },
+      "winner": {
+        "name": "SinaKhajei",
+        "id": "sinakhajei"
+      }
+    },
+    {
+      "id": "AZ8AuSMJ",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1700 SuperBlitz Arena",
+      "nbPlayers": 192,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747436420000,
+      "finishesAt": 1747439840000,
+      "status": 30,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1700
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      },
+      "winner": {
+        "name": "ach2405",
+        "id": "ach2405"
+      }
+    },
+    {
+      "id": "LygysRXy",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly SuperBlitz Arena",
+      "nbPlayers": 493,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747436415000,
+      "finishesAt": 1747439835000,
+      "status": 30,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      },
+      "winner": {
+        "name": "limbas888",
+        "id": "limbas888"
+      }
+    },
+    {
+      "id": "dljvNaoC",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 120,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Racing Kings Arena",
+      "nbPlayers": 14,
+      "variant": {
+        "key": "racingKings",
+        "short": "Racing",
+        "name": "Racing Kings"
+      },
+      "startsAt": 1747436412500,
+      "finishesAt": 1747439832500,
+      "status": 30,
+      "perf": {
+        "key": "racingKings",
+        "name": "Racing Kings",
+        "position": 12
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "hippoBullet"
+      },
+      "winner": {
+        "name": "nataniel123",
+        "id": "nataniel123"
+      }
+    },
+    {
+      "id": "ZN9VMW1f",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 300,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "≤1500 Blitz Arena",
+      "nbPlayers": 134,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747436410000,
+      "finishesAt": 1747439830000,
+      "status": 30,
+      "perf": {
+        "key": "blitz",
+        "name": "Blitz",
+        "position": 1,
+        "icon": ")"
+      },
+      "hasMaxRating": true,
+      "maxRating": {
+        "rating": 1500
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "blitz"
+      },
+      "winner": {
+        "name": "MehmetNTalo",
+        "id": "mehmetntalo"
+      }
+    },
+    {
+      "id": "8NAQ1S1W",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Antichess Arena",
+      "nbPlayers": 40,
+      "variant": {
+        "key": "antichess",
+        "short": "Anti",
+        "name": "Antichess"
+      },
+      "startsAt": 1747436407500,
+      "finishesAt": 1747438027500,
+      "status": 30,
+      "perf": {
+        "key": "antichess",
+        "name": "Antichess",
+        "position": 9
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      },
+      "winner": {
+        "name": "Kotov_Syndrome",
+        "patron": true,
+        "id": "kotov_syndrome"
+      }
+    },
+    {
+      "id": "vd39ocyV",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 60,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Bullet Arena",
+      "nbPlayers": 248,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747436405000,
+      "finishesAt": 1747438025000,
+      "status": 30,
+      "perf": {
+        "key": "bullet",
+        "name": "Bullet",
+        "position": 0,
+        "icon": "T"
+      },
+      "minRatedGames": {
+        "nb": 20
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "bullet"
+      },
+      "winner": {
+        "name": "Il_Colonno",
+        "id": "il_colonno"
+      }
+    },
+    {
+      "id": "xvujIEaY",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 57,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly Crazyhouse Arena",
+      "nbPlayers": 58,
+      "variant": {
+        "key": "crazyhouse",
+        "short": "Crazy",
+        "name": "Crazyhouse"
+      },
+      "startsAt": 1747436402500,
+      "finishesAt": 1747439822500,
+      "status": 30,
+      "perf": {
+        "key": "crazyhouse",
+        "name": "Crazyhouse",
+        "position": 5
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "superBlitz"
+      },
+      "winner": {
+        "name": "MillzGambit",
+        "id": "millzgambit"
+      }
+    },
+    {
+      "id": "8uTlvFgQ",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 60,
+      "clock": {
+        "limit": 180,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Daily Atomic Arena",
+      "nbPlayers": 69,
+      "variant": {
+        "key": "atomic",
+        "short": "Atom",
+        "name": "Atomic"
+      },
+      "startsAt": 1747436400000,
+      "finishesAt": 1747440000000,
+      "status": 30,
+      "perf": {
+        "key": "atomic",
+        "name": "Atomic",
+        "position": 10
+      },
+      "minRatedGames": {
+        "nb": 15
+      },
+      "schedule": {
+        "freq": "daily",
+        "speed": "superBlitz"
+      },
+      "winner": {
+        "name": "RookGameStrategy",
+        "flair": "activity.lichess-variant-three-check",
+        "id": "rookgamestrategy"
+      }
+    },
+    {
+      "id": "R5VzHVsU",
+      "createdBy": "lichess",
+      "system": "arena",
+      "minutes": 27,
+      "clock": {
+        "limit": 15,
+        "increment": 0
+      },
+      "rated": true,
+      "fullName": "Hourly UltraBullet Arena",
+      "nbPlayers": 56,
+      "variant": {
+        "key": "standard",
+        "short": "Std",
+        "name": "Standard"
+      },
+      "startsAt": 1747434640000,
+      "finishesAt": 1747436260000,
+      "status": 30,
+      "perf": {
+        "key": "ultraBullet",
+        "name": "UltraBullet",
+        "position": 4,
+        "icon": "{"
+      },
+      "schedule": {
+        "freq": "hourly",
+        "speed": "ultraBullet"
+      },
+      "winner": {
+        "name": "Hemant95035",
+        "flair": "symbols.triangular-flag",
+        "id": "hemant95035"
+      }
+    }
+  ]
+}

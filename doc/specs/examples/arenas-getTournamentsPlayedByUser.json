@@ -1,0 +1,41 @@
+{
+  "tournament": {
+    "id": "JbdQe217",
+    "createdBy": "cormacobear",
+    "system": "arena",
+    "minutes": 240,
+    "clock": {
+      "limit": 180,
+      "increment": 0
+    },
+    "rated": true,
+    "fullName": "Lichess 2025 MSF Charity Campaign",
+    "nbPlayers": 3753,
+    "variant": {
+      "key": "standard",
+      "short": "Std",
+      "name": "Standard"
+    },
+    "startsAt": 1746295200000,
+    "finishesAt": 1746309600000,
+    "status": 30,
+    "perf": {
+      "key": "blitz",
+      "name": "Blitz",
+      "position": 1,
+      "icon": ")"
+    },
+    "minRatedGames": {
+      "nb": 20
+    },
+    "schedule": {
+      "freq": "unique",
+      "speed": "superBlitz"
+    }
+  },
+  "player": {
+    "games": 8,
+    "score": 7,
+    "rank": 1503
+  }
+}

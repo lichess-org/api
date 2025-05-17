@@ -1,0 +1,41 @@
+{
+  "nbPlayers": 0,
+  "duels": [],
+  "secondsToStart": 300,
+  "standing": {
+    "page": 1,
+    "players": []
+  },
+  "id": "Zt9SEhVE",
+  "createdBy": "bobby",
+  "startsAt": "2025-05-17T00:44:50.55Z",
+  "system": "arena",
+  "fullName": "Updated Arena Arena",
+  "minutes": 60,
+  "perf": {
+    "key": "blitz",
+    "name": "Blitz",
+    "icon": ")"
+  },
+  "clock": {
+    "limit": 300,
+    "increment": 0
+  },
+  "variant": "standard",
+  "rated": true,
+  "berserkable": true,
+  "verdicts": {
+    "list": [
+      {
+        "condition": "Bot players are not allowed",
+        "verdict": "ok"
+      }
+    ],
+    "accepted": true
+  },
+  "quote": {
+    "text": "Few things are as psychologically brutal as chess.",
+    "author": "Garry Kasparov"
+  },
+  "myUsername": "Bobby"
+}
