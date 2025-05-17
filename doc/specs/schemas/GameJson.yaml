@@ -17,7 +17,7 @@ properties:
     type: number
     format: int64
   status:
-    $ref: "./GameStatus.yaml"
+    $ref: "./GameStatusName.yaml"
   source:
     type: string
   players:
