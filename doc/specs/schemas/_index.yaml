@@ -91,6 +91,9 @@ Profile:
 Count:
   $ref: "./Count.yaml"
 
+UserStreamer:
+  $ref: "./UserStreamer.yaml"
+
 User:
   $ref: "./User.yaml"
 

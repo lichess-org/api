@@ -2,7 +2,9 @@ type: object
 properties:
   total:
     type: integer
-    example: 3296897
   tv:
     type: integer
-    example: 12134
+
+required:
+  - total
+  - tv
