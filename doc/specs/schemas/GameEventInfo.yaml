@@ -28,14 +28,7 @@ properties:
   hasMoved:
     type: boolean
   opponent:
-    type: object
-    properties:
-      id:
-        type: string
-      username:
-        type: string
-      rating:
-        type: integer
+    $ref: "./GameEventOpponent.yaml"
   isMyTurn:
     type: boolean
   secondsLeft:
@@ -44,3 +37,7 @@ properties:
     $ref: "./GameCompat.yaml"
   id:
     type: string
+
+required:
+  - fullId
+  - gameId
