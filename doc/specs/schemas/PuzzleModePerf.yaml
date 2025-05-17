@@ -2,7 +2,9 @@ type: object
 properties:
   runs:
     type: integer
-    example: 44
   score:
     type: integer
-    example: 61
+
+required:
+  - runs
+  - score
