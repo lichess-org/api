@@ -49,7 +49,6 @@ get:
               - rating
               - username
               - performance
-              - team
             properties:
               rank:
                 type: number
@@ -69,14 +68,5 @@ get:
                 $ref: "../../schemas/Flair.yaml"
               sheet:
                 $ref: "../../schemas/ArenaSheet.yaml"
-            example:
-              {
-                "rank": 4,
-                "score": 389,
-                "rating": 2618,
-                "username": "opperwezen",
-                "title": "IM",
-                "performance": 2423,
-                "team": "coders",
-                "sheet": { "scores": "1022112122211221" },
-              }
+          example:
+            $ref: "../../examples/arenas-getResultsOfArena.json"
