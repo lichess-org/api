@@ -7,7 +7,7 @@ properties:
     type: string
   system:
     type: string
-    const: "arena"
+    const: arena
   minutes:
     type: integer
   clock:
@@ -72,31 +72,19 @@ properties:
       nbLeaders:
         type: integer
   winner:
-    type: object
-    properties:
-      id:
-        type: string
-      name:
-        type: string
-      title:
-        $ref: "./Title.yaml"
+    $ref: "./LightUser.yaml"
 
-example:
-  {
-    "id": "XhfVxYPG",
-    "createdBy": "lichess",
-    "system": "arena",
-    "minutes": 27,
-    "clock": { "limit": 60, "increment": 0 },
-    "rated": true,
-    "fullName": "Hourly Bullet Arena",
-    "nbPlayers": 4,
-    "variant": { "key": "standard", "short": "Std", "name": "Standard" },
-    "startsAt": 1716930043067,
-    "finishesAt": 1716931663067,
-    "status": 10,
-    "perf": { "key": "bullet", "name": "Bullet", "position": 0, "icon": "T" },
-    "secondsToStart": 871,
-    "minRatedGames": { "nb": 20 },
-    "schedule": { "freq": "hourly", "speed": "bullet" },
-  }
+required:
+  - id
+  - createdBy
+  - system
+  - minutes
+  - clock
+  - rated
+  - fullName
+  - nbPlayers
+  - variant
+  - startsAt
+  - finishesAt
+  - status
+  - perf

@@ -36,7 +36,7 @@ get:
               - $ref: "../../schemas/GameFullEvent.yaml"
               - $ref: "../../schemas/GameStateEvent.yaml"
               - $ref: "../../schemas/ChatLineEvent.yaml"
-              - $ref: "../../schemas/OpponentGone.yaml"
+              - $ref: "../../schemas/OpponentGoneEvent.yaml"
     "404":
       description: The bot game was not found.
       content:

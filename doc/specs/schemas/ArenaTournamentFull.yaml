@@ -57,6 +57,14 @@ properties:
       author:
         type: string
     description: "The quote displayed on the tournament page"
+  greatPlayer:
+    type: object
+    properties:
+      name:
+        type: string
+      url:
+        type: string
+        format: uri
   allowList:
     type: array
     items:
@@ -250,11 +258,11 @@ properties:
       - draws
       - berserks
       - averageRating
+  myUsername:
+    type: string
 
 required:
   - id
   - fullName
   - clock
-  - isFinished
   - nbPlayers
-  - stats

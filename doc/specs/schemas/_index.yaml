@@ -22,6 +22,12 @@ TimeControl:
 GameStatus:
   $ref: "./GameStatus.yaml"
 
+GameStatusId:
+  $ref: "./GameStatusId.yaml"
+
+GameStatusName:
+  $ref: "./GameStatusName.yaml"
+
 FromPositionFEN:
   $ref: "./FromPositionFEN.yaml"
 
@@ -220,8 +226,8 @@ GameStateEvent:
 ChatLineEvent:
   $ref: "./ChatLineEvent.yaml"
 
-OpponentGone:
-  $ref: "./OpponentGone.yaml"
+OpponentGoneEvent:
+  $ref: "./OpponentGoneEvent.yaml"
 
 GameEventInfo:
   $ref: "./GameEventInfo.yaml"

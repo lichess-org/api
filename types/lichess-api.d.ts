@@ -3925,22 +3925,17 @@ export interface components {
      *     } */
     Leaderboard: unknown;
     Perf: {
-      /** @example 2945 */
-      games?: number;
-      /** @example 1609 */
-      rating?: number;
-      /** @example 60 */
-      rd?: number;
-      /** @example -22 */
-      prog?: number;
+      games: number;
+      rating: number;
+      /** @description rating deviation */
+      rd: number;
+      prog: number;
       /** @description only appears if a user's perf rating are [provisional](https://lichess.org/faq#provisional) */
       prov?: boolean;
     };
     PuzzleModePerf: {
-      /** @example 44 */
-      runs?: number;
-      /** @example 61 */
-      score?: number;
+      runs: number;
+      score: number;
     };
     Perfs: {
       chess960?: components["schemas"]["Perf"];
@@ -4465,18 +4460,9 @@ export interface components {
       puzzles?: {
         score?: components["schemas"]["UserActivityScore"];
       };
-      storm?: {
-        runs?: number;
-        score?: number;
-      };
-      racer?: {
-        runs?: number;
-        score?: number;
-      };
-      streak?: {
-        runs?: number;
-        score?: number;
-      };
+      storm?: components["schemas"]["PuzzleModePerf"];
+      racer?: components["schemas"]["PuzzleModePerf"];
+      streak?: components["schemas"]["PuzzleModePerf"];
       tournaments?: {
         nb?: number;
         best?: {
@@ -4512,6 +4498,7 @@ export interface components {
       teams?: {
         url: string;
         name: string;
+        flair?: components["schemas"]["Flair"];
       }[];
       posts?: {
         topicUrl: string;
@@ -5095,11 +5082,8 @@ export interface components {
       | "rapid"
       | "classical"
       | "correspondence";
-    /**
-     * @description Game status code. https://github.com/lichess-org/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
-     * @enum {string}
-     */
-    GameStatus:
+    /** @enum {string} */
+    GameStatusName:
       | "created"
       | "started"
       | "aborted"
@@ -5169,7 +5153,7 @@ export interface components {
       createdAt: number;
       /** Format: int64 */
       lastMoveAt: number;
-      status: components["schemas"]["GameStatus"];
+      status: components["schemas"]["GameStatusName"];
       source?: string;
       players: {
         white: components["schemas"]["GameUser"];
@@ -5404,19 +5388,18 @@ export interface components {
      */
     ArenaStatus: 10 | 20 | 30;
     ArenaPerf: {
-      /** @example blitz */
-      key?: string;
+      key: components["schemas"]["PerfType"];
       /** @example Blitz */
-      name?: string;
+      name: string;
       /** @example 1 */
-      position?: number;
+      position: number;
       /** @example ) */
       icon?: string;
     };
     ArenaRatingObj: {
       perf?: components["schemas"]["PerfType"];
       /** @example 1700 */
-      rating?: number;
+      rating: number;
     };
     ArenaPosition:
       | {
@@ -5438,58 +5421,23 @@ export interface components {
           /** @example rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 2 3 */
           fen?: string;
         };
-    /** @example {
-     *       "id": "XhfVxYPG",
-     *       "createdBy": "lichess",
-     *       "system": "arena",
-     *       "minutes": 27,
-     *       "clock": {
-     *         "limit": 60,
-     *         "increment": 0
-     *       },
-     *       "rated": true,
-     *       "fullName": "Hourly Bullet Arena",
-     *       "nbPlayers": 4,
-     *       "variant": {
-     *         "key": "standard",
-     *         "short": "Std",
-     *         "name": "Standard"
-     *       },
-     *       "startsAt": 1716930043067,
-     *       "finishesAt": 1716931663067,
-     *       "status": 10,
-     *       "perf": {
-     *         "key": "bullet",
-     *         "name": "Bullet",
-     *         "position": 0,
-     *         "icon": "T"
-     *       },
-     *       "secondsToStart": 871,
-     *       "minRatedGames": {
-     *         "nb": 20
-     *       },
-     *       "schedule": {
-     *         "freq": "hourly",
-     *         "speed": "bullet"
-     *       }
-     *     } */
     ArenaTournament: {
-      id?: string;
-      createdBy?: string;
+      id: string;
+      createdBy: string;
       /** @constant */
-      system?: "arena";
-      minutes?: number;
-      clock?: components["schemas"]["Clock"];
-      rated?: boolean;
-      fullName?: string;
-      nbPlayers?: number;
-      variant?: components["schemas"]["Variant"];
+      system: "arena";
+      minutes: number;
+      clock: components["schemas"]["Clock"];
+      rated: boolean;
+      fullName: string;
+      nbPlayers: number;
+      variant: components["schemas"]["Variant"];
       /** Format: int64 */
-      startsAt?: number;
+      startsAt: number;
       /** Format: int64 */
-      finishesAt?: number;
-      status?: components["schemas"]["ArenaStatus"];
-      perf?: components["schemas"]["ArenaPerf"];
+      finishesAt: number;
+      status: components["schemas"]["ArenaStatus"];
+      perf: components["schemas"]["ArenaPerf"];
       secondsToStart?: number;
       hasMaxRating?: boolean;
       maxRating?: components["schemas"]["ArenaRatingObj"];
@@ -5511,11 +5459,7 @@ export interface components {
         teams?: string[];
         nbLeaders?: number;
       };
-      winner?: {
-        id?: string;
-        name?: string;
-        title?: components["schemas"]["Title"];
-      };
+      winner?: components["schemas"]["LightUser"];
     };
     ArenaTournaments: {
       created?: components["schemas"]["ArenaTournament"][];
@@ -5556,7 +5500,7 @@ export interface components {
       system?: string;
       secondsToStart?: number;
       secondsToFinish?: number;
-      isFinished: boolean;
+      isFinished?: boolean;
       isRecentlyFinished?: boolean;
       pairingsClosed?: boolean;
       /** Format: int64 */
@@ -5567,6 +5511,11 @@ export interface components {
       quote?: {
         text?: string;
         author?: string;
+      };
+      greatPlayer?: {
+        name?: string;
+        /** Format: uri */
+        url?: string;
       };
       /** @description List of usernames allowed to join the tournament */
       allowList?: string[];
@@ -5650,7 +5599,7 @@ export interface components {
         };
         performance?: number;
       }[];
-      stats: {
+      stats?: {
         games: number;
         moves: number;
         whiteWins: number;
@@ -5659,6 +5608,7 @@ export interface components {
         berserks: number;
         averageRating: number;
       };
+      myUsername?: string;
     };
     /** @example {
      *       "error": "This request is invalid because [...]"
@@ -6306,7 +6256,6 @@ export interface components {
     };
     /**
      * @description The current state of the arena tournament
-     * @example created
      * @enum {string}
      */
     ArenaStatusName: "created" | "started" | "finished";
@@ -6351,70 +6300,51 @@ export interface components {
        */
       date?: number;
     };
+    /** @enum {integer} */
+    GameStatusId:
+      | 10
+      | 20
+      | 25
+      | 30
+      | 31
+      | 32
+      | 33
+      | 34
+      | 35
+      | 36
+      | 37
+      | 38
+      | 60;
+    GameStatus: {
+      id?: components["schemas"]["GameStatusId"];
+      name?: components["schemas"]["GameStatusName"];
+    };
+    GameEventOpponent: {
+      id?: string;
+      username?: string;
+      rating?: number;
+    };
     GameCompat: {
       /** @description Compatible with Bot API */
       bot?: boolean;
       /** @description Compatible with Board API */
       board?: boolean;
     };
-    /** @example {
-     *       "fullId": "9NaCTu2vz1c4",
-     *       "gameId": "9NaCTu2v",
-     *       "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-     *       "color": "white",
-     *       "lastMove": "",
-     *       "source": "friend",
-     *       "status": {
-     *         "id": 20,
-     *         "name": "started"
-     *       },
-     *       "variant": {
-     *         "key": "standard",
-     *         "name": "Standard"
-     *       },
-     *       "speed": "blitz",
-     *       "perf": "blitz",
-     *       "rated": false,
-     *       "hasMoved": false,
-     *       "opponent": {
-     *         "id": "mary",
-     *         "username": "Mary",
-     *         "rating": 1007
-     *       },
-     *       "isMyTurn": true,
-     *       "secondsLeft": 300,
-     *       "compat": {
-     *         "bot": false,
-     *         "board": true
-     *       },
-     *       "id": "9NaCTu2v"
-     *     } */
     GameEventInfo: {
-      fullId?: string;
-      gameId?: string;
+      fullId: string;
+      gameId: string;
       fen?: string;
       /** @enum {string} */
       color?: "white" | "black";
       lastMove?: string;
       source?: components["schemas"]["GameSource"];
-      status?: {
-        /** @enum {integer} */
-        id?: 10 | 20 | 25 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 60;
-        name?: components["schemas"]["GameStatus"];
-      };
-      variant?: {
-        key?: string;
-        name?: string;
-      };
+      status?: components["schemas"]["GameStatus"];
+      variant?: components["schemas"]["Variant"];
       speed?: components["schemas"]["Speed"];
       perf?: string;
       rated?: boolean;
       hasMoved?: boolean;
-      opponent?: {
-        id?: string;
-        username?: string;
-        rating?: number;
-      };
+      opponent?: components["schemas"]["GameEventOpponent"];
       isMyTurn?: boolean;
       secondsLeft?: number;
       compat?: components["schemas"]["GameCompat"];
@@ -6647,7 +6577,7 @@ export interface components {
       winc: number;
       /** @description Integer of Black Fisher increment. */
       binc: number;
-      status: components["schemas"]["GameStatus"];
+      status: components["schemas"]["GameStatusName"];
       /** @description Color of the winner, if any */
       winner?: string;
       /** @description true if white is offering draw, else omitted */
@@ -6751,7 +6681,7 @@ export interface components {
      *       "gone": true,
      *       "claimWinInSeconds": 8
      *     } */
-    OpponentGone: {
+    OpponentGoneEvent: {
       /** @constant */
       type: "opponentGone";
       gone: boolean;
@@ -6892,45 +6822,22 @@ export interface components {
       | "racingkings"
       | "3check";
     ExternalEngine: {
-      /**
-       * @description Unique engine registration ID.
-       * @example eei_aTKImBJOnv6j
-       */
+      /** @description Unique engine registration ID. */
       id: string;
-      /**
-       * @description Display name of the engine.
-       * @example Stockfish 15
-       */
+      /** @description Display name of the engine. */
       name: string;
-      /**
-       * @description A secret token that can be used to
+      /** @description A secret token that can be used to
        *     [*request* analysis](#tag/External-engine/operation/apiExternalEngineAnalyse)
        *     from this external engine.
-       *
-       * @example ees_mdF2hK0hlKGSPeC6
-       */
+       *      */
       clientSecret: string;
-      /**
-       * @description The user this engine has been registered for.
-       * @example thibault
-       */
+      /** @description The user this engine has been registered for. */
       userId: string;
-      /**
-       * @description Maximum number of available threads.
-       * @example 8
-       */
+      /** @description Maximum number of available threads. */
       maxThreads: number;
-      /**
-       * @description Maximum available hash table size, in MiB.
-       * @example 2048
-       */
+      /** @description Maximum available hash table size, in MiB. */
       maxHash: number;
-      /**
-       * @description List of supported chess variants.
-       * @example [
-       *       "chess"
-       *     ]
-       */
+      /** @description List of supported chess variants. */
       variants: components["schemas"]["UciVariant"][];
       /** @description Arbitrary data that the engine provider can use for identification
        *     or bookkeeping.
@@ -6938,7 +6845,7 @@ export interface components {
        *     Users can read this information, but updating it requires knowing
        *     or changing the `providerSecret`.
        *      */
-      providerData?: string;
+      providerData?: string | null;
     };
     ExternalEngineRegistration: {
       /**
@@ -6983,50 +6890,36 @@ export interface components {
        *      */
       providerData?: string;
     };
-    ExternalEngineWork: {
-      /**
-       * @description Arbitary string that identifies the analysis session.
+    ExternalEngineWorkCommon: {
+      /** @description Arbitary string that identifies the analysis session.
        *     Providers may wish to clear the hash table between sessions.
-       *
-       * @example abcd1234
-       */
+       *      */
       sessionId: string;
-      /**
-       * @description Number of threads to use for analysis.
-       * @example 4
-       */
+      /** @description Number of threads to use for analysis. */
       threads: number;
-      /**
-       * @description Hash table size to use for analysis, in MiB.
-       * @example 128
-       */
+      /** @description Hash table size to use for analysis, in MiB. */
       hash: number;
-      /**
-       * @description Requested number of principal variations.
-       * @example 1
-       */
+      /** @description Requested number of principal variations. */
       multiPv: number;
       variant: components["schemas"]["UciVariant"];
-      /**
-       * @description Initial position of the game.
-       * @example rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
-       */
+      /** @description Initial position of the game. */
       initialFen: string;
-      /**
-       * @description List of moves played from the initial position, in UCI notation.
-       * @example [
-       *       "e2e4",
-       *       "g8f6"
-       *     ]
-       */
+      /** @description List of moves played from the initial position, in UCI notation. */
       moves: string[];
-      /** @description Amount of time to analyse the position, in milliseconds. */
-      movetime?: number;
-      /** @description Analysis target depth */
-      depth?: number;
-      /** @description Number of nodes to analyse in the position */
-      nodes?: number;
     };
+    ExternalEngineWork:
+      | ({
+          /** @description Amount of time to analyse the position, in milliseconds. */
+          movetime: number;
+        } & components["schemas"]["ExternalEngineWorkCommon"])
+      | ({
+          /** @description Analysis target depth */
+          depth: number;
+        } & components["schemas"]["ExternalEngineWorkCommon"])
+      | ({
+          /** @description Number of nodes to analyse in the position */
+          nodes: number;
+        } & components["schemas"]["ExternalEngineWorkCommon"]);
     /** @example {
      *       "error": "invalid_grant",
      *       "error_description": "hash of code_verifier does not match code_challenge"
@@ -8378,7 +8271,7 @@ export interface operations {
               color: "white" | "black";
               lastMove: string;
               source: components["schemas"]["GameSource"];
-              status?: components["schemas"]["GameStatus"];
+              status?: components["schemas"]["GameStatusName"];
               variant: components["schemas"]["Variant"];
               speed: components["schemas"]["Speed"];
               perf: components["schemas"]["PerfType"];
@@ -9483,7 +9376,7 @@ export interface operations {
             username: string;
             performance: number;
             title?: components["schemas"]["Title"];
-            team: string;
+            team?: string;
             flair?: components["schemas"]["Flair"];
             sheet?: components["schemas"]["ArenaSheet"];
           };
@@ -11938,7 +11831,7 @@ export interface operations {
             | components["schemas"]["GameFullEvent"]
             | components["schemas"]["GameStateEvent"]
             | components["schemas"]["ChatLineEvent"]
-            | components["schemas"]["OpponentGone"];
+            | components["schemas"]["OpponentGoneEvent"];
         };
       };
       /** @description The game was not found. */
@@ -12323,7 +12216,7 @@ export interface operations {
             | components["schemas"]["GameFullEvent"]
             | components["schemas"]["GameStateEvent"]
             | components["schemas"]["ChatLineEvent"]
-            | components["schemas"]["OpponentGone"];
+            | components["schemas"]["OpponentGoneEvent"];
         };
       };
       /** @description The bot game was not found. */
@@ -12912,24 +12805,7 @@ export interface operations {
             fen?: string;
             turns?: number;
             source?: components["schemas"]["GameSource"];
-            status?: {
-              /** @enum {integer} */
-              id?:
-                | 10
-                | 20
-                | 25
-                | 30
-                | 31
-                | 32
-                | 33
-                | 34
-                | 35
-                | 36
-                | 37
-                | 38
-                | 60;
-              name?: components["schemas"]["GameStatus"];
-            };
+            status?: components["schemas"]["GameStatus"];
             /** Format: int64 */
             createdAt?: number;
             /** @enum {string} */
@@ -13652,46 +13528,21 @@ export interface operations {
         };
         content: {
           "application/x-ndjson": {
-            /**
-             * @description Number of milliseconds the search has been going on
-             * @example 6880
-             */
+            /** @description Number of milliseconds the search has been going on */
             time: number;
-            /**
-             * @description Current search depth
-             * @example 25
-             */
+            /** @description Current search depth */
             depth: number;
-            /**
-             * @description Number of nodes visited so far
-             * @example 7230340
-             */
+            /** @description Number of nodes visited so far */
             nodes: number;
             /** @description Information about up to 5 pvs, with the primary pv at index 0. */
             pvs: {
-              /**
-               * @description Current search depth of the pv
-               * @example 25
-               */
+              /** @description Current search depth of the pv */
               depth: number;
-              /**
-               * @description Evaluation in centi-pawns, from White's point of view
-               * @example 40
-               */
+              /** @description Evaluation in centi-pawns, from White's point of view */
               cp?: number;
               /** @description Evaluation in signed moves to mate, from White's point of view */
               mate?: number;
-              /**
-               * @description Variation in UCI notation
-               * @example [
-               *       "e2e4",
-               *       "c7c6",
-               *       "g1f3",
-               *       "d7d5",
-               *       "d2d3",
-               *       "d5e4"
-               *     ]
-               */
+              /** @description Variation in UCI notation */
               moves: string[];
             }[];
           };
