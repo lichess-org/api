@@ -3925,22 +3925,17 @@ export interface components {
      *     } */
     Leaderboard: unknown;
     Perf: {
-      /** @example 2945 */
-      games?: number;
-      /** @example 1609 */
-      rating?: number;
-      /** @example 60 */
-      rd?: number;
-      /** @example -22 */
-      prog?: number;
+      games: number;
+      rating: number;
+      /** @description rating deviation */
+      rd: number;
+      prog: number;
       /** @description only appears if a user's perf rating are [provisional](https://lichess.org/faq#provisional) */
       prov?: boolean;
     };
     PuzzleModePerf: {
-      /** @example 44 */
-      runs?: number;
-      /** @example 61 */
-      score?: number;
+      runs: number;
+      score: number;
     };
     Perfs: {
       chess960?: components["schemas"]["Perf"];
@@ -4465,18 +4460,9 @@ export interface components {
       puzzles?: {
         score?: components["schemas"]["UserActivityScore"];
       };
-      storm?: {
-        runs?: number;
-        score?: number;
-      };
-      racer?: {
-        runs?: number;
-        score?: number;
-      };
-      streak?: {
-        runs?: number;
-        score?: number;
-      };
+      storm?: components["schemas"]["PuzzleModePerf"];
+      racer?: components["schemas"]["PuzzleModePerf"];
+      streak?: components["schemas"]["PuzzleModePerf"];
       tournaments?: {
         nb?: number;
         best?: {
@@ -4512,6 +4498,7 @@ export interface components {
       teams?: {
         url: string;
         name: string;
+        flair?: components["schemas"]["Flair"];
       }[];
       posts?: {
         topicUrl: string;
@@ -5095,11 +5082,8 @@ export interface components {
       | "rapid"
       | "classical"
       | "correspondence";
-    /**
-     * @description Game status code. https://github.com/lichess-org/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
-     * @enum {string}
-     */
-    GameStatus:
+    /** @enum {string} */
+    GameStatusName:
       | "created"
       | "started"
       | "aborted"
@@ -5169,7 +5153,7 @@ export interface components {
       createdAt: number;
       /** Format: int64 */
       lastMoveAt: number;
-      status: components["schemas"]["GameStatus"];
+      status: components["schemas"]["GameStatusName"];
       source?: string;
       players: {
         white: components["schemas"]["GameUser"];
@@ -6316,70 +6300,51 @@ export interface components {
        */
       date?: number;
     };
+    /** @enum {integer} */
+    GameStatusId:
+      | 10
+      | 20
+      | 25
+      | 30
+      | 31
+      | 32
+      | 33
+      | 34
+      | 35
+      | 36
+      | 37
+      | 38
+      | 60;
+    GameStatus: {
+      id?: components["schemas"]["GameStatusId"];
+      name?: components["schemas"]["GameStatusName"];
+    };
+    GameEventOpponent: {
+      id?: string;
+      username?: string;
+      rating?: number;
+    };
     GameCompat: {
       /** @description Compatible with Bot API */
       bot?: boolean;
       /** @description Compatible with Board API */
       board?: boolean;
     };
-    /** @example {
-     *       "fullId": "9NaCTu2vz1c4",
-     *       "gameId": "9NaCTu2v",
-     *       "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-     *       "color": "white",
-     *       "lastMove": "",
-     *       "source": "friend",
-     *       "status": {
-     *         "id": 20,
-     *         "name": "started"
-     *       },
-     *       "variant": {
-     *         "key": "standard",
-     *         "name": "Standard"
-     *       },
-     *       "speed": "blitz",
-     *       "perf": "blitz",
-     *       "rated": false,
-     *       "hasMoved": false,
-     *       "opponent": {
-     *         "id": "mary",
-     *         "username": "Mary",
-     *         "rating": 1007
-     *       },
-     *       "isMyTurn": true,
-     *       "secondsLeft": 300,
-     *       "compat": {
-     *         "bot": false,
-     *         "board": true
-     *       },
-     *       "id": "9NaCTu2v"
-     *     } */
     GameEventInfo: {
-      fullId?: string;
-      gameId?: string;
+      fullId: string;
+      gameId: string;
       fen?: string;
       /** @enum {string} */
       color?: "white" | "black";
       lastMove?: string;
       source?: components["schemas"]["GameSource"];
-      status?: {
-        /** @enum {integer} */
-        id?: 10 | 20 | 25 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 60;
-        name?: components["schemas"]["GameStatus"];
-      };
-      variant?: {
-        key?: string;
-        name?: string;
-      };
+      status?: components["schemas"]["GameStatus"];
+      variant?: components["schemas"]["Variant"];
       speed?: components["schemas"]["Speed"];
       perf?: string;
       rated?: boolean;
       hasMoved?: boolean;
-      opponent?: {
-        id?: string;
-        username?: string;
-        rating?: number;
-      };
+      opponent?: components["schemas"]["GameEventOpponent"];
       isMyTurn?: boolean;
       secondsLeft?: number;
       compat?: components["schemas"]["GameCompat"];
@@ -6612,7 +6577,7 @@ export interface components {
       winc: number;
       /** @description Integer of Black Fisher increment. */
       binc: number;
-      status: components["schemas"]["GameStatus"];
+      status: components["schemas"]["GameStatusName"];
       /** @description Color of the winner, if any */
       winner?: string;
       /** @description true if white is offering draw, else omitted */
@@ -8306,7 +8271,7 @@ export interface operations {
               color: "white" | "black";
               lastMove: string;
               source: components["schemas"]["GameSource"];
-              status?: components["schemas"]["GameStatus"];
+              status?: components["schemas"]["GameStatusName"];
               variant: components["schemas"]["Variant"];
               speed: components["schemas"]["Speed"];
               perf: components["schemas"]["PerfType"];
@@ -12840,24 +12805,7 @@ export interface operations {
             fen?: string;
             turns?: number;
             source?: components["schemas"]["GameSource"];
-            status?: {
-              /** @enum {integer} */
-              id?:
-                | 10
-                | 20
-                | 25
-                | 30
-                | 31
-                | 32
-                | 33
-                | 34
-                | 35
-                | 36
-                | 37
-                | 38
-                | 60;
-              name?: components["schemas"]["GameStatus"];
-            };
+            status?: components["schemas"]["GameStatus"];
             /** Format: int64 */
             createdAt?: number;
             /** @enum {string} */
