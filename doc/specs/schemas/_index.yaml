@@ -22,6 +22,12 @@ TimeControl:
 GameStatus:
   $ref: "./GameStatus.yaml"
 
+GameStatusId:
+  $ref: "./GameStatusId.yaml"
+
+GameStatusName:
+  $ref: "./GameStatusName.yaml"
+
 FromPositionFEN:
   $ref: "./FromPositionFEN.yaml"
 
