@@ -10,15 +10,22 @@ properties:
     type: array
     items:
       $ref: "./Team.yaml"
-  nbResults:
-    type: number
-    example: 205194
   previousPage:
     type: [number, "null"]
     example: 3
   nextPage:
     type: [number, "null"]
     example: 5
+  nbResults:
+    type: number
   nbPages:
     type: number
-    example: 13680
+
+required:
+  - currentPage
+  - maxPerPage
+  - currentPageResults
+  - previousPage
+  - nextPage
+  - nbResults
+  - nbPages

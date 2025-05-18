@@ -94,8 +94,7 @@ post:
                 type: number
                 format: int64
               player:
-                type: string
-                enum: ["white", "black"]
+                $ref: "../../schemas/GameColor.yaml"
               fullId:
                 type: string
                 minLength: 12

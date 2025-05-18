@@ -19,6 +19,9 @@ Clock:
 TimeControl:
   $ref: "./TimeControl.yaml"
 
+GameColor:
+  $ref: "./GameColor.yaml"
+
 GameStatus:
   $ref: "./GameStatus.yaml"
 

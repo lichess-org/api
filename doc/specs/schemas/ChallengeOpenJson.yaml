@@ -23,8 +23,7 @@ properties:
     type: string
     enum: ["white", "black", "random"]
   finalColor:
-    type: string
-    enum: ["white", "black"]
+    $ref: "./GameColor.yaml"
   perf:
     type: object
     properties:
