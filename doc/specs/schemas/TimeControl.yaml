@@ -1,4 +1,4 @@
-anyOf:
+oneOf:
   - type: object
     title: Real-time
     properties:

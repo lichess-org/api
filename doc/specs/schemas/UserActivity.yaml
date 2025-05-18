@@ -46,26 +46,11 @@ properties:
         $ref: "./UserActivityScore.yaml"
 
   storm:
-    type: object
-    properties:
-      runs:
-        type: number
-      score:
-        type: number
+    $ref: "./PuzzleModePerf.yaml"
   racer:
-    type: object
-    properties:
-      runs:
-        type: number
-      score:
-        type: number
+    $ref: "./PuzzleModePerf.yaml"
   streak:
-    type: object
-    properties:
-      runs:
-        type: number
-      score:
-        type: number
+    $ref: "./PuzzleModePerf.yaml"
   tournaments:
     type: object
     properties:
@@ -164,6 +149,8 @@ properties:
           type: string
         name:
           type: string
+        flair:
+          $ref: "./Flair.yaml"
   posts:
     type: array
     items:

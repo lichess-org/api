@@ -69,7 +69,7 @@ get:
                     source:
                       $ref: "../../schemas/GameSource.yaml"
                     status:
-                      $ref: "../../schemas/GameStatus.yaml"
+                      $ref: "../../schemas/GameStatusName.yaml"
                     variant:
                       $ref: "../../schemas/Variant.yaml"
                     speed:

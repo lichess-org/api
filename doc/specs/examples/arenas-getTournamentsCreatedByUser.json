@@ -1,0 +1,33 @@
+{
+  "id": "NrJaGvHl",
+  "createdBy": "natebrady23",
+  "system": "arena",
+  "minutes": 60,
+  "clock": {
+    "limit": 300,
+    "increment": 3
+  },
+  "rated": false,
+  "fullName": "BBB Title Arena - Week 126 Arena",
+  "nbPlayers": 13,
+  "variant": {
+    "key": "standard",
+    "short": "Std",
+    "name": "Standard"
+  },
+  "startsAt": 1747186200000,
+  "finishesAt": 1747189800000,
+  "status": 30,
+  "perf": {
+    "key": "blitz",
+    "name": "Blitz",
+    "position": 1,
+    "icon": ")"
+  },
+  "teamMember": "bradys-blunder-buddies",
+  "winner": {
+    "name": "TheCheesemate",
+    "flair": "food-drink.cheese-wedge",
+    "id": "thecheesemate"
+  }
+}

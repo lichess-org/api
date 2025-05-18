@@ -1,0 +1,45 @@
+{
+  "nbPlayers": 0,
+  "duels": [],
+  "secondsToStart": 300,
+  "standing": {
+    "page": 1,
+    "players": []
+  },
+  "id": "Zt9SEhVE",
+  "createdBy": "bobby",
+  "startsAt": "2025-05-17T00:44:50.550254451Z",
+  "system": "arena",
+  "fullName": "Cvitan Arena",
+  "minutes": 60,
+  "perf": {
+    "key": "blitz",
+    "name": "Blitz",
+    "icon": ")"
+  },
+  "clock": {
+    "limit": 300,
+    "increment": 0
+  },
+  "variant": "standard",
+  "rated": true,
+  "berserkable": true,
+  "verdicts": {
+    "list": [
+      {
+        "condition": "Bot players are not allowed",
+        "verdict": "ok"
+      }
+    ],
+    "accepted": true
+  },
+  "quote": {
+    "text": "Before Geller we did not understand the King's Indian Defence.",
+    "author": "Mikhail Botvinnik"
+  },
+  "greatPlayer": {
+    "name": "Cvitan",
+    "url": "https://wikipedia.org/wiki/Ognjen_Cvitan"
+  },
+  "myUsername": "Bobby"
+}
