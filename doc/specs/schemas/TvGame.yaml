@@ -8,10 +8,7 @@ properties:
   gameId:
     type: string
   color:
-    type: string
-    enum:
-      - "white"
-      - "black"
+    $ref: "./GameColor.yaml"
 
 required:
   - user

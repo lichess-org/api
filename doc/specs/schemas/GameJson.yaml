@@ -11,45 +11,29 @@ properties:
   perf:
     type: string
   createdAt:
-    type: number
+    type: integer
     format: int64
   lastMoveAt:
-    type: number
+    type: integer
     format: int64
   status:
     $ref: "./GameStatusName.yaml"
   source:
     type: string
   players:
-    type: object
-    properties:
-      white:
-        $ref: "./GameUser.yaml"
-      black:
-        $ref: "./GameUser.yaml"
-    required:
-      - white
-      - black
+    $ref: "./GameUsers.yaml"
   initialFen:
     type: string
   winner:
-    type: string
-    enum: [white, black]
+    $ref: "./GameColor.yaml"
   opening:
-    type: object
-    properties:
-      eco:
-        type: string
-      name:
-        type: string
-      ply:
-        type: number
+    $ref: "./GameOpening.yaml"
   moves:
     type: string
   pgn:
     type: string
   daysPerTurn:
-    type: number
+    type: integer
   analysis:
     type: array
     items:
@@ -62,11 +46,11 @@ properties:
     type: object
     properties:
       initial:
-        type: number
+        type: integer
       increment:
-        type: number
+        type: integer
       totalTime:
-        type: number
+        type: integer
     required:
       - initial
       - increment
@@ -74,17 +58,18 @@ properties:
   clocks:
     type: array
     items:
-      type: number
+      type: integer
   division:
     type: object
     properties:
       middle:
-        type: number
+        type: integer
         description: Ply at which the middlegame begins
       end:
-        type: number
+        type: integer
         description: Ply at which the endgame begins
     required: []
+
 required:
   - id
   - rated

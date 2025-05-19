@@ -6,15 +6,7 @@ properties:
   list:
     type: array
     items:
-      type: object
-      properties:
-        condition:
-          type: string
-        verdict:
-          type: string
-      required:
-        - condition
-        - verdict
+      $ref: "./Verdict.yaml"
 
 required:
   - accepted

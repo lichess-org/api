@@ -3,7 +3,7 @@ properties:
     additionalProperties:
       type: number
   nbGames:
-    type: number
+    type: integer
 required:
   - users
   - nbGames

@@ -3,15 +3,15 @@ properties:
   user:
     $ref: "./LightUser.yaml"
   rating:
-    type: number
+    type: integer
   ratingDiff:
-    type: number
+    type: integer
   name:
     type: string
   provisional:
     type: boolean
   aiLevel:
-    type: number
+    type: integer
   analysis:
     type: object
     properties:

@@ -1,7 +1,7 @@
 type: object
 properties:
   id:
-    type: number
+    type: integer
   name:
     type: string
   title:
@@ -11,13 +11,14 @@ properties:
   year:
     type: [number, "null"]
   inactive:
-    type: boolean
+    type: integer
   standard:
-    type: number
+    type: integer
   rapid:
-    type: number
+    type: integer
   blitz:
-    type: number
+    type: integer
+
 required:
   - id
   - name

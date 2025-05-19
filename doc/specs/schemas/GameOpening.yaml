@@ -1,0 +1,13 @@
+type: object
+properties:
+  eco:
+    type: string
+  name:
+    type: string
+  ply:
+    type: integer
+
+required:
+  - eco
+  - name
+  - ply

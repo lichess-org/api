@@ -1,7 +1,7 @@
 type: object
 properties:
   aiLevel:
-    type: number
+    type: integer
   id:
     type: string
   name:
@@ -11,7 +11,7 @@ properties:
       - $ref: "./Title.yaml"
       - type: "null"
   rating:
-    type: number
+    type: integer
   provisional:
     type: boolean
 
