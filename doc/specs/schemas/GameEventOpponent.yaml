@@ -6,3 +6,8 @@ properties:
     type: string
   rating:
     type: integer
+
+required:
+  - id
+  - username
+  - rating

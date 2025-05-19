@@ -4,3 +4,7 @@ properties:
     $ref: "./TeamRequest.yaml"
   user:
     $ref: "./User.yaml"
+
+required:
+  - request
+  - user

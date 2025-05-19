@@ -4,3 +4,7 @@ properties:
     $ref: "./GameStatusId.yaml"
   name:
     $ref: "./GameStatusName.yaml"
+
+required:
+  - id
+  - name

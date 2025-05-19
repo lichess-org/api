@@ -7,10 +7,7 @@ properties:
   fen:
     type: string
   color:
-    type: string
-    enum:
-      - white
-      - black
+    $ref: "./GameColor.yaml"
   lastMove:
     type: string
   source:
