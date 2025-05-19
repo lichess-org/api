@@ -1,0 +1,51 @@
+{
+  "id": "halcyonbot",
+  "username": "halcyonbot",
+  "perfs": {
+    "bullet": {
+      "games": 24255,
+      "rating": 2313,
+      "rd": 45,
+      "prog": 10
+    },
+    "blitz": {
+      "games": 33330,
+      "rating": 2227,
+      "rd": 45,
+      "prog": -5
+    },
+    "rapid": {
+      "games": 21219,
+      "rating": 2310,
+      "rd": 45,
+      "prog": -3
+    },
+    "classical": {
+      "games": 0,
+      "rating": 2000,
+      "rd": 500,
+      "prog": 0,
+      "prov": true
+    },
+    "correspondence": {
+      "games": 0,
+      "rating": 2000,
+      "rd": 500,
+      "prog": 0,
+      "prov": true
+    }
+  },
+  "title": "BOT",
+  "patron": true,
+  "createdAt": 1674374156963,
+  "profile": {
+    "bio": "I'm a chess engine written from scratch. Challenge me to a rated or casual game of bullet, blitz, or rapid! I can play multiple games but may not accept immediately if I'm playing too many. Created by @thinic.",
+    "realName": "Halcyon 1",
+    "links": "https://lishogi.org/@/kawasemi\r\nhttps://github.com/nhamil/halcyon"
+  },
+  "seenAt": 1747683622797,
+  "playTime": {
+    "total": 57161455,
+    "tv": 772338
+  }
+}
