@@ -28,3 +28,7 @@ properties:
     required: [inaccuracy, mistake, blunder, acpl]
   team:
     type: string
+
+required:
+  - user
+  - rating

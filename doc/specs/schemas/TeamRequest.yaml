@@ -12,3 +12,8 @@ properties:
   message:
     type: string
     example: "Hello, I would like to join the team!"
+
+required:
+  - teamId
+  - userId
+  - date

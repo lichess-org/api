@@ -3855,75 +3855,38 @@ export interface components {
       | "WNM"
       | "LM"
       | "BOT";
-    PerfTop10: {
-      id?: string;
-      username?: string;
-      title?: components["schemas"]["Title"];
-      patron?: boolean;
-      online?: boolean;
+    TopUser: {
+      id: string;
+      username: string;
       perfs?: {
         [key: string]: {
           rating: number;
           progress: number;
         };
       };
-    }[];
-    Top10s: {
-      bullet?: components["schemas"]["PerfTop10"];
-      blitz?: components["schemas"]["PerfTop10"];
-      rapid?: components["schemas"]["PerfTop10"];
-      classical?: components["schemas"]["PerfTop10"];
-      ultraBullet?: components["schemas"]["PerfTop10"];
-      crazyhouse?: components["schemas"]["PerfTop10"];
-      chess960?: components["schemas"]["PerfTop10"];
-      kingOfTheHill?: components["schemas"]["PerfTop10"];
-      threeCheck?: components["schemas"]["PerfTop10"];
-      antichess?: components["schemas"]["PerfTop10"];
-      atomic?: components["schemas"]["PerfTop10"];
-      horde?: components["schemas"]["PerfTop10"];
-      racingKings?: components["schemas"]["PerfTop10"];
+      title?: components["schemas"]["Title"];
+      patron?: boolean;
+      online?: boolean;
     };
-    /** @example {
-     *       "users": [
-     *         {
-     *           "id": "bahadirozen",
-     *           "username": "BahadirOzen",
-     *           "perfs": {
-     *             "bullet": {
-     *               "rating": 3018,
-     *               "progress": 18
-     *             }
-     *           },
-     *           "online": true,
-     *           "title": "FM"
-     *         },
-     *         {
-     *           "id": "penguingim1",
-     *           "username": "penguingim1",
-     *           "perfs": {
-     *             "bullet": {
-     *               "rating": 2983,
-     *               "progress": -36
-     *             }
-     *           },
-     *           "title": "GM",
-     *           "online": true,
-     *           "patron": true
-     *         },
-     *         {
-     *           "id": "night-king96",
-     *           "username": "Night-King96",
-     *           "perfs": {
-     *             "bullet": {
-     *               "rating": 2958,
-     *               "progress": 35
-     *             }
-     *           },
-     *           "title": "GM"
-     *         }
-     *       ]
-     *     } */
-    Leaderboard: unknown;
+    PerfTop10: components["schemas"]["TopUser"][];
+    Top10s: {
+      bullet: components["schemas"]["PerfTop10"];
+      blitz: components["schemas"]["PerfTop10"];
+      rapid: components["schemas"]["PerfTop10"];
+      classical: components["schemas"]["PerfTop10"];
+      ultraBullet: components["schemas"]["PerfTop10"];
+      crazyhouse: components["schemas"]["PerfTop10"];
+      chess960: components["schemas"]["PerfTop10"];
+      kingOfTheHill: components["schemas"]["PerfTop10"];
+      threeCheck: components["schemas"]["PerfTop10"];
+      antichess: components["schemas"]["PerfTop10"];
+      atomic: components["schemas"]["PerfTop10"];
+      horde: components["schemas"]["PerfTop10"];
+      racingKings: components["schemas"]["PerfTop10"];
+    };
+    Leaderboard: {
+      users: components["schemas"]["TopUser"][];
+    };
     Perf: {
       games: number;
       rating: number;
@@ -4000,10 +3963,8 @@ export interface components {
       links?: string;
     };
     PlayTime: {
-      /** @example 3296897 */
-      total?: number;
-      /** @example 12134 */
-      tv?: number;
+      total: number;
+      tv: number;
     };
     User: {
       /** @example georges */
@@ -4011,6 +3972,7 @@ export interface components {
       /** @example Georges */
       username: string;
       perfs?: components["schemas"]["Perfs"];
+      title?: components["schemas"]["Title"];
       flair?: components["schemas"]["Flair"];
       /**
        * Format: int64
@@ -4033,47 +3995,49 @@ export interface components {
        * @example 1522636452014
        */
       seenAt?: number;
+      playTime?: components["schemas"]["PlayTime"];
       /** @example true */
       patron?: boolean;
       /** @example true */
       verified?: boolean;
-      playTime?: components["schemas"]["PlayTime"];
-      title?: components["schemas"]["Title"];
     };
     Count: {
-      /** @example 9265 */
-      all?: number;
-      /** @example 7157 */
-      rated?: number;
-      /** @example 531 */
-      ai?: number;
-      /** @example 340 */
-      draw?: number;
-      /** @example 331 */
-      drawH?: number;
-      /** @example 4480 */
-      loss?: number;
-      /** @example 4207 */
-      lossH?: number;
-      /** @example 4440 */
-      win?: number;
-      /** @example 4378 */
-      winH?: number;
-      /** @example 71 */
-      bookmark?: number;
-      /** @example 6 */
-      playing?: number;
-      /** @example 66 */
-      import?: number;
-      /** @example 0 */
-      me?: number;
+      all: number;
+      rated: number;
+      ai: number;
+      draw: number;
+      drawH: number;
+      loss: number;
+      lossH: number;
+      win: number;
+      winH: number;
+      bookmark: number;
+      playing: number;
+      import: number;
+      me: number;
+    };
+    UserStreamer: {
+      twitch?: {
+        /**
+         * Format: uri
+         * @example https://www.twitch.tv/lichessdotorg
+         */
+        channel?: string;
+      };
+      youTube?: {
+        /**
+         * Format: uri
+         * @example https://www.youtube.com/c/LichessDotOrg
+         */
+        channel?: string;
+      };
     };
     UserExtended: components["schemas"]["User"] & {
       /**
        * Format: uri
        * @example https://lichess.org/@/georges
        */
-      url?: string;
+      url: string;
       /**
        * Format: uri
        * @example https://lichess.org/yqfLYJ5E/black
@@ -4082,22 +4046,7 @@ export interface components {
       count?: components["schemas"]["Count"];
       /** @example false */
       streaming?: boolean;
-      streamer?: {
-        twitch?: {
-          /**
-           * Format: uri
-           * @example https://www.twitch.tv/lichessdotorg
-           */
-          channel?: string;
-        };
-        youTube?: {
-          /**
-           * Format: uri
-           * @example https://www.youtube.com/c/LichessDotOrg
-           */
-          channel?: string;
-        };
-      };
+      streamer?: components["schemas"]["UserStreamer"];
       /**
        * @description only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication)
        * @example true
@@ -4402,6 +4351,8 @@ export interface components {
         after?: number;
       };
     };
+    /** @enum {string} */
+    GameColor: "white" | "black";
     /**
      * @default standard
      * @example standard
@@ -4420,8 +4371,7 @@ export interface components {
       | "fromPosition";
     UserActivityCorrespondenceGame: {
       id: string;
-      /** @enum {string} */
-      color: "white" | "black";
+      color: components["schemas"]["GameColor"];
       url: string;
       variant: components["schemas"]["VariantKey"];
       /** @constant */
@@ -5105,8 +5055,8 @@ export interface components {
       patron?: boolean;
     };
     GameUser: {
-      user?: components["schemas"]["LightUser"];
-      rating?: number;
+      user: components["schemas"]["LightUser"];
+      rating: number;
       ratingDiff?: number;
       name?: string;
       provisional?: boolean;
@@ -5255,8 +5205,8 @@ export interface components {
       | "pool"
       | "swiss";
     Variant: {
-      key?: components["schemas"]["VariantKey"];
-      name?: string;
+      key: components["schemas"]["VariantKey"];
+      name: string;
       short?: string;
     };
     /** @example [
@@ -5617,20 +5567,21 @@ export interface components {
       /** @description The cause of the error. */
       error?: string;
     };
+    /** @example {
+     *       "games": 10,
+     *       "score": 14,
+     *       "rank": 30,
+     *       "performance": 1935
+     *     } */
+    ArenaTournamentPlayer: {
+      games: number;
+      score: number;
+      rank: number;
+      performance?: number;
+    };
     ArenaTournamentPlayed: {
       tournament?: components["schemas"]["ArenaTournament"];
-      /** @example {
-       *       "games": 10,
-       *       "score": 14,
-       *       "rank": 30,
-       *       "performance": 1935
-       *     } */
-      player?: {
-        games: number;
-        score: number;
-        rank: number;
-        performance?: number;
-      };
+      player?: components["schemas"]["ArenaTournamentPlayer"];
     };
     /**
      * @description Custom initial position (in FEN). Variant must be standard and the game cannot be rated.
@@ -5739,19 +5690,19 @@ export interface components {
      *     } */
     StudyMetadata: {
       /** @description The study ID */
-      id?: string;
+      id: string;
       /** @description The study name */
-      name?: string;
+      name: string;
       /**
        * Format: int64
        * @description The study creation date
        */
-      createdAt?: number;
+      createdAt: number;
       /**
        * Format: int64
        * @description The study last update date
        */
-      updatedAt?: number;
+      updatedAt: number;
     };
     BroadcastTour: {
       id: string;
@@ -6241,18 +6192,16 @@ export interface components {
     };
     TeamPaginatorJson: {
       /** @example 4 */
-      currentPage?: number;
+      currentPage: number;
       /** @example 15 */
-      maxPerPage?: number;
-      currentPageResults?: components["schemas"]["Team"][];
-      /** @example 205194 */
-      nbResults?: number;
+      maxPerPage: number;
+      currentPageResults: components["schemas"]["Team"][];
       /** @example 3 */
-      previousPage?: number | null;
+      previousPage: number | null;
       /** @example 5 */
-      nextPage?: number | null;
-      /** @example 13680 */
-      nbPages?: number;
+      nextPage: number | null;
+      nbResults: number;
+      nbPages: number;
     };
     /**
      * @description The current state of the arena tournament
@@ -6261,17 +6210,17 @@ export interface components {
     ArenaStatusName: "created" | "started" | "finished";
     TeamRequest: {
       /** @example coders */
-      teamId?: string;
+      teamId: string;
       /** @example thibault */
-      userId?: string;
+      userId: string;
       /** @example 1514505150384 */
-      date?: number;
+      date: number;
       /** @example Hello, I would like to join the team! */
       message?: string;
     };
     TeamRequestWithUser: {
-      request?: components["schemas"]["TeamRequest"];
-      user?: components["schemas"]["User"];
+      request: components["schemas"]["TeamRequest"];
+      user: components["schemas"]["User"];
     };
     /** @example {
      *       "users": {
@@ -6316,13 +6265,13 @@ export interface components {
       | 38
       | 60;
     GameStatus: {
-      id?: components["schemas"]["GameStatusId"];
-      name?: components["schemas"]["GameStatusName"];
+      id: components["schemas"]["GameStatusId"];
+      name: components["schemas"]["GameStatusName"];
     };
     GameEventOpponent: {
-      id?: string;
-      username?: string;
-      rating?: number;
+      id: string;
+      username: string;
+      rating: number;
     };
     GameCompat: {
       /** @description Compatible with Bot API */
@@ -6334,8 +6283,7 @@ export interface components {
       fullId: string;
       gameId: string;
       fen?: string;
-      /** @enum {string} */
-      color?: "white" | "black";
+      color?: components["schemas"]["GameColor"];
       lastMove?: string;
       source?: components["schemas"]["GameSource"];
       status?: components["schemas"]["GameStatus"];
@@ -6452,8 +6400,7 @@ export interface components {
       timeControl: components["schemas"]["TimeControl"];
       /** @enum {string} */
       color: "white" | "black" | "random";
-      /** @enum {string} */
-      finalColor?: "white" | "black";
+      finalColor?: components["schemas"]["GameColor"];
       perf: {
         icon?: string;
         name?: string;
@@ -6464,8 +6411,8 @@ export interface components {
     };
     ChallengeEvent: {
       /** @constant */
-      type?: "challenge";
-      challenge?: components["schemas"]["ChallengeJson"];
+      type: "challenge";
+      challenge: components["schemas"]["ChallengeJson"];
       compat?: components["schemas"]["GameCompat"];
     };
     ChallengeCanceledEvent: {
@@ -6724,8 +6671,7 @@ export interface components {
       timeControl: components["schemas"]["TimeControl"];
       /** @enum {string} */
       color: "white" | "black" | "random";
-      /** @enum {string} */
-      finalColor?: "white" | "black";
+      finalColor?: components["schemas"]["GameColor"];
       perf: {
         icon?: string;
         name?: string;
@@ -12808,8 +12754,7 @@ export interface operations {
             status?: components["schemas"]["GameStatus"];
             /** Format: int64 */
             createdAt?: number;
-            /** @enum {string} */
-            player?: "white" | "black";
+            player?: components["schemas"]["GameColor"];
             fullId?: string;
           };
         };

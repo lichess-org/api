@@ -6,3 +6,7 @@ properties:
     type: string
   short:
     type: string
+
+required:
+  - key
+  - name

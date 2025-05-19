@@ -4,8 +4,7 @@ properties:
   id:
     type: string
   color:
-    type: string
-    enum: ["white", "black"]
+    $ref: "./GameColor.yaml"
   url:
     type: string
   variant:

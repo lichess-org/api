@@ -27,3 +27,18 @@ properties:
     $ref: "./PerfTop10.yaml"
   racingKings:
     $ref: "./PerfTop10.yaml"
+
+required:
+  - bullet
+  - blitz
+  - rapid
+  - classical
+  - ultraBullet
+  - crazyhouse
+  - chess960
+  - kingOfTheHill
+  - threeCheck
+  - antichess
+  - atomic
+  - horde
+  - racingKings
