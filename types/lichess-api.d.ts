@@ -5070,6 +5070,15 @@ export interface components {
       };
       team?: string;
     };
+    GameUsers: {
+      white: components["schemas"]["GameUser"];
+      black: components["schemas"]["GameUser"];
+    };
+    GameOpening: {
+      eco: string;
+      name: string;
+      ply: number;
+    };
     GameMoveAnalysis: {
       /** @description Evaluation in centipawns */
       eval?: number;
@@ -5105,18 +5114,10 @@ export interface components {
       lastMoveAt: number;
       status: components["schemas"]["GameStatusName"];
       source?: string;
-      players: {
-        white: components["schemas"]["GameUser"];
-        black: components["schemas"]["GameUser"];
-      };
+      players: components["schemas"]["GameUsers"];
       initialFen?: string;
-      /** @enum {string} */
-      winner?: "white" | "black";
-      opening?: {
-        eco?: string;
-        name?: string;
-        ply?: number;
-      };
+      winner?: components["schemas"]["GameColor"];
+      opening?: components["schemas"]["GameOpening"];
       moves?: string;
       pgn?: string;
       daysPerTurn?: number;
@@ -5285,8 +5286,7 @@ export interface components {
       user: components["schemas"]["LightUser"];
       rating: number;
       gameId: string;
-      /** @enum {string} */
-      color: "white" | "black";
+      color: components["schemas"]["GameColor"];
     };
     TvFeed: {
       /**
@@ -5333,7 +5333,6 @@ export interface components {
     /**
      * @description 10: created, 20: started, 30: finished
      *
-     * @example 30
      * @enum {integer}
      */
     ArenaStatus: 10 | 20 | 30;
@@ -5421,12 +5420,13 @@ export interface components {
      * @default rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
      */
     FromPositionFEN: string;
+    Verdict: {
+      condition: string;
+      verdict: string;
+    };
     Verdicts: {
       accepted: boolean;
-      list: {
-        condition: string;
-        verdict: string;
-      }[];
+      list: components["schemas"]["Verdict"][];
     };
     ArenaSheet: {
       scores: string;
@@ -5590,7 +5590,6 @@ export interface components {
     SwissFromPositionFEN: string;
     /**
      * @description The current state of the swiss tournament
-     * @example created
      * @enum {string}
      */
     SwissStatus: "created" | "started" | "finished";
@@ -6148,7 +6147,7 @@ export interface components {
       title?: components["schemas"]["Title"];
       federation: string;
       year?: number | null;
-      inactive?: boolean;
+      inactive?: number;
       standard?: number;
       rapid?: number;
       blitz?: number;
@@ -6492,8 +6491,8 @@ export interface components {
     };
     GameEventPlayer: {
       aiLevel?: number;
-      id?: string;
-      name?: string;
+      id: string;
+      name: string;
       title?: components["schemas"]["Title"] | null;
       rating?: number;
       provisional?: boolean;
