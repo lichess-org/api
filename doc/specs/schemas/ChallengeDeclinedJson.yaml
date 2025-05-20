@@ -26,7 +26,7 @@ example:
   {
     "id": "H9fIRZUk",
     "url": "https://lichess.org/H9fIRZUk",
-    "status": "created",
+    "status": "declined",
     "challenger":
       { "id": "bot1", "name": "Bot1", "rating": 1500, "title": "BOT", "provisional": true, "online": true, "lag": 4 },
     "destUser":
