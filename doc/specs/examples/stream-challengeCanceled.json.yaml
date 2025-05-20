@@ -1,0 +1,26 @@
+value:
+  {
+    "type": "challengeCanceled",
+    "challenge":
+      {
+        "id": "vN6JvOli",
+        "url": "https://lichess.org/vN6JvOli",
+        "status": "canceled",
+        "challenger": { "id": "elena", "name": "Elena", "rating": 2308, "title": "WIM", "patron": true },
+        "destUser":
+          {
+            "id": "diego",
+            "name": "Diego",
+            "rating": 1941,
+            "title": null,
+            "flair": "smileys.winking-face-with-tongue",
+          },
+        "variant": { "key": "standard", "name": "Standard", "short": "Std" },
+        "rated": false,
+        "speed": "correspondence",
+        "timeControl": { "type": "unlimited" },
+        "color": "random",
+        "finalColor": "white",
+        "perf": { "icon": "", "name": "Correspondence" },
+      },
+  }

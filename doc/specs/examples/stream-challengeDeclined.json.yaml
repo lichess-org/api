@@ -1,0 +1,29 @@
+value:
+  {
+    "type": "challengeDeclined",
+    "challenge":
+      {
+        "id": "HVGoj16M",
+        "url": "https://lichess.org/HVGoj16M",
+        "status": "declined",
+        "challenger": { "id": "adriana", "name": "Adriana", "rating": 584, "title": null },
+        "destUser":
+          {
+            "id": "gabriela",
+            "name": "Gabriela",
+            "rating": 1569,
+            "title": null,
+            "flair": "people.pregnant-person-light-skin-tone",
+            "online": true,
+          },
+        "variant": { "key": "standard", "name": "Standard", "short": "Std" },
+        "rated": false,
+        "speed": "correspondence",
+        "timeControl": { "type": "unlimited" },
+        "color": "random",
+        "finalColor": "black",
+        "perf": { "icon": "", "name": "Correspondence" },
+        "declineReason": "I'm not accepting challenges at the moment.",
+        "declineReasonKey": "generic",
+      },
+  }
