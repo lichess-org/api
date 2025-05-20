@@ -26,4 +26,4 @@ get:
           schema:
             $ref: "../../schemas/User.yaml"
           example:
-            $ref: "../../examples/user-georges-bot.json"
+            $ref: "../../examples/bot-getOnlineBots.json"
