@@ -1,4 +1,4 @@
-import { example, localClient } from "./config";
+import { example, localClient, readNdJson, sleep } from "./config";
 
 const opponent = "mary";
 
@@ -30,13 +30,37 @@ example(
   }),
 );
 
-(async () => {
-  const challengeToAccept = await localClient("jacob").POST(
+await (async () => {
+  const challenger = "jacob";
+  const challengee = "aaron";
+
+  const abortController = new AbortController();
+  const signal = abortController.signal;
+  localClient(challenger)
+    .GET("/api/stream/event", {
+      headers: {
+        Accept: "application/x-ndjson",
+      },
+      signal,
+      parseAs: "stream",
+    })
+    .then((response) => {
+      readNdJson(response.response, (line: any) => {
+        if (line.type === "gameStart") {
+          example("stream", "gameStart", line, "json", true);
+        } else if (line.type === "gameFinish") {
+          example("stream", "gameFinish", line, "json", true);
+          abortController.abort();
+        }
+      });
+    });
+
+  const challengeToAccept = await localClient(challenger).POST(
     "/api/challenge/{username}",
     {
       params: {
         path: {
-          username: "aaron",
+          username: challengee,
         },
       },
     },
@@ -44,7 +68,7 @@ example(
   example(
     "challenges",
     "acceptChallenge",
-    await localClient("aaron").POST("/api/challenge/{challengeId}/accept", {
+    await localClient(challengee).POST("/api/challenge/{challengeId}/accept", {
       params: {
         path: {
           challengeId: challengeToAccept.data!.id,
@@ -52,9 +76,39 @@ example(
       },
     }),
   );
+  await localClient(challengee).POST("/api/board/game/{gameId}/abort", {
+    params: {
+      path: {
+        gameId: challengeToAccept.data!.id,
+      },
+    },
+  });
 })();
 
-(async () => {
+await (async () => {
+  const abortController = new AbortController();
+  const signal = abortController.signal;
+  localClient("gabriela")
+    .GET("/api/stream/event", {
+      headers: {
+        Accept: "application/x-ndjson",
+      },
+      signal,
+      parseAs: "stream",
+    })
+    .then((response) => {
+      readNdJson(response.response, (line: any) => {
+        if (line.type === "challenge") {
+          example("stream", "challenge", line, "json", true);
+        } else if (line.type === "challengeDeclined") {
+          example("stream", "challengeDeclined", line, "json", true);
+          abortController.abort();
+        }
+      });
+    });
+
+  await sleep(1000);
+
   const challengeToDecline = await localClient("adriana").POST(
     "/api/challenge/{username}",
     {
@@ -78,13 +132,36 @@ example(
   );
 })();
 
-(async () => {
-  const challengeToCancel = await localClient("diego").POST(
+await (async () => {
+  const challenger = "elena";
+  const challengee = "diego";
+
+  const abortController = new AbortController();
+  const signal = abortController.signal;
+  localClient(challengee)
+    .GET("/api/stream/event", {
+      headers: {
+        Accept: "application/x-ndjson",
+      },
+      signal,
+      parseAs: "stream",
+    })
+    .then((response) => {
+      readNdJson(response.response, (line: any) => {
+        if (line.type === "challengeCanceled") {
+          example("stream", "challengeCanceled", line, "json", true);
+          abortController.abort();
+        }
+      });
+    });
+
+  await sleep(1000);
+  const challengeToCancel = await localClient(challenger).POST(
     "/api/challenge/{username}",
     {
       params: {
         path: {
-          username: "elena",
+          username: challengee,
         },
       },
     },
@@ -92,7 +169,7 @@ example(
   example(
     "challenges",
     "cancelChallenge",
-    await localClient("elena").POST("/api/challenge/{challengeId}/cancel", {
+    await localClient(challenger).POST("/api/challenge/{challengeId}/cancel", {
       params: {
         path: {
           challengeId: challengeToCancel.data!.id,
@@ -118,7 +195,7 @@ example(
   await localClient().POST("/api/challenge/open"),
 );
 
-(async () => {
+await (async () => {
   const challenge = await localClient("david").POST(
     "/api/challenge/{username}",
     {

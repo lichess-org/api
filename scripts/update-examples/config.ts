@@ -126,3 +126,6 @@ export const readTextStream = async (
     throw error;
   }
 };
+
+export const sleep = (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms));

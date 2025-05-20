@@ -36,3 +36,14 @@ get:
               - $ref: "../../schemas/ChallengeEvent.yaml"
               - $ref: "../../schemas/ChallengeCanceledEvent.yaml"
               - $ref: "../../schemas/ChallengeDeclinedEvent.yaml"
+          examples:
+            GameStartEvent:
+              $ref: "../../examples/stream-gameStart.json.yaml"
+            GameFinishEvent:
+              $ref: "../../examples/stream-gameFinish.json.yaml"
+            ChallengeEvent:
+              $ref: "../../examples/stream-challenge.json.yaml"
+            ChallengeDeclinedEvent:
+              $ref: "../../examples/stream-challengeDeclined.json.yaml"
+            ChallengeCanceledEvent:
+              $ref: "../../examples/stream-challengeCanceled.json.yaml"
