@@ -1,7 +1,6 @@
 type: string
 description: The current state of the swiss tournament
 enum:
-  - "created"
-  - "started"
-  - "finished"
-example: "created"
+  - created
+  - started
+  - finished

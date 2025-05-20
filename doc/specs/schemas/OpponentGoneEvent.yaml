@@ -6,8 +6,10 @@ properties:
   gone:
     type: boolean
   claimWinInSeconds:
-    type: number
+    type: integer
+
 required:
   - type
   - gone
+
 example: { "type": "opponentGone", "gone": true, "claimWinInSeconds": 8 }

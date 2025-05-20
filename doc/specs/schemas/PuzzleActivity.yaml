@@ -2,7 +2,7 @@ type: object
 
 properties:
   date:
-    type: number
+    type: integer
   puzzle:
     type: object
     properties:

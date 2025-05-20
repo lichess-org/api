@@ -29,7 +29,7 @@ properties:
   rated:
     type: boolean
   createdAt:
-    type: number
+    type: integer
     format: int64
   white:
     $ref: "./GameEventPlayer.yaml"

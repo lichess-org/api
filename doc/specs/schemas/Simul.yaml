@@ -20,7 +20,7 @@ properties:
       - type: object
         properties:
           rating:
-            type: number
+            type: integer
           provisional:
             type: boolean
           gameId:
@@ -51,12 +51,12 @@ properties:
   text:
     type: string
   estimatedStartAt:
-    type: number
+    type: integer
   startedAt:
-    type: number
+    type: integer
   finishedAt:
-    type: number
+    type: integer
   nbApplicants:
-    type: number
+    type: integer
   nbPairings:
-    type: number
+    type: integer
