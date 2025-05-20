@@ -6419,51 +6419,6 @@ export interface components {
       type?: "challengeCanceled";
       challenge?: components["schemas"]["ChallengeJson"];
     };
-    /** @example {
-     *       "id": "H9fIRZUk",
-     *       "url": "https://lichess.org/H9fIRZUk",
-     *       "status": "created",
-     *       "challenger": {
-     *         "id": "bot1",
-     *         "name": "Bot1",
-     *         "rating": 1500,
-     *         "title": "BOT",
-     *         "provisional": true,
-     *         "online": true,
-     *         "lag": 4
-     *       },
-     *       "destUser": {
-     *         "id": "bobby",
-     *         "name": "Bobby",
-     *         "rating": 1635,
-     *         "title": "GM",
-     *         "provisional": true,
-     *         "online": true,
-     *         "lag": 4
-     *       },
-     *       "variant": {
-     *         "key": "standard",
-     *         "name": "Standard",
-     *         "short": "Std"
-     *       },
-     *       "rated": true,
-     *       "speed": "rapid",
-     *       "timeControl": {
-     *         "type": "clock",
-     *         "limit": 600,
-     *         "increment": 0,
-     *         "show": "10+0"
-     *       },
-     *       "color": "random",
-     *       "finalColor": "black",
-     *       "perf": {
-     *         "icon": "",
-     *         "name": "Rapid"
-     *       },
-     *       "direction": "out",
-     *       "declineReason": "I'm not accepting challenges at the moment.",
-     *       "declineReasonKey": "generic"
-     *     } */
     ChallengeDeclinedJson: {
       /** @description Human readable, possibly translated reason why the challenge was declined. */
       declineReason: string;
@@ -10537,7 +10492,7 @@ export interface operations {
   broadcastsSearch: {
     parameters: {
       query?: {
-        /** @description Which page to fetch. Only page 1 has "active" broadcasts. */
+        /** @description Which page to fetch. */
         page?: number;
         /** @description Search term */
         q?: string;
