@@ -86,13 +86,6 @@ post:
       schema:
         type: boolean
         default: false
-    - in: query
-      name: players
-      description: |
-        URL of a text file containing real names and ratings, to replace Lichess usernames and ratings in the PGN.
-        Example: <https://gist.githubusercontent.com/ornicar/6bfa91eb61a2dcae7bcd14cce1b2a4eb/raw/768b9f6cc8a8471d2555e47ba40fb0095e5fba37/gistfile1.txt>
-      schema:
-        type: string
   responses:
     "200":
       description: The representation of the games.
