@@ -4,13207 +4,13917 @@
  */
 
 export interface paths {
-    "/api/users/status": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get real-time users status
-         * @description Read the `online`, `playing` and `streaming` flags of several users.
-         *     This API is very fast and cheap on lichess side.
-         *     So you can call it quite often (like once every 5 seconds).
-         *     Use it to track players and know when they're connected on lichess and playing games.
-         *
-         */
-        get: operations["apiUsersStatus"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/player": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get all top 10
-         * @description Get the top 10 players for each speed and variant.
-         *     See <https://lichess.org/player>.
-         *
-         */
-        get: operations["player"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/player/top/{nb}/{perfType}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get one leaderboard
-         * @description Get the leaderboard for a single speed or variant (a.k.a. `perfType`).
-         *     There is no leaderboard for correspondence or puzzles.
-         *     See <https://lichess.org/player/top/200/bullet>.
-         *
-         */
-        get: operations["playerTopNbPerfType"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/user/{username}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get user public data
-         * @description Read public data of a user.
-         *
-         */
-        get: operations["apiUser"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/user/{username}/rating-history": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get rating history of a user
-         * @description Read rating history of a user, for all perf types.
-         *     There is at most one entry per day.
-         *     Format of an entry is `[year, month, day, rating]`.
-         *     `month` starts at zero (January).
-         *
-         */
-        get: operations["apiUserRatingHistory"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/user/{username}/perf/{perf}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get performance statistics of a user
-         * @description Read performance statistics of a user, for a single performance.
-         *     Similar to the [performance pages on the website](https://lichess.org/@/thibault/perf/bullet).
-         *
-         */
-        get: operations["apiUserPerf"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/user/{username}/activity": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get user activity
-         * @description Read data to generate the activity feed of a user.
-         *
-         */
-        get: operations["apiUserActivity"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/puzzle/daily": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get the daily puzzle
-         * @description Get the daily Lichess puzzle in JSON format.
-         *     Alternatively, you can [post it in your slack workspace](https://lichess.org/daily-puzzle-slack).
-         *
-         */
-        get: operations["apiPuzzleDaily"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/puzzle/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get a puzzle by its ID
-         * @description Get a single Lichess puzzle in JSON format.
-         */
-        get: operations["apiPuzzleId"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/puzzle/next": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get a new puzzle
-         * @description Get a random Lichess puzzle in JSON format.
-         *
-         *     If authenticated, only returns puzzles that the user has never seen before.
-         *
-         *     **DO NOT** use this endpoint to enumerate puzzles for mass download. Instead, download the [full public puzzle database](https://database.lichess.org/#puzzles).
-         *
-         */
-        get: operations["apiPuzzleNext"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/puzzle/activity": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get your puzzle activity
-         * @description Download your puzzle activity in [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
-         *     Puzzle activity is sorted by reverse chronological order (most recent first)
-         *     We recommend streaming the response, for it can be very long.
-         *
-         */
-        get: operations["apiPuzzleActivity"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/puzzle/replay/{days}/{theme}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get puzzles to replay
-         * @description Gets the puzzle IDs of remaining puzzles to re-attempt in JSON format.
-         */
-        get: operations["apiPuzzleReplay"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/puzzle/dashboard/{days}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get your puzzle dashboard
-         * @description Download your [puzzle dashboard](https://lichess.org/training/dashboard/30/dashboard) as JSON.
-         *     Also includes all puzzle themes played, with aggregated results.
-         *     Allows re-creating the [improvement/strengths](https://lichess.org/training/dashboard/30/improvementAreas) interfaces.
-         *
-         */
-        get: operations["apiPuzzleDashboard"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/storm/dashboard/{username}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get the storm dashboard of a player
-         * @description Download the [storm dashboard](https://lichess.org/storm/dashboard/mrbasso) of any player as JSON.
-         *     Contains the aggregated highscores, and the history of storm runs aggregated by days.
-         *     Use `?days=0` if you only care about the highscores.
-         *
-         */
-        get: operations["apiStormDashboard"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/racer": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Create and join a puzzle race
-         * @description Create a new private [puzzle race](https://lichess.org/racer).
-         *     The Lichess user who creates the race must join the race page,
-         *     and manually start the race when enough players have joined.
-         *     - <https://lichess.org/racer>
-         *
-         */
-        post: operations["racerPost"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/users": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Get users by ID
-         * @description Get up to 300 users by their IDs. Users are returned in the same order as the IDs.
-         *     The method is `POST` to allow a longer list of IDs to be sent in the request body.
-         *     Please do not try to download all the Lichess users with this endpoint, or any other endpoint.
-         *     An API is not a way to fully export a website. We do not provide a full download of the Lichess users.
-         *     This endpoint is limited to 8,000 users every 10 minutes, and 120,000 every day.
-         *
-         */
-        post: operations["apiUsers"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/account": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get my profile
-         * @description Public information about the logged in user.
-         *
-         */
-        get: operations["accountMe"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/account/email": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get my email address
-         * @description Read the email address of the logged in user.
-         *
-         */
-        get: operations["accountEmail"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/account/preferences": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get my preferences
-         * @description Read the preferences of the logged in user.
-         *     - <https://lichess.org/account/preferences/game-display>
-         *     - <https://github.com/ornicar/lila/blob/master/modules/pref/src/main/Pref.scala>
-         *
-         */
-        get: operations["account"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/account/kid": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get my kid mode status
-         * @description Read the kid mode status of the logged in user.
-         *     - <https://lichess.org/account/kid>
-         *
-         */
-        get: operations["accountKid"];
-        put?: never;
-        /**
-         * Set my kid mode status
-         * @description Set the kid mode status of the logged in user.
-         *     - <https://lichess.org/account/kid>
-         *
-         */
-        post: operations["accountKidPost"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/timeline": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get my timeline
-         * @description Get the timeline events of the logged in user.
-         *
-         */
-        get: operations["timeline"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/game/export/{gameId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export one game
-         * @description Download one game in either PGN or JSON format.
-         *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
-         *
-         */
-        get: operations["gamePgn"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/user/{username}/current-game": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export ongoing game of a user
-         * @description Download the ongoing game, or the last game played, of a user.
-         *     Available in either PGN or JSON format.
-         *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
-         *
-         */
-        get: operations["apiUserCurrentGame"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/games/user/{username}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export games of a user
-         * @description Download all games of any user in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
-         *     Games are sorted by reverse chronological order (most recent first).
-         *     We recommend streaming the response, for it can be very long.
-         *     <https://lichess.org/@/german11> for instance has more than 500,000 games.
-         *     The game stream is throttled, depending on who is making the request:
-         *       - Anonymous request: 20 games per second
-         *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 games per second
-         *       - Authenticated, downloading your own games: 60 games per second
-         *
-         */
-        get: operations["apiGamesUser"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/games/export/_ids": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Export games by IDs
-         * @description Download games by IDs in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
-         *     Games are sorted by reverse chronological order (most recent first)
-         *     The method is `POST` so a longer list of IDs can be sent in the request body.
-         *     300 IDs can be submitted.
-         *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
-         *
-         */
-        post: operations["gamesExportIds"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/stream/games-by-users": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Stream games of users
-         * @description Stream the games played between a list of users, in real time.
-         *     Only games where **both players** are part of the list are included.
-         *     The stream emits an event each time a game is started or finished.
-         *     To also get all current ongoing games at the beginning of the stream, use the `withCurrentGames` flag.
-         *     Games are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *     Maximum number of users: 300.
-         *     The method is `POST` so a longer list of IDs can be sent in the request body.
-         *
-         */
-        post: operations["gamesByUsers"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/stream/games/{streamId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Stream games by IDs
-         * @description Creates a stream of games from an arbitrary streamId, and a list of game IDs.
-         *     The stream first outputs the games that already exists, then emits an event each time a game is started or finished.
-         *     Games are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *     Maximum number of games: 500 for anonymous requests, or 1000 for [OAuth2 authenticated](#section/Introduction/Authentication) requests.
-         *     While the stream is open, it is possible to [add new game IDs to watch](#operation/gamesByIdsAdd).
-         *
-         */
-        post: operations["gamesByIds"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/stream/games/{streamId}/add": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Add game IDs to stream
-         * @description Add new game IDs for [an existing stream](#operation/gamesByIds) to watch.
-         *     The stream will immediately outputs the games that already exists, then emit an event each time a game is started or finished.
-         *
-         */
-        post: operations["gamesByIdsAdd"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/account/playing": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get my ongoing games
-         * @description Get the ongoing games of the current user.
-         *     Real-time and correspondence games are included.
-         *     The most urgent games are listed first.
-         *
-         */
-        get: operations["apiAccountPlaying"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/stream/game/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Stream moves of a game
-         * @description Stream positions and moves of any ongoing game, in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *     A description of the game is sent as a first message.
-         *     Then a message is sent each time a move is played.
-         *     Finally a description of the game is sent when it finishes, and the stream is closed.
-         *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
-         *     No more than 8 game streams can be opened at the same time from the same IP address.
-         *
-         */
-        get: operations["streamGame"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/import": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Import one game
-         * @description Import a game from PGN. See <https://lichess.org/paste>.
-         *     Rate limiting: 200 games per hour for OAuth requests, 100 games per hour for anonymous requests.
-         *     To broadcast ongoing games, consider [pushing to a broadcast instead](#operation/broadcastPush).
-         *     To analyse a position or a line, just construct an analysis board URL:
-         *     [https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bc4_Bc5_Bxf7+](https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bc4_Bc5_Bxf7+)
-         *
-         */
-        post: operations["gameImport"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/games/export/imports": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export your imported games
-         * @description Download all games imported by you. Games are exported in PGN format.
-         */
-        get: operations["apiImportedGamesUser"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/games/export/bookmarks": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export your bookmarked games
-         * @description Download all games bookmarked by you, in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
-         *     Games are sorted by reverse chronological order (most recent first).
-         *     We recommend streaming the response, for it can be very long.
-         *
-         */
-        get: operations["apiExportBookmarks"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/tv/channels": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get current TV games
-         * @description Get basic info about the best games being played for each speed and variant,
-         *     but also computer games and bot games.
-         *     See [lichess.org/tv](https://lichess.org/tv).
-         *
-         */
-        get: operations["tvChannels"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/tv/feed": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Stream current TV game
-         * @description Stream positions and moves of the current [TV game](https://lichess.org/tv) in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *     Try it with `curl https://lichess.org/api/tv/feed`.
-         *
-         */
-        get: operations["tvFeed"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/tv/{channel}/feed": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Stream current TV game of a TV channel
-         * @description Stream positions and moves of a current [TV channel's game](https://lichess.org/tv/rapid) in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *     Try it with `curl https://lichess.org/api/tv/rapid/feed`.
-         *
-         */
-        get: operations["tvChannelFeed"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/tv/{channel}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get best ongoing games of a TV channel
-         * @description Get a list of ongoing games for a given TV channel. Similar to [lichess.org/games](https://lichess.org/games).
-         *     Available in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
-         *
-         */
-        get: operations["tvChannelGames"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/tournament": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get current tournaments
-         * @description Get recently active and finished tournaments.
-         *     This API is used to display the [Lichess tournament schedule](https://lichess.org/tournament).
-         *
-         */
-        get: operations["apiTournament"];
-        put?: never;
-        /**
-         * Create a new Arena tournament
-         * @description Create a public or private Arena tournament.
-         *     This endpoint mirrors the form on <https://lichess.org/tournament/new>.
-         *     You can create up to 12 public tournaments per day, or 24 private tournaments.
-         *     A team battle can be created by specifying the `teamBattleByTeam` argument.
-         *     Additional restrictions:
-         *       - clockTime + clockIncrement > 0
-         *       - 15s and 0+1 variant tournaments cannot be rated
-         *       - Clock time in comparison to tournament length must be reasonable: 3 <= (minutes * 60) / (96 * clockTime + 48 * clockIncrement + 15) <= 150
-         *
-         */
-        post: operations["apiTournamentPost"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/tournament/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Get info about an Arena tournament
-         * @description Get detailed info about recently finished, current, or upcoming tournament's duels, player standings, and other info.
-         *
-         */
-        get: operations["tournament"];
-        put?: never;
-        /**
-         * Update an Arena tournament
-         * @description Update an Arena tournament.
-         *     Be mindful not to make important changes to ongoing tournaments.
-         *     Can be used to update a team battle.
-         *     Additional restrictions:
-         *       - clockTime + clockIncrement > 0
-         *       - 15s and 0+1 variant tournaments cannot be rated
-         *       - Clock time in comparison to tournament length must be reasonable: 3 <= (minutes * 60) / (96 * clockTime + 48 * clockIncrement + 15) <= 150
-         *
-         */
-        post: operations["apiTournamentUpdate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/tournament/{id}/join": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Join an Arena tournament
-         * @description Join an Arena tournament, possibly with a password and/or a team.
-         *     Also unpauses if you had previously [paused](#operation/apiTournamentWithdraw) the tournament.
-         *
-         */
-        post: operations["apiTournamentJoin"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/tournament/{id}/withdraw": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Pause or leave an Arena tournament
-         * @description Leave a future Arena tournament, or take a break on an ongoing Arena tournament.
-         *     It's possible to join again later. Points and streaks are preserved.
-         *
-         */
-        post: operations["apiTournamentWithdraw"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/tournament/{id}/terminate": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Terminate an Arena tournament
-         * @description Terminate an Arena tournament
-         *
-         */
-        post: operations["apiTournamentTerminate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/tournament/team-battle/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Update a team battle
-         * @description Set the teams and number of leaders of a team battle.
-         *     To update the other attributes of a team battle, use the [tournament update endpoint](#operation/apiTournamentUpdate).
-         *
-         */
-        post: operations["apiTournamentTeamBattlePost"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/tournament/{id}/games": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export games of an Arena tournament
-         * @description Download games of a tournament in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
-         *     Games are sorted by reverse chronological order (most recent first).
-         *     The game stream is throttled, depending on who is making the request:
-         *       - Anonymous request: 20 games per second
-         *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 games per second
-         *
-         */
-        get: operations["gamesByTournament"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/tournament/{id}/results": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get results of an Arena tournament
-         * @description Players of an Arena tournament, with their score and performance, sorted by rank (best first).
-         *     **Players are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON)**, i.e. one JSON object per line.
-         *     If called on an ongoing tournament, results can be inconsistent
-         *     due to ranking changes while the players are being streamed.
-         *     Use on finished tournaments for guaranteed consistency.
-         *
-         */
-        get: operations["resultsByTournament"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/tournament/{id}/teams": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get team standing of a team battle
-         * @description Teams of a team battle tournament, with top players, sorted by rank (best first).
-         *
-         */
-        get: operations["teamsByTournament"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/user/{username}/tournament/created": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get tournaments created by a user
-         * @description Get all tournaments created by a given user.
-         *     Tournaments are sorted by reverse chronological order of start date (last starting first).
-         *     Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *     The stream is throttled, depending on who is making the request:
-         *       - Anonymous request: 20 tournaments per second
-         *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 tournaments per second
-         *       - Authenticated, downloading your own tournaments: 50 games per second
-         *
-         */
-        get: operations["apiUserNameTournamentCreated"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/user/{username}/tournament/played": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get tournaments played by a user
-         * @description Get all tournaments played by a given user.
-         *     Tournaments are sorted by reverse chronological order of start date (last played first).
-         *     Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *     The stream is throttled, depending on who is making the request:
-         *       - Anonymous request: 20 tournaments per second
-         *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 tournaments per second
-         *       - Authenticated, downloading your own tournaments: 50 games per second
-         *
-         */
-        get: operations["apiUserNameTournamentPlayed"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/swiss/new/{teamId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Create a new Swiss tournament
-         * @description Create a Swiss tournament for your team.
-         *     This endpoint mirrors the Swiss tournament form from your team pagee.
-         *     You can create up to 12 tournaments per day.
-         *     Additional restrictions:
-         *       - clock.limit + clock.increment > 0
-         *       - 15s and 0+1 variant tournaments cannot be rated
-         *
-         */
-        post: operations["apiSwissNew"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/swiss/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The Swiss tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Get info about a Swiss tournament
-         * @description Get detailed info about a Swiss tournament.
-         *
-         */
-        get: operations["swiss"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/swiss/{id}/edit": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Update a Swiss tournament
-         * @description Update a Swiss tournament.
-         *     Be mindful not to make important changes to ongoing tournaments.
-         *     Additional restrictions:
-         *       - clock.limit + clock.increment > 0
-         *       - 15s and 0+1 variant tournaments cannot be rated
-         *
-         */
-        post: operations["apiSwissUpdate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/swiss/{id}/schedule-next-round": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Manually schedule the next round
-         * @description Manually schedule the next round date and time of a Swiss tournament.
-         *     This sets the `roundInterval` field to `99999999`, i.e. manual scheduling.
-         *     All further rounds will need to be manually scheduled, unless the `roundInterval` field is changed back to automatic scheduling.
-         *
-         */
-        post: operations["apiSwissScheduleNextRound"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/swiss/{id}/join": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Join a Swiss tournament
-         * @description Join a Swiss tournament, possibly with a password.
-         *
-         */
-        post: operations["apiSwissJoin"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/swiss/{id}/withdraw": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Pause or leave a swiss tournament
-         * @description Leave a future Swiss tournament, or take a break on an ongoing Swiss tournament.
-         *     It's possible to join again later. Points are preserved.
-         *
-         */
-        post: operations["apiSwissWithdraw"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/swiss/{id}/terminate": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Terminate a Swiss tournament
-         * @description Terminate a Swiss tournament
-         *
-         */
-        post: operations["apiSwissTerminate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/swiss/{id}.trf": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export TRF of a Swiss tournament
-         * @description Download a tournament in the Tournament Report File format, the FIDE standard.
-         *     Documentation: <https://www.fide.com/FIDE/handbook/C04Annex2_TRF16.pdf>
-         *     Example: <https://lichess.org/swiss/j8rtJ5GL.trf>
-         *
-         */
-        get: operations["swissTrf"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/swiss/{id}/games": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export games of a Swiss tournament
-         * @description Download games of a swiss tournament in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
-         *     Games are sorted by chronological order.
-         *     The game stream is throttled, depending on who is making the request:
-         *       - Anonymous request: 20 games per second
-         *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 games per second
-         *
-         */
-        get: operations["gamesBySwiss"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/swiss/{id}/results": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get results of a swiss tournament
-         * @description Players of a swiss tournament, with their score and performance, sorted by rank (best first).
-         *     Players are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *     If called on an ongoing tournament, results can be inconsistent
-         *     due to ranking changes while the players are being streamed.
-         *     Use on finished tournaments for guaranteed consistency.
-         *
-         */
-        get: operations["resultsBySwiss"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/team/{teamId}/swiss": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get team swiss tournaments
-         * @description Get all swiss tournaments of a team.
-         *     Tournaments are sorted by reverse chronological order of start date (last starting first).
-         *     Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *
-         */
-        get: operations["apiTeamSwiss"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/study/{studyId}/{chapterId}.pgn": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export one study chapter
-         * @description Download one study chapter in PGN format.
-         *
-         */
-        get: operations["studyChapterPgn"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/study/{studyId}.pgn": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export all chapters
-         * @description Download all chapters of a study in PGN format.
-         *
-         */
-        get: operations["studyAllChaptersPgn"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        /**
-         * Study metadata
-         * @description Only get the study headers, including `Last-Modified`.
-         *
-         */
-        head: operations["studyAllChaptersHead"];
-        patch?: never;
-        trace?: never;
-    };
-    "/api/study/{studyId}/import-pgn": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Import PGN into a study
-         * @description Imports arbitrary PGN into an existing [study](https://lichess.org/study). Creates a new chapter in the study.
-         *     If the PGN contains multiple games (separated by 2 or more newlines)
-         *     then multiple chapters will be created within the study.
-         *     Note that a study can contain at most 64 chapters.
-         *
-         */
-        post: operations["apiStudyImportPGN"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/study/by/{username}/export.pgn": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export all studies of a user
-         * @description Download all chapters of all studies of a user in PGN format.
-         *     If authenticated, then all public, unlisted, and private studies are included.
-         *     If not, only public (non-unlisted) studies are included.
-         *
-         */
-        get: operations["studyExportAllPgn"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/study/by/{username}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List studies of a user
-         * @description Get metadata (name and dates) of all studies of a user.
-         *     If authenticated, then all public, unlisted, and private studies are included.
-         *     If not, only public (non-unlisted) studies are included.
-         *     Studies are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *
-         */
-        get: operations["studyListMetadata"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/study/{studyId}/{chapterId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post?: never;
-        /**
-         * Delete a study chapter
-         * @description Delete a chapter of a study you own. This is definitive.
-         *     A study must have at least one chapter; so if you delete the last chapter,
-         *     an empty one will be automatically created to replace it.
-         *
-         */
-        delete: operations["apiStudyStudyIdChapterIdDelete"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/broadcast": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get official broadcasts
-         * @description Get all incoming, ongoing, and finished official broadcasts.
-         *     The broadcasts are sorted by start date, most recent first.
-         *     Broadcasts are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *
-         */
-        get: operations["broadcastsOfficial"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/broadcast/top": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get paginated top broadcast previews
-         * @description The same data, in the same order, as can be seen on [https://lichess.org/broadcast](/broadcast).
-         *
-         */
-        get: operations["broadcastsTop"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/broadcast/by/{username}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get broadcasts created by a user
-         * @description Get all incoming, ongoing, and finished official broadcasts.
-         *     The broadcasts are sorted by created date, most recent first.
-         *
-         */
-        get: operations["broadcastsByUser"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/broadcast/search": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Search broadcasts
-         * @description Search across recent official broadcasts.
-         *
-         */
-        get: operations["broadcastsSearch"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/broadcast/new": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Create a broadcast tournament
-         * @description Create a new broadcast tournament to relay external games.
-         *     This endpoint accepts the same form data as the [web form](https://lichess.org/broadcast/new).
-         *
-         */
-        post: operations["broadcastTourCreate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/broadcast/{broadcastTournamentId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get a broadcast tournament
-         * @description Get information about a broadcast tournament.
-         *
-         */
-        get: operations["broadcastTourGet"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/broadcast/{broadcastTournamentId}/players": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get players of a broadcast
-         * @description Get the list of players of a broadcast tournament, if available.
-         *
-         */
-        get: operations["broadcastPlayersGet"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/broadcast/{broadcastTournamentId}/edit": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Update your broadcast tournament
-         * @description Update information about a broadcast tournament that you created.
-         *     This endpoint accepts the same form data as the web form.
-         *     All fields must be populated with data. Missing fields will override the broadcast with empty data.
-         *
-         */
-        post: operations["broadcastTourUpdate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/broadcast/{broadcastTournamentId}/new": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Create a broadcast round
-         * @description Create a new broadcast round to relay external games.
-         *     This endpoint accepts the same form data as the web form.
-         *
-         *     Choose one between `syncUrl`, `syncUrls`, `syncIds` and `syncUsers`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush)
-         *
-         */
-        post: operations["broadcastRoundCreate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/broadcast/{broadcastTournamentSlug}/{broadcastRoundSlug}/{broadcastRoundId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get a broadcast round
-         * @description Get information about a broadcast round.
-         *
-         */
-        get: operations["broadcastRoundGet"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/broadcast/round/{broadcastRoundId}/edit": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Update a broadcast round
-         * @description Update information about a broadcast round.
-         *     This endpoint accepts the same form data as the web form.
-         *     All fields must be populated with data. Missing fields will override the broadcast with empty data.
-         *     For instance, if you omit `startDate`, then any pre-existing start date will be removed.
-         *
-         */
-        post: operations["broadcastRoundUpdate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/broadcast/round/{broadcastRoundId}/reset": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Reset a broadcast round
-         * @description Remove any games from the broadcast round and reset it to its initial state.
-         *
-         */
-        post: operations["broadcastRoundReset"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/broadcast/round/{broadcastRoundId}/push": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Push PGN to a broadcast round
-         * @description Update a broadcast with new PGN.
-         *     Only for broadcasts without a source URL.
-         *
-         */
-        post: operations["broadcastPush"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/stream/broadcast/round/{broadcastRoundId}.pgn": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Stream an ongoing broadcast round as PGN
-         * @description This streaming endpoint first sends all games of a broadcast round in PGN format.
-         *     Then, it waits for new moves to be played. As soon as it happens, the entire PGN of the game is sent to the stream.
-         *     The stream will also send PGNs when games are added to the round.
-         *     This is the best way to get updates about an ongoing round. Streaming means no polling,
-         *     and no pollings means no latency, and minimum impact on the server.
-         *
-         */
-        get: operations["broadcastStreamRoundPgn"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/broadcast/round/{broadcastRoundId}.pgn": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export one round as PGN
-         * @description Download all games of a single round of a broadcast tournament in PGN format.
-         *     You *could* poll this endpoint to get updates about a tournament, but it would be slow,
-         *     and very inefficient.
-         *     Instead, consider [streaming the tournament](#operation/broadcastStreamRoundPgn) to get
-         *     a new PGN every time a game is updated, in real-time.
-         *
-         */
-        get: operations["broadcastRoundPgn"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/broadcast/{broadcastTournamentId}.pgn": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export all rounds as PGN
-         * @description Download all games of all rounds of a broadcast in PGN format.
-         *     If a `study:read` [OAuth token](#tag/OAuth) is provided,
-         *     the private rounds where the user is a contributor will be available.
-         *     You may want to [download only the games of a single round](#operation/broadcastRoundPgn) instead.
-         *
-         */
-        get: operations["broadcastAllRoundsPgn"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/broadcast/my-rounds": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get your broadcast rounds
-         * @description Stream all broadcast rounds you are a member of.
-         *     Also includes broadcasts rounds you did not create, but were invited to.
-         *     Also includes broadcasts rounds where you're a non-writing member. See the `writeable` flag in the response.
-         *     Rounds are ordered by rank, which is roughly chronological, most recent first, slightly pondered with popularity.
-         *
-         */
-        get: operations["broadcastMyRoundsGet"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/fide/player/{playerId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get a FIDE player
-         * @description Get information about a FIDE player.
-         *
-         */
-        get: operations["fidePlayerGet"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/fide/player": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Search FIDE players
-         * @description List of FIDE players search results for a query.
-         *
-         */
-        get: operations["fidePlayerSearch"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/simul": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get current simuls
-         * @description Get recently created, started, finished, simuls.
-         *     Created and finished simul lists are not exhaustives, only those with
-         *     strong enough host will be listed, the same filter is used to display simuls on https://lichess.org/simul.
-         *     When [authenticated with OAuth2](#section/Introduction/Authentication), the pending list will be populated with your created, but unstarted simuls.
-         *
-         */
-        get: operations["apiSimul"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/team/{teamId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get a single team
-         * @description Public info about a team. Includes the list of publicly visible leaders.
-         */
-        get: operations["teamShow"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/team/all": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get popular teams
-         * @description Paginator of the most popular teams.
-         *
-         */
-        get: operations["teamAll"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/team/of/{username}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Teams of a player
-         * @description All the teams a player is a member of.
-         *
-         */
-        get: operations["teamOfUsername"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/team/search": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Search teams
-         * @description Paginator of team search results for a keyword.
-         *
-         */
-        get: operations["teamSearch"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/team/{teamId}/users": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get members of a team
-         * @description Members are sorted by reverse chronological order of joining the team (most recent first).
-         *     OAuth is only required if the list of members is private.
-         *     Up to 5,000 users are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *
-         */
-        get: operations["teamIdUsers"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/team/{teamId}/arena": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get team Arena tournaments
-         * @description Get all Arena tournaments relevant to a team.
-         *     Tournaments are sorted by reverse chronological order of start date (last starting first).
-         *     Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *
-         */
-        get: operations["apiTeamArena"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/team/{teamId}/join": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Join a team
-         * @description Join a team.
-         *     If the team requires a password but the `password` field is incorrect,
-         *     then the call fails with `403 Forbidden`.
-         *     Similarly, if the team join policy requires a confirmation but the
-         *     `message` parameter is not given, then the call fails with
-         *     `403 Forbidden`.
-         *
-         */
-        post: operations["teamIdJoin"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/team/{teamId}/quit": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Leave a team
-         * @description Leave a team.
-         *     - <https://lichess.org/team>
-         *
-         */
-        post: operations["teamIdQuit"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/team/{teamId}/requests": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get join requests
-         * @description Get pending join requests of your team
-         */
-        get: operations["teamRequests"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/team/{teamId}/request/{userId}/accept": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Accept join request
-         * @description Accept someone's request to join your team
-         */
-        post: operations["teamRequestAccept"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/team/{teamId}/request/{userId}/decline": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Decline join request
-         * @description Decline someone's request to join your team
-         */
-        post: operations["teamRequestDecline"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/team/{teamId}/kick/{userId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Kick a user from your team
-         * @description Kick a member out of one of your teams.
-         *     - <https://lichess.org/team>
-         *
-         */
-        post: operations["teamIdKickUserId"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/team/{teamId}/pm-all": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Message all members
-         * @description Send a private message to all members of a team.
-         *     You must be a team leader with the "Messages" permission.
-         *
-         */
-        post: operations["teamIdPmAll"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/streamer/live": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get live streamers
-         * @description Get basic info about currently streaming users.
-         *     This API is very fast and cheap on lichess side.
-         *     So you can call it quite often (like once every 5 seconds).
-         *
-         */
-        get: operations["streamerLive"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/crosstable/{user1}/{user2}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get crosstable
-         * @description Get total number of games, and current score, of any two users.
-         *     If the `matchup` flag is provided, and the users are currently playing, also gets the current match game number and scores.
-         *
-         */
-        get: operations["apiCrosstable"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/player/autocomplete": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Autocomplete usernames
-         * @description Provides autocompletion options for an incomplete username.
-         *
-         */
-        get: operations["apiPlayerAutocomplete"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/user/{username}/note": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get notes for a user
-         * @description Get the private notes that you have added for a user.
-         *
-         */
-        get: operations["readNote"];
-        put?: never;
-        /**
-         * Add a note for a user
-         * @description Add a private note available only to you about this account.
-         *
-         */
-        post: operations["writeNote"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/rel/following": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get users followed by the logged in user
-         * @description Users are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *
-         */
-        get: operations["apiUserFollowing"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/rel/follow/{username}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Follow a player
-         * @description Follow a player, adding them to your list of Lichess friends.
-         *
-         */
-        post: operations["followUser"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/rel/unfollow/{username}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Unfollow a player
-         * @description Unfollow a player, removing them from your list of Lichess friends.
-         *
-         */
-        post: operations["unfollowUser"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/rel/block/{username}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Block a player
-         * @description Block a player, adding them to your list of blocked Lichess users.
-         *
-         */
-        post: operations["blockUser"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/rel/unblock/{username}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Unblock a player
-         * @description Unblock a player, removing them from your list of blocked Lichess users.
-         *
-         */
-        post: operations["unblockUser"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/stream/event": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Stream incoming events
-         * @description Stream the events reaching a lichess user in real time as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *
-         *     An empty line is sent every 6 seconds for keep alive purposes.
-         *
-         *     Each non-empty line is a JSON object containing a `type` field. Possible values are:
-         *     - `gameStart` Start of a game
-         *     - `gameFinish` Completion of a game
-         *     - `challenge` A player sends you a challenge or you challenge someone
-         *     - `challengeCanceled` A player cancels their challenge to you
-         *     - `challengeDeclined` The opponent declines your challenge
-         *
-         *     When the stream opens, all current challenges and games are sent.
-         *
-         */
-        get: operations["apiStreamEvent"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/board/seek": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Create a seek
-         * @description Create a public seek, to start a game with a random player.
-         *
-         *     ### Real-time seek
-         *
-         *     Specify the `time` and `increment` clock values.
-         *     The response is streamed but doesn't contain any information.
-         *
-         *     **Keep the connection open to keep the seek active**.
-         *
-         *     If the client closes the connection, the seek is canceled. This way, if the client terminates, the user won't be paired in a game they wouldn't play.
-         *     When the seek is accepted, or expires, the server closes the connection.
-         *
-         *     **Make sure to also have an [Event stream](#operation/apiStreamEvent) open**, to be notified when a game starts.
-         *     We recommend opening the [Event stream](#operation/apiStreamEvent) first, then the seek stream. This way,
-         *     you won't miss the game event if the seek is accepted immediately.
-         *
-         *     ### Correspondence seek
-         *
-         *     Specify the `days` per turn value.
-         *     The response is not streamed, it immediately completes with the seek ID. The seek remains active on the server until it is joined by someone.
-         *
-         */
-        post: operations["apiBoardSeek"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/board/game/stream/{gameId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Stream Board game state
-         * @description Stream the state of a game being played with the Board API, as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *
-         *     Use this endpoint to get updates about the game in real-time, with a single request.
-         *
-         *     Each line is a JSON object containing a `type` field. Possible values are:
-         *       - `gameFull` Full game data. All values are immutable, except for the `state` field.
-         *       - `gameState` Current state of the game. Immutable values not included. Sent when a move is played, a draw is offered, or when the game ends.
-         *       - `chatLine` Chat message sent by a user in the `room` "player" or "spectator".
-         *       - `opponentGone` Whether the opponent has left the game, and how long before you can claim a win or draw.
-         *
-         *     The first line is always of type `gameFull`.
-         *
-         *     The server closes the stream when the game ends, or if the game has already ended.
-         *
-         */
-        get: operations["boardGameStream"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/board/game/{gameId}/move/{move}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Make a Board move
-         * @description Make a move in a game being played with the Board API.
-         *     The move can also contain a draw offer/agreement.
-         *
-         */
-        post: operations["boardGameMove"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/board/game/{gameId}/chat": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch the game chat
-         * @description Get the messages posted in the game chat
-         *
-         */
-        get: operations["boardGameChatGet"];
-        put?: never;
-        /**
-         * Write in the chat
-         * @description Post a message to the player or spectator chat, in a game being played with the Board API.
-         *
-         */
-        post: operations["boardGameChatPost"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/board/game/{gameId}/abort": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Abort a game
-         * @description Abort a game being played with the Board API.
-         *
-         */
-        post: operations["boardGameAbort"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/board/game/{gameId}/resign": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Resign a game
-         * @description Resign a game being played with the Board API.
-         *
-         */
-        post: operations["boardGameResign"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/board/game/{gameId}/draw/{accept}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Handle draw offers
-         * @description Create/accept/decline draw offers.
-         *     - `yes`: Offer a draw, or accept the opponent's draw offer.
-         *     - `no`: Decline a draw offer from the opponent.
-         *
-         */
-        post: operations["boardGameDraw"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/board/game/{gameId}/takeback/{accept}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Handle takeback offers
-         * @description Create/accept/decline takebacks.
-         *     - `yes`: Propose a takeback, or accept the opponent's takeback offer.
-         *     - `no`: Decline a takeback offer from the opponent.
-         *
-         */
-        post: operations["boardGameTakeback"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/board/game/{gameId}/claim-victory": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Claim victory of a game
-         * @description Claim victory when the opponent has left the game for a while.
-         *
-         */
-        post: operations["boardGameClaimVictory"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/board/game/{gameId}/berserk": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Berserk a tournament game
-         * @description Go berserk on an arena tournament game. Halves the clock time, grants an extra point upon winning.
-         *     Only available in arena tournaments that allow berserk, and before each player has made a move.
-         *
-         */
-        post: operations["boardGameBerserk"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/bot/online": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get online bots
-         * @description Stream the [online bot users](https://lichess.org/player/bots), as [ndjson](#section/Introduction/Streaming-with-ND-JSON). Throttled to 50 bot users per second.
-         */
-        get: operations["apiBotOnline"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/bot/account/upgrade": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Upgrade to Bot account
-         * @description Upgrade a lichess player account into a Bot account. Only Bot accounts can use the Bot API.
-         *     The account **cannot have played any game** before becoming a Bot account. The upgrade is **irreversible**. The account will only be able to play as a Bot.
-         *     To upgrade an account to Bot, use the [official lichess-bot client](https://github.com/lichess-bot-devs/lichess-bot), or follow these steps:
-         *     - Create an [API access token](https://lichess.org/account/oauth/token/create?scopes[]=bot:play) with "Play bot moves" permission.
-         *     - `curl -d '' https://lichess.org/api/bot/account/upgrade -H "Authorization: Bearer <yourTokenHere>"`
-         *     To know if an account has already been upgraded, use the [Get my profile API](#operation/accountMe):
-         *     the `title` field should be set to `BOT`.
-         *
-         */
-        post: operations["botAccountUpgrade"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/bot/game/stream/{gameId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Stream Bot game state
-         * @description Stream the state of a game being played with the Bot API, as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-         *     Use this endpoint to get updates about the game in real-time, with a single request.
-         *     Each line is a JSON object containing a `type` field. Possible values are:
-         *     - `gameFull` Full game data. All values are immutable, except for the `state` field.
-         *     - `gameState` Current state of the game. Immutable values not included.
-         *     - `chatLine` Chat message sent by a user (or the bot itself) in the `room` "player" or "spectator".
-         *     - `opponentGone` Whether the opponent has left the game, and how long before you can claim a win or draw.
-         *     The first line is always of type `gameFull`.
-         *
-         */
-        get: operations["botGameStream"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/bot/game/{gameId}/move/{move}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Make a Bot move
-         * @description Make a move in a game being played with the Bot API.
-         *     The move can also contain a draw offer/agreement.
-         *
-         */
-        post: operations["botGameMove"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/bot/game/{gameId}/chat": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Fetch the game chat
-         * @description Get the messages posted in the game chat
-         *
-         */
-        get: operations["botGameChatGet"];
-        put?: never;
-        /**
-         * Write in the chat
-         * @description Post a message to the player or spectator chat, in a game being played with the Bot API.
-         *
-         */
-        post: operations["botGameChat"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/bot/game/{gameId}/abort": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Abort a game
-         * @description Abort a game being played with the Bot API.
-         *
-         */
-        post: operations["botGameAbort"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/bot/game/{gameId}/resign": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Resign a game
-         * @description Resign a game being played with the Bot API.
-         *
-         */
-        post: operations["botGameResign"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/bot/game/{gameId}/draw/{accept}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Handle draw offers
-         * @description Create/accept/decline draw offers with the Bot API.
-         *     - `yes`: Offer a draw, or accept the opponent's draw offer.
-         *     - `no`: Decline a draw offer from the opponent.
-         *
-         */
-        post: operations["botGameDraw"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/bot/game/{gameId}/takeback/{accept}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Handle takeback offers
-         * @description Create/accept/decline takebacks with the Bot API.
-         *     - `yes`: Propose a takeback, or accept the opponent's takeback offer.
-         *     - `no`: Decline a takeback offer from the opponent.
-         *
-         */
-        post: operations["botGameTakeback"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/bot/game/{gameId}/claim-victory": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Claim victory of a game
-         * @description Claim victory when the opponent has left the game for a while.
-         *
-         */
-        post: operations["botGameClaimVictory"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/challenge": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List your challenges
-         * @description Get a list of challenges created by or targeted at you.
-         *
-         */
-        get: operations["challengeList"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/challenge/{username}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Create a challenge
-         * @description Challenge someone to play. The targeted player can choose to accept or decline.
-         *     If the challenge is accepted, you will be notified on the [event stream](#operation/apiStreamEvent)
-         *     that a new game has started. The game ID will be the same as the challenge ID.
-         *     Challenges for realtime games (not correspondence) expire after 20s if not accepted.
-         *     To prevent that, use the `keepAliveStream` flag described below.
-         *
-         */
-        post: operations["challengeCreate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/challenge/{challengeId}/show": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Show one challenge
-         * @description Get details about a challenge, even if it has been recently accepted, canceled or declined.
-         *
-         */
-        get: operations["challengeShow"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/challenge/{challengeId}/accept": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Accept a challenge
-         * @description Accept an incoming challenge.
-         *     You should receive a `gameStart` event on the [incoming events stream](#operation/apiStreamEvent).
-         *
-         */
-        post: operations["challengeAccept"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/challenge/{challengeId}/decline": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Decline a challenge
-         * @description Decline an incoming challenge.
-         *
-         */
-        post: operations["challengeDecline"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/challenge/{challengeId}/cancel": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Cancel a challenge
-         * @description Cancel a challenge you sent, or aborts the game if the challenge was accepted, but the game was not yet played.
-         *     Note that the ID of a game is the same as the ID of the challenge that created it.
-         *     Works for user challenges and open challenges alike.
-         *
-         */
-        post: operations["challengeCancel"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/challenge/ai": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Challenge the AI
-         * @description Start a game with Lichess AI.
-         *     You will be notified on the [event stream](#operation/apiStreamEvent) that a new game has started.
-         *
-         */
-        post: operations["challengeAi"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/challenge/open": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Open-ended challenge
-         * @description Create a challenge that any 2 players can join.
-         *     Share the URL of the challenge. the first 2 players to click it will be paired for a game.
-         *     The response body also contains `whiteUrl` and `blackUrl`.
-         *     You can control which color each player gets by giving them these URLs,
-         *     instead of the main challenge URL.
-         *     Open challenges expire after 24h.
-         *     If the challenge creation is [authenticated with OAuth2](#section/Introduction/Authentication),
-         *     then you can use the [challenge cancel endpoint](#operation/challengeCancel) to cancel it.
-         *     To directly pair 2 known players, use [this endpoint](#operation/bulkPairingList) instead.
-         *
-         */
-        post: operations["challengeOpen"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/challenge/{gameId}/start-clocks": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Start clocks of a game
-         * @description Start the clocks of a game immediately, even if a player has not yet made a move.
-         *     Requires the OAuth tokens of both players with `challenge:write` scope.
-         *     If the clocks have already started, the call will have no effect.
-         *
-         *     For AI games with only one player, omit the `token2` parameter.
-         *
-         */
-        post: operations["challengeStartClocks"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/bulk-pairing": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * View your bulk pairings
-         * @description Get a list of bulk pairings you created.
-         *
-         */
-        get: operations["bulkPairingList"];
-        put?: never;
-        /**
-         * Create a bulk pairing
-         * @description Schedule many games at once, up to 24h in advance.
-         *     OAuth tokens are required for all paired players, with the `challenge:write` scope.
-         *     You can schedule up to 500 games every 10 minutes. [Contact us](mailto:contact@lichess.org) if you need higher limits.
-         *     If games have a real-time clock, each player must have only one pairing.
-         *     For correspondence games, players can have multiple pairings within the same bulk.
-         *
-         *     **The entire bulk is rejected if:**
-         *       - a token is missing
-         *       - a token is present more than once (except in correspondence)
-         *       - a token lacks the `challenge:write` scope
-         *       - a player account is closed
-         *       - a player is paired more than once (except in correspondence)
-         *       - a bulk is already scheduled to start at the same time with the same player
-         *       - you have 20 scheduled bulks
-         *       - you have 1000 scheduled games
-         *
-         *     Partial bulks are never created. Either it all fails, or it all succeeds.
-         *     When it fails, it does so with an error message explaining the issue.
-         *     Failed bulks are not counted in the rate limiting, they are free.
-         *     Fix the issues, manually or programmatically, then retry to schedule the bulk.
-         *     A successful bulk creation returns a JSON bulk document. Its ID can be used for further operations.
-         *
-         */
-        post: operations["bulkPairingCreate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/bulk-pairing/{id}/start-clocks": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Manually start clocks
-         * @description Immediately start all clocks of the games of a bulk pairing.
-         *     This overrides the `startClocksAt` value of an existing bulk pairing.
-         *     If the games have not yet been created (`bulk.pairAt` is in the future), then this does nothing.
-         *     If the clocks have already started (`bulk.startClocksAt` is in the past), then this does nothing.
-         *
-         */
-        post: operations["bulkPairingStartClocks"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/bulk-pairing/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Show a bulk pairing
-         * @description Get a single bulk pairing by its ID.
-         *
-         */
-        get: operations["bulkPairingGet"];
-        put?: never;
-        post?: never;
-        /**
-         * Cancel a bulk pairing
-         * @description Cancel and delete a bulk pairing that is scheduled in the future.
-         *     If the games have already been created, then this does nothing.
-         *     Canceling a bulk pairing does not refund the rate limit cost of that bulk pairing.
-         *
-         */
-        delete: operations["bulkPairingDelete"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/bulk-pairing/{id}/games": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export games of a bulk pairing
-         * @description Download games of a bulk in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
-         *
-         */
-        get: operations["bulkPairingIdGamesGet"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/round/{gameId}/add-time/{seconds}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Add time to the opponent clock
-         * @description Add seconds to the opponent's clock. Can be used to create games with time odds.
-         *
-         */
-        post: operations["roundAddTime"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/token/admin-challenge": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Admin challenge tokens
-         * @description **This endpoint can only be used by Lichess administrators. It will not work if you do not have the appropriate permissions.** Tournament organizers should instead use [OAuth](#tag/OAuth) to obtain `challenge:write` tokens from users in order to perform bulk pairing.*
-         *     Create and obtain `challenge:write` tokens for multiple users.
-         *     If a similar token already exists for a user, it is reused. This endpoint is idempotent.
-         *
-         */
-        post: operations["adminChallengeTokens"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/inbox/{username}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Send a private message
-         * @description Send a private message to another player.
-         *
-         */
-        post: operations["inboxUsername"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/cloud-eval": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get cloud evaluation of a position.
-         * @description Get the cached evaluation of a position, if available.
-         *     Opening positions have more chances of being available. There are about 15 million positions in the database.
-         *     Up to 5 variations may be available. Variants are supported.
-         *     Use this endpoint to fetch a few positions here and there.
-         *     If you want to download a lot of positions, [get the full list](https://database.lichess.org/#evals) from our exported database.
-         *
-         */
-        get: operations["apiCloudEval"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/external-engine": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List external engines
-         * @description Lists all external engines that have been registered for the user,
-         *     and the credentials required to use them.
-         *
-         */
-        get: operations["apiExternalEngineList"];
-        put?: never;
-        /**
-         * Create external engine
-         * @description Registers a new external engine for the user. It can then be selected
-         *     and used on the analysis board.
-         *     After registering, the provider should start waiting for analyis requests.
-         *
-         */
-        post: operations["apiExternalEngineCreate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/external-engine/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The external engine id.
-                 * @example eei_aTKImBJOnv6j
-                 */
-                id: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Get external engine
-         * @description Get properties and credentials of an external engine.
-         *
-         */
-        get: operations["apiExternalEngineGet"];
-        /**
-         * Update external engine
-         * @description Updates the properties of an external engine.
-         *
-         */
-        put: operations["apiExternalEnginePut"];
-        post?: never;
-        /**
-         * Delete external engine
-         * @description Unregisters an external engine.
-         *
-         */
-        delete: operations["apiExternalEngineDelete"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/external-engine/{id}/analyse": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The external engine id.
-                 * @example eei_aTKImBJOnv6j
-                 */
-                id: string;
-            };
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Analyse with external engine
-         * @description **Endpoint: `https://engine.lichess.ovh/api/external-engine/{id}/analyse`**
-         *     Request analysis from an external engine.
-         *     Response content is streamed as [newline delimited JSON](#section/Introduction/Streaming-with-ND-JSON).
-         *     The properties are based on the [UCI specification](https://backscattering.de/chess/uci/#engine).
-         *     Analysis stops when the client goes away, the requested limit
-         *     is reached, or the provider goes away.
-         *
-         */
-        post: operations["apiExternalEngineAnalyse"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/external-engine/work": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Acquire analysis request
-         * @description **Endpoint: `https://engine.lichess.ovh/api/external-engine/work`**
-         *     Wait for an analysis requests to any of the external engines that
-         *     have been registered with the given `secret`.
-         *     Uses long polling.
-         *     After acquiring a request, the provider should immediately
-         *     [start streaming the results](#tag/External-engine/operation/apiExternalEngineSubmit).
-         *
-         */
-        post: operations["apiExternalEngineAcquire"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/external-engine/work/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                id: string;
-            };
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Answer analysis request
-         * @description **Endpoint: `https://engine.lichess.ovh/api/external-engine/work/{id}`**
-         *     Submit a stream of analysis as [UCI output](https://backscattering.de/chess/uci/#engine-info).
-         *     * The engine should always be in `UCI_Chess960` mode.
-         *     * `UCI_AnalyseMode` enabled if available.
-         *     * It produces `info` with at least:
-         *       - `depth`
-         *       - `multipv` (between 1 and 5)
-         *       - `score`
-         *       - `nodes`
-         *       - `time`
-         *       - `pv`
-         *     The server may close the connection at any time, indicating that
-         *     the requester has gone away and analysis should be stopped.
-         *
-         */
-        post: operations["apiExternalEngineSubmit"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/oauth": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Request authorization code
-         * @description OAuth2 authorization endpoint.
-         *     Start the OAuth2 Authorization Code Flow with PKCE by securely
-         *     generating two random strings unique to each authorization
-         *     request:
-         *
-         *     * `code_verifier`
-         *     * `state`
-         *
-         *     Store these in session storage. Make sure not to reveal `code_verifier`
-         *     to eavesdroppers. Do not show it in URLs, do not abuse `state` to store
-         *     it, do not send it over insecure connections. However it is fine if
-         *     the user themselves can extract `code_verifier`, which will always be
-         *     possible for fully client-side apps.
-         *     Then send the user to this endpoint. They will be prompted to grant
-         *     authorization and then be redirected back to the given `redirect_uri`.
-         *     If the authorization failed, the following query string parameters will
-         *     be appended to the redirection:
-         *
-         *     * `error`, in particular with value `access_denied` if the user
-         *        cancelled authorization
-         *     * `error_description` to aid debugging
-         *     * `state`, exactly as passed in the `state` parameter
-         *
-         *     If the authorization succeeded, the following query string parameters
-         *     will be appended to the redirection:
-         *
-         *     * `code`, containing a fresh short-lived authorization code
-         *     * `state`, exactly as passed in the `state` parameter
-         *
-         *     Next, to defend against cross site request forgery, check that the
-         *     returned `state` matches the `state` you originally generated.
-         *
-         *     Finally, continue by using the authorization code to
-         *     [obtain an access token](#operation/apiToken).
-         *
-         */
-        get: operations["oauth"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/token": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Obtain access token
-         * @description OAuth2 token endpoint. Exchanges an authorization code for an access token.
-         *
-         */
-        post: operations["apiToken"];
-        /**
-         * Revoke access token
-         * @description Revokes the access token sent as Bearer for this request.
-         */
-        delete: operations["apiTokenDelete"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/token/test": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Test multiple OAuth tokens
-         * @description For up to 1000 OAuth tokens,
-         *     returns their associated user ID and scopes,
-         *     or `null` if the token is invalid.
-         *     The method is `POST` so a longer list of tokens can be sent in the request body.
-         *
-         */
-        post: operations["tokenTest"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/masters": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Masters database
-         * @description **Endpoint: <https://explorer.lichess.ovh/masters>**
-         *
-         *     Example: `curl https://explorer.lichess.ovh/masters?play=d2d4,d7d5,c2c4,c7c6,c4d5`
-         *
-         */
-        get: operations["openingExplorerMaster"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/lichess": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Lichess games
-         * @description **Endpoint: <https://explorer.lichess.ovh/lichess>**
-         *
-         *     Games sampled from all Lichess players.
-         *
-         *     Example: `curl https://explorer.lichess.ovh/lichess?variant=standard&speeds=blitz,rapid,classical&ratings=2200,2500&fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
-         *
-         */
-        get: operations["openingExplorerLichess"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/player": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Player games
-         * @description **Endpoint: <https://explorer.lichess.ovh/player>**
-         *
-         *     Games of a Lichess player.
-         *
-         *     Responds with a stream of [newline delimited JSON](#section/Introduction/Streaming-with-ND-JSON). Will start indexing
-         *     on demand, immediately respond with the current results, and stream
-         *     more updates until indexing is complete. The stream is throttled
-         *     and deduplicated. Empty lines may be sent to avoid timeouts.
-         *
-         *     Will index new games at most once per minute, and revisit previously
-         *     ongoing games at most once every day.
-         *
-         *     Example: `curl https://explorer.lichess.ovh/player?player=revoof&color=white&play=d2d4,d7d5&recentGames=1`
-         *
-         */
-        get: operations["openingExplorerPlayer"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/master/pgn/{gameId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * OTB master game
-         * @description **Endpoint: `https://explorer.lichess.ovh/masters/pgn/{gameId}`**
-         *
-         *     Example: `curl https://explorer.lichess.ovh/masters/pgn/aAbqI4ey`
-         *
-         */
-        get: operations["openingExplorerMasterGame"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/standard": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Tablebase lookup
-         * @description **Endpoint: <https://tablebase.lichess.ovh>**
-         *     Example: `curl http://tablebase.lichess.ovh/standard?fen=4k3/6KP/8/8/8/8/7p/8_w_-_-_0_1`
-         *
-         */
-        get: operations["tablebaseStandard"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/atomic": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Tablebase lookup for Atomic chess
-         * @description **Endpoint: <https://tablebase.lichess.ovh>**
-         *
-         */
-        get: operations["tablebaseAtomic"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/antichess": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Tablebase lookup for Antichess
-         * @description **Endpoint: <https://tablebase.lichess.ovh>**
-         *
-         */
-        get: operations["antichessAtomic"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
+  "/api/users/status": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get real-time users status
+     * @description Read the `online`, `playing` and `streaming` flags of several users.
+     *     This API is very fast and cheap on lichess side.
+     *     So you can call it quite often (like once every 5 seconds).
+     *     Use it to track players and know when they're connected on lichess and playing games.
+     *
+     */
+    get: operations["apiUsersStatus"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/player": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get all top 10
+     * @description Get the top 10 players for each speed and variant.
+     *     See <https://lichess.org/player>.
+     *
+     */
+    get: operations["player"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/player/top/{nb}/{perfType}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get one leaderboard
+     * @description Get the leaderboard for a single speed or variant (a.k.a. `perfType`).
+     *     There is no leaderboard for correspondence or puzzles.
+     *     See <https://lichess.org/player/top/200/bullet>.
+     *
+     */
+    get: operations["playerTopNbPerfType"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/user/{username}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get user public data
+     * @description Read public data of a user.
+     *
+     */
+    get: operations["apiUser"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/user/{username}/rating-history": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get rating history of a user
+     * @description Read rating history of a user, for all perf types.
+     *     There is at most one entry per day.
+     *     Format of an entry is `[year, month, day, rating]`.
+     *     `month` starts at zero (January).
+     *
+     */
+    get: operations["apiUserRatingHistory"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/user/{username}/perf/{perf}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get performance statistics of a user
+     * @description Read performance statistics of a user, for a single performance.
+     *     Similar to the [performance pages on the website](https://lichess.org/@/thibault/perf/bullet).
+     *
+     */
+    get: operations["apiUserPerf"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/user/{username}/activity": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get user activity
+     * @description Read data to generate the activity feed of a user.
+     *
+     */
+    get: operations["apiUserActivity"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/puzzle/daily": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get the daily puzzle
+     * @description Get the daily Lichess puzzle in JSON format.
+     *     Alternatively, you can [post it in your slack workspace](https://lichess.org/daily-puzzle-slack).
+     *
+     */
+    get: operations["apiPuzzleDaily"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/puzzle/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get a puzzle by its ID
+     * @description Get a single Lichess puzzle in JSON format.
+     */
+    get: operations["apiPuzzleId"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/puzzle/next": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get a new puzzle
+     * @description Get a random Lichess puzzle in JSON format.
+     *
+     *     If authenticated, only returns puzzles that the user has never seen before.
+     *
+     *     **DO NOT** use this endpoint to enumerate puzzles for mass download. Instead, download the [full public puzzle database](https://database.lichess.org/#puzzles).
+     *
+     */
+    get: operations["apiPuzzleNext"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/puzzle/activity": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get your puzzle activity
+     * @description Download your puzzle activity in [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
+     *     Puzzle activity is sorted by reverse chronological order (most recent first)
+     *     We recommend streaming the response, for it can be very long.
+     *
+     */
+    get: operations["apiPuzzleActivity"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/puzzle/replay/{days}/{theme}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get puzzles to replay
+     * @description Gets the puzzle IDs of remaining puzzles to re-attempt in JSON format.
+     */
+    get: operations["apiPuzzleReplay"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/puzzle/dashboard/{days}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get your puzzle dashboard
+     * @description Download your [puzzle dashboard](https://lichess.org/training/dashboard/30/dashboard) as JSON.
+     *     Also includes all puzzle themes played, with aggregated results.
+     *     Allows re-creating the [improvement/strengths](https://lichess.org/training/dashboard/30/improvementAreas) interfaces.
+     *
+     */
+    get: operations["apiPuzzleDashboard"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/storm/dashboard/{username}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get the storm dashboard of a player
+     * @description Download the [storm dashboard](https://lichess.org/storm/dashboard/mrbasso) of any player as JSON.
+     *     Contains the aggregated highscores, and the history of storm runs aggregated by days.
+     *     Use `?days=0` if you only care about the highscores.
+     *
+     */
+    get: operations["apiStormDashboard"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/racer": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Create and join a puzzle race
+     * @description Create a new private [puzzle race](https://lichess.org/racer).
+     *     The Lichess user who creates the race must join the race page,
+     *     and manually start the race when enough players have joined.
+     *     - <https://lichess.org/racer>
+     *
+     */
+    post: operations["racerPost"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/users": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Get users by ID
+     * @description Get up to 300 users by their IDs. Users are returned in the same order as the IDs.
+     *     The method is `POST` to allow a longer list of IDs to be sent in the request body.
+     *     Please do not try to download all the Lichess users with this endpoint, or any other endpoint.
+     *     An API is not a way to fully export a website. We do not provide a full download of the Lichess users.
+     *     This endpoint is limited to 8,000 users every 10 minutes, and 120,000 every day.
+     *
+     */
+    post: operations["apiUsers"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/account": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get my profile
+     * @description Public information about the logged in user.
+     *
+     */
+    get: operations["accountMe"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/account/email": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get my email address
+     * @description Read the email address of the logged in user.
+     *
+     */
+    get: operations["accountEmail"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/account/preferences": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get my preferences
+     * @description Read the preferences of the logged in user.
+     *     - <https://lichess.org/account/preferences/game-display>
+     *     - <https://github.com/ornicar/lila/blob/master/modules/pref/src/main/Pref.scala>
+     *
+     */
+    get: operations["account"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/account/kid": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get my kid mode status
+     * @description Read the kid mode status of the logged in user.
+     *     - <https://lichess.org/account/kid>
+     *
+     */
+    get: operations["accountKid"];
+    put?: never;
+    /**
+     * Set my kid mode status
+     * @description Set the kid mode status of the logged in user.
+     *     - <https://lichess.org/account/kid>
+     *
+     */
+    post: operations["accountKidPost"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/timeline": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get my timeline
+     * @description Get the timeline events of the logged in user.
+     *
+     */
+    get: operations["timeline"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/game/export/{gameId}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export one game
+     * @description Download one game in either PGN or JSON format.
+     *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
+     *
+     */
+    get: operations["gamePgn"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/user/{username}/current-game": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export ongoing game of a user
+     * @description Download the ongoing game, or the last game played, of a user.
+     *     Available in either PGN or JSON format.
+     *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
+     *
+     */
+    get: operations["apiUserCurrentGame"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/games/user/{username}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export games of a user
+     * @description Download all games of any user in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
+     *     Games are sorted by reverse chronological order (most recent first).
+     *     We recommend streaming the response, for it can be very long.
+     *     <https://lichess.org/@/german11> for instance has more than 500,000 games.
+     *     The game stream is throttled, depending on who is making the request:
+     *       - Anonymous request: 20 games per second
+     *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 games per second
+     *       - Authenticated, downloading your own games: 60 games per second
+     *
+     */
+    get: operations["apiGamesUser"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/games/export/_ids": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Export games by IDs
+     * @description Download games by IDs in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
+     *     Games are sorted by reverse chronological order (most recent first)
+     *     The method is `POST` so a longer list of IDs can be sent in the request body.
+     *     300 IDs can be submitted.
+     *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
+     *
+     */
+    post: operations["gamesExportIds"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/stream/games-by-users": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Stream games of users
+     * @description Stream the games played between a list of users, in real time.
+     *     Only games where **both players** are part of the list are included.
+     *     The stream emits an event each time a game is started or finished.
+     *     To also get all current ongoing games at the beginning of the stream, use the `withCurrentGames` flag.
+     *     Games are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *     Maximum number of users: 300.
+     *     The method is `POST` so a longer list of IDs can be sent in the request body.
+     *
+     */
+    post: operations["gamesByUsers"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/stream/games/{streamId}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Stream games by IDs
+     * @description Creates a stream of games from an arbitrary streamId, and a list of game IDs.
+     *     The stream first outputs the games that already exists, then emits an event each time a game is started or finished.
+     *     Games are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *     Maximum number of games: 500 for anonymous requests, or 1000 for [OAuth2 authenticated](#section/Introduction/Authentication) requests.
+     *     While the stream is open, it is possible to [add new game IDs to watch](#operation/gamesByIdsAdd).
+     *
+     */
+    post: operations["gamesByIds"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/stream/games/{streamId}/add": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Add game IDs to stream
+     * @description Add new game IDs for [an existing stream](#operation/gamesByIds) to watch.
+     *     The stream will immediately outputs the games that already exists, then emit an event each time a game is started or finished.
+     *
+     */
+    post: operations["gamesByIdsAdd"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/account/playing": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get my ongoing games
+     * @description Get the ongoing games of the current user.
+     *     Real-time and correspondence games are included.
+     *     The most urgent games are listed first.
+     *
+     */
+    get: operations["apiAccountPlaying"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/stream/game/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Stream moves of a game
+     * @description Stream positions and moves of any ongoing game, in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *     A description of the game is sent as a first message.
+     *     Then a message is sent each time a move is played.
+     *     Finally a description of the game is sent when it finishes, and the stream is closed.
+     *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
+     *     No more than 8 game streams can be opened at the same time from the same IP address.
+     *
+     */
+    get: operations["streamGame"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/import": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Import one game
+     * @description Import a game from PGN. See <https://lichess.org/paste>.
+     *     Rate limiting: 200 games per hour for OAuth requests, 100 games per hour for anonymous requests.
+     *     To broadcast ongoing games, consider [pushing to a broadcast instead](#operation/broadcastPush).
+     *     To analyse a position or a line, just construct an analysis board URL:
+     *     [https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bc4_Bc5_Bxf7+](https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bc4_Bc5_Bxf7+)
+     *
+     */
+    post: operations["gameImport"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/games/export/imports": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export your imported games
+     * @description Download all games imported by you. Games are exported in PGN format.
+     */
+    get: operations["apiImportedGamesUser"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/games/export/bookmarks": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export your bookmarked games
+     * @description Download all games bookmarked by you, in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
+     *     Games are sorted by reverse chronological order (most recent first).
+     *     We recommend streaming the response, for it can be very long.
+     *
+     */
+    get: operations["apiExportBookmarks"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/tv/channels": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get current TV games
+     * @description Get basic info about the best games being played for each speed and variant,
+     *     but also computer games and bot games.
+     *     See [lichess.org/tv](https://lichess.org/tv).
+     *
+     */
+    get: operations["tvChannels"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/tv/feed": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Stream current TV game
+     * @description Stream positions and moves of the current [TV game](https://lichess.org/tv) in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *     Try it with `curl https://lichess.org/api/tv/feed`.
+     *
+     */
+    get: operations["tvFeed"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/tv/{channel}/feed": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Stream current TV game of a TV channel
+     * @description Stream positions and moves of a current [TV channel's game](https://lichess.org/tv/rapid) in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *     Try it with `curl https://lichess.org/api/tv/rapid/feed`.
+     *
+     */
+    get: operations["tvChannelFeed"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/tv/{channel}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get best ongoing games of a TV channel
+     * @description Get a list of ongoing games for a given TV channel. Similar to [lichess.org/games](https://lichess.org/games).
+     *     Available in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
+     *
+     */
+    get: operations["tvChannelGames"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/tournament": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get current tournaments
+     * @description Get recently active and finished tournaments.
+     *     This API is used to display the [Lichess tournament schedule](https://lichess.org/tournament).
+     *
+     */
+    get: operations["apiTournament"];
+    put?: never;
+    /**
+     * Create a new Arena tournament
+     * @description Create a public or private Arena tournament.
+     *     This endpoint mirrors the form on <https://lichess.org/tournament/new>.
+     *     You can create up to 12 public tournaments per day, or 24 private tournaments.
+     *     A team battle can be created by specifying the `teamBattleByTeam` argument.
+     *     Additional restrictions:
+     *       - clockTime + clockIncrement > 0
+     *       - 15s and 0+1 variant tournaments cannot be rated
+     *       - Clock time in comparison to tournament length must be reasonable: 3 <= (minutes * 60) / (96 * clockTime + 48 * clockIncrement + 15) <= 150
+     *
+     */
+    post: operations["apiTournamentPost"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/tournament/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Get info about an Arena tournament
+     * @description Get detailed info about recently finished, current, or upcoming tournament's duels, player standings, and other info.
+     *
+     */
+    get: operations["tournament"];
+    put?: never;
+    /**
+     * Update an Arena tournament
+     * @description Update an Arena tournament.
+     *     Be mindful not to make important changes to ongoing tournaments.
+     *     Can be used to update a team battle.
+     *     Additional restrictions:
+     *       - clockTime + clockIncrement > 0
+     *       - 15s and 0+1 variant tournaments cannot be rated
+     *       - Clock time in comparison to tournament length must be reasonable: 3 <= (minutes * 60) / (96 * clockTime + 48 * clockIncrement + 15) <= 150
+     *
+     */
+    post: operations["apiTournamentUpdate"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/tournament/{id}/join": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Join an Arena tournament
+     * @description Join an Arena tournament, possibly with a password and/or a team.
+     *     Also unpauses if you had previously [paused](#operation/apiTournamentWithdraw) the tournament.
+     *
+     */
+    post: operations["apiTournamentJoin"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/tournament/{id}/withdraw": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Pause or leave an Arena tournament
+     * @description Leave a future Arena tournament, or take a break on an ongoing Arena tournament.
+     *     It's possible to join again later. Points and streaks are preserved.
+     *
+     */
+    post: operations["apiTournamentWithdraw"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/tournament/{id}/terminate": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Terminate an Arena tournament
+     * @description Terminate an Arena tournament
+     *
+     */
+    post: operations["apiTournamentTerminate"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/tournament/team-battle/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Update a team battle
+     * @description Set the teams and number of leaders of a team battle.
+     *     To update the other attributes of a team battle, use the [tournament update endpoint](#operation/apiTournamentUpdate).
+     *
+     */
+    post: operations["apiTournamentTeamBattlePost"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/tournament/{id}/games": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export games of an Arena tournament
+     * @description Download games of a tournament in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
+     *     Games are sorted by reverse chronological order (most recent first).
+     *     The game stream is throttled, depending on who is making the request:
+     *       - Anonymous request: 20 games per second
+     *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 games per second
+     *
+     */
+    get: operations["gamesByTournament"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/tournament/{id}/results": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get results of an Arena tournament
+     * @description Players of an Arena tournament, with their score and performance, sorted by rank (best first).
+     *     **Players are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON)**, i.e. one JSON object per line.
+     *     If called on an ongoing tournament, results can be inconsistent
+     *     due to ranking changes while the players are being streamed.
+     *     Use on finished tournaments for guaranteed consistency.
+     *
+     */
+    get: operations["resultsByTournament"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/tournament/{id}/teams": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get team standing of a team battle
+     * @description Teams of a team battle tournament, with top players, sorted by rank (best first).
+     *
+     */
+    get: operations["teamsByTournament"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/user/{username}/tournament/created": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get tournaments created by a user
+     * @description Get all tournaments created by a given user.
+     *     Tournaments are sorted by reverse chronological order of start date (last starting first).
+     *     Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *     The stream is throttled, depending on who is making the request:
+     *       - Anonymous request: 20 tournaments per second
+     *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 tournaments per second
+     *       - Authenticated, downloading your own tournaments: 50 games per second
+     *
+     */
+    get: operations["apiUserNameTournamentCreated"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/user/{username}/tournament/played": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get tournaments played by a user
+     * @description Get all tournaments played by a given user.
+     *     Tournaments are sorted by reverse chronological order of start date (last played first).
+     *     Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *     The stream is throttled, depending on who is making the request:
+     *       - Anonymous request: 20 tournaments per second
+     *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 tournaments per second
+     *       - Authenticated, downloading your own tournaments: 50 games per second
+     *
+     */
+    get: operations["apiUserNameTournamentPlayed"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/swiss/new/{teamId}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Create a new Swiss tournament
+     * @description Create a Swiss tournament for your team.
+     *     This endpoint mirrors the Swiss tournament form from your team pagee.
+     *     You can create up to 12 tournaments per day.
+     *     Additional restrictions:
+     *       - clock.limit + clock.increment > 0
+     *       - 15s and 0+1 variant tournaments cannot be rated
+     *
+     */
+    post: operations["apiSwissNew"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/swiss/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The Swiss tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Get info about a Swiss tournament
+     * @description Get detailed info about a Swiss tournament.
+     *
+     */
+    get: operations["swiss"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/swiss/{id}/edit": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Update a Swiss tournament
+     * @description Update a Swiss tournament.
+     *     Be mindful not to make important changes to ongoing tournaments.
+     *     Additional restrictions:
+     *       - clock.limit + clock.increment > 0
+     *       - 15s and 0+1 variant tournaments cannot be rated
+     *
+     */
+    post: operations["apiSwissUpdate"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/swiss/{id}/schedule-next-round": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Manually schedule the next round
+     * @description Manually schedule the next round date and time of a Swiss tournament.
+     *     This sets the `roundInterval` field to `99999999`, i.e. manual scheduling.
+     *     All further rounds will need to be manually scheduled, unless the `roundInterval` field is changed back to automatic scheduling.
+     *
+     */
+    post: operations["apiSwissScheduleNextRound"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/swiss/{id}/join": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Join a Swiss tournament
+     * @description Join a Swiss tournament, possibly with a password.
+     *
+     */
+    post: operations["apiSwissJoin"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/swiss/{id}/withdraw": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Pause or leave a swiss tournament
+     * @description Leave a future Swiss tournament, or take a break on an ongoing Swiss tournament.
+     *     It's possible to join again later. Points are preserved.
+     *
+     */
+    post: operations["apiSwissWithdraw"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/swiss/{id}/terminate": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Terminate a Swiss tournament
+     * @description Terminate a Swiss tournament
+     *
+     */
+    post: operations["apiSwissTerminate"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/swiss/{id}.trf": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export TRF of a Swiss tournament
+     * @description Download a tournament in the Tournament Report File format, the FIDE standard.
+     *     Documentation: <https://www.fide.com/FIDE/handbook/C04Annex2_TRF16.pdf>
+     *     Example: <https://lichess.org/swiss/j8rtJ5GL.trf>
+     *
+     */
+    get: operations["swissTrf"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/swiss/{id}/games": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export games of a Swiss tournament
+     * @description Download games of a swiss tournament in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
+     *     Games are sorted by chronological order.
+     *     The game stream is throttled, depending on who is making the request:
+     *       - Anonymous request: 20 games per second
+     *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 games per second
+     *
+     */
+    get: operations["gamesBySwiss"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/swiss/{id}/results": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get results of a swiss tournament
+     * @description Players of a swiss tournament, with their score and performance, sorted by rank (best first).
+     *     Players are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *     If called on an ongoing tournament, results can be inconsistent
+     *     due to ranking changes while the players are being streamed.
+     *     Use on finished tournaments for guaranteed consistency.
+     *
+     */
+    get: operations["resultsBySwiss"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/team/{teamId}/swiss": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get team swiss tournaments
+     * @description Get all swiss tournaments of a team.
+     *     Tournaments are sorted by reverse chronological order of start date (last starting first).
+     *     Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *
+     */
+    get: operations["apiTeamSwiss"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/study/{studyId}/{chapterId}.pgn": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export one study chapter
+     * @description Download one study chapter in PGN format.
+     *
+     */
+    get: operations["studyChapterPgn"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/study/{studyId}.pgn": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export all chapters
+     * @description Download all chapters of a study in PGN format.
+     *
+     */
+    get: operations["studyAllChaptersPgn"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    /**
+     * Study metadata
+     * @description Only get the study headers, including `Last-Modified`.
+     *
+     */
+    head: operations["studyAllChaptersHead"];
+    patch?: never;
+    trace?: never;
+  };
+  "/api/study/{studyId}/import-pgn": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Import PGN into a study
+     * @description Imports arbitrary PGN into an existing [study](https://lichess.org/study). Creates a new chapter in the study.
+     *     If the PGN contains multiple games (separated by 2 or more newlines)
+     *     then multiple chapters will be created within the study.
+     *     Note that a study can contain at most 64 chapters.
+     *
+     */
+    post: operations["apiStudyImportPGN"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/study/by/{username}/export.pgn": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export all studies of a user
+     * @description Download all chapters of all studies of a user in PGN format.
+     *     If authenticated, then all public, unlisted, and private studies are included.
+     *     If not, only public (non-unlisted) studies are included.
+     *
+     */
+    get: operations["studyExportAllPgn"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/study/by/{username}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List studies of a user
+     * @description Get metadata (name and dates) of all studies of a user.
+     *     If authenticated, then all public, unlisted, and private studies are included.
+     *     If not, only public (non-unlisted) studies are included.
+     *     Studies are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *
+     */
+    get: operations["studyListMetadata"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/study/{studyId}/{chapterId}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post?: never;
+    /**
+     * Delete a study chapter
+     * @description Delete a chapter of a study you own. This is definitive.
+     *     A study must have at least one chapter; so if you delete the last chapter,
+     *     an empty one will be automatically created to replace it.
+     *
+     */
+    delete: operations["apiStudyStudyIdChapterIdDelete"];
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/broadcast": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get official broadcasts
+     * @description Get all incoming, ongoing, and finished official broadcasts.
+     *     The broadcasts are sorted by start date, most recent first.
+     *     Broadcasts are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *
+     */
+    get: operations["broadcastsOfficial"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/broadcast/top": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get paginated top broadcast previews
+     * @description The same data, in the same order, as can be seen on [https://lichess.org/broadcast](/broadcast).
+     *
+     */
+    get: operations["broadcastsTop"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/broadcast/by/{username}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get broadcasts created by a user
+     * @description Get all incoming, ongoing, and finished official broadcasts.
+     *     The broadcasts are sorted by created date, most recent first.
+     *
+     */
+    get: operations["broadcastsByUser"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/broadcast/search": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Search broadcasts
+     * @description Search across recent official broadcasts.
+     *
+     */
+    get: operations["broadcastsSearch"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/broadcast/new": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Create a broadcast tournament
+     * @description Create a new broadcast tournament to relay external games.
+     *     This endpoint accepts the same form data as the [web form](https://lichess.org/broadcast/new).
+     *
+     */
+    post: operations["broadcastTourCreate"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/broadcast/{broadcastTournamentId}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get a broadcast tournament
+     * @description Get information about a broadcast tournament.
+     *
+     */
+    get: operations["broadcastTourGet"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/broadcast/{broadcastTournamentId}/players": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get players of a broadcast
+     * @description Get the list of players of a broadcast tournament, if available.
+     *
+     */
+    get: operations["broadcastPlayersGet"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/broadcast/{broadcastTournamentId}/edit": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Update your broadcast tournament
+     * @description Update information about a broadcast tournament that you created.
+     *     This endpoint accepts the same form data as the web form.
+     *     All fields must be populated with data. Missing fields will override the broadcast with empty data.
+     *
+     */
+    post: operations["broadcastTourUpdate"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/broadcast/{broadcastTournamentId}/new": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Create a broadcast round
+     * @description Create a new broadcast round to relay external games.
+     *     This endpoint accepts the same form data as the web form.
+     *
+     *     Choose one between `syncUrl`, `syncUrls`, `syncIds` and `syncUsers`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush)
+     *
+     */
+    post: operations["broadcastRoundCreate"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/broadcast/{broadcastTournamentSlug}/{broadcastRoundSlug}/{broadcastRoundId}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get a broadcast round
+     * @description Get information about a broadcast round.
+     *
+     */
+    get: operations["broadcastRoundGet"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/broadcast/round/{broadcastRoundId}/edit": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Update a broadcast round
+     * @description Update information about a broadcast round.
+     *     This endpoint accepts the same form data as the web form.
+     *     All fields must be populated with data. Missing fields will override the broadcast with empty data.
+     *     For instance, if you omit `startDate`, then any pre-existing start date will be removed.
+     *
+     */
+    post: operations["broadcastRoundUpdate"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/broadcast/round/{broadcastRoundId}/reset": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Reset a broadcast round
+     * @description Remove any games from the broadcast round and reset it to its initial state.
+     *
+     */
+    post: operations["broadcastRoundReset"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/broadcast/round/{broadcastRoundId}/push": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Push PGN to a broadcast round
+     * @description Update a broadcast with new PGN.
+     *     Only for broadcasts without a source URL.
+     *
+     */
+    post: operations["broadcastPush"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/stream/broadcast/round/{broadcastRoundId}.pgn": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Stream an ongoing broadcast round as PGN
+     * @description This streaming endpoint first sends all games of a broadcast round in PGN format.
+     *     Then, it waits for new moves to be played. As soon as it happens, the entire PGN of the game is sent to the stream.
+     *     The stream will also send PGNs when games are added to the round.
+     *     This is the best way to get updates about an ongoing round. Streaming means no polling,
+     *     and no pollings means no latency, and minimum impact on the server.
+     *
+     */
+    get: operations["broadcastStreamRoundPgn"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/broadcast/round/{broadcastRoundId}.pgn": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export one round as PGN
+     * @description Download all games of a single round of a broadcast tournament in PGN format.
+     *     You *could* poll this endpoint to get updates about a tournament, but it would be slow,
+     *     and very inefficient.
+     *     Instead, consider [streaming the tournament](#operation/broadcastStreamRoundPgn) to get
+     *     a new PGN every time a game is updated, in real-time.
+     *
+     */
+    get: operations["broadcastRoundPgn"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/broadcast/{broadcastTournamentId}.pgn": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export all rounds as PGN
+     * @description Download all games of all rounds of a broadcast in PGN format.
+     *     If a `study:read` [OAuth token](#tag/OAuth) is provided,
+     *     the private rounds where the user is a contributor will be available.
+     *     You may want to [download only the games of a single round](#operation/broadcastRoundPgn) instead.
+     *
+     */
+    get: operations["broadcastAllRoundsPgn"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/broadcast/my-rounds": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get your broadcast rounds
+     * @description Stream all broadcast rounds you are a member of.
+     *     Also includes broadcasts rounds you did not create, but were invited to.
+     *     Also includes broadcasts rounds where you're a non-writing member. See the `writeable` flag in the response.
+     *     Rounds are ordered by rank, which is roughly chronological, most recent first, slightly pondered with popularity.
+     *
+     */
+    get: operations["broadcastMyRoundsGet"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/fide/player/{playerId}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get a FIDE player
+     * @description Get information about a FIDE player.
+     *
+     */
+    get: operations["fidePlayerGet"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/fide/player": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Search FIDE players
+     * @description List of FIDE players search results for a query.
+     *
+     */
+    get: operations["fidePlayerSearch"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/simul": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get current simuls
+     * @description Get recently created, started, finished, simuls.
+     *     Created and finished simul lists are not exhaustives, only those with
+     *     strong enough host will be listed, the same filter is used to display simuls on https://lichess.org/simul.
+     *     When [authenticated with OAuth2](#section/Introduction/Authentication), the pending list will be populated with your created, but unstarted simuls.
+     *
+     */
+    get: operations["apiSimul"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/team/{teamId}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get a single team
+     * @description Public info about a team. Includes the list of publicly visible leaders.
+     */
+    get: operations["teamShow"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/team/all": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get popular teams
+     * @description Paginator of the most popular teams.
+     *
+     */
+    get: operations["teamAll"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/team/of/{username}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Teams of a player
+     * @description All the teams a player is a member of.
+     *
+     */
+    get: operations["teamOfUsername"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/team/search": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Search teams
+     * @description Paginator of team search results for a keyword.
+     *
+     */
+    get: operations["teamSearch"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/team/{teamId}/users": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get members of a team
+     * @description Members are sorted by reverse chronological order of joining the team (most recent first).
+     *     OAuth is only required if the list of members is private.
+     *     Up to 5,000 users are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *
+     */
+    get: operations["teamIdUsers"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/team/{teamId}/arena": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get team Arena tournaments
+     * @description Get all Arena tournaments relevant to a team.
+     *     Tournaments are sorted by reverse chronological order of start date (last starting first).
+     *     Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *
+     */
+    get: operations["apiTeamArena"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/team/{teamId}/join": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Join a team
+     * @description Join a team.
+     *     If the team requires a password but the `password` field is incorrect,
+     *     then the call fails with `403 Forbidden`.
+     *     Similarly, if the team join policy requires a confirmation but the
+     *     `message` parameter is not given, then the call fails with
+     *     `403 Forbidden`.
+     *
+     */
+    post: operations["teamIdJoin"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/team/{teamId}/quit": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Leave a team
+     * @description Leave a team.
+     *     - <https://lichess.org/team>
+     *
+     */
+    post: operations["teamIdQuit"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/team/{teamId}/requests": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get join requests
+     * @description Get pending join requests of your team
+     */
+    get: operations["teamRequests"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/team/{teamId}/request/{userId}/accept": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Accept join request
+     * @description Accept someone's request to join your team
+     */
+    post: operations["teamRequestAccept"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/team/{teamId}/request/{userId}/decline": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Decline join request
+     * @description Decline someone's request to join your team
+     */
+    post: operations["teamRequestDecline"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/team/{teamId}/kick/{userId}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Kick a user from your team
+     * @description Kick a member out of one of your teams.
+     *     - <https://lichess.org/team>
+     *
+     */
+    post: operations["teamIdKickUserId"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/team/{teamId}/pm-all": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Message all members
+     * @description Send a private message to all members of a team.
+     *     You must be a team leader with the "Messages" permission.
+     *
+     */
+    post: operations["teamIdPmAll"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/streamer/live": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get live streamers
+     * @description Get basic info about currently streaming users.
+     *     This API is very fast and cheap on lichess side.
+     *     So you can call it quite often (like once every 5 seconds).
+     *
+     */
+    get: operations["streamerLive"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/crosstable/{user1}/{user2}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get crosstable
+     * @description Get total number of games, and current score, of any two users.
+     *     If the `matchup` flag is provided, and the users are currently playing, also gets the current match game number and scores.
+     *
+     */
+    get: operations["apiCrosstable"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/player/autocomplete": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Autocomplete usernames
+     * @description Provides autocompletion options for an incomplete username.
+     *
+     */
+    get: operations["apiPlayerAutocomplete"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/user/{username}/note": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get notes for a user
+     * @description Get the private notes that you have added for a user.
+     *
+     */
+    get: operations["readNote"];
+    put?: never;
+    /**
+     * Add a note for a user
+     * @description Add a private note available only to you about this account.
+     *
+     */
+    post: operations["writeNote"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/rel/following": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get users followed by the logged in user
+     * @description Users are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *
+     */
+    get: operations["apiUserFollowing"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/rel/follow/{username}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Follow a player
+     * @description Follow a player, adding them to your list of Lichess friends.
+     *
+     */
+    post: operations["followUser"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/rel/unfollow/{username}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Unfollow a player
+     * @description Unfollow a player, removing them from your list of Lichess friends.
+     *
+     */
+    post: operations["unfollowUser"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/rel/block/{username}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Block a player
+     * @description Block a player, adding them to your list of blocked Lichess users.
+     *
+     */
+    post: operations["blockUser"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/rel/unblock/{username}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Unblock a player
+     * @description Unblock a player, removing them from your list of blocked Lichess users.
+     *
+     */
+    post: operations["unblockUser"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/stream/event": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Stream incoming events
+     * @description Stream the events reaching a lichess user in real time as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *
+     *     An empty line is sent every 6 seconds for keep alive purposes.
+     *
+     *     Each non-empty line is a JSON object containing a `type` field. Possible values are:
+     *     - `gameStart` Start of a game
+     *     - `gameFinish` Completion of a game
+     *     - `challenge` A player sends you a challenge or you challenge someone
+     *     - `challengeCanceled` A player cancels their challenge to you
+     *     - `challengeDeclined` The opponent declines your challenge
+     *
+     *     When the stream opens, all current challenges and games are sent.
+     *
+     */
+    get: operations["apiStreamEvent"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/board/seek": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Create a seek
+     * @description Create a public seek, to start a game with a random player.
+     *
+     *     ### Real-time seek
+     *
+     *     Specify the `time` and `increment` clock values.
+     *     The response is streamed but doesn't contain any information.
+     *
+     *     **Keep the connection open to keep the seek active**.
+     *
+     *     If the client closes the connection, the seek is canceled. This way, if the client terminates, the user won't be paired in a game they wouldn't play.
+     *     When the seek is accepted, or expires, the server closes the connection.
+     *
+     *     **Make sure to also have an [Event stream](#operation/apiStreamEvent) open**, to be notified when a game starts.
+     *     We recommend opening the [Event stream](#operation/apiStreamEvent) first, then the seek stream. This way,
+     *     you won't miss the game event if the seek is accepted immediately.
+     *
+     *     ### Correspondence seek
+     *
+     *     Specify the `days` per turn value.
+     *     The response is not streamed, it immediately completes with the seek ID. The seek remains active on the server until it is joined by someone.
+     *
+     */
+    post: operations["apiBoardSeek"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/board/game/stream/{gameId}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Stream Board game state
+     * @description Stream the state of a game being played with the Board API, as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *
+     *     Use this endpoint to get updates about the game in real-time, with a single request.
+     *
+     *     Each line is a JSON object containing a `type` field. Possible values are:
+     *       - `gameFull` Full game data. All values are immutable, except for the `state` field.
+     *       - `gameState` Current state of the game. Immutable values not included. Sent when a move is played, a draw is offered, or when the game ends.
+     *       - `chatLine` Chat message sent by a user in the `room` "player" or "spectator".
+     *       - `opponentGone` Whether the opponent has left the game, and how long before you can claim a win or draw.
+     *
+     *     The first line is always of type `gameFull`.
+     *
+     *     The server closes the stream when the game ends, or if the game has already ended.
+     *
+     */
+    get: operations["boardGameStream"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/board/game/{gameId}/move/{move}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Make a Board move
+     * @description Make a move in a game being played with the Board API.
+     *     The move can also contain a draw offer/agreement.
+     *
+     */
+    post: operations["boardGameMove"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/board/game/{gameId}/chat": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch the game chat
+     * @description Get the messages posted in the game chat
+     *
+     */
+    get: operations["boardGameChatGet"];
+    put?: never;
+    /**
+     * Write in the chat
+     * @description Post a message to the player or spectator chat, in a game being played with the Board API.
+     *
+     */
+    post: operations["boardGameChatPost"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/board/game/{gameId}/abort": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Abort a game
+     * @description Abort a game being played with the Board API.
+     *
+     */
+    post: operations["boardGameAbort"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/board/game/{gameId}/resign": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Resign a game
+     * @description Resign a game being played with the Board API.
+     *
+     */
+    post: operations["boardGameResign"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/board/game/{gameId}/draw/{accept}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Handle draw offers
+     * @description Create/accept/decline draw offers.
+     *     - `yes`: Offer a draw, or accept the opponent's draw offer.
+     *     - `no`: Decline a draw offer from the opponent.
+     *
+     */
+    post: operations["boardGameDraw"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/board/game/{gameId}/takeback/{accept}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Handle takeback offers
+     * @description Create/accept/decline takebacks.
+     *     - `yes`: Propose a takeback, or accept the opponent's takeback offer.
+     *     - `no`: Decline a takeback offer from the opponent.
+     *
+     */
+    post: operations["boardGameTakeback"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/board/game/{gameId}/claim-victory": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Claim victory of a game
+     * @description Claim victory when the opponent has left the game for a while.
+     *
+     */
+    post: operations["boardGameClaimVictory"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/board/game/{gameId}/berserk": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Berserk a tournament game
+     * @description Go berserk on an arena tournament game. Halves the clock time, grants an extra point upon winning.
+     *     Only available in arena tournaments that allow berserk, and before each player has made a move.
+     *
+     */
+    post: operations["boardGameBerserk"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/bot/online": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get online bots
+     * @description Stream the [online bot users](https://lichess.org/player/bots), as [ndjson](#section/Introduction/Streaming-with-ND-JSON). Throttled to 50 bot users per second.
+     */
+    get: operations["apiBotOnline"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/bot/account/upgrade": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Upgrade to Bot account
+     * @description Upgrade a lichess player account into a Bot account. Only Bot accounts can use the Bot API.
+     *     The account **cannot have played any game** before becoming a Bot account. The upgrade is **irreversible**. The account will only be able to play as a Bot.
+     *     To upgrade an account to Bot, use the [official lichess-bot client](https://github.com/lichess-bot-devs/lichess-bot), or follow these steps:
+     *     - Create an [API access token](https://lichess.org/account/oauth/token/create?scopes[]=bot:play) with "Play bot moves" permission.
+     *     - `curl -d '' https://lichess.org/api/bot/account/upgrade -H "Authorization: Bearer <yourTokenHere>"`
+     *     To know if an account has already been upgraded, use the [Get my profile API](#operation/accountMe):
+     *     the `title` field should be set to `BOT`.
+     *
+     */
+    post: operations["botAccountUpgrade"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/bot/game/stream/{gameId}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Stream Bot game state
+     * @description Stream the state of a game being played with the Bot API, as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *     Use this endpoint to get updates about the game in real-time, with a single request.
+     *     Each line is a JSON object containing a `type` field. Possible values are:
+     *     - `gameFull` Full game data. All values are immutable, except for the `state` field.
+     *     - `gameState` Current state of the game. Immutable values not included.
+     *     - `chatLine` Chat message sent by a user (or the bot itself) in the `room` "player" or "spectator".
+     *     - `opponentGone` Whether the opponent has left the game, and how long before you can claim a win or draw.
+     *     The first line is always of type `gameFull`.
+     *
+     */
+    get: operations["botGameStream"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/bot/game/{gameId}/move/{move}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Make a Bot move
+     * @description Make a move in a game being played with the Bot API.
+     *     The move can also contain a draw offer/agreement.
+     *
+     */
+    post: operations["botGameMove"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/bot/game/{gameId}/chat": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Fetch the game chat
+     * @description Get the messages posted in the game chat
+     *
+     */
+    get: operations["botGameChatGet"];
+    put?: never;
+    /**
+     * Write in the chat
+     * @description Post a message to the player or spectator chat, in a game being played with the Bot API.
+     *
+     */
+    post: operations["botGameChat"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/bot/game/{gameId}/abort": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Abort a game
+     * @description Abort a game being played with the Bot API.
+     *
+     */
+    post: operations["botGameAbort"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/bot/game/{gameId}/resign": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Resign a game
+     * @description Resign a game being played with the Bot API.
+     *
+     */
+    post: operations["botGameResign"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/bot/game/{gameId}/draw/{accept}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Handle draw offers
+     * @description Create/accept/decline draw offers with the Bot API.
+     *     - `yes`: Offer a draw, or accept the opponent's draw offer.
+     *     - `no`: Decline a draw offer from the opponent.
+     *
+     */
+    post: operations["botGameDraw"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/bot/game/{gameId}/takeback/{accept}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Handle takeback offers
+     * @description Create/accept/decline takebacks with the Bot API.
+     *     - `yes`: Propose a takeback, or accept the opponent's takeback offer.
+     *     - `no`: Decline a takeback offer from the opponent.
+     *
+     */
+    post: operations["botGameTakeback"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/bot/game/{gameId}/claim-victory": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Claim victory of a game
+     * @description Claim victory when the opponent has left the game for a while.
+     *
+     */
+    post: operations["botGameClaimVictory"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/challenge": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List your challenges
+     * @description Get a list of challenges created by or targeted at you.
+     *
+     */
+    get: operations["challengeList"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/challenge/{username}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Create a challenge
+     * @description Challenge someone to play. The targeted player can choose to accept or decline.
+     *     If the challenge is accepted, you will be notified on the [event stream](#operation/apiStreamEvent)
+     *     that a new game has started. The game ID will be the same as the challenge ID.
+     *     Challenges for realtime games (not correspondence) expire after 20s if not accepted.
+     *     To prevent that, use the `keepAliveStream` flag described below.
+     *
+     */
+    post: operations["challengeCreate"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/challenge/{challengeId}/show": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Show one challenge
+     * @description Get details about a challenge, even if it has been recently accepted, canceled or declined.
+     *
+     */
+    get: operations["challengeShow"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/challenge/{challengeId}/accept": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Accept a challenge
+     * @description Accept an incoming challenge.
+     *     You should receive a `gameStart` event on the [incoming events stream](#operation/apiStreamEvent).
+     *
+     */
+    post: operations["challengeAccept"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/challenge/{challengeId}/decline": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Decline a challenge
+     * @description Decline an incoming challenge.
+     *
+     */
+    post: operations["challengeDecline"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/challenge/{challengeId}/cancel": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Cancel a challenge
+     * @description Cancel a challenge you sent, or aborts the game if the challenge was accepted, but the game was not yet played.
+     *     Note that the ID of a game is the same as the ID of the challenge that created it.
+     *     Works for user challenges and open challenges alike.
+     *
+     */
+    post: operations["challengeCancel"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/challenge/ai": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Challenge the AI
+     * @description Start a game with Lichess AI.
+     *     You will be notified on the [event stream](#operation/apiStreamEvent) that a new game has started.
+     *
+     */
+    post: operations["challengeAi"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/challenge/open": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Open-ended challenge
+     * @description Create a challenge that any 2 players can join.
+     *     Share the URL of the challenge. the first 2 players to click it will be paired for a game.
+     *     The response body also contains `whiteUrl` and `blackUrl`.
+     *     You can control which color each player gets by giving them these URLs,
+     *     instead of the main challenge URL.
+     *     Open challenges expire after 24h.
+     *     If the challenge creation is [authenticated with OAuth2](#section/Introduction/Authentication),
+     *     then you can use the [challenge cancel endpoint](#operation/challengeCancel) to cancel it.
+     *     To directly pair 2 known players, use [this endpoint](#operation/bulkPairingList) instead.
+     *
+     */
+    post: operations["challengeOpen"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/challenge/{gameId}/start-clocks": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Start clocks of a game
+     * @description Start the clocks of a game immediately, even if a player has not yet made a move.
+     *     Requires the OAuth tokens of both players with `challenge:write` scope.
+     *     If the clocks have already started, the call will have no effect.
+     *
+     *     For AI games with only one player, omit the `token2` parameter.
+     *
+     */
+    post: operations["challengeStartClocks"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/bulk-pairing": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * View your bulk pairings
+     * @description Get a list of bulk pairings you created.
+     *
+     */
+    get: operations["bulkPairingList"];
+    put?: never;
+    /**
+     * Create a bulk pairing
+     * @description Schedule many games at once, up to 24h in advance.
+     *     OAuth tokens are required for all paired players, with the `challenge:write` scope.
+     *     You can schedule up to 500 games every 10 minutes. [Contact us](mailto:contact@lichess.org) if you need higher limits.
+     *     If games have a real-time clock, each player must have only one pairing.
+     *     For correspondence games, players can have multiple pairings within the same bulk.
+     *
+     *     **The entire bulk is rejected if:**
+     *       - a token is missing
+     *       - a token is present more than once (except in correspondence)
+     *       - a token lacks the `challenge:write` scope
+     *       - a player account is closed
+     *       - a player is paired more than once (except in correspondence)
+     *       - a bulk is already scheduled to start at the same time with the same player
+     *       - you have 20 scheduled bulks
+     *       - you have 1000 scheduled games
+     *
+     *     Partial bulks are never created. Either it all fails, or it all succeeds.
+     *     When it fails, it does so with an error message explaining the issue.
+     *     Failed bulks are not counted in the rate limiting, they are free.
+     *     Fix the issues, manually or programmatically, then retry to schedule the bulk.
+     *     A successful bulk creation returns a JSON bulk document. Its ID can be used for further operations.
+     *
+     */
+    post: operations["bulkPairingCreate"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/bulk-pairing/{id}/start-clocks": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Manually start clocks
+     * @description Immediately start all clocks of the games of a bulk pairing.
+     *     This overrides the `startClocksAt` value of an existing bulk pairing.
+     *     If the games have not yet been created (`bulk.pairAt` is in the future), then this does nothing.
+     *     If the clocks have already started (`bulk.startClocksAt` is in the past), then this does nothing.
+     *
+     */
+    post: operations["bulkPairingStartClocks"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/bulk-pairing/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Show a bulk pairing
+     * @description Get a single bulk pairing by its ID.
+     *
+     */
+    get: operations["bulkPairingGet"];
+    put?: never;
+    post?: never;
+    /**
+     * Cancel a bulk pairing
+     * @description Cancel and delete a bulk pairing that is scheduled in the future.
+     *     If the games have already been created, then this does nothing.
+     *     Canceling a bulk pairing does not refund the rate limit cost of that bulk pairing.
+     *
+     */
+    delete: operations["bulkPairingDelete"];
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/bulk-pairing/{id}/games": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export games of a bulk pairing
+     * @description Download games of a bulk in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
+     *
+     */
+    get: operations["bulkPairingIdGamesGet"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/round/{gameId}/add-time/{seconds}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Add time to the opponent clock
+     * @description Add seconds to the opponent's clock. Can be used to create games with time odds.
+     *
+     */
+    post: operations["roundAddTime"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/token/admin-challenge": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Admin challenge tokens
+     * @description **This endpoint can only be used by Lichess administrators. It will not work if you do not have the appropriate permissions.** Tournament organizers should instead use [OAuth](#tag/OAuth) to obtain `challenge:write` tokens from users in order to perform bulk pairing.*
+     *     Create and obtain `challenge:write` tokens for multiple users.
+     *     If a similar token already exists for a user, it is reused. This endpoint is idempotent.
+     *
+     */
+    post: operations["adminChallengeTokens"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/inbox/{username}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Send a private message
+     * @description Send a private message to another player.
+     *
+     */
+    post: operations["inboxUsername"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/cloud-eval": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get cloud evaluation of a position.
+     * @description Get the cached evaluation of a position, if available.
+     *     Opening positions have more chances of being available. There are about 15 million positions in the database.
+     *     Up to 5 variations may be available. Variants are supported.
+     *     Use this endpoint to fetch a few positions here and there.
+     *     If you want to download a lot of positions, [get the full list](https://database.lichess.org/#evals) from our exported database.
+     *
+     */
+    get: operations["apiCloudEval"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/external-engine": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List external engines
+     * @description Lists all external engines that have been registered for the user,
+     *     and the credentials required to use them.
+     *
+     */
+    get: operations["apiExternalEngineList"];
+    put?: never;
+    /**
+     * Create external engine
+     * @description Registers a new external engine for the user. It can then be selected
+     *     and used on the analysis board.
+     *     After registering, the provider should start waiting for analyis requests.
+     *
+     */
+    post: operations["apiExternalEngineCreate"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/external-engine/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The external engine id.
+         * @example eei_aTKImBJOnv6j
+         */
+        id: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Get external engine
+     * @description Get properties and credentials of an external engine.
+     *
+     */
+    get: operations["apiExternalEngineGet"];
+    /**
+     * Update external engine
+     * @description Updates the properties of an external engine.
+     *
+     */
+    put: operations["apiExternalEnginePut"];
+    post?: never;
+    /**
+     * Delete external engine
+     * @description Unregisters an external engine.
+     *
+     */
+    delete: operations["apiExternalEngineDelete"];
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/external-engine/{id}/analyse": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The external engine id.
+         * @example eei_aTKImBJOnv6j
+         */
+        id: string;
+      };
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Analyse with external engine
+     * @description **Endpoint: `https://engine.lichess.ovh/api/external-engine/{id}/analyse`**
+     *     Request analysis from an external engine.
+     *     Response content is streamed as [newline delimited JSON](#section/Introduction/Streaming-with-ND-JSON).
+     *     The properties are based on the [UCI specification](https://backscattering.de/chess/uci/#engine).
+     *     Analysis stops when the client goes away, the requested limit
+     *     is reached, or the provider goes away.
+     *
+     */
+    post: operations["apiExternalEngineAnalyse"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/external-engine/work": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Acquire analysis request
+     * @description **Endpoint: `https://engine.lichess.ovh/api/external-engine/work`**
+     *     Wait for an analysis requests to any of the external engines that
+     *     have been registered with the given `secret`.
+     *     Uses long polling.
+     *     After acquiring a request, the provider should immediately
+     *     [start streaming the results](#tag/External-engine/operation/apiExternalEngineSubmit).
+     *
+     */
+    post: operations["apiExternalEngineAcquire"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/external-engine/work/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Answer analysis request
+     * @description **Endpoint: `https://engine.lichess.ovh/api/external-engine/work/{id}`**
+     *     Submit a stream of analysis as [UCI output](https://backscattering.de/chess/uci/#engine-info).
+     *     * The engine should always be in `UCI_Chess960` mode.
+     *     * `UCI_AnalyseMode` enabled if available.
+     *     * It produces `info` with at least:
+     *       - `depth`
+     *       - `multipv` (between 1 and 5)
+     *       - `score`
+     *       - `nodes`
+     *       - `time`
+     *       - `pv`
+     *     The server may close the connection at any time, indicating that
+     *     the requester has gone away and analysis should be stopped.
+     *
+     */
+    post: operations["apiExternalEngineSubmit"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/oauth": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Request authorization code
+     * @description OAuth2 authorization endpoint.
+     *     Start the OAuth2 Authorization Code Flow with PKCE by securely
+     *     generating two random strings unique to each authorization
+     *     request:
+     *
+     *     * `code_verifier`
+     *     * `state`
+     *
+     *     Store these in session storage. Make sure not to reveal `code_verifier`
+     *     to eavesdroppers. Do not show it in URLs, do not abuse `state` to store
+     *     it, do not send it over insecure connections. However it is fine if
+     *     the user themselves can extract `code_verifier`, which will always be
+     *     possible for fully client-side apps.
+     *     Then send the user to this endpoint. They will be prompted to grant
+     *     authorization and then be redirected back to the given `redirect_uri`.
+     *     If the authorization failed, the following query string parameters will
+     *     be appended to the redirection:
+     *
+     *     * `error`, in particular with value `access_denied` if the user
+     *        cancelled authorization
+     *     * `error_description` to aid debugging
+     *     * `state`, exactly as passed in the `state` parameter
+     *
+     *     If the authorization succeeded, the following query string parameters
+     *     will be appended to the redirection:
+     *
+     *     * `code`, containing a fresh short-lived authorization code
+     *     * `state`, exactly as passed in the `state` parameter
+     *
+     *     Next, to defend against cross site request forgery, check that the
+     *     returned `state` matches the `state` you originally generated.
+     *
+     *     Finally, continue by using the authorization code to
+     *     [obtain an access token](#operation/apiToken).
+     *
+     */
+    get: operations["oauth"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/token": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Obtain access token
+     * @description OAuth2 token endpoint. Exchanges an authorization code for an access token.
+     *
+     */
+    post: operations["apiToken"];
+    /**
+     * Revoke access token
+     * @description Revokes the access token sent as Bearer for this request.
+     */
+    delete: operations["apiTokenDelete"];
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/token/test": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Test multiple OAuth tokens
+     * @description For up to 1000 OAuth tokens,
+     *     returns their associated user ID and scopes,
+     *     or `null` if the token is invalid.
+     *     The method is `POST` so a longer list of tokens can be sent in the request body.
+     *
+     */
+    post: operations["tokenTest"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/masters": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Masters database
+     * @description **Endpoint: <https://explorer.lichess.ovh/masters>**
+     *
+     *     Example: `curl https://explorer.lichess.ovh/masters?play=d2d4,d7d5,c2c4,c7c6,c4d5`
+     *
+     */
+    get: operations["openingExplorerMaster"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/lichess": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Lichess games
+     * @description **Endpoint: <https://explorer.lichess.ovh/lichess>**
+     *
+     *     Games sampled from all Lichess players.
+     *
+     *     Example: `curl https://explorer.lichess.ovh/lichess?variant=standard&speeds=blitz,rapid,classical&ratings=2200,2500&fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
+     *
+     */
+    get: operations["openingExplorerLichess"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/player": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Player games
+     * @description **Endpoint: <https://explorer.lichess.ovh/player>**
+     *
+     *     Games of a Lichess player.
+     *
+     *     Responds with a stream of [newline delimited JSON](#section/Introduction/Streaming-with-ND-JSON). Will start indexing
+     *     on demand, immediately respond with the current results, and stream
+     *     more updates until indexing is complete. The stream is throttled
+     *     and deduplicated. Empty lines may be sent to avoid timeouts.
+     *
+     *     Will index new games at most once per minute, and revisit previously
+     *     ongoing games at most once every day.
+     *
+     *     Example: `curl https://explorer.lichess.ovh/player?player=revoof&color=white&play=d2d4,d7d5&recentGames=1`
+     *
+     */
+    get: operations["openingExplorerPlayer"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/master/pgn/{gameId}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * OTB master game
+     * @description **Endpoint: `https://explorer.lichess.ovh/masters/pgn/{gameId}`**
+     *
+     *     Example: `curl https://explorer.lichess.ovh/masters/pgn/aAbqI4ey`
+     *
+     */
+    get: operations["openingExplorerMasterGame"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/standard": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Tablebase lookup
+     * @description **Endpoint: <https://tablebase.lichess.ovh>**
+     *     Example: `curl http://tablebase.lichess.ovh/standard?fen=4k3/6KP/8/8/8/8/7p/8_w_-_-_0_1`
+     *
+     */
+    get: operations["tablebaseStandard"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/atomic": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Tablebase lookup for Atomic chess
+     * @description **Endpoint: <https://tablebase.lichess.ovh>**
+     *
+     */
+    get: operations["tablebaseAtomic"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/antichess": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Tablebase lookup for Antichess
+     * @description **Endpoint: <https://tablebase.lichess.ovh>**
+     *
+     */
+    get: operations["antichessAtomic"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
 }
 export type webhooks = Record<string, never>;
 export interface components {
-    schemas: {
-        /** @description See [available flair list and images](https://github.com/lichess-org/lila/tree/master/public/flair) */
-        Flair: string;
+  schemas: {
+    /** @description See [available flair list and images](https://github.com/lichess-org/lila/tree/master/public/flair) */
+    Flair: string;
+    /**
+     * @description only appears if the user is a titled player or a bot user
+     * @enum {string}
+     */
+    Title:
+      | "GM"
+      | "WGM"
+      | "IM"
+      | "WIM"
+      | "FM"
+      | "WFM"
+      | "NM"
+      | "CM"
+      | "WCM"
+      | "WNM"
+      | "LM"
+      | "BOT";
+    TopUser: {
+      id: string;
+      username: string;
+      perfs?: {
+        [key: string]: {
+          rating: number;
+          progress: number;
+        };
+      };
+      title?: components["schemas"]["Title"];
+      patron?: boolean;
+      online?: boolean;
+    };
+    PerfTop10: components["schemas"]["TopUser"][];
+    Top10s: {
+      bullet: components["schemas"]["PerfTop10"];
+      blitz: components["schemas"]["PerfTop10"];
+      rapid: components["schemas"]["PerfTop10"];
+      classical: components["schemas"]["PerfTop10"];
+      ultraBullet: components["schemas"]["PerfTop10"];
+      crazyhouse: components["schemas"]["PerfTop10"];
+      chess960: components["schemas"]["PerfTop10"];
+      kingOfTheHill: components["schemas"]["PerfTop10"];
+      threeCheck: components["schemas"]["PerfTop10"];
+      antichess: components["schemas"]["PerfTop10"];
+      atomic: components["schemas"]["PerfTop10"];
+      horde: components["schemas"]["PerfTop10"];
+      racingKings: components["schemas"]["PerfTop10"];
+    };
+    Leaderboard: {
+      users: components["schemas"]["TopUser"][];
+    };
+    Perf: {
+      games: number;
+      rating: number;
+      /** @description rating deviation */
+      rd: number;
+      prog: number;
+      /** @description only appears if a user's perf rating are [provisional](https://lichess.org/faq#provisional) */
+      prov?: boolean;
+    };
+    PuzzleModePerf: {
+      runs: number;
+      score: number;
+    };
+    Perfs: {
+      chess960?: components["schemas"]["Perf"];
+      atomic?: components["schemas"]["Perf"];
+      racingKings?: components["schemas"]["Perf"];
+      ultraBullet?: components["schemas"]["Perf"];
+      blitz?: components["schemas"]["Perf"];
+      kingOfTheHill?: components["schemas"]["Perf"];
+      threeCheck?: components["schemas"]["Perf"];
+      antichess?: components["schemas"]["Perf"];
+      crazyhouse?: components["schemas"]["Perf"];
+      bullet?: components["schemas"]["Perf"];
+      correspondence?: components["schemas"]["Perf"];
+      horde?: components["schemas"]["Perf"];
+      puzzle?: components["schemas"]["Perf"];
+      classical?: components["schemas"]["Perf"];
+      rapid?: components["schemas"]["Perf"];
+      storm?: components["schemas"]["PuzzleModePerf"];
+      racer?: components["schemas"]["PuzzleModePerf"];
+      streak?: components["schemas"]["PuzzleModePerf"];
+    };
+    Profile: {
+      /** @example EC */
+      flag?: string;
+      location?: string;
+      /** @example Free bugs! */
+      bio?: string;
+      /** @example Thibault Duplessis */
+      realName?: string;
+      /**
+       * @description only appears if a user has set them
+       * @example 1500
+       */
+      fideRating?: number;
+      /**
+       * @description only appears if a user has set them
+       * @example 1500
+       */
+      uscfRating?: number;
+      /**
+       * @description only appears if a user has set them
+       * @example 1500
+       */
+      ecfRating?: number;
+      /**
+       * @description only appears if a user has set them
+       * @example 1500
+       */
+      cfcRating?: number;
+      /**
+       * @description only appears if a user has set them
+       * @example 1500
+       */
+      rcfRating?: number;
+      /**
+       * @description only appears if a user has set them
+       * @example 1500
+       */
+      dsbRating?: number;
+      /** @example github.com/ornicar
+       *     mas.to/@thibault */
+      links?: string;
+    };
+    PlayTime: {
+      total: number;
+      tv: number;
+    };
+    User: {
+      /** @example georges */
+      id: string;
+      /** @example Georges */
+      username: string;
+      perfs?: components["schemas"]["Perfs"];
+      title?: components["schemas"]["Title"];
+      flair?: components["schemas"]["Flair"];
+      /**
+       * Format: int64
+       * @example 1290415680000
+       */
+      createdAt?: number;
+      /**
+       * @description only appears if a user's account is closed
+       * @example false
+       */
+      disabled?: boolean;
+      /**
+       * @description only appears if a user's account is marked for the violation of [Lichess TOS](https://lichess.org/terms-of-service)
+       * @example false
+       */
+      tosViolation?: boolean;
+      profile?: components["schemas"]["Profile"];
+      /**
+       * Format: int64
+       * @example 1522636452014
+       */
+      seenAt?: number;
+      playTime?: components["schemas"]["PlayTime"];
+      /** @example true */
+      patron?: boolean;
+      /** @example true */
+      verified?: boolean;
+    };
+    Count: {
+      all: number;
+      rated: number;
+      ai: number;
+      draw: number;
+      drawH: number;
+      loss: number;
+      lossH: number;
+      win: number;
+      winH: number;
+      bookmark: number;
+      playing: number;
+      import: number;
+      me: number;
+    };
+    UserStreamer: {
+      twitch?: {
         /**
-         * @description only appears if the user is a titled player or a bot user
+         * Format: uri
+         * @example https://www.twitch.tv/lichessdotorg
+         */
+        channel?: string;
+      };
+      youTube?: {
+        /**
+         * Format: uri
+         * @example https://www.youtube.com/c/LichessDotOrg
+         */
+        channel?: string;
+      };
+    };
+    UserExtended: components["schemas"]["User"] & {
+      /**
+       * Format: uri
+       * @example https://lichess.org/@/georges
+       */
+      url: string;
+      /**
+       * Format: uri
+       * @example https://lichess.org/yqfLYJ5E/black
+       */
+      playing?: string;
+      count?: components["schemas"]["Count"];
+      /** @example false */
+      streaming?: boolean;
+      streamer?: components["schemas"]["UserStreamer"];
+      /**
+       * @description only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication)
+       * @example true
+       */
+      followable?: boolean;
+      /**
+       * @description only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication)
+       * @example false
+       */
+      following?: boolean;
+      /**
+       * @description only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication)
+       * @example false
+       */
+      blocking?: boolean;
+    };
+    /** @example [
+     *       {
+     *         "name": "Bullet",
+     *         "points": [
+     *           [
+     *             2011,
+     *             0,
+     *             8,
+     *             1472
+     *           ],
+     *           [
+     *             2011,
+     *             0,
+     *             9,
+     *             1332
+     *           ],
+     *           [
+     *             2011,
+     *             8,
+     *             12,
+     *             1314
+     *           ]
+     *         ]
+     *       },
+     *       {
+     *         "name": "Blitz",
+     *         "points": [
+     *           [
+     *             2011,
+     *             7,
+     *             29,
+     *             1332
+     *           ]
+     *         ]
+     *       }
+     *     ] */
+    RatingHistory: unknown;
+    /** @enum {string} */
+    PerfType:
+      | "ultraBullet"
+      | "bullet"
+      | "blitz"
+      | "rapid"
+      | "classical"
+      | "correspondence"
+      | "chess960"
+      | "crazyhouse"
+      | "antichess"
+      | "atomic"
+      | "horde"
+      | "kingOfTheHill"
+      | "racingKings"
+      | "threeCheck";
+    /** @example {
+     *       "user": {
+     *         "name": "thibault"
+     *       },
+     *       "perf": {
+     *         "glicko": {
+     *           "rating": 1672.42,
+     *           "deviation": 45.13,
+     *           "provisional": false
+     *         },
+     *         "nb": 5692,
+     *         "progress": -27
+     *       },
+     *       "rank": 98121,
+     *       "percentile": 69.7,
+     *       "stat": {
+     *         "perfType": {
+     *           "key": "bullet",
+     *           "name": "Bullet"
+     *         },
+     *         "highest": {
+     *           "int": 1902,
+     *           "at": "2021-05-31T08:58:53.701Z",
+     *           "gameId": "YEDqtwig"
+     *         },
+     *         "lowest": {
+     *           "int": 1417,
+     *           "at": "2016-06-28T13:54:39.656Z",
+     *           "gameId": "rNM4J1GJ"
+     *         },
+     *         "id": "thibault/1",
+     *         "bestWins": {
+     *           "results": [
+     *             {
+     *               "opRating": 2238,
+     *               "opId": {
+     *                 "id": "hyperdragon84",
+     *                 "name": "HyperDragon84"
+     *               },
+     *               "at": "2019-06-19T17:09:05.187Z",
+     *               "gameId": "DGB53z9w"
+     *             },
+     *             {
+     *               "opRating": 2089,
+     *               "opId": {
+     *                 "id": "osipov",
+     *                 "name": "osipov"
+     *               },
+     *               "at": "2017-06-18T09:46:05.016Z",
+     *               "gameId": "gurRhuMi"
+     *             },
+     *             {
+     *               "opRating": 2071,
+     *               "opId": {
+     *                 "id": "spark50",
+     *                 "name": "Spark50"
+     *               },
+     *               "at": "2020-07-04T08:36:12.948Z",
+     *               "gameId": "a93Dk1mv"
+     *             },
+     *             {
+     *               "opRating": 2045,
+     *               "opId": {
+     *                 "id": "yasha43",
+     *                 "name": "Yasha43"
+     *               },
+     *               "at": "2021-05-17T14:01:41.098Z",
+     *               "gameId": "j3jZnGTr"
+     *             },
+     *             {
+     *               "opRating": 2034,
+     *               "opId": {
+     *                 "id": "midedu",
+     *                 "name": "midedu"
+     *               },
+     *               "at": "2020-06-27T17:32:47.001Z",
+     *               "gameId": "OiaMVLQ8"
+     *             }
+     *           ]
+     *         },
+     *         "worstLosses": {
+     *           "results": [
+     *             {
+     *               "opRating": 1186,
+     *               "opId": {
+     *                 "id": "happy0",
+     *                 "name": "Happy0"
+     *               },
+     *               "at": "2016-07-07T19:48:29.077Z",
+     *               "gameId": "Q01bbiN4"
+     *             },
+     *             {
+     *               "opRating": 1197,
+     *               "opId": {
+     *                 "id": "kazmankiller86",
+     *                 "name": "KazmanKiller86"
+     *               },
+     *               "at": "2016-10-16T14:21:37.748Z",
+     *               "gameId": "Aivqh9Sp"
+     *             },
+     *             {
+     *               "opRating": 1201,
+     *               "opId": {
+     *                 "id": "artem555",
+     *                 "name": "artem555"
+     *               },
+     *               "at": "2016-08-28T16:21:30.923Z",
+     *               "gameId": "tiRAbhnX"
+     *             },
+     *             {
+     *               "opRating": 1265,
+     *               "opId": {
+     *                 "id": "arcenuu",
+     *                 "name": "Arcenuu"
+     *               },
+     *               "at": "2016-12-24T14:28:03.866Z",
+     *               "gameId": "A68wUOoh"
+     *             },
+     *             {
+     *               "opRating": 1283,
+     *               "opId": {
+     *                 "id": "amritalib76",
+     *                 "name": "Amritalib76"
+     *               },
+     *               "at": "2018-06-26T09:55:39.354Z",
+     *               "gameId": "sbNVikmo"
+     *             }
+     *           ]
+     *         },
+     *         "count": {
+     *           "all": 5858,
+     *           "rated": 5688,
+     *           "win": 2789,
+     *           "loss": 2806,
+     *           "draw": 263,
+     *           "tour": 654,
+     *           "berserk": 1,
+     *           "opAvg": 1671.44,
+     *           "seconds": 784886,
+     *           "disconnects": 0
+     *         },
+     *         "resultStreak": {
+     *           "win": {
+     *             "cur": {
+     *               "v": 0
+     *             },
+     *             "max": {
+     *               "v": 11,
+     *               "from": {
+     *                 "at": "2021-06-14T15:38:50.681Z",
+     *                 "gameId": "wTX2IExo"
+     *               },
+     *               "to": {
+     *                 "at": "2021-06-15T18:41:46.970Z",
+     *                 "gameId": "1z4rrjgw"
+     *               }
+     *             }
+     *           },
+     *           "loss": {
+     *             "cur": {
+     *               "v": 3,
+     *               "from": {
+     *                 "at": "2021-06-29T17:53:23.642Z",
+     *                 "gameId": "pfcnjgik"
+     *               },
+     *               "to": {
+     *                 "at": "2021-06-29T18:04:48.358Z",
+     *                 "gameId": "6sPaGL8T"
+     *               }
+     *             },
+     *             "max": {
+     *               "v": 14,
+     *               "from": {
+     *                 "at": "2018-06-11T14:43:39.296Z",
+     *                 "gameId": "1fc9dqun"
+     *               },
+     *               "to": {
+     *                 "at": "2018-06-11T15:10:30.908Z",
+     *                 "gameId": "Nzy6UgwY"
+     *               }
+     *             }
+     *           }
+     *         },
+     *         "userId": {
+     *           "id": "thibault",
+     *           "name": "thibault",
+     *           "title": null
+     *         },
+     *         "playStreak": {
+     *           "nb": {
+     *             "cur": {
+     *               "v": 0
+     *             },
+     *             "max": {
+     *               "v": 118,
+     *               "from": {
+     *                 "at": "2018-06-11T10:32:21.248Z",
+     *                 "gameId": "UAsNnJbN"
+     *               },
+     *               "to": {
+     *                 "at": "2018-06-11T15:13:01.193Z",
+     *                 "gameId": "T7fHRaFG"
+     *               }
+     *             }
+     *           },
+     *           "time": {
+     *             "cur": {
+     *               "v": 0
+     *             },
+     *             "max": {
+     *               "v": 12683,
+     *               "from": {
+     *                 "at": "2018-06-12T14:11:14.021Z",
+     *                 "gameId": "IrZCAW58"
+     *               },
+     *               "to": {
+     *                 "at": "2018-06-12T18:02:57.010Z",
+     *                 "gameId": "RNF1mQ68"
+     *               }
+     *             }
+     *           },
+     *           "lastDate": "2021-06-29T18:04:48.358Z"
+     *         }
+     *       }
+     *     } */
+    PerfStat: unknown;
+    UserActivityScore: {
+      win: number;
+      loss: number;
+      draw: number;
+      rp: {
+        before?: number;
+        after?: number;
+      };
+    };
+    /** @enum {string} */
+    GameColor: "white" | "black";
+    /**
+     * @default standard
+     * @example standard
+     * @enum {string}
+     */
+    VariantKey:
+      | "standard"
+      | "chess960"
+      | "crazyhouse"
+      | "antichess"
+      | "atomic"
+      | "horde"
+      | "kingOfTheHill"
+      | "racingKings"
+      | "threeCheck"
+      | "fromPosition";
+    UserActivityCorrespondenceGame: {
+      id: string;
+      color: components["schemas"]["GameColor"];
+      url: string;
+      variant: components["schemas"]["VariantKey"];
+      /** @constant */
+      speed: "correspondence";
+      /** @constant */
+      perf: "correspondence";
+      rated: boolean;
+      opponent: {
+        user: string;
+        rating: number;
+      };
+    };
+    UserActivityFollowList: {
+      ids: string[];
+      nb?: number;
+    };
+    UserActivity: {
+      interval: {
+        start: number;
+        end: number;
+      };
+      games?: {
+        chess960?: components["schemas"]["UserActivityScore"];
+        atomic?: components["schemas"]["UserActivityScore"];
+        racingKings?: components["schemas"]["UserActivityScore"];
+        ultraBullet?: components["schemas"]["UserActivityScore"];
+        blitz?: components["schemas"]["UserActivityScore"];
+        kingOfTheHill?: components["schemas"]["UserActivityScore"];
+        bullet?: components["schemas"]["UserActivityScore"];
+        correspondence?: components["schemas"]["UserActivityScore"];
+        horde?: components["schemas"]["UserActivityScore"];
+        puzzle?: components["schemas"]["UserActivityScore"];
+        classical?: components["schemas"]["UserActivityScore"];
+        rapid?: components["schemas"]["UserActivityScore"];
+      };
+      puzzles?: {
+        score?: components["schemas"]["UserActivityScore"];
+      };
+      storm?: components["schemas"]["PuzzleModePerf"];
+      racer?: components["schemas"]["PuzzleModePerf"];
+      streak?: components["schemas"]["PuzzleModePerf"];
+      tournaments?: {
+        nb?: number;
+        best?: {
+          tournament: {
+            id: string;
+            name: string;
+          };
+          nbGames: number;
+          score: number;
+          rank: number;
+          rankPercent: number;
+        }[];
+      };
+      practice?: {
+        url: string;
+        name: string;
+        nbPositions: number;
+      }[];
+      simuls?: string[];
+      correspondenceMoves?: {
+        nb: number;
+        games: components["schemas"]["UserActivityCorrespondenceGame"][];
+      };
+      correspondenceEnds?: {
+        score: components["schemas"]["UserActivityScore"];
+        games: components["schemas"]["UserActivityCorrespondenceGame"][];
+      };
+      follows?: {
+        in?: components["schemas"]["UserActivityFollowList"];
+        out?: components["schemas"]["UserActivityFollowList"];
+      };
+      studies?: Record<string, never>;
+      teams?: {
+        url: string;
+        name: string;
+        flair?: components["schemas"]["Flair"];
+      }[];
+      posts?: {
+        topicUrl: string;
+        topicName: string;
+        posts: {
+          url: string;
+          text: string;
+        }[];
+      }[];
+      patron?: {
+        months: number;
+      };
+      stream?: boolean;
+    };
+    PuzzleAndGame: {
+      game: {
+        clock: string;
+        id: string;
+        perf: {
+          key: components["schemas"]["PerfType"];
+          name: string;
+        };
+        pgn: string;
+        players: {
+          color: string;
+          flair?: components["schemas"]["Flair"];
+          id: string;
+          name: string;
+          patron?: boolean;
+          rating: number;
+          title?: components["schemas"]["Title"];
+        }[];
+        rated: boolean;
+      };
+      puzzle: {
+        id: string;
+        initialPly: number;
+        plays: number;
+        rating: number;
+        solution: string[];
+        themes: string[];
+      };
+    };
+    PuzzleActivity: {
+      date: number;
+      puzzle: {
+        fen: string;
+        id: string;
+        lastMove: string;
+        plays: number;
+        rating: number;
+        solution: string[];
+        themes: string[];
+      };
+      win: boolean;
+    };
+    PuzzleReplay: {
+      replay: {
+        days: number;
+        theme: string;
+        nb: number;
+        remaining: string[];
+      };
+      angle: {
+        key: string;
+        name: string;
+        desc: string;
+      };
+    };
+    PuzzlePerformance: {
+      firstWins: number;
+      nb: number;
+      performance: number;
+      puzzleRatingAvg: number;
+      replayWins: number;
+    };
+    PuzzleDashboard: {
+      days: number;
+      global: components["schemas"]["PuzzlePerformance"];
+      themes: {
+        [key: string]: {
+          results: components["schemas"]["PuzzlePerformance"];
+          theme: string;
+        };
+      };
+    };
+    PuzzleStormDashboard: {
+      days: {
+        _id: string;
+        combo: number;
+        errors: number;
+        highest: number;
+        moves: number;
+        runs: number;
+        score: number;
+        time: number;
+      }[];
+      high: {
+        allTime: number;
+        day: number;
+        month: number;
+        week: number;
+      };
+    };
+    PuzzleRacer: {
+      id: string;
+      /** Format: uri */
+      url: string;
+    };
+    UserPreferences: {
+      dark?: boolean;
+      transp?: boolean;
+      /** Format: uri */
+      bgImg?: string;
+      is3d?: boolean;
+      /** @enum {string} */
+      theme?:
+        | "blue"
+        | "blue2"
+        | "blue3"
+        | "blue-marble"
+        | "canvas"
+        | "wood"
+        | "wood2"
+        | "wood3"
+        | "wood4"
+        | "maple"
+        | "maple2"
+        | "brown"
+        | "leather"
+        | "green"
+        | "marble"
+        | "green-plastic"
+        | "grey"
+        | "metal"
+        | "olive"
+        | "newspaper"
+        | "purple"
+        | "purple-diag"
+        | "pink"
+        | "ic";
+      /** @enum {string} */
+      pieceSet?:
+        | "cburnett"
+        | "merida"
+        | "alpha"
+        | "pirouetti"
+        | "chessnut"
+        | "chess7"
+        | "reillycraig"
+        | "companion"
+        | "riohacha"
+        | "kosal"
+        | "leipzig"
+        | "fantasy"
+        | "spatial"
+        | "california"
+        | "pixel"
+        | "maestro"
+        | "fresca"
+        | "cardinal"
+        | "gioco"
+        | "tatiana"
+        | "staunty"
+        | "governor"
+        | "dubrovny"
+        | "icpieces"
+        | "shapes"
+        | "letter";
+      /** @enum {string} */
+      theme3d?:
+        | "Black-White-Aluminium"
+        | "Brushed-Aluminium"
+        | "China-Blue"
+        | "China-Green"
+        | "China-Grey"
+        | "China-Scarlet"
+        | "Classic-Blue"
+        | "Gold-Silver"
+        | "Light-Wood"
+        | "Power-Coated"
+        | "Rosewood"
+        | "Marble"
+        | "Wax"
+        | "Jade"
+        | "Woodi";
+      /** @enum {string} */
+      pieceSet3d?:
+        | "Basic"
+        | "Wood"
+        | "Metal"
+        | "RedVBlue"
+        | "ModernJade"
+        | "ModernWood"
+        | "Glass"
+        | "Trimmed"
+        | "Experimental"
+        | "Staunton"
+        | "CubesAndPi";
+      /** @enum {string} */
+      soundSet?:
+        | "silent"
+        | "standard"
+        | "piano"
+        | "nes"
+        | "sfx"
+        | "futuristic"
+        | "robot"
+        | "music"
+        | "speech";
+      blindfold?: number;
+      autoQueen?: number;
+      autoThreefold?: number;
+      takeback?: number;
+      moretime?: number;
+      clockTenths?: number;
+      clockBar?: boolean;
+      clockSound?: boolean;
+      premove?: boolean;
+      animation?: number;
+      pieceNotation?: number;
+      captured?: boolean;
+      follow?: boolean;
+      highlight?: boolean;
+      destination?: boolean;
+      coords?: number;
+      replay?: number;
+      challenge?: number;
+      message?: number;
+      submitMove?: number;
+      confirmResign?: number;
+      insightShare?: number;
+      keyboardMove?: number;
+      voiceMove?: boolean;
+      zen?: number;
+      ratings?: number;
+      moveEvent?: number;
+      rookCastle?: number;
+    };
+    Ok: {
+      ok?: boolean;
+    };
+    TimelineEntryFollow: {
+      /** @enum {string} */
+      type: "follow";
+      date: number;
+      data: {
+        u1: string;
+        u2: string;
+      };
+    };
+    TimelineEntryTeamJoin: {
+      /** @enum {string} */
+      type: "team-join";
+      date: number;
+      data: {
+        userId: string;
+        teamId: string;
+      };
+    };
+    TimelineEntryTeamCreate: {
+      /** @enum {string} */
+      type: "team-create";
+      date: number;
+      data: {
+        userId: string;
+        teamId: string;
+      };
+    };
+    TimelineEntryForumPost: {
+      /** @enum {string} */
+      type: "forum-post";
+      date: number;
+      data: {
+        userId: string;
+        topicId: string;
+        topicName: string;
+        postId: string;
+      };
+    };
+    TimelineEntryBlogPost: {
+      /** @enum {string} */
+      type: "blog-post";
+      date: number;
+      data: {
+        id: string;
+        slug: string;
+        title: string;
+      };
+    };
+    TimelineEntryUblogPost: {
+      /** @enum {string} */
+      type: "ublog-post";
+      date: number;
+      data: {
+        userId: string;
+        id: string;
+        slug: string;
+        title: string;
+      };
+    };
+    TimelineEntryTourJoin: {
+      /** @enum {string} */
+      type: "tour-join";
+      date: number;
+      data: {
+        userId: string;
+        tourId: string;
+        tourName: string;
+      };
+    };
+    TimelineEntryGameEnd: {
+      /** @enum {string} */
+      type: "game-end";
+      date: number;
+      data: {
+        fullId: string;
+        opponent: string;
+        win: boolean;
+        perf: components["schemas"]["PerfType"];
+      };
+    };
+    TimelineEntrySimul: {
+      /** @enum {string} */
+      type: "simul-create" | "simul-join";
+      date: number;
+      data: {
+        userId: string;
+        simulId: string;
+        simulName: string;
+      };
+    };
+    TimelineEntryStudyLike: {
+      /** @enum {string} */
+      type: "study-like";
+      date: number;
+      data: {
+        userId: string;
+        studyId: string;
+        studyName: string;
+      };
+    };
+    TimelineEntryPlanStart: {
+      /** @enum {string} */
+      type: "plan-start";
+      date: number;
+      data: {
+        userId: string;
+      };
+    };
+    TimelineEntryPlanRenew: {
+      /** @enum {string} */
+      type: "plan-renew";
+      date: number;
+      data: {
+        userId: string;
+        months: number;
+      };
+    };
+    TimelineEntryUblogPostLike: {
+      /** @enum {string} */
+      type: "ublog-post-like";
+      date: number;
+      data: {
+        userId: string;
+        id: string;
+        title: string;
+      };
+    };
+    TimelineEntryStreamStart: {
+      /** @enum {string} */
+      type: "stream-start";
+      date: number;
+      data: {
+        id: string;
+        title?: string;
+      };
+    };
+    /** @example {
+     *       "entries": [
+     *         {
+     *           "type": "follow",
+     *           "data": {
+     *             "u1": "neio",
+     *             "u2": "chess-network"
+     *           },
+     *           "date": 1644232201429
+     *         },
+     *         {
+     *           "type": "team-join",
+     *           "data": {
+     *             "userId": "neio",
+     *             "teamId": "coders"
+     *           },
+     *           "date": 1644232201429
+     *         },
+     *         {
+     *           "type": "team-create",
+     *           "data": {
+     *             "userId": "neio",
+     *             "teamId": "coders"
+     *           },
+     *           "date": 1644232201429
+     *         },
+     *         {
+     *           "type": "forum-post",
+     *           "data": {
+     *             "userId": "neio",
+     *             "topicId": "AAAAAAAN",
+     *             "topicName": "World's Tallest LEGO Tower Completed in City Square",
+     *             "postId": "AAAAAAAL"
+     *           },
+     *           "date": 1644232201429
+     *         },
+     *         {
+     *           "type": "ublog-post",
+     *           "data": {
+     *             "userId": "neio",
+     *             "id": "og5pkt1c",
+     *             "slug": "gotta-go-fast",
+     *             "title": "Gotta Go Fast"
+     *           },
+     *           "date": 1644232201429
+     *         },
+     *         {
+     *           "type": "tour-join",
+     *           "data": {
+     *             "userId": "chess-network",
+     *             "tourId": "Z24oxqgU",
+     *             "tourName": "Daily Blitz Arena"
+     *           },
+     *           "date": 1644232201429
+     *         },
+     *         {
+     *           "type": "game-end",
+     *           "data": {
+     *             "fullId": "iGkAXUdEfLZC",
+     *             "perf": "correspondence",
+     *             "opponent": "chess-network",
+     *             "win": false
+     *           },
+     *           "date": 1644232201429
+     *         },
+     *         {
+     *           "type": "simul-create",
+     *           "data": {
+     *             "userId": "neio",
+     *             "simulId": "m3c0Wvu3",
+     *             "simulName": "RCA 1st Jan simul"
+     *           },
+     *           "date": 1644232201429
+     *         },
+     *         {
+     *           "type": "simul-join",
+     *           "data": {
+     *             "userId": "chess-network",
+     *             "simulId": "m3c0Wvu3",
+     *             "simulName": "RCA 1st Jan simul"
+     *           },
+     *           "date": 1644232201429
+     *         },
+     *         {
+     *           "type": "study-like",
+     *           "data": {
+     *             "userId": "neio",
+     *             "studyId": "ma5AvZ7o",
+     *             "studyName": "Free wins | Danish Gambit"
+     *           },
+     *           "date": 1644232201429
+     *         },
+     *         {
+     *           "type": "plan-start",
+     *           "data": {
+     *             "userId": "chess-network"
+     *           },
+     *           "date": 1644232201429
+     *         },
+     *         {
+     *           "type": "plan-renew",
+     *           "data": {
+     *             "userId": "chess-network",
+     *             "months": 64
+     *           },
+     *           "date": 1644232201429
+     *         },
+     *         {
+     *           "type": "blog-post",
+     *           "data": {
+     *             "id": "ZUviXRIAACYAVtMm",
+     *             "slug": "lichess-development-made-easy-with-gitpod",
+     *             "title": "Lichess Development Made Easy With Gitpod"
+     *           },
+     *           "date": 1644232201429
+     *         },
+     *         {
+     *           "type": "ublog-post-like",
+     *           "data": {
+     *             "userId": "neio",
+     *             "id": "ZUviXRIAACYAVtMm",
+     *             "title": "Lichess Development Made Easy With Gitpod"
+     *           },
+     *           "date": 1644232201429
+     *         },
+     *         {
+     *           "type": "stream-start",
+     *           "data": {
+     *             "id": "chess-network",
+     *             "title": "Streamers Battle December !team | lichess.org"
+     *           },
+     *           "date": 1644232201429
+     *         }
+     *       ],
+     *       "users": {
+     *         "neio": {
+     *           "id": "neio",
+     *           "name": "Neio",
+     *           "title": "NM"
+     *         },
+     *         "chess-network": {
+     *           "id": "chess-network",
+     *           "name": "Chess-Network",
+     *           "title": "NM",
+     *           "patron": true
+     *         }
+     *       }
+     *     } */
+    Timeline: {
+      entries: (
+        | components["schemas"]["TimelineEntryFollow"]
+        | components["schemas"]["TimelineEntryTeamJoin"]
+        | components["schemas"]["TimelineEntryTeamCreate"]
+        | components["schemas"]["TimelineEntryForumPost"]
+        | components["schemas"]["TimelineEntryBlogPost"]
+        | components["schemas"]["TimelineEntryUblogPost"]
+        | components["schemas"]["TimelineEntryTourJoin"]
+        | components["schemas"]["TimelineEntryGameEnd"]
+        | components["schemas"]["TimelineEntrySimul"]
+        | components["schemas"]["TimelineEntryStudyLike"]
+        | components["schemas"]["TimelineEntryPlanStart"]
+        | components["schemas"]["TimelineEntryPlanRenew"]
+        | components["schemas"]["TimelineEntryUblogPostLike"]
+        | components["schemas"]["TimelineEntryStreamStart"]
+      )[];
+      users: {
+        [key: string]: {
+          id: string;
+          name: string;
+          title?: components["schemas"]["Title"];
+          flair?: components["schemas"]["Flair"];
+          patron?: boolean;
+        };
+      };
+    };
+    /** @example [Event "Rated Blitz game"]
+     *     [Site "https://lichess.org/fY44h4OY"]
+     *     [Date "2018.03.29"]
+     *     [Round "-"]
+     *     [White "pveldman"]
+     *     [Black "thibault"]
+     *     [Result "1-0"]
+     *     [UTCDate "2018.03.29"]
+     *     [UTCTime "01:38:15"]
+     *     [WhiteElo "1610"]
+     *     [BlackElo "1601"]
+     *     [WhiteRatingDiff "+10"]
+     *     [BlackRatingDiff "-10"]
+     *     [Variant "Standard"]
+     *     [TimeControl "180+0"]
+     *     [ECO "C62"]
+     *     [Opening "Ruy Lopez: Steinitz Defense"]
+     *     [Termination "Normal"]
+     *
+     *     1. e4 { [%clk 0:03:00] } e5 { [%clk 0:03:00] } 2. Nf3 { [%clk 0:02:59] } Nc6 { [%clk 0:02:58] } 3. Bb5 { [%clk 0:02:57] } d6 { [%clk 0:02:55] } 4. h3 { [%clk 0:02:54] } Nf6 { [%clk 0:02:52] } 5. Bxc6+ { [%clk 0:02:52] } bxc6 { [%clk 0:02:49] } 6. d3 { [%clk 0:02:51] } Be7 { [%clk 0:02:46] } 7. O-O { [%clk 0:02:47] } O-O { [%clk 0:02:45] } 8. b3 { [%clk 0:02:45] } d5 { [%clk 0:02:45] } 9. exd5 { [%clk 0:02:33] } cxd5 { [%clk 0:02:40] } 10. Nxe5 { [%clk 0:02:31] } Qd6 { [%clk 0:02:38] } 1-0
+     *      */
+    GamePgn: string;
+    /** @enum {string} */
+    Speed:
+      | "ultraBullet"
+      | "bullet"
+      | "blitz"
+      | "rapid"
+      | "classical"
+      | "correspondence";
+    /** @enum {string} */
+    GameStatusName:
+      | "created"
+      | "started"
+      | "aborted"
+      | "mate"
+      | "resign"
+      | "stalemate"
+      | "timeout"
+      | "draw"
+      | "outoftime"
+      | "cheat"
+      | "noStart"
+      | "unknownFinish"
+      | "variantEnd";
+    LightUser: {
+      id: string;
+      name: string;
+      flair?: components["schemas"]["Flair"];
+      title?: components["schemas"]["Title"];
+      patron?: boolean;
+    };
+    GameUser: {
+      user: components["schemas"]["LightUser"];
+      rating: number;
+      ratingDiff?: number;
+      name?: string;
+      provisional?: boolean;
+      aiLevel?: number;
+      analysis?: {
+        inaccuracy: number;
+        mistake: number;
+        blunder: number;
+        acpl: number;
+        accuracy?: number;
+      };
+      team?: string;
+    };
+    GameUsers: {
+      white: components["schemas"]["GameUser"];
+      black: components["schemas"]["GameUser"];
+    };
+    GameOpening: {
+      eco: string;
+      name: string;
+      ply: number;
+    };
+    GameMoveAnalysis: {
+      /** @description Evaluation in centipawns */
+      eval?: number;
+      /** @description Number of moves until forced mate */
+      mate?: number;
+      /**
+       * @description Best move in UCI notation (only if played move was inaccurate)
+       * @example c2c3
+       */
+      best?: string;
+      /**
+       * @description Best variation in SAN notation (only if played move was inaccurate)
+       * @example c3 Nc6 d4 Qb6 Be2 Nge7 Na3 cxd4 cxd4 Nf5
+       */
+      variation?: string;
+      /** @description Judgment annotation (only if played move was inaccurate) */
+      judgment?: {
+        /** @enum {string} */
+        name?: "Inaccuracy" | "Mistake" | "Blunder";
+        /** @example Blunder. Nxg6 was best. */
+        comment?: string;
+      };
+    };
+    GameJson: {
+      id: string;
+      rated: boolean;
+      variant: components["schemas"]["VariantKey"];
+      speed: components["schemas"]["Speed"];
+      perf: string;
+      /** Format: int64 */
+      createdAt: number;
+      /** Format: int64 */
+      lastMoveAt: number;
+      status: components["schemas"]["GameStatusName"];
+      source?: string;
+      players: components["schemas"]["GameUsers"];
+      initialFen?: string;
+      winner?: components["schemas"]["GameColor"];
+      opening?: components["schemas"]["GameOpening"];
+      moves?: string;
+      pgn?: string;
+      daysPerTurn?: number;
+      analysis?: components["schemas"]["GameMoveAnalysis"][];
+      tournament?: string;
+      swiss?: string;
+      clock?: {
+        initial: number;
+        increment: number;
+        totalTime: number;
+      };
+      clocks?: number[];
+      division?: {
+        /** @description Ply at which the middlegame begins */
+        middle?: number;
+        /** @description Ply at which the endgame begins */
+        end?: number;
+      };
+    };
+    /** @example [
+     *       {
+     *         "id": "A5fcMO3k",
+     *         "rated": true,
+     *         "variant": "standard",
+     *         "speed": "bullet",
+     *         "perf": "bullet",
+     *         "createdAt": 1525789431889,
+     *         "status": 20,
+     *         "statusName": "started",
+     *         "clock": {
+     *           "initial": 60,
+     *           "increment": 0,
+     *           "totalTime": 60
+     *         },
+     *         "players": {
+     *           "white": {
+     *             "userId": "kastorcito",
+     *             "rating": 2617
+     *           },
+     *           "black": {
+     *             "userId": "er_or",
+     *             "rating": 2288
+     *           }
+     *         }
+     *       },
+     *       {
+     *         "id": "A5fcMO3k",
+     *         "rated": true,
+     *         "variant": "standard",
+     *         "speed": "bullet",
+     *         "perf": "bullet",
+     *         "createdAt": 1525789431889,
+     *         "status": 31,
+     *         "statusName": "resign",
+     *         "clock": {
+     *           "initial": 60,
+     *           "increment": 0,
+     *           "totalTime": 60
+     *         },
+     *         "players": {
+     *           "white": {
+     *             "userId": "kastorcito",
+     *             "rating": 2617
+     *           },
+     *           "black": {
+     *             "userId": "er_or",
+     *             "rating": 2288
+     *           }
+     *         },
+     *         "winner": "white"
+     *       }
+     *     ] */
+    GameStream: unknown;
+    /** @enum {string} */
+    GameSource:
+      | "lobby"
+      | "friend"
+      | "ai"
+      | "api"
+      | "tournament"
+      | "position"
+      | "import"
+      | "importlive"
+      | "simul"
+      | "relay"
+      | "pool"
+      | "swiss";
+    Variant: {
+      key: components["schemas"]["VariantKey"];
+      name: string;
+      short?: string;
+    };
+    /** @example [
+     *       {
+     *         "id": "LuGQwhBb",
+     *         "variant": {
+     *           "key": "standard",
+     *           "name": "Standard",
+     *           "short": "Std"
+     *         },
+     *         "speed": "blitz",
+     *         "perf": "blitz",
+     *         "rated": true,
+     *         "initialFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+     *         "fen": "rnbqkb1r/1p1ppppp/p6n/2p4Q/8/1P2P3/P1PP1PPP/RNB1KBNR w KQkq - 0 4",
+     *         "player": "white",
+     *         "turns": 6,
+     *         "startedAtTurn": 0,
+     *         "source": "pool",
+     *         "status": {
+     *           "id": 20,
+     *           "name": "started"
+     *         },
+     *         "createdAt": 1620029815106,
+     *         "lastMove": "c7c5",
+     *         "players": {
+     *           "white": {
+     *             "user": {
+     *               "name": "ARM-777777",
+     *               "title": "GM",
+     *               "id": "arm-777777"
+     *             },
+     *             "rating": 3120
+     *           },
+     *           "black": {
+     *             "user": {
+     *               "name": "Flash_Marafon",
+     *               "id": "flash_marafon"
+     *             },
+     *             "rating": 3015
+     *           }
+     *         }
+     *       },
+     *       {
+     *         "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w",
+     *         "wc": 180,
+     *         "bc": 180
+     *       },
+     *       {
+     *         "fen": "rnbqkbnr/pppppppp/8/8/8/4P3/PPPP1PPP/RNBQKBNR b",
+     *         "lm": "e2e3",
+     *         "wc": 180,
+     *         "bc": 180
+     *       },
+     *       {
+     *         "fen": "rnbqkb1r/pppppppp/7n/8/8/4P3/PPPP1PPP/RNBQKBNR w",
+     *         "lm": "g8h6",
+     *         "wc": 180,
+     *         "bc": 180
+     *       },
+     *       {
+     *         "fen": "rnbqkb1r/pppppppp/7n/8/8/1P2P3/P1PP1PPP/RNBQKBNR b",
+     *         "lm": "b2b3",
+     *         "wc": 177,
+     *         "bc": 180
+     *       },
+     *       {
+     *         "fen": "rnbqkb1r/1ppppppp/p6n/8/8/1P2P3/P1PP1PPP/RNBQKBNR w",
+     *         "lm": "a7a6",
+     *         "wc": 177,
+     *         "bc": 177
+     *       }
+     *     ] */
+    MoveStream: unknown;
+    TvGame: {
+      user: components["schemas"]["LightUser"];
+      rating: number;
+      gameId: string;
+      color: components["schemas"]["GameColor"];
+    };
+    TvFeed: {
+      /**
+       * @description The type of message.
+       *     A summary of the game is sent as the first message and when the featured game changes.
+       *     Subsequent messages are just the FEN, last move, and clocks.
+       *
+       * @enum {string}
+       */
+      t: "featured" | "fen";
+      /** @description The data of the message */
+      d:
+        | {
+            /** @description The game ID */
+            id: string;
+            /** @enum {string} */
+            orientation: "white" | "black";
+            players: {
+              /** @enum {string} */
+              color: "white" | "black";
+              user: components["schemas"]["LightUser"];
+              rating: number;
+              /** @description The player's remaining time in seconds */
+              seconds: number;
+            }[];
+            /** @description The FEN of the current position */
+            fen: string;
+          }
+        | {
+            /** @description The FEN of the current position */
+            fen: string;
+            /** @description The last move in UCI format */
+            lm: string;
+            /** @description White's clock in seconds */
+            wc: number;
+            /** @description Black's clock in seconds */
+            bc: number;
+          };
+    };
+    Clock: {
+      limit?: number;
+      increment?: number;
+    };
+    /**
+     * @description 10: created, 20: started, 30: finished
+     *
+     * @enum {integer}
+     */
+    ArenaStatus: 10 | 20 | 30;
+    ArenaPerf: {
+      key: components["schemas"]["PerfType"];
+      /** @example Blitz */
+      name: string;
+      /** @example 1 */
+      position: number;
+      /** @example ) */
+      icon?: string;
+    };
+    ArenaRatingObj: {
+      perf?: components["schemas"]["PerfType"];
+      /** @example 1700 */
+      rating: number;
+    };
+    ArenaPosition:
+      | {
+          /** @example C41 */
+          eco?: string;
+          /** @example Philidor Defense */
+          name?: string;
+          /** @example rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - */
+          fen?: string;
+          /**
+           * Format: uri
+           * @example https://lichess.org/opening/Philidor_Defense
+           */
+          url?: string;
+        }
+      | {
+          /** @constant */
+          name?: "Custom position";
+          /** @example rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 2 3 */
+          fen?: string;
+        };
+    ArenaTournament: {
+      id: string;
+      createdBy: string;
+      /** @constant */
+      system: "arena";
+      minutes: number;
+      clock: components["schemas"]["Clock"];
+      rated: boolean;
+      fullName: string;
+      nbPlayers: number;
+      variant: components["schemas"]["Variant"];
+      /** Format: int64 */
+      startsAt: number;
+      /** Format: int64 */
+      finishesAt: number;
+      status: components["schemas"]["ArenaStatus"];
+      perf: components["schemas"]["ArenaPerf"];
+      secondsToStart?: number;
+      hasMaxRating?: boolean;
+      maxRating?: components["schemas"]["ArenaRatingObj"];
+      minRating?: components["schemas"]["ArenaRatingObj"];
+      minRatedGames?: {
+        nb?: number;
+      };
+      botsAllowed?: boolean;
+      minAccountAgeInDays?: number;
+      onlyTitled?: boolean;
+      teamMember?: string;
+      private?: boolean;
+      position?: components["schemas"]["ArenaPosition"];
+      schedule?: {
+        freq?: string;
+        speed?: string;
+      };
+      teamBattle?: {
+        teams?: string[];
+        nbLeaders?: number;
+      };
+      winner?: components["schemas"]["LightUser"];
+    };
+    ArenaTournaments: {
+      created?: components["schemas"]["ArenaTournament"][];
+      started?: components["schemas"]["ArenaTournament"][];
+      finished?: components["schemas"]["ArenaTournament"][];
+    };
+    /**
+     * @description Custom initial position (in FEN). Variant must be standard, fromPosition, or chess960 (if a valid 960 starting position), and the game cannot be rated.
+     * @default rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+     */
+    FromPositionFEN: string;
+    Verdict: {
+      condition: string;
+      verdict: string;
+    };
+    Verdicts: {
+      accepted: boolean;
+      list: components["schemas"]["Verdict"][];
+    };
+    ArenaSheet: {
+      scores: string;
+      fire?: boolean;
+    };
+    ArenaTournamentFull: {
+      id: string;
+      fullName: string;
+      rated?: boolean;
+      spotlight?: {
+        headline?: string;
+      };
+      berserkable?: boolean;
+      onlyTitled?: boolean;
+      clock: {
+        increment: number;
+        limit: number;
+      };
+      minutes?: number;
+      createdBy?: string;
+      system?: string;
+      secondsToStart?: number;
+      secondsToFinish?: number;
+      isFinished?: boolean;
+      isRecentlyFinished?: boolean;
+      pairingsClosed?: boolean;
+      /** Format: int64 */
+      startsAt?: string;
+      nbPlayers: number;
+      verdicts?: components["schemas"]["Verdicts"];
+      /** @description The quote displayed on the tournament page */
+      quote?: {
+        text?: string;
+        author?: string;
+      };
+      greatPlayer?: {
+        name?: string;
+        /** Format: uri */
+        url?: string;
+      };
+      /** @description List of usernames allowed to join the tournament */
+      allowList?: string[];
+      hasMaxRating?: boolean;
+      maxRating?: components["schemas"]["ArenaRatingObj"];
+      minRating?: components["schemas"]["ArenaRatingObj"];
+      minRatedGames?: {
+        nb?: number;
+      };
+      botsAllowed?: boolean;
+      minAccountAgeInDays?: number;
+      perf?: {
+        icon: string;
+        key: string;
+        name: string;
+      };
+      schedule?: {
+        freq: string;
+        speed: string;
+      };
+      description?: string;
+      variant?: string;
+      duels?: {
+        id?: string;
+        p?: {
+          n?: string;
+          r?: number;
+          k?: number;
+        }[];
+      }[];
+      standing?: {
+        page?: number;
+        players?: {
+          name?: string;
+          title?: components["schemas"]["Title"];
+          patron?: boolean;
+          flair?: components["schemas"]["Flair"];
+          rank?: number;
+          rating?: number;
+          score?: number;
+          sheet?: components["schemas"]["ArenaSheet"];
+        }[];
+      };
+      featured?: {
+        id?: string;
+        fen?: string;
+        orientation?: string;
+        color?: string;
+        lastMove?: string;
+        white?: {
+          name?: string;
+          id?: string;
+          rank?: number;
+          rating?: number;
+        };
+        black?: {
+          name?: string;
+          id?: string;
+          rank?: number;
+          rating?: number;
+        };
+        c?: {
+          /** @description white's clock in seconds */
+          white?: number;
+          /** @description black's clock in seconds */
+          black?: number;
+        };
+      };
+      podium?: {
+        name?: string;
+        title?: components["schemas"]["Title"];
+        patron?: boolean;
+        flair?: components["schemas"]["Flair"];
+        rank?: number;
+        rating?: number;
+        score?: number;
+        nb?: {
+          game?: number;
+          berserk?: number;
+          win?: number;
+        };
+        performance?: number;
+      }[];
+      stats?: {
+        games: number;
+        moves: number;
+        whiteWins: number;
+        blackWins: number;
+        draws: number;
+        berserks: number;
+        averageRating: number;
+      };
+      myUsername?: string;
+    };
+    /** @example {
+     *       "error": "This request is invalid because [...]"
+     *     } */
+    Error: {
+      /** @description The cause of the error. */
+      error?: string;
+    };
+    /** @example {
+     *       "games": 10,
+     *       "score": 14,
+     *       "rank": 30,
+     *       "performance": 1935
+     *     } */
+    ArenaTournamentPlayer: {
+      games: number;
+      score: number;
+      rank: number;
+      performance?: number;
+    };
+    ArenaTournamentPlayed: {
+      tournament?: components["schemas"]["ArenaTournament"];
+      player?: components["schemas"]["ArenaTournamentPlayer"];
+    };
+    /**
+     * @description Custom initial position (in FEN). Variant must be standard and the game cannot be rated.
+     * @default rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+     */
+    SwissFromPositionFEN: string;
+    /**
+     * @description The current state of the swiss tournament
+     * @enum {string}
+     */
+    SwissStatus: "created" | "started" | "finished";
+    SwissTournament: {
+      id: string;
+      createdBy: string;
+      startsAt: string;
+      name: string;
+      clock: {
+        limit: number;
+        increment: number;
+      };
+      variant: string;
+      round: number;
+      nbRounds: number;
+      nbPlayers: number;
+      nbOngoing: number;
+      status: components["schemas"]["SwissStatus"];
+      stats?: {
+        games: number;
+        whiteWins: number;
+        blackWins: number;
+        draws: number;
+        byes: number;
+        absences: number;
+        averageRating: number;
+      };
+      rated: boolean;
+      verdicts: components["schemas"]["Verdicts"];
+      nextRound?: {
+        /** Format: date-time */
+        at?: string;
+        /** @description The number of seconds until the next round starts. */
+        in?: number;
+      };
+    };
+    /** @example {
+     *       "error": "This user cannot edit this swiss"
+     *     } */
+    SwissUnauthorisedEdit: {
+      error?: string;
+    };
+    /** @example [Event "All about the Sicilian Defense: Dragon Variation"]
+     *     [Site "https://lichess.org/study/8c8bmUfy/qwnXMwVC"]
+     *     [Result "*"]
+     *     [UTCDate "2017.06.25"]
+     *     [UTCTime "10:12:04"]
+     *     [Variant "Standard"]
+     *     [ECO "B76"]
+     *     [Opening "Sicilian Defense: Dragon Variation, Yugoslav Attack, Panov Variation"]
+     *     [Annotator "https://lichess.org/@/Francesco_Super"]
+     *
+     *     { This chapter will go over the Dragon Variation, a very common variation used by Black and it is the most aggressive variation in the Sicilian defense. }
+     *     1. e4 c5 2. Nf3 { Simple developing move to control the d4 square } { [%csl Gd4,Gc5][%cal Gf3d4,Gc5d4] } 2... d6 { [%cal Gd6e5] } (2... e6 3. d4 cxd4 4. Nxd4 Nf6 5. e5 (5. Nc3 { [%cal Ge4e5] }) 5... Qa5+) 3. d4 { Whites want the exchange of pawns } { [%cal Gc5d4] } 3... cxd4 { [%cal Gf3d4] } 4. Nxd4 { Whites are now ahead in development but blacks still have the two central pawns whereas whites only one. } { [%csl Ge7,Gd6,Ge4] } 4... Nf6 { Blacks are now developing their knight and threatening the e4 pawn } { [%csl Ge4][%cal Gf6e4] } 5. Nc3 { The e4 pawn is now protected by the c3 knight } { [%csl Ge4,Bc3][%cal Rf6e4,Bc3e4] } 5... g6 { This is the DRAGON VARIATION. g6 allows the dark-squared bishop to develop and move to g7, controlling the long dark-squared diagonal } { [%csl Gd4] } 6. Be3 { [%cal Gd1d2,Gf2f3,Ge1c1,Gg2g4,Gh2h4,Gg4g5] } (6. Be2 Bg7 7. O-O Nc6 8. Be3 { [%cal Ge3d4] } (8. f3 Nxe4 { [%cal Gg7d4,Gc6d4] } 9. Nxc6 Qb6+ { [%cal Gb6c6,Gb6g1] } 10. Kh1 Nxc3 { [%cal Gc3d1,Gc3e2] } 11. bxc3 bxc6 { [%cal Gc8a6] }) 8... O-O 9. Nb3 a6 { [%cal Gb7b5,Gb5b4,Ge2c4] }) 6... Bg7 (6... Ng4 { [%cal Gg4e3] } 7. Bb5+ { [%cal Gb5e8,Gb8d7,Gc8d7,Gd1g4] } 7... Nc6 8. Nxc6 bxc6 9. Bxc6+ { [%cal Gc6a8] }) 7. f3 { The key opening moves for White, who attempt to castle queenside , whereas f3 strengthens the pawn structure, connecting e4 to the h2 and g2, while White also plan pushing to g4 and possibly h4. } { [%csl Bf3,Be3][%cal Rg2g4,Rh2h4,Rg4g5] } 7... O-O (7... h5 { Is operating against g4. }) 8. Qd2 { [%csl Gh6,Gg7][%cal Ge1c1,Ga1d1,Re3h6,Rd2h6] } 8... Nc6 { [%csl Gc6,Gh6][%cal Gb8c6,Ge1c1,Ga7a6,Ge3h6] } 9. g4 (9. Bh6 { [%cal Ge3d4] } 9... Bxh6 10. Qxh6 Nxd4) 9... Be6 10. Nxe6 fxe6 { [%cal Gf8f1] } 11. O-O-O Ne5 12. Be2 { [%csl Gf3][%cal Re5f3,Bd1h1,Bg1d1] } 12... Qc7 { [%csl Gc4][%cal Ge5c4,Gc4e3,Gc4d2,Bf8c8,Yc7c3] } 13. h4 Nc4 *
+     *      */
+    StudyPgn: unknown;
+    /** @example {
+     *       "chapters": [
+     *         {
+     *           "id": "iBjmYBya",
+     *           "name": "test 2",
+     *           "players": [
+     *             {
+     *               "name": "Carlsen, Magnus",
+     *               "rating": 2837
+     *             },
+     *             {
+     *               "name": "Chadaev, Nikolay",
+     *               "rating": 2580
+     *             }
+     *           ],
+     *           "status": "1-0"
+     *         }
+     *       ]
+     *     } */
+    StudyImportPgnChapters: {
+      chapters?: {
+        /** @description The chapter ID */
+        id?: string;
+        /** @description The chapter name */
+        name?: string;
+        players?: {
+          /** @description The player name */
+          name?: string | null;
+          /** @description The player rating */
+          rating?: number;
+        }[];
+        /** @description The chapter status */
+        status?: string;
+      }[];
+    };
+    /** @example {
+     *       "id": "WTvnkWAL",
+     *       "name": "Guess the move",
+     *       "createdAt": 1463756350225,
+     *       "updatedAt": 1469965025205
+     *     } */
+    StudyMetadata: {
+      /** @description The study ID */
+      id: string;
+      /** @description The study name */
+      name: string;
+      /**
+       * Format: int64
+       * @description The study creation date
+       */
+      createdAt: number;
+      /**
+       * Format: int64
+       * @description The study last update date
+       */
+      updatedAt: number;
+    };
+    BroadcastTour: {
+      id: string;
+      name: string;
+      slug: string;
+      /** @example 1722169800000 */
+      createdAt: number;
+      /**
+       * @description Start and end dates of the tournament, as Unix timestamps in milliseconds
+       * @example [
+       *       1722169800000,
+       *       1722666600000
+       *     ]
+       */
+      dates?: number[];
+      /** @description Additional display information about the tournament */
+      info?: {
+        /**
+         * Format: uri
+         * @description Official website. External website URL
+         */
+        website?: string;
+        /** @description Featured players */
+        players?: string;
+        /** @description Tournament location */
+        location?: string;
+        /** @description Time control */
+        tc?: string;
+        /**
+         * @description FIDE rating category
          * @enum {string}
          */
-        Title: "GM" | "WGM" | "IM" | "WIM" | "FM" | "WFM" | "NM" | "CM" | "WCM" | "WNM" | "LM" | "BOT";
-        TopUser: {
-            id: string;
-            username: string;
-            perfs?: {
-                [key: string]: {
-                    rating: number;
-                    progress: number;
-                };
-            };
-            title?: components["schemas"]["Title"];
-            patron?: boolean;
-            online?: boolean;
-        };
-        PerfTop10: components["schemas"]["TopUser"][];
-        Top10s: {
-            bullet: components["schemas"]["PerfTop10"];
-            blitz: components["schemas"]["PerfTop10"];
-            rapid: components["schemas"]["PerfTop10"];
-            classical: components["schemas"]["PerfTop10"];
-            ultraBullet: components["schemas"]["PerfTop10"];
-            crazyhouse: components["schemas"]["PerfTop10"];
-            chess960: components["schemas"]["PerfTop10"];
-            kingOfTheHill: components["schemas"]["PerfTop10"];
-            threeCheck: components["schemas"]["PerfTop10"];
-            antichess: components["schemas"]["PerfTop10"];
-            atomic: components["schemas"]["PerfTop10"];
-            horde: components["schemas"]["PerfTop10"];
-            racingKings: components["schemas"]["PerfTop10"];
-        };
-        Leaderboard: {
-            users: components["schemas"]["TopUser"][];
-        };
-        Perf: {
-            games: number;
-            rating: number;
-            /** @description rating deviation */
-            rd: number;
-            prog: number;
-            /** @description only appears if a user's perf rating are [provisional](https://lichess.org/faq#provisional) */
-            prov?: boolean;
-        };
-        PuzzleModePerf: {
-            runs: number;
-            score: number;
-        };
-        Perfs: {
-            chess960?: components["schemas"]["Perf"];
-            atomic?: components["schemas"]["Perf"];
-            racingKings?: components["schemas"]["Perf"];
-            ultraBullet?: components["schemas"]["Perf"];
-            blitz?: components["schemas"]["Perf"];
-            kingOfTheHill?: components["schemas"]["Perf"];
-            threeCheck?: components["schemas"]["Perf"];
-            antichess?: components["schemas"]["Perf"];
-            crazyhouse?: components["schemas"]["Perf"];
-            bullet?: components["schemas"]["Perf"];
-            correspondence?: components["schemas"]["Perf"];
-            horde?: components["schemas"]["Perf"];
-            puzzle?: components["schemas"]["Perf"];
-            classical?: components["schemas"]["Perf"];
-            rapid?: components["schemas"]["Perf"];
-            storm?: components["schemas"]["PuzzleModePerf"];
-            racer?: components["schemas"]["PuzzleModePerf"];
-            streak?: components["schemas"]["PuzzleModePerf"];
-        };
-        Profile: {
-            /** @example EC */
-            flag?: string;
-            location?: string;
-            /** @example Free bugs! */
-            bio?: string;
-            /** @example Thibault Duplessis */
-            realName?: string;
-            /**
-             * @description only appears if a user has set them
-             * @example 1500
-             */
-            fideRating?: number;
-            /**
-             * @description only appears if a user has set them
-             * @example 1500
-             */
-            uscfRating?: number;
-            /**
-             * @description only appears if a user has set them
-             * @example 1500
-             */
-            ecfRating?: number;
-            /**
-             * @description only appears if a user has set them
-             * @example 1500
-             */
-            cfcRating?: number;
-            /**
-             * @description only appears if a user has set them
-             * @example 1500
-             */
-            rcfRating?: number;
-            /**
-             * @description only appears if a user has set them
-             * @example 1500
-             */
-            dsbRating?: number;
-            /** @example github.com/ornicar
-             *     mas.to/@thibault */
-            links?: string;
-        };
-        PlayTime: {
-            total: number;
-            tv: number;
-        };
-        User: {
-            /** @example georges */
-            id: string;
-            /** @example Georges */
-            username: string;
-            perfs?: components["schemas"]["Perfs"];
-            title?: components["schemas"]["Title"];
-            flair?: components["schemas"]["Flair"];
-            /**
-             * Format: int64
-             * @example 1290415680000
-             */
-            createdAt?: number;
-            /**
-             * @description only appears if a user's account is closed
-             * @example false
-             */
-            disabled?: boolean;
-            /**
-             * @description only appears if a user's account is marked for the violation of [Lichess TOS](https://lichess.org/terms-of-service)
-             * @example false
-             */
-            tosViolation?: boolean;
-            profile?: components["schemas"]["Profile"];
-            /**
-             * Format: int64
-             * @example 1522636452014
-             */
-            seenAt?: number;
-            playTime?: components["schemas"]["PlayTime"];
-            /** @example true */
-            patron?: boolean;
-            /** @example true */
-            verified?: boolean;
-        };
-        Count: {
-            all: number;
-            rated: number;
-            ai: number;
-            draw: number;
-            drawH: number;
-            loss: number;
-            lossH: number;
-            win: number;
-            winH: number;
-            bookmark: number;
-            playing: number;
-            import: number;
-            me: number;
-        };
-        UserStreamer: {
-            twitch?: {
-                /**
-                 * Format: uri
-                 * @example https://www.twitch.tv/lichessdotorg
-                 */
-                channel?: string;
-            };
-            youTube?: {
-                /**
-                 * Format: uri
-                 * @example https://www.youtube.com/c/LichessDotOrg
-                 */
-                channel?: string;
-            };
-        };
-        UserExtended: components["schemas"]["User"] & {
-            /**
-             * Format: uri
-             * @example https://lichess.org/@/georges
-             */
-            url: string;
-            /**
-             * Format: uri
-             * @example https://lichess.org/yqfLYJ5E/black
-             */
-            playing?: string;
-            count?: components["schemas"]["Count"];
-            /** @example false */
-            streaming?: boolean;
-            streamer?: components["schemas"]["UserStreamer"];
-            /**
-             * @description only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication)
-             * @example true
-             */
-            followable?: boolean;
-            /**
-             * @description only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication)
-             * @example false
-             */
-            following?: boolean;
-            /**
-             * @description only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication)
-             * @example false
-             */
-            blocking?: boolean;
-        };
-        /** @example [
-         *       {
-         *         "name": "Bullet",
-         *         "points": [
-         *           [
-         *             2011,
-         *             0,
-         *             8,
-         *             1472
-         *           ],
-         *           [
-         *             2011,
-         *             0,
-         *             9,
-         *             1332
-         *           ],
-         *           [
-         *             2011,
-         *             8,
-         *             12,
-         *             1314
-         *           ]
-         *         ]
-         *       },
-         *       {
-         *         "name": "Blitz",
-         *         "points": [
-         *           [
-         *             2011,
-         *             7,
-         *             29,
-         *             1332
-         *           ]
-         *         ]
-         *       }
-         *     ] */
-        RatingHistory: unknown;
-        /** @enum {string} */
-        PerfType: "ultraBullet" | "bullet" | "blitz" | "rapid" | "classical" | "correspondence" | "chess960" | "crazyhouse" | "antichess" | "atomic" | "horde" | "kingOfTheHill" | "racingKings" | "threeCheck";
-        /** @example {
-         *       "user": {
-         *         "name": "thibault"
-         *       },
-         *       "perf": {
-         *         "glicko": {
-         *           "rating": 1672.42,
-         *           "deviation": 45.13,
-         *           "provisional": false
-         *         },
-         *         "nb": 5692,
-         *         "progress": -27
-         *       },
-         *       "rank": 98121,
-         *       "percentile": 69.7,
-         *       "stat": {
-         *         "perfType": {
-         *           "key": "bullet",
-         *           "name": "Bullet"
-         *         },
-         *         "highest": {
-         *           "int": 1902,
-         *           "at": "2021-05-31T08:58:53.701Z",
-         *           "gameId": "YEDqtwig"
-         *         },
-         *         "lowest": {
-         *           "int": 1417,
-         *           "at": "2016-06-28T13:54:39.656Z",
-         *           "gameId": "rNM4J1GJ"
-         *         },
-         *         "id": "thibault/1",
-         *         "bestWins": {
-         *           "results": [
-         *             {
-         *               "opRating": 2238,
-         *               "opId": {
-         *                 "id": "hyperdragon84",
-         *                 "name": "HyperDragon84"
-         *               },
-         *               "at": "2019-06-19T17:09:05.187Z",
-         *               "gameId": "DGB53z9w"
-         *             },
-         *             {
-         *               "opRating": 2089,
-         *               "opId": {
-         *                 "id": "osipov",
-         *                 "name": "osipov"
-         *               },
-         *               "at": "2017-06-18T09:46:05.016Z",
-         *               "gameId": "gurRhuMi"
-         *             },
-         *             {
-         *               "opRating": 2071,
-         *               "opId": {
-         *                 "id": "spark50",
-         *                 "name": "Spark50"
-         *               },
-         *               "at": "2020-07-04T08:36:12.948Z",
-         *               "gameId": "a93Dk1mv"
-         *             },
-         *             {
-         *               "opRating": 2045,
-         *               "opId": {
-         *                 "id": "yasha43",
-         *                 "name": "Yasha43"
-         *               },
-         *               "at": "2021-05-17T14:01:41.098Z",
-         *               "gameId": "j3jZnGTr"
-         *             },
-         *             {
-         *               "opRating": 2034,
-         *               "opId": {
-         *                 "id": "midedu",
-         *                 "name": "midedu"
-         *               },
-         *               "at": "2020-06-27T17:32:47.001Z",
-         *               "gameId": "OiaMVLQ8"
-         *             }
-         *           ]
-         *         },
-         *         "worstLosses": {
-         *           "results": [
-         *             {
-         *               "opRating": 1186,
-         *               "opId": {
-         *                 "id": "happy0",
-         *                 "name": "Happy0"
-         *               },
-         *               "at": "2016-07-07T19:48:29.077Z",
-         *               "gameId": "Q01bbiN4"
-         *             },
-         *             {
-         *               "opRating": 1197,
-         *               "opId": {
-         *                 "id": "kazmankiller86",
-         *                 "name": "KazmanKiller86"
-         *               },
-         *               "at": "2016-10-16T14:21:37.748Z",
-         *               "gameId": "Aivqh9Sp"
-         *             },
-         *             {
-         *               "opRating": 1201,
-         *               "opId": {
-         *                 "id": "artem555",
-         *                 "name": "artem555"
-         *               },
-         *               "at": "2016-08-28T16:21:30.923Z",
-         *               "gameId": "tiRAbhnX"
-         *             },
-         *             {
-         *               "opRating": 1265,
-         *               "opId": {
-         *                 "id": "arcenuu",
-         *                 "name": "Arcenuu"
-         *               },
-         *               "at": "2016-12-24T14:28:03.866Z",
-         *               "gameId": "A68wUOoh"
-         *             },
-         *             {
-         *               "opRating": 1283,
-         *               "opId": {
-         *                 "id": "amritalib76",
-         *                 "name": "Amritalib76"
-         *               },
-         *               "at": "2018-06-26T09:55:39.354Z",
-         *               "gameId": "sbNVikmo"
-         *             }
-         *           ]
-         *         },
-         *         "count": {
-         *           "all": 5858,
-         *           "rated": 5688,
-         *           "win": 2789,
-         *           "loss": 2806,
-         *           "draw": 263,
-         *           "tour": 654,
-         *           "berserk": 1,
-         *           "opAvg": 1671.44,
-         *           "seconds": 784886,
-         *           "disconnects": 0
-         *         },
-         *         "resultStreak": {
-         *           "win": {
-         *             "cur": {
-         *               "v": 0
-         *             },
-         *             "max": {
-         *               "v": 11,
-         *               "from": {
-         *                 "at": "2021-06-14T15:38:50.681Z",
-         *                 "gameId": "wTX2IExo"
-         *               },
-         *               "to": {
-         *                 "at": "2021-06-15T18:41:46.970Z",
-         *                 "gameId": "1z4rrjgw"
-         *               }
-         *             }
-         *           },
-         *           "loss": {
-         *             "cur": {
-         *               "v": 3,
-         *               "from": {
-         *                 "at": "2021-06-29T17:53:23.642Z",
-         *                 "gameId": "pfcnjgik"
-         *               },
-         *               "to": {
-         *                 "at": "2021-06-29T18:04:48.358Z",
-         *                 "gameId": "6sPaGL8T"
-         *               }
-         *             },
-         *             "max": {
-         *               "v": 14,
-         *               "from": {
-         *                 "at": "2018-06-11T14:43:39.296Z",
-         *                 "gameId": "1fc9dqun"
-         *               },
-         *               "to": {
-         *                 "at": "2018-06-11T15:10:30.908Z",
-         *                 "gameId": "Nzy6UgwY"
-         *               }
-         *             }
-         *           }
-         *         },
-         *         "userId": {
-         *           "id": "thibault",
-         *           "name": "thibault",
-         *           "title": null
-         *         },
-         *         "playStreak": {
-         *           "nb": {
-         *             "cur": {
-         *               "v": 0
-         *             },
-         *             "max": {
-         *               "v": 118,
-         *               "from": {
-         *                 "at": "2018-06-11T10:32:21.248Z",
-         *                 "gameId": "UAsNnJbN"
-         *               },
-         *               "to": {
-         *                 "at": "2018-06-11T15:13:01.193Z",
-         *                 "gameId": "T7fHRaFG"
-         *               }
-         *             }
-         *           },
-         *           "time": {
-         *             "cur": {
-         *               "v": 0
-         *             },
-         *             "max": {
-         *               "v": 12683,
-         *               "from": {
-         *                 "at": "2018-06-12T14:11:14.021Z",
-         *                 "gameId": "IrZCAW58"
-         *               },
-         *               "to": {
-         *                 "at": "2018-06-12T18:02:57.010Z",
-         *                 "gameId": "RNF1mQ68"
-         *               }
-         *             }
-         *           },
-         *           "lastDate": "2021-06-29T18:04:48.358Z"
-         *         }
-         *       }
-         *     } */
-        PerfStat: unknown;
-        UserActivityScore: {
-            win: number;
-            loss: number;
-            draw: number;
-            rp: {
-                before?: number;
-                after?: number;
-            };
-        };
-        /** @enum {string} */
-        GameColor: "white" | "black";
-        /**
-         * @default standard
-         * @example standard
-         * @enum {string}
-         */
-        VariantKey: "standard" | "chess960" | "crazyhouse" | "antichess" | "atomic" | "horde" | "kingOfTheHill" | "racingKings" | "threeCheck" | "fromPosition";
-        UserActivityCorrespondenceGame: {
-            id: string;
-            color: components["schemas"]["GameColor"];
-            url: string;
-            variant: components["schemas"]["VariantKey"];
-            /** @constant */
-            speed: "correspondence";
-            /** @constant */
-            perf: "correspondence";
-            rated: boolean;
-            opponent: {
-                user: string;
-                rating: number;
-            };
-        };
-        UserActivityFollowList: {
-            ids: string[];
-            nb?: number;
-        };
-        UserActivity: {
-            interval: {
-                start: number;
-                end: number;
-            };
-            games?: {
-                chess960?: components["schemas"]["UserActivityScore"];
-                atomic?: components["schemas"]["UserActivityScore"];
-                racingKings?: components["schemas"]["UserActivityScore"];
-                ultraBullet?: components["schemas"]["UserActivityScore"];
-                blitz?: components["schemas"]["UserActivityScore"];
-                kingOfTheHill?: components["schemas"]["UserActivityScore"];
-                bullet?: components["schemas"]["UserActivityScore"];
-                correspondence?: components["schemas"]["UserActivityScore"];
-                horde?: components["schemas"]["UserActivityScore"];
-                puzzle?: components["schemas"]["UserActivityScore"];
-                classical?: components["schemas"]["UserActivityScore"];
-                rapid?: components["schemas"]["UserActivityScore"];
-            };
-            puzzles?: {
-                score?: components["schemas"]["UserActivityScore"];
-            };
-            storm?: components["schemas"]["PuzzleModePerf"];
-            racer?: components["schemas"]["PuzzleModePerf"];
-            streak?: components["schemas"]["PuzzleModePerf"];
-            tournaments?: {
-                nb?: number;
-                best?: {
-                    tournament: {
-                        id: string;
-                        name: string;
-                    };
-                    nbGames: number;
-                    score: number;
-                    rank: number;
-                    rankPercent: number;
-                }[];
-            };
-            practice?: {
-                url: string;
-                name: string;
-                nbPositions: number;
-            }[];
-            simuls?: string[];
-            correspondenceMoves?: {
-                nb: number;
-                games: components["schemas"]["UserActivityCorrespondenceGame"][];
-            };
-            correspondenceEnds?: {
-                score: components["schemas"]["UserActivityScore"];
-                games: components["schemas"]["UserActivityCorrespondenceGame"][];
-            };
-            follows?: {
-                in?: components["schemas"]["UserActivityFollowList"];
-                out?: components["schemas"]["UserActivityFollowList"];
-            };
-            studies?: Record<string, never>;
-            teams?: {
-                url: string;
-                name: string;
-                flair?: components["schemas"]["Flair"];
-            }[];
-            posts?: {
-                topicUrl: string;
-                topicName: string;
-                posts: {
-                    url: string;
-                    text: string;
-                }[];
-            }[];
-            patron?: {
-                months: number;
-            };
-            stream?: boolean;
-        };
-        PuzzleAndGame: {
-            game: {
-                clock: string;
-                id: string;
-                perf: {
-                    key: components["schemas"]["PerfType"];
-                    name: string;
-                };
-                pgn: string;
-                players: {
-                    color: string;
-                    flair?: components["schemas"]["Flair"];
-                    id: string;
-                    name: string;
-                    patron?: boolean;
-                    rating: number;
-                    title?: components["schemas"]["Title"];
-                }[];
-                rated: boolean;
-            };
-            puzzle: {
-                id: string;
-                initialPly: number;
-                plays: number;
-                rating: number;
-                solution: string[];
-                themes: string[];
-            };
-        };
-        PuzzleActivity: {
-            date: number;
-            puzzle: {
-                fen: string;
-                id: string;
-                lastMove: string;
-                plays: number;
-                rating: number;
-                solution: string[];
-                themes: string[];
-            };
-            win: boolean;
-        };
-        PuzzleReplay: {
-            replay: {
-                days: number;
-                theme: string;
-                nb: number;
-                remaining: string[];
-            };
-            angle: {
-                key: string;
-                name: string;
-                desc: string;
-            };
-        };
-        PuzzlePerformance: {
-            firstWins: number;
-            nb: number;
-            performance: number;
-            puzzleRatingAvg: number;
-            replayWins: number;
-        };
-        PuzzleDashboard: {
-            days: number;
-            global: components["schemas"]["PuzzlePerformance"];
-            themes: {
-                [key: string]: {
-                    results: components["schemas"]["PuzzlePerformance"];
-                    theme: string;
-                };
-            };
-        };
-        PuzzleStormDashboard: {
-            days: {
-                _id: string;
-                combo: number;
-                errors: number;
-                highest: number;
-                moves: number;
-                runs: number;
-                score: number;
-                time: number;
-            }[];
-            high: {
-                allTime: number;
-                day: number;
-                month: number;
-                week: number;
-            };
-        };
-        PuzzleRacer: {
-            id: string;
-            /** Format: uri */
-            url: string;
-        };
-        UserPreferences: {
-            dark?: boolean;
-            transp?: boolean;
-            /** Format: uri */
-            bgImg?: string;
-            is3d?: boolean;
-            /** @enum {string} */
-            theme?: "blue" | "blue2" | "blue3" | "blue-marble" | "canvas" | "wood" | "wood2" | "wood3" | "wood4" | "maple" | "maple2" | "brown" | "leather" | "green" | "marble" | "green-plastic" | "grey" | "metal" | "olive" | "newspaper" | "purple" | "purple-diag" | "pink" | "ic";
-            /** @enum {string} */
-            pieceSet?: "cburnett" | "merida" | "alpha" | "pirouetti" | "chessnut" | "chess7" | "reillycraig" | "companion" | "riohacha" | "kosal" | "leipzig" | "fantasy" | "spatial" | "california" | "pixel" | "maestro" | "fresca" | "cardinal" | "gioco" | "tatiana" | "staunty" | "governor" | "dubrovny" | "icpieces" | "shapes" | "letter";
-            /** @enum {string} */
-            theme3d?: "Black-White-Aluminium" | "Brushed-Aluminium" | "China-Blue" | "China-Green" | "China-Grey" | "China-Scarlet" | "Classic-Blue" | "Gold-Silver" | "Light-Wood" | "Power-Coated" | "Rosewood" | "Marble" | "Wax" | "Jade" | "Woodi";
-            /** @enum {string} */
-            pieceSet3d?: "Basic" | "Wood" | "Metal" | "RedVBlue" | "ModernJade" | "ModernWood" | "Glass" | "Trimmed" | "Experimental" | "Staunton" | "CubesAndPi";
-            /** @enum {string} */
-            soundSet?: "silent" | "standard" | "piano" | "nes" | "sfx" | "futuristic" | "robot" | "music" | "speech";
-            blindfold?: number;
-            autoQueen?: number;
-            autoThreefold?: number;
-            takeback?: number;
-            moretime?: number;
-            clockTenths?: number;
-            clockBar?: boolean;
-            clockSound?: boolean;
-            premove?: boolean;
-            animation?: number;
-            pieceNotation?: number;
-            captured?: boolean;
-            follow?: boolean;
-            highlight?: boolean;
-            destination?: boolean;
-            coords?: number;
-            replay?: number;
-            challenge?: number;
-            message?: number;
-            submitMove?: number;
-            confirmResign?: number;
-            insightShare?: number;
-            keyboardMove?: number;
-            voiceMove?: boolean;
-            zen?: number;
-            ratings?: number;
-            moveEvent?: number;
-            rookCastle?: number;
-        };
-        Ok: {
-            ok?: boolean;
-        };
-        TimelineEntryFollow: {
-            /** @enum {string} */
-            type: "follow";
-            date: number;
-            data: {
-                u1: string;
-                u2: string;
-            };
-        };
-        TimelineEntryTeamJoin: {
-            /** @enum {string} */
-            type: "team-join";
-            date: number;
-            data: {
-                userId: string;
-                teamId: string;
-            };
-        };
-        TimelineEntryTeamCreate: {
-            /** @enum {string} */
-            type: "team-create";
-            date: number;
-            data: {
-                userId: string;
-                teamId: string;
-            };
-        };
-        TimelineEntryForumPost: {
-            /** @enum {string} */
-            type: "forum-post";
-            date: number;
-            data: {
-                userId: string;
-                topicId: string;
-                topicName: string;
-                postId: string;
-            };
-        };
-        TimelineEntryBlogPost: {
-            /** @enum {string} */
-            type: "blog-post";
-            date: number;
-            data: {
-                id: string;
-                slug: string;
-                title: string;
-            };
-        };
-        TimelineEntryUblogPost: {
-            /** @enum {string} */
-            type: "ublog-post";
-            date: number;
-            data: {
-                userId: string;
-                id: string;
-                slug: string;
-                title: string;
-            };
-        };
-        TimelineEntryTourJoin: {
-            /** @enum {string} */
-            type: "tour-join";
-            date: number;
-            data: {
-                userId: string;
-                tourId: string;
-                tourName: string;
-            };
-        };
-        TimelineEntryGameEnd: {
-            /** @enum {string} */
-            type: "game-end";
-            date: number;
-            data: {
-                fullId: string;
-                opponent: string;
-                win: boolean;
-                perf: components["schemas"]["PerfType"];
-            };
-        };
-        TimelineEntrySimul: {
-            /** @enum {string} */
-            type: "simul-create" | "simul-join";
-            date: number;
-            data: {
-                userId: string;
-                simulId: string;
-                simulName: string;
-            };
-        };
-        TimelineEntryStudyLike: {
-            /** @enum {string} */
-            type: "study-like";
-            date: number;
-            data: {
-                userId: string;
-                studyId: string;
-                studyName: string;
-            };
-        };
-        TimelineEntryPlanStart: {
-            /** @enum {string} */
-            type: "plan-start";
-            date: number;
-            data: {
-                userId: string;
-            };
-        };
-        TimelineEntryPlanRenew: {
-            /** @enum {string} */
-            type: "plan-renew";
-            date: number;
-            data: {
-                userId: string;
-                months: number;
-            };
-        };
-        TimelineEntryUblogPostLike: {
-            /** @enum {string} */
-            type: "ublog-post-like";
-            date: number;
-            data: {
-                userId: string;
-                id: string;
-                title: string;
-            };
-        };
-        TimelineEntryStreamStart: {
-            /** @enum {string} */
-            type: "stream-start";
-            date: number;
-            data: {
-                id: string;
-                title?: string;
-            };
-        };
-        /** @example {
-         *       "entries": [
-         *         {
-         *           "type": "follow",
-         *           "data": {
-         *             "u1": "neio",
-         *             "u2": "chess-network"
-         *           },
-         *           "date": 1644232201429
-         *         },
-         *         {
-         *           "type": "team-join",
-         *           "data": {
-         *             "userId": "neio",
-         *             "teamId": "coders"
-         *           },
-         *           "date": 1644232201429
-         *         },
-         *         {
-         *           "type": "team-create",
-         *           "data": {
-         *             "userId": "neio",
-         *             "teamId": "coders"
-         *           },
-         *           "date": 1644232201429
-         *         },
-         *         {
-         *           "type": "forum-post",
-         *           "data": {
-         *             "userId": "neio",
-         *             "topicId": "AAAAAAAN",
-         *             "topicName": "World's Tallest LEGO Tower Completed in City Square",
-         *             "postId": "AAAAAAAL"
-         *           },
-         *           "date": 1644232201429
-         *         },
-         *         {
-         *           "type": "ublog-post",
-         *           "data": {
-         *             "userId": "neio",
-         *             "id": "og5pkt1c",
-         *             "slug": "gotta-go-fast",
-         *             "title": "Gotta Go Fast"
-         *           },
-         *           "date": 1644232201429
-         *         },
-         *         {
-         *           "type": "tour-join",
-         *           "data": {
-         *             "userId": "chess-network",
-         *             "tourId": "Z24oxqgU",
-         *             "tourName": "Daily Blitz Arena"
-         *           },
-         *           "date": 1644232201429
-         *         },
-         *         {
-         *           "type": "game-end",
-         *           "data": {
-         *             "fullId": "iGkAXUdEfLZC",
-         *             "perf": "correspondence",
-         *             "opponent": "chess-network",
-         *             "win": false
-         *           },
-         *           "date": 1644232201429
-         *         },
-         *         {
-         *           "type": "simul-create",
-         *           "data": {
-         *             "userId": "neio",
-         *             "simulId": "m3c0Wvu3",
-         *             "simulName": "RCA 1st Jan simul"
-         *           },
-         *           "date": 1644232201429
-         *         },
-         *         {
-         *           "type": "simul-join",
-         *           "data": {
-         *             "userId": "chess-network",
-         *             "simulId": "m3c0Wvu3",
-         *             "simulName": "RCA 1st Jan simul"
-         *           },
-         *           "date": 1644232201429
-         *         },
-         *         {
-         *           "type": "study-like",
-         *           "data": {
-         *             "userId": "neio",
-         *             "studyId": "ma5AvZ7o",
-         *             "studyName": "Free wins | Danish Gambit"
-         *           },
-         *           "date": 1644232201429
-         *         },
-         *         {
-         *           "type": "plan-start",
-         *           "data": {
-         *             "userId": "chess-network"
-         *           },
-         *           "date": 1644232201429
-         *         },
-         *         {
-         *           "type": "plan-renew",
-         *           "data": {
-         *             "userId": "chess-network",
-         *             "months": 64
-         *           },
-         *           "date": 1644232201429
-         *         },
-         *         {
-         *           "type": "blog-post",
-         *           "data": {
-         *             "id": "ZUviXRIAACYAVtMm",
-         *             "slug": "lichess-development-made-easy-with-gitpod",
-         *             "title": "Lichess Development Made Easy With Gitpod"
-         *           },
-         *           "date": 1644232201429
-         *         },
-         *         {
-         *           "type": "ublog-post-like",
-         *           "data": {
-         *             "userId": "neio",
-         *             "id": "ZUviXRIAACYAVtMm",
-         *             "title": "Lichess Development Made Easy With Gitpod"
-         *           },
-         *           "date": 1644232201429
-         *         },
-         *         {
-         *           "type": "stream-start",
-         *           "data": {
-         *             "id": "chess-network",
-         *             "title": "Streamers Battle December !team | lichess.org"
-         *           },
-         *           "date": 1644232201429
-         *         }
-         *       ],
-         *       "users": {
-         *         "neio": {
-         *           "id": "neio",
-         *           "name": "Neio",
-         *           "title": "NM"
-         *         },
-         *         "chess-network": {
-         *           "id": "chess-network",
-         *           "name": "Chess-Network",
-         *           "title": "NM",
-         *           "patron": true
-         *         }
-         *       }
-         *     } */
-        Timeline: {
-            entries: (components["schemas"]["TimelineEntryFollow"] | components["schemas"]["TimelineEntryTeamJoin"] | components["schemas"]["TimelineEntryTeamCreate"] | components["schemas"]["TimelineEntryForumPost"] | components["schemas"]["TimelineEntryBlogPost"] | components["schemas"]["TimelineEntryUblogPost"] | components["schemas"]["TimelineEntryTourJoin"] | components["schemas"]["TimelineEntryGameEnd"] | components["schemas"]["TimelineEntrySimul"] | components["schemas"]["TimelineEntryStudyLike"] | components["schemas"]["TimelineEntryPlanStart"] | components["schemas"]["TimelineEntryPlanRenew"] | components["schemas"]["TimelineEntryUblogPostLike"] | components["schemas"]["TimelineEntryStreamStart"])[];
-            users: {
-                [key: string]: {
-                    id: string;
-                    name: string;
-                    title?: components["schemas"]["Title"];
-                    flair?: components["schemas"]["Flair"];
-                    patron?: boolean;
-                };
-            };
-        };
-        /** @example [Event "Rated Blitz game"]
-         *     [Site "https://lichess.org/fY44h4OY"]
-         *     [Date "2018.03.29"]
-         *     [Round "-"]
-         *     [White "pveldman"]
-         *     [Black "thibault"]
-         *     [Result "1-0"]
-         *     [UTCDate "2018.03.29"]
-         *     [UTCTime "01:38:15"]
-         *     [WhiteElo "1610"]
-         *     [BlackElo "1601"]
-         *     [WhiteRatingDiff "+10"]
-         *     [BlackRatingDiff "-10"]
-         *     [Variant "Standard"]
-         *     [TimeControl "180+0"]
-         *     [ECO "C62"]
-         *     [Opening "Ruy Lopez: Steinitz Defense"]
-         *     [Termination "Normal"]
-         *
-         *     1. e4 { [%clk 0:03:00] } e5 { [%clk 0:03:00] } 2. Nf3 { [%clk 0:02:59] } Nc6 { [%clk 0:02:58] } 3. Bb5 { [%clk 0:02:57] } d6 { [%clk 0:02:55] } 4. h3 { [%clk 0:02:54] } Nf6 { [%clk 0:02:52] } 5. Bxc6+ { [%clk 0:02:52] } bxc6 { [%clk 0:02:49] } 6. d3 { [%clk 0:02:51] } Be7 { [%clk 0:02:46] } 7. O-O { [%clk 0:02:47] } O-O { [%clk 0:02:45] } 8. b3 { [%clk 0:02:45] } d5 { [%clk 0:02:45] } 9. exd5 { [%clk 0:02:33] } cxd5 { [%clk 0:02:40] } 10. Nxe5 { [%clk 0:02:31] } Qd6 { [%clk 0:02:38] } 1-0
+        fideTc?: "standard" | "rapid" | "blitz";
+        /** @description Timezone of the tournament. Example: `America/New_York`.
+         *     See [list of possible timezone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more.
          *      */
-        GamePgn: string;
-        /** @enum {string} */
-        Speed: "ultraBullet" | "bullet" | "blitz" | "rapid" | "classical" | "correspondence";
-        /** @enum {string} */
-        GameStatusName: "created" | "started" | "aborted" | "mate" | "resign" | "stalemate" | "timeout" | "draw" | "outoftime" | "cheat" | "noStart" | "unknownFinish" | "variantEnd";
-        LightUser: {
+        timeZone?: string;
+        /**
+         * Format: uri
+         * @description Official standings website. External website URL
+         */
+        standings?: string;
+        /** @description Tournament format */
+        format?: string;
+      };
+      /** @description Used to designate featured tournaments on Lichess */
+      tier?: number;
+      /** Format: uri */
+      image?: string;
+      /** @description Full tournament description in markdown format, or in HTML if the html=1 query parameter is set. */
+      description?: string;
+      leaderboard?: boolean;
+      teamTable?: boolean;
+      /** Format: uri */
+      url: string;
+    };
+    BroadcastGroupTour: {
+      name?: string;
+      id?: string;
+    };
+    BroadcastGroup: {
+      name?: string;
+      tours?: components["schemas"]["BroadcastGroupTour"][];
+    };
+    BroadcastRoundInfo: {
+      id: string;
+      name: string;
+      slug: string;
+      /** Format: int64 */
+      createdAt: number;
+      ongoing?: boolean;
+      /** Format: int64 */
+      startsAt?: number;
+      /** @description The start date/time is unknown and the round will start automatically when the previous round completes */
+      startsAfterPrevious?: boolean;
+      /** Format: int64 */
+      finishedAt?: number;
+      finished?: boolean;
+      /** Format: uri */
+      url: string;
+      /** Format: int64 */
+      delay?: number;
+    };
+    BroadcastWithRounds: {
+      tour: components["schemas"]["BroadcastTour"];
+      group?: components["schemas"]["BroadcastGroup"];
+      rounds: components["schemas"]["BroadcastRoundInfo"][];
+      defaultRoundId?: string;
+    };
+    BroadcastWithLastRound: {
+      group?: string;
+      tour?: components["schemas"]["BroadcastTour"];
+      round?: components["schemas"]["BroadcastRoundInfo"];
+    };
+    BroadcastTop: {
+      active?: components["schemas"]["BroadcastWithLastRound"][];
+      upcoming?: components["schemas"]["BroadcastWithLastRound"][];
+      past?: {
+        /** @example 4 */
+        currentPage?: number;
+        /** @example 20 */
+        maxPerPage?: number;
+        currentPageResults?: components["schemas"]["BroadcastWithLastRound"][];
+        /** @example 3 */
+        previousPage?: number | null;
+        /** @example 5 */
+        nextPage?: number | null;
+      };
+    };
+    BroadcastByUser: {
+      tour: components["schemas"]["BroadcastTour"];
+    };
+    BroadcastForm: {
+      /** @description Name of the broadcast tournament.
+       *
+       *     Example: `Sinquefield Cup`
+       *      */
+      name: string;
+      /** @description Tournament format.
+       *     Example: `"8-player round-robin" or "5-round Swiss"`
+       *      */
+      "info.format"?: string;
+      /** @description Tournament Location
+       *      */
+      "info.location"?: string;
+      /** @description Time control.
+       *     Example: `"Classical" or "Rapid" or "Rapid & Blitz"`
+       *      */
+      "info.tc"?: string;
+      /**
+       * @description FIDE rating category. Which FIDE ratings to use
+       *
+       * @enum {string}
+       */
+      "info.fideTc"?: "standard" | "rapid" | "blitz";
+      /** @description Timezone of the tournament. Example: `America/New_York`.
+       *     See [list of possible timezone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more.
+       *      */
+      "info.timeZone"?: string;
+      /** @description Mention up to 4 of the best players participating.
+       *      */
+      "info.players"?: string;
+      /**
+       * Format: uri
+       * @description Official website. External website URL
+       *
+       */
+      "info.website"?: string;
+      /**
+       * Format: uri
+       * @description Official Standings. External website URL, e.g. chess-results.com, info64.org
+       *
+       */
+      "info.standings"?: string;
+      /** @description Optional long description of the broadcast. Markdown is supported.
+       *      */
+      markdown?: string;
+      /**
+       * @description Show players scores based on game results
+       *
+       * @default true
+       */
+      showScores?: boolean;
+      /**
+       * @description Show player's rating diffs
+       *
+       * @default true
+       */
+      showRatingDiffs?: boolean;
+      /**
+       * @description Show a team leaderboard. Requires WhiteTeam and BlackTeam PGN tags.
+       *
+       * @default false
+       */
+      teamTable?: boolean;
+      /** @description Optional replace player names, ratings and titles.
+       *
+       *     One line per player, formatted as such:
+       *
+       *     ```txt
+       *     player name = FIDE ID
+       *     ```
+       *
+       *     Example:
+       *
+       *     ```txt
+       *     Magnus Carlsen = 1503014
+       *     ```
+       *
+       *     Player names ignore case and punctuation, and match all possible combinations of 2 words: "Jorge Rick Vito" will match "Jorge Rick", "jorge vito", "Rick, Vito", etc.
+       *
+       *     If the player is NM or WNM, you can:
+       *
+       *     ```txt
+       *     Player Name = FIDE ID / Title
+       *     ```
+       *
+       *     Alternatively, you may set tags manually, like so:
+       *
+       *     ```txt
+       *     player name / rating / title / new name
+       *     ```
+       *
+       *     All values are optional. Example:
+       *     ```txt
+       *     Magnus Carlsen / 2863 / GM
+       *     YouGotLittUp / 1890 / / Louis Litt
+       *     ```
+       *      */
+      players?: string;
+      /** @description Optional: assign players to teams
+       *
+       *     One line per player, formatted as such:
+       *     ```txt
+       *     Team name; Fide Id or Player name
+       *     ```
+       *
+       *     Example:
+       *     ```txt
+       *     Team Cats ; 3408230
+       *     Team Dogs ; Scooby Doo
+       *     ```
+       *
+       *     By default the PGN tags WhiteTeam and BlackTeam are used.
+       *      */
+      teams?: string;
+      /**
+       * @description Optional, for Lichess admins only, used to feature on /broadcast.
+       *
+       *     * `3` for Official: normal tier
+       *     * `4` for Official: high tier
+       *     * `5` for Official: best tier
+       *     * `-1` for Private
+       *
+       * @enum {integer}
+       */
+      tier?: 3 | 4 | 5 | -1;
+    };
+    BroadcastPlayerEntry: {
+      /** @example Hernandez Riera, Jose */
+      name?: string;
+      /** @example 2.5 */
+      score?: number;
+      /** @example 7 */
+      played?: number;
+      /** @example 2149 */
+      rating?: number;
+      /** @example -5 */
+      ratingDiff?: number;
+      /** @example 2138 */
+      performance?: number;
+      /** @example FM */
+      title?: components["schemas"]["Title"];
+      /** @example 3408230 */
+      fideId?: number;
+      /** @example CHI */
+      fed?: string;
+    };
+    /** @description Name of the broadcast round.
+     *     Example: `Round 1`
+     *      */
+    BroadcastRoundFormName: string;
+    BroadcastRoundForm: (
+      | {
+          name: components["schemas"]["BroadcastRoundFormName"];
+        }
+      | {
+          name: components["schemas"]["BroadcastRoundFormName"];
+          /**
+           * Format: uri
+           * @description URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
+           *
+           *     Example:
+           *     ```txt
+           *     https://myserver.org/myevent/round-10/games.pgn
+           *     ```
+           *
+           */
+          syncUrl: string;
+          /** @description Filter games by round number
+           *
+           *     Optional, only keep games from the source that match a round number.
+           *     It uses the PGN **Round** tag. These would match round 3:
+           *     ```txt
+           *     [Round "3"]
+           *     [Round "3.1"]
+           *     ```
+           *     If you set a round number, then games without a **Round** tag are dropped.
+           *
+           *     It only works if you chose `syncUrl` or `syncUrls` as the source.
+           *      */
+          onlyRound?: number;
+          /** @description Select slices of the games
+           *
+           *     Optional. Select games based on their position in the source.
+           *     ```txt
+           *     1           only select the first board
+           *     1-4         only select the first 4 boards
+           *     1,2,3,4     same as above, first 4 boards
+           *     11-15,21-25 boards 11 to 15, and boards 21 to 25
+           *     2,3,7-9     boards 2, 3, 7, 8, and 9
+           *     ```
+           *     Slicing is done after filtering by round number.
+           *
+           *     It only works if you chose `syncUrl` or `syncUrls` as the source.
+           *      */
+          slices?: string;
+        }
+      | {
+          name: components["schemas"]["BroadcastRoundFormName"];
+          /** @description URLs that Lichess will poll to get updates about the games, separated by newlines. They must be publicly accessible from the Internet.
+           *
+           *     Example:
+           *     ```txt
+           *     https://myserver.org/myevent/round-10/game-1.pgn
+           *     https://myserver.org/myevent/round-10/game-2.pgn
+           *     ```
+           *      */
+          syncUrls: string;
+          /** @description Filter games by round number
+           *
+           *     Optional, only keep games from the source that match a round number.
+           *     It uses the PGN **Round** tag. These would match round 3:
+           *     ```txt
+           *     [Round "3"]
+           *     [Round "3.1"]
+           *     ```
+           *     If you set a round number, then games without a **Round** tag are dropped.
+           *
+           *     It only works if you chose `syncUrl` or `syncUrls` as the source.
+           *      */
+          onlyRound?: number;
+          /** @description Select slices of the games
+           *
+           *     Optional. Select games based on their position in the source.
+           *     ```txt
+           *     1           only select the first board
+           *     1-4         only select the first 4 boards
+           *     1,2,3,4     same as above, first 4 boards
+           *     11-15,21-25 boards 11 to 15, and boards 21 to 25
+           *     2,3,7-9     boards 2, 3, 7, 8, and 9
+           *     ```
+           *     Slicing is done after filtering by round number.
+           *
+           *     It only works if you chose `syncUrl` or `syncUrls` as the source.
+           *      */
+          slices?: string;
+        }
+      | {
+          name: components["schemas"]["BroadcastRoundFormName"];
+          /** @description Lichess game IDs - Up to 64 Lichess game IDs, separated by spaces.
+           *      */
+          syncIds: string;
+        }
+      | {
+          name: components["schemas"]["BroadcastRoundFormName"];
+          /** @description Up to 100 Lichess usernames, separated by spaces
+           *      */
+          syncUsers: string;
+        }
+    ) & {
+      /**
+       * Format: int64
+       * @description Timestamp in milliseconds of broadcast round start. Leave empty to manually start the broadcast round.
+       *     Example: `1356998400070`
+       *
+       */
+      startsAt?: number;
+      /**
+       * @description The start date is unknown, and the round will start automatically when the previous round completes.
+       *
+       * @default false
+       */
+      startsAfterPrevious?: boolean;
+      /** @description Delay in seconds for movements to appear on the broadcast. Leave it empty if you don't need it.
+       *     Example: `900` (15 min)
+       *      */
+      delay?: number;
+      /**
+       * @description Lichess can usually detect the round status, but you can also set it manually if needed.
+       *
+       * @default new
+       * @enum {string}
+       */
+      status?: "new" | "started" | "finished";
+      /** @description (Only for Admins) Waiting time for each poll.
+       *      */
+      period?: number;
+    };
+    BroadcastRoundStudyInfo: {
+      /** @description Whether the currently authenticated user has permission to update the study */
+      writeable?: boolean;
+    };
+    BroadcastRoundNew: {
+      round: components["schemas"]["BroadcastRoundInfo"];
+      tour: components["schemas"]["BroadcastTour"];
+      study: components["schemas"]["BroadcastRoundStudyInfo"];
+    };
+    BroadcastRoundGame: {
+      id: string;
+      name: string;
+      fen?: string;
+      players?: {
+        name?: string;
+        title?: components["schemas"]["Title"];
+        rating?: number;
+        clock?: number;
+        fed?: string;
+      }[];
+      lastMove?: string;
+      thinkTime?: number;
+      /**
+       * @description The result of the game
+       * @enum {string}
+       */
+      status?: "*" | "1-0" | "0-1" | "½-½";
+    };
+    BroadcastRound: {
+      round: components["schemas"]["BroadcastRoundInfo"];
+      tour: components["schemas"]["BroadcastTour"];
+      study: components["schemas"]["BroadcastRoundStudyInfo"];
+      games: components["schemas"]["BroadcastRoundGame"][];
+      group?: components["schemas"]["BroadcastGroup"];
+    };
+    BroadcastPgnPushTags: {
+      [key: string]: string;
+    };
+    BroadcastPgnPush: {
+      games: {
+        tags: components["schemas"]["BroadcastPgnPushTags"];
+        moves?: number;
+        error?: string;
+      }[];
+    };
+    BroadcastMyRound: {
+      round: components["schemas"]["BroadcastRoundInfo"];
+      tour: components["schemas"]["BroadcastTour"];
+      study: components["schemas"]["BroadcastRoundStudyInfo"];
+    };
+    FIDEPlayer: {
+      id: number;
+      name: string;
+      title?: components["schemas"]["Title"];
+      federation: string;
+      year?: number | null;
+      inactive?: number;
+      standard?: number;
+      rapid?: number;
+      blitz?: number;
+    };
+    Simul: {
+      id: string;
+      host: components["schemas"]["LightUser"] & {
+        rating?: number;
+        provisional?: boolean;
+        gameId?: string;
+        online?: boolean;
+      };
+      name: string;
+      fullName: string;
+      variants: {
+        key?: components["schemas"]["VariantKey"];
+        icon?: string;
+        name?: string;
+      }[];
+      isCreated: boolean;
+      isFinished: boolean;
+      isRunning: boolean;
+      text?: string;
+      estimatedStartAt?: number;
+      startedAt?: number;
+      finishedAt?: number;
+      nbApplicants: number;
+      nbPairings: number;
+    };
+    Team: {
+      id: string;
+      name: string;
+      description?: string;
+      flair?: components["schemas"]["Flair"];
+      leader?: components["schemas"]["LightUser"];
+      leaders?: components["schemas"]["LightUser"][];
+      nbMembers?: number;
+      open?: boolean;
+      joined?: boolean;
+      requested?: boolean;
+    };
+    TeamPaginatorJson: {
+      /** @example 4 */
+      currentPage: number;
+      /** @example 15 */
+      maxPerPage: number;
+      currentPageResults: components["schemas"]["Team"][];
+      /** @example 3 */
+      previousPage: number | null;
+      /** @example 5 */
+      nextPage: number | null;
+      nbResults: number;
+      nbPages: number;
+    };
+    /**
+     * @description The current state of the arena tournament
+     * @enum {string}
+     */
+    ArenaStatusName: "created" | "started" | "finished";
+    TeamRequest: {
+      /** @example coders */
+      teamId: string;
+      /** @example thibault */
+      userId: string;
+      /** @example 1514505150384 */
+      date: number;
+      /** @example Hello, I would like to join the team! */
+      message?: string;
+    };
+    TeamRequestWithUser: {
+      request: components["schemas"]["TeamRequest"];
+      user: components["schemas"]["User"];
+    };
+    /** @example {
+     *       "users": {
+     *         "neio": 201.5,
+     *         "thibault": 144.5
+     *       },
+     *       "nbGames": 346
+     *     } */
+    Crosstable: {
+      users: {
+        [key: string]: number;
+      };
+      nbGames: number;
+    };
+    LightUserOnline: components["schemas"]["LightUser"] & {
+      online?: boolean;
+    };
+    UserNote: {
+      from?: components["schemas"]["LightUser"];
+      to?: components["schemas"]["LightUser"];
+      /** @example This is a note */
+      text?: string;
+      /**
+       * Format: int64
+       * @example 1290415680000
+       */
+      date?: number;
+    };
+    /** @enum {integer} */
+    GameStatusId:
+      | 10
+      | 20
+      | 25
+      | 30
+      | 31
+      | 32
+      | 33
+      | 34
+      | 35
+      | 36
+      | 37
+      | 38
+      | 60;
+    GameStatus: {
+      id: components["schemas"]["GameStatusId"];
+      name: components["schemas"]["GameStatusName"];
+    };
+    GameEventOpponent: {
+      id: string;
+      username: string;
+      rating: number;
+    };
+    GameCompat: {
+      /** @description Compatible with Bot API */
+      bot?: boolean;
+      /** @description Compatible with Board API */
+      board?: boolean;
+    };
+    GameEventInfo: {
+      fullId: string;
+      gameId: string;
+      fen?: string;
+      color?: components["schemas"]["GameColor"];
+      lastMove?: string;
+      source?: components["schemas"]["GameSource"];
+      status?: components["schemas"]["GameStatus"];
+      variant?: components["schemas"]["Variant"];
+      speed?: components["schemas"]["Speed"];
+      perf?: string;
+      rated?: boolean;
+      hasMoved?: boolean;
+      opponent?: components["schemas"]["GameEventOpponent"];
+      isMyTurn?: boolean;
+      secondsLeft?: number;
+      compat?: components["schemas"]["GameCompat"];
+      id?: string;
+    };
+    GameStartEvent: {
+      /** @constant */
+      type?: "gameStart";
+      game?: components["schemas"]["GameEventInfo"];
+    };
+    GameFinishEvent: {
+      /** @constant */
+      type?: "gameFinish";
+      game?: components["schemas"]["GameEventInfo"];
+    };
+    /** @enum {string} */
+    ChallengeStatus:
+      | "created"
+      | "offline"
+      | "canceled"
+      | "declined"
+      | "accepted";
+    ChallengeUser: {
+      id: string;
+      name: string;
+      rating?: number;
+      title?: components["schemas"]["Title"] | null;
+      flair?: components["schemas"]["Flair"];
+      patron?: boolean;
+      provisional?: boolean;
+      online?: boolean;
+      lag?: number;
+    };
+    TimeControl:
+      | {
+          /** @constant */
+          type?: "clock";
+          limit?: number;
+          increment?: number;
+          /** @example 5+2 */
+          show?: string;
+        }
+      | {
+          /** @constant */
+          type?: "correspondence";
+          daysPerTurn?: number;
+        }
+      | {
+          /** @constant */
+          type?: "unlimited";
+        };
+    /** @example {
+     *       "id": "H9fIRZUk",
+     *       "url": "https://lichess.org/H9fIRZUk",
+     *       "status": "created",
+     *       "challenger": {
+     *         "id": "bot1",
+     *         "name": "Bot1",
+     *         "rating": 1500,
+     *         "title": "BOT",
+     *         "provisional": true,
+     *         "online": true,
+     *         "lag": 4
+     *       },
+     *       "destUser": {
+     *         "id": "bobby",
+     *         "name": "Bobby",
+     *         "rating": 1635,
+     *         "title": "GM",
+     *         "provisional": true,
+     *         "online": true,
+     *         "lag": 4
+     *       },
+     *       "variant": {
+     *         "key": "standard",
+     *         "name": "Standard",
+     *         "short": "Std"
+     *       },
+     *       "rated": true,
+     *       "speed": "rapid",
+     *       "timeControl": {
+     *         "type": "clock",
+     *         "limit": 600,
+     *         "increment": 0,
+     *         "show": "10+0"
+     *       },
+     *       "color": "random",
+     *       "finalColor": "black",
+     *       "perf": {
+     *         "icon": "",
+     *         "name": "Rapid"
+     *       },
+     *       "direction": "out"
+     *     } */
+    ChallengeJson: {
+      id: string;
+      /** Format: uri */
+      url: string;
+      status: components["schemas"]["ChallengeStatus"];
+      challenger: components["schemas"]["ChallengeUser"];
+      destUser: components["schemas"]["ChallengeUser"] | null;
+      variant: components["schemas"]["Variant"];
+      rated: boolean;
+      speed: components["schemas"]["Speed"];
+      timeControl: components["schemas"]["TimeControl"];
+      /** @enum {string} */
+      color: "white" | "black" | "random";
+      finalColor?: components["schemas"]["GameColor"];
+      perf: {
+        icon?: string;
+        name?: string;
+      };
+      /** @enum {string} */
+      direction?: "in" | "out";
+      initialFen?: string;
+    };
+    ChallengeEvent: {
+      /** @constant */
+      type: "challenge";
+      challenge: components["schemas"]["ChallengeJson"];
+      compat?: components["schemas"]["GameCompat"];
+    };
+    ChallengeCanceledEvent: {
+      /** @constant */
+      type?: "challengeCanceled";
+      challenge?: components["schemas"]["ChallengeJson"];
+    };
+    ChallengeDeclinedJson: {
+      /** @description Human readable, possibly translated reason why the challenge was declined. */
+      declineReason: string;
+      /**
+       * @description Untranslated, computer-matchable reason why the challenge was declined.
+       * @enum {string}
+       */
+      declineReasonKey:
+        | "generic"
+        | "later"
+        | "tooFast"
+        | "tooSlow"
+        | "timeControl"
+        | "rated"
+        | "casual"
+        | "standard"
+        | "variant"
+        | "noBot"
+        | "onlyBot";
+    } & components["schemas"]["ChallengeJson"];
+    ChallengeDeclinedEvent: {
+      /** @constant */
+      type?: "challengeDeclined";
+      challenge?: components["schemas"]["ChallengeDeclinedJson"];
+    };
+    GameEventPlayer: {
+      aiLevel?: number;
+      id: string;
+      name: string;
+      title?: components["schemas"]["Title"] | null;
+      rating?: number;
+      provisional?: boolean;
+    };
+    /** @example {
+     *       "type": "gameState",
+     *       "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
+     *       "wtime": 7598040,
+     *       "btime": 8395220,
+     *       "winc": 10000,
+     *       "binc": 10000,
+     *       "wdraw": false,
+     *       "bdraw": false,
+     *       "wtakeback": false,
+     *       "btakeback": false,
+     *       "status": "started"
+     *     } */
+    GameStateEvent: {
+      /** @constant */
+      type: "gameState";
+      /** @description Current moves in UCI format */
+      moves: string;
+      /** @description Integer of milliseconds White has left on the clock */
+      wtime: number;
+      /** @description Integer of milliseconds Black has left on the clock */
+      btime: number;
+      /** @description Integer of White Fisher increment. */
+      winc: number;
+      /** @description Integer of Black Fisher increment. */
+      binc: number;
+      status: components["schemas"]["GameStatusName"];
+      /** @description Color of the winner, if any */
+      winner?: string;
+      /** @description true if white is offering draw, else omitted */
+      wdraw?: boolean;
+      /** @description true if black is offering draw, else omitted */
+      bdraw?: boolean;
+      /** @description true if white is proposing takeback, else omitted */
+      wtakeback?: boolean;
+      /** @description true if black is proposing takeback, else omitted */
+      btakeback?: boolean;
+    };
+    /** @example {
+     *       "id": "BEOucQJo",
+     *       "variant": {
+     *         "key": "standard",
+     *         "name": "Standard",
+     *         "short": "Std"
+     *       },
+     *       "speed": "rapid",
+     *       "perf": {
+     *         "name": "Rapid"
+     *       },
+     *       "rated": false,
+     *       "createdAt": 1745112707998,
+     *       "white": {
+     *         "id": "bobby",
+     *         "name": "Bobby",
+     *         "title": null,
+     *         "rating": 1751
+     *       },
+     *       "black": {
+     *         "id": "mary",
+     *         "name": "Mary",
+     *         "title": null,
+     *         "rating": 1021
+     *       },
+     *       "initialFen": "startpos",
+     *       "clock": {
+     *         "initial": 900000,
+     *         "increment": 0
+     *       },
+     *       "type": "gameFull",
+     *       "state": {
+     *         "type": "gameState",
+     *         "moves": "d2d3",
+     *         "wtime": 900000,
+     *         "btime": 900000,
+     *         "winc": 0,
+     *         "binc": 0,
+     *         "status": "started"
+     *       }
+     *     } */
+    GameFullEvent: {
+      /** @constant */
+      type: "gameFull";
+      id: string;
+      variant: components["schemas"]["Variant"];
+      clock: {
+        /**
+         * Format: int64
+         * @description Initial time in milliseconds
+         */
+        initial?: number;
+        /**
+         * Format: int64
+         * @description Increment time in milliseconds
+         */
+        increment?: number;
+      };
+      speed: components["schemas"]["Speed"];
+      perf: {
+        /** @description Translated perf name (e.g. "Classical" or "Blitz") */
+        name?: string;
+      };
+      rated: boolean;
+      /** Format: int64 */
+      createdAt: number;
+      white: components["schemas"]["GameEventPlayer"];
+      black: components["schemas"]["GameEventPlayer"];
+      /** @default startpos */
+      initialFen: string;
+      state: components["schemas"]["GameStateEvent"];
+      tournamentId?: string;
+    };
+    /** @example {
+     *       "type": "chatLine",
+     *       "username": "thibault",
+     *       "text": "Good luck, have fun",
+     *       "room": "player"
+     *     } */
+    ChatLineEvent: {
+      /** @constant */
+      type: "chatLine";
+      /** @enum {string} */
+      room: "player" | "spectator";
+      username: string;
+      text: string;
+    };
+    /** @example {
+     *       "type": "opponentGone",
+     *       "gone": true,
+     *       "claimWinInSeconds": 8
+     *     } */
+    OpponentGoneEvent: {
+      /** @constant */
+      type: "opponentGone";
+      gone: boolean;
+      claimWinInSeconds?: number;
+    };
+    /** @example {
+     *       "error": "Not found."
+     *     } */
+    NotFound: {
+      error?: string;
+    };
+    /** @example [
+     *       {
+     *         "text": "Takeback sent",
+     *         "user": "lichess"
+     *       },
+     *       {
+     *         "text": "Takeback accepted",
+     *         "user": "lichess"
+     *       },
+     *       {
+     *         "text": "Good game, well played",
+     *         "user": "thibault"
+     *       }
+     *     ] */
+    GameChat: {
+      text?: string;
+      user?: string;
+    }[];
+    ChallengeOpenJson: {
+      id: string;
+      /** Format: uri */
+      url: string;
+      status: components["schemas"]["ChallengeStatus"];
+      challenger: null;
+      destUser: null;
+      variant: components["schemas"]["Variant"];
+      rated: boolean;
+      speed: components["schemas"]["Speed"];
+      timeControl: components["schemas"]["TimeControl"];
+      /** @enum {string} */
+      color: "white" | "black" | "random";
+      finalColor?: components["schemas"]["GameColor"];
+      perf: {
+        icon?: string;
+        name?: string;
+      };
+      initialFen?: string;
+      urlWhite: string;
+      urlBlack: string;
+      open: {
+        /** @description An optional array of two user ids. If set, only these users will be allowed to join the game. The first username gets the white pieces. */
+        userIds?: string[];
+      };
+    };
+    /** @example {
+     *       "id": "RVAcwgg7",
+     *       "games": [
+     *         {
+     *           "id": "NKop9IyD",
+     *           "black": "lizen1",
+     *           "white": "thibault"
+     *         },
+     *         {
+     *           "id": "KT8374ut",
+     *           "black": "lizen3",
+     *           "white": "lizen2"
+     *         },
+     *         {
+     *           "id": "wInQr8Sk",
+     *           "black": "lizen5",
+     *           "white": "lizen4"
+     *         }
+     *       ],
+     *       "variant": "standard",
+     *       "clock": {
+     *         "increment": 0,
+     *         "limit": 300
+     *       },
+     *       "pairAt": 1612289869919,
+     *       "pairedAt": null,
+     *       "rated": false,
+     *       "startClocksAt": 1612200422971,
+     *       "scheduledAt": 1612203514628
+     *     } */
+    BulkPairing: unknown;
+    /** @example {
+     *       "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R",
+     *       "knodes": 106325,
+     *       "depth": 29,
+     *       "pvs": [
+     *         {
+     *           "moves": "d1e2 d8e7 a2a4 a7a6 b5c4 d7d6 d2d3 g8f6 c1e3 c6a5",
+     *           "cp": 41
+     *         },
+     *         {
+     *           "moves": "c2c3 a7a6 b5a4 g8f6 d2d3 b7b5 a4b3 h7h6 a2a4 c8b7",
+     *           "cp": 39
+     *         },
+     *         {
+     *           "moves": "d2d3 d8f6 c2c3 a7a6 b5a4 f8c5 d3d4 c5a7 c1e3 g8e7",
+     *           "cp": 37
+     *         }
+     *       ]
+     *     } */
+    CloudEval: {
+      depth: number;
+      fen: string;
+      knodes: number;
+      pvs: (
+        | {
+            /** @description Evaluation in centi-pawns, from White's point of view */
+            cp: number;
+            /** @description Variation in UCI notation */
+            moves: string;
+          }
+        | {
+            /** @description Evaluation in moves to mate, from White's point of view */
+            mate: number;
+            /** @description Variation in UCI notation */
+            moves: string;
+          }
+      )[];
+    };
+    /**
+     * @default chess
+     * @example chess
+     * @enum {string}
+     */
+    UciVariant:
+      | "chess"
+      | "crazyhouse"
+      | "antichess"
+      | "atomic"
+      | "horde"
+      | "kingofthehill"
+      | "racingkings"
+      | "3check";
+    ExternalEngine: {
+      /** @description Unique engine registration ID. */
+      id: string;
+      /** @description Display name of the engine. */
+      name: string;
+      /** @description A secret token that can be used to
+       *     [*request* analysis](#tag/External-engine/operation/apiExternalEngineAnalyse)
+       *     from this external engine.
+       *      */
+      clientSecret: string;
+      /** @description The user this engine has been registered for. */
+      userId: string;
+      /** @description Maximum number of available threads. */
+      maxThreads: number;
+      /** @description Maximum available hash table size, in MiB. */
+      maxHash: number;
+      /** @description List of supported chess variants. */
+      variants: components["schemas"]["UciVariant"][];
+      /** @description Arbitrary data that the engine provider can use for identification
+       *     or bookkeeping.
+       *
+       *     Users can read this information, but updating it requires knowing
+       *     or changing the `providerSecret`.
+       *      */
+      providerData?: string | null;
+    };
+    ExternalEngineRegistration: {
+      /**
+       * @description Display name of the engine.
+       * @example Stockfish 15
+       */
+      name: string;
+      /**
+       * @description Maximum number of available threads.
+       * @example 8
+       */
+      maxThreads: number;
+      /**
+       * @description Maximum available hash table size, in MiB.
+       * @example 2048
+       */
+      maxHash: number;
+      /** @description Optional list of supported chess variants. */
+      variants?: components["schemas"]["UciVariant"][];
+      /**
+       * @description A random token that can be used to
+       *     [wait for analysis requests](#tag/External-engine/operation/apiExternalEngineAcquire)
+       *     and provide analysis.
+       *
+       *     The engine provider should securely generate a random string.
+       *
+       *     The token will not be readable again, even by the user.
+       *
+       *     The analysis provider can register multiple engines with the same
+       *     token, even for different users, and wait for analysis requests
+       *     from any of them. In this case, the request must not be made via
+       *     CORS, so that the token is not revealed to any of the users.
+       *
+       * @example Dee3uwieZei9ahpaici9bee2yahsai0K
+       */
+      providerSecret: string;
+      /** @description Arbitrary data that the engine provider can use for identification
+       *     or bookkeeping.
+       *
+       *     Users can read this information, but updating it requires knowing
+       *     or changing the `providerSecret`.
+       *      */
+      providerData?: string;
+    };
+    ExternalEngineWorkCommon: {
+      /** @description Arbitary string that identifies the analysis session.
+       *     Providers may wish to clear the hash table between sessions.
+       *      */
+      sessionId: string;
+      /** @description Number of threads to use for analysis. */
+      threads: number;
+      /** @description Hash table size to use for analysis, in MiB. */
+      hash: number;
+      /** @description Requested number of principal variations. */
+      multiPv: number;
+      variant: components["schemas"]["UciVariant"];
+      /** @description Initial position of the game. */
+      initialFen: string;
+      /** @description List of moves played from the initial position, in UCI notation. */
+      moves: string[];
+    };
+    ExternalEngineWork:
+      | ({
+          /** @description Amount of time to analyse the position, in milliseconds. */
+          movetime: number;
+        } & components["schemas"]["ExternalEngineWorkCommon"])
+      | ({
+          /** @description Analysis target depth */
+          depth: number;
+        } & components["schemas"]["ExternalEngineWorkCommon"])
+      | ({
+          /** @description Number of nodes to analyse in the position */
+          nodes: number;
+        } & components["schemas"]["ExternalEngineWorkCommon"]);
+    /** @example {
+     *       "error": "invalid_grant",
+     *       "error_description": "hash of code_verifier does not match code_challenge"
+     *     } */
+    OAuthError: {
+      /** @description The cause of the error. */
+      error?: string;
+      /** @description The reason why the request was rejected. */
+      error_description?: string;
+    };
+    OpeningExplorerOpening: {
+      eco: string;
+      name: string;
+    };
+    OpeningExplorerGamePlayer: {
+      name: string;
+      rating: number;
+    };
+    OpeningExplorerMastersGame: {
+      id: string;
+      /** @enum {string|null} */
+      winner: "white" | "black" | null;
+      white: components["schemas"]["OpeningExplorerGamePlayer"];
+      black: components["schemas"]["OpeningExplorerGamePlayer"];
+      year: number;
+      month?: string;
+    };
+    OpeningExplorerMasters: {
+      opening: components["schemas"]["OpeningExplorerOpening"] | null;
+      white: number;
+      draws: number;
+      black: number;
+      moves: {
+        uci: string;
+        san: string;
+        averageRating: number;
+        white: number;
+        draws: number;
+        black: number;
+        game: components["schemas"]["OpeningExplorerMastersGame"] | null;
+        opening: components["schemas"]["OpeningExplorerOpening"] | null;
+      }[];
+      topGames: ({
+        uci: string;
+      } & components["schemas"]["OpeningExplorerMastersGame"])[];
+    };
+    OpeningExplorerLichessGame: {
+      id: string;
+      /** @enum {string|null} */
+      winner: "white" | "black" | null;
+      speed?: components["schemas"]["Speed"];
+      white: components["schemas"]["OpeningExplorerGamePlayer"];
+      black: components["schemas"]["OpeningExplorerGamePlayer"];
+      year: number;
+      month: string | null;
+    };
+    OpeningExplorerLichess: {
+      opening: components["schemas"]["OpeningExplorerOpening"] | null;
+      white: number;
+      draws: number;
+      black: number;
+      moves: {
+        uci: string;
+        san: string;
+        averageRating: number;
+        white: number;
+        draws: number;
+        black: number;
+        game: components["schemas"]["OpeningExplorerLichessGame"] | null;
+        opening: components["schemas"]["OpeningExplorerOpening"] | null;
+      }[];
+      topGames: ({
+        uci: string;
+      } & components["schemas"]["OpeningExplorerLichessGame"])[];
+      recentGames?: ({
+        uci: string;
+      } & components["schemas"]["OpeningExplorerLichessGame"])[];
+      history?: {
+        month: string;
+        white: number;
+        draws: number;
+        black: number;
+      }[];
+    };
+    OpeningExplorerPlayerGame: {
+      id: string;
+      /** @enum {string|null} */
+      winner: "white" | "black" | null;
+      speed: components["schemas"]["Speed"];
+      /** @enum {string} */
+      mode: "rated" | "casual";
+      white: components["schemas"]["OpeningExplorerGamePlayer"];
+      black: components["schemas"]["OpeningExplorerGamePlayer"];
+      year: number;
+      month: string;
+    };
+    /** @example {
+     *       "opening": {
+     *         "eco": "D00",
+     *         "name": "Queen's Pawn Game"
+     *       },
+     *       "queuePosition": 25,
+     *       "white": 366,
+     *       "draws": 23,
+     *       "black": 279,
+     *       "moves": [
+     *         {
+     *           "uci": "c2c4",
+     *           "san": "c4",
+     *           "averageOpponentRating": 1695,
+     *           "performance": 1744,
+     *           "white": 361,
+     *           "draws": 23,
+     *           "black": 272,
+     *           "game": null,
+     *           "opening": {
+     *             "eco": "D06",
+     *             "name": "Queen's Gambit"
+     *           }
+     *         },
+     *         {
+     *           "uci": "c2c3",
+     *           "san": "c3",
+     *           "averageOpponentRating": 1797,
+     *           "performance": 1797,
+     *           "white": 2,
+     *           "draws": 0,
+     *           "black": 2,
+     *           "game": null,
+     *           "opening": null
+     *         },
+     *         {
+     *           "uci": "e2e4",
+     *           "san": "e4",
+     *           "averageOpponentRating": 1762,
+     *           "performance": 1640,
+     *           "white": 1,
+     *           "draws": 0,
+     *           "black": 2,
+     *           "game": null,
+     *           "opening": {
+     *             "eco": "D00",
+     *             "name": "Blackmar-Diemer Gambit"
+     *           }
+     *         },
+     *         {
+     *           "uci": "g1f3",
+     *           "san": "Nf3",
+     *           "averageOpponentRating": 1497,
+     *           "performance": 1374,
+     *           "white": 1,
+     *           "draws": 0,
+     *           "black": 2,
+     *           "game": null,
+     *           "opening": {
+     *             "eco": "D02",
+     *             "name": "Queen's Pawn Game: Zukertort Variation"
+     *           }
+     *         },
+     *         {
+     *           "uci": "h2h4",
+     *           "san": "h4",
+     *           "averageOpponentRating": 1674,
+     *           "performance": 874,
+     *           "white": 0,
+     *           "draws": 0,
+     *           "black": 1,
+     *           "game": {
+     *             "id": "9vA24xBn",
+     *             "winner": "black",
+     *             "speed": "bullet",
+     *             "mode": "rated",
+     *             "black": {
+     *               "name": "MentalBlood",
+     *               "rating": 1674
+     *             },
+     *             "white": {
+     *               "name": "revoof",
+     *               "rating": 1657
+     *             },
+     *             "year": 2020,
+     *             "month": "2020-06"
+     *           },
+     *           "opening": null
+     *         }
+     *       ],
+     *       "recentGames": [
+     *         {
+     *           "uci": "c2c4",
+     *           "id": "ycZbWQZO",
+     *           "winner": "white",
+     *           "speed": "bullet",
+     *           "mode": "rated",
+     *           "black": {
+     *             "name": "Winavesh",
+     *             "rating": 1700
+     *           },
+     *           "white": {
+     *             "name": "revoof",
+     *             "rating": 1700
+     *           },
+     *           "year": 2024,
+     *           "month": "2024-11"
+     *         }
+     *       ]
+     *     } */
+    OpeningExplorerPlayer: {
+      opening: components["schemas"]["OpeningExplorerOpening"] | null;
+      /** @description Waiting for other players to be indexed first */
+      queuePosition: number;
+      white: number;
+      draws: number;
+      black: number;
+      moves: {
+        uci: string;
+        san: string;
+        averageOpponentRating: number;
+        performance: number;
+        white: number;
+        draws: number;
+        black: number;
+        game: components["schemas"]["OpeningExplorerPlayerGame"] | null;
+        opening: components["schemas"]["OpeningExplorerOpening"] | null;
+      }[];
+      recentGames: ({
+        uci: string;
+      } & components["schemas"]["OpeningExplorerPlayerGame"])[];
+    };
+    Move: {
+      /** @example h7h8q */
+      uci?: string;
+      /** @example h8=Q+ */
+      san?: string;
+      /** @enum {string} */
+      category?:
+        | "loss"
+        | "unknown"
+        | "syzygy-loss"
+        | "maybe-loss"
+        | "blessed-loss"
+        | "draw"
+        | "cursed-win"
+        | "maybe-win"
+        | "syzygy-win"
+        | "win";
+      /** @description DTZ50'' with rounding or null if unknown */
+      dtz?: null | number;
+      /** @description DTZ50'' (only if guaranteed to be not rounded) or null if unknown
+       *      */
+      precise_dtz?: null | number;
+      /** @description Depth to Conversion (experimental) */
+      dtc?: null | number;
+      /** @description Depth To Mate (only for Standard positions with not more than 5 pieces) */
+      dtm?: null | number;
+      /** @description Depth To Win (only for Antichess positions with not more than 4 pieces) */
+      dtw?: null | number;
+      zeroing?: boolean;
+      checkmate?: boolean;
+      stalemate?: boolean;
+      variant_win?: boolean;
+      variant_loss?: boolean;
+      insufficient_material?: boolean;
+    };
+    /** @example {
+     *       "dtz": 1,
+     *       "precise_dtz": 1,
+     *       "dtc": null,
+     *       "dtm": 17,
+     *       "dtw": null,
+     *       "checkmate": false,
+     *       "stalemate": false,
+     *       "variant_win": false,
+     *       "variant_loss": false,
+     *       "insufficient_material": false,
+     *       "category": "win",
+     *       "moves": [
+     *         {
+     *           "uci": "h7h8q",
+     *           "san": "h8=Q+",
+     *           "dtz": -2,
+     *           "precise_dtz": -2,
+     *           "dtc": null,
+     *           "dtm": -16,
+     *           "dtw": null,
+     *           "zeroing": true,
+     *           "checkmate": false,
+     *           "stalemate": false,
+     *           "variant_win": false,
+     *           "variant_loss": false,
+     *           "insufficient_material": false,
+     *           "category": "loss"
+     *         }
+     *       ]
+     *     } */
+    TablebaseJson: {
+      /**
+       * @description `cursed-win` and `blessed-loss` means the 50-move rule prevents
+       *     the decisive result.
+       *
+       *     `syzygy-win` and `syzygy-loss` means exact result is unknown due to
+       *     [DTZ rounding](https://syzygy-tables.info/metrics#dtz), i.e., the
+       *     win or loss could also be prevented by the 50-move rule if
+       *     the user has deviated from the tablebase recommendation since the
+       *     last pawn move or capture.
+       *
+       *     `maybe-win` and `maybe-loss` means the result with regard to the
+       *     50-move rule is unknown because the DTC tablebase does not
+       *     guarantee to reach a zeroing move as soon as possible.
+       *
+       * @enum {string}
+       */
+      category?:
+        | "win"
+        | "unknown"
+        | "syzygy-win"
+        | "maybe-win"
+        | "cursed-win"
+        | "draw"
+        | "blessed-loss"
+        | "maybe-loss"
+        | "syzygy-loss"
+        | "loss";
+      /** @description [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) or null if unknown
+       *      */
+      dtz?: null | number;
+      /** @description DTZ50'' (only if guaranteed to be not rounded) or null if unknown
+       *      */
+      precise_dtz?: null | number;
+      /** @description Depth to Conversion (experimental) */
+      dtc?: null | number;
+      /** @description Depth To Mate (only for Standard positions with not more than 5 pieces) */
+      dtm?: null | number;
+      /** @description Depth To Win (only for Antichess positions with not more than 4 pieces) */
+      dtw?: null | number;
+      checkmate?: boolean;
+      stalemate?: boolean;
+      /** @description Only in chess variants */
+      variant_win?: boolean;
+      /** @description Only in chess variants */
+      variant_loss?: boolean;
+      insufficient_material?: boolean;
+      /** @description Information about legal moves, best first */
+      moves?: components["schemas"]["Move"][];
+    };
+  };
+  responses: never;
+  parameters: never;
+  requestBodies: never;
+  headers: never;
+  pathItems: never;
+}
+export type $defs = Record<string, never>;
+export interface operations {
+  apiUsersStatus: {
+    parameters: {
+      query: {
+        /**
+         * @description User IDs separated by commas. Up to 100 IDs.
+         * @example thibault,maia1,maia5
+         */
+        ids: string;
+        /**
+         * @description Also return the network signal of the player, when available.
+         *     It ranges from 1 (poor connection, lag > 500ms) to 4 (great connection, lag < 150ms)
+         *     Defaults to `false` to preserve server resources.
+         *
+         * @example true
+         */
+        withSignal?: boolean;
+        /**
+         * @description Also return the ID of the game being played, if any, for each player, in a `playingId` field.
+         *     Defaults to `false` to preserve server resources.
+         *
+         * @example true
+         */
+        withGameIds?: boolean;
+        /**
+         * @description Also return the id, time control and variant of the game being played, if any, for each player, in a `playing` field.
+         *     Defaults to `false` to preserve server resources. Disables `withGameIds`.
+         *
+         * @example true
+         */
+        withGameMetas?: boolean;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of users and their respective statuses. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
             id: string;
             name: string;
             flair?: components["schemas"]["Flair"];
             title?: components["schemas"]["Title"];
+            online?: boolean;
+            playing?: boolean;
+            streaming?: boolean;
             patron?: boolean;
+          }[];
         };
-        GameUser: {
-            user: components["schemas"]["LightUser"];
-            rating: number;
-            ratingDiff?: number;
-            name?: string;
-            provisional?: boolean;
-            aiLevel?: number;
-            analysis?: {
-                inaccuracy: number;
-                mistake: number;
-                blunder: number;
-                acpl: number;
-                accuracy?: number;
-            };
-            team?: string;
+      };
+    };
+  };
+  player: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of variants with their respective top players. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        GameUsers: {
-            white: components["schemas"]["GameUser"];
-            black: components["schemas"]["GameUser"];
+        content: {
+          "application/json": components["schemas"]["Top10s"];
         };
-        GameOpening: {
-            eco: string;
-            name: string;
-            ply: number;
+      };
+    };
+  };
+  playerTopNbPerfType: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description How many users to fetch */
+        nb: number;
+        /** @description The speed or variant */
+        perfType:
+          | "ultraBullet"
+          | "bullet"
+          | "blitz"
+          | "rapid"
+          | "classical"
+          | "chess960"
+          | "crazyhouse"
+          | "antichess"
+          | "atomic"
+          | "horde"
+          | "kingOfTheHill"
+          | "racingKings"
+          | "threeCheck";
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of top players for the variant. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        GameMoveAnalysis: {
-            /** @description Evaluation in centipawns */
-            eval?: number;
-            /** @description Number of moves until forced mate */
-            mate?: number;
-            /**
-             * @description Best move in UCI notation (only if played move was inaccurate)
-             * @example c2c3
-             */
-            best?: string;
-            /**
-             * @description Best variation in SAN notation (only if played move was inaccurate)
-             * @example c3 Nc6 d4 Qb6 Be2 Nge7 Na3 cxd4 cxd4 Nf5
-             */
-            variation?: string;
-            /** @description Judgment annotation (only if played move was inaccurate) */
-            judgment?: {
-                /** @enum {string} */
-                name?: "Inaccuracy" | "Mistake" | "Blunder";
-                /** @example Blunder. Nxg6 was best. */
-                comment?: string;
-            };
+        content: {
+          "application/vnd.lichess.v3+json": components["schemas"]["Leaderboard"];
         };
-        GameJson: {
-            id: string;
-            rated: boolean;
-            variant: components["schemas"]["VariantKey"];
-            speed: components["schemas"]["Speed"];
-            perf: string;
-            /** Format: int64 */
-            createdAt: number;
-            /** Format: int64 */
-            lastMoveAt: number;
-            status: components["schemas"]["GameStatusName"];
-            source?: string;
-            players: components["schemas"]["GameUsers"];
-            initialFen?: string;
-            winner?: components["schemas"]["GameColor"];
-            opening?: components["schemas"]["GameOpening"];
-            moves?: string;
-            pgn?: string;
-            daysPerTurn?: number;
-            analysis?: components["schemas"]["GameMoveAnalysis"][];
-            tournament?: string;
-            swiss?: string;
-            clock?: {
-                initial: number;
-                increment: number;
-                totalTime: number;
-            };
-            clocks?: number[];
-            division?: {
-                /** @description Ply at which the middlegame begins */
-                middle?: number;
-                /** @description Ply at which the endgame begins */
-                end?: number;
-            };
+      };
+    };
+  };
+  apiUser: {
+    parameters: {
+      query?: {
+        /** @description Include user trophies */
+        trophies?: boolean;
+      };
+      header?: never;
+      path: {
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The information of the user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        /** @example [
-         *       {
-         *         "id": "A5fcMO3k",
-         *         "rated": true,
-         *         "variant": "standard",
-         *         "speed": "bullet",
-         *         "perf": "bullet",
-         *         "createdAt": 1525789431889,
-         *         "status": 20,
-         *         "statusName": "started",
-         *         "clock": {
-         *           "initial": 60,
-         *           "increment": 0,
-         *           "totalTime": 60
-         *         },
-         *         "players": {
-         *           "white": {
-         *             "userId": "kastorcito",
-         *             "rating": 2617
-         *           },
-         *           "black": {
-         *             "userId": "er_or",
-         *             "rating": 2288
-         *           }
-         *         }
-         *       },
-         *       {
-         *         "id": "A5fcMO3k",
-         *         "rated": true,
-         *         "variant": "standard",
-         *         "speed": "bullet",
-         *         "perf": "bullet",
-         *         "createdAt": 1525789431889,
-         *         "status": 31,
-         *         "statusName": "resign",
-         *         "clock": {
-         *           "initial": 60,
-         *           "increment": 0,
-         *           "totalTime": 60
-         *         },
-         *         "players": {
-         *           "white": {
-         *             "userId": "kastorcito",
-         *             "rating": 2617
-         *           },
-         *           "black": {
-         *             "userId": "er_or",
-         *             "rating": 2288
-         *           }
-         *         },
-         *         "winner": "white"
-         *       }
-         *     ] */
-        GameStream: unknown;
-        /** @enum {string} */
-        GameSource: "lobby" | "friend" | "ai" | "api" | "tournament" | "position" | "import" | "importlive" | "simul" | "relay" | "pool" | "swiss";
-        Variant: {
-            key: components["schemas"]["VariantKey"];
-            name: string;
-            short?: string;
+        content: {
+          "application/json": components["schemas"]["UserExtended"];
         };
-        /** @example [
-         *       {
-         *         "id": "LuGQwhBb",
-         *         "variant": {
-         *           "key": "standard",
-         *           "name": "Standard",
-         *           "short": "Std"
-         *         },
-         *         "speed": "blitz",
-         *         "perf": "blitz",
-         *         "rated": true,
-         *         "initialFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-         *         "fen": "rnbqkb1r/1p1ppppp/p6n/2p4Q/8/1P2P3/P1PP1PPP/RNB1KBNR w KQkq - 0 4",
-         *         "player": "white",
-         *         "turns": 6,
-         *         "startedAtTurn": 0,
-         *         "source": "pool",
-         *         "status": {
-         *           "id": 20,
-         *           "name": "started"
-         *         },
-         *         "createdAt": 1620029815106,
-         *         "lastMove": "c7c5",
-         *         "players": {
-         *           "white": {
-         *             "user": {
-         *               "name": "ARM-777777",
-         *               "title": "GM",
-         *               "id": "arm-777777"
-         *             },
-         *             "rating": 3120
-         *           },
-         *           "black": {
-         *             "user": {
-         *               "name": "Flash_Marafon",
-         *               "id": "flash_marafon"
-         *             },
-         *             "rating": 3015
-         *           }
-         *         }
-         *       },
-         *       {
-         *         "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w",
-         *         "wc": 180,
-         *         "bc": 180
-         *       },
-         *       {
-         *         "fen": "rnbqkbnr/pppppppp/8/8/8/4P3/PPPP1PPP/RNBQKBNR b",
-         *         "lm": "e2e3",
-         *         "wc": 180,
-         *         "bc": 180
-         *       },
-         *       {
-         *         "fen": "rnbqkb1r/pppppppp/7n/8/8/4P3/PPPP1PPP/RNBQKBNR w",
-         *         "lm": "g8h6",
-         *         "wc": 180,
-         *         "bc": 180
-         *       },
-         *       {
-         *         "fen": "rnbqkb1r/pppppppp/7n/8/8/1P2P3/P1PP1PPP/RNBQKBNR b",
-         *         "lm": "b2b3",
-         *         "wc": 177,
-         *         "bc": 180
-         *       },
-         *       {
-         *         "fen": "rnbqkb1r/1ppppppp/p6n/8/8/1P2P3/P1PP1PPP/RNBQKBNR w",
-         *         "lm": "a7a6",
-         *         "wc": 177,
-         *         "bc": 177
-         *       }
-         *     ] */
-        MoveStream: unknown;
-        TvGame: {
-            user: components["schemas"]["LightUser"];
-            rating: number;
-            gameId: string;
-            color: components["schemas"]["GameColor"];
+      };
+    };
+  };
+  apiUserRatingHistory: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The rating history of the user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        TvFeed: {
-            /**
-             * @description The type of message.
-             *     A summary of the game is sent as the first message and when the featured game changes.
-             *     Subsequent messages are just the FEN, last move, and clocks.
-             *
-             * @enum {string}
-             */
-            t: "featured" | "fen";
-            /** @description The data of the message */
-            d: {
-                /** @description The game ID */
-                id: string;
-                /** @enum {string} */
-                orientation: "white" | "black";
-                players: {
-                    /** @enum {string} */
-                    color: "white" | "black";
-                    user: components["schemas"]["LightUser"];
-                    rating: number;
-                    /** @description The player's remaining time in seconds */
-                    seconds: number;
-                }[];
-                /** @description The FEN of the current position */
-                fen: string;
-            } | {
-                /** @description The FEN of the current position */
-                fen: string;
-                /** @description The last move in UCI format */
-                lm: string;
-                /** @description White's clock in seconds */
-                wc: number;
-                /** @description Black's clock in seconds */
-                bc: number;
-            };
+        content: {
+          "application/json": components["schemas"]["RatingHistory"];
         };
-        Clock: {
-            limit?: number;
-            increment?: number;
+      };
+    };
+  };
+  apiUserPerf: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        username: string;
+        perf: components["schemas"]["PerfType"];
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The performance statistics of the user */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        /**
-         * @description 10: created, 20: started, 30: finished
+        content: {
+          "application/json": components["schemas"]["PerfStat"];
+        };
+      };
+    };
+  };
+  apiUserActivity: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The activity feed of the user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["UserActivity"][];
+        };
+      };
+    };
+  };
+  apiPuzzleDaily: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The daily puzzle. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PuzzleAndGame"];
+        };
+      };
+    };
+  };
+  apiPuzzleId: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The puzzle ID */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The requested puzzle. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PuzzleAndGame"];
+        };
+      };
+    };
+  };
+  apiPuzzleNext: {
+    parameters: {
+      query?: {
+        /** @description The theme or opening to filter puzzles with.
          *
-         * @enum {integer}
+         *     Available themes are listed in [the lichess source code](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
+         *      */
+        angle?: string;
+        /** @description The desired puzzle difficulty, relative to the authenticated user puzzle rating, or 1500 if anonymous. */
+        difficulty?: "easiest" | "easier" | "normal" | "harder" | "hardest";
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The requested puzzle. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PuzzleAndGame"];
+        };
+      };
+    };
+  };
+  apiPuzzleActivity: {
+    parameters: {
+      query?: {
+        /** @description How many entries to download. Leave empty to download all activity. */
+        max?: number;
+        /** @description Download entries before this timestamp. Defaults to now. Use `before` and `max` for pagination. */
+        before?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The puzzle activity of the logged in user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["PuzzleActivity"];
+        };
+      };
+    };
+  };
+  apiPuzzleReplay: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description How many days to look back when aggregating puzzle results. 30 is sensible. */
+        days: number;
+        /** @description The theme or opening to filter puzzles with. */
+        theme: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The requested puzzles to replay. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PuzzleReplay"];
+        };
+      };
+      /** @description No puzzles to replay were found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            /** @example No puzzles to replay */
+            error?: string;
+          };
+        };
+      };
+    };
+  };
+  apiPuzzleDashboard: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description How many days to look back when aggregating puzzle results. 30 is sensible. */
+        days: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The puzzle dashboard of the logged in user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PuzzleDashboard"];
+        };
+      };
+    };
+  };
+  apiStormDashboard: {
+    parameters: {
+      query?: {
+        /** @description How many days of history to return */
+        days?: number;
+      };
+      header?: never;
+      path: {
+        /** @description Username of the player */
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The storm dashboard of a player. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PuzzleStormDashboard"];
+        };
+      };
+    };
+  };
+  racerPost: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The new puzzle race. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PuzzleRacer"];
+        };
+      };
+    };
+  };
+  apiUsers: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description User IDs separated by commas. */
+    requestBody: {
+      content: {
+        /** @example thibault,maia1,maia5 */
+        "text/plain": string;
+      };
+    };
+    responses: {
+      /** @description The list of users. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["User"][];
+        };
+      };
+    };
+  };
+  accountMe: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The public information about the logged in user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["UserExtended"];
+        };
+      };
+    };
+  };
+  accountEmail: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The email address of the logged in user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            email?: string;
+          };
+        };
+      };
+    };
+  };
+  account: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The preferences of the logged in user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            prefs?: components["schemas"]["UserPreferences"];
+            /** @example en-GB */
+            language?: string;
+          };
+        };
+      };
+    };
+  };
+  accountKid: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The kid mode status of the logged in user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            kid?: boolean;
+          };
+        };
+      };
+    };
+  };
+  accountKidPost: {
+    parameters: {
+      query: {
+        /**
+         * @description Kid mode status
+         * @example true
          */
-        ArenaStatus: 10 | 20 | 30;
-        ArenaPerf: {
-            key: components["schemas"]["PerfType"];
-            /** @example Blitz */
-            name: string;
-            /** @example 1 */
-            position: number;
-            /** @example ) */
-            icon?: string;
+        v: boolean;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The kid mode status was set successfully for the logged in user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        ArenaRatingObj: {
-            perf?: components["schemas"]["PerfType"];
-            /** @example 1700 */
-            rating: number;
+        content: {
+          "application/json": components["schemas"]["Ok"];
         };
-        ArenaPosition: {
-            /** @example C41 */
-            eco?: string;
-            /** @example Philidor Defense */
-            name?: string;
-            /** @example rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - */
-            fen?: string;
+      };
+    };
+  };
+  timeline: {
+    parameters: {
+      query?: {
+        /** @description Show events since this timestamp. */
+        since?: number;
+        /** @description Max number of events to fetch. */
+        nb?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The events in the timeline of the logged in user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Timeline"];
+        };
+      };
+    };
+  };
+  gamePgn: {
+    parameters: {
+      query?: {
+        /** @description Include the PGN moves. */
+        moves?: boolean;
+        /** @description Include the full PGN within the JSON response, in a `pgn` field. */
+        pgnInJson?: boolean;
+        /** @description Include the PGN tags. */
+        tags?: boolean;
+        /** @description Include clock status when available.
+         *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
+         *      */
+        clocks?: boolean;
+        /** @description Include analysis evaluations and comments, when available.
+         *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+         *     Or in an `analysis` JSON field, depending on the response type.
+         *      */
+        evals?: boolean;
+        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
+         *      */
+        accuracy?: boolean;
+        /** @description Include the opening name.
+         *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
+         *      */
+        opening?: boolean;
+        /** @description Plies which mark the beginning of the middlegame and endgame.
+         *     Only available in JSON
+         *      */
+        division?: boolean;
+        /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
+         *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
+         *      */
+        literate?: boolean;
+        /** @description Add a `bookmarked: true` JSON field when the logged in user has bookmarked the game.
+         *     The response type must be set to `application/x-ndjson` by the request `Accept` header.
+         *      */
+        withBookmarked?: boolean;
+      };
+      header?: never;
+      path: {
+        /** @description The game ID */
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The game representation. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": components["schemas"]["GamePgn"];
+          "application/json": components["schemas"]["GameJson"];
+        };
+      };
+    };
+  };
+  apiUserCurrentGame: {
+    parameters: {
+      query?: {
+        /** @description Include the PGN moves. */
+        moves?: boolean;
+        /** @description Include the full PGN within the JSON response, in a `pgn` field. */
+        pgnInJson?: boolean;
+        /** @description Include the PGN tags. */
+        tags?: boolean;
+        /** @description Include clock status when available.
+         *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
+         *      */
+        clocks?: boolean;
+        /** @description Include analysis evaluations and comments, when available.
+         *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+         *     Or in an `analysis` JSON field, depending on the response type.
+         *      */
+        evals?: boolean;
+        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
+         *      */
+        accuracy?: boolean;
+        /** @description Include the opening name.
+         *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
+         *      */
+        opening?: boolean;
+        /** @description Plies which mark the beginning of the middlegame and endgame.
+         *     Only available in JSON
+         *      */
+        division?: boolean;
+        /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
+         *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
+         *      */
+        literate?: boolean;
+      };
+      header?: never;
+      path: {
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The ongoing (or last) game of a user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": components["schemas"]["GamePgn"];
+          "application/json": components["schemas"]["GameJson"];
+        };
+      };
+    };
+  };
+  apiGamesUser: {
+    parameters: {
+      query?: {
+        /** @description Download games played since this timestamp. Defaults to account creation date. */
+        since?: number;
+        /** @description Download games played until this timestamp. Defaults to now. */
+        until?: number;
+        /** @description How many games to download. Leave empty to download all games. */
+        max?: number;
+        /** @description [Filter] Only games played against this opponent */
+        vs?: string;
+        /** @description [Filter] Only rated (`true`) or casual (`false`) games */
+        rated?: boolean;
+        /** @description [Filter] Only games in these speeds or variants.
+         *     Multiple perf types can be specified, separated by a comma.
+         *     Example: blitz,rapid,classical
+         *      */
+        perfType?: components["schemas"]["PerfType"] & unknown;
+        /** @description [Filter] Only games played as this color. */
+        color?: "white" | "black";
+        /** @description [Filter] Only games with or without a computer analysis available */
+        analysed?: boolean;
+        /** @description Include the PGN moves. */
+        moves?: boolean;
+        /** @description Include the full PGN within the JSON response, in a `pgn` field. The response type must be set to `application/x-ndjson` by the request `Accept` header. */
+        pgnInJson?: boolean;
+        /** @description Include the PGN tags. */
+        tags?: boolean;
+        /** @description Include clock status when available.
+         *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
+         *      */
+        clocks?: boolean;
+        /** @description Include analysis evaluations and comments, when available.
+         *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+         *     Or in an `analysis` JSON field, depending on the response type.
+         *      */
+        evals?: boolean;
+        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
+         *      */
+        accuracy?: boolean;
+        /** @description Include the opening name.
+         *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
+         *      */
+        opening?: boolean;
+        /** @description Plies which mark the beginning of the middlegame and endgame.
+         *     Only available in JSON
+         *      */
+        division?: boolean;
+        /** @description Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API. */
+        ongoing?: boolean;
+        /** @description Include finished games. Set to `false` to only get ongoing games. */
+        finished?: boolean;
+        /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
+         *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
+         *      */
+        literate?: boolean;
+        /** @description Include the FEN notation of the last position of the game.
+         *     The response type must be set to `application/x-ndjson` by the request `Accept` header.
+         *      */
+        lastFen?: boolean;
+        /** @description Add a `bookmarked: true` JSON field when the logged in user has bookmarked the game.
+         *     The response type must be set to `application/x-ndjson` by the request `Accept` header.
+         *      */
+        withBookmarked?: boolean;
+        /** @description Sort order of the games. */
+        sort?: "dateAsc" | "dateDesc";
+      };
+      header?: never;
+      path: {
+        /** @description The user name. */
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The games of the user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": components["schemas"]["GamePgn"];
+          "application/x-ndjson": components["schemas"]["GameJson"];
+        };
+      };
+    };
+  };
+  gamesExportIds: {
+    parameters: {
+      query?: {
+        /** @description Include the PGN moves. */
+        moves?: boolean;
+        /** @description Include the full PGN within the JSON response, in a `pgn` field. */
+        pgnInJson?: boolean;
+        /** @description Include the PGN tags. */
+        tags?: boolean;
+        /** @description Include clock status when available.
+         *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
+         *      */
+        clocks?: boolean;
+        /** @description Include analysis evaluations and comments, when available.
+         *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+         *     Or in an `analysis` JSON field, depending on the response type.
+         *      */
+        evals?: boolean;
+        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
+         *      */
+        accuracy?: boolean;
+        /** @description Include the opening name.
+         *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
+         *      */
+        opening?: boolean;
+        /** @description Plies which mark the beginning of the middlegame and endgame.
+         *     Only available in JSON
+         *      */
+        division?: boolean;
+        /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
+         *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
+         *      */
+        literate?: boolean;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Game IDs separated by commas. Up to 300. */
+    requestBody: {
+      content: {
+        /** @example TJxUmbWK,4OtIh2oh,ILwozzRZ */
+        "text/plain": string;
+      };
+    };
+    responses: {
+      /** @description The representation of the games. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": components["schemas"]["GamePgn"];
+          "application/x-ndjson": components["schemas"]["GameJson"];
+        };
+      };
+    };
+  };
+  gamesByUsers: {
+    parameters: {
+      query?: {
+        /** @description Include the already started games at the beginning of the stream. */
+        withCurrentGames?: boolean;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Up to 300 user IDs separated by commas.
+     *     Example: `thibault,maia1,maia5`
+     *      */
+    requestBody: {
+      content: {
+        "text/plain": string;
+      };
+    };
+    responses: {
+      /** @description The stream of the games played between the users. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["GameStream"];
+        };
+      };
+    };
+  };
+  gamesByIds: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        streamId: string;
+      };
+      cookie?: never;
+    };
+    /** @description Up to 500 or 1000 game IDs separated by commas.
+     *     Example: `gameId01,gameId02,gameId03`
+     *      */
+    requestBody: {
+      content: {
+        "text/plain": string;
+      };
+    };
+    responses: {
+      /** @description The stream of the games matching the requested IDs. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["GameStream"];
+        };
+      };
+    };
+  };
+  gamesByIdsAdd: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        streamId: string;
+      };
+      cookie?: never;
+    };
+    /** @description Up to 500 or 1000 game IDs separated by commas.
+     *     Example: `gameId04,gameId05,gameId06`
+     *      */
+    requestBody: {
+      content: {
+        "text/plain": string;
+      };
+    };
+    responses: {
+      /** @description The game IDs have been added to the stream. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+    };
+  };
+  apiAccountPlaying: {
+    parameters: {
+      query?: {
+        /** @description Max number of games to fetch */
+        nb?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The ongoing games of the logged in user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            nowPlaying: {
+              fullId: string;
+              gameId: string;
+              fen: string;
+              /** @enum {string} */
+              color: "white" | "black";
+              lastMove: string;
+              source: components["schemas"]["GameSource"];
+              status?: components["schemas"]["GameStatusName"];
+              variant: components["schemas"]["Variant"];
+              speed: components["schemas"]["Speed"];
+              perf: components["schemas"]["PerfType"];
+              rated: boolean;
+              hasMoved: boolean;
+              opponent: {
+                id: string;
+                username: string;
+                rating?: number;
+                ratingDiff?: number;
+                ai?: number;
+              };
+              isMyTurn: boolean;
+              secondsLeft: number;
+              tournamentId?: string;
+              swissId?: string;
+              /** @enum {string} */
+              winner?: "white" | "black";
+              ratingDiff?: number;
+            }[];
+          };
+        };
+      };
+    };
+  };
+  streamGame: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The stream of the game moves. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["MoveStream"];
+        };
+      };
+    };
+  };
+  gameImport: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description A single game to import */
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @description The PGN. It can contain only one game. Most standard tags are supported. */
+          pgn?: string;
+        };
+      };
+    };
+    responses: {
+      /** @description The game was successfully imported. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            /**
+             * @description The game ID
+             * @example R6iLjwz5
+             */
+            id?: string;
             /**
              * Format: uri
-             * @example https://lichess.org/opening/Philidor_Defense
+             * @description The game URL
              */
             url?: string;
-        } | {
-            /** @constant */
-            name?: "Custom position";
-            /** @example rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 2 3 */
-            fen?: string;
+          };
         };
-        ArenaTournament: {
-            id: string;
-            createdBy: string;
-            /** @constant */
-            system: "arena";
-            minutes: number;
-            clock: components["schemas"]["Clock"];
-            rated: boolean;
-            fullName: string;
-            nbPlayers: number;
-            variant: components["schemas"]["Variant"];
-            /** Format: int64 */
-            startsAt: number;
-            /** Format: int64 */
-            finishesAt: number;
-            status: components["schemas"]["ArenaStatus"];
-            perf: components["schemas"]["ArenaPerf"];
-            secondsToStart?: number;
-            hasMaxRating?: boolean;
-            maxRating?: components["schemas"]["ArenaRatingObj"];
-            minRating?: components["schemas"]["ArenaRatingObj"];
-            minRatedGames?: {
-                nb?: number;
-            };
-            botsAllowed?: boolean;
-            minAccountAgeInDays?: number;
-            onlyTitled?: boolean;
-            teamMember?: string;
-            private?: boolean;
-            position?: components["schemas"]["ArenaPosition"];
-            schedule?: {
-                freq?: string;
-                speed?: string;
-            };
-            teamBattle?: {
-                teams?: string[];
-                nbLeaders?: number;
-            };
-            winner?: components["schemas"]["LightUser"];
+      };
+    };
+  };
+  apiImportedGamesUser: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Imported games in PGN format */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        ArenaTournaments: {
-            created?: components["schemas"]["ArenaTournament"][];
-            started?: components["schemas"]["ArenaTournament"][];
-            finished?: components["schemas"]["ArenaTournament"][];
+        content: {
+          "application/x-chess-pgn": components["schemas"]["GamePgn"];
         };
-        /**
-         * @description Custom initial position (in FEN). Variant must be standard, fromPosition, or chess960 (if a valid 960 starting position), and the game cannot be rated.
-         * @default rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
-         */
-        FromPositionFEN: string;
-        Verdict: {
-            condition: string;
-            verdict: string;
+      };
+    };
+  };
+  apiExportBookmarks: {
+    parameters: {
+      query?: {
+        /** @description Download games bookmarked since this timestamp. Defaults to account creation date. */
+        since?: number;
+        /** @description Download games bookmarked until this timestamp. Defaults to now. */
+        until?: number;
+        /** @description How many bookmarked games to download. Leave empty to download all bookmarked games. */
+        max?: number;
+        /** @description Include the PGN moves. */
+        moves?: boolean;
+        /** @description Include the full PGN within the JSON response, in a `pgn` field. The response type must be set to `application/x-ndjson` by the request `Accept` header. */
+        pgnInJson?: boolean;
+        /** @description Include the PGN tags. */
+        tags?: boolean;
+        /** @description Include clock status when available.
+         *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
+         *      */
+        clocks?: boolean;
+        /** @description Include analysis evaluations and comments, when available.
+         *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+         *     Or in an `analysis` JSON field, depending on the response type.
+         *      */
+        evals?: boolean;
+        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
+         *      */
+        accuracy?: boolean;
+        /** @description Include the opening name.
+         *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
+         *      */
+        opening?: boolean;
+        /** @description Plies which mark the beginning of the middlegame and endgame.
+         *     Only available in JSON
+         *      */
+        division?: boolean;
+        /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
+         *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
+         *      */
+        literate?: boolean;
+        /** @description Include the FEN notation of the last position of the game.
+         *     The response type must be set to `application/x-ndjson` by the request `Accept` header.
+         *      */
+        lastFen?: boolean;
+        /** @description Sort order of the bookmarks. */
+        sort?: "dateAsc" | "dateDesc";
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The bookmarked games of the user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        Verdicts: {
-            accepted: boolean;
-            list: components["schemas"]["Verdict"][];
+        content: {
+          "application/x-chess-pgn": components["schemas"]["GamePgn"];
+          "application/x-ndjson": components["schemas"]["GameJson"];
         };
-        ArenaSheet: {
-            scores: string;
-            fire?: boolean;
+      };
+    };
+  };
+  tvChannels: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of games being played for each speed and variant. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        ArenaTournamentFull: {
-            id: string;
-            fullName: string;
-            rated?: boolean;
-            spotlight?: {
-                headline?: string;
-            };
-            berserkable?: boolean;
-            onlyTitled?: boolean;
-            clock: {
-                increment: number;
-                limit: number;
-            };
-            minutes?: number;
-            createdBy?: string;
-            system?: string;
-            secondsToStart?: number;
-            secondsToFinish?: number;
-            isFinished?: boolean;
-            isRecentlyFinished?: boolean;
-            pairingsClosed?: boolean;
-            /** Format: int64 */
-            startsAt?: string;
-            nbPlayers: number;
-            verdicts?: components["schemas"]["Verdicts"];
-            /** @description The quote displayed on the tournament page */
-            quote?: {
-                text?: string;
-                author?: string;
-            };
-            greatPlayer?: {
-                name?: string;
-                /** Format: uri */
-                url?: string;
-            };
-            /** @description List of usernames allowed to join the tournament */
-            allowList?: string[];
-            hasMaxRating?: boolean;
-            maxRating?: components["schemas"]["ArenaRatingObj"];
-            minRating?: components["schemas"]["ArenaRatingObj"];
-            minRatedGames?: {
-                nb?: number;
-            };
-            botsAllowed?: boolean;
-            minAccountAgeInDays?: number;
-            perf?: {
-                icon: string;
-                key: string;
-                name: string;
-            };
-            schedule?: {
-                freq: string;
-                speed: string;
-            };
-            description?: string;
-            variant?: string;
-            duels?: {
-                id?: string;
-                p?: {
-                    n?: string;
-                    r?: number;
-                    k?: number;
-                }[];
-            }[];
-            standing?: {
-                page?: number;
-                players?: {
-                    name?: string;
-                    title?: components["schemas"]["Title"];
-                    patron?: boolean;
-                    flair?: components["schemas"]["Flair"];
-                    rank?: number;
-                    rating?: number;
-                    score?: number;
-                    sheet?: components["schemas"]["ArenaSheet"];
-                }[];
-            };
-            featured?: {
-                id?: string;
-                fen?: string;
-                orientation?: string;
-                color?: string;
-                lastMove?: string;
-                white?: {
-                    name?: string;
-                    id?: string;
-                    rank?: number;
-                    rating?: number;
-                };
-                black?: {
-                    name?: string;
-                    id?: string;
-                    rank?: number;
-                    rating?: number;
-                };
-                c?: {
-                    /** @description white's clock in seconds */
-                    white?: number;
-                    /** @description black's clock in seconds */
-                    black?: number;
-                };
-            };
-            podium?: {
-                name?: string;
-                title?: components["schemas"]["Title"];
-                patron?: boolean;
-                flair?: components["schemas"]["Flair"];
-                rank?: number;
-                rating?: number;
-                score?: number;
-                nb?: {
-                    game?: number;
-                    berserk?: number;
-                    win?: number;
-                };
-                performance?: number;
-            }[];
-            stats?: {
-                games: number;
-                moves: number;
-                whiteWins: number;
-                blackWins: number;
-                draws: number;
-                berserks: number;
-                averageRating: number;
-            };
-            myUsername?: string;
+        content: {
+          "application/json": {
+            bot: components["schemas"]["TvGame"];
+            blitz: components["schemas"]["TvGame"];
+            racingKings: components["schemas"]["TvGame"];
+            ultraBullet: components["schemas"]["TvGame"];
+            bullet: components["schemas"]["TvGame"];
+            classical: components["schemas"]["TvGame"];
+            threeCheck: components["schemas"]["TvGame"];
+            antichess: components["schemas"]["TvGame"];
+            computer: components["schemas"]["TvGame"];
+            horde: components["schemas"]["TvGame"];
+            rapid: components["schemas"]["TvGame"];
+            atomic: components["schemas"]["TvGame"];
+            crazyhouse: components["schemas"]["TvGame"];
+            chess960: components["schemas"]["TvGame"];
+            kingOfTheHill: components["schemas"]["TvGame"];
+            best: components["schemas"]["TvGame"];
+          };
         };
-        /** @example {
-         *       "error": "This request is invalid because [...]"
-         *     } */
-        Error: {
-            /** @description The cause of the error. */
-            error?: string;
+      };
+    };
+  };
+  tvFeed: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The stream of the current TV game. */
+      200: {
+        headers: {
+          [name: string]: unknown;
         };
-        /** @example {
-         *       "games": 10,
-         *       "score": 14,
-         *       "rank": 30,
-         *       "performance": 1935
-         *     } */
-        ArenaTournamentPlayer: {
-            games: number;
-            score: number;
+        content: {
+          "application/x-ndjson": components["schemas"]["TvFeed"];
+        };
+      };
+    };
+  };
+  tvChannelFeed: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The name of the channel in camel case. */
+        channel: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The stream of the current TV game of a TV channel. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["TvFeed"];
+        };
+      };
+    };
+  };
+  tvChannelGames: {
+    parameters: {
+      query?: {
+        /** @description Number of games to fetch. */
+        nb?: number;
+        /** @description Include the PGN moves. */
+        moves?: boolean;
+        /** @description Include the full PGN within the JSON response, in a `pgn` field. */
+        pgnInJson?: boolean;
+        /** @description Include the PGN tags. */
+        tags?: boolean;
+        /** @description Include clock status when available.
+         *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
+         *      */
+        clocks?: boolean;
+        /** @description Include the opening name.
+         *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
+         *      */
+        opening?: boolean;
+      };
+      header?: never;
+      path: {
+        /** @description The name of the channel in camel case. */
+        channel: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The representation of the games. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": components["schemas"]["GamePgn"];
+          "application/x-ndjson": components["schemas"]["GameJson"];
+        };
+      };
+    };
+  };
+  apiTournament: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of current tournaments. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ArenaTournaments"];
+        };
+      };
+    };
+  };
+  apiTournamentPost: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Parameters of the tournament */
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @description The tournament name. Leave empty to get a random Grandmaster name */
+          name?: string;
+          /**
+           * @description Clock initial time in minutes
+           * @example 2
+           * @enum {number}
+           */
+          clockTime:
+            | 0
+            | 0.25
+            | 0.5
+            | 0.75
+            | 1
+            | 1.5
+            | 2
+            | 3
+            | 4
+            | 5
+            | 6
+            | 7
+            | 8
+            | 10
+            | 15
+            | 20
+            | 25
+            | 30
+            | 40
+            | 50
+            | 60;
+          /**
+           * @description Clock increment in seconds
+           * @example 1
+           * @enum {integer}
+           */
+          clockIncrement:
+            | 0
+            | 1
+            | 2
+            | 3
+            | 4
+            | 5
+            | 6
+            | 7
+            | 10
+            | 15
+            | 20
+            | 25
+            | 30
+            | 40
+            | 50
+            | 60;
+          /**
+           * @description How long the tournament lasts, in minutes
+           * @example 60
+           * @enum {integer}
+           */
+          minutes:
+            | 20
+            | 25
+            | 30
+            | 35
+            | 40
+            | 45
+            | 50
+            | 55
+            | 60
+            | 70
+            | 80
+            | 90
+            | 100
+            | 110
+            | 120
+            | 150
+            | 180
+            | 210
+            | 240
+            | 270
+            | 300
+            | 330
+            | 360
+            | 420
+            | 480
+            | 540
+            | 600
+            | 720;
+          /**
+           * @description How long to wait before starting the tournament, from now, in minutes
+           * @default 5
+           * @enum {integer}
+           */
+          waitMinutes?: 1 | 2 | 3 | 5 | 10 | 15 | 20 | 30 | 45 | 60;
+          /**
+           * Format: int64
+           * @description Timestamp (in milliseconds) to start the tournament at a given date and time. Overrides the `waitMinutes` setting
+           */
+          startDate?: number;
+          variant?: components["schemas"]["VariantKey"];
+          /**
+           * @description Games are rated and impact players ratings
+           * @default true
+           */
+          rated?: boolean;
+          position?: components["schemas"]["FromPositionFEN"];
+          /**
+           * @description Whether the players can use berserk. Only allowed if clockIncrement <= clockTime * 2
+           * @default true
+           */
+          berserkable?: boolean;
+          /**
+           * @description After 2 wins, consecutive wins grant 4 points instead of 2.
+           * @default true
+           */
+          streakable?: boolean;
+          /**
+           * @description Whether the players can discuss in a chat
+           * @default true
+           */
+          hasChat?: boolean;
+          /** @description Anything you want to tell players about the tournament */
+          description?: string;
+          /** @description Make the tournament private, and restrict access with a password.
+           *     You can also [generate user-specific entry codes](https://github.com/lichess-org/api/tree/master/example/tournament-entry-code)
+           *     based on this password.
+           *      */
+          password?: string;
+          /** @description Set the ID of a team you lead to create a team battle.
+           *     The other teams can be added using the [team battle edit endpoint](#operation/apiTournamentTeamBattlePost).
+           *      */
+          teamBattleByTeam?: string;
+          /** @description Restrict entry to members of a team.
+           *     The teamId is the last part of a team URL, e.g. `https://lichess.org/team/coders` has teamId = `coders`.
+           *     Leave empty to let everyone join the tournament.
+           *     Do not use this to create team battles, use `teamBattleByTeam` instead.
+           *      */
+          "conditions.teamMember.teamId"?: string;
+          /**
+           * @description Minimum rating to join. Leave empty to let everyone join the tournament.
+           * @enum {integer}
+           */
+          "conditions.minRating.rating"?:
+            | 1000
+            | 1100
+            | 1200
+            | 1300
+            | 1400
+            | 1500
+            | 1600
+            | 1700
+            | 1800
+            | 1900
+            | 2000
+            | 2100
+            | 2200
+            | 2300
+            | 2400
+            | 2500
+            | 2600;
+          /**
+           * @description Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
+           * @enum {integer}
+           */
+          "conditions.maxRating.rating"?:
+            | 2200
+            | 2100
+            | 2000
+            | 1900
+            | 1800
+            | 1700
+            | 1600
+            | 1500
+            | 1400
+            | 1300
+            | 1200
+            | 1100
+            | 1000
+            | 900
+            | 800;
+          /**
+           * @description Minimum number of rated games required to join.
+           * @enum {integer}
+           */
+          "conditions.nbRatedGame.nb"?:
+            | 0
+            | 5
+            | 10
+            | 15
+            | 20
+            | 30
+            | 40
+            | 50
+            | 75
+            | 100
+            | 150
+            | 200;
+          /** @description Predefined list of usernames that are allowed to join, separated by commas.
+           *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
+           *     Adding `%titled` to the list additionally allows any titled player to join.
+           *     Example: `thibault,german11,%titled`
+           *      */
+          "conditions.allowList"?: string;
+          /**
+           * @description Whether bots are allowed to join the tournament.
+           * @default false
+           */
+          "conditions.bots"?: boolean;
+          /**
+           * @description Minium account age in days required to join.
+           * @enum {integer}
+           */
+          "conditions.accountAge"?:
+            | 1
+            | 3
+            | 7
+            | 14
+            | 30
+            | 60
+            | 90
+            | 180
+            | 365
+            | 730
+            | 1095;
+        };
+      };
+    };
+    responses: {
+      /** @description The Arena tournament has been successfully created. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ArenaTournamentFull"];
+        };
+      };
+      /** @description The creation of the Arena tournament failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  tournament: {
+    parameters: {
+      query?: {
+        /** @description Specify which page of player standings to view. */
+        page?: number;
+      };
+      header?: never;
+      path: {
+        /** @description The tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The information of the Arena tournament. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ArenaTournamentFull"];
+        };
+      };
+    };
+  };
+  apiTournamentUpdate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    /** @description Parameters of the tournament */
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @description The tournament name. Leave empty to get a random Grandmaster name */
+          name?: string;
+          /**
+           * @description Clock initial time in minutes
+           * @example 2
+           * @enum {number}
+           */
+          clockTime:
+            | 0
+            | 0.25
+            | 0.5
+            | 0.75
+            | 1
+            | 1.5
+            | 2
+            | 3
+            | 4
+            | 5
+            | 6
+            | 7
+            | 8
+            | 10
+            | 15
+            | 20
+            | 25
+            | 30
+            | 40
+            | 50
+            | 60;
+          /**
+           * @description Clock increment in seconds
+           * @example 1
+           * @enum {integer}
+           */
+          clockIncrement:
+            | 0
+            | 1
+            | 2
+            | 3
+            | 4
+            | 5
+            | 6
+            | 7
+            | 10
+            | 15
+            | 20
+            | 25
+            | 30
+            | 40
+            | 50
+            | 60;
+          /**
+           * @description How long the tournament lasts, in minutes
+           * @example 60
+           * @enum {integer}
+           */
+          minutes:
+            | 20
+            | 25
+            | 30
+            | 35
+            | 40
+            | 45
+            | 50
+            | 55
+            | 60
+            | 70
+            | 80
+            | 90
+            | 100
+            | 110
+            | 120
+            | 150
+            | 180
+            | 210
+            | 240
+            | 270
+            | 300
+            | 330
+            | 360
+            | 420
+            | 480
+            | 540
+            | 600
+            | 720;
+          /**
+           * @description How long to wait before starting the tournament, from now, in minutes
+           * @default 5
+           * @enum {integer}
+           */
+          waitMinutes?: 1 | 2 | 3 | 5 | 10 | 15 | 20 | 30 | 45 | 60;
+          /**
+           * Format: int64
+           * @description Timestamp (in milliseconds) to start the tournament at a given date and time. Overrides the `waitMinutes` setting
+           */
+          startDate?: number;
+          variant?: components["schemas"]["VariantKey"];
+          /**
+           * @description Games are rated and impact players ratings
+           * @default true
+           */
+          rated?: boolean;
+          position?: components["schemas"]["FromPositionFEN"];
+          /**
+           * @description Whether the players can use berserk. Only allowed if clockIncrement <= clockTime * 2
+           * @default true
+           */
+          berserkable?: boolean;
+          /**
+           * @description After 2 wins, consecutive wins grant 4 points instead of 2.
+           * @default true
+           */
+          streakable?: boolean;
+          /**
+           * @description Whether the players can discuss in a chat
+           * @default true
+           */
+          hasChat?: boolean;
+          /** @description Anything you want to tell players about the tournament */
+          description?: string;
+          /** @description Make the tournament private, and restrict access with a password */
+          password?: string;
+          /**
+           * @description Minimum rating to join. Leave empty to let everyone join the tournament.
+           * @enum {integer}
+           */
+          "conditions.minRating.rating"?:
+            | 1000
+            | 1100
+            | 1200
+            | 1300
+            | 1400
+            | 1500
+            | 1600
+            | 1700
+            | 1800
+            | 1900
+            | 2000
+            | 2100
+            | 2200
+            | 2300
+            | 2400
+            | 2500
+            | 2600;
+          /**
+           * @description Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
+           * @enum {integer}
+           */
+          "conditions.maxRating.rating"?:
+            | 2200
+            | 2100
+            | 2000
+            | 1900
+            | 1800
+            | 1700
+            | 1600
+            | 1500
+            | 1400
+            | 1300
+            | 1200
+            | 1100
+            | 1000
+            | 900
+            | 800;
+          /**
+           * @description Minimum number of rated games required to join.
+           * @enum {integer}
+           */
+          "conditions.nbRatedGame.nb"?:
+            | 0
+            | 5
+            | 10
+            | 15
+            | 20
+            | 30
+            | 40
+            | 50
+            | 75
+            | 100
+            | 150
+            | 200;
+          /** @description Predefined list of usernames that are allowed to join, separated by commas.
+           *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
+           *     Adding `%titled` to the list additionally allows any titled player to join.
+           *     Example: `thibault,german11,%titled`
+           *      */
+          "conditions.allowList"?: string;
+          /**
+           * @description Whether bots are allowed to join the tournament.
+           * @default false
+           */
+          "conditions.bots"?: boolean;
+          /**
+           * @description Minium account age in days required to join.
+           * @enum {integer}
+           */
+          "conditions.accountAge"?:
+            | 1
+            | 3
+            | 7
+            | 14
+            | 30
+            | 60
+            | 90
+            | 180
+            | 365
+            | 730
+            | 1095;
+        };
+      };
+    };
+    responses: {
+      /** @description The Arena tournament was successfully updated. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ArenaTournamentFull"];
+        };
+      };
+      /** @description The update of the Arena tournament failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  apiTournamentJoin: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    /** @description You may need these depending on the tournament to join */
+    requestBody?: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @description The tournament password, if one is required.
+           *     Can also be a [user-specific entry code](https://github.com/lichess-org/api/tree/master/example/tournament-entry-code)
+           *     generated and shared by the organizer.
+           *      */
+          password?: string;
+          /** @description The team to join the tournament with, for team battle tournaments */
+          team?: string;
+          /**
+           * @description If the tournament is started, attempt to pair the user,
+           *     even if they are not connected to the tournament page.
+           *     This expires after one minute, to avoid pairing a user who is long gone.
+           *     You may call "join" again to extend the waiting.
+           *
+           * @default false
+           */
+          pairMeAsap?: boolean;
+        };
+      };
+    };
+    responses: {
+      /** @description The tournament was successfully joined. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description Joining the tournament failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  apiTournamentWithdraw: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The tournament was successfully paused or left. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description Pausing/leaving the tournament failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  apiTournamentTerminate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The tournament was successfully terminated. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description Terminating the tournament failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  apiTournamentTeamBattlePost: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The tournament ID */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @description All team IDs of the team battle, separated by commas.
+           *     Make sure to always send the full list.
+           *     Teams that are not in the list will be removed from the team battle.
+           *     Example: `coders,zhigalko_sergei-fan-club,hhSwTKZv`
+           *      */
+          teams: string;
+          /** @description Number team leaders per team. */
+          nbLeaders: number;
+        };
+      };
+    };
+    responses: {
+      /** @description The team battle tournament was successfully updated. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ArenaTournamentFull"];
+        };
+      };
+      /** @description The update of the team battle tournament failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  gamesByTournament: {
+    parameters: {
+      query?: {
+        /** @description Only games of a particular player. Leave empty to fetch games of all players. */
+        player?: string;
+        /** @description Include the PGN moves. */
+        moves?: boolean;
+        /** @description Include the full PGN within the JSON response, in a `pgn` field. */
+        pgnInJson?: boolean;
+        /** @description Include the PGN tags. */
+        tags?: boolean;
+        /** @description Include clock status when available.
+         *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
+         *      */
+        clocks?: boolean;
+        /** @description Include analysis evaluations and comments, when available.
+         *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+         *     Or in an `analysis` JSON field, depending on the response type.
+         *      */
+        evals?: boolean;
+        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
+         *      */
+        accuracy?: boolean;
+        /** @description Include the opening name.
+         *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
+         *      */
+        opening?: boolean;
+        /** @description Plies which mark the beginning of the middlegame and endgame.
+         *     Only available in JSON
+         *      */
+        division?: boolean;
+      };
+      header?: never;
+      path: {
+        /** @description The tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of games of an Arena tournament. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": components["schemas"]["GamePgn"];
+          "application/x-ndjson": components["schemas"]["GameJson"];
+        };
+      };
+    };
+  };
+  resultsByTournament: {
+    parameters: {
+      query?: {
+        /** @description Max number of players to fetch */
+        nb?: number;
+        /** @description Add a `sheet` field to the player document.
+         *     It's an expensive server computation that slows down the stream.
+         *      */
+        sheet?: boolean;
+      };
+      header?: never;
+      path: {
+        /** @description The tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The results of the Arena tournament. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": {
             rank: number;
-            performance?: number;
-        };
-        ArenaTournamentPlayed: {
-            tournament?: components["schemas"]["ArenaTournament"];
-            player?: components["schemas"]["ArenaTournamentPlayer"];
-        };
-        /**
-         * @description Custom initial position (in FEN). Variant must be standard and the game cannot be rated.
-         * @default rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
-         */
-        SwissFromPositionFEN: string;
-        /**
-         * @description The current state of the swiss tournament
-         * @enum {string}
-         */
-        SwissStatus: "created" | "started" | "finished";
-        SwissTournament: {
-            id: string;
-            createdBy: string;
-            startsAt: string;
-            name: string;
-            clock: {
-                limit: number;
-                increment: number;
-            };
-            variant: string;
-            round: number;
-            nbRounds: number;
-            nbPlayers: number;
-            nbOngoing: number;
-            status: components["schemas"]["SwissStatus"];
-            stats?: {
-                games: number;
-                whiteWins: number;
-                blackWins: number;
-                draws: number;
-                byes: number;
-                absences: number;
-                averageRating: number;
-            };
-            rated: boolean;
-            verdicts: components["schemas"]["Verdicts"];
-            nextRound?: {
-                /** Format: date-time */
-                at?: string;
-                /** @description The number of seconds until the next round starts. */
-                in?: number;
-            };
-        };
-        /** @example {
-         *       "error": "This user cannot edit this swiss"
-         *     } */
-        SwissUnauthorisedEdit: {
-            error?: string;
-        };
-        /** @example [Event "All about the Sicilian Defense: Dragon Variation"]
-         *     [Site "https://lichess.org/study/8c8bmUfy/qwnXMwVC"]
-         *     [Result "*"]
-         *     [UTCDate "2017.06.25"]
-         *     [UTCTime "10:12:04"]
-         *     [Variant "Standard"]
-         *     [ECO "B76"]
-         *     [Opening "Sicilian Defense: Dragon Variation, Yugoslav Attack, Panov Variation"]
-         *     [Annotator "https://lichess.org/@/Francesco_Super"]
-         *
-         *     { This chapter will go over the Dragon Variation, a very common variation used by Black and it is the most aggressive variation in the Sicilian defense. }
-         *     1. e4 c5 2. Nf3 { Simple developing move to control the d4 square } { [%csl Gd4,Gc5][%cal Gf3d4,Gc5d4] } 2... d6 { [%cal Gd6e5] } (2... e6 3. d4 cxd4 4. Nxd4 Nf6 5. e5 (5. Nc3 { [%cal Ge4e5] }) 5... Qa5+) 3. d4 { Whites want the exchange of pawns } { [%cal Gc5d4] } 3... cxd4 { [%cal Gf3d4] } 4. Nxd4 { Whites are now ahead in development but blacks still have the two central pawns whereas whites only one. } { [%csl Ge7,Gd6,Ge4] } 4... Nf6 { Blacks are now developing their knight and threatening the e4 pawn } { [%csl Ge4][%cal Gf6e4] } 5. Nc3 { The e4 pawn is now protected by the c3 knight } { [%csl Ge4,Bc3][%cal Rf6e4,Bc3e4] } 5... g6 { This is the DRAGON VARIATION. g6 allows the dark-squared bishop to develop and move to g7, controlling the long dark-squared diagonal } { [%csl Gd4] } 6. Be3 { [%cal Gd1d2,Gf2f3,Ge1c1,Gg2g4,Gh2h4,Gg4g5] } (6. Be2 Bg7 7. O-O Nc6 8. Be3 { [%cal Ge3d4] } (8. f3 Nxe4 { [%cal Gg7d4,Gc6d4] } 9. Nxc6 Qb6+ { [%cal Gb6c6,Gb6g1] } 10. Kh1 Nxc3 { [%cal Gc3d1,Gc3e2] } 11. bxc3 bxc6 { [%cal Gc8a6] }) 8... O-O 9. Nb3 a6 { [%cal Gb7b5,Gb5b4,Ge2c4] }) 6... Bg7 (6... Ng4 { [%cal Gg4e3] } 7. Bb5+ { [%cal Gb5e8,Gb8d7,Gc8d7,Gd1g4] } 7... Nc6 8. Nxc6 bxc6 9. Bxc6+ { [%cal Gc6a8] }) 7. f3 { The key opening moves for White, who attempt to castle queenside , whereas f3 strengthens the pawn structure, connecting e4 to the h2 and g2, while White also plan pushing to g4 and possibly h4. } { [%csl Bf3,Be3][%cal Rg2g4,Rh2h4,Rg4g5] } 7... O-O (7... h5 { Is operating against g4. }) 8. Qd2 { [%csl Gh6,Gg7][%cal Ge1c1,Ga1d1,Re3h6,Rd2h6] } 8... Nc6 { [%csl Gc6,Gh6][%cal Gb8c6,Ge1c1,Ga7a6,Ge3h6] } 9. g4 (9. Bh6 { [%cal Ge3d4] } 9... Bxh6 10. Qxh6 Nxd4) 9... Be6 10. Nxe6 fxe6 { [%cal Gf8f1] } 11. O-O-O Ne5 12. Be2 { [%csl Gf3][%cal Re5f3,Bd1h1,Bg1d1] } 12... Qc7 { [%csl Gc4][%cal Ge5c4,Gc4e3,Gc4d2,Bf8c8,Yc7c3] } 13. h4 Nc4 *
-         *      */
-        StudyPgn: unknown;
-        /** @example {
-         *       "chapters": [
-         *         {
-         *           "id": "iBjmYBya",
-         *           "name": "test 2",
-         *           "players": [
-         *             {
-         *               "name": "Carlsen, Magnus",
-         *               "rating": 2837
-         *             },
-         *             {
-         *               "name": "Chadaev, Nikolay",
-         *               "rating": 2580
-         *             }
-         *           ],
-         *           "status": "1-0"
-         *         }
-         *       ]
-         *     } */
-        StudyImportPgnChapters: {
-            chapters?: {
-                /** @description The chapter ID */
-                id?: string;
-                /** @description The chapter name */
-                name?: string;
-                players?: {
-                    /** @description The player name */
-                    name?: string | null;
-                    /** @description The player rating */
-                    rating?: number;
-                }[];
-                /** @description The chapter status */
-                status?: string;
-            }[];
-        };
-        /** @example {
-         *       "id": "WTvnkWAL",
-         *       "name": "Guess the move",
-         *       "createdAt": 1463756350225,
-         *       "updatedAt": 1469965025205
-         *     } */
-        StudyMetadata: {
-            /** @description The study ID */
-            id: string;
-            /** @description The study name */
-            name: string;
-            /**
-             * Format: int64
-             * @description The study creation date
-             */
-            createdAt: number;
-            /**
-             * Format: int64
-             * @description The study last update date
-             */
-            updatedAt: number;
-        };
-        BroadcastTour: {
-            id: string;
-            name: string;
-            slug: string;
-            /** @example 1722169800000 */
-            createdAt: number;
-            /**
-             * @description Start and end dates of the tournament, as Unix timestamps in milliseconds
-             * @example [
-             *       1722169800000,
-             *       1722666600000
-             *     ]
-             */
-            dates?: number[];
-            /** @description Additional display information about the tournament */
-            info?: {
-                /**
-                 * Format: uri
-                 * @description Official website. External website URL
-                 */
-                website?: string;
-                /** @description Featured players */
-                players?: string;
-                /** @description Tournament location */
-                location?: string;
-                /** @description Time control */
-                tc?: string;
-                /**
-                 * @description FIDE rating category
-                 * @enum {string}
-                 */
-                fideTc?: "standard" | "rapid" | "blitz";
-                /** @description Timezone of the tournament. Example: `America/New_York`.
-                 *     See [list of possible timezone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more.
-                 *      */
-                timeZone?: string;
-                /**
-                 * Format: uri
-                 * @description Official standings website. External website URL
-                 */
-                standings?: string;
-                /** @description Tournament format */
-                format?: string;
-            };
-            /** @description Used to designate featured tournaments on Lichess */
-            tier?: number;
-            /** Format: uri */
-            image?: string;
-            /** @description Full tournament description in markdown format, or in HTML if the html=1 query parameter is set. */
-            description?: string;
-            leaderboard?: boolean;
-            teamTable?: boolean;
-            /** Format: uri */
-            url: string;
-        };
-        BroadcastGroupTour: {
-            name?: string;
-            id?: string;
-        };
-        BroadcastGroup: {
-            name?: string;
-            tours?: components["schemas"]["BroadcastGroupTour"][];
-        };
-        BroadcastRoundInfo: {
-            id: string;
-            name: string;
-            slug: string;
-            /** Format: int64 */
-            createdAt: number;
-            ongoing?: boolean;
-            /** Format: int64 */
-            startsAt?: number;
-            /** @description The start date/time is unknown and the round will start automatically when the previous round completes */
-            startsAfterPrevious?: boolean;
-            /** Format: int64 */
-            finishedAt?: number;
-            finished?: boolean;
-            /** Format: uri */
-            url: string;
-            /** Format: int64 */
-            delay?: number;
-        };
-        BroadcastWithRounds: {
-            tour: components["schemas"]["BroadcastTour"];
-            group?: components["schemas"]["BroadcastGroup"];
-            rounds: components["schemas"]["BroadcastRoundInfo"][];
-            defaultRoundId?: string;
-        };
-        BroadcastWithLastRound: {
-            group?: string;
-            tour?: components["schemas"]["BroadcastTour"];
-            round?: components["schemas"]["BroadcastRoundInfo"];
-        };
-        BroadcastTop: {
-            active?: components["schemas"]["BroadcastWithLastRound"][];
-            upcoming?: components["schemas"]["BroadcastWithLastRound"][];
-            past?: {
-                /** @example 4 */
-                currentPage?: number;
-                /** @example 20 */
-                maxPerPage?: number;
-                currentPageResults?: components["schemas"]["BroadcastWithLastRound"][];
-                /** @example 3 */
-                previousPage?: number | null;
-                /** @example 5 */
-                nextPage?: number | null;
-            };
-        };
-        BroadcastByUser: {
-            tour: components["schemas"]["BroadcastTour"];
-        };
-        BroadcastForm: {
-            /** @description Name of the broadcast tournament.
-             *
-             *     Example: `Sinquefield Cup`
-             *      */
-            name: string;
-            /** @description Tournament format.
-             *     Example: `"8-player round-robin" or "5-round Swiss"`
-             *      */
-            "info.format"?: string;
-            /** @description Tournament Location
-             *      */
-            "info.location"?: string;
-            /** @description Time control.
-             *     Example: `"Classical" or "Rapid" or "Rapid & Blitz"`
-             *      */
-            "info.tc"?: string;
-            /**
-             * @description FIDE rating category. Which FIDE ratings to use
-             *
-             * @enum {string}
-             */
-            "info.fideTc"?: "standard" | "rapid" | "blitz";
-            /** @description Timezone of the tournament. Example: `America/New_York`.
-             *     See [list of possible timezone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more.
-             *      */
-            "info.timeZone"?: string;
-            /** @description Mention up to 4 of the best players participating.
-             *      */
-            "info.players"?: string;
-            /**
-             * Format: uri
-             * @description Official website. External website URL
-             *
-             */
-            "info.website"?: string;
-            /**
-             * Format: uri
-             * @description Official Standings. External website URL, e.g. chess-results.com, info64.org
-             *
-             */
-            "info.standings"?: string;
-            /** @description Optional long description of the broadcast. Markdown is supported.
-             *      */
-            markdown?: string;
-            /**
-             * @description Show players scores based on game results
-             *
-             * @default true
-             */
-            showScores?: boolean;
-            /**
-             * @description Show player's rating diffs
-             *
-             * @default true
-             */
-            showRatingDiffs?: boolean;
-            /**
-             * @description Show a team leaderboard. Requires WhiteTeam and BlackTeam PGN tags.
-             *
-             * @default false
-             */
-            teamTable?: boolean;
-            /** @description Optional replace player names, ratings and titles.
-             *
-             *     One line per player, formatted as such:
-             *
-             *     ```txt
-             *     player name = FIDE ID
-             *     ```
-             *
-             *     Example:
-             *
-             *     ```txt
-             *     Magnus Carlsen = 1503014
-             *     ```
-             *
-             *     Player names ignore case and punctuation, and match all possible combinations of 2 words: "Jorge Rick Vito" will match "Jorge Rick", "jorge vito", "Rick, Vito", etc.
-             *
-             *     If the player is NM or WNM, you can:
-             *
-             *     ```txt
-             *     Player Name = FIDE ID / Title
-             *     ```
-             *
-             *     Alternatively, you may set tags manually, like so:
-             *
-             *     ```txt
-             *     player name / rating / title / new name
-             *     ```
-             *
-             *     All values are optional. Example:
-             *     ```txt
-             *     Magnus Carlsen / 2863 / GM
-             *     YouGotLittUp / 1890 / / Louis Litt
-             *     ```
-             *      */
-            players?: string;
-            /** @description Optional: assign players to teams
-             *
-             *     One line per player, formatted as such:
-             *     ```txt
-             *     Team name; Fide Id or Player name
-             *     ```
-             *
-             *     Example:
-             *     ```txt
-             *     Team Cats ; 3408230
-             *     Team Dogs ; Scooby Doo
-             *     ```
-             *
-             *     By default the PGN tags WhiteTeam and BlackTeam are used.
-             *      */
-            teams?: string;
-            /**
-             * @description Optional, for Lichess admins only, used to feature on /broadcast.
-             *
-             *     * `3` for Official: normal tier
-             *     * `4` for Official: high tier
-             *     * `5` for Official: best tier
-             *     * `-1` for Private
-             *
-             * @enum {integer}
-             */
-            tier?: 3 | 4 | 5 | -1;
-        };
-        BroadcastPlayerEntry: {
-            /** @example Hernandez Riera, Jose */
-            name?: string;
-            /** @example 2.5 */
-            score?: number;
-            /** @example 7 */
-            played?: number;
-            /** @example 2149 */
-            rating?: number;
-            /** @example -5 */
-            ratingDiff?: number;
-            /** @example 2138 */
-            performance?: number;
-            /** @example FM */
+            score: number;
+            rating: number;
+            username: string;
+            performance: number;
             title?: components["schemas"]["Title"];
-            /** @example 3408230 */
-            fideId?: number;
-            /** @example CHI */
-            fed?: string;
-        };
-        /** @description Name of the broadcast round.
-         *     Example: `Round 1`
-         *      */
-        BroadcastRoundFormName: string;
-        BroadcastRoundForm: ({
-            name: components["schemas"]["BroadcastRoundFormName"];
-        } | {
-            name: components["schemas"]["BroadcastRoundFormName"];
-            /**
-             * Format: uri
-             * @description URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
-             *
-             *     Example:
-             *     ```txt
-             *     https://myserver.org/myevent/round-10/games.pgn
-             *     ```
-             *
-             */
-            syncUrl: string;
-            /** @description Filter games by round number
-             *
-             *     Optional, only keep games from the source that match a round number.
-             *     It uses the PGN **Round** tag. These would match round 3:
-             *     ```txt
-             *     [Round "3"]
-             *     [Round "3.1"]
-             *     ```
-             *     If you set a round number, then games without a **Round** tag are dropped.
-             *
-             *     It only works if you chose `syncUrl` or `syncUrls` as the source.
-             *      */
-            onlyRound?: number;
-            /** @description Select slices of the games
-             *
-             *     Optional. Select games based on their position in the source.
-             *     ```txt
-             *     1           only select the first board
-             *     1-4         only select the first 4 boards
-             *     1,2,3,4     same as above, first 4 boards
-             *     11-15,21-25 boards 11 to 15, and boards 21 to 25
-             *     2,3,7-9     boards 2, 3, 7, 8, and 9
-             *     ```
-             *     Slicing is done after filtering by round number.
-             *
-             *     It only works if you chose `syncUrl` or `syncUrls` as the source.
-             *      */
-            slices?: string;
-        } | {
-            name: components["schemas"]["BroadcastRoundFormName"];
-            /** @description URLs that Lichess will poll to get updates about the games, separated by newlines. They must be publicly accessible from the Internet.
-             *
-             *     Example:
-             *     ```txt
-             *     https://myserver.org/myevent/round-10/game-1.pgn
-             *     https://myserver.org/myevent/round-10/game-2.pgn
-             *     ```
-             *      */
-            syncUrls: string;
-            /** @description Filter games by round number
-             *
-             *     Optional, only keep games from the source that match a round number.
-             *     It uses the PGN **Round** tag. These would match round 3:
-             *     ```txt
-             *     [Round "3"]
-             *     [Round "3.1"]
-             *     ```
-             *     If you set a round number, then games without a **Round** tag are dropped.
-             *
-             *     It only works if you chose `syncUrl` or `syncUrls` as the source.
-             *      */
-            onlyRound?: number;
-            /** @description Select slices of the games
-             *
-             *     Optional. Select games based on their position in the source.
-             *     ```txt
-             *     1           only select the first board
-             *     1-4         only select the first 4 boards
-             *     1,2,3,4     same as above, first 4 boards
-             *     11-15,21-25 boards 11 to 15, and boards 21 to 25
-             *     2,3,7-9     boards 2, 3, 7, 8, and 9
-             *     ```
-             *     Slicing is done after filtering by round number.
-             *
-             *     It only works if you chose `syncUrl` or `syncUrls` as the source.
-             *      */
-            slices?: string;
-        } | {
-            name: components["schemas"]["BroadcastRoundFormName"];
-            /** @description Lichess game IDs - Up to 64 Lichess game IDs, separated by spaces.
-             *      */
-            syncIds: string;
-        } | {
-            name: components["schemas"]["BroadcastRoundFormName"];
-            /** @description Up to 100 Lichess usernames, separated by spaces
-             *      */
-            syncUsers: string;
-        }) & {
-            /**
-             * Format: int64
-             * @description Timestamp in milliseconds of broadcast round start. Leave empty to manually start the broadcast round.
-             *     Example: `1356998400070`
-             *
-             */
-            startsAt?: number;
-            /**
-             * @description The start date is unknown, and the round will start automatically when the previous round completes.
-             *
-             * @default false
-             */
-            startsAfterPrevious?: boolean;
-            /** @description Delay in seconds for movements to appear on the broadcast. Leave it empty if you don't need it.
-             *     Example: `900` (15 min)
-             *      */
-            delay?: number;
-            /**
-             * @description Lichess can usually detect the round status, but you can also set it manually if needed.
-             *
-             * @default new
-             * @enum {string}
-             */
-            status?: "new" | "started" | "finished";
-            /** @description (Only for Admins) Waiting time for each poll.
-             *      */
-            period?: number;
-        };
-        BroadcastRoundStudyInfo: {
-            /** @description Whether the currently authenticated user has permission to update the study */
-            writeable?: boolean;
-        };
-        BroadcastRoundNew: {
-            round: components["schemas"]["BroadcastRoundInfo"];
-            tour: components["schemas"]["BroadcastTour"];
-            study: components["schemas"]["BroadcastRoundStudyInfo"];
-        };
-        BroadcastRoundGame: {
-            id: string;
-            name: string;
-            fen?: string;
-            players?: {
-                name?: string;
-                title?: components["schemas"]["Title"];
-                rating?: number;
-                clock?: number;
-                fed?: string;
-            }[];
-            lastMove?: string;
-            thinkTime?: number;
-            /**
-             * @description The result of the game
-             * @enum {string}
-             */
-            status?: "*" | "1-0" | "0-1" | "½-½";
-        };
-        BroadcastRound: {
-            round: components["schemas"]["BroadcastRoundInfo"];
-            tour: components["schemas"]["BroadcastTour"];
-            study: components["schemas"]["BroadcastRoundStudyInfo"];
-            games: components["schemas"]["BroadcastRoundGame"][];
-            group?: components["schemas"]["BroadcastGroup"];
-        };
-        BroadcastPgnPushTags: {
-            [key: string]: string;
-        };
-        BroadcastPgnPush: {
-            games: {
-                tags: components["schemas"]["BroadcastPgnPushTags"];
-                moves?: number;
-                error?: string;
-            }[];
-        };
-        BroadcastMyRound: {
-            round: components["schemas"]["BroadcastRoundInfo"];
-            tour: components["schemas"]["BroadcastTour"];
-            study: components["schemas"]["BroadcastRoundStudyInfo"];
-        };
-        FIDEPlayer: {
-            id: number;
-            name: string;
-            title?: components["schemas"]["Title"];
-            federation: string;
-            year?: number | null;
-            inactive?: number;
-            standard?: number;
-            rapid?: number;
-            blitz?: number;
-        };
-        Simul: {
-            id: string;
-            host: components["schemas"]["LightUser"] & {
-                rating?: number;
-                provisional?: boolean;
-                gameId?: string;
-                online?: boolean;
-            };
-            name: string;
-            fullName: string;
-            variants: {
-                key?: components["schemas"]["VariantKey"];
-                icon?: string;
-                name?: string;
-            }[];
-            isCreated: boolean;
-            isFinished: boolean;
-            isRunning: boolean;
-            text?: string;
-            estimatedStartAt?: number;
-            startedAt?: number;
-            finishedAt?: number;
-            nbApplicants: number;
-            nbPairings: number;
-        };
-        Team: {
-            id: string;
-            name: string;
-            description?: string;
+            team?: string;
             flair?: components["schemas"]["Flair"];
-            leader?: components["schemas"]["LightUser"];
-            leaders?: components["schemas"]["LightUser"][];
-            nbMembers?: number;
-            open?: boolean;
-            joined?: boolean;
-            requested?: boolean;
+            sheet?: components["schemas"]["ArenaSheet"];
+          };
         };
-        TeamPaginatorJson: {
+      };
+    };
+  };
+  teamsByTournament: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of teams of a team battle tournament, with their respective top players. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            id: string;
+            teams: {
+              rank: number;
+              id: string;
+              score: number;
+              players: {
+                user: components["schemas"]["LightUser"];
+                score?: number;
+              }[];
+            }[];
+          };
+        };
+      };
+    };
+  };
+  apiUserNameTournamentCreated: {
+    parameters: {
+      query?: {
+        /** @description Max number of tournaments to fetch */
+        nb?: number;
+        /** @description Include tournaments in the given status: "Created" (10), "Started" (20), "Finished" (30)
+         *     You can add this parameter more than once to include tournaments in different statuses.
+         *     Example: `?status=10&status=20`
+         *      */
+        status?: 10 | 20 | 30;
+      };
+      header?: never;
+      path: {
+        /** @description The user whose created tournaments to fetch */
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of tournaments created by the user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["ArenaTournament"];
+        };
+      };
+    };
+  };
+  apiUserNameTournamentPlayed: {
+    parameters: {
+      query?: {
+        /** @description Max number of tournaments to fetch */
+        nb?: number;
+        /** @description Include the player performance rating in the response, at some cost for the server.
+         *      */
+        performance?: boolean;
+      };
+      header?: never;
+      path: {
+        /** @description The user whose played tournaments to fetch */
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of tournaments played by the user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["ArenaTournamentPlayed"];
+        };
+      };
+    };
+  };
+  apiSwissNew: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description ID of the team */
+        teamId: string;
+      };
+      cookie?: never;
+    };
+    /** @description Parameters of the tournament */
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @description The tournament name. Leave empty to get a random Grandmaster name */
+          name?: string;
+          /**
+           * @description Clock initial time in seconds
+           * @example 300
+           * @enum {number}
+           */
+          "clock.limit":
+            | 0
+            | 15
+            | 30
+            | 45
+            | 60
+            | 90
+            | 120
+            | 180
+            | 240
+            | 300
+            | 360
+            | 420
+            | 480
+            | 600
+            | 900
+            | 1200
+            | 1500
+            | 1800
+            | 2400
+            | 3000
+            | 3600
+            | 4200
+            | 4800
+            | 5400
+            | 6000
+            | 6600
+            | 7200
+            | 7800
+            | 8400
+            | 9000
+            | 9600
+            | 10200
+            | 10800;
+          /**
+           * @description Clock increment in seconds
+           * @example 1
+           */
+          "clock.increment": number;
+          /** @description Maximum number of rounds to play */
+          nbRounds: number;
+          /**
+           * Format: int64
+           * @description Timestamp in milliseconds to start the tournament at a given date and time. By default, it starts 10 minutes after creation.
+           */
+          startsAt?: number;
+          /**
+           * @description How long to wait between each round, in seconds.
+           *     Set to 99999999 to manually schedule each round from the tournament UI.
+           *     If empty or -1, a sensible value is picked automatically.
+           *
+           * @enum {integer}
+           */
+          roundInterval?:
+            | -1
+            | 5
+            | 10
+            | 20
+            | 30
+            | 45
+            | 60
+            | 120
+            | 180
+            | 300
+            | 600
+            | 900
+            | 1200
+            | 1800
+            | 2700
+            | 3600
+            | 86400
+            | 172800
+            | 604800
+            | 99999999;
+          variant?: components["schemas"]["VariantKey"];
+          position?: components["schemas"]["SwissFromPositionFEN"];
+          /** @description Anything you want to tell players about the tournament */
+          description?: string;
+          /**
+           * @description Games are rated and impact players ratings
+           * @default true
+           */
+          rated?: boolean;
+          /** @description Make the tournament private and restrict access with a password. */
+          password?: string;
+          /** @description Usernames of players that must not play together.
+           *     Two usernames per line, separated by a space.
+           *      */
+          forbiddenPairings?: string;
+          /** @description Manual pairings for the next round.
+           *     Two usernames per line, separated by a space. Example:
+           *     ```
+           *     PlayerA PlayerB
+           *     PlayerC PlayerD
+           *     ```
+           *     To give a bye (1 point) to a player instead of a pairing, add a line like so:
+           *     ```
+           *     PlayerE 1
+           *     ```
+           *     Missing players will be considered absent and get zero points.
+           *      */
+          manualPairings?: string;
+          /**
+           * @description Who can read and write in the chat.
+           *     - 0  = No-one
+           *     - 10 = Only team leaders
+           *     - 20 = Only team members
+           *     - 30 = All Lichess players
+           *
+           * @default 20
+           */
+          chatFor?: number;
+          /**
+           * @description Minimum rating to join. Leave empty to let everyone join the tournament.
+           * @enum {integer}
+           */
+          "conditions.minRating.rating"?:
+            | 1000
+            | 1100
+            | 1200
+            | 1300
+            | 1400
+            | 1500
+            | 1600
+            | 1700
+            | 1800
+            | 1900
+            | 2000
+            | 2100
+            | 2200
+            | 2300
+            | 2400
+            | 2500
+            | 2600;
+          /**
+           * @description Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
+           * @enum {integer}
+           */
+          "conditions.maxRating.rating"?:
+            | 2200
+            | 2100
+            | 2000
+            | 1900
+            | 1800
+            | 1700
+            | 1600
+            | 1500
+            | 1400
+            | 1300
+            | 1200
+            | 1100
+            | 1000
+            | 900
+            | 800;
+          /** @description Minimum number of rated games required to join. */
+          "conditions.nbRatedGame.nb"?: number;
+          /**
+           * @description Only let players join if they have played their last swiss game.
+           *     If they failed to show up in a recent swiss event, they won't be able to enter yours.
+           *     This results in a better swiss experience for the players who actually show up.
+           *
+           * @default false
+           */
+          "conditions.playYourGames"?: boolean;
+          /** @description Predefined list of usernames that are allowed to join, separated by commas.
+           *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
+           *     Adding `%titled` to the list additionally allows any titled player to join.
+           *     Example: `thibault,german11,%titled`
+           *      */
+          "conditions.allowList"?: string;
+        };
+      };
+    };
+    responses: {
+      /** @description The Swiss tournament was successfully created. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SwissTournament"];
+        };
+      };
+      /** @description The creation of the Swiss tournament failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  swiss: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The Swiss tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The information of the Swiss tournament. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SwissTournament"];
+        };
+      };
+    };
+  };
+  apiSwissUpdate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    /** @description Parameters of the tournament */
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @description The tournament name. Leave empty to get a random Grandmaster name */
+          name?: string;
+          /**
+           * @description Clock initial time in seconds
+           * @example 300
+           * @enum {number}
+           */
+          "clock.limit":
+            | 0
+            | 15
+            | 30
+            | 45
+            | 60
+            | 90
+            | 120
+            | 180
+            | 240
+            | 300
+            | 360
+            | 420
+            | 480
+            | 600
+            | 900
+            | 1200
+            | 1500
+            | 1800
+            | 2400
+            | 3000
+            | 3600
+            | 4200
+            | 4800
+            | 5400
+            | 6000
+            | 6600
+            | 7200
+            | 7800
+            | 8400
+            | 9000
+            | 9600
+            | 10200
+            | 10800;
+          /**
+           * @description Clock increment in seconds
+           * @example 1
+           */
+          "clock.increment": number;
+          /** @description Maximum number of rounds to play */
+          nbRounds: number;
+          /**
+           * Format: int64
+           * @description Timestamp in milliseconds to start the tournament at a given date and time. By default, it starts 10 minutes after creation.
+           */
+          startsAt?: number;
+          /**
+           * @description How long to wait between each round, in seconds.
+           *     Set to 99999999 to manually schedule each round from the tournament UI, or [with the API](#tag/Swiss-tournaments/operation/apiSwissScheduleNextRound).
+           *     If empty or -1, a sensible value is picked automatically.
+           *
+           * @enum {integer}
+           */
+          roundInterval?:
+            | -1
+            | 5
+            | 10
+            | 20
+            | 30
+            | 45
+            | 60
+            | 120
+            | 180
+            | 300
+            | 600
+            | 900
+            | 1200
+            | 1800
+            | 2700
+            | 3600
+            | 86400
+            | 172800
+            | 604800
+            | 99999999;
+          variant?: components["schemas"]["VariantKey"];
+          position?: components["schemas"]["SwissFromPositionFEN"];
+          /** @description Anything you want to tell players about the tournament */
+          description?: string;
+          /**
+           * @description Games are rated and impact players ratings
+           * @default true
+           */
+          rated?: boolean;
+          /** @description Make the tournament private and restrict access with a password. */
+          password?: string;
+          /** @description Usernames of players that must not play together.
+           *     Two usernames per line, separated by a space.
+           *      */
+          forbiddenPairings?: string;
+          /** @description Manual pairings for the next round.
+           *     Two usernames per line, separated by a space.
+           *     Present players without a valid pairing will be given a bye, which is worth 1 point.
+           *     Forfeited players will get 0 points.
+           *      */
+          manualPairings?: string;
+          /**
+           * @description Who can read and write in the chat.
+           *     - 0  = No-one
+           *     - 10 = Only team leaders
+           *     - 20 = Only team members
+           *     - 30 = All Lichess players
+           *
+           * @default 20
+           */
+          chatFor?: number;
+          /**
+           * @description Minimum rating to join. Leave empty to let everyone join the tournament.
+           * @enum {integer}
+           */
+          "conditions.minRating.rating"?:
+            | 1000
+            | 1100
+            | 1200
+            | 1300
+            | 1400
+            | 1500
+            | 1600
+            | 1700
+            | 1800
+            | 1900
+            | 2000
+            | 2100
+            | 2200
+            | 2300
+            | 2400
+            | 2500
+            | 2600;
+          /**
+           * @description Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
+           * @enum {integer}
+           */
+          "conditions.maxRating.rating"?:
+            | 2200
+            | 2100
+            | 2000
+            | 1900
+            | 1800
+            | 1700
+            | 1600
+            | 1500
+            | 1400
+            | 1300
+            | 1200
+            | 1100
+            | 1000
+            | 900
+            | 800;
+          /** @description Minimum number of rated games required to join. */
+          "conditions.nbRatedGame.nb"?: number;
+          /**
+           * @description Only let players join if they have played their last swiss game.
+           *     If they failed to show up in a recent swiss event, they won't be able to enter yours.
+           *     This results in a better swiss experience for the players who actually show up.
+           *
+           * @default false
+           */
+          "conditions.playYourGames"?: boolean;
+          /** @description Predefined list of usernames that are allowed to join, separated by commas.
+           *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
+           *     Adding `%titled` to the list additionally allows any titled player to join.
+           *     Example: `thibault,german11,%titled`
+           *      */
+          "conditions.allowList"?: string;
+        };
+      };
+    };
+    responses: {
+      /** @description The Swiss tournament was successfully updated. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SwissTournament"];
+        };
+      };
+      /** @description Updating the swiss failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+      /** @description This user cannot update this Swiss. */
+      401: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SwissUnauthorisedEdit"];
+        };
+      };
+    };
+  };
+  apiSwissScheduleNextRound: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    /** @description Parameters of the tournament */
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /**
+           * Format: int64
+           * @description Timestamp in milliseconds to start the next round at a given date and time.
+           */
+          date?: number;
+        };
+      };
+    };
+    responses: {
+      /** @description The Swiss tournament was successfully updated. */
+      204: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Updating the swiss failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+      /** @description This user cannot update this Swiss. */
+      401: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SwissUnauthorisedEdit"];
+        };
+      };
+    };
+  };
+  apiSwissJoin: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    /** @description You may need these depending on the tournament to join */
+    requestBody?: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @description The tournament password, if one is required */
+          password?: string;
+        };
+      };
+    };
+    responses: {
+      /** @description The tournament was successfully joined. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description Joining the tournament failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  apiSwissWithdraw: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The tournament was successfully paused or left. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+    };
+  };
+  apiSwissTerminate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The Swiss tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The Swiss tournament was successfully terminated. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description Terminating the Swiss tournament failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  swissTrf: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The TRF representation of a Swiss tournament. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "text/plain": string;
+        };
+      };
+    };
+  };
+  gamesBySwiss: {
+    parameters: {
+      query?: {
+        /** @description Only the games played by a given player */
+        player?: string;
+        /** @description Include the PGN moves. */
+        moves?: boolean;
+        /** @description Include the full PGN within the JSON response, in a `pgn` field. */
+        pgnInJson?: boolean;
+        /** @description Include the PGN tags. */
+        tags?: boolean;
+        /** @description Include clock status when available.
+         *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
+         *      */
+        clocks?: boolean;
+        /** @description Include analysis evaluations and comments, when available.
+         *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+         *     Or in an `analysis` JSON field, depending on the response type.
+         *      */
+        evals?: boolean;
+        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
+         *      */
+        accuracy?: boolean;
+        /** @description Include the opening name.
+         *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
+         *      */
+        opening?: boolean;
+        /** @description Plies which mark the beginning of the middlegame and endgame.
+         *     Only available in JSON
+         *      */
+        division?: boolean;
+      };
+      header?: never;
+      path: {
+        /** @description The tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of games of a Swiss tournament. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": components["schemas"]["GamePgn"];
+          "application/x-ndjson": components["schemas"]["GameJson"];
+        };
+      };
+    };
+  };
+  resultsBySwiss: {
+    parameters: {
+      query?: {
+        /** @description Max number of players to fetch */
+        nb?: number;
+      };
+      header?: never;
+      path: {
+        /** @description The tournament ID. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The results of a Swiss tournament. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": {
+            absent?: boolean;
+            rank: number;
+            points: number;
+            tieBreak: number;
+            rating: number;
+            username: string;
+            title?: components["schemas"]["Title"];
+            performance: number;
+          };
+        };
+      };
+    };
+  };
+  apiTeamSwiss: {
+    parameters: {
+      query?: {
+        /** @description How many tournaments to download. */
+        max?: number;
+        /** @description [Filter] Only swiss tournaments in this current state.
+         *      */
+        status?: components["schemas"]["SwissStatus"] & unknown;
+        /** @description [Filter] Only swiss tournaments created by a given user.
+         *      */
+        createdBy?: string;
+        /** @description [Filter] Only swiss tournaments with a given name.
+         *      */
+        name?: string;
+      };
+      header?: never;
+      path: {
+        /** @example coders */
+        teamId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of Swiss tournaments of a team. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["SwissTournament"];
+        };
+      };
+    };
+  };
+  studyChapterPgn: {
+    parameters: {
+      query?: {
+        /** @description Include clock comments in the PGN moves, when available.
+         *     Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         *      */
+        clocks?: boolean;
+        /** @description Include analysis and annotator comments in the PGN moves, when available.
+         *     Example: `12. Bxf6 { [%eval 0.23] } a3 { White is in a pickle. }`
+         *      */
+        comments?: boolean;
+        /** @description Include non-mainline moves, when available.
+         *     Example: `4. d4 Bb4+ (4... Nc6 5. Nf3 Bb4+ 6. Bd2 (6. Nbd2 O-O 7. O-O) 6... Bd6) 5. Nd2`
+         *      */
+        variations?: boolean;
+        /** @description Add a `Orientation` PGN tag with the chapter predefined orientation.
+         *     Example: `[Orientation "white"]`
+         *      */
+        orientation?: boolean;
+      };
+      header?: never;
+      path: {
+        /** @description The study ID */
+        studyId: string;
+        /** @description The chapter ID */
+        chapterId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The chapter of the study. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": components["schemas"]["StudyPgn"];
+        };
+      };
+    };
+  };
+  studyAllChaptersPgn: {
+    parameters: {
+      query?: {
+        /** @description Include clock comments in the PGN moves, when available.
+         *     Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         *      */
+        clocks?: boolean;
+        /** @description Include analysis and annotator comments in the PGN moves, when available.
+         *     Example: `12. Bxf6 { [%eval 0.23] } a3 { White is in a pickle. }`
+         *      */
+        comments?: boolean;
+        /** @description Include non-mainline moves, when available.
+         *     Example: `4. d4 Bb4+ (4... Nc6 5. Nf3 Bb4+ 6. Bd2 (6. Nbd2 O-O 7. O-O) 6... Bd6) 5. Nd2`
+         *      */
+        variations?: boolean;
+        /** @description Add a `Orientation` PGN tag with the chapter predefined orientation.
+         *     Example: `[Orientation "white"]`
+         *      */
+        orientation?: boolean;
+      };
+      header?: never;
+      path: {
+        /** @description The study ID */
+        studyId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The PGN representation of the study. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          "Last-Modified"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": components["schemas"]["StudyPgn"];
+        };
+      };
+    };
+  };
+  studyAllChaptersHead: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The study ID */
+        studyId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The study headers. */
+      204: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          "Last-Modified"?: string;
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  apiStudyImportPGN: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description ID of the study */
+        studyId: string;
+      };
+      cookie?: never;
+    };
+    /** @description Parameters of the import */
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @description PGN to import. Can contain multiple games separated by 2 or more newlines.
+           *      */
+          pgn: string;
+          /** @description Name of the new chapter.
+           *     If not specified, or if multiple chapters are created, the names will be inferred from the PGN tags.
+           *      */
+          name?: string;
+          /**
+           * @description Default board orientation.
+           * @default white
+           * @enum {string}
+           */
+          orientation?: "white" | "black";
+          variant?: components["schemas"]["VariantKey"];
+        };
+      };
+    };
+    responses: {
+      /** @description The chapters that were created. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["StudyImportPgnChapters"];
+        };
+      };
+      /** @description The creation of the chapter(s) failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  studyExportAllPgn: {
+    parameters: {
+      query?: {
+        /** @description Include clock comments in the PGN moves, when available.
+         *     Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         *      */
+        clocks?: boolean;
+        /** @description Include analysis and annotator comments in the PGN moves, when available.
+         *     Example: `12. Bxf6 { [%eval 0.23] } a3 { White is in a pickle. }`
+         *      */
+        comments?: boolean;
+        /** @description Include non-mainline moves, when available.
+         *     Example: `4. d4 Bb4+ (4... Nc6 5. Nf3 Bb4+ 6. Bd2 (6. Nbd2 O-O 7. O-O) 6... Bd6) 5. Nd2`
+         *      */
+        variations?: boolean;
+        /** @description Add a `Orientation` PGN tag with the chapter predefined orientation.
+         *     Example: `[Orientation "white"]`
+         *      */
+        orientation?: boolean;
+      };
+      header?: never;
+      path: {
+        /** @description The user whose studies we export */
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The studies of the user. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": components["schemas"]["StudyPgn"];
+        };
+      };
+    };
+  };
+  studyListMetadata: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The user whose studies we list */
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of studies. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["StudyMetadata"];
+        };
+      };
+    };
+  };
+  apiStudyStudyIdChapterIdDelete: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The study ID */
+        studyId: string;
+        /** @description The chapter ID */
+        chapterId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Chapter successfully deleted */
+      204: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  broadcastsOfficial: {
+    parameters: {
+      query?: {
+        /** @description Max number of broadcasts to fetch */
+        nb?: number;
+        /**
+         * @description Convert the "description" field from markdown to HTML
+         * @example true
+         */
+        html?: boolean;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of official broadcasts. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["BroadcastWithRounds"];
+        };
+      };
+    };
+  };
+  broadcastsTop: {
+    parameters: {
+      query?: {
+        /** @description Which page to fetch. Only page 1 has "active" broadcasts. */
+        page?: number;
+        /**
+         * @description Convert the "description" field from markdown to HTML
+         * @example true
+         */
+        html?: boolean;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Paginated top broadcast previews. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BroadcastTop"];
+        };
+      };
+    };
+  };
+  broadcastsByUser: {
+    parameters: {
+      query?: {
+        page?: number;
+        /**
+         * @description Convert the "description" field from markdown to HTML
+         * @example true
+         */
+        html?: boolean;
+      };
+      header?: never;
+      path: {
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description A paginated list of the broadcasts created by a user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
             /** @example 4 */
             currentPage: number;
             /** @example 15 */
             maxPerPage: number;
-            currentPageResults: components["schemas"]["Team"][];
+            currentPageResults: components["schemas"]["BroadcastByUser"][];
+            /** @example 205194 */
+            nbResults: number;
             /** @example 3 */
             previousPage: number | null;
             /** @example 5 */
             nextPage: number | null;
-            nbResults: number;
+            /** @example 13680 */
             nbPages: number;
+          };
         };
-        /**
-         * @description The current state of the arena tournament
-         * @enum {string}
-         */
-        ArenaStatusName: "created" | "started" | "finished";
-        TeamRequest: {
-            /** @example coders */
-            teamId: string;
-            /** @example thibault */
-            userId: string;
-            /** @example 1514505150384 */
-            date: number;
-            /** @example Hello, I would like to join the team! */
-            message?: string;
+      };
+    };
+  };
+  broadcastsSearch: {
+    parameters: {
+      query?: {
+        /** @description Which page to fetch. */
+        page?: number;
+        /** @description Search term */
+        q?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Paginated top broadcast previews. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        TeamRequestWithUser: {
-            request: components["schemas"]["TeamRequest"];
-            user: components["schemas"]["User"];
+        content: {
+          "application/json": {
+            currentPage: number;
+            maxPerPage: number;
+            currentPageResults: components["schemas"]["BroadcastWithLastRound"][];
+            previousPage: number | null;
+            nextPage: number | null;
+          };
         };
-        /** @example {
-         *       "users": {
-         *         "neio": 201.5,
-         *         "thibault": 144.5
-         *       },
-         *       "nbGames": 346
-         *     } */
-        Crosstable: {
-            users: {
-                [key: string]: number;
-            };
-            nbGames: number;
+      };
+    };
+  };
+  broadcastTourCreate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": components["schemas"]["BroadcastForm"];
+      };
+    };
+    responses: {
+      /** @description The broadcast tournament was successfully created. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        LightUserOnline: components["schemas"]["LightUser"] & {
-            online?: boolean;
+        content: {
+          "application/json": components["schemas"]["BroadcastWithRounds"];
         };
-        UserNote: {
-            from?: components["schemas"]["LightUser"];
-            to?: components["schemas"]["LightUser"];
-            /** @example This is a note */
-            text?: string;
+      };
+      /** @description The creation of the broadcast tournament failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  broadcastTourGet: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The broadcast tournament ID */
+        broadcastTournamentId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The information about the broadcast tournament. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BroadcastWithRounds"];
+        };
+      };
+    };
+  };
+  broadcastPlayersGet: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The broadcast tournament ID */
+        broadcastTournamentId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The broadcast players */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BroadcastPlayerEntry"][];
+        };
+      };
+    };
+  };
+  broadcastTourUpdate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The broadcast ID */
+        broadcastTournamentId: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": components["schemas"]["BroadcastForm"];
+      };
+    };
+    responses: {
+      /** @description The broadcast tournament was successfully edited. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The broadcast tournament update failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  broadcastRoundCreate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The broadcast tournament ID */
+        broadcastTournamentId: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": components["schemas"]["BroadcastRoundForm"];
+      };
+    };
+    responses: {
+      /** @description The broadcast round was successfully created. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BroadcastRoundNew"];
+        };
+      };
+      /** @description The creation of the broadcast failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  broadcastRoundGet: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The broadcast tournament slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastRoundId` is actually used. */
+        broadcastTournamentSlug: string;
+        /** @description The broadcast round slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastRoundId` is actually used. */
+        broadcastRoundSlug: string;
+        /** @description The broadcast Round ID */
+        broadcastRoundId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The information about the broadcast round. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BroadcastRound"];
+        };
+      };
+    };
+  };
+  broadcastRoundUpdate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The broadcast round ID */
+        broadcastRoundId: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": components["schemas"]["BroadcastRoundForm"];
+      };
+    };
+    responses: {
+      /** @description The broadcast round was successfully edited. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BroadcastRound"];
+        };
+      };
+      /** @description The broadcast round update failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  broadcastRoundReset: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The broadcast round ID */
+        broadcastRoundId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The broadcast round was successfully reset. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+    };
+  };
+  broadcastPush: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The broadcast round ID */
+        broadcastRoundId: string;
+      };
+      cookie?: never;
+    };
+    /** @description The PGN. It can contain up to 64 games, separated by a double new line. */
+    requestBody: {
+      content: {
+        "text/plain": string;
+      };
+    };
+    responses: {
+      /** @description The broadcast was successfully updated. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BroadcastPgnPush"];
+        };
+      };
+      /** @description There was a problem with the pushed PGN. */
+      400: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            error?: string;
+          };
+        };
+      };
+    };
+  };
+  broadcastStreamRoundPgn: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The broadcast round ID */
+        broadcastRoundId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The PGN representation of the round games, then the PGNs of games as they are updated. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": components["schemas"]["StudyPgn"];
+        };
+      };
+    };
+  };
+  broadcastRoundPgn: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The round ID */
+        broadcastRoundId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The PGN representation of the round. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": components["schemas"]["StudyPgn"];
+        };
+      };
+    };
+  };
+  broadcastAllRoundsPgn: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The broadcast tournament ID */
+        broadcastTournamentId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The PGN representation of the broadcast. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": components["schemas"]["StudyPgn"];
+        };
+      };
+    };
+  };
+  broadcastMyRoundsGet: {
+    parameters: {
+      query?: {
+        /** @description How many rounds to get */
+        nb?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The broadcast rounds with their tournament and a `study.writeable` flag. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["BroadcastMyRound"];
+        };
+      };
+    };
+  };
+  fidePlayerGet: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The FIDE player ID. */
+        playerId: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The information about the FIDE player. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["FIDEPlayer"];
+        };
+      };
+    };
+  };
+  fidePlayerSearch: {
+    parameters: {
+      query: {
+        /** @description The search query. */
+        q: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of FIDE players. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["FIDEPlayer"][];
+        };
+      };
+    };
+  };
+  apiSimul: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of simuls. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            pending?: components["schemas"]["Simul"][];
+            created?: components["schemas"]["Simul"][];
+            started?: components["schemas"]["Simul"][];
+            finished?: components["schemas"]["Simul"][];
+          };
+        };
+      };
+    };
+  };
+  teamShow: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        teamId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The information about the team. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Team"];
+        };
+      };
+    };
+  };
+  teamAll: {
+    parameters: {
+      query?: {
+        page?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description A paginated list of the most popular teams. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TeamPaginatorJson"];
+        };
+      };
+    };
+  };
+  teamOfUsername: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of teams the user is a member of. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Team"][];
+        };
+      };
+    };
+  };
+  teamSearch: {
+    parameters: {
+      query?: {
+        text?: string;
+        page?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The paginated list of teams. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TeamPaginatorJson"];
+        };
+      };
+    };
+  };
+  teamIdUsers: {
+    parameters: {
+      query?: {
+        /** @description Full user documents with performance ratings.
+         *     This limits the response to 1,000 users.
+         *      */
+        full?: boolean;
+      };
+      header?: never;
+      path: {
+        teamId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of users in the team. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": {
             /**
              * Format: int64
-             * @example 1290415680000
+             * @example 1716930043067
              */
-            date?: number;
-        };
-        /** @enum {integer} */
-        GameStatusId: 10 | 20 | 25 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 60;
-        GameStatus: {
-            id: components["schemas"]["GameStatusId"];
-            name: components["schemas"]["GameStatusName"];
-        };
-        GameEventOpponent: {
+            joinedTeamAt?: number;
+            /** @example chess-network */
             id: string;
-            username: string;
-            rating: number;
+            /** @example Chess-Network */
+            name: string;
+            title?: components["schemas"]["Title"];
+            /** @example true */
+            patron?: boolean;
+          };
         };
-        GameCompat: {
-            /** @description Compatible with Bot API */
-            bot?: boolean;
-            /** @description Compatible with Board API */
-            board?: boolean;
+      };
+    };
+  };
+  apiTeamArena: {
+    parameters: {
+      query?: {
+        /** @description How many tournaments to download. */
+        max?: number;
+        /** @description [Filter] Only arena tournaments in this current state.
+         *      */
+        status?: components["schemas"]["ArenaStatusName"] & unknown;
+        /** @description [Filter] Only arena tournaments created by a given user.
+         *      */
+        createdBy?: string;
+        /** @description [Filter] Only arena tournaments with a given name.
+         *      */
+        name?: string;
+      };
+      header?: never;
+      path: {
+        /** @description ID of the team */
+        teamId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of Arena tournaments of a team. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        GameEventInfo: {
-            fullId: string;
-            gameId: string;
-            fen?: string;
-            color?: components["schemas"]["GameColor"];
-            lastMove?: string;
-            source?: components["schemas"]["GameSource"];
-            status?: components["schemas"]["GameStatus"];
+        content: {
+          "application/x-ndjson": components["schemas"]["ArenaTournament"];
+        };
+      };
+    };
+  };
+  teamIdJoin: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        teamId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @description Required if team manually reviews admission requests. */
+          message?: string;
+          /** @description Optional password, if the team requires one. */
+          password?: string;
+        };
+      };
+    };
+    responses: {
+      /** @description The request to join a team was successfully sent. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+    };
+  };
+  teamIdQuit: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        teamId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The logged in user has successfully left the team. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+    };
+  };
+  teamRequests: {
+    parameters: {
+      query?: {
+        /** @description Get the declined join requests */
+        declined?: boolean;
+      };
+      header?: never;
+      path: {
+        teamId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of pending join requests on your team */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TeamRequestWithUser"][];
+        };
+      };
+    };
+  };
+  teamRequestAccept: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        teamId: string;
+        userId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The member has been added to the team. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+    };
+  };
+  teamRequestDecline: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        teamId: string;
+        userId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The join request has been declined and is no longer pending. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+    };
+  };
+  teamIdKickUserId: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        teamId: string;
+        userId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The member has been kicked from the team. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+    };
+  };
+  teamIdPmAll: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        teamId: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @description The message to send to all your team members. */
+          message?: string;
+        };
+      };
+    };
+    responses: {
+      /** @description The message has successfully been sent to all team members. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The sending of message to all team members has failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  streamerLive: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of live streamers and their respective information. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": (components["schemas"]["LightUser"] & {
+            stream?: {
+              /** @enum {string} */
+              service?: "twitch" | "youTube";
+              /** @description The stream title */
+              status?: string;
+              lang?: string;
+            };
+            streamer?: {
+              name?: string;
+              headline?: string;
+              description?: string;
+              /** Format: uri */
+              twitch?: string;
+              /** Format: uri */
+              youTube?: string;
+              /** Format: uri */
+              image?: string;
+            };
+          })[];
+        };
+      };
+    };
+  };
+  apiCrosstable: {
+    parameters: {
+      query?: {
+        /** @description Whether to get the current match data, if any */
+        matchup?: boolean;
+      };
+      header?: never;
+      path: {
+        user1: string;
+        user2: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The crosstable of the two users. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Crosstable"];
+        };
+      };
+    };
+  };
+  apiPlayerAutocomplete: {
+    parameters: {
+      query: {
+        /** @description The beginning of a username */
+        term: string;
+        /** @description - `false` returns an array of usernames
+         *     - `true` returns an object with matching users
+         *      */
+        object?: boolean;
+        /** @description - `false` returns an array of usernames
+         *     - `true` returns an array of usernames with preferred casing
+         *      */
+        names?: boolean;
+        /** @description Returns followed players matching `term` if any, else returns other players.
+         *     Requires [OAuth](#tag/OAuth).
+         *      */
+        friend?: boolean;
+        /** @description Search within a team.
+         *     Use team ID/slug.
+         *      */
+        team?: string;
+        /** @description Search within a arena tournament.
+         *     Use tournament ID.
+         *      */
+        tour?: string;
+        /** @description Search within a Swiss tournament.
+         *      */
+        swiss?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description An array of players which usernames start with the provided term. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json":
+            | string[]
+            | {
+                result?: components["schemas"]["LightUserOnline"][];
+              };
+        };
+      };
+    };
+  };
+  readNote: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of notes you have added for this user */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["UserNote"][];
+        };
+      };
+    };
+  };
+  writeNote: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @description The contents of the note */
+          text: string;
+        };
+      };
+    };
+    responses: {
+      /** @description The note was successfully added. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+    };
+  };
+  apiUserFollowing: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of users followed by a user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["UserExtended"];
+        };
+      };
+    };
+  };
+  followUser: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The player was successfully added. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+    };
+  };
+  unfollowUser: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The player was successfully removed. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+    };
+  };
+  blockUser: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The player was successfully added. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+    };
+  };
+  unblockUser: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The player was successfully removed. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+    };
+  };
+  apiStreamEvent: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The stream of events reaching the logged in user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson":
+            | components["schemas"]["GameStartEvent"]
+            | components["schemas"]["GameFinishEvent"]
+            | components["schemas"]["ChallengeEvent"]
+            | components["schemas"]["ChallengeCanceledEvent"]
+            | components["schemas"]["ChallengeDeclinedEvent"];
+        };
+      };
+    };
+  };
+  apiBoardSeek: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Parameters of the seek */
+    requestBody?: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /**
+           * @description Whether the game is rated and impacts players ratings.
+           * @default false
+           * @example true
+           */
+          rated?: boolean;
+          variant?: components["schemas"]["VariantKey"];
+          /** @description The rating range of potential opponents. Better left empty.
+           *     Example: 1500-1800
+           *      */
+          ratingRange?: string;
+        } & (
+          | {
+              /**
+               * @description Clock initial time in minutes. Required for real-time seeks.
+               * @example 15
+               */
+              time: number;
+              /**
+               * @description Clock increment in seconds. Required for real-time seeks.
+               * @example 15
+               */
+              increment: number;
+              /**
+               * @description The color to play. Better left empty to automatically get 50% white.
+               * @default random
+               * @enum {string}
+               */
+              color?: "random" | "white" | "black";
+            }
+          | {
+              /**
+               * @description Days per turn. Required for correspondence seeks.
+               * @enum {integer}
+               */
+              days: 1 | 2 | 3 | 5 | 7 | 10 | 14;
+            }
+        );
+      };
+    };
+    responses: {
+      /** @description The seek was successfully created. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            id: string;
+          };
+          "application/x-ndjson": unknown;
+        };
+      };
+      /** @description The creation of the seek failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  boardGameStream: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The stream of the game. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson":
+            | components["schemas"]["GameFullEvent"]
+            | components["schemas"]["GameStateEvent"]
+            | components["schemas"]["ChatLineEvent"]
+            | components["schemas"]["OpponentGoneEvent"];
+        };
+      };
+      /** @description The game was not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["NotFound"];
+        };
+      };
+    };
+  };
+  boardGameMove: {
+    parameters: {
+      query?: {
+        /** @description Whether to offer (or agree to) a draw */
+        offeringDraw?: boolean;
+      };
+      header?: never;
+      path: {
+        gameId: string;
+        /** @description The move to play, in UCI format */
+        move: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The move was successfully made. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The move failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  boardGameChatGet: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The messages posted in the chat. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["GameChat"];
+        };
+      };
+    };
+  };
+  boardGameChatPost: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @enum {string} */
+          room: "player" | "spectator";
+          /** @example Thank you for the game! */
+          text: string;
+        };
+      };
+    };
+    responses: {
+      /** @description The message was successfully posted in the chat. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The posting of the message in the chat failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  boardGameAbort: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The game successfully aborted. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The abortion of the game failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  boardGameResign: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The game was successfully resigned. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The resigning from the game failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  boardGameDraw: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+        accept: boolean | "yes";
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The draw offer was successfully sent. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The draw offering failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  boardGameTakeback: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+        accept: boolean | "yes";
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The takeback offer was successfully sent. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The takeback offering failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  boardGameClaimVictory: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The victory was successfully claimed. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The victory claim has failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  boardGameBerserk: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The player successfully went berserk. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The berserk has failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  apiBotOnline: {
+    parameters: {
+      query?: {
+        /** @description How many bot users to fetch */
+        nb?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of online bot users */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["User"];
+        };
+      };
+    };
+  };
+  botAccountUpgrade: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The bot account was successfully upgraded. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The upgrade of the bot account failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  botGameStream: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The stream of the bot game. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson":
+            | components["schemas"]["GameFullEvent"]
+            | components["schemas"]["GameStateEvent"]
+            | components["schemas"]["ChatLineEvent"]
+            | components["schemas"]["OpponentGoneEvent"];
+        };
+      };
+      /** @description The bot game was not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["NotFound"];
+        };
+      };
+    };
+  };
+  botGameMove: {
+    parameters: {
+      query?: {
+        /** @description Whether to offer (or agree to) a draw */
+        offeringDraw?: boolean;
+      };
+      header?: never;
+      path: {
+        gameId: string;
+        /** @description The move to play, in UCI format */
+        move: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The bot move was successfully made. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The bot move failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  botGameChatGet: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The messages posted in the chat. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["GameChat"];
+        };
+      };
+    };
+  };
+  botGameChat: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @enum {string} */
+          room: "player" | "spectator";
+          /** @example Thank you for the game! */
+          text: string;
+        };
+      };
+    };
+    responses: {
+      /** @description The message was successfully posted in chat. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The posting of the  message in chat failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  botGameAbort: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The game was successfully aborted. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The abortion of the game failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  botGameResign: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The game was successfully resigned from. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description Resigning the game failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  botGameDraw: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+        accept: boolean | "yes";
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The draw offer was successfully sent. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The draw offering failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  botGameTakeback: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+        accept: boolean | "yes";
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The takeback offer was successfully sent. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The takeback offering failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  botGameClaimVictory: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The victory was successfully claimed. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The victory claim has failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  challengeList: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of challenges created by or targeted at the logged in user. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            /** @description Incoming challenges i.e. targeted at you */
+            in?: components["schemas"]["ChallengeJson"][];
+            /** @description Outgoing challenges i.e. created by you */
+            out?: components["schemas"]["ChallengeJson"][];
+          };
+        };
+      };
+    };
+  };
+  challengeCreate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        username: string;
+      };
+      cookie?: never;
+    };
+    /** @description Parameters of the challenge */
+    requestBody?: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /**
+           * @description Game is rated and impacts players ratings
+           * @default false
+           */
+          rated?: boolean;
+          /**
+           * @description Clock initial time in seconds. If empty, a correspondence game is created. Valid values are 0, 15, 30, 45, 60, 90, and any multiple of 60 up to 10800 (3 hours).
+           * @example 300
+           */
+          "clock.limit"?: number;
+          /**
+           * @description Clock increment in seconds. If empty, a correspondence game is created.
+           * @example 1
+           */
+          "clock.increment"?: number;
+          /**
+           * @description Days per move, for correspondence games. Clock settings must be omitted.
+           * @enum {integer}
+           */
+          days?: 1 | 2 | 3 | 5 | 7 | 10 | 14;
+          /**
+           * @description Which color you get to play
+           * @default random
+           * @enum {string}
+           */
+          color?: "random" | "white" | "black";
+          variant?: components["schemas"]["VariantKey"];
+          fen?: components["schemas"]["FromPositionFEN"];
+          /** @description If set, the response is streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+           *     The challenge is kept alive until the connection is closed by the client.
+           *     When the challenge is accepted, declined or canceled, a message of the form `{"done":"accepted"}` is sent,
+           *     then the connection is closed by the server.
+           *     If not set, the response is not streamed, and the challenge expires after 20s if not accepted.
+           *      */
+          keepAliveStream?: boolean;
+          /**
+           * @description Extra game rules separated by commas.
+           *     Example: `noAbort,noRematch`
+           *
+           * @enum {string}
+           */
+          rules?:
+            | "noAbort"
+            | "noRematch"
+            | "noGiveTime"
+            | "noClaimWin"
+            | "noEarlyDraw";
+        };
+      };
+    };
+    responses: {
+      /** @description The challenge was successfully created. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ChallengeJson"];
+        };
+      };
+      /** @description The creation of the challenge failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  challengeShow: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The challenge ID */
+        challengeId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The challenge for that ID. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ChallengeJson"];
+        };
+      };
+    };
+  };
+  challengeAccept: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        challengeId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The challenge was successfully accepted. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The challenge to accept was not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["NotFound"];
+        };
+      };
+    };
+  };
+  challengeDecline: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        challengeId: string;
+      };
+      cookie?: never;
+    };
+    /** @description Details related to decline of challenge */
+    requestBody?: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /**
+           * @description Reason challenge was declined. It will be translated to the player's language. See [the full list in the translation file](https://github.com/ornicar/lila/blob/master/translation/source/challenge.xml#L14).
+           * @enum {string}
+           */
+          reason?:
+            | "generic"
+            | "later"
+            | "tooFast"
+            | "tooSlow"
+            | "timeControl"
+            | "rated"
+            | "casual"
+            | "standard"
+            | "variant"
+            | "noBot"
+            | "onlyBot";
+        };
+      };
+    };
+    responses: {
+      /** @description The challenge was successfully declined. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The challenge to decline was not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["NotFound"];
+        };
+      };
+    };
+  };
+  challengeCancel: {
+    parameters: {
+      query?: {
+        /** @description Optional `challenge:write` token of the opponent. If set, the game can be canceled even if both players have moved. */
+        opponentToken?: string;
+      };
+      header?: never;
+      path: {
+        challengeId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The challenge was successfully cancelled. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The challenge to cancel was not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["NotFound"];
+        };
+      };
+    };
+  };
+  challengeAi: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Parameters of the game */
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @description AI strength */
+          level: number;
+          /**
+           * @description Clock initial time in seconds. If empty, a correspondence game is created.
+           * @example 300
+           */
+          "clock.limit"?: number;
+          /**
+           * @description Clock increment in seconds. If empty, a correspondence game is created.
+           * @example 1
+           */
+          "clock.increment"?: number;
+          /**
+           * @description Days per move, for correspondence games. Clock settings must be omitted.
+           * @enum {integer}
+           */
+          days?: 1 | 2 | 3 | 5 | 7 | 10 | 14;
+          /**
+           * @description Which color you get to play
+           * @default random
+           * @enum {string}
+           */
+          color?: "random" | "white" | "black";
+          variant?: components["schemas"]["VariantKey"];
+          fen?: components["schemas"]["FromPositionFEN"];
+        };
+      };
+    };
+    responses: {
+      /** @description The game with Lichess AI was successfully started. */
+      201: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            id?: string;
             variant?: components["schemas"]["Variant"];
             speed?: components["schemas"]["Speed"];
-            perf?: string;
+            perf?: components["schemas"]["PerfType"];
             rated?: boolean;
-            hasMoved?: boolean;
-            opponent?: components["schemas"]["GameEventOpponent"];
-            isMyTurn?: boolean;
-            secondsLeft?: number;
-            compat?: components["schemas"]["GameCompat"];
-            id?: string;
-        };
-        GameStartEvent: {
-            /** @constant */
-            type?: "gameStart";
-            game?: components["schemas"]["GameEventInfo"];
-        };
-        GameFinishEvent: {
-            /** @constant */
-            type?: "gameFinish";
-            game?: components["schemas"]["GameEventInfo"];
-        };
-        /** @enum {string} */
-        ChallengeStatus: "created" | "offline" | "canceled" | "declined" | "accepted";
-        ChallengeUser: {
-            id: string;
-            name: string;
-            rating?: number;
-            title?: components["schemas"]["Title"] | null;
-            flair?: components["schemas"]["Flair"];
-            patron?: boolean;
-            provisional?: boolean;
-            online?: boolean;
-            lag?: number;
-        };
-        TimeControl: {
-            /** @constant */
-            type?: "clock";
-            limit?: number;
-            increment?: number;
-            /** @example 5+2 */
-            show?: string;
-        } | {
-            /** @constant */
-            type?: "correspondence";
-            daysPerTurn?: number;
-        } | {
-            /** @constant */
-            type?: "unlimited";
-        };
-        /** @example {
-         *       "id": "H9fIRZUk",
-         *       "url": "https://lichess.org/H9fIRZUk",
-         *       "status": "created",
-         *       "challenger": {
-         *         "id": "bot1",
-         *         "name": "Bot1",
-         *         "rating": 1500,
-         *         "title": "BOT",
-         *         "provisional": true,
-         *         "online": true,
-         *         "lag": 4
-         *       },
-         *       "destUser": {
-         *         "id": "bobby",
-         *         "name": "Bobby",
-         *         "rating": 1635,
-         *         "title": "GM",
-         *         "provisional": true,
-         *         "online": true,
-         *         "lag": 4
-         *       },
-         *       "variant": {
-         *         "key": "standard",
-         *         "name": "Standard",
-         *         "short": "Std"
-         *       },
-         *       "rated": true,
-         *       "speed": "rapid",
-         *       "timeControl": {
-         *         "type": "clock",
-         *         "limit": 600,
-         *         "increment": 0,
-         *         "show": "10+0"
-         *       },
-         *       "color": "random",
-         *       "finalColor": "black",
-         *       "perf": {
-         *         "icon": "",
-         *         "name": "Rapid"
-         *       },
-         *       "direction": "out"
-         *     } */
-        ChallengeJson: {
-            id: string;
-            /** Format: uri */
-            url: string;
-            status: components["schemas"]["ChallengeStatus"];
-            challenger: components["schemas"]["ChallengeUser"];
-            destUser: components["schemas"]["ChallengeUser"] | null;
-            variant: components["schemas"]["Variant"];
-            rated: boolean;
-            speed: components["schemas"]["Speed"];
-            timeControl: components["schemas"]["TimeControl"];
-            /** @enum {string} */
-            color: "white" | "black" | "random";
-            finalColor?: components["schemas"]["GameColor"];
-            perf: {
-                icon?: string;
-                name?: string;
-            };
-            /** @enum {string} */
-            direction?: "in" | "out";
-            initialFen?: string;
-        };
-        ChallengeEvent: {
-            /** @constant */
-            type: "challenge";
-            challenge: components["schemas"]["ChallengeJson"];
-            compat?: components["schemas"]["GameCompat"];
-        };
-        ChallengeCanceledEvent: {
-            /** @constant */
-            type?: "challengeCanceled";
-            challenge?: components["schemas"]["ChallengeJson"];
-        };
-        ChallengeDeclinedJson: {
-            /** @description Human readable, possibly translated reason why the challenge was declined. */
-            declineReason: string;
-            /**
-             * @description Untranslated, computer-matchable reason why the challenge was declined.
-             * @enum {string}
-             */
-            declineReasonKey: "generic" | "later" | "tooFast" | "tooSlow" | "timeControl" | "rated" | "casual" | "standard" | "variant" | "noBot" | "onlyBot";
-        } & components["schemas"]["ChallengeJson"];
-        ChallengeDeclinedEvent: {
-            /** @constant */
-            type?: "challengeDeclined";
-            challenge?: components["schemas"]["ChallengeDeclinedJson"];
-        };
-        GameEventPlayer: {
-            aiLevel?: number;
-            id: string;
-            name: string;
-            title?: components["schemas"]["Title"] | null;
-            rating?: number;
-            provisional?: boolean;
-        };
-        /** @example {
-         *       "type": "gameState",
-         *       "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
-         *       "wtime": 7598040,
-         *       "btime": 8395220,
-         *       "winc": 10000,
-         *       "binc": 10000,
-         *       "wdraw": false,
-         *       "bdraw": false,
-         *       "wtakeback": false,
-         *       "btakeback": false,
-         *       "status": "started"
-         *     } */
-        GameStateEvent: {
-            /** @constant */
-            type: "gameState";
-            /** @description Current moves in UCI format */
-            moves: string;
-            /** @description Integer of milliseconds White has left on the clock */
-            wtime: number;
-            /** @description Integer of milliseconds Black has left on the clock */
-            btime: number;
-            /** @description Integer of White Fisher increment. */
-            winc: number;
-            /** @description Integer of Black Fisher increment. */
-            binc: number;
-            status: components["schemas"]["GameStatusName"];
-            /** @description Color of the winner, if any */
-            winner?: string;
-            /** @description true if white is offering draw, else omitted */
-            wdraw?: boolean;
-            /** @description true if black is offering draw, else omitted */
-            bdraw?: boolean;
-            /** @description true if white is proposing takeback, else omitted */
-            wtakeback?: boolean;
-            /** @description true if black is proposing takeback, else omitted */
-            btakeback?: boolean;
-        };
-        /** @example {
-         *       "id": "BEOucQJo",
-         *       "variant": {
-         *         "key": "standard",
-         *         "name": "Standard",
-         *         "short": "Std"
-         *       },
-         *       "speed": "rapid",
-         *       "perf": {
-         *         "name": "Rapid"
-         *       },
-         *       "rated": false,
-         *       "createdAt": 1745112707998,
-         *       "white": {
-         *         "id": "bobby",
-         *         "name": "Bobby",
-         *         "title": null,
-         *         "rating": 1751
-         *       },
-         *       "black": {
-         *         "id": "mary",
-         *         "name": "Mary",
-         *         "title": null,
-         *         "rating": 1021
-         *       },
-         *       "initialFen": "startpos",
-         *       "clock": {
-         *         "initial": 900000,
-         *         "increment": 0
-         *       },
-         *       "type": "gameFull",
-         *       "state": {
-         *         "type": "gameState",
-         *         "moves": "d2d3",
-         *         "wtime": 900000,
-         *         "btime": 900000,
-         *         "winc": 0,
-         *         "binc": 0,
-         *         "status": "started"
-         *       }
-         *     } */
-        GameFullEvent: {
-            /** @constant */
-            type: "gameFull";
-            id: string;
-            variant: components["schemas"]["Variant"];
-            clock: {
-                /**
-                 * Format: int64
-                 * @description Initial time in milliseconds
-                 */
-                initial?: number;
-                /**
-                 * Format: int64
-                 * @description Increment time in milliseconds
-                 */
-                increment?: number;
-            };
-            speed: components["schemas"]["Speed"];
-            perf: {
-                /** @description Translated perf name (e.g. "Classical" or "Blitz") */
-                name?: string;
-            };
-            rated: boolean;
+            fen?: string;
+            turns?: number;
+            source?: components["schemas"]["GameSource"];
+            status?: components["schemas"]["GameStatus"];
             /** Format: int64 */
-            createdAt: number;
-            white: components["schemas"]["GameEventPlayer"];
-            black: components["schemas"]["GameEventPlayer"];
-            /** @default startpos */
-            initialFen: string;
-            state: components["schemas"]["GameStateEvent"];
-            tournamentId?: string;
+            createdAt?: number;
+            player?: components["schemas"]["GameColor"];
+            fullId?: string;
+          };
         };
-        /** @example {
-         *       "type": "chatLine",
-         *       "username": "thibault",
-         *       "text": "Good luck, have fun",
-         *       "room": "player"
-         *     } */
-        ChatLineEvent: {
-            /** @constant */
-            type: "chatLine";
-            /** @enum {string} */
-            room: "player" | "spectator";
-            username: string;
-            text: string;
+      };
+      /** @description The creation of a game with Lichess AI failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
         };
-        /** @example {
-         *       "type": "opponentGone",
-         *       "gone": true,
-         *       "claimWinInSeconds": 8
-         *     } */
-        OpponentGoneEvent: {
-            /** @constant */
-            type: "opponentGone";
-            gone: boolean;
-            claimWinInSeconds?: number;
+        content: {
+          "application/json": components["schemas"]["Error"];
         };
-        /** @example {
-         *       "error": "Not found."
-         *     } */
-        NotFound: {
-            error?: string;
+      };
+    };
+  };
+  challengeOpen: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Parameters of the game */
+    requestBody?: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /**
+           * @description Game is rated and impacts players ratings
+           * @default false
+           */
+          rated?: boolean;
+          /**
+           * @description Clock initial time in seconds. If empty, a correspondence game is created.
+           * @example 300
+           */
+          "clock.limit"?: number;
+          /**
+           * @description Clock increment in seconds. If empty, a correspondence game is created.
+           * @example 1
+           */
+          "clock.increment"?: number;
+          /**
+           * @description Days per turn. For correspondence challenges.
+           * @enum {integer}
+           */
+          days?: 1 | 2 | 3 | 5 | 7 | 10 | 14;
+          variant?: components["schemas"]["VariantKey"];
+          fen?: components["schemas"]["FromPositionFEN"];
+          /** @description Optional name for the challenge, that players will see on the challenge page. */
+          name?: string;
+          /**
+           * @description Extra game rules separated by commas.
+           *     Example: `noRematch,noGiveTime`
+           *     The `noAbort` rule is available for Lichess admins only
+           *
+           * @enum {string}
+           */
+          rules?:
+            | "noRematch"
+            | "noGiveTime"
+            | "noClaimWin"
+            | "noEarlyDraw"
+            | "noAbort";
+          /** @description Optional pair of usernames, separated by a comma.
+           *     If set, only these users will be allowed to join the game.
+           *     The first username gets the white pieces.
+           *     Example: `Username1,Username2`
+           *      */
+          users?: string;
+          /**
+           * Format: int64
+           * @description Timestamp in milliseconds to expire the challenge. Defaults to 24h after creation. Can't be more than 2 weeks after creation.
+           */
+          expiresAt?: number;
         };
-        /** @example [
-         *       {
-         *         "text": "Takeback sent",
-         *         "user": "lichess"
-         *       },
-         *       {
-         *         "text": "Takeback accepted",
-         *         "user": "lichess"
-         *       },
-         *       {
-         *         "text": "Good game, well played",
-         *         "user": "thibault"
-         *       }
-         *     ] */
-        GameChat: {
-            text?: string;
-            user?: string;
-        }[];
-        ChallengeOpenJson: {
-            id: string;
-            /** Format: uri */
-            url: string;
-            status: components["schemas"]["ChallengeStatus"];
-            challenger: null;
-            destUser: null;
-            variant: components["schemas"]["Variant"];
-            rated: boolean;
-            speed: components["schemas"]["Speed"];
-            timeControl: components["schemas"]["TimeControl"];
-            /** @enum {string} */
-            color: "white" | "black" | "random";
-            finalColor?: components["schemas"]["GameColor"];
-            perf: {
-                icon?: string;
-                name?: string;
-            };
-            initialFen?: string;
-            urlWhite: string;
-            urlBlack: string;
-            open: {
-                /** @description An optional array of two user ids. If set, only these users will be allowed to join the game. The first username gets the white pieces. */
-                userIds?: string[];
-            };
+      };
+    };
+    responses: {
+      /** @description The challenge was successfully created. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        /** @example {
-         *       "id": "RVAcwgg7",
-         *       "games": [
-         *         {
-         *           "id": "NKop9IyD",
-         *           "black": "lizen1",
-         *           "white": "thibault"
-         *         },
-         *         {
-         *           "id": "KT8374ut",
-         *           "black": "lizen3",
-         *           "white": "lizen2"
-         *         },
-         *         {
-         *           "id": "wInQr8Sk",
-         *           "black": "lizen5",
-         *           "white": "lizen4"
-         *         }
-         *       ],
-         *       "variant": "standard",
-         *       "clock": {
-         *         "increment": 0,
-         *         "limit": 300
-         *       },
-         *       "pairAt": 1612289869919,
-         *       "pairedAt": null,
-         *       "rated": false,
-         *       "startClocksAt": 1612200422971,
-         *       "scheduledAt": 1612203514628
-         *     } */
-        BulkPairing: unknown;
-        /** @example {
-         *       "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R",
-         *       "knodes": 106325,
-         *       "depth": 29,
-         *       "pvs": [
-         *         {
-         *           "moves": "d1e2 d8e7 a2a4 a7a6 b5c4 d7d6 d2d3 g8f6 c1e3 c6a5",
-         *           "cp": 41
-         *         },
-         *         {
-         *           "moves": "c2c3 a7a6 b5a4 g8f6 d2d3 b7b5 a4b3 h7h6 a2a4 c8b7",
-         *           "cp": 39
-         *         },
-         *         {
-         *           "moves": "d2d3 d8f6 c2c3 a7a6 b5a4 f8c5 d3d4 c5a7 c1e3 g8e7",
-         *           "cp": 37
-         *         }
-         *       ]
-         *     } */
-        CloudEval: {
-            depth: number;
-            fen: string;
-            knodes: number;
-            pvs: ({
-                /** @description Evaluation in centi-pawns, from White's point of view */
-                cp: number;
-                /** @description Variation in UCI notation */
-                moves: string;
-            } | {
-                /** @description Evaluation in moves to mate, from White's point of view */
-                mate: number;
-                /** @description Variation in UCI notation */
-                moves: string;
-            })[];
+        content: {
+          "application/json": components["schemas"]["ChallengeOpenJson"];
         };
+      };
+      /** @description The creation of the challenge failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  challengeStartClocks: {
+    parameters: {
+      query: {
+        /** @description OAuth token of a player */
+        token1: string;
+        /** @description OAuth token of the other player. Omit for AI games that have only one player. */
+        token2?: string;
+      };
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The clock of a game was successfully started. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+    };
+  };
+  bulkPairingList: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The list of bulk pairing the logged in user created. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BulkPairing"][];
+        };
+      };
+    };
+  };
+  bulkPairingCreate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Parameters of the pairings */
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @description OAuth tokens of all the players to pair, with the syntax `tokenOfWhitePlayerInGame1:tokenOfBlackPlayerInGame1,tokenOfWhitePlayerInGame2:tokenOfBlackPlayerInGame2,...`.
+           *     The 2 tokens of the players of a game are separated with `:`. The first token gets the white pieces. Games are separated with `,`.
+           *     Up to 1000 tokens can be sent, for a max of 500 games.
+           *     Each token must be included at most once.
+           *     Example: `token1:token2,token3:token4,token5:token6`
+           *      */
+          players?: string;
+          /** @description Clock initial time in seconds. Example: `600`
+           *      */
+          "clock.limit"?: number;
+          /** @description Clock increment in seconds. Example: `2`
+           *      */
+          "clock.increment"?: number;
+          /**
+           * @description Days per turn. For correspondence games only.
+           * @enum {integer}
+           */
+          days?: 1 | 2 | 3 | 5 | 7 | 10 | 14;
+          /**
+           * Format: int64
+           * @description Date at which the games will be created as a Unix timestamp in milliseconds.
+           *     Up to 7 days in the future.
+           *     Omit, or set to current date and time, to start the games immediately.
+           *     Example: `1612289869919`
+           *
+           */
+          pairAt?: number;
+          /**
+           * Format: int64
+           * @description Date at which the clocks will be automatically started as a Unix timestamp in milliseconds.
+           *     Up to 7 days in the future.
+           *     Note that the clocks can start earlier than specified, if players start making moves in the game.
+           *     If omitted, the clocks will not start automatically.
+           *     Example: `1612289869919`
+           *
+           */
+          startClocksAt?: number;
+          /**
+           * @description Game is rated and impacts players ratings
+           * @default false
+           */
+          rated?: boolean;
+          variant?: components["schemas"]["VariantKey"];
+          fen?: components["schemas"]["FromPositionFEN"];
+          /**
+           * @description Message that will be sent to each player, when the game is created.  It is sent from your user account.
+           *     `{opponent}` and `{game}` are placeholders that will be replaced with the opponent and the game URLs.
+           *     You can omit this field to send the default message,
+           *     but if you set your own message, it must at least contain the `{game}` placeholder.
+           *
+           * @default Your game with {opponent} is ready: {game}.
+           */
+          message?: string;
+          /**
+           * @description Extra game rules separated by commas.
+           *     Example: `noAbort,noRematch`
+           *
+           * @enum {string}
+           */
+          rules?:
+            | "noAbort"
+            | "noRematch"
+            | "noGiveTime"
+            | "noClaimWin"
+            | "noEarlyDraw";
+        };
+      };
+    };
+    responses: {
+      /** @description The bulk pairing has been successfully created. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BulkPairing"];
+        };
+      };
+      /** @description The creation of the bulk pairings failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  bulkPairingStartClocks: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The clocks of the games of a bulk pairing were successfully started. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The bulk pairing was not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["NotFound"];
+        };
+      };
+    };
+  };
+  bulkPairingGet: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The bulk pairing. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BulkPairing"];
+        };
+      };
+      /** @description The bulk pairing was not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["NotFound"];
+        };
+      };
+    };
+  };
+  bulkPairingDelete: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The bulk pairing was successfully deleted. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The bulk pairing to delete was not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["NotFound"];
+        };
+      };
+    };
+  };
+  bulkPairingIdGamesGet: {
+    parameters: {
+      query?: {
+        /** @description Include the PGN moves. */
+        moves?: boolean;
+        /** @description Include the full PGN within the JSON response, in a `pgn` field. */
+        pgnInJson?: boolean;
+        /** @description Include the PGN tags. */
+        tags?: boolean;
+        /** @description Include clock status when available.
+         *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
+         *      */
+        clocks?: boolean;
+        /** @description Include analysis evaluations and comments, when available.
+         *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
+         *     Or in an `analysis` JSON field, depending on the response type.
+         *      */
+        evals?: boolean;
+        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
+         *      */
+        accuracy?: boolean;
+        /** @description Include the opening name.
+         *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
+         *      */
+        opening?: boolean;
+        /** @description Plies which mark the beginning of the middlegame and endgame.
+         *     Only available in JSON
+         *      */
+        division?: boolean;
+        /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
+         *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
+         *      */
+        literate?: boolean;
+      };
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The representation of the games. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": components["schemas"]["GamePgn"];
+          "application/x-ndjson": components["schemas"]["GameJson"];
+        };
+      };
+    };
+  };
+  roundAddTime: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+        /** @description How many seconds to give */
+        seconds: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Time was successfully added to the opponent's clock. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+    };
+  };
+  adminChallengeTokens: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /**
+           * @description Usernames separated with commas
+           * @example thibault,neio,lizen2,lizen3
+           */
+          users: string;
+          /**
+           * @description User visible description of the token
+           * @example FIDE tournament XYZ
+           */
+          description: string;
+        };
+      };
+    };
+    responses: {
+      /** @description The `challenge:write` tokens of each user */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            [key: string]: string;
+          };
+        };
+      };
+      /** @description The creation of the tokens failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  inboxUsername: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        username: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @example Thank you for the game! */
+          text: string;
+        };
+      };
+    };
+    responses: {
+      /** @description The private message has been successfully sent. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The sending of the private message has failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  apiCloudEval: {
+    parameters: {
+      query: {
         /**
-         * @default chess
-         * @example chess
-         * @enum {string}
+         * @description FEN of the position
+         * @example r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3
          */
-        UciVariant: "chess" | "crazyhouse" | "antichess" | "atomic" | "horde" | "kingofthehill" | "racingkings" | "3check";
-        ExternalEngine: {
-            /** @description Unique engine registration ID. */
-            id: string;
-            /** @description Display name of the engine. */
-            name: string;
-            /** @description A secret token that can be used to
-             *     [*request* analysis](#tag/External-engine/operation/apiExternalEngineAnalyse)
-             *     from this external engine.
-             *      */
-            clientSecret: string;
-            /** @description The user this engine has been registered for. */
-            userId: string;
-            /** @description Maximum number of available threads. */
-            maxThreads: number;
-            /** @description Maximum available hash table size, in MiB. */
-            maxHash: number;
-            /** @description List of supported chess variants. */
-            variants: components["schemas"]["UciVariant"][];
-            /** @description Arbitrary data that the engine provider can use for identification
-             *     or bookkeeping.
-             *
-             *     Users can read this information, but updating it requires knowing
-             *     or changing the `providerSecret`.
-             *      */
-            providerData?: string | null;
+        fen: string;
+        /** @description Number of variations */
+        multiPv?: number;
+        /** @description Variant */
+        variant?: components["schemas"]["VariantKey"];
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The evaluation of the position. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        ExternalEngineRegistration: {
-            /**
-             * @description Display name of the engine.
-             * @example Stockfish 15
-             */
-            name: string;
-            /**
-             * @description Maximum number of available threads.
-             * @example 8
-             */
-            maxThreads: number;
-            /**
-             * @description Maximum available hash table size, in MiB.
-             * @example 2048
-             */
-            maxHash: number;
-            /** @description Optional list of supported chess variants. */
-            variants?: components["schemas"]["UciVariant"][];
-            /**
-             * @description A random token that can be used to
-             *     [wait for analysis requests](#tag/External-engine/operation/apiExternalEngineAcquire)
-             *     and provide analysis.
-             *
-             *     The engine provider should securely generate a random string.
-             *
-             *     The token will not be readable again, even by the user.
-             *
-             *     The analysis provider can register multiple engines with the same
-             *     token, even for different users, and wait for analysis requests
-             *     from any of them. In this case, the request must not be made via
-             *     CORS, so that the token is not revealed to any of the users.
-             *
-             * @example Dee3uwieZei9ahpaici9bee2yahsai0K
-             */
-            providerSecret: string;
-            /** @description Arbitrary data that the engine provider can use for identification
-             *     or bookkeeping.
-             *
-             *     Users can read this information, but updating it requires knowing
-             *     or changing the `providerSecret`.
-             *      */
-            providerData?: string;
+        content: {
+          "application/json": components["schemas"]["CloudEval"];
         };
-        ExternalEngineWorkCommon: {
-            /** @description Arbitary string that identifies the analysis session.
-             *     Providers may wish to clear the hash table between sessions.
-             *      */
-            sessionId: string;
-            /** @description Number of threads to use for analysis. */
-            threads: number;
-            /** @description Hash table size to use for analysis, in MiB. */
-            hash: number;
-            /** @description Requested number of principal variations. */
-            multiPv: number;
-            variant: components["schemas"]["UciVariant"];
-            /** @description Initial position of the game. */
-            initialFen: string;
-            /** @description List of moves played from the initial position, in UCI notation. */
-            moves: string[];
+      };
+      /** @description The position was not found in the cloud evaluation database. */
+      404: {
+        headers: {
+          [name: string]: unknown;
         };
-        ExternalEngineWork: ({
-            /** @description Amount of time to analyse the position, in milliseconds. */
-            movetime: number;
-        } & components["schemas"]["ExternalEngineWorkCommon"]) | ({
-            /** @description Analysis target depth */
-            depth: number;
-        } & components["schemas"]["ExternalEngineWorkCommon"]) | ({
-            /** @description Number of nodes to analyse in the position */
-            nodes: number;
-        } & components["schemas"]["ExternalEngineWorkCommon"]);
-        /** @example {
-         *       "error": "invalid_grant",
-         *       "error_description": "hash of code_verifier does not match code_challenge"
-         *     } */
-        OAuthError: {
-            /** @description The cause of the error. */
+        content: {
+          "application/json": {
+            /** @example No cloud evaluation available for that position */
             error?: string;
-            /** @description The reason why the request was rejected. */
-            error_description?: string;
+          };
         };
-        OpeningExplorerOpening: {
-            eco: string;
-            name: string;
+      };
+    };
+  };
+  apiExternalEngineList: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description A list of external engines. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        OpeningExplorerGamePlayer: {
-            name: string;
-            rating: number;
+        content: {
+          "application/json": components["schemas"]["ExternalEngine"][];
         };
-        OpeningExplorerMastersGame: {
+      };
+    };
+  };
+  apiExternalEngineCreate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description A new external engine registration. */
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["ExternalEngineRegistration"];
+      };
+    };
+    responses: {
+      /** @description The registered engine. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ExternalEngine"];
+        };
+      };
+    };
+  };
+  apiExternalEngineGet: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The external engine id.
+         * @example eei_aTKImBJOnv6j
+         */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description A registered engine. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ExternalEngine"];
+        };
+      };
+    };
+  };
+  apiExternalEnginePut: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The external engine id.
+         * @example eei_aTKImBJOnv6j
+         */
+        id: string;
+      };
+      cookie?: never;
+    };
+    /** @description A modified engine registration. */
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["ExternalEngineRegistration"];
+      };
+    };
+    responses: {
+      /** @description A registered engine. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ExternalEngine"];
+        };
+      };
+    };
+  };
+  apiExternalEngineDelete: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The external engine id.
+         * @example eei_aTKImBJOnv6j
+         */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Engine successfully deleted */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+    };
+  };
+  apiExternalEngineAnalyse: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The external engine id.
+         * @example eei_aTKImBJOnv6j
+         */
+        id: string;
+      };
+      cookie?: never;
+    };
+    /** @description Engine credentials and analysis request. */
+    requestBody: {
+      content: {
+        "application/json": {
+          /** @example ees_mdF2hK0hlKGSPeC6 */
+          clientSecret: string;
+          work: components["schemas"]["ExternalEngineWork"];
+        };
+      };
+    };
+    responses: {
+      /** @description Stream of analysis output */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": {
+            /** @description Number of milliseconds the search has been going on */
+            time: number;
+            /** @description Current search depth */
+            depth: number;
+            /** @description Number of nodes visited so far */
+            nodes: number;
+            /** @description Information about up to 5 pvs, with the primary pv at index 0. */
+            pvs: {
+              /** @description Current search depth of the pv */
+              depth: number;
+              /** @description Evaluation in centi-pawns, from White's point of view */
+              cp?: number;
+              /** @description Evaluation in signed moves to mate, from White's point of view */
+              mate?: number;
+              /** @description Variation in UCI notation */
+              moves: string[];
+            }[];
+          };
+        };
+      };
+    };
+  };
+  apiExternalEngineAcquire: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Provider credentials. */
+    requestBody: {
+      content: {
+        "application/json": {
+          /** @example Dee3uwieZei9ahpaici9bee2yahsai0K */
+          providerSecret?: string;
+        };
+      };
+    };
+    responses: {
+      /** @description Analysis has been requested */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            /** @example aingoohiJee2sius */
             id: string;
-            /** @enum {string|null} */
-            winner: "white" | "black" | null;
-            white: components["schemas"]["OpeningExplorerGamePlayer"];
-            black: components["schemas"]["OpeningExplorerGamePlayer"];
-            year: number;
-            month?: string;
+            work: components["schemas"]["ExternalEngineWork"];
+            engine: components["schemas"]["ExternalEngine"];
+          };
         };
-        OpeningExplorerMasters: {
-            opening: components["schemas"]["OpeningExplorerOpening"] | null;
-            white: number;
-            draws: number;
-            black: number;
-            moves: {
-                uci: string;
-                san: string;
-                averageRating: number;
-                white: number;
-                draws: number;
-                black: number;
-                game: components["schemas"]["OpeningExplorerMastersGame"] | null;
-                opening: components["schemas"]["OpeningExplorerOpening"] | null;
-            }[];
-            topGames: ({
-                uci: string;
-            } & components["schemas"]["OpeningExplorerMastersGame"])[];
+      };
+      /** @description No pending analysis */
+      204: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        OpeningExplorerLichessGame: {
-            id: string;
-            /** @enum {string|null} */
-            winner: "white" | "black" | null;
-            speed?: components["schemas"]["Speed"];
-            white: components["schemas"]["OpeningExplorerGamePlayer"];
-            black: components["schemas"]["OpeningExplorerGamePlayer"];
-            year: number;
-            month: string | null;
-        };
-        OpeningExplorerLichess: {
-            opening: components["schemas"]["OpeningExplorerOpening"] | null;
-            white: number;
-            draws: number;
-            black: number;
-            moves: {
-                uci: string;
-                san: string;
-                averageRating: number;
-                white: number;
-                draws: number;
-                black: number;
-                game: components["schemas"]["OpeningExplorerLichessGame"] | null;
-                opening: components["schemas"]["OpeningExplorerOpening"] | null;
-            }[];
-            topGames: ({
-                uci: string;
-            } & components["schemas"]["OpeningExplorerLichessGame"])[];
-            recentGames?: ({
-                uci: string;
-            } & components["schemas"]["OpeningExplorerLichessGame"])[];
-            history?: {
-                month: string;
-                white: number;
-                draws: number;
-                black: number;
-            }[];
-        };
-        OpeningExplorerPlayerGame: {
-            id: string;
-            /** @enum {string|null} */
-            winner: "white" | "black" | null;
-            speed: components["schemas"]["Speed"];
-            /** @enum {string} */
-            mode: "rated" | "casual";
-            white: components["schemas"]["OpeningExplorerGamePlayer"];
-            black: components["schemas"]["OpeningExplorerGamePlayer"];
-            year: number;
-            month: string;
-        };
-        /** @example {
-         *       "opening": {
-         *         "eco": "D00",
-         *         "name": "Queen's Pawn Game"
-         *       },
-         *       "queuePosition": 25,
-         *       "white": 366,
-         *       "draws": 23,
-         *       "black": 279,
-         *       "moves": [
-         *         {
-         *           "uci": "c2c4",
-         *           "san": "c4",
-         *           "averageOpponentRating": 1695,
-         *           "performance": 1744,
-         *           "white": 361,
-         *           "draws": 23,
-         *           "black": 272,
-         *           "game": null,
-         *           "opening": {
-         *             "eco": "D06",
-         *             "name": "Queen's Gambit"
-         *           }
-         *         },
-         *         {
-         *           "uci": "c2c3",
-         *           "san": "c3",
-         *           "averageOpponentRating": 1797,
-         *           "performance": 1797,
-         *           "white": 2,
-         *           "draws": 0,
-         *           "black": 2,
-         *           "game": null,
-         *           "opening": null
-         *         },
-         *         {
-         *           "uci": "e2e4",
-         *           "san": "e4",
-         *           "averageOpponentRating": 1762,
-         *           "performance": 1640,
-         *           "white": 1,
-         *           "draws": 0,
-         *           "black": 2,
-         *           "game": null,
-         *           "opening": {
-         *             "eco": "D00",
-         *             "name": "Blackmar-Diemer Gambit"
-         *           }
-         *         },
-         *         {
-         *           "uci": "g1f3",
-         *           "san": "Nf3",
-         *           "averageOpponentRating": 1497,
-         *           "performance": 1374,
-         *           "white": 1,
-         *           "draws": 0,
-         *           "black": 2,
-         *           "game": null,
-         *           "opening": {
-         *             "eco": "D02",
-         *             "name": "Queen's Pawn Game: Zukertort Variation"
-         *           }
-         *         },
-         *         {
-         *           "uci": "h2h4",
-         *           "san": "h4",
-         *           "averageOpponentRating": 1674,
-         *           "performance": 874,
-         *           "white": 0,
-         *           "draws": 0,
-         *           "black": 1,
-         *           "game": {
-         *             "id": "9vA24xBn",
-         *             "winner": "black",
-         *             "speed": "bullet",
-         *             "mode": "rated",
-         *             "black": {
-         *               "name": "MentalBlood",
-         *               "rating": 1674
-         *             },
-         *             "white": {
-         *               "name": "revoof",
-         *               "rating": 1657
-         *             },
-         *             "year": 2020,
-         *             "month": "2020-06"
-         *           },
-         *           "opening": null
-         *         }
-         *       ],
-         *       "recentGames": [
-         *         {
-         *           "uci": "c2c4",
-         *           "id": "ycZbWQZO",
-         *           "winner": "white",
-         *           "speed": "bullet",
-         *           "mode": "rated",
-         *           "black": {
-         *             "name": "Winavesh",
-         *             "rating": 1700
-         *           },
-         *           "white": {
-         *             "name": "revoof",
-         *             "rating": 1700
-         *           },
-         *           "year": 2024,
-         *           "month": "2024-11"
-         *         }
-         *       ]
-         *     } */
-        OpeningExplorerPlayer: {
-            opening: components["schemas"]["OpeningExplorerOpening"] | null;
-            /** @description Waiting for other players to be indexed first */
-            queuePosition: number;
-            white: number;
-            draws: number;
-            black: number;
-            moves: {
-                uci: string;
-                san: string;
-                averageOpponentRating: number;
-                performance: number;
-                white: number;
-                draws: number;
-                black: number;
-                game: components["schemas"]["OpeningExplorerPlayerGame"] | null;
-                opening: components["schemas"]["OpeningExplorerOpening"] | null;
-            }[];
-            recentGames: ({
-                uci: string;
-            } & components["schemas"]["OpeningExplorerPlayerGame"])[];
-        };
-        Move: {
-            /** @example h7h8q */
-            uci?: string;
-            /** @example h8=Q+ */
-            san?: string;
-            /** @enum {string} */
-            category?: "loss" | "unknown" | "syzygy-loss" | "maybe-loss" | "blessed-loss" | "draw" | "cursed-win" | "maybe-win" | "syzygy-win" | "win";
-            /** @description DTZ50'' with rounding or null if unknown */
-            dtz?: null | number;
-            /** @description DTZ50'' (only if guaranteed to be not rounded) or null if unknown
-             *      */
-            precise_dtz?: null | number;
-            /** @description Depth to Conversion (experimental) */
-            dtc?: null | number;
-            /** @description Depth To Mate (only for Standard positions with not more than 5 pieces) */
-            dtm?: null | number;
-            /** @description Depth To Win (only for Antichess positions with not more than 4 pieces) */
-            dtw?: null | number;
-            zeroing?: boolean;
-            checkmate?: boolean;
-            stalemate?: boolean;
-            variant_win?: boolean;
-            variant_loss?: boolean;
-            insufficient_material?: boolean;
-        };
-        /** @example {
-         *       "dtz": 1,
-         *       "precise_dtz": 1,
-         *       "dtc": null,
-         *       "dtm": 17,
-         *       "dtw": null,
-         *       "checkmate": false,
-         *       "stalemate": false,
-         *       "variant_win": false,
-         *       "variant_loss": false,
-         *       "insufficient_material": false,
-         *       "category": "win",
-         *       "moves": [
-         *         {
-         *           "uci": "h7h8q",
-         *           "san": "h8=Q+",
-         *           "dtz": -2,
-         *           "precise_dtz": -2,
-         *           "dtc": null,
-         *           "dtm": -16,
-         *           "dtw": null,
-         *           "zeroing": true,
-         *           "checkmate": false,
-         *           "stalemate": false,
-         *           "variant_win": false,
-         *           "variant_loss": false,
-         *           "insufficient_material": false,
-         *           "category": "loss"
-         *         }
-         *       ]
-         *     } */
-        TablebaseJson: {
-            /**
-             * @description `cursed-win` and `blessed-loss` means the 50-move rule prevents
-             *     the decisive result.
-             *
-             *     `syzygy-win` and `syzygy-loss` means exact result is unknown due to
-             *     [DTZ rounding](https://syzygy-tables.info/metrics#dtz), i.e., the
-             *     win or loss could also be prevented by the 50-move rule if
-             *     the user has deviated from the tablebase recommendation since the
-             *     last pawn move or capture.
-             *
-             *     `maybe-win` and `maybe-loss` means the result with regard to the
-             *     50-move rule is unknown because the DTC tablebase does not
-             *     guarantee to reach a zeroing move as soon as possible.
-             *
-             * @enum {string}
-             */
-            category?: "win" | "unknown" | "syzygy-win" | "maybe-win" | "cursed-win" | "draw" | "blessed-loss" | "maybe-loss" | "syzygy-loss" | "loss";
-            /** @description [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) or null if unknown
-             *      */
-            dtz?: null | number;
-            /** @description DTZ50'' (only if guaranteed to be not rounded) or null if unknown
-             *      */
-            precise_dtz?: null | number;
-            /** @description Depth to Conversion (experimental) */
-            dtc?: null | number;
-            /** @description Depth To Mate (only for Standard positions with not more than 5 pieces) */
-            dtm?: null | number;
-            /** @description Depth To Win (only for Antichess positions with not more than 4 pieces) */
-            dtw?: null | number;
-            checkmate?: boolean;
-            stalemate?: boolean;
-            /** @description Only in chess variants */
-            variant_win?: boolean;
-            /** @description Only in chess variants */
-            variant_loss?: boolean;
-            insufficient_material?: boolean;
-            /** @description Information about legal moves, best first */
-            moves?: components["schemas"]["Move"][];
-        };
+        content?: never;
+      };
     };
-    responses: never;
-    parameters: never;
-    requestBodies: never;
-    headers: never;
-    pathItems: never;
-}
-export type $defs = Record<string, never>;
-export interface operations {
-    apiUsersStatus: {
-        parameters: {
-            query: {
-                /**
-                 * @description User IDs separated by commas. Up to 100 IDs.
-                 * @example thibault,maia1,maia5
-                 */
-                ids: string;
-                /**
-                 * @description Also return the network signal of the player, when available.
-                 *     It ranges from 1 (poor connection, lag > 500ms) to 4 (great connection, lag < 150ms)
-                 *     Defaults to `false` to preserve server resources.
-                 *
-                 * @example true
-                 */
-                withSignal?: boolean;
-                /**
-                 * @description Also return the ID of the game being played, if any, for each player, in a `playingId` field.
-                 *     Defaults to `false` to preserve server resources.
-                 *
-                 * @example true
-                 */
-                withGameIds?: boolean;
-                /**
-                 * @description Also return the id, time control and variant of the game being played, if any, for each player, in a `playing` field.
-                 *     Defaults to `false` to preserve server resources. Disables `withGameIds`.
-                 *
-                 * @example true
-                 */
-                withGameMetas?: boolean;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of users and their respective statuses. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        id: string;
-                        name: string;
-                        flair?: components["schemas"]["Flair"];
-                        title?: components["schemas"]["Title"];
-                        online?: boolean;
-                        playing?: boolean;
-                        streaming?: boolean;
-                        patron?: boolean;
-                    }[];
-                };
-            };
-        };
+  };
+  apiExternalEngineSubmit: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
     };
-    player: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of variants with their respective top players. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Top10s"];
-                };
-            };
-        };
+    /** @description Analysis results */
+    requestBody: {
+      content: {
+        /** @example info multipv 1 depth 20 seldepth 30 time 1373 nodes 1494341 score cp 47 hashfull 594 nps 1088376 tbhits 0 pv d2d4 d7d5 c2c4 e7e6 b1c3 f8b4 c4d5 e6d5 g1f3 g8f6 c1g5 h7h6 g5f6 d8f6 d1b3 c7c5 e2e3 b8c6 d4c5 e8g8 f1d3 */
+        "text/plain": string;
+      };
     };
-    playerTopNbPerfType: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description How many users to fetch */
-                nb: number;
-                /** @description The speed or variant */
-                perfType: "ultraBullet" | "bullet" | "blitz" | "rapid" | "classical" | "chess960" | "crazyhouse" | "antichess" | "atomic" | "horde" | "kingOfTheHill" | "racingKings" | "threeCheck";
-            };
-            cookie?: never;
+    responses: {
+      /** @description Thanks */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        requestBody?: never;
-        responses: {
-            /** @description The list of top players for the variant. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/vnd.lichess.v3+json": components["schemas"]["Leaderboard"];
-                };
-            };
-        };
+        content?: never;
+      };
     };
-    apiUser: {
-        parameters: {
-            query?: {
-                /** @description Include user trophies */
-                trophies?: boolean;
-            };
-            header?: never;
-            path: {
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The information of the user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["UserExtended"];
-                };
-            };
-        };
+  };
+  oauth: {
+    parameters: {
+      query: {
+        /** @description Must be `code`. */
+        response_type: "code";
+        /**
+         * @description Arbitrary identifier that uniquely identifies your application.
+         * @example example.com
+         */
+        client_id: string;
+        /** @description The absolute URL that the user should be redirected to with the authorization result. */
+        redirect_uri: string;
+        /** @description Must be `S256`. */
+        code_challenge_method: "S256";
+        /** @description Compute `BASE64URL(SHA256(code_verifier))`. */
+        code_challenge: string;
+        /** @description Space separated list of requested OAuth scopes, if any. */
+        scope?: string;
+        /** @description Hint that you want the user to log in with a specific Lichess username. */
+        username?: string;
+        /** @description Arbitrary state that will be returned verbatim with the authorization result. */
+        state?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    apiUserRatingHistory: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                username: string;
-            };
-            cookie?: never;
+    requestBody?: never;
+    responses: {
+      /** @description Authorization prompt will be displayed to the user. */
+      200: {
+        headers: {
+          [name: string]: unknown;
         };
-        requestBody?: never;
-        responses: {
-            /** @description The rating history of the user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["RatingHistory"];
-                };
-            };
-        };
+        content?: never;
+      };
     };
-    apiUserPerf: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                username: string;
-                perf: components["schemas"]["PerfType"];
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The performance statistics of the user */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PerfStat"];
-                };
-            };
-        };
+  };
+  apiToken: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    apiUserActivity: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                username: string;
-            };
-            cookie?: never;
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /**
+           * @example authorization_code
+           * @constant
+           */
+          grant_type?: "authorization_code";
+          /**
+           * @description The authorization code that was sent in the `code` parameter to your `redirect_uri`.
+           * @example liu_iS1uOZg99Htmo58ex2jKgYziUfzsnAl0
+           */
+          code?: string;
+          /**
+           * @description A `code_challenge` was used to request the authorization code. This must be the `code_verifier` it was derived from.
+           * @example Ry1rbGdOMTQtUjhOc0lmTnFKak1LTHV0NjlRMll2aXYtTThkQnlJRkRpaGwyQjh0ZDNFdzFPSG9KUlY4M1NrRzJ5ZHhUdjVZR08zLTZOT3dCN2xLfjZOXzU2WHk4SENP
+           */
+          code_verifier?: string;
+          /**
+           * @description Must match the `redirect_uri` used to request the authorization code.
+           * @example http://example.com/
+           */
+          redirect_uri?: string;
+          /**
+           * @description Must match the `client_id` used to request the authorization code.
+           * @example example.com
+           */
+          client_id?: string;
         };
-        requestBody?: never;
-        responses: {
-            /** @description The activity feed of the user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["UserActivity"][];
-                };
-            };
-        };
+      };
     };
-    apiPuzzleDaily: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
+    responses: {
+      /** @description Access token successfully obtained. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        requestBody?: never;
-        responses: {
-            /** @description The daily puzzle. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PuzzleAndGame"];
-                };
-            };
+        content: {
+          "application/json": {
+            /** @example Bearer */
+            token_type: string;
+            /** @example lio_pLwAbN7lFPklzY2m8lTOI1DGApS84u57 */
+            access_token: string;
+            /** @example 31536000 */
+            expires_in: number;
+          };
         };
+      };
+      /** @description Failed to obtain access token. */
+      400: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["OAuthError"];
+        };
+      };
     };
-    apiPuzzleId: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The puzzle ID */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The requested puzzle. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PuzzleAndGame"];
-                };
-            };
-        };
+  };
+  apiTokenDelete: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    apiPuzzleNext: {
-        parameters: {
-            query?: {
-                /** @description The theme or opening to filter puzzles with.
-                 *
-                 *     Available themes are listed in [the lichess source code](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
-                 *      */
-                angle?: string;
-                /** @description The desired puzzle difficulty, relative to the authenticated user puzzle rating, or 1500 if anonymous. */
-                difficulty?: "easiest" | "easier" | "normal" | "harder" | "hardest";
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
+    requestBody?: never;
+    responses: {
+      /** @description Access token revoked. */
+      204: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        requestBody?: never;
-        responses: {
-            /** @description The requested puzzle. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PuzzleAndGame"];
-                };
-            };
-        };
+        content?: never;
+      };
     };
-    apiPuzzleActivity: {
-        parameters: {
-            query?: {
-                /** @description How many entries to download. Leave empty to download all activity. */
-                max?: number;
-                /** @description Download entries before this timestamp. Defaults to now. Use `before` and `max` for pagination. */
-                before?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The puzzle activity of the logged in user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["PuzzleActivity"];
-                };
-            };
-        };
+  };
+  tokenTest: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    apiPuzzleReplay: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description How many days to look back when aggregating puzzle results. 30 is sensible. */
-                days: number;
-                /** @description The theme or opening to filter puzzles with. */
-                theme: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The requested puzzles to replay. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PuzzleReplay"];
-                };
-            };
-            /** @description No puzzles to replay were found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @example No puzzles to replay */
-                        error?: string;
-                    };
-                };
-            };
-        };
+    /** @description OAuth tokens separated by commas. Up to 1000. */
+    requestBody: {
+      content: {
+        "text/plain": string;
+      };
     };
-    apiPuzzleDashboard: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description How many days to look back when aggregating puzzle results. 30 is sensible. */
-                days: number;
-            };
-            cookie?: never;
+    responses: {
+      /** @description The representation of the OAuth tokens. */
+      200: {
+        headers: {
+          [name: string]: unknown;
         };
-        requestBody?: never;
-        responses: {
-            /** @description The puzzle dashboard of the logged in user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PuzzleDashboard"];
-                };
-            };
+        content: {
+          "application/json": {
+            [key: string]: {
+              userId?: string;
+              /** @description Comma-separated list of scopes. Empty string if the token has no scopes. */
+              scopes?: string;
+              /** @description Unix-timestampe in milliseconds or null if the token never expires. */
+              expires?: number | null;
+            } | null;
+          };
         };
+      };
     };
-    apiStormDashboard: {
-        parameters: {
-            query?: {
-                /** @description How many days of history to return */
-                days?: number;
-            };
-            header?: never;
-            path: {
-                /** @description Username of the player */
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The storm dashboard of a player. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PuzzleStormDashboard"];
-                };
-            };
-        };
+  };
+  openingExplorerMaster: {
+    parameters: {
+      query?: {
+        /**
+         * @description FEN of the root position
+         * @example rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+         */
+        fen?: string;
+        /**
+         * @description Comma separated sequence of legal moves in UCI notation.
+         *     Play additional moves starting from `fen`.
+         *     Required to find an opening name, if `fen` is not an exact match
+         *     for a named position.
+         *
+         * @example d2d4,d7d5,c2c4,c7c6,c4d5
+         */
+        play?: string;
+        /** @description Include only games from this year or later */
+        since?: number;
+        /** @description Include only games from this year or earlier */
+        until?: number;
+        /** @description Number of most common moves to display */
+        moves?: number;
+        /** @description Number of top games to display */
+        topGames?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    racerPost: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
+    requestBody?: never;
+    responses: {
+      /** @description Opening statistics and game references for the position. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
         };
-        requestBody?: never;
-        responses: {
-            /** @description The new puzzle race. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PuzzleRacer"];
-                };
-            };
+        content: {
+          "application/json": components["schemas"]["OpeningExplorerMasters"];
         };
+      };
     };
-    apiUsers: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description User IDs separated by commas. */
-        requestBody: {
-            content: {
-                /** @example thibault,maia1,maia5 */
-                "text/plain": string;
-            };
-        };
-        responses: {
-            /** @description The list of users. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["User"][];
-                };
-            };
-        };
-    };
-    accountMe: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The public information about the logged in user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["UserExtended"];
-                };
-            };
-        };
-    };
-    accountEmail: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The email address of the logged in user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        email?: string;
-                    };
-                };
-            };
-        };
-    };
-    account: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The preferences of the logged in user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        prefs?: components["schemas"]["UserPreferences"];
-                        /** @example en-GB */
-                        language?: string;
-                    };
-                };
-            };
-        };
-    };
-    accountKid: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The kid mode status of the logged in user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        kid?: boolean;
-                    };
-                };
-            };
-        };
-    };
-    accountKidPost: {
-        parameters: {
-            query: {
-                /**
-                 * @description Kid mode status
-                 * @example true
-                 */
-                v: boolean;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The kid mode status was set successfully for the logged in user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    timeline: {
-        parameters: {
-            query?: {
-                /** @description Show events since this timestamp. */
-                since?: number;
-                /** @description Max number of events to fetch. */
-                nb?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The events in the timeline of the logged in user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Timeline"];
-                };
-            };
-        };
-    };
-    gamePgn: {
-        parameters: {
-            query?: {
-                /** @description Include the PGN moves. */
-                moves?: boolean;
-                /** @description Include the full PGN within the JSON response, in a `pgn` field. */
-                pgnInJson?: boolean;
-                /** @description Include the PGN tags. */
-                tags?: boolean;
-                /** @description Include clock status when available.
-                 *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
-                 *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-                 *      */
-                clocks?: boolean;
-                /** @description Include analysis evaluations and comments, when available.
-                 *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
-                 *     Or in an `analysis` JSON field, depending on the response type.
-                 *      */
-                evals?: boolean;
-                /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
-                 *      */
-                accuracy?: boolean;
-                /** @description Include the opening name.
-                 *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-                 *      */
-                opening?: boolean;
-                /** @description Plies which mark the beginning of the middlegame and endgame.
-                 *     Only available in JSON
-                 *      */
-                division?: boolean;
-                /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
-                 *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
-                 *      */
-                literate?: boolean;
-                /** @description Add a `bookmarked: true` JSON field when the logged in user has bookmarked the game.
-                 *     The response type must be set to `application/x-ndjson` by the request `Accept` header.
-                 *      */
-                withBookmarked?: boolean;
-            };
-            header?: never;
-            path: {
-                /** @description The game ID */
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The game representation. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": components["schemas"]["GamePgn"];
-                    "application/json": components["schemas"]["GameJson"];
-                };
-            };
-        };
-    };
-    apiUserCurrentGame: {
-        parameters: {
-            query?: {
-                /** @description Include the PGN moves. */
-                moves?: boolean;
-                /** @description Include the full PGN within the JSON response, in a `pgn` field. */
-                pgnInJson?: boolean;
-                /** @description Include the PGN tags. */
-                tags?: boolean;
-                /** @description Include clock status when available.
-                 *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
-                 *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-                 *      */
-                clocks?: boolean;
-                /** @description Include analysis evaluations and comments, when available.
-                 *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
-                 *     Or in an `analysis` JSON field, depending on the response type.
-                 *      */
-                evals?: boolean;
-                /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
-                 *      */
-                accuracy?: boolean;
-                /** @description Include the opening name.
-                 *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-                 *      */
-                opening?: boolean;
-                /** @description Plies which mark the beginning of the middlegame and endgame.
-                 *     Only available in JSON
-                 *      */
-                division?: boolean;
-                /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
-                 *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
-                 *      */
-                literate?: boolean;
-            };
-            header?: never;
-            path: {
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The ongoing (or last) game of a user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": components["schemas"]["GamePgn"];
-                    "application/json": components["schemas"]["GameJson"];
-                };
-            };
-        };
-    };
-    apiGamesUser: {
-        parameters: {
-            query?: {
-                /** @description Download games played since this timestamp. Defaults to account creation date. */
-                since?: number;
-                /** @description Download games played until this timestamp. Defaults to now. */
-                until?: number;
-                /** @description How many games to download. Leave empty to download all games. */
-                max?: number;
-                /** @description [Filter] Only games played against this opponent */
-                vs?: string;
-                /** @description [Filter] Only rated (`true`) or casual (`false`) games */
-                rated?: boolean;
-                /** @description [Filter] Only games in these speeds or variants.
-                 *     Multiple perf types can be specified, separated by a comma.
-                 *     Example: blitz,rapid,classical
-                 *      */
-                perfType?: components["schemas"]["PerfType"] & unknown;
-                /** @description [Filter] Only games played as this color. */
-                color?: "white" | "black";
-                /** @description [Filter] Only games with or without a computer analysis available */
-                analysed?: boolean;
-                /** @description Include the PGN moves. */
-                moves?: boolean;
-                /** @description Include the full PGN within the JSON response, in a `pgn` field. The response type must be set to `application/x-ndjson` by the request `Accept` header. */
-                pgnInJson?: boolean;
-                /** @description Include the PGN tags. */
-                tags?: boolean;
-                /** @description Include clock status when available.
-                 *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
-                 *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-                 *      */
-                clocks?: boolean;
-                /** @description Include analysis evaluations and comments, when available.
-                 *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
-                 *     Or in an `analysis` JSON field, depending on the response type.
-                 *      */
-                evals?: boolean;
-                /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
-                 *      */
-                accuracy?: boolean;
-                /** @description Include the opening name.
-                 *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-                 *      */
-                opening?: boolean;
-                /** @description Plies which mark the beginning of the middlegame and endgame.
-                 *     Only available in JSON
-                 *      */
-                division?: boolean;
-                /** @description Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API. */
-                ongoing?: boolean;
-                /** @description Include finished games. Set to `false` to only get ongoing games. */
-                finished?: boolean;
-                /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
-                 *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
-                 *      */
-                literate?: boolean;
-                /** @description Include the FEN notation of the last position of the game.
-                 *     The response type must be set to `application/x-ndjson` by the request `Accept` header.
-                 *      */
-                lastFen?: boolean;
-                /** @description Add a `bookmarked: true` JSON field when the logged in user has bookmarked the game.
-                 *     The response type must be set to `application/x-ndjson` by the request `Accept` header.
-                 *      */
-                withBookmarked?: boolean;
-                /** @description Sort order of the games. */
-                sort?: "dateAsc" | "dateDesc";
-            };
-            header?: never;
-            path: {
-                /** @description The user name. */
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The games of the user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": components["schemas"]["GamePgn"];
-                    "application/x-ndjson": components["schemas"]["GameJson"];
-                };
-            };
-        };
-    };
-    gamesExportIds: {
-        parameters: {
-            query?: {
-                /** @description Include the PGN moves. */
-                moves?: boolean;
-                /** @description Include the full PGN within the JSON response, in a `pgn` field. */
-                pgnInJson?: boolean;
-                /** @description Include the PGN tags. */
-                tags?: boolean;
-                /** @description Include clock status when available.
-                 *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
-                 *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-                 *      */
-                clocks?: boolean;
-                /** @description Include analysis evaluations and comments, when available.
-                 *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
-                 *     Or in an `analysis` JSON field, depending on the response type.
-                 *      */
-                evals?: boolean;
-                /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
-                 *      */
-                accuracy?: boolean;
-                /** @description Include the opening name.
-                 *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-                 *      */
-                opening?: boolean;
-                /** @description Plies which mark the beginning of the middlegame and endgame.
-                 *     Only available in JSON
-                 *      */
-                division?: boolean;
-                /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
-                 *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
-                 *      */
-                literate?: boolean;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Game IDs separated by commas. Up to 300. */
-        requestBody: {
-            content: {
-                /** @example TJxUmbWK,4OtIh2oh,ILwozzRZ */
-                "text/plain": string;
-            };
-        };
-        responses: {
-            /** @description The representation of the games. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": components["schemas"]["GamePgn"];
-                    "application/x-ndjson": components["schemas"]["GameJson"];
-                };
-            };
-        };
-    };
-    gamesByUsers: {
-        parameters: {
-            query?: {
-                /** @description Include the already started games at the beginning of the stream. */
-                withCurrentGames?: boolean;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Up to 300 user IDs separated by commas.
-         *     Example: `thibault,maia1,maia5`
+  };
+  openingExplorerLichess: {
+    parameters: {
+      query?: {
+        /** @description Variant */
+        variant?: components["schemas"]["VariantKey"];
+        /**
+         * @description FEN or EPD of the root position
+         * @example rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2
+         */
+        fen?: string;
+        /**
+         * @description Comma separated sequence of legal moves in UCI notation.
+         *     Play additional moves starting from `fen`.
+         *     Required to find an opening name, if `fen` is not an exact match
+         *     for a named position.
+         *
+         * @example d2d4,d7d5,c2c4,c7c6,c4d5
+         */
+        play?: string;
+        /** @description Comma separated list of game speeds to filter by */
+        speeds?: components["schemas"]["Speed"][];
+        /** @description Comma separated list of ratings groups to filter by.
+         *     Each group ranges from its value to the next higher
+         *     group in the enum (`0` from 0 to 999, `1000` from 1000 to 1199,
+         *     ..., `2500` from 2500 to any rating above).
          *      */
-        requestBody: {
-            content: {
-                "text/plain": string;
-            };
-        };
-        responses: {
-            /** @description The stream of the games played between the users. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["GameStream"];
-                };
-            };
-        };
-    };
-    gamesByIds: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                streamId: string;
-            };
-            cookie?: never;
-        };
-        /** @description Up to 500 or 1000 game IDs separated by commas.
-         *     Example: `gameId01,gameId02,gameId03`
-         *      */
-        requestBody: {
-            content: {
-                "text/plain": string;
-            };
-        };
-        responses: {
-            /** @description The stream of the games matching the requested IDs. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["GameStream"];
-                };
-            };
-        };
-    };
-    gamesByIdsAdd: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                streamId: string;
-            };
-            cookie?: never;
-        };
-        /** @description Up to 500 or 1000 game IDs separated by commas.
-         *     Example: `gameId04,gameId05,gameId06`
-         *      */
-        requestBody: {
-            content: {
-                "text/plain": string;
-            };
-        };
-        responses: {
-            /** @description The game IDs have been added to the stream. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    apiAccountPlaying: {
-        parameters: {
-            query?: {
-                /** @description Max number of games to fetch */
-                nb?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The ongoing games of the logged in user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        nowPlaying: {
-                            fullId: string;
-                            gameId: string;
-                            fen: string;
-                            /** @enum {string} */
-                            color: "white" | "black";
-                            lastMove: string;
-                            source: components["schemas"]["GameSource"];
-                            status?: components["schemas"]["GameStatusName"];
-                            variant: components["schemas"]["Variant"];
-                            speed: components["schemas"]["Speed"];
-                            perf: components["schemas"]["PerfType"];
-                            rated: boolean;
-                            hasMoved: boolean;
-                            opponent: {
-                                id: string;
-                                username: string;
-                                rating?: number;
-                                ratingDiff?: number;
-                                ai?: number;
-                            };
-                            isMyTurn: boolean;
-                            secondsLeft: number;
-                            tournamentId?: string;
-                            swissId?: string;
-                            /** @enum {string} */
-                            winner?: "white" | "black";
-                            ratingDiff?: number;
-                        }[];
-                    };
-                };
-            };
-        };
-    };
-    streamGame: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The stream of the game moves. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["MoveStream"];
-                };
-            };
-        };
-    };
-    gameImport: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description A single game to import */
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @description The PGN. It can contain only one game. Most standard tags are supported. */
-                    pgn?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description The game was successfully imported. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /**
-                         * @description The game ID
-                         * @example R6iLjwz5
-                         */
-                        id?: string;
-                        /**
-                         * Format: uri
-                         * @description The game URL
-                         */
-                        url?: string;
-                    };
-                };
-            };
-        };
-    };
-    apiImportedGamesUser: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Imported games in PGN format */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": components["schemas"]["GamePgn"];
-                };
-            };
-        };
-    };
-    apiExportBookmarks: {
-        parameters: {
-            query?: {
-                /** @description Download games bookmarked since this timestamp. Defaults to account creation date. */
-                since?: number;
-                /** @description Download games bookmarked until this timestamp. Defaults to now. */
-                until?: number;
-                /** @description How many bookmarked games to download. Leave empty to download all bookmarked games. */
-                max?: number;
-                /** @description Include the PGN moves. */
-                moves?: boolean;
-                /** @description Include the full PGN within the JSON response, in a `pgn` field. The response type must be set to `application/x-ndjson` by the request `Accept` header. */
-                pgnInJson?: boolean;
-                /** @description Include the PGN tags. */
-                tags?: boolean;
-                /** @description Include clock status when available.
-                 *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
-                 *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-                 *      */
-                clocks?: boolean;
-                /** @description Include analysis evaluations and comments, when available.
-                 *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
-                 *     Or in an `analysis` JSON field, depending on the response type.
-                 *      */
-                evals?: boolean;
-                /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
-                 *      */
-                accuracy?: boolean;
-                /** @description Include the opening name.
-                 *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-                 *      */
-                opening?: boolean;
-                /** @description Plies which mark the beginning of the middlegame and endgame.
-                 *     Only available in JSON
-                 *      */
-                division?: boolean;
-                /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
-                 *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
-                 *      */
-                literate?: boolean;
-                /** @description Include the FEN notation of the last position of the game.
-                 *     The response type must be set to `application/x-ndjson` by the request `Accept` header.
-                 *      */
-                lastFen?: boolean;
-                /** @description Sort order of the bookmarks. */
-                sort?: "dateAsc" | "dateDesc";
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The bookmarked games of the user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": components["schemas"]["GamePgn"];
-                    "application/x-ndjson": components["schemas"]["GameJson"];
-                };
-            };
-        };
-    };
-    tvChannels: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of games being played for each speed and variant. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        bot: components["schemas"]["TvGame"];
-                        blitz: components["schemas"]["TvGame"];
-                        racingKings: components["schemas"]["TvGame"];
-                        ultraBullet: components["schemas"]["TvGame"];
-                        bullet: components["schemas"]["TvGame"];
-                        classical: components["schemas"]["TvGame"];
-                        threeCheck: components["schemas"]["TvGame"];
-                        antichess: components["schemas"]["TvGame"];
-                        computer: components["schemas"]["TvGame"];
-                        horde: components["schemas"]["TvGame"];
-                        rapid: components["schemas"]["TvGame"];
-                        atomic: components["schemas"]["TvGame"];
-                        crazyhouse: components["schemas"]["TvGame"];
-                        chess960: components["schemas"]["TvGame"];
-                        kingOfTheHill: components["schemas"]["TvGame"];
-                        best: components["schemas"]["TvGame"];
-                    };
-                };
-            };
-        };
-    };
-    tvFeed: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The stream of the current TV game. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["TvFeed"];
-                };
-            };
-        };
-    };
-    tvChannelFeed: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The name of the channel in camel case. */
-                channel: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The stream of the current TV game of a TV channel. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["TvFeed"];
-                };
-            };
-        };
-    };
-    tvChannelGames: {
-        parameters: {
-            query?: {
-                /** @description Number of games to fetch. */
-                nb?: number;
-                /** @description Include the PGN moves. */
-                moves?: boolean;
-                /** @description Include the full PGN within the JSON response, in a `pgn` field. */
-                pgnInJson?: boolean;
-                /** @description Include the PGN tags. */
-                tags?: boolean;
-                /** @description Include clock status when available.
-                 *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
-                 *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-                 *      */
-                clocks?: boolean;
-                /** @description Include the opening name.
-                 *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-                 *      */
-                opening?: boolean;
-            };
-            header?: never;
-            path: {
-                /** @description The name of the channel in camel case. */
-                channel: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The representation of the games. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": components["schemas"]["GamePgn"];
-                    "application/x-ndjson": components["schemas"]["GameJson"];
-                };
-            };
-        };
-    };
-    apiTournament: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of current tournaments. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ArenaTournaments"];
-                };
-            };
-        };
-    };
-    apiTournamentPost: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Parameters of the tournament */
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @description The tournament name. Leave empty to get a random Grandmaster name */
-                    name?: string;
-                    /**
-                     * @description Clock initial time in minutes
-                     * @example 2
-                     * @enum {number}
-                     */
-                    clockTime: 0 | 0.25 | 0.5 | 0.75 | 1 | 1.5 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 10 | 15 | 20 | 25 | 30 | 40 | 50 | 60;
-                    /**
-                     * @description Clock increment in seconds
-                     * @example 1
-                     * @enum {integer}
-                     */
-                    clockIncrement: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 10 | 15 | 20 | 25 | 30 | 40 | 50 | 60;
-                    /**
-                     * @description How long the tournament lasts, in minutes
-                     * @example 60
-                     * @enum {integer}
-                     */
-                    minutes: 20 | 25 | 30 | 35 | 40 | 45 | 50 | 55 | 60 | 70 | 80 | 90 | 100 | 110 | 120 | 150 | 180 | 210 | 240 | 270 | 300 | 330 | 360 | 420 | 480 | 540 | 600 | 720;
-                    /**
-                     * @description How long to wait before starting the tournament, from now, in minutes
-                     * @default 5
-                     * @enum {integer}
-                     */
-                    waitMinutes?: 1 | 2 | 3 | 5 | 10 | 15 | 20 | 30 | 45 | 60;
-                    /**
-                     * Format: int64
-                     * @description Timestamp (in milliseconds) to start the tournament at a given date and time. Overrides the `waitMinutes` setting
-                     */
-                    startDate?: number;
-                    variant?: components["schemas"]["VariantKey"];
-                    /**
-                     * @description Games are rated and impact players ratings
-                     * @default true
-                     */
-                    rated?: boolean;
-                    position?: components["schemas"]["FromPositionFEN"];
-                    /**
-                     * @description Whether the players can use berserk. Only allowed if clockIncrement <= clockTime * 2
-                     * @default true
-                     */
-                    berserkable?: boolean;
-                    /**
-                     * @description After 2 wins, consecutive wins grant 4 points instead of 2.
-                     * @default true
-                     */
-                    streakable?: boolean;
-                    /**
-                     * @description Whether the players can discuss in a chat
-                     * @default true
-                     */
-                    hasChat?: boolean;
-                    /** @description Anything you want to tell players about the tournament */
-                    description?: string;
-                    /** @description Make the tournament private, and restrict access with a password.
-                     *     You can also [generate user-specific entry codes](https://github.com/lichess-org/api/tree/master/example/tournament-entry-code)
-                     *     based on this password.
-                     *      */
-                    password?: string;
-                    /** @description Set the ID of a team you lead to create a team battle.
-                     *     The other teams can be added using the [team battle edit endpoint](#operation/apiTournamentTeamBattlePost).
-                     *      */
-                    teamBattleByTeam?: string;
-                    /** @description Restrict entry to members of a team.
-                     *     The teamId is the last part of a team URL, e.g. `https://lichess.org/team/coders` has teamId = `coders`.
-                     *     Leave empty to let everyone join the tournament.
-                     *     Do not use this to create team battles, use `teamBattleByTeam` instead.
-                     *      */
-                    "conditions.teamMember.teamId"?: string;
-                    /**
-                     * @description Minimum rating to join. Leave empty to let everyone join the tournament.
-                     * @enum {integer}
-                     */
-                    "conditions.minRating.rating"?: 1000 | 1100 | 1200 | 1300 | 1400 | 1500 | 1600 | 1700 | 1800 | 1900 | 2000 | 2100 | 2200 | 2300 | 2400 | 2500 | 2600;
-                    /**
-                     * @description Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
-                     * @enum {integer}
-                     */
-                    "conditions.maxRating.rating"?: 2200 | 2100 | 2000 | 1900 | 1800 | 1700 | 1600 | 1500 | 1400 | 1300 | 1200 | 1100 | 1000 | 900 | 800;
-                    /**
-                     * @description Minimum number of rated games required to join.
-                     * @enum {integer}
-                     */
-                    "conditions.nbRatedGame.nb"?: 0 | 5 | 10 | 15 | 20 | 30 | 40 | 50 | 75 | 100 | 150 | 200;
-                    /** @description Predefined list of usernames that are allowed to join, separated by commas.
-                     *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
-                     *     Adding `%titled` to the list additionally allows any titled player to join.
-                     *     Example: `thibault,german11,%titled`
-                     *      */
-                    "conditions.allowList"?: string;
-                    /**
-                     * @description Whether bots are allowed to join the tournament.
-                     * @default false
-                     */
-                    "conditions.bots"?: boolean;
-                    /**
-                     * @description Minium account age in days required to join.
-                     * @enum {integer}
-                     */
-                    "conditions.accountAge"?: 1 | 3 | 7 | 14 | 30 | 60 | 90 | 180 | 365 | 730 | 1095;
-                };
-            };
-        };
-        responses: {
-            /** @description The Arena tournament has been successfully created. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ArenaTournamentFull"];
-                };
-            };
-            /** @description The creation of the Arena tournament failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    tournament: {
-        parameters: {
-            query?: {
-                /** @description Specify which page of player standings to view. */
-                page?: number;
-            };
-            header?: never;
-            path: {
-                /** @description The tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The information of the Arena tournament. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ArenaTournamentFull"];
-                };
-            };
-        };
-    };
-    apiTournamentUpdate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        /** @description Parameters of the tournament */
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @description The tournament name. Leave empty to get a random Grandmaster name */
-                    name?: string;
-                    /**
-                     * @description Clock initial time in minutes
-                     * @example 2
-                     * @enum {number}
-                     */
-                    clockTime: 0 | 0.25 | 0.5 | 0.75 | 1 | 1.5 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 10 | 15 | 20 | 25 | 30 | 40 | 50 | 60;
-                    /**
-                     * @description Clock increment in seconds
-                     * @example 1
-                     * @enum {integer}
-                     */
-                    clockIncrement: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 10 | 15 | 20 | 25 | 30 | 40 | 50 | 60;
-                    /**
-                     * @description How long the tournament lasts, in minutes
-                     * @example 60
-                     * @enum {integer}
-                     */
-                    minutes: 20 | 25 | 30 | 35 | 40 | 45 | 50 | 55 | 60 | 70 | 80 | 90 | 100 | 110 | 120 | 150 | 180 | 210 | 240 | 270 | 300 | 330 | 360 | 420 | 480 | 540 | 600 | 720;
-                    /**
-                     * @description How long to wait before starting the tournament, from now, in minutes
-                     * @default 5
-                     * @enum {integer}
-                     */
-                    waitMinutes?: 1 | 2 | 3 | 5 | 10 | 15 | 20 | 30 | 45 | 60;
-                    /**
-                     * Format: int64
-                     * @description Timestamp (in milliseconds) to start the tournament at a given date and time. Overrides the `waitMinutes` setting
-                     */
-                    startDate?: number;
-                    variant?: components["schemas"]["VariantKey"];
-                    /**
-                     * @description Games are rated and impact players ratings
-                     * @default true
-                     */
-                    rated?: boolean;
-                    position?: components["schemas"]["FromPositionFEN"];
-                    /**
-                     * @description Whether the players can use berserk. Only allowed if clockIncrement <= clockTime * 2
-                     * @default true
-                     */
-                    berserkable?: boolean;
-                    /**
-                     * @description After 2 wins, consecutive wins grant 4 points instead of 2.
-                     * @default true
-                     */
-                    streakable?: boolean;
-                    /**
-                     * @description Whether the players can discuss in a chat
-                     * @default true
-                     */
-                    hasChat?: boolean;
-                    /** @description Anything you want to tell players about the tournament */
-                    description?: string;
-                    /** @description Make the tournament private, and restrict access with a password */
-                    password?: string;
-                    /**
-                     * @description Minimum rating to join. Leave empty to let everyone join the tournament.
-                     * @enum {integer}
-                     */
-                    "conditions.minRating.rating"?: 1000 | 1100 | 1200 | 1300 | 1400 | 1500 | 1600 | 1700 | 1800 | 1900 | 2000 | 2100 | 2200 | 2300 | 2400 | 2500 | 2600;
-                    /**
-                     * @description Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
-                     * @enum {integer}
-                     */
-                    "conditions.maxRating.rating"?: 2200 | 2100 | 2000 | 1900 | 1800 | 1700 | 1600 | 1500 | 1400 | 1300 | 1200 | 1100 | 1000 | 900 | 800;
-                    /**
-                     * @description Minimum number of rated games required to join.
-                     * @enum {integer}
-                     */
-                    "conditions.nbRatedGame.nb"?: 0 | 5 | 10 | 15 | 20 | 30 | 40 | 50 | 75 | 100 | 150 | 200;
-                    /** @description Predefined list of usernames that are allowed to join, separated by commas.
-                     *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
-                     *     Adding `%titled` to the list additionally allows any titled player to join.
-                     *     Example: `thibault,german11,%titled`
-                     *      */
-                    "conditions.allowList"?: string;
-                    /**
-                     * @description Whether bots are allowed to join the tournament.
-                     * @default false
-                     */
-                    "conditions.bots"?: boolean;
-                    /**
-                     * @description Minium account age in days required to join.
-                     * @enum {integer}
-                     */
-                    "conditions.accountAge"?: 1 | 3 | 7 | 14 | 30 | 60 | 90 | 180 | 365 | 730 | 1095;
-                };
-            };
-        };
-        responses: {
-            /** @description The Arena tournament was successfully updated. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ArenaTournamentFull"];
-                };
-            };
-            /** @description The update of the Arena tournament failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    apiTournamentJoin: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        /** @description You may need these depending on the tournament to join */
-        requestBody?: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @description The tournament password, if one is required.
-                     *     Can also be a [user-specific entry code](https://github.com/lichess-org/api/tree/master/example/tournament-entry-code)
-                     *     generated and shared by the organizer.
-                     *      */
-                    password?: string;
-                    /** @description The team to join the tournament with, for team battle tournaments */
-                    team?: string;
-                    /**
-                     * @description If the tournament is started, attempt to pair the user,
-                     *     even if they are not connected to the tournament page.
-                     *     This expires after one minute, to avoid pairing a user who is long gone.
-                     *     You may call "join" again to extend the waiting.
-                     *
-                     * @default false
-                     */
-                    pairMeAsap?: boolean;
-                };
-            };
-        };
-        responses: {
-            /** @description The tournament was successfully joined. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description Joining the tournament failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    apiTournamentWithdraw: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The tournament was successfully paused or left. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description Pausing/leaving the tournament failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    apiTournamentTerminate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The tournament was successfully terminated. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description Terminating the tournament failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    apiTournamentTeamBattlePost: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The tournament ID */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @description All team IDs of the team battle, separated by commas.
-                     *     Make sure to always send the full list.
-                     *     Teams that are not in the list will be removed from the team battle.
-                     *     Example: `coders,zhigalko_sergei-fan-club,hhSwTKZv`
-                     *      */
-                    teams: string;
-                    /** @description Number team leaders per team. */
-                    nbLeaders: number;
-                };
-            };
-        };
-        responses: {
-            /** @description The team battle tournament was successfully updated. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ArenaTournamentFull"];
-                };
-            };
-            /** @description The update of the team battle tournament failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    gamesByTournament: {
-        parameters: {
-            query?: {
-                /** @description Only games of a particular player. Leave empty to fetch games of all players. */
-                player?: string;
-                /** @description Include the PGN moves. */
-                moves?: boolean;
-                /** @description Include the full PGN within the JSON response, in a `pgn` field. */
-                pgnInJson?: boolean;
-                /** @description Include the PGN tags. */
-                tags?: boolean;
-                /** @description Include clock status when available.
-                 *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
-                 *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-                 *      */
-                clocks?: boolean;
-                /** @description Include analysis evaluations and comments, when available.
-                 *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
-                 *     Or in an `analysis` JSON field, depending on the response type.
-                 *      */
-                evals?: boolean;
-                /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
-                 *      */
-                accuracy?: boolean;
-                /** @description Include the opening name.
-                 *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-                 *      */
-                opening?: boolean;
-                /** @description Plies which mark the beginning of the middlegame and endgame.
-                 *     Only available in JSON
-                 *      */
-                division?: boolean;
-            };
-            header?: never;
-            path: {
-                /** @description The tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of games of an Arena tournament. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": components["schemas"]["GamePgn"];
-                    "application/x-ndjson": components["schemas"]["GameJson"];
-                };
-            };
-        };
-    };
-    resultsByTournament: {
-        parameters: {
-            query?: {
-                /** @description Max number of players to fetch */
-                nb?: number;
-                /** @description Add a `sheet` field to the player document.
-                 *     It's an expensive server computation that slows down the stream.
-                 *      */
-                sheet?: boolean;
-            };
-            header?: never;
-            path: {
-                /** @description The tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The results of the Arena tournament. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": {
-                        rank: number;
-                        score: number;
-                        rating: number;
-                        username: string;
-                        performance: number;
-                        title?: components["schemas"]["Title"];
-                        team?: string;
-                        flair?: components["schemas"]["Flair"];
-                        sheet?: components["schemas"]["ArenaSheet"];
-                    };
-                };
-            };
-        };
-    };
-    teamsByTournament: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of teams of a team battle tournament, with their respective top players. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        id: string;
-                        teams: {
-                            rank: number;
-                            id: string;
-                            score: number;
-                            players: {
-                                user: components["schemas"]["LightUser"];
-                                score?: number;
-                            }[];
-                        }[];
-                    };
-                };
-            };
-        };
-    };
-    apiUserNameTournamentCreated: {
-        parameters: {
-            query?: {
-                /** @description Max number of tournaments to fetch */
-                nb?: number;
-                /** @description Include tournaments in the given status: "Created" (10), "Started" (20), "Finished" (30)
-                 *     You can add this parameter more than once to include tournaments in different statuses.
-                 *     Example: `?status=10&status=20`
-                 *      */
-                status?: 10 | 20 | 30;
-            };
-            header?: never;
-            path: {
-                /** @description The user whose created tournaments to fetch */
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of tournaments created by the user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["ArenaTournament"];
-                };
-            };
-        };
-    };
-    apiUserNameTournamentPlayed: {
-        parameters: {
-            query?: {
-                /** @description Max number of tournaments to fetch */
-                nb?: number;
-                /** @description Include the player performance rating in the response, at some cost for the server.
-                 *      */
-                performance?: boolean;
-            };
-            header?: never;
-            path: {
-                /** @description The user whose played tournaments to fetch */
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of tournaments played by the user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["ArenaTournamentPlayed"];
-                };
-            };
-        };
-    };
-    apiSwissNew: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description ID of the team */
-                teamId: string;
-            };
-            cookie?: never;
-        };
-        /** @description Parameters of the tournament */
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @description The tournament name. Leave empty to get a random Grandmaster name */
-                    name?: string;
-                    /**
-                     * @description Clock initial time in seconds
-                     * @example 300
-                     * @enum {number}
-                     */
-                    "clock.limit": 0 | 15 | 30 | 45 | 60 | 90 | 120 | 180 | 240 | 300 | 360 | 420 | 480 | 600 | 900 | 1200 | 1500 | 1800 | 2400 | 3000 | 3600 | 4200 | 4800 | 5400 | 6000 | 6600 | 7200 | 7800 | 8400 | 9000 | 9600 | 10200 | 10800;
-                    /**
-                     * @description Clock increment in seconds
-                     * @example 1
-                     */
-                    "clock.increment": number;
-                    /** @description Maximum number of rounds to play */
-                    nbRounds: number;
-                    /**
-                     * Format: int64
-                     * @description Timestamp in milliseconds to start the tournament at a given date and time. By default, it starts 10 minutes after creation.
-                     */
-                    startsAt?: number;
-                    /**
-                     * @description How long to wait between each round, in seconds.
-                     *     Set to 99999999 to manually schedule each round from the tournament UI.
-                     *     If empty or -1, a sensible value is picked automatically.
-                     *
-                     * @enum {integer}
-                     */
-                    roundInterval?: -1 | 5 | 10 | 20 | 30 | 45 | 60 | 120 | 180 | 300 | 600 | 900 | 1200 | 1800 | 2700 | 3600 | 86400 | 172800 | 604800 | 99999999;
-                    variant?: components["schemas"]["VariantKey"];
-                    position?: components["schemas"]["SwissFromPositionFEN"];
-                    /** @description Anything you want to tell players about the tournament */
-                    description?: string;
-                    /**
-                     * @description Games are rated and impact players ratings
-                     * @default true
-                     */
-                    rated?: boolean;
-                    /** @description Make the tournament private and restrict access with a password. */
-                    password?: string;
-                    /** @description Usernames of players that must not play together.
-                     *     Two usernames per line, separated by a space.
-                     *      */
-                    forbiddenPairings?: string;
-                    /** @description Manual pairings for the next round.
-                     *     Two usernames per line, separated by a space. Example:
-                     *     ```
-                     *     PlayerA PlayerB
-                     *     PlayerC PlayerD
-                     *     ```
-                     *     To give a bye (1 point) to a player instead of a pairing, add a line like so:
-                     *     ```
-                     *     PlayerE 1
-                     *     ```
-                     *     Missing players will be considered absent and get zero points.
-                     *      */
-                    manualPairings?: string;
-                    /**
-                     * @description Who can read and write in the chat.
-                     *     - 0  = No-one
-                     *     - 10 = Only team leaders
-                     *     - 20 = Only team members
-                     *     - 30 = All Lichess players
-                     *
-                     * @default 20
-                     */
-                    chatFor?: number;
-                    /**
-                     * @description Minimum rating to join. Leave empty to let everyone join the tournament.
-                     * @enum {integer}
-                     */
-                    "conditions.minRating.rating"?: 1000 | 1100 | 1200 | 1300 | 1400 | 1500 | 1600 | 1700 | 1800 | 1900 | 2000 | 2100 | 2200 | 2300 | 2400 | 2500 | 2600;
-                    /**
-                     * @description Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
-                     * @enum {integer}
-                     */
-                    "conditions.maxRating.rating"?: 2200 | 2100 | 2000 | 1900 | 1800 | 1700 | 1600 | 1500 | 1400 | 1300 | 1200 | 1100 | 1000 | 900 | 800;
-                    /** @description Minimum number of rated games required to join. */
-                    "conditions.nbRatedGame.nb"?: number;
-                    /**
-                     * @description Only let players join if they have played their last swiss game.
-                     *     If they failed to show up in a recent swiss event, they won't be able to enter yours.
-                     *     This results in a better swiss experience for the players who actually show up.
-                     *
-                     * @default false
-                     */
-                    "conditions.playYourGames"?: boolean;
-                    /** @description Predefined list of usernames that are allowed to join, separated by commas.
-                     *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
-                     *     Adding `%titled` to the list additionally allows any titled player to join.
-                     *     Example: `thibault,german11,%titled`
-                     *      */
-                    "conditions.allowList"?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description The Swiss tournament was successfully created. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SwissTournament"];
-                };
-            };
-            /** @description The creation of the Swiss tournament failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    swiss: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The Swiss tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The information of the Swiss tournament. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SwissTournament"];
-                };
-            };
-        };
-    };
-    apiSwissUpdate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        /** @description Parameters of the tournament */
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @description The tournament name. Leave empty to get a random Grandmaster name */
-                    name?: string;
-                    /**
-                     * @description Clock initial time in seconds
-                     * @example 300
-                     * @enum {number}
-                     */
-                    "clock.limit": 0 | 15 | 30 | 45 | 60 | 90 | 120 | 180 | 240 | 300 | 360 | 420 | 480 | 600 | 900 | 1200 | 1500 | 1800 | 2400 | 3000 | 3600 | 4200 | 4800 | 5400 | 6000 | 6600 | 7200 | 7800 | 8400 | 9000 | 9600 | 10200 | 10800;
-                    /**
-                     * @description Clock increment in seconds
-                     * @example 1
-                     */
-                    "clock.increment": number;
-                    /** @description Maximum number of rounds to play */
-                    nbRounds: number;
-                    /**
-                     * Format: int64
-                     * @description Timestamp in milliseconds to start the tournament at a given date and time. By default, it starts 10 minutes after creation.
-                     */
-                    startsAt?: number;
-                    /**
-                     * @description How long to wait between each round, in seconds.
-                     *     Set to 99999999 to manually schedule each round from the tournament UI, or [with the API](#tag/Swiss-tournaments/operation/apiSwissScheduleNextRound).
-                     *     If empty or -1, a sensible value is picked automatically.
-                     *
-                     * @enum {integer}
-                     */
-                    roundInterval?: -1 | 5 | 10 | 20 | 30 | 45 | 60 | 120 | 180 | 300 | 600 | 900 | 1200 | 1800 | 2700 | 3600 | 86400 | 172800 | 604800 | 99999999;
-                    variant?: components["schemas"]["VariantKey"];
-                    position?: components["schemas"]["SwissFromPositionFEN"];
-                    /** @description Anything you want to tell players about the tournament */
-                    description?: string;
-                    /**
-                     * @description Games are rated and impact players ratings
-                     * @default true
-                     */
-                    rated?: boolean;
-                    /** @description Make the tournament private and restrict access with a password. */
-                    password?: string;
-                    /** @description Usernames of players that must not play together.
-                     *     Two usernames per line, separated by a space.
-                     *      */
-                    forbiddenPairings?: string;
-                    /** @description Manual pairings for the next round.
-                     *     Two usernames per line, separated by a space.
-                     *     Present players without a valid pairing will be given a bye, which is worth 1 point.
-                     *     Forfeited players will get 0 points.
-                     *      */
-                    manualPairings?: string;
-                    /**
-                     * @description Who can read and write in the chat.
-                     *     - 0  = No-one
-                     *     - 10 = Only team leaders
-                     *     - 20 = Only team members
-                     *     - 30 = All Lichess players
-                     *
-                     * @default 20
-                     */
-                    chatFor?: number;
-                    /**
-                     * @description Minimum rating to join. Leave empty to let everyone join the tournament.
-                     * @enum {integer}
-                     */
-                    "conditions.minRating.rating"?: 1000 | 1100 | 1200 | 1300 | 1400 | 1500 | 1600 | 1700 | 1800 | 1900 | 2000 | 2100 | 2200 | 2300 | 2400 | 2500 | 2600;
-                    /**
-                     * @description Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
-                     * @enum {integer}
-                     */
-                    "conditions.maxRating.rating"?: 2200 | 2100 | 2000 | 1900 | 1800 | 1700 | 1600 | 1500 | 1400 | 1300 | 1200 | 1100 | 1000 | 900 | 800;
-                    /** @description Minimum number of rated games required to join. */
-                    "conditions.nbRatedGame.nb"?: number;
-                    /**
-                     * @description Only let players join if they have played their last swiss game.
-                     *     If they failed to show up in a recent swiss event, they won't be able to enter yours.
-                     *     This results in a better swiss experience for the players who actually show up.
-                     *
-                     * @default false
-                     */
-                    "conditions.playYourGames"?: boolean;
-                    /** @description Predefined list of usernames that are allowed to join, separated by commas.
-                     *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
-                     *     Adding `%titled` to the list additionally allows any titled player to join.
-                     *     Example: `thibault,german11,%titled`
-                     *      */
-                    "conditions.allowList"?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description The Swiss tournament was successfully updated. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SwissTournament"];
-                };
-            };
-            /** @description Updating the swiss failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description This user cannot update this Swiss. */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SwissUnauthorisedEdit"];
-                };
-            };
-        };
-    };
-    apiSwissScheduleNextRound: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        /** @description Parameters of the tournament */
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /**
-                     * Format: int64
-                     * @description Timestamp in milliseconds to start the next round at a given date and time.
-                     */
-                    date?: number;
-                };
-            };
-        };
-        responses: {
-            /** @description The Swiss tournament was successfully updated. */
-            204: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            /** @description Updating the swiss failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description This user cannot update this Swiss. */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SwissUnauthorisedEdit"];
-                };
-            };
-        };
-    };
-    apiSwissJoin: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        /** @description You may need these depending on the tournament to join */
-        requestBody?: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @description The tournament password, if one is required */
-                    password?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description The tournament was successfully joined. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description Joining the tournament failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    apiSwissWithdraw: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The tournament was successfully paused or left. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    apiSwissTerminate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The Swiss tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The Swiss tournament was successfully terminated. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description Terminating the Swiss tournament failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    swissTrf: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The TRF representation of a Swiss tournament. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "text/plain": string;
-                };
-            };
-        };
-    };
-    gamesBySwiss: {
-        parameters: {
-            query?: {
-                /** @description Only the games played by a given player */
-                player?: string;
-                /** @description Include the PGN moves. */
-                moves?: boolean;
-                /** @description Include the full PGN within the JSON response, in a `pgn` field. */
-                pgnInJson?: boolean;
-                /** @description Include the PGN tags. */
-                tags?: boolean;
-                /** @description Include clock status when available.
-                 *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
-                 *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-                 *      */
-                clocks?: boolean;
-                /** @description Include analysis evaluations and comments, when available.
-                 *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
-                 *     Or in an `analysis` JSON field, depending on the response type.
-                 *      */
-                evals?: boolean;
-                /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
-                 *      */
-                accuracy?: boolean;
-                /** @description Include the opening name.
-                 *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-                 *      */
-                opening?: boolean;
-                /** @description Plies which mark the beginning of the middlegame and endgame.
-                 *     Only available in JSON
-                 *      */
-                division?: boolean;
-            };
-            header?: never;
-            path: {
-                /** @description The tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of games of a Swiss tournament. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": components["schemas"]["GamePgn"];
-                    "application/x-ndjson": components["schemas"]["GameJson"];
-                };
-            };
-        };
-    };
-    resultsBySwiss: {
-        parameters: {
-            query?: {
-                /** @description Max number of players to fetch */
-                nb?: number;
-            };
-            header?: never;
-            path: {
-                /** @description The tournament ID. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The results of a Swiss tournament. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": {
-                        absent?: boolean;
-                        rank: number;
-                        points: number;
-                        tieBreak: number;
-                        rating: number;
-                        username: string;
-                        title?: components["schemas"]["Title"];
-                        performance: number;
-                    };
-                };
-            };
-        };
-    };
-    apiTeamSwiss: {
-        parameters: {
-            query?: {
-                /** @description How many tournaments to download. */
-                max?: number;
-                /** @description [Filter] Only swiss tournaments in this current state.
-                 *      */
-                status?: components["schemas"]["SwissStatus"] & unknown;
-                /** @description [Filter] Only swiss tournaments created by a given user.
-                 *      */
-                createdBy?: string;
-                /** @description [Filter] Only swiss tournaments with a given name.
-                 *      */
-                name?: string;
-            };
-            header?: never;
-            path: {
-                /** @example coders */
-                teamId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of Swiss tournaments of a team. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["SwissTournament"];
-                };
-            };
-        };
-    };
-    studyChapterPgn: {
-        parameters: {
-            query?: {
-                /** @description Include clock comments in the PGN moves, when available.
-                 *     Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
-                 *      */
-                clocks?: boolean;
-                /** @description Include analysis and annotator comments in the PGN moves, when available.
-                 *     Example: `12. Bxf6 { [%eval 0.23] } a3 { White is in a pickle. }`
-                 *      */
-                comments?: boolean;
-                /** @description Include non-mainline moves, when available.
-                 *     Example: `4. d4 Bb4+ (4... Nc6 5. Nf3 Bb4+ 6. Bd2 (6. Nbd2 O-O 7. O-O) 6... Bd6) 5. Nd2`
-                 *      */
-                variations?: boolean;
-                /** @description Add a `Orientation` PGN tag with the chapter predefined orientation.
-                 *     Example: `[Orientation "white"]`
-                 *      */
-                orientation?: boolean;
-            };
-            header?: never;
-            path: {
-                /** @description The study ID */
-                studyId: string;
-                /** @description The chapter ID */
-                chapterId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The chapter of the study. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": components["schemas"]["StudyPgn"];
-                };
-            };
-        };
-    };
-    studyAllChaptersPgn: {
-        parameters: {
-            query?: {
-                /** @description Include clock comments in the PGN moves, when available.
-                 *     Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
-                 *      */
-                clocks?: boolean;
-                /** @description Include analysis and annotator comments in the PGN moves, when available.
-                 *     Example: `12. Bxf6 { [%eval 0.23] } a3 { White is in a pickle. }`
-                 *      */
-                comments?: boolean;
-                /** @description Include non-mainline moves, when available.
-                 *     Example: `4. d4 Bb4+ (4... Nc6 5. Nf3 Bb4+ 6. Bd2 (6. Nbd2 O-O 7. O-O) 6... Bd6) 5. Nd2`
-                 *      */
-                variations?: boolean;
-                /** @description Add a `Orientation` PGN tag with the chapter predefined orientation.
-                 *     Example: `[Orientation "white"]`
-                 *      */
-                orientation?: boolean;
-            };
-            header?: never;
-            path: {
-                /** @description The study ID */
-                studyId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The PGN representation of the study. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    "Last-Modified"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": components["schemas"]["StudyPgn"];
-                };
-            };
-        };
-    };
-    studyAllChaptersHead: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The study ID */
-                studyId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The study headers. */
-            204: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    "Last-Modified"?: string;
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    apiStudyImportPGN: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description ID of the study */
-                studyId: string;
-            };
-            cookie?: never;
-        };
-        /** @description Parameters of the import */
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @description PGN to import. Can contain multiple games separated by 2 or more newlines.
-                     *      */
-                    pgn: string;
-                    /** @description Name of the new chapter.
-                     *     If not specified, or if multiple chapters are created, the names will be inferred from the PGN tags.
-                     *      */
-                    name?: string;
-                    /**
-                     * @description Default board orientation.
-                     * @default white
-                     * @enum {string}
-                     */
-                    orientation?: "white" | "black";
-                    variant?: components["schemas"]["VariantKey"];
-                };
-            };
-        };
-        responses: {
-            /** @description The chapters that were created. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["StudyImportPgnChapters"];
-                };
-            };
-            /** @description The creation of the chapter(s) failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    studyExportAllPgn: {
-        parameters: {
-            query?: {
-                /** @description Include clock comments in the PGN moves, when available.
-                 *     Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
-                 *      */
-                clocks?: boolean;
-                /** @description Include analysis and annotator comments in the PGN moves, when available.
-                 *     Example: `12. Bxf6 { [%eval 0.23] } a3 { White is in a pickle. }`
-                 *      */
-                comments?: boolean;
-                /** @description Include non-mainline moves, when available.
-                 *     Example: `4. d4 Bb4+ (4... Nc6 5. Nf3 Bb4+ 6. Bd2 (6. Nbd2 O-O 7. O-O) 6... Bd6) 5. Nd2`
-                 *      */
-                variations?: boolean;
-                /** @description Add a `Orientation` PGN tag with the chapter predefined orientation.
-                 *     Example: `[Orientation "white"]`
-                 *      */
-                orientation?: boolean;
-            };
-            header?: never;
-            path: {
-                /** @description The user whose studies we export */
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The studies of the user. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": components["schemas"]["StudyPgn"];
-                };
-            };
-        };
-    };
-    studyListMetadata: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The user whose studies we list */
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of studies. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["StudyMetadata"];
-                };
-            };
-        };
-    };
-    apiStudyStudyIdChapterIdDelete: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The study ID */
-                studyId: string;
-                /** @description The chapter ID */
-                chapterId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Chapter successfully deleted */
-            204: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    broadcastsOfficial: {
-        parameters: {
-            query?: {
-                /** @description Max number of broadcasts to fetch */
-                nb?: number;
-                /**
-                 * @description Convert the "description" field from markdown to HTML
-                 * @example true
-                 */
-                html?: boolean;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of official broadcasts. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["BroadcastWithRounds"];
-                };
-            };
-        };
-    };
-    broadcastsTop: {
-        parameters: {
-            query?: {
-                /** @description Which page to fetch. Only page 1 has "active" broadcasts. */
-                page?: number;
-                /**
-                 * @description Convert the "description" field from markdown to HTML
-                 * @example true
-                 */
-                html?: boolean;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Paginated top broadcast previews. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BroadcastTop"];
-                };
-            };
-        };
-    };
-    broadcastsByUser: {
-        parameters: {
-            query?: {
-                page?: number;
-                /**
-                 * @description Convert the "description" field from markdown to HTML
-                 * @example true
-                 */
-                html?: boolean;
-            };
-            header?: never;
-            path: {
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description A paginated list of the broadcasts created by a user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @example 4 */
-                        currentPage: number;
-                        /** @example 15 */
-                        maxPerPage: number;
-                        currentPageResults: components["schemas"]["BroadcastByUser"][];
-                        /** @example 205194 */
-                        nbResults: number;
-                        /** @example 3 */
-                        previousPage: number | null;
-                        /** @example 5 */
-                        nextPage: number | null;
-                        /** @example 13680 */
-                        nbPages: number;
-                    };
-                };
-            };
-        };
-    };
-    broadcastsSearch: {
-        parameters: {
-            query?: {
-                /** @description Which page to fetch. */
-                page?: number;
-                /** @description Search term */
-                q?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Paginated top broadcast previews. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        currentPage: number;
-                        maxPerPage: number;
-                        currentPageResults: components["schemas"]["BroadcastWithLastRound"][];
-                        previousPage: number | null;
-                        nextPage: number | null;
-                    };
-                };
-            };
-        };
-    };
-    broadcastTourCreate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": components["schemas"]["BroadcastForm"];
-            };
-        };
-        responses: {
-            /** @description The broadcast tournament was successfully created. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BroadcastWithRounds"];
-                };
-            };
-            /** @description The creation of the broadcast tournament failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    broadcastTourGet: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The broadcast tournament ID */
-                broadcastTournamentId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The information about the broadcast tournament. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BroadcastWithRounds"];
-                };
-            };
-        };
-    };
-    broadcastPlayersGet: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The broadcast tournament ID */
-                broadcastTournamentId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The broadcast players */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BroadcastPlayerEntry"][];
-                };
-            };
-        };
-    };
-    broadcastTourUpdate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The broadcast ID */
-                broadcastTournamentId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": components["schemas"]["BroadcastForm"];
-            };
-        };
-        responses: {
-            /** @description The broadcast tournament was successfully edited. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The broadcast tournament update failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    broadcastRoundCreate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The broadcast tournament ID */
-                broadcastTournamentId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": components["schemas"]["BroadcastRoundForm"];
-            };
-        };
-        responses: {
-            /** @description The broadcast round was successfully created. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BroadcastRoundNew"];
-                };
-            };
-            /** @description The creation of the broadcast failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    broadcastRoundGet: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The broadcast tournament slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastRoundId` is actually used. */
-                broadcastTournamentSlug: string;
-                /** @description The broadcast round slug. Only used for SEO, the slug can be safely replaced by `-`. Only the `broadcastRoundId` is actually used. */
-                broadcastRoundSlug: string;
-                /** @description The broadcast Round ID */
-                broadcastRoundId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The information about the broadcast round. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BroadcastRound"];
-                };
-            };
-        };
-    };
-    broadcastRoundUpdate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The broadcast round ID */
-                broadcastRoundId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": components["schemas"]["BroadcastRoundForm"];
-            };
-        };
-        responses: {
-            /** @description The broadcast round was successfully edited. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BroadcastRound"];
-                };
-            };
-            /** @description The broadcast round update failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    broadcastRoundReset: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The broadcast round ID */
-                broadcastRoundId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The broadcast round was successfully reset. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    broadcastPush: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The broadcast round ID */
-                broadcastRoundId: string;
-            };
-            cookie?: never;
-        };
-        /** @description The PGN. It can contain up to 64 games, separated by a double new line. */
-        requestBody: {
-            content: {
-                "text/plain": string;
-            };
-        };
-        responses: {
-            /** @description The broadcast was successfully updated. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BroadcastPgnPush"];
-                };
-            };
-            /** @description There was a problem with the pushed PGN. */
-            400: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        error?: string;
-                    };
-                };
-            };
-        };
-    };
-    broadcastStreamRoundPgn: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The broadcast round ID */
-                broadcastRoundId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The PGN representation of the round games, then the PGNs of games as they are updated. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": components["schemas"]["StudyPgn"];
-                };
-            };
-        };
-    };
-    broadcastRoundPgn: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The round ID */
-                broadcastRoundId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The PGN representation of the round. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": components["schemas"]["StudyPgn"];
-                };
-            };
-        };
-    };
-    broadcastAllRoundsPgn: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The broadcast tournament ID */
-                broadcastTournamentId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The PGN representation of the broadcast. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": components["schemas"]["StudyPgn"];
-                };
-            };
-        };
-    };
-    broadcastMyRoundsGet: {
-        parameters: {
-            query?: {
-                /** @description How many rounds to get */
-                nb?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The broadcast rounds with their tournament and a `study.writeable` flag. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["BroadcastMyRound"];
-                };
-            };
-        };
-    };
-    fidePlayerGet: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The FIDE player ID. */
-                playerId: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The information about the FIDE player. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["FIDEPlayer"];
-                };
-            };
-        };
-    };
-    fidePlayerSearch: {
-        parameters: {
-            query: {
-                /** @description The search query. */
-                q: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of FIDE players. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["FIDEPlayer"][];
-                };
-            };
-        };
-    };
-    apiSimul: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of simuls. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        pending?: components["schemas"]["Simul"][];
-                        created?: components["schemas"]["Simul"][];
-                        started?: components["schemas"]["Simul"][];
-                        finished?: components["schemas"]["Simul"][];
-                    };
-                };
-            };
-        };
-    };
-    teamShow: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                teamId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The information about the team. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Team"];
-                };
-            };
-        };
-    };
-    teamAll: {
-        parameters: {
-            query?: {
-                page?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description A paginated list of the most popular teams. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TeamPaginatorJson"];
-                };
-            };
-        };
-    };
-    teamOfUsername: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of teams the user is a member of. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Team"][];
-                };
-            };
-        };
-    };
-    teamSearch: {
-        parameters: {
-            query?: {
-                text?: string;
-                page?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The paginated list of teams. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TeamPaginatorJson"];
-                };
-            };
-        };
-    };
-    teamIdUsers: {
-        parameters: {
-            query?: {
-                /** @description Full user documents with performance ratings.
-                 *     This limits the response to 1,000 users.
-                 *      */
-                full?: boolean;
-            };
-            header?: never;
-            path: {
-                teamId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of users in the team. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": {
-                        /**
-                         * Format: int64
-                         * @example 1716930043067
-                         */
-                        joinedTeamAt?: number;
-                        /** @example chess-network */
-                        id: string;
-                        /** @example Chess-Network */
-                        name: string;
-                        title?: components["schemas"]["Title"];
-                        /** @example true */
-                        patron?: boolean;
-                    };
-                };
-            };
-        };
-    };
-    apiTeamArena: {
-        parameters: {
-            query?: {
-                /** @description How many tournaments to download. */
-                max?: number;
-                /** @description [Filter] Only arena tournaments in this current state.
-                 *      */
-                status?: components["schemas"]["ArenaStatusName"] & unknown;
-                /** @description [Filter] Only arena tournaments created by a given user.
-                 *      */
-                createdBy?: string;
-                /** @description [Filter] Only arena tournaments with a given name.
-                 *      */
-                name?: string;
-            };
-            header?: never;
-            path: {
-                /** @description ID of the team */
-                teamId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of Arena tournaments of a team. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["ArenaTournament"];
-                };
-            };
-        };
-    };
-    teamIdJoin: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                teamId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @description Required if team manually reviews admission requests. */
-                    message?: string;
-                    /** @description Optional password, if the team requires one. */
-                    password?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description The request to join a team was successfully sent. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    teamIdQuit: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                teamId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The logged in user has successfully left the team. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    teamRequests: {
-        parameters: {
-            query?: {
-                /** @description Get the declined join requests */
-                declined?: boolean;
-            };
-            header?: never;
-            path: {
-                teamId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of pending join requests on your team */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TeamRequestWithUser"][];
-                };
-            };
-        };
-    };
-    teamRequestAccept: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                teamId: string;
-                userId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The member has been added to the team. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    teamRequestDecline: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                teamId: string;
-                userId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The join request has been declined and is no longer pending. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    teamIdKickUserId: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                teamId: string;
-                userId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The member has been kicked from the team. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    teamIdPmAll: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                teamId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @description The message to send to all your team members. */
-                    message?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description The message has successfully been sent to all team members. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The sending of message to all team members has failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    streamerLive: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of live streamers and their respective information. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": (components["schemas"]["LightUser"] & {
-                        stream?: {
-                            /** @enum {string} */
-                            service?: "twitch" | "youTube";
-                            /** @description The stream title */
-                            status?: string;
-                            lang?: string;
-                        };
-                        streamer?: {
-                            name?: string;
-                            headline?: string;
-                            description?: string;
-                            /** Format: uri */
-                            twitch?: string;
-                            /** Format: uri */
-                            youTube?: string;
-                            /** Format: uri */
-                            image?: string;
-                        };
-                    })[];
-                };
-            };
-        };
-    };
-    apiCrosstable: {
-        parameters: {
-            query?: {
-                /** @description Whether to get the current match data, if any */
-                matchup?: boolean;
-            };
-            header?: never;
-            path: {
-                user1: string;
-                user2: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The crosstable of the two users. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Crosstable"];
-                };
-            };
-        };
-    };
-    apiPlayerAutocomplete: {
-        parameters: {
-            query: {
-                /** @description The beginning of a username */
-                term: string;
-                /** @description - `false` returns an array of usernames
-                 *     - `true` returns an object with matching users
-                 *      */
-                object?: boolean;
-                /** @description - `false` returns an array of usernames
-                 *     - `true` returns an array of usernames with preferred casing
-                 *      */
-                names?: boolean;
-                /** @description Returns followed players matching `term` if any, else returns other players.
-                 *     Requires [OAuth](#tag/OAuth).
-                 *      */
-                friend?: boolean;
-                /** @description Search within a team.
-                 *     Use team ID/slug.
-                 *      */
-                team?: string;
-                /** @description Search within a arena tournament.
-                 *     Use tournament ID.
-                 *      */
-                tour?: string;
-                /** @description Search within a Swiss tournament.
-                 *      */
-                swiss?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description An array of players which usernames start with the provided term. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": string[] | {
-                        result?: components["schemas"]["LightUserOnline"][];
-                    };
-                };
-            };
-        };
-    };
-    readNote: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of notes you have added for this user */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["UserNote"][];
-                };
-            };
-        };
-    };
-    writeNote: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @description The contents of the note */
-                    text: string;
-                };
-            };
-        };
-        responses: {
-            /** @description The note was successfully added. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    apiUserFollowing: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of users followed by a user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["UserExtended"];
-                };
-            };
-        };
-    };
-    followUser: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The player was successfully added. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    unfollowUser: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The player was successfully removed. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    blockUser: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The player was successfully added. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    unblockUser: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The player was successfully removed. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    apiStreamEvent: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The stream of events reaching the logged in user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["GameStartEvent"] | components["schemas"]["GameFinishEvent"] | components["schemas"]["ChallengeEvent"] | components["schemas"]["ChallengeCanceledEvent"] | components["schemas"]["ChallengeDeclinedEvent"];
-                };
-            };
-        };
-    };
-    apiBoardSeek: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Parameters of the seek */
-        requestBody?: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /**
-                     * @description Whether the game is rated and impacts players ratings.
-                     * @default false
-                     * @example true
-                     */
-                    rated?: boolean;
-                    variant?: components["schemas"]["VariantKey"];
-                    /** @description The rating range of potential opponents. Better left empty.
-                     *     Example: 1500-1800
-                     *      */
-                    ratingRange?: string;
-                } & ({
-                    /**
-                     * @description Clock initial time in minutes. Required for real-time seeks.
-                     * @example 15
-                     */
-                    time: number;
-                    /**
-                     * @description Clock increment in seconds. Required for real-time seeks.
-                     * @example 15
-                     */
-                    increment: number;
-                    /**
-                     * @description The color to play. Better left empty to automatically get 50% white.
-                     * @default random
-                     * @enum {string}
-                     */
-                    color?: "random" | "white" | "black";
-                } | {
-                    /**
-                     * @description Days per turn. Required for correspondence seeks.
-                     * @enum {integer}
-                     */
-                    days: 1 | 2 | 3 | 5 | 7 | 10 | 14;
-                });
-            };
-        };
-        responses: {
-            /** @description The seek was successfully created. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        id: string;
-                    };
-                    "application/x-ndjson": unknown;
-                };
-            };
-            /** @description The creation of the seek failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    boardGameStream: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The stream of the game. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["GameFullEvent"] | components["schemas"]["GameStateEvent"] | components["schemas"]["ChatLineEvent"] | components["schemas"]["OpponentGoneEvent"];
-                };
-            };
-            /** @description The game was not found. */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["NotFound"];
-                };
-            };
-        };
-    };
-    boardGameMove: {
-        parameters: {
-            query?: {
-                /** @description Whether to offer (or agree to) a draw */
-                offeringDraw?: boolean;
-            };
-            header?: never;
-            path: {
-                gameId: string;
-                /** @description The move to play, in UCI format */
-                move: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The move was successfully made. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The move failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    boardGameChatGet: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The messages posted in the chat. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["GameChat"];
-                };
-            };
-        };
-    };
-    boardGameChatPost: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @enum {string} */
-                    room: "player" | "spectator";
-                    /** @example Thank you for the game! */
-                    text: string;
-                };
-            };
-        };
-        responses: {
-            /** @description The message was successfully posted in the chat. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The posting of the message in the chat failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    boardGameAbort: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The game successfully aborted. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The abortion of the game failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    boardGameResign: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The game was successfully resigned. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The resigning from the game failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    boardGameDraw: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-                accept: boolean | "yes";
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The draw offer was successfully sent. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The draw offering failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    boardGameTakeback: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-                accept: boolean | "yes";
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The takeback offer was successfully sent. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The takeback offering failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    boardGameClaimVictory: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The victory was successfully claimed. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The victory claim has failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    boardGameBerserk: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The player successfully went berserk. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The berserk has failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    apiBotOnline: {
-        parameters: {
-            query?: {
-                /** @description How many bot users to fetch */
-                nb?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of online bot users */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["User"];
-                };
-            };
-        };
-    };
-    botAccountUpgrade: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The bot account was successfully upgraded. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The upgrade of the bot account failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    botGameStream: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The stream of the bot game. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["GameFullEvent"] | components["schemas"]["GameStateEvent"] | components["schemas"]["ChatLineEvent"] | components["schemas"]["OpponentGoneEvent"];
-                };
-            };
-            /** @description The bot game was not found. */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["NotFound"];
-                };
-            };
-        };
-    };
-    botGameMove: {
-        parameters: {
-            query?: {
-                /** @description Whether to offer (or agree to) a draw */
-                offeringDraw?: boolean;
-            };
-            header?: never;
-            path: {
-                gameId: string;
-                /** @description The move to play, in UCI format */
-                move: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The bot move was successfully made. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The bot move failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    botGameChatGet: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The messages posted in the chat. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["GameChat"];
-                };
-            };
-        };
-    };
-    botGameChat: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @enum {string} */
-                    room: "player" | "spectator";
-                    /** @example Thank you for the game! */
-                    text: string;
-                };
-            };
-        };
-        responses: {
-            /** @description The message was successfully posted in chat. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The posting of the  message in chat failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    botGameAbort: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The game was successfully aborted. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The abortion of the game failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    botGameResign: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The game was successfully resigned from. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description Resigning the game failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    botGameDraw: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-                accept: boolean | "yes";
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The draw offer was successfully sent. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The draw offering failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    botGameTakeback: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-                accept: boolean | "yes";
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The takeback offer was successfully sent. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The takeback offering failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    botGameClaimVictory: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The victory was successfully claimed. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The victory claim has failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    challengeList: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of challenges created by or targeted at the logged in user. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description Incoming challenges i.e. targeted at you */
-                        in?: components["schemas"]["ChallengeJson"][];
-                        /** @description Outgoing challenges i.e. created by you */
-                        out?: components["schemas"]["ChallengeJson"][];
-                    };
-                };
-            };
-        };
-    };
-    challengeCreate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                username: string;
-            };
-            cookie?: never;
-        };
-        /** @description Parameters of the challenge */
-        requestBody?: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /**
-                     * @description Game is rated and impacts players ratings
-                     * @default false
-                     */
-                    rated?: boolean;
-                    /**
-                     * @description Clock initial time in seconds. If empty, a correspondence game is created. Valid values are 0, 15, 30, 45, 60, 90, and any multiple of 60 up to 10800 (3 hours).
-                     * @example 300
-                     */
-                    "clock.limit"?: number;
-                    /**
-                     * @description Clock increment in seconds. If empty, a correspondence game is created.
-                     * @example 1
-                     */
-                    "clock.increment"?: number;
-                    /**
-                     * @description Days per move, for correspondence games. Clock settings must be omitted.
-                     * @enum {integer}
-                     */
-                    days?: 1 | 2 | 3 | 5 | 7 | 10 | 14;
-                    /**
-                     * @description Which color you get to play
-                     * @default random
-                     * @enum {string}
-                     */
-                    color?: "random" | "white" | "black";
-                    variant?: components["schemas"]["VariantKey"];
-                    fen?: components["schemas"]["FromPositionFEN"];
-                    /** @description If set, the response is streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-                     *     The challenge is kept alive until the connection is closed by the client.
-                     *     When the challenge is accepted, declined or canceled, a message of the form `{"done":"accepted"}` is sent,
-                     *     then the connection is closed by the server.
-                     *     If not set, the response is not streamed, and the challenge expires after 20s if not accepted.
-                     *      */
-                    keepAliveStream?: boolean;
-                    /**
-                     * @description Extra game rules separated by commas.
-                     *     Example: `noAbort,noRematch`
-                     *
-                     * @enum {string}
-                     */
-                    rules?: "noAbort" | "noRematch" | "noGiveTime" | "noClaimWin" | "noEarlyDraw";
-                };
-            };
-        };
-        responses: {
-            /** @description The challenge was successfully created. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ChallengeJson"];
-                };
-            };
-            /** @description The creation of the challenge failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    challengeShow: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The challenge ID */
-                challengeId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The challenge for that ID. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ChallengeJson"];
-                };
-            };
-        };
-    };
-    challengeAccept: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                challengeId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The challenge was successfully accepted. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The challenge to accept was not found. */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["NotFound"];
-                };
-            };
-        };
-    };
-    challengeDecline: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                challengeId: string;
-            };
-            cookie?: never;
-        };
-        /** @description Details related to decline of challenge */
-        requestBody?: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /**
-                     * @description Reason challenge was declined. It will be translated to the player's language. See [the full list in the translation file](https://github.com/ornicar/lila/blob/master/translation/source/challenge.xml#L14).
-                     * @enum {string}
-                     */
-                    reason?: "generic" | "later" | "tooFast" | "tooSlow" | "timeControl" | "rated" | "casual" | "standard" | "variant" | "noBot" | "onlyBot";
-                };
-            };
-        };
-        responses: {
-            /** @description The challenge was successfully declined. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The challenge to decline was not found. */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["NotFound"];
-                };
-            };
-        };
-    };
-    challengeCancel: {
-        parameters: {
-            query?: {
-                /** @description Optional `challenge:write` token of the opponent. If set, the game can be canceled even if both players have moved. */
-                opponentToken?: string;
-            };
-            header?: never;
-            path: {
-                challengeId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The challenge was successfully cancelled. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The challenge to cancel was not found. */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["NotFound"];
-                };
-            };
-        };
-    };
-    challengeAi: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Parameters of the game */
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @description AI strength */
-                    level: number;
-                    /**
-                     * @description Clock initial time in seconds. If empty, a correspondence game is created.
-                     * @example 300
-                     */
-                    "clock.limit"?: number;
-                    /**
-                     * @description Clock increment in seconds. If empty, a correspondence game is created.
-                     * @example 1
-                     */
-                    "clock.increment"?: number;
-                    /**
-                     * @description Days per move, for correspondence games. Clock settings must be omitted.
-                     * @enum {integer}
-                     */
-                    days?: 1 | 2 | 3 | 5 | 7 | 10 | 14;
-                    /**
-                     * @description Which color you get to play
-                     * @default random
-                     * @enum {string}
-                     */
-                    color?: "random" | "white" | "black";
-                    variant?: components["schemas"]["VariantKey"];
-                    fen?: components["schemas"]["FromPositionFEN"];
-                };
-            };
-        };
-        responses: {
-            /** @description The game with Lichess AI was successfully started. */
-            201: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        id?: string;
-                        variant?: components["schemas"]["Variant"];
-                        speed?: components["schemas"]["Speed"];
-                        perf?: components["schemas"]["PerfType"];
-                        rated?: boolean;
-                        fen?: string;
-                        turns?: number;
-                        source?: components["schemas"]["GameSource"];
-                        status?: components["schemas"]["GameStatus"];
-                        /** Format: int64 */
-                        createdAt?: number;
-                        player?: components["schemas"]["GameColor"];
-                        fullId?: string;
-                    };
-                };
-            };
-            /** @description The creation of a game with Lichess AI failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    challengeOpen: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Parameters of the game */
-        requestBody?: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /**
-                     * @description Game is rated and impacts players ratings
-                     * @default false
-                     */
-                    rated?: boolean;
-                    /**
-                     * @description Clock initial time in seconds. If empty, a correspondence game is created.
-                     * @example 300
-                     */
-                    "clock.limit"?: number;
-                    /**
-                     * @description Clock increment in seconds. If empty, a correspondence game is created.
-                     * @example 1
-                     */
-                    "clock.increment"?: number;
-                    /**
-                     * @description Days per turn. For correspondence challenges.
-                     * @enum {integer}
-                     */
-                    days?: 1 | 2 | 3 | 5 | 7 | 10 | 14;
-                    variant?: components["schemas"]["VariantKey"];
-                    fen?: components["schemas"]["FromPositionFEN"];
-                    /** @description Optional name for the challenge, that players will see on the challenge page. */
-                    name?: string;
-                    /**
-                     * @description Extra game rules separated by commas.
-                     *     Example: `noRematch,noGiveTime`
-                     *     The `noAbort` rule is available for Lichess admins only
-                     *
-                     * @enum {string}
-                     */
-                    rules?: "noRematch" | "noGiveTime" | "noClaimWin" | "noEarlyDraw" | "noAbort";
-                    /** @description Optional pair of usernames, separated by a comma.
-                     *     If set, only these users will be allowed to join the game.
-                     *     The first username gets the white pieces.
-                     *     Example: `Username1,Username2`
-                     *      */
-                    users?: string;
-                    /**
-                     * Format: int64
-                     * @description Timestamp in milliseconds to expire the challenge. Defaults to 24h after creation. Can't be more than 2 weeks after creation.
-                     */
-                    expiresAt?: number;
-                };
-            };
-        };
-        responses: {
-            /** @description The challenge was successfully created. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ChallengeOpenJson"];
-                };
-            };
-            /** @description The creation of the challenge failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    challengeStartClocks: {
-        parameters: {
-            query: {
-                /** @description OAuth token of a player */
-                token1: string;
-                /** @description OAuth token of the other player. Omit for AI games that have only one player. */
-                token2?: string;
-            };
-            header?: never;
-            path: {
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The clock of a game was successfully started. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    bulkPairingList: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of bulk pairing the logged in user created. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BulkPairing"][];
-                };
-            };
-        };
-    };
-    bulkPairingCreate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Parameters of the pairings */
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @description OAuth tokens of all the players to pair, with the syntax `tokenOfWhitePlayerInGame1:tokenOfBlackPlayerInGame1,tokenOfWhitePlayerInGame2:tokenOfBlackPlayerInGame2,...`.
-                     *     The 2 tokens of the players of a game are separated with `:`. The first token gets the white pieces. Games are separated with `,`.
-                     *     Up to 1000 tokens can be sent, for a max of 500 games.
-                     *     Each token must be included at most once.
-                     *     Example: `token1:token2,token3:token4,token5:token6`
-                     *      */
-                    players?: string;
-                    /** @description Clock initial time in seconds. Example: `600`
-                     *      */
-                    "clock.limit"?: number;
-                    /** @description Clock increment in seconds. Example: `2`
-                     *      */
-                    "clock.increment"?: number;
-                    /**
-                     * @description Days per turn. For correspondence games only.
-                     * @enum {integer}
-                     */
-                    days?: 1 | 2 | 3 | 5 | 7 | 10 | 14;
-                    /**
-                     * Format: int64
-                     * @description Date at which the games will be created as a Unix timestamp in milliseconds.
-                     *     Up to 7 days in the future.
-                     *     Omit, or set to current date and time, to start the games immediately.
-                     *     Example: `1612289869919`
-                     *
-                     */
-                    pairAt?: number;
-                    /**
-                     * Format: int64
-                     * @description Date at which the clocks will be automatically started as a Unix timestamp in milliseconds.
-                     *     Up to 7 days in the future.
-                     *     Note that the clocks can start earlier than specified, if players start making moves in the game.
-                     *     If omitted, the clocks will not start automatically.
-                     *     Example: `1612289869919`
-                     *
-                     */
-                    startClocksAt?: number;
-                    /**
-                     * @description Game is rated and impacts players ratings
-                     * @default false
-                     */
-                    rated?: boolean;
-                    variant?: components["schemas"]["VariantKey"];
-                    fen?: components["schemas"]["FromPositionFEN"];
-                    /**
-                     * @description Message that will be sent to each player, when the game is created.  It is sent from your user account.
-                     *     `{opponent}` and `{game}` are placeholders that will be replaced with the opponent and the game URLs.
-                     *     You can omit this field to send the default message,
-                     *     but if you set your own message, it must at least contain the `{game}` placeholder.
-                     *
-                     * @default Your game with {opponent} is ready: {game}.
-                     */
-                    message?: string;
-                    /**
-                     * @description Extra game rules separated by commas.
-                     *     Example: `noAbort,noRematch`
-                     *
-                     * @enum {string}
-                     */
-                    rules?: "noAbort" | "noRematch" | "noGiveTime" | "noClaimWin" | "noEarlyDraw";
-                };
-            };
-        };
-        responses: {
-            /** @description The bulk pairing has been successfully created. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BulkPairing"];
-                };
-            };
-            /** @description The creation of the bulk pairings failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    bulkPairingStartClocks: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The clocks of the games of a bulk pairing were successfully started. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The bulk pairing was not found. */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["NotFound"];
-                };
-            };
-        };
-    };
-    bulkPairingGet: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The bulk pairing. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BulkPairing"];
-                };
-            };
-            /** @description The bulk pairing was not found. */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["NotFound"];
-                };
-            };
-        };
-    };
-    bulkPairingDelete: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The bulk pairing was successfully deleted. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The bulk pairing to delete was not found. */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["NotFound"];
-                };
-            };
-        };
-    };
-    bulkPairingIdGamesGet: {
-        parameters: {
-            query?: {
-                /** @description Include the PGN moves. */
-                moves?: boolean;
-                /** @description Include the full PGN within the JSON response, in a `pgn` field. */
-                pgnInJson?: boolean;
-                /** @description Include the PGN tags. */
-                tags?: boolean;
-                /** @description Include clock status when available.
-                 *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
-                 *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-                 *      */
-                clocks?: boolean;
-                /** @description Include analysis evaluations and comments, when available.
-                 *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
-                 *     Or in an `analysis` JSON field, depending on the response type.
-                 *      */
-                evals?: boolean;
-                /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
-                 *      */
-                accuracy?: boolean;
-                /** @description Include the opening name.
-                 *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-                 *      */
-                opening?: boolean;
-                /** @description Plies which mark the beginning of the middlegame and endgame.
-                 *     Only available in JSON
-                 *      */
-                division?: boolean;
-                /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
-                 *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
-                 *      */
-                literate?: boolean;
-            };
-            header?: never;
-            path: {
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The representation of the games. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": components["schemas"]["GamePgn"];
-                    "application/x-ndjson": components["schemas"]["GameJson"];
-                };
-            };
-        };
-    };
-    roundAddTime: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-                /** @description How many seconds to give */
-                seconds: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Time was successfully added to the opponent's clock. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    adminChallengeTokens: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /**
-                     * @description Usernames separated with commas
-                     * @example thibault,neio,lizen2,lizen3
-                     */
-                    users: string;
-                    /**
-                     * @description User visible description of the token
-                     * @example FIDE tournament XYZ
-                     */
-                    description: string;
-                };
-            };
-        };
-        responses: {
-            /** @description The `challenge:write` tokens of each user */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        [key: string]: string;
-                    };
-                };
-            };
-            /** @description The creation of the tokens failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    inboxUsername: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                username: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /** @example Thank you for the game! */
-                    text: string;
-                };
-            };
-        };
-        responses: {
-            /** @description The private message has been successfully sent. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-            /** @description The sending of the private message has failed. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    apiCloudEval: {
-        parameters: {
-            query: {
-                /**
-                 * @description FEN of the position
-                 * @example r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3
-                 */
-                fen: string;
-                /** @description Number of variations */
-                multiPv?: number;
-                /** @description Variant */
-                variant?: components["schemas"]["VariantKey"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The evaluation of the position. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["CloudEval"];
-                };
-            };
-            /** @description The position was not found in the cloud evaluation database. */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @example No cloud evaluation available for that position */
-                        error?: string;
-                    };
-                };
-            };
-        };
-    };
-    apiExternalEngineList: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description A list of external engines. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ExternalEngine"][];
-                };
-            };
-        };
-    };
-    apiExternalEngineCreate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description A new external engine registration. */
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["ExternalEngineRegistration"];
-            };
-        };
-        responses: {
-            /** @description The registered engine. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ExternalEngine"];
-                };
-            };
-        };
-    };
-    apiExternalEngineGet: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The external engine id.
-                 * @example eei_aTKImBJOnv6j
-                 */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description A registered engine. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ExternalEngine"];
-                };
-            };
-        };
-    };
-    apiExternalEnginePut: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The external engine id.
-                 * @example eei_aTKImBJOnv6j
-                 */
-                id: string;
-            };
-            cookie?: never;
-        };
-        /** @description A modified engine registration. */
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["ExternalEngineRegistration"];
-            };
-        };
-        responses: {
-            /** @description A registered engine. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ExternalEngine"];
-                };
-            };
-        };
-    };
-    apiExternalEngineDelete: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The external engine id.
-                 * @example eei_aTKImBJOnv6j
-                 */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Engine successfully deleted */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Ok"];
-                };
-            };
-        };
-    };
-    apiExternalEngineAnalyse: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The external engine id.
-                 * @example eei_aTKImBJOnv6j
-                 */
-                id: string;
-            };
-            cookie?: never;
-        };
-        /** @description Engine credentials and analysis request. */
-        requestBody: {
-            content: {
-                "application/json": {
-                    /** @example ees_mdF2hK0hlKGSPeC6 */
-                    clientSecret: string;
-                    work: components["schemas"]["ExternalEngineWork"];
-                };
-            };
-        };
-        responses: {
-            /** @description Stream of analysis output */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": {
-                        /** @description Number of milliseconds the search has been going on */
-                        time: number;
-                        /** @description Current search depth */
-                        depth: number;
-                        /** @description Number of nodes visited so far */
-                        nodes: number;
-                        /** @description Information about up to 5 pvs, with the primary pv at index 0. */
-                        pvs: {
-                            /** @description Current search depth of the pv */
-                            depth: number;
-                            /** @description Evaluation in centi-pawns, from White's point of view */
-                            cp?: number;
-                            /** @description Evaluation in signed moves to mate, from White's point of view */
-                            mate?: number;
-                            /** @description Variation in UCI notation */
-                            moves: string[];
-                        }[];
-                    };
-                };
-            };
-        };
-    };
-    apiExternalEngineAcquire: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Provider credentials. */
-        requestBody: {
-            content: {
-                "application/json": {
-                    /** @example Dee3uwieZei9ahpaici9bee2yahsai0K */
-                    providerSecret?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description Analysis has been requested */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @example aingoohiJee2sius */
-                        id: string;
-                        work: components["schemas"]["ExternalEngineWork"];
-                        engine: components["schemas"]["ExternalEngine"];
-                    };
-                };
-            };
-            /** @description No pending analysis */
-            204: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    apiExternalEngineSubmit: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                id: string;
-            };
-            cookie?: never;
-        };
-        /** @description Analysis results */
-        requestBody: {
-            content: {
-                /** @example info multipv 1 depth 20 seldepth 30 time 1373 nodes 1494341 score cp 47 hashfull 594 nps 1088376 tbhits 0 pv d2d4 d7d5 c2c4 e7e6 b1c3 f8b4 c4d5 e6d5 g1f3 g8f6 c1g5 h7h6 g5f6 d8f6 d1b3 c7c5 e2e3 b8c6 d4c5 e8g8 f1d3 */
-                "text/plain": string;
-            };
-        };
-        responses: {
-            /** @description Thanks */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    oauth: {
-        parameters: {
-            query: {
-                /** @description Must be `code`. */
-                response_type: "code";
-                /**
-                 * @description Arbitrary identifier that uniquely identifies your application.
-                 * @example example.com
-                 */
-                client_id: string;
-                /** @description The absolute URL that the user should be redirected to with the authorization result. */
-                redirect_uri: string;
-                /** @description Must be `S256`. */
-                code_challenge_method: "S256";
-                /** @description Compute `BASE64URL(SHA256(code_verifier))`. */
-                code_challenge: string;
-                /** @description Space separated list of requested OAuth scopes, if any. */
-                scope?: string;
-                /** @description Hint that you want the user to log in with a specific Lichess username. */
-                username?: string;
-                /** @description Arbitrary state that will be returned verbatim with the authorization result. */
-                state?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Authorization prompt will be displayed to the user. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    apiToken: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/x-www-form-urlencoded": {
-                    /**
-                     * @example authorization_code
-                     * @constant
-                     */
-                    grant_type?: "authorization_code";
-                    /**
-                     * @description The authorization code that was sent in the `code` parameter to your `redirect_uri`.
-                     * @example liu_iS1uOZg99Htmo58ex2jKgYziUfzsnAl0
-                     */
-                    code?: string;
-                    /**
-                     * @description A `code_challenge` was used to request the authorization code. This must be the `code_verifier` it was derived from.
-                     * @example Ry1rbGdOMTQtUjhOc0lmTnFKak1LTHV0NjlRMll2aXYtTThkQnlJRkRpaGwyQjh0ZDNFdzFPSG9KUlY4M1NrRzJ5ZHhUdjVZR08zLTZOT3dCN2xLfjZOXzU2WHk4SENP
-                     */
-                    code_verifier?: string;
-                    /**
-                     * @description Must match the `redirect_uri` used to request the authorization code.
-                     * @example http://example.com/
-                     */
-                    redirect_uri?: string;
-                    /**
-                     * @description Must match the `client_id` used to request the authorization code.
-                     * @example example.com
-                     */
-                    client_id?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description Access token successfully obtained. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @example Bearer */
-                        token_type: string;
-                        /** @example lio_pLwAbN7lFPklzY2m8lTOI1DGApS84u57 */
-                        access_token: string;
-                        /** @example 31536000 */
-                        expires_in: number;
-                    };
-                };
-            };
-            /** @description Failed to obtain access token. */
-            400: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["OAuthError"];
-                };
-            };
-        };
-    };
-    apiTokenDelete: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Access token revoked. */
-            204: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    tokenTest: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description OAuth tokens separated by commas. Up to 1000. */
-        requestBody: {
-            content: {
-                "text/plain": string;
-            };
-        };
-        responses: {
-            /** @description The representation of the OAuth tokens. */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        [key: string]: {
-                            userId?: string;
-                            /** @description Comma-separated list of scopes. Empty string if the token has no scopes. */
-                            scopes?: string;
-                            /** @description Unix-timestampe in milliseconds or null if the token never expires. */
-                            expires?: number | null;
-                        } | null;
-                    };
-                };
-            };
-        };
-    };
-    openingExplorerMaster: {
-        parameters: {
-            query?: {
-                /**
-                 * @description FEN of the root position
-                 * @example rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
-                 */
-                fen?: string;
-                /**
-                 * @description Comma separated sequence of legal moves in UCI notation.
-                 *     Play additional moves starting from `fen`.
-                 *     Required to find an opening name, if `fen` is not an exact match
-                 *     for a named position.
-                 *
-                 * @example d2d4,d7d5,c2c4,c7c6,c4d5
-                 */
-                play?: string;
-                /** @description Include only games from this year or later */
-                since?: number;
-                /** @description Include only games from this year or earlier */
-                until?: number;
-                /** @description Number of most common moves to display */
-                moves?: number;
-                /** @description Number of top games to display */
-                topGames?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Opening statistics and game references for the position. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["OpeningExplorerMasters"];
-                };
-            };
-        };
-    };
-    openingExplorerLichess: {
-        parameters: {
-            query?: {
-                /** @description Variant */
-                variant?: components["schemas"]["VariantKey"];
-                /**
-                 * @description FEN or EPD of the root position
-                 * @example rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2
-                 */
-                fen?: string;
-                /**
-                 * @description Comma separated sequence of legal moves in UCI notation.
-                 *     Play additional moves starting from `fen`.
-                 *     Required to find an opening name, if `fen` is not an exact match
-                 *     for a named position.
-                 *
-                 * @example d2d4,d7d5,c2c4,c7c6,c4d5
-                 */
-                play?: string;
-                /** @description Comma separated list of game speeds to filter by */
-                speeds?: components["schemas"]["Speed"][];
-                /** @description Comma separated list of ratings groups to filter by.
-                 *     Each group ranges from its value to the next higher
-                 *     group in the enum (`0` from 0 to 999, `1000` from 1000 to 1199,
-                 *     ..., `2500` from 2500 to any rating above).
-                 *      */
-                ratings?: (0 | 1000 | 1200 | 1400 | 1600 | 1800 | 2000 | 2200 | 2500)[];
-                /** @description Include only games from this month or later */
-                since?: string;
-                /** @description Include only games from this month or earlier */
-                until?: string;
-                /** @description Number of most common moves to display */
-                moves?: number;
-                /** @description Number of top games to display */
-                topGames?: number;
-                /** @description Number of recent games to display */
-                recentGames?: number;
-                /** @description Optionally retrieve history */
-                history?: boolean;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Opening statistics and game references for the position. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["OpeningExplorerLichess"];
-                };
-            };
-        };
-    };
-    openingExplorerPlayer: {
-        parameters: {
-            query: {
-                /**
-                 * @description Username or ID of the player
-                 * @example revoof
-                 */
-                player: string;
-                /**
-                 * @description Look for games with *player* on the given side
-                 * @example white
-                 */
-                color: "white" | "black";
-                /** @description Variant */
-                variant?: components["schemas"]["VariantKey"];
-                /**
-                 * @description FEN of the root position
-                 * @example rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
-                 */
-                fen?: string;
-                /**
-                 * @description Comma separated sequence of legal moves in UCI notation.
-                 *     Play additional moves starting from `fen`.
-                 *     Required to find an opening name, if `fen` is not an exact match
-                 *     for a named position.
-                 *
-                 * @example d2d4,d7d5
-                 */
-                play?: string;
-                /** @description Comma separated list of game speeds to look for */
-                speeds?: components["schemas"]["Speed"][];
-                /** @description Comma separated list of modes */
-                modes?: ("casual" | "rated")[];
-                /** @description Include only games from this month or later */
-                since?: string;
-                /** @description Include only games from this month or earlier */
-                until?: string;
-                /** @description Number of most common moves to display */
-                moves?: number;
-                /** @description Number of recent games to display */
-                recentGames?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Opening statistics and game references for the position. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-ndjson": components["schemas"]["OpeningExplorerPlayer"];
-                };
-            };
-        };
-    };
-    openingExplorerMasterGame: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                gameId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The PGN representation of the game. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/x-chess-pgn": string;
-                };
-            };
-        };
-    };
-    tablebaseStandard: {
-        parameters: {
-            query: {
-                /** @description FEN of the position. Underscores allowed. */
-                fen: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The tablebase information for the position in standard chess. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TablebaseJson"];
-                };
-            };
-        };
-    };
-    tablebaseAtomic: {
-        parameters: {
-            query: {
-                /** @description FEN of the position. Underscores allowed. */
-                fen: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The tablebase information for the position in atomic chess. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TablebaseJson"];
-                };
-            };
-        };
-    };
-    antichessAtomic: {
-        parameters: {
-            query: {
-                /** @description FEN of the position. Underscores allowed. */
-                fen: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The tablebase information for the position in antichess. */
-            200: {
-                headers: {
-                    "Access-Control-Allow-Origin"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TablebaseJson"];
-                };
-            };
-        };
-    };
+        ratings?: (0 | 1000 | 1200 | 1400 | 1600 | 1800 | 2000 | 2200 | 2500)[];
+        /** @description Include only games from this month or later */
+        since?: string;
+        /** @description Include only games from this month or earlier */
+        until?: string;
+        /** @description Number of most common moves to display */
+        moves?: number;
+        /** @description Number of top games to display */
+        topGames?: number;
+        /** @description Number of recent games to display */
+        recentGames?: number;
+        /** @description Optionally retrieve history */
+        history?: boolean;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Opening statistics and game references for the position. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["OpeningExplorerLichess"];
+        };
+      };
+    };
+  };
+  openingExplorerPlayer: {
+    parameters: {
+      query: {
+        /**
+         * @description Username or ID of the player
+         * @example revoof
+         */
+        player: string;
+        /**
+         * @description Look for games with *player* on the given side
+         * @example white
+         */
+        color: "white" | "black";
+        /** @description Variant */
+        variant?: components["schemas"]["VariantKey"];
+        /**
+         * @description FEN of the root position
+         * @example rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+         */
+        fen?: string;
+        /**
+         * @description Comma separated sequence of legal moves in UCI notation.
+         *     Play additional moves starting from `fen`.
+         *     Required to find an opening name, if `fen` is not an exact match
+         *     for a named position.
+         *
+         * @example d2d4,d7d5
+         */
+        play?: string;
+        /** @description Comma separated list of game speeds to look for */
+        speeds?: components["schemas"]["Speed"][];
+        /** @description Comma separated list of modes */
+        modes?: ("casual" | "rated")[];
+        /** @description Include only games from this month or later */
+        since?: string;
+        /** @description Include only games from this month or earlier */
+        until?: string;
+        /** @description Number of most common moves to display */
+        moves?: number;
+        /** @description Number of recent games to display */
+        recentGames?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Opening statistics and game references for the position. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["OpeningExplorerPlayer"];
+        };
+      };
+    };
+  };
+  openingExplorerMasterGame: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The PGN representation of the game. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": string;
+        };
+      };
+    };
+  };
+  tablebaseStandard: {
+    parameters: {
+      query: {
+        /** @description FEN of the position. Underscores allowed. */
+        fen: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The tablebase information for the position in standard chess. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TablebaseJson"];
+        };
+      };
+    };
+  };
+  tablebaseAtomic: {
+    parameters: {
+      query: {
+        /** @description FEN of the position. Underscores allowed. */
+        fen: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The tablebase information for the position in atomic chess. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TablebaseJson"];
+        };
+      };
+    };
+  };
+  antichessAtomic: {
+    parameters: {
+      query: {
+        /** @description FEN of the position. Underscores allowed. */
+        fen: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The tablebase information for the position in antichess. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TablebaseJson"];
+        };
+      };
+    };
+  };
 }
