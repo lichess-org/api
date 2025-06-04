@@ -1,0 +1,14 @@
+type: object
+properties:
+  win:
+    type: number
+    minimum: 0.0
+    maximum: 10.0
+  draw:
+    type: number
+    minimum: 0.0
+    maximum: 10.0
+
+required:
+  - win
+  - draw
