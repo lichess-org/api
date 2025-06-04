@@ -5766,12 +5766,23 @@ export interface components {
       name?: string;
       tours?: components["schemas"]["BroadcastGroupTour"][];
     };
+    BroadcastCustomPoints: {
+      win: number;
+      draw: number;
+    };
+    /** @description Scoring overrides for wins or draws. */
+    BroadcastCustomScoring: {
+      white: components["schemas"]["BroadcastCustomPoints"];
+      black: components["schemas"]["BroadcastCustomPoints"];
+    };
     BroadcastRoundInfo: {
       id: string;
       name: string;
       slug: string;
       /** Format: int64 */
       createdAt: number;
+      /** @description Whether the round is used for rating calculations */
+      rated: boolean;
       ongoing?: boolean;
       /** Format: int64 */
       startsAt?: number;
@@ -5784,6 +5795,7 @@ export interface components {
       url: string;
       /** Format: int64 */
       delay?: number;
+      customScoring?: components["schemas"]["BroadcastCustomScoring"];
     };
     BroadcastWithRounds: {
       tour: components["schemas"]["BroadcastTour"];
@@ -6087,6 +6099,12 @@ export interface components {
        * @enum {string}
        */
       status?: "new" | "started" | "finished";
+      /**
+       * @description Whether the round is used when calculating players' rating changes.
+       * @default true
+       */
+      rated?: boolean;
+      customScoring?: components["schemas"]["BroadcastCustomScoring"];
       /** @description (Only for Admins) Waiting time for each poll.
        *      */
       period?: number;
