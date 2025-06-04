@@ -10,6 +10,9 @@ properties:
   createdAt:
     type: integer
     format: int64
+  rated:
+    type: boolean
+    description: "Whether the round is used for rating calculations"
   ongoing:
     type: boolean
   startsAt:
@@ -29,6 +32,9 @@ properties:
   delay:
     type: integer
     format: int64
+  customScoring:
+    type: object
+    $ref: "./BroadcastCustomScoring.yaml"
 
 required:
   - id
@@ -36,3 +42,4 @@ required:
   - slug
   - url
   - createdAt
+  - rated
