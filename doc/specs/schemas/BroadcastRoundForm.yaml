@@ -166,9 +166,14 @@ allOf:
         type: boolean
         default: true
         description: "Whether the round is used when calculating players' rating changes."
-      customScoring:
-        type: object
-        $ref: "./BroadcastCustomScoring.yaml"
+      customScoring.white.win:
+        $ref: "./BroadcastCustomPoints.yaml#/properties/win"
+      customScoring.white.draw:
+        $ref: "./BroadcastCustomPoints.yaml#/properties/draw"
+      customScoring.black.win:
+        $ref: "./BroadcastCustomPoints.yaml#/properties/win"
+      customScoring.black.draw:
+        $ref: "./BroadcastCustomPoints.yaml#/properties/draw"
       period:
         type: integer
         description: |
