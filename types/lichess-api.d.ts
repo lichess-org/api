@@ -5976,6 +5976,8 @@ export interface components {
      *     Example: `Round 1`
      *      */
     BroadcastRoundFormName: string;
+    win: number;
+    draw: number;
     BroadcastRoundForm: (
       | {
           name: components["schemas"]["BroadcastRoundFormName"];
@@ -6104,7 +6106,10 @@ export interface components {
        * @default true
        */
       rated?: boolean;
-      customScoring?: components["schemas"]["BroadcastCustomScoring"];
+      "customScoring.white.win"?: components["schemas"]["win"];
+      "customScoring.white.draw"?: components["schemas"]["draw"];
+      "customScoring.black.win"?: components["schemas"]["win"];
+      "customScoring.black.draw"?: components["schemas"]["draw"];
       /** @description (Only for Admins) Waiting time for each poll.
        *      */
       period?: number;
