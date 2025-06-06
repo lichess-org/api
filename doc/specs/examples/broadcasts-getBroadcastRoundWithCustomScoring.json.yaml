@@ -1,0 +1,73 @@
+value:
+  {
+    "round":
+      {
+        "id": "ZpRw34eP",
+        "name": "Round 9 | Armageddon",
+        "slug": "round-9--armageddon",
+        "createdAt": 1747829403418,
+        "rated": false,
+        "finishedAt": 1749146624615,
+        "finished": true,
+        "startsAt": 1749142800000,
+        "customScoring": { "white": { "win": 0.5, "draw": 0 }, "black": { "win": 0.5, "draw": 0.5 } },
+        "url": "https://lichess.org/broadcast/norway-chess-2025--open/round-9--armageddon/ZpRw34eP",
+      },
+    "tour":
+      {
+        "id": "PcsMbQ9J",
+        "name": "Norway Chess 2025 | Open",
+        "slug": "norway-chess-2025--open",
+        "info":
+          {
+            "website": "https://norwaychess.no/en/",
+            "players": "Carlsen, Gukesh, Caruana, Nakamura",
+            "location": "Stavanger, Norway",
+            "tc": "120 min + 10 sec / move starting 41",
+            "fideTc": "standard",
+            "timeZone": "Europe/Oslo",
+            "standings": "https://stats.norwaychess.no/2025/standings",
+            "format": "6-player double round-robin",
+          },
+        "createdAt": 1747826541812,
+        "url": "https://lichess.org/broadcast/norway-chess-2025--open/PcsMbQ9J",
+        "tier": 5,
+        "dates": [1748271600000, 1749229200000],
+        "image": "https://image.lichess1.org/display?fmt=webp&h=400&op=thumbnail&path=relay:PcsMbQ9J:QeUfDaHh.webp&w=800&sig=4d7317641091543a721d77baafff804fb15bf107",
+      },
+    "study": { "writeable": false },
+    "games":
+      [
+        {
+          "id": "Zc8WTto3",
+          "name": "Nakamura, Hikaru - Erigaisi Arjun",
+          "fen": "1nR5/1P1n1pp1/6kp/4P3/6P1/7P/5PK1/8 b - - 0 48",
+          "players":
+            [
+              {
+                "name": "Nakamura, Hikaru",
+                "title": "GM",
+                "rating": 2804,
+                "fideId": 2016192,
+                "fed": "USA",
+                "clock": 19700,
+              },
+              {
+                "name": "Erigaisi Arjun",
+                "title": "GM",
+                "rating": 2782,
+                "fideId": 35009192,
+                "fed": "IND",
+                "clock": 10000,
+              },
+            ],
+          "lastMove": "g3g4",
+          "status": "1-0",
+        },
+      ],
+    "group":
+      {
+        "name": "Norway Chess 2025",
+        "tours": [{ "id": "PcsMbQ9J", "name": "Open" }, { "id": "lrKI0bSz", "name": "Women" }],
+      },
+  }

@@ -1,0 +1,46 @@
+value:
+  {
+    "round":
+      {
+        "id": "bxphMaFp",
+        "name": "Final Round",
+        "slug": "final-round",
+        "createdAt": 1749175749252,
+        "rated": false,
+        "ongoing": true,
+        "startsAt": 1749175749252,
+        "url": "https://lichess.org/broadcast/knight-invitational-2/final-round/bxphMaFp",
+      },
+    "tour":
+      {
+        "id": "XDo8yBpo",
+        "name": "Knight Invitational 2",
+        "slug": "knight-invitational-2",
+        "info": {},
+        "createdAt": 1749175749025,
+        "url": "https://lichess.org/broadcast/knight-invitational-2/XDo8yBpo",
+        "dates": [1749175749252],
+      },
+    "study": { "writeable": false },
+    "games":
+      [
+        {
+          "id": "Ti6H07IU",
+          "name": "Player 1 - Player 2",
+          "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+          "players": [{ "name": "Player 1" }, { "name": "Player 2" }],
+          "lastMove": "e7e5",
+          "thinkTime": 0,
+          "status": "*",
+        },
+        {
+          "id": "q5UlzqlX",
+          "name": "Player 3 - Player 4",
+          "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2",
+          "players": [{ "name": "Player 3" }, { "name": "Player 4" }],
+          "lastMove": "d7d5",
+          "thinkTime": 0,
+          "status": "*",
+        },
+      ],
+  }
