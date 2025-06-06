@@ -6131,8 +6131,9 @@ export interface components {
         name?: string;
         title?: components["schemas"]["Title"];
         rating?: number;
-        clock?: number;
+        fideId?: number;
         fed?: string;
+        clock?: number;
       }[];
       lastMove?: string;
       thinkTime?: number;
