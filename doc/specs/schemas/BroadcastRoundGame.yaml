@@ -18,10 +18,12 @@ properties:
           $ref: "./Title.yaml"
         rating:
           type: integer
-        clock:
+        fideId:
           type: integer
         fed:
           type: string
+        clock:
+          type: integer
   lastMove:
     type: string
   thinkTime:

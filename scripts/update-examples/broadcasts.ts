@@ -1,4 +1,4 @@
-import { example, localClient, readTextStream } from "./config";
+import { example, localClient, prodClient, readTextStream } from "./config";
 
 const newOfficialTournament = await localClient("admin").POST(
   "/broadcast/new",
@@ -184,6 +184,27 @@ example(
       },
     },
   ),
+  'json',
+  true,
+);
+
+example(
+  "broadcasts",
+  "getBroadcastRoundWithCustomScoring",
+  await prodClient().GET(
+    "/api/broadcast/{broadcastTournamentSlug}/{broadcastRoundSlug}/{broadcastRoundId}",
+    {
+      params: {
+        path: {
+          broadcastTournamentSlug: "-",
+          broadcastRoundSlug: "-",
+          broadcastRoundId: 'ZpRw34eP',
+        },
+      },
+    },
+  ),
+  'json',
+  true,
 );
 
 example(
