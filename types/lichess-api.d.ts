@@ -6136,6 +6136,8 @@ export interface components {
         clock?: number;
       }[];
       lastMove?: string;
+      /** @enum {string} */
+      check?: "+" | "#";
       thinkTime?: number;
       /**
        * @description The result of the game
@@ -13676,7 +13678,7 @@ export interface operations {
               userId?: string;
               /** @description Comma-separated list of scopes. Empty string if the token has no scopes. */
               scopes?: string;
-              /** @description Unix-timestampe in milliseconds or null if the token never expires. */
+              /** @description Unix-timestamp in milliseconds or null if the token never expires. */
               expires?: number | null;
             } | null;
           };
