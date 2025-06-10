@@ -26,6 +26,11 @@ properties:
           type: integer
   lastMove:
     type: string
+  check:
+    type: string
+    enum:
+      - "+"
+      - "#"
   thinkTime:
     type: integer
   status:
