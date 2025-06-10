@@ -40,7 +40,7 @@ post:
                       type:
                         - integer
                         - "null"
-                      description: Unix-timestampe in milliseconds or null if the token never expires.
+                      description: Unix-timestamp in milliseconds or null if the token never expires.
                 - type: "null"
           example:
             $ref: "../../examples/oauth-testMultipleOauthTokens.json"
