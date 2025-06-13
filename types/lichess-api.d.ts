@@ -6293,11 +6293,18 @@ export interface components {
       id: components["schemas"]["GameStatusId"];
       name: components["schemas"]["GameStatusName"];
     };
-    GameEventOpponent: {
-      id: string;
-      username: string;
-      rating: number;
-    };
+    GameEventOpponent:
+      | {
+          id: string;
+          username: string;
+          rating: number;
+        }
+      | {
+          id: null;
+          username: string;
+          /** @description AI level, from 1 to 8, where 1 is the weakest and 8 is the strongest. */
+          ai: number;
+        };
     GameCompat: {
       /** @description Compatible with Bot API */
       bot?: boolean;
