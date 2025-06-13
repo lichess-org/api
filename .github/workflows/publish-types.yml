@@ -30,6 +30,7 @@ jobs:
           git status --porcelain
           echo "changed_files=$(git status --porcelain)" >> "$GITHUB_OUTPUT"
       - name: Publish to npm
+        id: publish
         if: steps.check_changes.outputs.changed_files != ''
         env:
             NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -37,6 +38,12 @@ jobs:
           git add .
           npm version patch --no-git-tag-version
           npm publish --provenance
+          echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+      - name: Sync version to docs/package.json
+        if: steps.publish.outputs.version != ''
+        run: |
+          cd ../docs
+          npm version ${{ steps.publish.outputs.version }} --no-git-tag-version
       - uses: stefanzweifel/git-auto-commit-action@v5
         if: steps.check_changes.outputs.changed_files != ''
         with:
