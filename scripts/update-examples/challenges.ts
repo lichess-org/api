@@ -86,6 +86,47 @@ await (async () => {
 })();
 
 await (async () => {
+  const challenger = "yulia";
+
+  const abortController = new AbortController();
+  const signal = abortController.signal;
+  localClient(challenger)
+    .GET("/api/stream/event", {
+      headers: {
+        Accept: "application/x-ndjson",
+      },
+      signal,
+      parseAs: "stream",
+    })
+    .then((response) => {
+      readNdJson(response.response, (line: any) => {
+        if (line.type === "gameStart") {
+          example("stream", "gameStart-ai", line, "json", true);
+        } else if (line.type === "gameFinish") {
+          example("stream", "gameFinish-ai", line, "json", true);
+          abortController.abort();
+        }
+      });
+    });
+
+  const challenge = await localClient(challenger).POST(
+    "/api/challenge/ai",
+    {
+      body: {
+        level: 1,
+      }
+    },
+  );
+  await localClient(challenger).POST("/api/board/game/{gameId}/abort", {
+    params: {
+      path: {
+        gameId: challenge.data!.id!,
+      },
+    },
+  });
+})();
+
+await (async () => {
   const abortController = new AbortController();
   const signal = abortController.signal;
   localClient("gabriela")

@@ -39,8 +39,12 @@ get:
           examples:
             GameStartEvent:
               $ref: "../../examples/stream-gameStart.json.yaml"
+            GameStartEvent (vs AI):
+              $ref: "../../examples/stream-gameStart-ai.json.yaml"
             GameFinishEvent:
               $ref: "../../examples/stream-gameFinish.json.yaml"
+            GameFinishEvent (vs AI):
+              $ref: "../../examples/stream-gameFinish-ai.json.yaml"
             ChallengeEvent:
               $ref: "../../examples/stream-challenge.json.yaml"
             ChallengeDeclinedEvent:

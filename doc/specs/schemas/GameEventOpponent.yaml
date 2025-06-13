@@ -1,13 +1,28 @@
-type: object
-properties:
-  id:
-    type: string
-  username:
-    type: string
-  rating:
-    type: integer
-
-required:
-  - id
-  - username
-  - rating
+oneOf:
+  - type: object
+    title: Player
+    properties:
+      id:
+        type: string
+      username:
+        type: string
+      rating:
+        type: integer
+    required:
+      - id
+      - username
+      - rating
+  - type: object
+    title: AI Opponent
+    properties:
+      id:
+        type: "null"
+      username:
+        type: string
+      ai:
+        type: integer
+        description: AI level, from 1 to 8, where 1 is the weakest and 8 is the strongest.
+    required:
+      - id
+      - username
+      - ai
