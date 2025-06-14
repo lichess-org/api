@@ -8,12 +8,12 @@ properties:
   slug:
     type: string
   createdAt:
-    type: number
+    type: integer
     example: 1722169800000
   dates:
     type: array
     items:
-      type: number
+      type: integer
       format: int64
     description: "Start and end dates of the tournament, as Unix timestamps in milliseconds"
     maxItems: 2

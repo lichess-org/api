@@ -13,10 +13,10 @@ properties:
     type: object
     properties:
       currentPage:
-        type: number
+        type: integer
         example: 4
       maxPerPage:
-        type: number
+        type: integer
         example: 20
       currentPageResults:
         type: array
