@@ -1,3 +1,38 @@
+type: object
+
+properties:
+  id:
+    type: string
+  games:
+    type: array
+    items:
+      type: ...
+  variant:
+    type: ...
+  clock:
+      $ref: "./Clock.yaml"
+  pairAt:
+    type: integer
+  pairedAt:
+    type: ...
+  rated:
+    type: boolean
+  startClocksAt:
+    type: integer
+  scheduledAt:
+    type: integer
+
+required:
+  - id
+  - games
+  - variant
+  - clock
+  - pairAt
+  - pairedAt
+  - rated
+  - startClocksAt
+  - scheduledAt
+
 example:
   {
     "id": "RVAcwgg7",
