@@ -17,7 +17,7 @@ properties:
   variant:
     $ref: "./VariantKey.yaml"
   clock:
-      $ref: "./Clock.yaml"
+    $ref: "./Clock.yaml"
   pairAt:
     type: integer
   pairedAt:
