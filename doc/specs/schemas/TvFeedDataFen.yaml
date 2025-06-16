@@ -1,0 +1,21 @@
+type: object
+
+properties:
+  fen:
+    type: string
+    description: The FEN of the current position
+  lm:
+    type: string
+    description: The last move in UCI format
+  wc:
+    type: integer
+    description: White's clock in seconds
+  bc:
+    type: integer
+    description: Black's clock in seconds
+
+required:
+  - fen
+  - lm
+  - wc
+  - bc

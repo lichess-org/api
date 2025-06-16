@@ -1,0 +1,38 @@
+type: object
+
+properties:
+  id:
+    type: string
+    description: The game ID
+  orientation:
+    $ref: "./GameColor.yaml"
+  players:
+    type: array
+    items:
+      type: object
+      properties:
+        color:
+          $ref: "./GameColor.yaml"
+        user:
+          $ref: "./LightUser.yaml"
+        rating:
+          type: integer
+        seconds:
+          type: integer
+          description: The player's remaining time in seconds
+      required:
+        - color
+        - rating
+        - seconds
+        - user
+    minItems: 2
+    maxItems: 2
+  fen:
+    type: string
+    description: The FEN of the current position
+
+required:
+  - id
+  - orientation
+  - players
+  - fen
