@@ -23,7 +23,7 @@ properties:
   pairedAt:
     type:
       - integer
-      - null
+      - "null"
   rated:
     type: boolean
   startClocksAt:
