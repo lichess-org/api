@@ -17,7 +17,7 @@ properties:
   onlyTitled:
     type: boolean
   clock:
-    $ref: "./Verdicts.yaml"
+    $ref: "./Clock.yaml"
   minutes:
     type: number
   createdBy:
