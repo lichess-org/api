@@ -6,15 +6,24 @@ properties:
   games:
     type: array
     items:
-      type: ...
+      type: object
+      properties:
+        id:
+          type: string
+        black:
+          type: string
+        white:
+          type: string
   variant:
-    type: ...
+    $ref: "./VariantKey.yaml"
   clock:
       $ref: "./Clock.yaml"
   pairAt:
     type: integer
   pairedAt:
-    type: ...
+    type:
+      - integer
+      - null
   rated:
     type: boolean
   startClocksAt:
