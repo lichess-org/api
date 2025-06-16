@@ -1,4 +1,5 @@
 type: object
+
 properties:
   teamId:
     type: string
@@ -7,8 +8,7 @@ properties:
     type: string
     example: thibault
   date:
-    type: number
-    example: 1514505150384
+    type: integer
   message:
     type: string
     example: "Hello, I would like to join the team!"

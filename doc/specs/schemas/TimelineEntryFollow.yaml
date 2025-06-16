@@ -1,11 +1,11 @@
 type: object
+
 properties:
   type:
     type: string
-    enum:
-      - follow
+    const: follow
   date:
-    type: number
+    type: integer
   data:
     type: object
     properties:
@@ -16,6 +16,7 @@ properties:
     required:
       - u1
       - u2
+
 required:
   - type
   - date

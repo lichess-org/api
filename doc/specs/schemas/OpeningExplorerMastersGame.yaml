@@ -13,7 +13,7 @@ properties:
   black:
     $ref: "./OpeningExplorerGamePlayer.yaml"
   year:
-    type: number
+    type: integer
   month:
     type: string
 required:

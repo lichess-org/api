@@ -1,26 +1,7 @@
-type: object
-properties:
-  id:
-    type: string
-  name:
-    type: string
-  rating:
-    type: number
-  title:
-    oneOf:
-      - $ref: "./Title.yaml"
-      - type: "null"
-  flair:
-    $ref: "./Flair.yaml"
-  patron:
-    type: boolean
-  provisional:
-    type: boolean
-  online:
-    type: boolean
-  lag:
-    type: number
-
-required:
-  - id
-  - name
+allOf:
+  - $ref: "./LightUserOnline.yaml"
+  - properties:
+      provisional:
+        type: boolean
+      lag:
+        type: integer
