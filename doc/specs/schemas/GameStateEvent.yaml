@@ -21,7 +21,7 @@ properties:
   status:
     $ref: "./GameStatusName.yaml"
   winner:
-    type: string
+    $ref: "./GameColor.yaml"
     description: Color of the winner, if any
   wdraw:
     type: boolean
