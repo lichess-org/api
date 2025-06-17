@@ -6462,15 +6462,15 @@ export interface components {
       declineReasonKey:
         | "generic"
         | "later"
-        | "tooFast"
-        | "tooSlow"
-        | "timeControl"
+        | "toofast"
+        | "tooslow"
+        | "timecontrol"
         | "rated"
         | "casual"
         | "standard"
         | "variant"
-        | "noBot"
-        | "onlyBot";
+        | "nobot"
+        | "onlybot";
     } & components["schemas"]["ChallengeJson"];
     ChallengeDeclinedEvent: {
       /** @constant */
@@ -6513,7 +6513,7 @@ export interface components {
       binc: number;
       status: components["schemas"]["GameStatusName"];
       /** @description Color of the winner, if any */
-      winner?: string;
+      winner?: components["schemas"]["GameColor"];
       /** @description true if white is offering draw, else omitted */
       wdraw?: boolean;
       /** @description true if black is offering draw, else omitted */
@@ -6701,7 +6701,21 @@ export interface components {
      *       "startClocksAt": 1612200422971,
      *       "scheduledAt": 1612203514628
      *     } */
-    BulkPairing: unknown;
+    BulkPairing: {
+      id: string;
+      games: {
+        id?: string;
+        black?: string;
+        white?: string;
+      }[];
+      variant: components["schemas"]["VariantKey"];
+      clock: components["schemas"]["Clock"];
+      pairAt: number;
+      pairedAt: number | null;
+      rated: boolean;
+      startClocksAt: number;
+      scheduledAt: number;
+    };
     /** @example {
      *       "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R",
      *       "knodes": 106325,
