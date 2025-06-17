@@ -17,15 +17,7 @@ properties:
   onlyTitled:
     type: boolean
   clock:
-    type: object
-    properties:
-      increment:
-        type: number
-      limit:
-        type: number
-    required:
-      - increment
-      - limit
+    $ref: "./Clock.yaml"
   minutes:
     type: number
   createdBy:
