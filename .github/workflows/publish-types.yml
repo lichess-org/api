@@ -13,7 +13,7 @@ jobs:
       id-token: write
     defaults:
       run:
-        working-directory: types
+        working-directory: ./types
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -37,13 +37,8 @@ jobs:
         run: |
           git add .
           npm version patch --no-git-tag-version
+          sed -i 's/version: .*/version: '"$(node -p "require('./package.json').version")"'/' ../doc/specs/lichess-api.yaml
           npm publish --provenance
-          echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
-      - name: Sync version to docs/package.json
-        if: steps.publish.outputs.version != ''
-        run: |
-          cd ../docs
-          npm version ${{ steps.publish.outputs.version }} --no-git-tag-version
       - uses: stefanzweifel/git-auto-commit-action@v5
         if: steps.check_changes.outputs.changed_files != ''
         with:
