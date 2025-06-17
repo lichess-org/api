@@ -1,0 +1,26 @@
+type: object
+
+properties:
+  rank:
+    type: number
+  id:
+    type: string
+  score:
+    type: number
+  players:
+    type: array
+    items:
+      type: object
+      properties:
+        user:
+          $ref: "../../schemas/LightUser.yaml"
+        score:
+          type: number
+      required:
+        - user
+
+required:
+  - rank
+  - id
+  - score
+  - players

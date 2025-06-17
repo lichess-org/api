@@ -34,29 +34,6 @@ get:
               teams:
                 type: array
                 items:
-                  type: object
-                  required:
-                    - rank
-                    - id
-                    - score
-                    - players
-                  properties:
-                    rank:
-                      type: number
-                    id:
-                      type: string
-                    score:
-                      type: number
-                    players:
-                      type: array
-                      items:
-                        type: object
-                        required:
-                          - user
-                        properties:
-                          user:
-                            $ref: "../../schemas/LightUser.yaml"
-                          score:
-                            type: number
+                  $ref: "../../schemas/ArenaTournamentTeam.yaml"
           example:
             $ref: "../../examples/arenas-getTeamStandingOfTeamBattle.json"
