@@ -13,7 +13,7 @@ properties:
       type: object
       properties:
         user:
-          $ref: "../../schemas/LightUser.yaml"
+          $ref: "./LightUser.yaml"
         score:
           type: number
       required:
