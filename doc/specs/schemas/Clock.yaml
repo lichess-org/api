@@ -1,6 +1,11 @@
 type: object
+
 properties:
   limit:
     type: integer
   increment:
     type: integer
+
+required:
+  - limit
+  - increment
