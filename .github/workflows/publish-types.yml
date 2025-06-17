@@ -37,12 +37,8 @@ jobs:
         run: |
           git add .
           npm version patch --no-git-tag-version
+          sed -i 's/version: .*/version: '"$(node -p "require('./package.json').version")"'/' ../doc/specs/lichess-api.yaml
           npm publish --provenance
-          echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
-      - name: Sync version to docs
-        if: steps.publish.outputs.version != ''
-        run: |
-          sed -i "s/version: .*/version: ${steps.publish.outputs.version}/" ../doc/specs/lichess-api.yaml
       - uses: stefanzweifel/git-auto-commit-action@v5
         if: steps.check_changes.outputs.changed_files != ''
         with:
