@@ -5327,8 +5327,8 @@ export interface components {
           };
     };
     Clock: {
-      limit?: number;
-      increment?: number;
+      limit: number;
+      increment: number;
     };
     /**
      * @description 10: created, 20: started, 30: finished
@@ -5441,10 +5441,7 @@ export interface components {
       };
       berserkable?: boolean;
       onlyTitled?: boolean;
-      clock: {
-        increment: number;
-        limit: number;
-      };
+      clock: components["schemas"]["Clock"];
       minutes?: number;
       createdBy?: string;
       system?: string;
