@@ -63,6 +63,12 @@ await (async () => {
           username: challengee,
         },
       },
+      body: {
+        rated: true,
+        color: "white",
+        "clock.limit": 300,
+        "clock.increment": 0,
+      },
     },
   );
   example(
@@ -76,7 +82,31 @@ await (async () => {
       },
     }),
   );
-  await localClient(challengee).POST("/api/board/game/{gameId}/abort", {
+  await sleep(1000);
+  const moves = [
+    {
+      player: challenger,
+      move: "e2e4",
+    },
+    {
+      player: challengee,
+      move: "e7e5",
+    },
+  ];
+  for (const move of moves) {
+    await localClient(move.player).POST(
+      "/api/board/game/{gameId}/move/{move}",
+      {
+        params: {
+          path: {
+            gameId: challengeToAccept.data!.id,
+            move: move.move,
+          },
+        },
+      },
+    );
+  }
+  await localClient(challenger).POST("/api/board/game/{gameId}/resign", {
     params: {
       path: {
         gameId: challengeToAccept.data!.id,
@@ -109,14 +139,11 @@ await (async () => {
       });
     });
 
-  const challenge = await localClient(challenger).POST(
-    "/api/challenge/ai",
-    {
-      body: {
-        level: 1,
-      }
+  const challenge = await localClient(challenger).POST("/api/challenge/ai", {
+    body: {
+      level: 1,
     },
-  );
+  });
   await localClient(challenger).POST("/api/board/game/{gameId}/abort", {
     params: {
       path: {

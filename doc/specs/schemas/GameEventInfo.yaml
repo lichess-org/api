@@ -30,6 +30,10 @@ properties:
     type: boolean
   secondsLeft:
     type: integer
+  winner:
+    $ref: "./GameColor.yaml"
+  ratingDiff:
+    type: integer
   compat:
     $ref: "./GameCompat.yaml"
   id:
