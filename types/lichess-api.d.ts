@@ -6295,6 +6295,7 @@ export interface components {
           id: string;
           username: string;
           rating: number;
+          ratingDiff?: number;
         }
       | {
           id: null;
@@ -6324,6 +6325,8 @@ export interface components {
       opponent?: components["schemas"]["GameEventOpponent"];
       isMyTurn?: boolean;
       secondsLeft?: number;
+      winner?: components["schemas"]["GameColor"];
+      ratingDiff?: number;
       compat?: components["schemas"]["GameCompat"];
       id?: string;
     };
