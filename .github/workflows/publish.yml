@@ -59,6 +59,8 @@ jobs:
         working-directory: doc
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: master
       - uses: pnpm/action-setup@v4
         with:
           package_json_file: doc/package.json
