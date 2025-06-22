@@ -184,7 +184,7 @@ example(
       },
     },
   ),
-  'json',
+  "json",
   true,
 );
 
@@ -198,12 +198,12 @@ example(
         path: {
           broadcastTournamentSlug: "-",
           broadcastRoundSlug: "-",
-          broadcastRoundId: 'ZpRw34eP',
+          broadcastRoundId: "ZpRw34eP",
         },
       },
     },
   ),
-  'json',
+  "json",
   true,
 );
 

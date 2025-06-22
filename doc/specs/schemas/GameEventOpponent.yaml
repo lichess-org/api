@@ -8,6 +8,8 @@ oneOf:
         type: string
       rating:
         type: integer
+      ratingDiff:
+        type: integer
     required:
       - id
       - username
