@@ -84,14 +84,22 @@ get:
         default: 12
     - in: query
       name: topGames
-      description: Number of top games to display
+      description: |
+        Maximum number of top games to display.
+
+        Due to the way banned users are handled internally, the response may
+        contain fewer games than expected.
       schema:
         type: number
         default: 4
         maximum: 4
     - in: query
       name: recentGames
-      description: Number of recent games to display
+      description: |
+        Maximum number of recent games to display.
+
+        Due to the way banned users are handled internally, the response may
+        contain fewer games than expected.
       schema:
         type: number
         default: 4
