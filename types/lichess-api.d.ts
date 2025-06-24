@@ -37010,9 +37010,17 @@ export interface operations {
         until?: string;
         /** @description Number of most common moves to display */
         moves?: number;
-        /** @description Number of top games to display */
+        /** @description Maximum number of top games to display.
+         *
+         *     Due to the way banned users are handled internally, the response may
+         *     contain fewer games than expected.
+         *      */
         topGames?: number;
-        /** @description Number of recent games to display */
+        /** @description Maximum number of recent games to display.
+         *
+         *     Due to the way banned users are handled internally, the response may
+         *     contain fewer games than expected.
+         *      */
         recentGames?: number;
         /** @description Optionally retrieve history */
         history?: boolean;
