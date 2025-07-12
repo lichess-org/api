@@ -1547,8 +1547,8 @@ export interface paths {
     };
     /**
      * Get official broadcasts
-     * @description Get all incoming, ongoing, and finished official broadcasts.
-     *     The broadcasts are sorted by start date, most recent first.
+     * @description Returns ongoing official broadcasts sorted by tier.
+     *     After that, returns finished broadcasts sorted by most recent sync time.
      *     Broadcasts are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
      *
      */
@@ -6569,7 +6569,7 @@ export interface components {
       type: "gameFull";
       id: string;
       variant: components["schemas"]["Variant"];
-      clock: {
+      clock?: {
         /**
          * Format: int64
          * @description Initial time in milliseconds
@@ -6594,6 +6594,8 @@ export interface components {
       /** @default startpos */
       initialFen: string;
       state: components["schemas"]["GameStateEvent"];
+      /** @description If the game is correspondence */
+      daysPerTurn?: number;
       tournamentId?: string;
     };
     /** @example {
