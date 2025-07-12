@@ -40,13 +40,15 @@ properties:
     default: "startpos"
   state:
     $ref: "./GameStateEvent.yaml"
+  daysPerTurn:
+    type: integer
+    description: If the game is correspondence
   tournamentId:
     type: string
 required:
   - type
   - id
   - variant
-  - clock
   - speed
   - perf
   - rated
