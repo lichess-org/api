@@ -6063,7 +6063,7 @@ export interface components {
         }
       | {
           name: components["schemas"]["BroadcastRoundFormName"];
-          /** @description Lichess game IDs - Up to 64 Lichess game IDs, separated by spaces.
+          /** @description Lichess game IDs - Up to 100 Lichess game IDs, separated by spaces.
            *      */
           syncIds: string;
         }
@@ -31277,7 +31277,7 @@ export interface operations {
       };
       cookie?: never;
     };
-    /** @description The PGN. It can contain up to 64 games, separated by a double new line. */
+    /** @description The PGN. It can contain up to 100 games, separated by a double new line. */
     requestBody: {
       content: {
         "text/plain": string;
