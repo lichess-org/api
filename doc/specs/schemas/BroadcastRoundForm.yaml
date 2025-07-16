@@ -118,7 +118,7 @@ allOf:
           syncIds:
             type: string
             description: |
-              Lichess game IDs - Up to 64 Lichess game IDs, separated by spaces.
+              Lichess game IDs - Up to 100 Lichess game IDs, separated by spaces.
       - type: object
         title: retrieve games via Lichess usernames
         required:
