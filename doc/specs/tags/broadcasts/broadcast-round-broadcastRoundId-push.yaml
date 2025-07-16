@@ -18,7 +18,7 @@ post:
         minLength: 8
         maxLength: 8
   requestBody:
-    description: The PGN. It can contain up to 64 games, separated by a double new line.
+    description: The PGN. It can contain up to 100 games, separated by a double new line.
     required: true
     content:
       text/plain:
