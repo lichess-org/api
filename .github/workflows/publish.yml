@@ -16,6 +16,7 @@ concurrency:
 
 jobs:
   publish-to-npm:
+    if: github.repository == 'lichess-org/api'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -49,6 +50,7 @@ jobs:
         with:
           commit_message: 'Update API version'
   publish-to-github-pages:
+    if: github.repository == 'lichess-org/api'
     needs: publish-to-npm
     environment:
       name: github-pages
