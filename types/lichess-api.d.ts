@@ -715,7 +715,7 @@ export interface paths {
      * @description Import a game from PGN. See <https://lichess.org/paste>.
      *     Rate limiting: 200 games per hour for OAuth requests, 100 games per hour for anonymous requests.
      *     To broadcast ongoing games, consider [pushing to a broadcast instead](#operation/broadcastPush).
-     *     To analyse a position or a line, just construct an analysis board URL:
+     *     To analyse a position or a line, just construct an analysis board URL (most standard tags supported if URL-encoded):
      *     [https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bc4_Bc5_Bxf7+](https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bc4_Bc5_Bxf7+)
      *
      */
