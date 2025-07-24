@@ -1,0 +1,10 @@
+type: object
+properties:
+  extendedCode:
+    $ref: "./BroadcastTiebreakExtendedCode.yaml"
+  description:
+    type: string
+    example: "Buchholz Cut 1"
+  "points":
+    type: number
+    example: 45.5
