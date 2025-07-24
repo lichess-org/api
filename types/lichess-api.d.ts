@@ -2730,6 +2730,27 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/api/board/game/{gameId}/claim-draw": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Claim draw of a game
+     * @description Claim draw when the opponent has left the game for a while.
+     *
+     */
+    post: operations["boardGameClaimDraw"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/api/board/game/{gameId}/berserk": {
     parameters: {
       query?: never;
@@ -2978,6 +2999,27 @@ export interface paths {
      *
      */
     post: operations["botGameClaimVictory"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/bot/game/{gameId}/claim-draw": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Claim draw of a game
+     * @description Claim draw when the opponent has left the game for a while.
+     *
+     */
+    post: operations["botGameClaimDraw"];
     delete?: never;
     options?: never;
     head?: never;
@@ -34664,6 +34706,38 @@ export interface operations {
       };
     };
   };
+  boardGameClaimDraw: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The draw was successfully claimed. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The draw claim has failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
   boardGameBerserk: {
     parameters: {
       query?: never;
@@ -35090,6 +35164,38 @@ export interface operations {
         };
       };
       /** @description The victory claim has failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  botGameClaimDraw: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The draw was successfully claimed. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Ok"];
+        };
+      };
+      /** @description The draw claim has failed. */
       400: {
         headers: {
           [name: string]: unknown;
