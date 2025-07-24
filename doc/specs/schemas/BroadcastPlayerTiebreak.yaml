@@ -1,8 +1,7 @@
 type: object
 properties:
   extendedCode:
-    type: string
-    example: "BH-C1"
+    $ref: "./BroadcastTiebreakExtendedCode.yaml"
   description:
     type: string
     example: "Buchholz Cut 1"
