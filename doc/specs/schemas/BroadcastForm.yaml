@@ -133,6 +133,11 @@ properties:
       * `4` for Official: high tier
       * `5` for Official: best tier
       * `-1` for Private
+  tiebreaks[]:
+    type: array
+    maxItems: 5
+    items:
+      $ref: "./BroadcastTiebreakExtendedCode.yaml"
 
 required:
   - name
