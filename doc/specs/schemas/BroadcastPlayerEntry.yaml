@@ -27,3 +27,12 @@ properties:
   fed:
     type: string
     example: CHI
+  tiebreaks:
+    type: array
+    maxItems: 5
+    items:
+      $ref: "./BroadcastPlayerTiebreak.yaml"
+  rank:
+    type: integer
+    example: 1
+    minimum: 1

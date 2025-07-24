@@ -1,0 +1,11 @@
+type: object
+properties:
+  extendedCode:
+    type: string
+    example: "BH-C1"
+  description:
+    type: string
+    example: "Buchholz Cut 1"
+  "points":
+    type: number
+    example: 45.5
