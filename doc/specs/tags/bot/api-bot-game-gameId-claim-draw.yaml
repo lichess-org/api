@@ -1,0 +1,34 @@
+post:
+  operationId: botGameClaimDraw
+  summary: Claim draw of a game
+  description: |
+    Claim draw when the opponent has left the game for a while.
+  tags:
+    - Bot
+  security:
+    - OAuth2: ["bot:play"]
+  parameters:
+    - in: path
+      name: gameId
+      schema:
+        type: string
+        example: "5IrD6Gzz"
+      required: true
+  responses:
+    "200":
+      description: The draw was successfully claimed.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/Ok.yaml"
+    "400":
+      description: The draw claim has failed.
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/Error.yaml"

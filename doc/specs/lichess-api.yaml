@@ -615,6 +615,9 @@ paths:
   /api/board/game/{gameId}/claim-victory:
     $ref: "./tags/board/api-board-game-gameId-claim-victory.yaml"
 
+  /api/board/game/{gameId}/claim-draw:
+    $ref: "./tags/board/api-board-game-gameId-claim-draw.yaml"
+
   /api/board/game/{gameId}/berserk:
     $ref: "./tags/board/api-board-game-gameId-berserk.yaml"
 
@@ -647,6 +650,9 @@ paths:
 
   /api/bot/game/{gameId}/claim-victory:
     $ref: "./tags/bot/api-bot-game-gameId-claim-victory.yaml"
+
+  /api/bot/game/{gameId}/claim-draw:
+    $ref: "./tags/bot/api-bot-game-gameId-claim-draw.yaml"
 
   /api/challenge:
     $ref: "./tags/challenges/api-challenge.yaml"
