@@ -1100,7 +1100,7 @@ export interface paths {
      *     The stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 tournaments per second
      *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 tournaments per second
-     *       - Authenticated, downloading your own tournaments: 50 games per second
+     *       - Authenticated, downloading your own tournaments: 50 tournaments per second
      *
      */
     get: operations["apiUserNameTournamentCreated"];
@@ -1127,7 +1127,7 @@ export interface paths {
      *     The stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 tournaments per second
      *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 tournaments per second
-     *       - Authenticated, downloading your own tournaments: 50 games per second
+     *       - Authenticated, downloading your own tournaments: 50 tournaments per second
      *
      */
     get: operations["apiUserNameTournamentPlayed"];
@@ -5865,6 +5865,46 @@ export interface components {
     BroadcastByUser: {
       tour: components["schemas"]["BroadcastTour"];
     };
+    /**
+     * @description Extended tiebreak code
+     * @enum {string}
+     */
+    BroadcastTiebreakExtendedCode:
+      | "AOB"
+      | "APPO"
+      | "APRO"
+      | "ARO"
+      | "ARO-C1"
+      | "ARO-C2"
+      | "ARO-M1"
+      | "ARO-M2"
+      | "BH"
+      | "BH-C1"
+      | "BH-C2"
+      | "BH-M1"
+      | "BH-M2"
+      | "BPG"
+      | "BWG"
+      | "DE"
+      | "FB"
+      | "FB-C1"
+      | "FB-C2"
+      | "FB-M1"
+      | "FB-M2"
+      | "KS"
+      | "PS"
+      | "PS-C1"
+      | "PS-C2"
+      | "PS-M1"
+      | "PS-M2"
+      | "PTP"
+      | "SB"
+      | "SB-C1"
+      | "SB-C2"
+      | "SB-M1"
+      | "SB-M2"
+      | "TPR"
+      | "WON";
     BroadcastForm: {
       /** @description Name of the broadcast tournament.
        *
@@ -5990,6 +6030,14 @@ export interface components {
        * @enum {integer}
        */
       tier?: 3 | 4 | 5 | -1;
+      "tiebreaks[]"?: components["schemas"]["BroadcastTiebreakExtendedCode"][];
+    };
+    BroadcastPlayerTiebreak: {
+      extendedCode?: components["schemas"]["BroadcastTiebreakExtendedCode"];
+      /** @example Buchholz Cut 1 */
+      description?: string;
+      /** @example 45.5 */
+      points?: number;
     };
     BroadcastPlayerEntry: {
       /** @example Hernandez Riera, Jose */
@@ -6010,6 +6058,9 @@ export interface components {
       fideId?: number;
       /** @example CHI */
       fed?: string;
+      tiebreaks?: components["schemas"]["BroadcastPlayerTiebreak"][];
+      /** @example 1 */
+      rank?: number;
     };
     /** @description Name of the broadcast round.
      *     Example: `Round 1`
@@ -31033,20 +31084,82 @@ export interface operations {
         content: {
           /** @example [
            *       {
-           *         "name": "Player 1",
-           *         "played": 0
+           *         "name": "Aravindh, Chithambaram VR.",
+           *         "title": "GM",
+           *         "rating": 2749,
+           *         "fideId": 5072786,
+           *         "fed": "IND",
+           *         "played": 9,
+           *         "score": 2.5,
+           *         "ratingDiff": -23,
+           *         "performance": 2557,
+           *         "tiebreaks": [
+           *           {
+           *             "extendedCode": "DE",
+           *             "description": "Direct encounter",
+           *             "points": 0
+           *           },
+           *           {
+           *             "extendedCode": "SB",
+           *             "description": "Sonneborn-Berger",
+           *             "points": 11.25
+           *           },
+           *           {
+           *             "extendedCode": "WON",
+           *             "description": "Number of Wins",
+           *             "points": 0
+           *           },
+           *           {
+           *             "extendedCode": "BWG",
+           *             "description": "Number of wins with black",
+           *             "points": 0
+           *           },
+           *           {
+           *             "extendedCode": "KS",
+           *             "description": "Koya system (limit 50% of score)",
+           *             "points": 1.5
+           *           }
+           *         ],
+           *         "rank": 10
            *       },
            *       {
-           *         "name": "Player 2",
-           *         "played": 0
-           *       },
-           *       {
-           *         "name": "Player 3",
-           *         "played": 0
-           *       },
-           *       {
-           *         "name": "Player 4",
-           *         "played": 0
+           *         "name": "Praggnanandhaa R",
+           *         "title": "GM",
+           *         "rating": 2758,
+           *         "fideId": 25059530,
+           *         "fed": "IND",
+           *         "played": 9,
+           *         "score": 5.5,
+           *         "ratingDiff": 6,
+           *         "performance": 2802,
+           *         "tiebreaks": [
+           *           {
+           *             "extendedCode": "DE",
+           *             "description": "Direct encounter",
+           *             "points": 2
+           *           },
+           *           {
+           *             "extendedCode": "SB",
+           *             "description": "Sonneborn-Berger",
+           *             "points": 25.25
+           *           },
+           *           {
+           *             "extendedCode": "WON",
+           *             "description": "Number of Wins",
+           *             "points": 4
+           *           },
+           *           {
+           *             "extendedCode": "BWG",
+           *             "description": "Number of wins with black",
+           *             "points": 1
+           *           },
+           *           {
+           *             "extendedCode": "KS",
+           *             "description": "Koya system (limit 50% of score)",
+           *             "points": 3.5
+           *           }
+           *         ],
+           *         "rank": 1
            *       }
            *     ] */
           "application/json": components["schemas"]["BroadcastPlayerEntry"][];
