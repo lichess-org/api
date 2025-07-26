@@ -70,6 +70,15 @@ properties:
     default: false
     description: |
       Show a team leaderboard. Requires WhiteTeam and BlackTeam PGN tags.
+  visibility:
+    type: enum
+    enum: [public, unlisted, private]
+    default: public
+    description: |
+      Who can view the broadcast.
+      * `public`: Default. Anyone can view the broadcast
+      * `unlisted`: Only people with the link can view the broadcast
+      * `private`: Only the broadcast owner(s) can view the broadcast
   players:
     type: string
     description: |
