@@ -71,7 +71,7 @@ properties:
     description: |
       Show a team leaderboard. Requires WhiteTeam and BlackTeam PGN tags.
   visibility:
-    type: enum
+    type: string
     enum: [public, unlisted, private]
     default: public
     description: |
