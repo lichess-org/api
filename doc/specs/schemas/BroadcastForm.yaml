@@ -134,14 +134,13 @@ properties:
       By default the PGN tags WhiteTeam and BlackTeam are used.
   tier:
     type: integer
-    enum: [3, 4, 5, -1]
+    enum: [3, 4, 5]
     description: |
       Optional, for Lichess admins only, used to feature on /broadcast.
 
       * `3` for Official: normal tier
       * `4` for Official: high tier
       * `5` for Official: best tier
-      * `-1` for Private
   tiebreaks[]:
     type: array
     maxItems: 5
