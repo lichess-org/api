@@ -5968,6 +5968,16 @@ export interface components {
        * @default false
        */
       teamTable?: boolean;
+      /**
+       * @description Who can view the broadcast.
+       *     * `public`: Default. Anyone can view the broadcast
+       *     * `unlisted`: Only people with the link can view the broadcast
+       *     * `private`: Only the broadcast owner(s) can view the broadcast
+       *
+       * @default public
+       * @enum {string}
+       */
+      visibility?: "public" | "unlisted" | "private";
       /** @description Optional replace player names, ratings and titles.
        *
        *     One line per player, formatted as such:
@@ -6025,11 +6035,10 @@ export interface components {
        *     * `3` for Official: normal tier
        *     * `4` for Official: high tier
        *     * `5` for Official: best tier
-       *     * `-1` for Private
        *
        * @enum {integer}
        */
-      tier?: 3 | 4 | 5 | -1;
+      tier?: 3 | 4 | 5;
       "tiebreaks[]"?: components["schemas"]["BroadcastTiebreakExtendedCode"][];
     };
     BroadcastPlayerTiebreak: {
