@@ -12,4 +12,5 @@ enum:
   - cheat
   - noStart
   - unknownFinish
+  - insufficientMaterialClaim
   - variantEnd
