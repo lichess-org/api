@@ -5088,6 +5088,7 @@ export interface components {
       | "cheat"
       | "noStart"
       | "unknownFinish"
+      | "insufficientMaterialClaim"
       | "variantEnd";
     LightUser: {
       id: string;
@@ -6387,6 +6388,7 @@ export interface components {
       | 36
       | 37
       | 38
+      | 39
       | 60;
     GameStatus: {
       id: components["schemas"]["GameStatusId"];
