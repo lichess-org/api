@@ -5,6 +5,9 @@ get:
     Get the results of a [puzzle race](https://lichess.org/racer).
     Returns information about players, puzzles, and the current status of the race.
     - <https://lichess.org/racer>
+
+    Note that Lichess puzzle races are not persisted, and are only available
+    for 30 minutes. After that delay, they are permanently deleted.
   tags:
     - Puzzles
   security:
@@ -33,7 +36,7 @@ get:
           example:
             $ref: "../../examples/puzzles-getRaceResults.json"
     "404":
-      description: The puzzle race was not found.
+      description: The puzzle race was not found, or is no longer available.
       content:
         application/json:
           schema:

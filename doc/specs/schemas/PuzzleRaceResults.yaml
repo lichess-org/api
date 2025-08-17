@@ -13,23 +13,22 @@ properties:
     items:
       type: object
       properties:
-        id:
-          type: string
-          description: Player ID
         name:
           type: string
           description: Player username
         score:
           type: integer
           description: Player's current score in the race
+        id:
+          type: string
+          description: User ID. Missing if player is anonymous.
         flair:
           type: string
-          description: Player's flair icon (optional)
+          description: User's flair icon
         patron:
           type: boolean
-          description: Whether the player is a Lichess patron (optional)
+          description: Whether the player is a Lichess patron
       required:
-        - id
         - name
         - score
   puzzles:
@@ -49,7 +48,7 @@ properties:
           description: Solution moves sequence
         rating:
           type: integer
-          description: Puzzle difficulty rating
+          description: Puzzle Glicko2 rating
       required:
         - id
         - fen
