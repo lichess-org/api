@@ -4,39 +4,68 @@ properties:
   id:
     type: string
     description: Unique identifier of the puzzle race
+  owner:
+    type: string
+    description: Owner of the puzzle race
   players:
     type: array
     description: List of players participating in the race
     items:
       type: object
+      properties:
+        id:
+          type: string
+          description: Player ID
+        name:
+          type: string
+          description: Player username
+        score:
+          type: integer
+          description: Player's current score in the race
+        flair:
+          type: string
+          description: Player's flair icon (optional)
+        patron:
+          type: boolean
+          description: Whether the player is a Lichess patron (optional)
+      required:
+        - id
+        - name
+        - score
   puzzles:
     type: array
     description: List of puzzles in the race
     items:
       type: object
-  finished:
-    type: boolean
-    description: Whether the race has finished
-  hasStarted:
-    type: boolean
-    description: Whether the race has started
-  lobby:
-    type: boolean
-    description: Whether this is a lobby race
-  startsIn:
-    type:
-      - integer
-      - "null"
-    description: Milliseconds until the race starts (if not started)
+      properties:
+        id:
+          type: string
+          description: Puzzle ID
+        fen:
+          type: string
+          description: FEN position of the puzzle
+        line:
+          type: string
+          description: Solution moves sequence
+        rating:
+          type: integer
+          description: Puzzle difficulty rating
+      required:
+        - id
+        - fen
+        - line
+        - rating
   finishesAt:
-    type:
-      - integer
-      - "null"
+    type: integer
     description: Timestamp in milliseconds when the race finishes
+  startsAt:
+    type: integer
+    description: Timestamp in milliseconds when the race started
 
 required:
   - id
+  - owner
   - players
   - puzzles
-  - finished
-  - hasStarted
+  - finishesAt
+  - startsAt

@@ -4626,20 +4626,36 @@ export interface components {
     PuzzleRaceResults: {
       /** @description Unique identifier of the puzzle race */
       id: string;
+      /** @description Owner of the puzzle race */
+      owner: string;
       /** @description List of players participating in the race */
-      players: Record<string, never>[];
+      players: {
+        /** @description Player ID */
+        id: string;
+        /** @description Player username */
+        name: string;
+        /** @description Player's current score in the race */
+        score: number;
+        /** @description Player's flair icon (optional) */
+        flair?: string;
+        /** @description Whether the player is a Lichess patron (optional) */
+        patron?: boolean;
+      }[];
       /** @description List of puzzles in the race */
-      puzzles: Record<string, never>[];
-      /** @description Whether the race has finished */
-      finished: boolean;
-      /** @description Whether the race has started */
-      hasStarted: boolean;
-      /** @description Whether this is a lobby race */
-      lobby?: boolean;
-      /** @description Milliseconds until the race starts (if not started) */
-      startsIn?: number | null;
+      puzzles: {
+        /** @description Puzzle ID */
+        id: string;
+        /** @description FEN position of the puzzle */
+        fen: string;
+        /** @description Solution moves sequence */
+        line: string;
+        /** @description Puzzle difficulty rating */
+        rating: number;
+      }[];
       /** @description Timestamp in milliseconds when the race finishes */
-      finishesAt?: number | null;
+      finishesAt: number;
+      /** @description Timestamp in milliseconds when the race started */
+      startsAt: number;
     };
     /** @example {
      *       "error": "Not found."
@@ -10248,36 +10264,49 @@ export interface operations {
         };
         content: {
           /** @example {
-           *       "id": "aU5t3",
+           *       "finishesAt": 1755416156218,
+           *       "id": "5Nrt6",
+           *       "owner": "lichess",
            *       "players": [
            *         {
-           *           "id": "player1",
-           *           "name": "thibault",
-           *           "score": 15,
-           *           "finished": true
+           *           "id": "requiem_123",
+           *           "name": "requiem_123",
+           *           "score": 60
            *         },
            *         {
-           *           "id": "player2",
-           *           "name": "bobby",
-           *           "score": 12,
-           *           "finished": true
+           *           "flair": "nature.seedling",
+           *           "id": "thibault",
+           *           "name": "thibault",
+           *           "patron": true,
+           *           "score": 28
+           *         },
+           *         {
+           *           "id": "steponlego",
+           *           "name": "StepOnLego",
+           *           "score": 0
            *         }
            *       ],
            *       "puzzles": [
            *         {
-           *           "id": "puzzle1",
-           *           "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-           *           "solution": [
-           *             "e2e4",
-           *             "e7e5"
-           *           ]
+           *           "fen": "r5k1/2p2pp1/1p1pP2p/3P4/1nP2q2/7P/4Q1B1/4R1K1 b - - 0 33",
+           *           "id": "sFlb3",
+           *           "line": "a8a2 e2a2 b4a2 e6e7",
+           *           "rating": 2450
+           *         },
+           *         {
+           *           "fen": "r2q3k/4r1p1/p2bB1PR/1p1Pp3/2p1P3/5Q2/PPP5/1K3R2 b - - 0 24",
+           *           "id": "h005v",
+           *           "line": "g7h6 f3f6 e7g7 f1h1 d8f6 h1h6 g7h7 h6h7",
+           *           "rating": 2471
+           *         },
+           *         {
+           *           "fen": "5r1k/r7/2p1B1QP/2P2p1R/1p2nq2/8/2P2pK1/5R2 b - - 3 38",
+           *           "id": "6xTuz",
+           *           "line": "a7h7 h5f5 h7h6 f5f8 f4f8 g6e4",
+           *           "rating": 2487
            *         }
            *       ],
-           *       "finished": true,
-           *       "hasStarted": true,
-           *       "lobby": false,
-           *       "startsIn": null,
-           *       "finishesAt": 1692123456789
+           *       "startsAt": 1755416066218
            *     } */
           "application/json": components["schemas"]["PuzzleRaceResults"];
         };

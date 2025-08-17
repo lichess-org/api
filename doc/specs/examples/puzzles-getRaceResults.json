@@ -1,29 +1,45 @@
 {
-  "id": "aU5t3",
+  "finishesAt": 1755416156218,
+  "id": "5Nrt6",
+  "owner": "lichess",
   "players": [
     {
-      "id": "player1",
-      "name": "thibault",
-      "score": 15,
-      "finished": true
+      "id": "requiem_123",
+      "name": "requiem_123",
+      "score": 60
     },
     {
-      "id": "player2",
-      "name": "bobby",
-      "score": 12,
-      "finished": true
+      "flair": "nature.seedling",
+      "id": "thibault",
+      "name": "thibault",
+      "patron": true,
+      "score": 28
+    },
+    {
+      "id": "steponlego",
+      "name": "StepOnLego",
+      "score": 0
     }
   ],
   "puzzles": [
     {
-      "id": "puzzle1",
-      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-      "solution": ["e2e4", "e7e5"]
+      "fen": "r5k1/2p2pp1/1p1pP2p/3P4/1nP2q2/7P/4Q1B1/4R1K1 b - - 0 33",
+      "id": "sFlb3",
+      "line": "a8a2 e2a2 b4a2 e6e7",
+      "rating": 2450
+    },
+    {
+      "fen": "r2q3k/4r1p1/p2bB1PR/1p1Pp3/2p1P3/5Q2/PPP5/1K3R2 b - - 0 24",
+      "id": "h005v",
+      "line": "g7h6 f3f6 e7g7 f1h1 d8f6 h1h6 g7h7 h6h7",
+      "rating": 2471
+    },
+    {
+      "fen": "5r1k/r7/2p1B1QP/2P2p1R/1p2nq2/8/2P2pK1/5R2 b - - 3 38",
+      "id": "6xTuz",
+      "line": "a7h7 h5f5 h7h6 f5f8 f4f8 g6e4",
+      "rating": 2487
     }
   ],
-  "finished": true,
-  "hasStarted": true,
-  "lobby": false,
-  "startsIn": null,
-  "finishesAt": 1692123456789
+  "startsAt": 1755416066218
 }
