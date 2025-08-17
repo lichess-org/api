@@ -202,9 +202,10 @@ formats: [oas3.1]
 ### Document a new endpoint
 
 1. Look for the endpoint implementation in [lila](https://github.com/lichess-org/lila). Use the [routes file](https://github.com/lichess-org/lila/blob/master/conf/routes) to identify the controller, then the implementation details.
-2. Find the code that produces the response and infer the response structure.
-3. If the endpoint is GET, try to use it on lichess.org to get response examples.
-4. Follow the next point "Making Changes to API Specification" to document the endpoint in `doc/specs/lichess-api.yaml`.
+2. Don't look at a single commit, but rather at the current state of the code in the master branch.
+3. Find the code that produces the response and infer the response structure.
+4. If the endpoint is GET, try to use it on lichess.org to get response examples.
+5. Follow the next point "Making Changes to API Specification" to document the endpoint in `doc/specs/lichess-api.yaml`.
 
 ### Making Changes to API Specification
 
