@@ -1,0 +1,42 @@
+type: object
+
+properties:
+  id:
+    type: string
+    description: Unique identifier of the puzzle race
+  players:
+    type: array
+    description: List of players participating in the race
+    items:
+      type: object
+  puzzles:
+    type: array
+    description: List of puzzles in the race
+    items:
+      type: object
+  finished:
+    type: boolean
+    description: Whether the race has finished
+  hasStarted:
+    type: boolean
+    description: Whether the race has started
+  lobby:
+    type: boolean
+    description: Whether this is a lobby race
+  startsIn:
+    type:
+      - integer
+      - "null"
+    description: Milliseconds until the race starts (if not started)
+  finishesAt:
+    type:
+      - integer
+      - "null"
+    description: Timestamp in milliseconds when the race finishes
+
+required:
+  - id
+  - players
+  - puzzles
+  - finished
+  - hasStarted

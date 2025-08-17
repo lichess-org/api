@@ -1,0 +1,29 @@
+{
+  "id": "aU5t3",
+  "players": [
+    {
+      "id": "player1",
+      "name": "thibault",
+      "score": 15,
+      "finished": true
+    },
+    {
+      "id": "player2",
+      "name": "bobby",
+      "score": 12,
+      "finished": true
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle1",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "solution": ["e2e4", "e7e5"]
+    }
+  ],
+  "finished": true,
+  "hasStarted": true,
+  "lobby": false,
+  "startsIn": null,
+  "finishesAt": 1692123456789
+}

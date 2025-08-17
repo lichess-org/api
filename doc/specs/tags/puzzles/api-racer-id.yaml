@@ -1,0 +1,40 @@
+get:
+  operationId: racerGet
+  summary: Get puzzle race results
+  description: |
+    Get the results of a [puzzle race](https://lichess.org/racer).
+    Returns information about players, puzzles, and the current status of the race.
+    - <https://lichess.org/racer>
+  tags:
+    - Puzzles
+  security:
+    - OAuth2: []
+
+  parameters:
+    - in: path
+      name: id
+      description: The puzzle race ID
+      schema:
+        type: string
+      required: true
+
+  responses:
+    "200":
+      description: The puzzle race results.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/PuzzleRaceResults.yaml"
+          example:
+            $ref: "../../examples/puzzles-getRaceResults.json"
+    "404":
+      description: The puzzle race was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/NotFound.yaml"

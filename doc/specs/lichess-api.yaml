@@ -309,6 +309,9 @@ paths:
   /api/racer:
     $ref: "./tags/puzzles/api-racer.yaml"
 
+  /api/racer/{id}:
+    $ref: "./tags/puzzles/api-racer-id.yaml"
+
   /api/users:
     $ref: "./tags/users/api-users.yaml"
 
