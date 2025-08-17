@@ -1,0 +1,70 @@
+type: object
+
+properties:
+  id:
+    type: string
+    description: Unique identifier of the puzzle race
+  owner:
+    type: string
+    description: Owner of the puzzle race
+  players:
+    type: array
+    description: List of players participating in the race
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Player username
+        score:
+          type: integer
+          description: Player's current score in the race
+        id:
+          type: string
+          description: User ID. Missing if player is anonymous.
+        flair:
+          type: string
+          description: User's flair icon
+        patron:
+          type: boolean
+          description: Whether the player is a Lichess patron
+      required:
+        - name
+        - score
+  puzzles:
+    type: array
+    description: List of puzzles in the race
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Puzzle ID
+        fen:
+          type: string
+          description: FEN position of the puzzle
+        line:
+          type: string
+          description: Solution moves sequence
+        rating:
+          type: integer
+          description: Puzzle Glicko2 rating
+      required:
+        - id
+        - fen
+        - line
+        - rating
+  finishesAt:
+    type: integer
+    description: Timestamp in milliseconds when the race finishes
+  startsAt:
+    type: integer
+    description: Timestamp in milliseconds when the race started
+
+required:
+  - id
+  - owner
+  - players
+  - puzzles
+  - finishesAt
+  - startsAt
