@@ -354,6 +354,9 @@ export interface paths {
      *     Returns information about players, puzzles, and the current status of the race.
      *     - <https://lichess.org/racer>
      *
+     *     Note that Lichess puzzle races are not persisted, and are only available
+     *     for 30 minutes. After that delay, they are permanently deleted.
+     *
      */
     get: operations["racerGet"];
     put?: never;
@@ -4630,15 +4633,15 @@ export interface components {
       owner: string;
       /** @description List of players participating in the race */
       players: {
-        /** @description Player ID */
-        id: string;
         /** @description Player username */
         name: string;
         /** @description Player's current score in the race */
         score: number;
-        /** @description Player's flair icon (optional) */
+        /** @description User ID. Missing if player is anonymous. */
+        id?: string;
+        /** @description User's flair icon */
         flair?: string;
-        /** @description Whether the player is a Lichess patron (optional) */
+        /** @description Whether the player is a Lichess patron */
         patron?: boolean;
       }[];
       /** @description List of puzzles in the race */
@@ -4649,7 +4652,7 @@ export interface components {
         fen: string;
         /** @description Solution moves sequence */
         line: string;
-        /** @description Puzzle difficulty rating */
+        /** @description Puzzle Glicko2 rating */
         rating: number;
       }[];
       /** @description Timestamp in milliseconds when the race finishes */
@@ -10311,7 +10314,7 @@ export interface operations {
           "application/json": components["schemas"]["PuzzleRaceResults"];
         };
       };
-      /** @description The puzzle race was not found. */
+      /** @description The puzzle race was not found, or is no longer available. */
       404: {
         headers: {
           [name: string]: unknown;
