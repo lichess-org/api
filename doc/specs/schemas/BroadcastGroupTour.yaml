@@ -5,3 +5,8 @@ properties:
     type: string
   id:
     type: string
+  live:
+    type: boolean
+required:
+  - name
+  - id
