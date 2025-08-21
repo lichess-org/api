@@ -14,6 +14,8 @@ get:
     - `challengeDeclined` The opponent declines your challenge
 
     When the stream opens, all current challenges and games are sent.
+
+    When the stream opens, any open streams with the same access token are closed.
   tags:
     - Board
     - Bot
