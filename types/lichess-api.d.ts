@@ -713,7 +713,7 @@ export interface paths {
      * @description Stream positions and moves of any ongoing game, in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
      *     A description of the game is sent as a first message.
      *     Then a message is sent each time a move is played.
-     *     Finally a description of the game is sent when it finishes, and the stream is closed.
+     *     Finally, a description of the game is sent when it finishes, and the stream is closed.
      *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
      *     No more than 8 game streams can be opened at the same time from the same IP address.
      *
@@ -5865,8 +5865,9 @@ export interface components {
       url: string;
     };
     BroadcastGroupTour: {
-      name?: string;
-      id?: string;
+      name: string;
+      id: string;
+      live?: boolean;
     };
     BroadcastGroup: {
       name?: string;
@@ -12864,6 +12865,18 @@ export interface operations {
         };
         content: {
           "application/x-ndjson": components["schemas"]["MoveStream"];
+        };
+      };
+      /** @description Too many streams opened at the same time from this IP. */
+      429: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            /** @example Please only run 8 request(s) at a time */
+            error?: string;
+          };
         };
       };
     };
