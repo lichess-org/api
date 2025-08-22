@@ -4,7 +4,7 @@ get:
   description: |
     Stream the events reaching a lichess user in real time as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
 
-    An empty line is sent every 6 seconds for keep alive purposes.
+    An empty line is sent every 7 seconds for keep alive purposes.
 
     Each non-empty line is a JSON object containing a `type` field. Possible values are:
     - `gameStart` Start of a game
