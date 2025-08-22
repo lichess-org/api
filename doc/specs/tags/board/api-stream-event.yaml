@@ -15,7 +15,7 @@ get:
 
     When the stream opens, all current challenges and games are sent.
 
-    When the stream opens, any open streams with the same access token are closed.
+    Only one global event stream can be active at a time. When the stream opens, the previous one with the same access token is closed.
   tags:
     - Board
     - Bot
