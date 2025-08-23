@@ -2514,6 +2514,8 @@ export interface paths {
      *
      *     When the stream opens, all current challenges and games are sent.
      *
+     *     Only one global event stream can be active at a time. When the stream opens, the previous one with the same access token is closed.
+     *
      */
     get: operations["apiStreamEvent"];
     put?: never;
