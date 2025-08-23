@@ -15,6 +15,14 @@ post:
         type: string
         example: "5IrD6Gzz"
       required: true
+    - in: query
+      name: color
+      description: "Accept challenge as this color (only valid if this is an [open challenge](#challenge/open))"
+      schema:
+        type: string
+        enum:
+          - white
+          - black
   responses:
     "200":
       description: The challenge was successfully accepted.
