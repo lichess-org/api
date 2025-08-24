@@ -35730,7 +35730,10 @@ export interface operations {
   };
   challengeAccept: {
     parameters: {
-      query?: never;
+      query?: {
+        /** @description Accept challenge as this color (only valid if this is an [open challenge](#challenge/open)) */
+        color?: "white" | "black";
+      };
       header?: never;
       path: {
         challengeId: string;
