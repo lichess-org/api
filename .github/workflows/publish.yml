@@ -49,6 +49,7 @@ jobs:
         if: steps.check_changes.outputs.changed_files != ''
         with:
           commit_message: 'Update API version'
+          commit_author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
   publish-to-github-pages:
     if: github.repository == 'lichess-org/api'
     needs: publish-to-npm
