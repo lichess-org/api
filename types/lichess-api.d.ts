@@ -35561,27 +35561,33 @@ export interface operations {
     /** @description Parameters of the challenge */
     requestBody?: {
       content: {
-        "application/x-www-form-urlencoded": {
+        "application/x-www-form-urlencoded": (
+          | {
+              /**
+               * @description Clock initial time in seconds. If empty, a correspondence game is created. Valid values are 0, 15, 30, 45, 60, 90, and any multiple of 60 up to 10800 (3 hours).
+               * @example 300
+               */
+              "clock.limit": number;
+              /**
+               * @description Clock increment in seconds. If empty, a correspondence game is created.
+               * @example 1
+               */
+              "clock.increment": number;
+            }
+          | {
+              /**
+               * @description Days per move, for correspondence games. Clock settings must be omitted.
+               * @enum {integer}
+               */
+              days: 1 | 2 | 3 | 5 | 7 | 10 | 14;
+            }
+          | Record<string, never>
+        ) & {
           /**
            * @description Game is rated and impacts players ratings
            * @default false
            */
           rated?: boolean;
-          /**
-           * @description Clock initial time in seconds. If empty, a correspondence game is created. Valid values are 0, 15, 30, 45, 60, 90, and any multiple of 60 up to 10800 (3 hours).
-           * @example 300
-           */
-          "clock.limit"?: number;
-          /**
-           * @description Clock increment in seconds. If empty, a correspondence game is created.
-           * @example 1
-           */
-          "clock.increment"?: number;
-          /**
-           * @description Days per move, for correspondence games. Clock settings must be omitted.
-           * @enum {integer}
-           */
-          days?: 1 | 2 | 3 | 5 | 7 | 10 | 14;
           /**
            * @description Which color you get to play
            * @default random
