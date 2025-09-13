@@ -87,13 +87,13 @@ properties:
       One line per player, formatted as such:
 
       ```txt
-      player name = FIDE ID
+      player name / FIDE ID
       ```
 
       Example:
 
       ```txt
-      Magnus Carlsen = 1503014
+      Magnus Carlsen / 1503014
       ```
 
       Player names ignore case and punctuation, and match all possible combinations of 2 words: "Jorge Rick Vito" will match "Jorge Rick", "jorge vito", "Rick, Vito", etc.
@@ -101,7 +101,7 @@ properties:
       If the player is NM or WNM, you can:
 
       ```txt
-      Player Name = FIDE ID / Title
+      player name / FIDE ID / title
       ```
 
       Alternatively, you may set tags manually, like so:
