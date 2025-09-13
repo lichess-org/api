@@ -1,0 +1,59 @@
+post:
+  operationId: apiStudyChapterTags
+  summary: Update PGN tags of a study chapter
+  description: |
+    Add, update and delete the PGN tags of a study.
+    By providing a list of PGN tags in the usual PGN format, you can:
+    - Add new tags if the chapter doesn't have them yet
+    - Update existing chapter tags
+    - Delete existing chapter tags, by providing a tag with an empty value.
+
+    The chapter keeps the tags that you don't provide.
+  tags:
+    - Studies
+  security:
+    - OAuth2: ["study:write"]
+  parameters:
+    - in: path
+      name: studyId
+      description: The study ID
+      required: true
+      schema:
+        type: string
+        minLength: 8
+        maxLength: 8
+    - in: path
+      name: chapterId
+      description: The chapter ID
+      required: true
+      schema:
+        type: string
+        minLength: 8
+        maxLength: 8
+  requestBody:
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            pgn:
+              type: string
+              description: |
+                PGN text containing the tags. Only the tags are used. Moves are just ignored.
+          required:
+            - pgn
+  responses:
+    "204":
+      description: Tags updated successfully, if the chapter exists and you are authorized the update the study.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+    "400":
+      description: The creation of the chapter(s) failed.
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/Error.yaml"
