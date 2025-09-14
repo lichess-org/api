@@ -1494,6 +1494,33 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/api/study/{studyId}/{chapterId}/tags": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Update PGN tags of a study chapter
+     * @description Add, update and delete the PGN tags of a study.
+     *     By providing a list of PGN tags in the usual PGN format, you can:
+     *     - Add new tags if the chapter doesn't have them yet
+     *     - Update existing chapter tags
+     *     - Delete existing chapter tags, by providing a tag with an empty value.
+     *
+     *     The chapter keeps the tags that you don't provide.
+     *
+     */
+    post: operations["apiStudyChapterTags"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/study/by/{username}/export.pgn": {
     parameters: {
       query?: never;
@@ -6053,13 +6080,13 @@ export interface components {
        *     One line per player, formatted as such:
        *
        *     ```txt
-       *     player name = FIDE ID
+       *     player name / FIDE ID
        *     ```
        *
        *     Example:
        *
        *     ```txt
-       *     Magnus Carlsen = 1503014
+       *     Magnus Carlsen / 1503014
        *     ```
        *
        *     Player names ignore case and punctuation, and match all possible combinations of 2 words: "Jorge Rick Vito" will match "Jorge Rick", "jorge vito", "Rick, Vito", etc.
@@ -6067,7 +6094,7 @@ export interface components {
        *     If the player is NM or WNM, you can:
        *
        *     ```txt
-       *     Player Name = FIDE ID / Title
+       *     player name / FIDE ID / title
        *     ```
        *
        *     Alternatively, you may set tags manually, like so:
@@ -30720,6 +30747,47 @@ export interface operations {
         content: {
           "application/json": components["schemas"]["StudyImportPgnChapters"];
         };
+      };
+      /** @description The creation of the chapter(s) failed. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  apiStudyChapterTags: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The study ID */
+        studyId: string;
+        /** @description The chapter ID */
+        chapterId: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /** @description PGN text containing the tags. Only the tags are used. Moves are just ignored.
+           *      */
+          pgn: string;
+        };
+      };
+    };
+    responses: {
+      /** @description Tags updated successfully, if the chapter exists and you are authorized the update the study. */
+      204: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content?: never;
       };
       /** @description The creation of the chapter(s) failed. */
       400: {
