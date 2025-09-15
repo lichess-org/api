@@ -12,6 +12,9 @@ properties:
       $ref: "./BroadcastRoundGame.yaml"
   group:
     $ref: "./BroadcastGroup.yaml"
+  isSubscribed:
+    type: boolean
+    description: Indicates if the user making the request is subscribed to the broadcast
 
 required:
   - round
