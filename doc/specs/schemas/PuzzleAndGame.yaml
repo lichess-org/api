@@ -35,6 +35,8 @@ properties:
               type: string
             patron:
               type: boolean
+            patronTier:
+              $ref: "./PatronTier.yaml"
             rating:
               type: integer
             title:

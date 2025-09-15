@@ -1,0 +1,14 @@
+type: string
+
+enum:
+  - months1
+  - months2
+  - months3
+  - months6
+  - months9
+  - years1
+  - years2
+  - years3
+  - years4
+  - years5
+  - lifetime
