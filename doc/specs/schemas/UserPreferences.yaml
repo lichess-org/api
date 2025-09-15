@@ -165,3 +165,12 @@ properties:
     type: integer
   rookCastle:
     type: integer
+  flairs:
+    type: boolean
+  sayGG:
+    type: integer
+    enum:
+      - 0
+      - 1
+      - 2
+    description: 0 = No, 1 = When losing, 2 = When losing or drawing
