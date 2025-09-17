@@ -3,7 +3,7 @@ value:
     "t": "featured",
     "d":
       {
-        "id": "xYfwLFIi",
+        "id": "rTlNMf6e",
         "orientation": "black",
         "players":
           [
@@ -11,22 +11,20 @@ value:
               "color": "white",
               "user":
                 {
-                  "name": "chargemax23",
-                  "title": "IM",
-                  "flair": "objects.battery",
-                  "patron": true,
-                  "id": "chargemax23",
+                  "name": "VladimirIlyich917",
+                  "flair": "people.construction-worker-light-skin-tone",
+                  "id": "vladimirilyich917",
                 },
-              "rating": 2719,
-              "seconds": 169,
+              "rating": 3028,
+              "seconds": 32,
             },
             {
               "color": "black",
-              "user": { "name": "Olexiy_Bilych", "title": "IM", "flair": "activity.trophy", "id": "olexiy_bilych" },
-              "rating": 2782,
-              "seconds": 169,
+              "user": { "name": "ABachmann", "title": "GM", "patron": true, "patronTier": "years2", "id": "abachmann" },
+              "rating": 3118,
+              "seconds": 32,
             },
           ],
-        "fen": "q4r2/4bppk/b3p3/Q3P3/8/3n1N2/1P1N1PPP/2B2RK1 b - - 3 25",
+        "fen": "r4b1r/2p1kp2/p1Bq1p2/3Pp2p/1p2P3/8/PPP2Q1P/1K1R1R2 b - - 1 23",
       },
   }

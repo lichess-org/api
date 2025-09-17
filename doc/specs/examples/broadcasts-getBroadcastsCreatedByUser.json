@@ -4,15 +4,20 @@
   "currentPageResults": [
     {
       "tour": {
-        "id": "qZf4ab2u",
+        "id": "5CWmvSY2",
         "name": "Bobby's Tournament",
         "slug": "bobbys-tournament",
         "info": {
           "format": "5-round Swiss",
           "location": "Chess Club"
         },
-        "createdAt": 1745619386317,
-        "url": "https://lichess.org/broadcast/bobbys-tournament/qZf4ab2u"
+        "createdAt": 1758106569089,
+        "url": "https://lichess.org/broadcast/bobbys-tournament/5CWmvSY2",
+        "communityOwner": {
+          "name": "Bobby",
+          "flair": "people.woman-with-veil-light-skin-tone",
+          "id": "bobby"
+        }
       }
     }
   ],

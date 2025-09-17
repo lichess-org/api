@@ -2,70 +2,30 @@
   "days": 30,
   "global": {
     "nb": 10,
-    "firstWins": 4,
+    "firstWins": 5,
     "replayWins": 0,
-    "puzzleRatingAvg": 1604,
-    "performance": 1504
+    "puzzleRatingAvg": 1527,
+    "performance": 1527
   },
   "themes": {
     "middlegame": {
       "theme": "Middlegame",
       "results": {
         "nb": 7,
-        "firstWins": 3,
+        "firstWins": 4,
         "replayWins": 0,
-        "puzzleRatingAvg": 1669,
-        "performance": 1598
+        "puzzleRatingAvg": 1676,
+        "performance": 1747
       }
     },
     "endgame": {
       "theme": "Endgame",
       "results": {
-        "nb": 3,
-        "firstWins": 1,
-        "replayWins": 0,
-        "puzzleRatingAvg": 1452,
-        "performance": 1285
-      }
-    },
-    "defensiveMove": {
-      "theme": "Defensive move",
-      "results": {
-        "nb": 3,
-        "firstWins": 1,
-        "replayWins": 0,
-        "puzzleRatingAvg": 1960,
-        "performance": 1793
-      }
-    },
-    "exposedKing": {
-      "theme": "Exposed king",
-      "results": {
-        "nb": 1,
-        "firstWins": 1,
-        "replayWins": 0,
-        "puzzleRatingAvg": 1958,
-        "performance": 2458
-      }
-    },
-    "hangingPiece": {
-      "theme": "Hanging piece",
-      "results": {
-        "nb": 1,
-        "firstWins": 1,
-        "replayWins": 0,
-        "puzzleRatingAvg": 1958,
-        "performance": 2458
-      }
-    },
-    "quietMove": {
-      "theme": "Quiet move",
-      "results": {
-        "nb": 1,
+        "nb": 2,
         "firstWins": 0,
         "replayWins": 0,
-        "puzzleRatingAvg": 1949,
-        "performance": 1449
+        "puzzleRatingAvg": 1061,
+        "performance": 561
       }
     },
     "fork": {
@@ -74,28 +34,58 @@
         "nb": 1,
         "firstWins": 1,
         "replayWins": 0,
-        "puzzleRatingAvg": 907,
-        "performance": 1407
+        "puzzleRatingAvg": 1543,
+        "performance": 2043
       }
     },
-    "capturingDefender": {
-      "theme": "Capture the defender",
+    "intermezzo": {
+      "theme": "Intermezzo",
       "results": {
         "nb": 1,
         "firstWins": 1,
         "replayWins": 0,
-        "puzzleRatingAvg": 1036,
-        "performance": 1536
+        "puzzleRatingAvg": 1730,
+        "performance": 2230
       }
     },
-    "discoveredAttack": {
-      "theme": "Discovered attack",
+    "opening": {
+      "theme": "Opening",
+      "results": {
+        "nb": 1,
+        "firstWins": 1,
+        "replayWins": 0,
+        "puzzleRatingAvg": 1419,
+        "performance": 1919
+      }
+    },
+    "defensiveMove": {
+      "theme": "Defensive move",
+      "results": {
+        "nb": 1,
+        "firstWins": 1,
+        "replayWins": 0,
+        "puzzleRatingAvg": 1662,
+        "performance": 2162
+      }
+    },
+    "hangingPiece": {
+      "theme": "Hanging piece",
       "results": {
         "nb": 1,
         "firstWins": 0,
         "replayWins": 0,
-        "puzzleRatingAvg": 1500,
-        "performance": 1000
+        "puzzleRatingAvg": 1166,
+        "performance": 666
+      }
+    },
+    "mate": {
+      "theme": "Checkmate",
+      "results": {
+        "nb": 1,
+        "firstWins": 0,
+        "replayWins": 0,
+        "puzzleRatingAvg": 955,
+        "performance": 455
       }
     }
   }

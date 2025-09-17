@@ -1,92 +1,94 @@
 {
-  "id": "gabriela",
-  "username": "Gabriela",
+  "id": "ekaterina",
+  "username": "Ekaterina",
   "perfs": {
     "bullet": {
-      "games": 4,
-      "rating": 1602,
-      "rd": 116,
-      "prog": 35,
-      "prov": true
+      "games": 15,
+      "rating": 2245,
+      "rd": 47,
+      "prog": 9
     },
     "blitz": {
-      "games": 713,
-      "rating": 1498,
-      "rd": 50,
-      "prog": -52
+      "games": 28,
+      "rating": 2122,
+      "rd": 46,
+      "prog": -39
     },
     "rapid": {
-      "games": 111,
-      "rating": 1468,
-      "rd": 99,
-      "prog": 1
+      "games": 570,
+      "rating": 2096,
+      "rd": 72,
+      "prog": 26
     },
     "classical": {
-      "games": 86,
-      "rating": 1595,
-      "rd": 56,
-      "prog": -19
+      "games": 94,
+      "rating": 2310,
+      "rd": 45,
+      "prog": 39
     },
     "correspondence": {
-      "games": 85,
-      "rating": 1493,
-      "rd": 57,
-      "prog": 10
+      "games": 79,
+      "rating": 2249,
+      "rd": 45,
+      "prog": -16
     },
     "chess960": {
-      "games": 945,
-      "rating": 1506,
-      "rd": 80,
-      "prog": -9
+      "games": 239,
+      "rating": 2107,
+      "rd": 45,
+      "prog": -35
     },
     "kingOfTheHill": {
-      "games": 37,
-      "rating": 1578,
-      "rd": 56,
-      "prog": -40
+      "games": 1348,
+      "rating": 2133,
+      "rd": 45,
+      "prog": -37
     },
     "threeCheck": {
-      "games": 284,
-      "rating": 1605,
-      "rd": 45,
-      "prog": 25
+      "games": 392,
+      "rating": 2288,
+      "rd": 113,
+      "prog": 12,
+      "prov": true
     },
     "antichess": {
-      "games": 36,
-      "rating": 1496,
+      "games": 95,
+      "rating": 2114,
       "rd": 87,
-      "prog": -32
+      "prog": -46
     },
     "atomic": {
-      "games": 568,
-      "rating": 1542,
-      "rd": 68,
-      "prog": -2
+      "games": 262,
+      "rating": 2249,
+      "rd": 58,
+      "prog": 32
     },
     "horde": {
-      "games": 2,
-      "rating": 1390,
-      "rd": 87,
-      "prog": -41
+      "games": 96,
+      "rating": 2204,
+      "rd": 50,
+      "prog": -20
     },
     "crazyhouse": {
-      "games": 45,
-      "rating": 1391,
-      "rd": 100,
-      "prog": 0
+      "games": 148,
+      "rating": 2219,
+      "rd": 52,
+      "prog": -45
     },
     "puzzle": {
-      "games": 70,
-      "rating": 1431,
-      "rd": 45,
-      "prog": -1
+      "games": 334,
+      "rating": 2305,
+      "rd": 89,
+      "prog": 30
     }
   },
-  "createdAt": 1742061301314,
-  "seenAt": 1743193699350,
+  "title": "WFM",
+  "flair": "people.heart-hands",
+  "createdAt": 1757904517554,
+  "seenAt": 1757916691023,
   "playTime": {
-    "total": 11825,
+    "total": 19509,
     "tv": 0
   },
-  "url": "http://localhost:8080/@/Gabriela"
+  "url": "https://lichess.org/@/Ekaterina"
 }

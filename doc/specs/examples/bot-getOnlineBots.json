@@ -3,22 +3,22 @@
   "username": "halcyonbot",
   "perfs": {
     "bullet": {
-      "games": 24255,
-      "rating": 2313,
-      "rd": 45,
-      "prog": 10
-    },
-    "blitz": {
-      "games": 33330,
-      "rating": 2227,
-      "rd": 45,
-      "prog": -5
-    },
-    "rapid": {
-      "games": 21219,
-      "rating": 2310,
+      "games": 28497,
+      "rating": 2206,
       "rd": 45,
       "prog": -3
+    },
+    "blitz": {
+      "games": 37587,
+      "rating": 2222,
+      "rd": 45,
+      "prog": 17
+    },
+    "rapid": {
+      "games": 23594,
+      "rating": 2309,
+      "rd": 45,
+      "prog": 15
     },
     "classical": {
       "games": 0,
@@ -43,9 +43,9 @@
     "realName": "Halcyon 1",
     "links": "https://lishogi.org/@/kawasemi\r\nhttps://github.com/nhamil/halcyon"
   },
-  "seenAt": 1747683622797,
+  "seenAt": 1758106397744,
   "playTime": {
-    "total": 57161455,
-    "tv": 772338
+    "total": 63499917,
+    "tv": 783712
   }
 }

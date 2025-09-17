@@ -4,78 +4,78 @@
   },
   "perf": {
     "glicko": {
-      "rating": 1153,
-      "deviation": 63.04
+      "rating": 1027,
+      "deviation": 98.44
     },
-    "nb": 682,
-    "progress": -44
+    "nb": 2625,
+    "progress": -12
   },
-  "rank": 45,
-  "percentile": 29.7,
+  "rank": null,
+  "percentile": 21.9,
   "stat": {
-    "count": {
-      "berserk": 33,
-      "win": 303,
-      "all": 682,
-      "seconds": 204600,
-      "opAvg": 0.48,
-      "draw": 101,
-      "tour": 49,
-      "disconnects": 15,
-      "rated": 486,
-      "loss": 278
-    },
-    "resultStreak": {
-      "win": {
-        "cur": {
-          "v": 0
-        },
-        "max": {
-          "v": 2
-        }
-      },
-      "loss": {
-        "cur": {
-          "v": 0
-        },
-        "max": {
-          "v": 1
-        }
-      }
-    },
-    "worstLosses": {
-      "results": []
+    "id": "jose/2",
+    "userId": {
+      "id": "jose",
+      "name": "Jose",
+      "title": null
     },
     "perfType": {
       "key": "blitz",
       "name": "Blitz"
     },
-    "id": "jose/2",
+    "bestWins": {
+      "results": []
+    },
+    "worstLosses": {
+      "results": []
+    },
+    "count": {
+      "all": 2625,
+      "rated": 2584,
+      "win": 1027,
+      "loss": 1097,
+      "draw": 501,
+      "tour": 149,
+      "berserk": 26,
+      "opAvg": 0.51,
+      "seconds": 787500,
+      "disconnects": 10
+    },
+    "resultStreak": {
+      "win": {
+        "cur": {
+          "v": 1
+        },
+        "max": {
+          "v": 5
+        }
+      },
+      "loss": {
+        "cur": {
+          "v": 1
+        },
+        "max": {
+          "v": 4
+        }
+      }
+    },
     "playStreak": {
       "nb": {
         "cur": {
-          "v": 0
+          "v": 1
         },
         "max": {
-          "v": 1
+          "v": 2
         }
       },
       "time": {
         "cur": {
-          "v": 0
+          "v": 1
         },
         "max": {
-          "v": 1
+          "v": 4
         }
       }
-    },
-    "bestWins": {
-      "results": []
-    },
-    "userId": {
-      "id": "jose",
-      "name": "Jose",
-      "title": null
     }
   }
 }

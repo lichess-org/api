@@ -12,6 +12,7 @@
         "title": "IM",
         "flair": "travel-places.ambulance",
         "patron": true,
+        "patronTier": "years5",
         "id": "ericrosen",
         "color": "white",
         "rating": 2642
@@ -29,8 +30,8 @@
   },
   "puzzle": {
     "id": "PSjmf",
-    "rating": 2708,
-    "plays": 674,
+    "rating": 2774,
+    "plays": 716,
     "solution": ["g8g7", "d5e5", "f6e5"],
     "themes": ["endgame", "master", "short", "masterVsMaster", "crushing"],
     "initialPly": 52

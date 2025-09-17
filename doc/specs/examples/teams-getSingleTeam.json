@@ -7,21 +7,24 @@
     "name": "Lichess",
     "flair": "activity.lichess",
     "patron": true,
+    "patronTier": "lifetime",
     "id": "lichess"
   },
-  "nbMembers": 582195,
+  "nbMembers": 630972,
   "flair": "food-drink.cheese-wedge",
   "leaders": [
     {
       "name": "Lichess",
       "flair": "activity.lichess",
       "patron": true,
+      "patronTier": "lifetime",
       "id": "lichess"
     },
     {
       "name": "thibault",
       "flair": "nature.seedling",
       "patron": true,
+      "patronTier": "lifetime",
       "id": "thibault"
     }
   ],

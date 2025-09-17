@@ -3,17 +3,23 @@ value:
     "type": "challenge",
     "challenge":
       {
-        "id": "HVGoj16M",
-        "url": "https://lichess.org/HVGoj16M",
+        "id": "DCRqwk2q",
+        "url": "https://lichess.org/DCRqwk2q",
         "status": "created",
-        "challenger": { "id": "adriana", "name": "Adriana", "rating": 584, "title": null },
+        "challenger":
+          {
+            "name": "Adriana",
+            "flair": "smileys.expressionless-face",
+            "id": "adriana",
+            "rating": 682,
+            "provisional": true,
+          },
         "destUser":
           {
-            "id": "gabriela",
             "name": "Gabriela",
-            "rating": 1569,
-            "title": null,
-            "flair": "people.pregnant-person-light-skin-tone",
+            "flair": "people.man-in-lotus-position-medium-light-skin-tone",
+            "id": "gabriela",
+            "rating": 1502,
             "online": true,
           },
         "variant": { "key": "standard", "name": "Standard", "short": "Std" },
@@ -21,7 +27,7 @@ value:
         "speed": "correspondence",
         "timeControl": { "type": "unlimited" },
         "color": "random",
-        "finalColor": "black",
+        "finalColor": "white",
         "perf": { "icon": "", "name": "Correspondence" },
       },
     "compat": { "bot": false, "board": true },

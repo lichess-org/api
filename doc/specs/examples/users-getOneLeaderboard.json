@@ -5,33 +5,35 @@
       "username": "Lola",
       "perfs": {
         "blitz": {
-          "rating": 2466,
+          "rating": 2419,
           "progress": 0
         }
       },
-      "title": "IM"
-    },
-    {
-      "id": "ana",
-      "username": "Ana",
-      "perfs": {
-        "blitz": {
-          "rating": 2396,
-          "progress": 0
-        }
-      },
-      "title": "GM"
+      "title": "WFM",
+      "patron": true
     },
     {
       "id": "yulia",
       "username": "Yulia",
       "perfs": {
         "blitz": {
-          "rating": 2390,
+          "rating": 2372,
           "progress": 0
         }
       },
-      "title": "FM"
+      "title": "WNM",
+      "patron": true
+    },
+    {
+      "id": "mei",
+      "username": "Mei",
+      "perfs": {
+        "blitz": {
+          "rating": 2353,
+          "progress": 0
+        }
+      },
+      "title": "WCM"
     }
   ]
 }
