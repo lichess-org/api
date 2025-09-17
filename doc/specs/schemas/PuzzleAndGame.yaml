@@ -33,8 +33,6 @@ properties:
               type: string
             name:
               type: string
-            patron:
-              type: boolean
             patronTier:
               $ref: "./PatronTier.yaml"
             rating:
