@@ -12,8 +12,11 @@ properties:
       - type: "null"
   flair:
     $ref: "./Flair.yaml"
+  patron:
+    type: boolean
+    deprecated: true
   patronTier:
-    $ref: "../../schemas/PatronTier.yaml"
+    $ref: "./PatronTier.yaml"
   provisional:
     type: boolean
   online:

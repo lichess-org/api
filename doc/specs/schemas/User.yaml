@@ -33,6 +33,9 @@ properties:
     example: 1522636452014
   playTime:
     $ref: "./PlayTime.yaml"
+  patron:
+    type: boolean
+    deprecated: true
   patronTier:
     $ref: "./PatronTier.yaml"
   verified:

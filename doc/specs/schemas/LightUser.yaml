@@ -8,6 +8,9 @@ properties:
     $ref: "./Flair.yaml"
   title:
     $ref: "./Title.yaml"
+  patron:
+    type: boolean
+    deprecated: true
   patronTier:
     $ref: "./PatronTier.yaml"
 required:

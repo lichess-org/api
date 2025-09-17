@@ -74,6 +74,9 @@ get:
                   type: boolean
                 streaming:
                   type: boolean
+                patron:
+                  type: boolean
+                  deprecated: true
                 patronTier:
                   $ref: "../../schemas/PatronTier.yaml"
               required:
