@@ -1,13 +1,13 @@
 {
-  "date": 1745994457811,
-  "win": true,
+  "date": 1757976250132,
+  "win": false,
   "puzzle": {
-    "id": "74O1b",
-    "rating": 1362,
-    "plays": 28182,
-    "solution": ["e4e3", "h6g6", "g8g6"],
-    "themes": ["middlegame", "short", "advantage"],
-    "fen": "6rk/p3p2p/5pbQ/1B6/Pn1Pp3/1Pq5/2P2PP1/1KR4R b - - 1 1",
-    "lastMove": "d1c1"
+    "id": "1lXWz",
+    "rating": 1883,
+    "plays": 23621,
+    "solution": ["e1e6", "e8e7", "e6e7"],
+    "themes": ["middlegame", "short", "crushing"],
+    "fen": "4rr1k/2p1Rppp/p1N1b3/8/2P5/2Q4P/PP3qPK/4R3 w - - 1 1",
+    "lastMove": "a8e8"
   }
 }

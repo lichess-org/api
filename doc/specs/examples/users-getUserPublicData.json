@@ -3,118 +3,122 @@
   "username": "Mary",
   "perfs": {
     "bullet": {
-      "games": 119,
-      "rating": 1066,
-      "rd": 101,
-      "prog": -1
+      "games": 13,
+      "rating": 1017,
+      "rd": 75,
+      "prog": -6
     },
     "blitz": {
-      "games": 34,
-      "rating": 1007,
-      "rd": 55,
-      "prog": -59
+      "games": 11,
+      "rating": 990,
+      "rd": 45,
+      "prog": -30
     },
     "rapid": {
-      "games": 134,
-      "rating": 1021,
-      "rd": 70,
-      "prog": 26
+      "games": 85,
+      "rating": 1096,
+      "rd": 111,
+      "prog": -18,
+      "prov": true
     },
     "classical": {
-      "games": 451,
-      "rating": 1136,
-      "rd": 78,
-      "prog": -1
+      "games": 19,
+      "rating": 950,
+      "rd": 93,
+      "prog": -44
     },
     "correspondence": {
-      "games": 35,
-      "rating": 1049,
-      "rd": 45,
-      "prog": 15
+      "games": 22,
+      "rating": 1147,
+      "rd": 47,
+      "prog": -27
     },
     "chess960": {
-      "games": 52,
-      "rating": 996,
-      "rd": 72,
-      "prog": -9
+      "games": 1063,
+      "rating": 1023,
+      "rd": 54,
+      "prog": 21
     },
     "kingOfTheHill": {
-      "games": 1998,
-      "rating": 1169,
-      "rd": 79,
-      "prog": -13
+      "games": 85,
+      "rating": 1142,
+      "rd": 53,
+      "prog": -34
     },
     "threeCheck": {
-      "games": 6,
-      "rating": 946,
-      "rd": 52,
-      "prog": 32
+      "games": 507,
+      "rating": 1044,
+      "rd": 54,
+      "prog": 14
     },
     "antichess": {
-      "games": 79,
-      "rating": 1143,
-      "rd": 48,
-      "prog": 61
+      "games": 57,
+      "rating": 933,
+      "rd": 111,
+      "prog": -5,
+      "prov": true
     },
     "atomic": {
-      "games": 239,
-      "rating": 978,
-      "rd": 76,
-      "prog": 22
+      "games": 516,
+      "rating": 1015,
+      "rd": 103,
+      "prog": -1
     },
     "horde": {
-      "games": 246,
-      "rating": 1031,
-      "rd": 108,
-      "prog": -28
+      "games": 202,
+      "rating": 1098,
+      "rd": 59,
+      "prog": 8
     },
     "crazyhouse": {
-      "games": 473,
-      "rating": 1063,
-      "rd": 88,
-      "prog": 2
+      "games": 328,
+      "rating": 1163,
+      "rd": 72,
+      "prog": 33
     },
     "puzzle": {
-      "games": 37,
-      "rating": 977,
-      "rd": 86,
-      "prog": 26
+      "games": 21,
+      "rating": 1071,
+      "rd": 50,
+      "prog": -16
     }
   },
-  "flair": "food-drink.coconut",
-  "createdAt": 1744526339498,
+  "flair": "people.snowboarder-dark-skin-tone",
+  "patron": true,
+  "patronTier": "months1",
+  "createdAt": 1757481165779,
   "profile": {
+    "flag": "ET",
     "location": "Mary City",
-    "cfcRating": 1173,
-    "rcfRating": 897,
-    "flag": "MF",
-    "dsbRating": 1110,
+    "bio": "In the first place, he clearly enunciates that the money form of commodities is only the further development of the simple form of value—i. e., of the expression of the value of one commodity in some other commodity taken at random; for he says",
     "fideRating": 1050,
-    "ecfRating": 1249,
-    "uscfRating": 1217,
-    "bio": "The elementary form of value of a commodily is contained in the equation, expressing its value relation to another commodity of a different kind, or in its exchange relation to the same. The value of commodity A is qualitatively expressed by the fact that commodity B is directly exchangeable with it. Its value is quantitively expressed by the fact,",
-    "links": "https://en.wikipedia.org/wiki/Joni_Mitchell\nhttps://en.wikipedia.org/wiki/Srinivasa_Ramanujan\nhttps://en.wikipedia.org/wiki/Atheism\nhttps://lichess.org\nhttps://en.wikipedia.org/wiki/Mahatma_Gandhi"
+    "uscfRating": 1180,
+    "ecfRating": 883,
+    "rcfRating": 1096,
+    "cfcRating": 930,
+    "dsbRating": 883,
+    "links": ""
   },
-  "seenAt": 1744677685927,
+  "seenAt": 1757615672673,
   "playTime": {
-    "total": 14336,
+    "total": 15865,
     "tv": 0
   },
-  "url": "http://localhost:8080/@/Mary",
+  "url": "https://lichess.org/@/Mary",
   "count": {
-    "all": 5251,
-    "rated": 4200,
+    "all": 3301,
+    "rated": 2640,
     "ai": 0,
-    "draw": 250,
-    "drawH": 250,
-    "loss": 2418,
-    "lossH": 2418,
-    "win": 2583,
-    "winH": 2583,
+    "draw": 148,
+    "drawH": 148,
+    "loss": 1588,
+    "lossH": 1588,
+    "win": 1565,
+    "winH": 1565,
     "bookmark": 0,
     "playing": 0,
     "import": 0,
-    "me": 1
+    "me": 2
   },
   "streamer": {
     "twitch": {

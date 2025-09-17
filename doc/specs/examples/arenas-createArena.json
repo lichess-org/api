@@ -6,11 +6,11 @@
     "page": 1,
     "players": []
   },
-  "id": "Zt9SEhVE",
+  "id": "tbumT8AW",
   "createdBy": "bobby",
-  "startsAt": "2025-05-17T00:44:50.550254451Z",
+  "startsAt": "2025-09-17T11:00:57.211784327Z",
   "system": "arena",
-  "fullName": "Cvitan Arena",
+  "fullName": "Grischuk Arena",
   "minutes": 60,
   "perf": {
     "key": "blitz",
@@ -34,12 +34,12 @@
     "accepted": true
   },
   "quote": {
-    "text": "Before Geller we did not understand the King's Indian Defence.",
-    "author": "Mikhail Botvinnik"
+    "text": "Chess will always be in the doldrums as a spectator sport while a draw is given equal mathematical value as a decisive result.",
+    "author": "Michael Basman"
   },
   "greatPlayer": {
-    "name": "Cvitan",
-    "url": "https://wikipedia.org/wiki/Ognjen_Cvitan"
+    "name": "Grischuk",
+    "url": "https://wikipedia.org/wiki/Alexander_Grischuk"
   },
   "myUsername": "Bobby"
 }

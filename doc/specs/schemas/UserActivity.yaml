@@ -118,16 +118,21 @@ properties:
           $ref: "./UserActivityCorrespondenceGame.yaml"
   correspondenceEnds:
     type: object
-    required:
-      - score
-      - games
     properties:
-      score:
-        $ref: "./UserActivityScore.yaml"
-      games:
-        type: array
-        items:
-          $ref: "./UserActivityCorrespondenceGame.yaml"
+      correspondence:
+        type: object
+        properties:
+          score:
+            $ref: "./UserActivityScore.yaml"
+          games:
+            type: array
+            items:
+              $ref: "./UserActivityCorrespondenceGame.yaml"
+        required:
+          - score
+          - games
+    required:
+      - correspondence
   follows:
     type: object
     properties:

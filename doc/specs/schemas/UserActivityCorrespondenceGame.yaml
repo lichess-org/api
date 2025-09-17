@@ -32,8 +32,4 @@ required:
   - id
   - color
   - url
-  - variant
-  - speed
-  - perf
-  - rated
   - opponent

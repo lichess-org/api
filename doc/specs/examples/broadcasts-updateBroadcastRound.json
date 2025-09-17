@@ -1,29 +1,29 @@
 {
   "round": {
-    "id": "6j92xrwH",
+    "id": "ntaljGss",
     "name": "Final Round 2",
     "slug": "final-round-2",
-    "createdAt": 1745619386270,
+    "createdAt": 1758106615766,
+    "rated": false,
     "ongoing": true,
-    "startsAt": 1745619386270,
-    "rated": true,
-    "url": "https://lichess.org/broadcast/knight-invitational-2/final-round-2/6j92xrwH"
+    "startsAt": 1758106615766,
+    "url": "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ntaljGss"
   },
   "tour": {
-    "id": "ZEB4BtHU",
+    "id": "Sl0bjbWn",
     "name": "Knight Invitational 2",
     "slug": "knight-invitational-2",
     "info": {},
-    "createdAt": 1745619386114,
-    "url": "https://lichess.org/broadcast/knight-invitational-2/ZEB4BtHU",
-    "dates": [1745619386270]
+    "createdAt": 1758106615654,
+    "url": "https://lichess.org/broadcast/knight-invitational-2/Sl0bjbWn",
+    "dates": [1758106615766]
   },
   "study": {
     "writeable": true
   },
   "games": [
     {
-      "id": "0APpZxve",
+      "id": "qiFLnai1",
       "name": "Player 1 - Player 2",
       "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
       "players": [
@@ -39,7 +39,7 @@
       "status": "*"
     },
     {
-      "id": "GzjMltBk",
+      "id": "LL2rDiuJ",
       "name": "Player 3 - Player 4",
       "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2",
       "players": [
@@ -54,5 +54,6 @@
       "thinkTime": 0,
       "status": "*"
     }
-  ]
+  ],
+  "isSubscribed": false
 }

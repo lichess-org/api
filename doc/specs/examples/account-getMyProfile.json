@@ -3,122 +3,121 @@
   "username": "Bobby",
   "perfs": {
     "bullet": {
-      "games": 67,
-      "rating": 1675,
-      "rd": 53,
-      "prog": -13
-    },
-    "blitz": {
-      "games": 22,
-      "rating": 1844,
-      "rd": 115,
-      "prog": 38,
-      "prov": true
-    },
-    "rapid": {
-      "games": 16,
-      "rating": 1751,
+      "games": 230,
+      "rating": 1762,
       "rd": 45,
-      "prog": 9
-    },
-    "classical": {
-      "games": 19,
-      "rating": 1804,
-      "rd": 48,
-      "prog": -26
-    },
-    "correspondence": {
-      "games": 476,
-      "rating": 1780,
-      "rd": 78,
-      "prog": 36
-    },
-    "chess960": {
-      "games": 44,
-      "rating": 1793,
-      "rd": 85,
-      "prog": -18
-    },
-    "kingOfTheHill": {
-      "games": 64,
-      "rating": 1702,
-      "rd": 95,
       "prog": 0
     },
-    "threeCheck": {
-      "games": 8,
-      "rating": 1693,
+    "blitz": {
+      "games": 45,
+      "rating": 1663,
+      "rd": 45,
+      "prog": -41
+    },
+    "rapid": {
+      "games": 209,
+      "rating": 1629,
       "rd": 62,
-      "prog": 16
+      "prog": -37
+    },
+    "classical": {
+      "games": 61,
+      "rating": 1782,
+      "rd": 71,
+      "prog": -4
+    },
+    "correspondence": {
+      "games": 710,
+      "rating": 1810,
+      "rd": 66,
+      "prog": -40
+    },
+    "chess960": {
+      "games": 203,
+      "rating": 1695,
+      "rd": 48,
+      "prog": 13
+    },
+    "kingOfTheHill": {
+      "games": 725,
+      "rating": 1678,
+      "rd": 92,
+      "prog": 26
+    },
+    "threeCheck": {
+      "games": 3493,
+      "rating": 1653,
+      "rd": 52,
+      "prog": 23
     },
     "antichess": {
-      "games": 155,
-      "rating": 1632,
-      "rd": 45,
-      "prog": -17
+      "games": 464,
+      "rating": 1679,
+      "rd": 94,
+      "prog": 51
     },
     "atomic": {
-      "games": 53,
-      "rating": 1777,
-      "rd": 100,
-      "prog": 31
+      "games": 508,
+      "rating": 1685,
+      "rd": 98,
+      "prog": 18
     },
     "horde": {
-      "games": 136,
-      "rating": 1697,
-      "rd": 75,
-      "prog": 11
+      "games": 79,
+      "rating": 1835,
+      "rd": 45,
+      "prog": 45
     },
     "crazyhouse": {
-      "games": 37,
-      "rating": 1830,
-      "rd": 47,
-      "prog": 28
+      "games": 231,
+      "rating": 1614,
+      "rd": 64,
+      "prog": -16
     },
     "puzzle": {
-      "games": 387,
-      "rating": 1788,
-      "rd": 78,
-      "prog": -52
+      "games": 99,
+      "rating": 1657,
+      "rd": 120,
+      "prog": 25,
+      "prov": true
     }
   },
-  "flair": "smileys.grinning-squinting-face",
   "patron": true,
-  "createdAt": 1741604475808,
+  "patronTier": "months1",
+  "createdAt": 1753152844110,
   "profile": {
+    "flag": "BA",
     "location": "Bobby City",
-    "cfcRating": 1686,
-    "rcfRating": 1894,
-    "flag": "AX",
-    "dsbRating": 1740,
+    "bio": "The substance of that earlier work is summarised in the first three chapters of this volume. This is done not merely for the sake of connection and completeness. This presentation of the subject-matter is improved. As far as circumstances in any way permit, many points only hinted at in the earlier book are here worked out more fully, whilst, conve",
     "fideRating": 1725,
-    "ecfRating": 1674,
-    "uscfRating": 1623,
-    "bio": "Let us see, in the first place, what the two forms have in common.",
-    "links": "https://en.wikipedia.org/wiki/Srinivasa_Ramanujan"
+    "uscfRating": 1739,
+    "ecfRating": 1856,
+    "rcfRating": 1560,
+    "cfcRating": 1719,
+    "dsbRating": 1711,
+    "links": "https://lichess.org"
   },
-  "seenAt": 1743531507166,
+  "seenAt": 1757335480301,
   "playTime": {
-    "total": 12865,
+    "total": 13656,
     "tv": 0
   },
-  "url": "http://localhost:8080/@/Bobby",
+  "url": "https://lichess.org/@/Bobby",
   "count": {
-    "all": 3062,
-    "rated": 2449,
+    "all": 7944,
+    "rated": 6355,
     "ai": 0,
-    "draw": 218,
-    "drawH": 218,
-    "loss": 1453,
-    "lossH": 1453,
-    "win": 1391,
-    "winH": 1391,
+    "draw": 403,
+    "drawH": 403,
+    "loss": 3872,
+    "lossH": 3872,
+    "win": 3669,
+    "winH": 3669,
     "bookmark": 0,
     "playing": 0,
     "import": 0,
     "me": 0
   },
-  "kid": true,
   "followable": true,
   "following": false,
   "blocking": false

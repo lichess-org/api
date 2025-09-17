@@ -1,23 +1,23 @@
 {
   "tournament": {
-    "id": "JbdQe217",
-    "createdBy": "cormacobear",
+    "id": "cgWyxdzJ",
+    "createdBy": "lichess",
     "system": "arena",
-    "minutes": 240,
+    "minutes": 120,
     "clock": {
-      "limit": 180,
+      "limit": 300,
       "increment": 0
     },
     "rated": true,
-    "fullName": "Lichess 2025 MSF Charity Campaign",
-    "nbPlayers": 3753,
+    "fullName": "Eastern Blitz Arena",
+    "nbPlayers": 1461,
     "variant": {
       "key": "standard",
       "short": "Std",
       "name": "Standard"
     },
-    "startsAt": 1746295200000,
-    "finishesAt": 1746309600000,
+    "startsAt": 1756188000000,
+    "finishesAt": 1756195200000,
     "status": 30,
     "perf": {
       "key": "blitz",
@@ -26,16 +26,16 @@
       "icon": ")"
     },
     "minRatedGames": {
-      "nb": 20
+      "nb": 15
     },
     "schedule": {
-      "freq": "unique",
-      "speed": "superBlitz"
+      "freq": "eastern",
+      "speed": "blitz"
     }
   },
   "player": {
-    "games": 8,
-    "score": 7,
-    "rank": 1503
+    "games": 1,
+    "score": 2,
+    "rank": 771
   }
 }

@@ -9,15 +9,17 @@
       "title": "LM",
       "flair": "activity.xmas-lichess-horsey",
       "patron": true,
+      "patronTier": "lifetime",
       "id": "assios"
     },
-    "nbMembers": 247,
+    "nbMembers": 268,
     "leaders": [
       {
         "name": "Assios",
         "title": "LM",
         "flair": "activity.xmas-lichess-horsey",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "assios"
       }
     ]
@@ -31,15 +33,17 @@
       "name": "thibault",
       "flair": "nature.seedling",
       "patron": true,
+      "patronTier": "lifetime",
       "id": "thibault"
     },
-    "nbMembers": 434,
+    "nbMembers": 458,
     "flair": "objects.hammer-and-wrench",
     "leaders": [
       {
         "name": "thibault",
         "flair": "nature.seedling",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "thibault"
       }
     ]
@@ -53,15 +57,17 @@
       "name": "thibault",
       "flair": "nature.seedling",
       "patron": true,
+      "patronTier": "lifetime",
       "id": "thibault"
     },
-    "nbMembers": 108,
+    "nbMembers": 124,
     "flair": "symbols.extinction",
     "leaders": [
       {
         "name": "thibault",
         "flair": "nature.seedling",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "thibault"
       }
     ]
@@ -75,15 +81,17 @@
       "name": "thibault",
       "flair": "nature.seedling",
       "patron": true,
+      "patronTier": "lifetime",
       "id": "thibault"
     },
-    "nbMembers": 4964,
+    "nbMembers": 4980,
     "flair": "nature.frog",
     "leaders": [
       {
         "name": "thibault",
         "flair": "nature.seedling",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "thibault"
       }
     ]
@@ -97,25 +105,30 @@
       "name": "Lichess",
       "flair": "activity.lichess",
       "patron": true,
+      "patronTier": "lifetime",
       "id": "lichess"
     },
-    "nbMembers": 3775,
+    "nbMembers": 4188,
     "leaders": [
       {
         "name": "Lichess",
         "flair": "activity.lichess",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "lichess"
       },
       {
-        "name": "NoJoke",
-        "flair": "food-drink.watermelon",
+        "name": "thibault",
+        "flair": "nature.seedling",
         "patron": true,
-        "id": "nojoke"
+        "patronTier": "lifetime",
+        "id": "thibault"
       },
       {
-        "name": "betatestingofficial",
-        "id": "betatestingofficial"
+        "name": "fredo599",
+        "patron": true,
+        "patronTier": "lifetime",
+        "id": "fredo599"
       }
     ]
   },
@@ -129,7 +142,7 @@
       "title": "BOT",
       "id": "thibot"
     },
-    "nbMembers": 6437,
+    "nbMembers": 6824,
     "flair": "smileys.robot",
     "leaders": [
       {
@@ -149,18 +162,13 @@
       "title": "LM",
       "id": "broadcaster2"
     },
-    "nbMembers": 1436,
+    "nbMembers": 1472,
     "leaders": [
-      {
-        "name": "NoJoke",
-        "flair": "food-drink.watermelon",
-        "patron": true,
-        "id": "nojoke"
-      },
       {
         "name": "broadcaster",
         "title": "LM",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "broadcaster"
       }
     ]
@@ -173,26 +181,30 @@
     "leader": {
       "name": "curator",
       "patron": true,
+      "patronTier": "lifetime",
       "id": "curator"
     },
-    "nbMembers": 4693,
+    "nbMembers": 4776,
     "flair": "symbols.information",
     "leaders": [
       {
         "name": "curator",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "curator"
       },
       {
         "name": "NoJoke",
         "flair": "food-drink.watermelon",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "nojoke"
       },
       {
         "name": "loepare",
-        "flair": "activity.lichess-ultrabullet",
+        "flair": "activity.lichess",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "loepare"
       }
     ]
@@ -200,48 +212,54 @@
   {
     "id": "lichess-discord-bundesliga-team",
     "name": "Lichess Discord Bundesliga Team",
-    "description": "![BLlogo](https://i.imgur.com/ZX5atp1.jpg)\r\nThe official Lichess info team of the Lichess Bundesliga, besides our team is also competing in the Lichess Bundesliga itself!\r\n\r\nJoin this team to find all future and past links of the Lichess Bundesliga.\r\n\r\n[Lichess Discord](https://discord.gg/lichess) \r\nJoin us here for support, programming, some chess, and good vibes.\r\n\r\n[Liga Stats](https://lichess.thijs.com/rankings/all/liga/list_players_points.html) | [Add team to Liga](https://lichess.org/inbox/jeffforever) | [Stats 2025](https://rochadeeuropa.de/lichess-2025/) | [Stats 2024](https://rochadeeuropa.de/lichess-2024/) | [Stats 2023](https://rochadeeuropa.de/lichess-2023/) | [Stats 2022](https://rochadeeuropa.de/lichess-2022/) | [Stats 2021](https://rochadeeuropa.de/lichess-2021) | [Stats 2020](https://rochadeeuropa.de/lichess-2020) | [Past](https://rochadeeuropa.de/lichess-turniere-beendet/) | [Liga Puzzles](https://lichess.org/study/by/Ensemo/newest) | [Liga All-time table](https://rochadeeuropa.de/ewige-q-bundesliga-tabelle/)\r\n\r\n![logo](https://i.imgur.com/kcfaVeA.jpg)",
+    "description": "![BLlogo](https://i.imgur.com/ZX5atp1.jpg)\r\nThe official Lichess info team of the [Lichess Bundesliga](https://lichess.org/@/lichess/blog/announcing-the-lichess-bundesliga/X4da-RAA), besides our team is also competing in the Lichess Bundesliga itself!\r\n\r\n[Add a team to the Lichess Bundesliga](https://lichess.org/inbox/jeffforever)\r\n\r\nJoin this team to find all future and past links, statistics and and more info about the Lichess Bundesliga.\r\n\r\n[Lichess Discord](https://discord.gg/lichess) \r\nJoin us here for support, programming, some chess, and good vibes.\r\n\r\n[Lichess Bundesliga Player Statistics](https://lichess.thijs.com/rankings/all/liga/list_players_points.html)\r\n[Lichess Bundesliga Statistics 2025](https://rochadeeuropa.de/lichess-2025/)\r\n[Lichess Bundesliga Statistics 2024](https://rochadeeuropa.de/lichess-2024/)\r\n[Lichess Bundesliga Statistics 2023](https://rochadeeuropa.de/lichess-2023/)\r\n[Lichess Bundesliga Statistics 2022](https://rochadeeuropa.de/lichess-2022/)\r\n[Lichess Bundesliga Statistics 2021](https://rochadeeuropa.de/lichess-2021)\r\n[Lichess Bundesliga Statistics 2020](https://rochadeeuropa.de/lichess-2020)\r\n[List of all past Lichess Bundesliga events](https://rochadeeuropa.de/lichess-turniere-beendet/)\r\n[Past Lichess Bundesliga Puzzle Packs](https://lichess.org/study/by/Ensemo/newest)\r\n[Lichess Bundesliga All-time table](https://rochadeeuropa.de/ewige-q-bundesliga-tabelle/)\r\n\r\n![logo](https://i.imgur.com/kcfaVeA.jpg)",
     "open": true,
     "leader": {
       "name": "TCF_Namelecc",
       "id": "tcf_namelecc"
     },
-    "nbMembers": 2014,
+    "nbMembers": 2174,
     "flair": "symbols.information",
     "leaders": [
       {
         "name": "cormacobear",
         "flair": "nature.polar-bear",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "cormacobear"
       },
       {
         "name": "NoJoke",
         "flair": "food-drink.watermelon",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "nojoke"
       },
       {
         "name": "jeffforever",
         "title": "FM",
-        "flair": "activity.chess",
+        "flair": "activity.lichess-horsey",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "jeffforever"
       },
       {
         "name": "Numeroid",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "numeroid"
       },
       {
         "name": "shamalamadingdong",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "shamalamadingdong"
       },
       {
         "name": "loepare",
-        "flair": "activity.lichess-ultrabullet",
+        "flair": "activity.lichess",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "loepare"
       }
     ]
@@ -255,32 +273,37 @@
       "name": "Lichess",
       "flair": "activity.lichess",
       "patron": true,
+      "patronTier": "lifetime",
       "id": "lichess"
     },
-    "nbMembers": 2363,
+    "nbMembers": 2380,
     "leaders": [
       {
         "name": "NoJoke",
         "flair": "food-drink.watermelon",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "nojoke"
       },
       {
         "name": "curator",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "curator"
       },
       {
         "name": "loepare",
-        "flair": "activity.lichess-ultrabullet",
+        "flair": "activity.lichess",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "loepare"
       },
       {
         "name": "jeffforever",
         "title": "FM",
-        "flair": "activity.chess",
+        "flair": "activity.lichess-horsey",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "jeffforever"
       }
     ]
@@ -294,21 +317,24 @@
       "name": "Lichess",
       "flair": "activity.lichess",
       "patron": true,
+      "patronTier": "lifetime",
       "id": "lichess"
     },
-    "nbMembers": 582195,
+    "nbMembers": 630972,
     "flair": "food-drink.cheese-wedge",
     "leaders": [
       {
         "name": "Lichess",
         "flair": "activity.lichess",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "lichess"
       },
       {
         "name": "thibault",
         "flair": "nature.seedling",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "thibault"
       }
     ]
@@ -322,49 +348,46 @@
       "name": "untitled",
       "id": "untitled"
     },
-    "nbMembers": 515,
+    "nbMembers": 556,
     "flair": "symbols.linux-tux-penguin",
     "leaders": []
   },
   {
     "id": "vegan-players",
     "name": "Vegan Players",
-    "description": "![Pigs watching](https://i.imgur.com/RYC0Yzr.jpeg)\r\n**_\"Men are the devils of the earth, and the animals are the tormented souls.\"_**  \r\n― *Arthur Schopenhauer*\r\n\r\n### https://www.youtube.com/watch?v=UcN7SGGoCNI\r\n\r\n\r\n## Welcome to Vegan Players!\r\n\r\nWe are a Lichess team for vegans and **anyone curious about learning more about veganism**. Join us for discussions on compassionate living and participate in team battles!\r\n\r\n![Vegan definition image](https://imgur.com/lyEfGd3.png)\r\n\r\nSource: [The Vegan Society](https://www.vegansociety.com/go-vegan/definition-veganism)\r\n\r\n## Learn More About Veganism\r\n\r\n- [Earthling Ed - You Will Never Look at Your Life the Same Way Again](https://www.youtube.com/watch?v=Z3u7hXpOm58) [32:22]\r\n- [Dominion Documentary](https://watchdominion.org/) [2:00:00]\r\n  Trigger Warning: Contains graphic footage of animal cruelty. Viewer discretion advised.\r\n\r\nIf you have any questions or want to learn more about veganism, feel free to message @FiveKnights.\r\n\r\n![Drawing of man with dog surrounded by deceased animals](https://i.imgur.com/LNCFfxU.jpeg)",
+    "description": "![Pigs watching](https://i.imgur.com/RYC0Yzr.jpeg)\r\n**_\"Men are the devils of the earth, and the animals are the tormented souls.\"_**  \r\n― *Arthur Schopenhauer*\r\n\r\n### https://www.youtube.com/watch?v=UcN7SGGoCNI\r\n\r\n\r\n## Welcome to Vegan Players!\r\n\r\nWe are a Lichess team for vegans and **anyone curious about learning more about veganism**. Join us for discussions on compassionate living and participate in team battles!\r\n\r\n![Vegan definition image](https://imgur.com/lyEfGd3.png)\r\n\r\nSource: [The Vegan Society](https://www.vegansociety.com/go-vegan/definition-veganism)\r\n\r\n## Learn More About Veganism\r\n\r\n### As vegan don't forget to take vitamin B12 (absolutely necessary), and look into other things like vitamin D and other supplements. A whole-food plant-based diet is one of the healthiest, if not the healthiest diet. Potential sites to look for vegan nutritional information:\r\nhttps://veganhealth.org/\r\nhttps://nutritionfacts.org/ (sometimes regarded as mixed or false in accuracy, particularly with oils)\r\n\r\n- [Earthling Ed - You Will Never Look at Your Life the Same Way Again](https://www.youtube.com/watch?v=Z3u7hXpOm58) [32:22]\r\n- [Dominion Documentary](https://watchdominion.org/) [2:00:00]\r\n  Trigger Warning: Contains graphic footage of animal cruelty. Viewer discretion advised.\r\n\r\n\r\n\r\nIf you have any questions or want to learn more about veganism, feel free to message @FiveKnights.\r\n\r\n![Drawing of man with dog surrounded by deceased animals](https://i.imgur.com/LNCFfxU.jpeg)",
     "open": true,
     "leader": {
       "name": "FiveKnights",
-      "flair": "nature.pig",
       "patron": true,
+      "patronTier": "lifetime",
       "id": "fiveknights"
     },
-    "nbMembers": 131,
+    "nbMembers": 268,
     "flair": "nature.seedling",
     "leaders": [
       {
         "name": "FiveKnights",
-        "flair": "nature.pig",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "fiveknights"
       },
       {
-        "name": "SenescentCell",
-        "id": "senescentcell"
-      },
-      {
         "name": "Andnar",
-        "title": "NM",
+        "title": "FM",
         "flair": "symbols.peace-symbol",
         "id": "andnar"
       },
       {
         "name": "BBisplaying",
-        "flair": "food-drink.wine-glass",
+        "flair": "people.troll",
         "patron": true,
+        "patronTier": "years3",
         "id": "bbisplaying"
       },
       {
         "name": "Patralgan",
-        "flair": "food-drink.cherries",
+        "flair": "activity.flower-playing-cards",
         "id": "patralgan"
       },
       {
@@ -372,6 +395,7 @@
         "title": "NM",
         "flair": "nature.dove",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "oberschlumpf"
       },
       {
@@ -402,6 +426,7 @@
         "title": "NM",
         "flair": "symbols.zzz",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "zugaddict"
       }
     ]

@@ -138,6 +138,9 @@ properties:
               type: string
             title:
               $ref: "./Title.yaml"
+            patron:
+              type: boolean
+              deprecated: true
             patronTier:
               $ref: "./PatronTier.yaml"
             flair:
@@ -203,6 +206,9 @@ properties:
           type: string
         title:
           $ref: "./Title.yaml"
+        patron:
+          type: boolean
+          deprecated: true
         patronTier:
           $ref: "./PatronTier.yaml"
         flair:

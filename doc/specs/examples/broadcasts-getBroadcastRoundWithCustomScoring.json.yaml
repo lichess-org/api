@@ -20,14 +20,14 @@ value:
         "slug": "norway-chess-2025--open",
         "info":
           {
-            "website": "https://norwaychess.no/en/",
-            "players": "Carlsen, Gukesh, Caruana, Nakamura",
-            "location": "Stavanger, Norway",
+            "format": "6-player double round-robin",
             "tc": "120 min + 10 sec / move starting 41",
             "fideTc": "standard",
+            "location": "Stavanger, Norway",
             "timeZone": "Europe/Oslo",
+            "players": "Carlsen, Gukesh, Caruana, Nakamura",
+            "website": "https://norwaychess.no/en/",
             "standings": "https://stats.norwaychess.no/2025/standings",
-            "format": "6-player double round-robin",
           },
         "createdAt": 1747826541812,
         "url": "https://lichess.org/broadcast/norway-chess-2025--open/PcsMbQ9J",
@@ -67,7 +67,10 @@ value:
       ],
     "group":
       {
+        "id": "I7IIijJO",
+        "slug": "norway-chess-2025",
         "name": "Norway Chess 2025",
-        "tours": [{ "id": "PcsMbQ9J", "name": "Open" }, { "id": "lrKI0bSz", "name": "Women" }],
+        "tours":
+          [{ "id": "PcsMbQ9J", "name": "Open", "live": false }, { "id": "lrKI0bSz", "name": "Women", "live": false }],
       },
   }

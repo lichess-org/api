@@ -88,3 +88,15 @@ example(
   "createAndJoinPuzzleRace",
   await localClient().POST("/api/racer"),
 );
+
+example(
+  "puzzles",
+  "getRaceResults",
+  await prodClient().GET("/api/racer/{id}", {
+    params: {
+      path: {
+        id: "v3ZG9",
+      },
+    },
+  }),
+);

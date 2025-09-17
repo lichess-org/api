@@ -1,19 +1,20 @@
 {
-  "id": "1jqMGJOv",
-  "url": "https://lichess.org/1jqMGJOv",
+  "id": "iCmWRom9",
+  "url": "https://lichess.org/iCmWRom9",
   "status": "created",
   "challenger": {
-    "id": "bobby",
     "name": "Bobby",
-    "rating": 1612,
-    "title": null
+    "flair": "people.woman-with-veil-light-skin-tone",
+    "id": "bobby",
+    "rating": 1693
   },
   "destUser": {
-    "id": "mary",
     "name": "Mary",
-    "rating": 1064,
-    "title": null,
-    "flair": "objects.notebook"
+    "flair": "people.snowboarder-dark-skin-tone",
+    "patron": true,
+    "patronTier": "months1",
+    "id": "mary",
+    "rating": 1147
   },
   "variant": {
     "key": "standard",

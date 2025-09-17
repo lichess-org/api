@@ -1,131 +1,28 @@
 [
   {
     "interval": {
-      "start": 1745020800000,
-      "end": 1745107200000
+      "start": 1758067200000,
+      "end": 1758153600000
+    },
+    "follows": {
+      "in": {
+        "ids": ["gchen44", "pabloboris", "bababoing"]
+      }
+    }
+  },
+  {
+    "interval": {
+      "start": 1757980800000,
+      "end": 1758067200000
     },
     "games": {
       "blitz": {
         "win": 1,
-        "loss": 0,
-        "draw": 0,
-        "rp": {
-          "before": 1712,
-          "after": 1717
-        }
-      }
-    },
-    "follows": {
-      "in": {
-        "ids": ["aadhya5", "mrbernhardknarkson", "biggiantsandwich", "kanishkaandana2010", "zhemouren", "tquach5712"]
-      }
-    }
-  },
-  {
-    "interval": {
-      "start": 1744934400000,
-      "end": 1745020800000
-    },
-    "games": {
-      "blitz": {
-        "win": 0,
         "loss": 2,
         "draw": 0,
         "rp": {
-          "before": 1724,
-          "after": 1712
-        }
-      }
-    },
-    "follows": {
-      "in": {
-        "ids": [
-          "muinthechamp",
-          "yazdanpour",
-          "acra2025",
-          "kirillbro201212",
-          "kostia_semianov",
-          "muaythaichess365",
-          "ignacy_2014",
-          "razanjr",
-          "mastermind22022",
-          "honeybadger0302"
-        ]
-      }
-    }
-  },
-  {
-    "interval": {
-      "start": 1744848000000,
-      "end": 1744934400000
-    },
-    "puzzles": {
-      "score": {
-        "win": 0,
-        "loss": 1,
-        "draw": 0,
-        "rp": {
-          "before": 1911,
-          "after": 1911
-        }
-      }
-    },
-    "follows": {
-      "in": {
-        "ids": [
-          "midnight_marauder",
-          "aryanraj2014",
-          "sadt_25007221",
-          "kenancinar",
-          "deadpool2988",
-          "toggui",
-          "erdan2016",
-          "fedorizprostokvawino",
-          "super-super",
-          "bonestorm",
-          "pavel_sizikov2015",
-          "wtxs",
-          "strategist_1"
-        ]
-      }
-    }
-  },
-  {
-    "interval": {
-      "start": 1744761600000,
-      "end": 1744848000000
-    },
-    "follows": {
-      "in": {
-        "ids": [
-          "maiagrimaldigarcia",
-          "schach4",
-          "alamin2424",
-          "endeadfallezing",
-          "egor-v",
-          "ko5tya",
-          "cr7kenanoop",
-          "vihaankrishnam",
-          "max49000",
-          "nowbadger",
-          "pp4h"
-        ]
-      }
-    }
-  },
-  {
-    "interval": {
-      "start": 1744675200000,
-      "end": 1744761600000
-    },
-    "games": {
-      "blitz": {
-        "win": 23,
-        "loss": 10,
-        "draw": 0,
-        "rp": {
-          "before": 1651,
-          "after": 1724
+          "before": 1773,
+          "after": 1772
         }
       }
     },
@@ -136,79 +33,188 @@
         "draw": 0,
         "rp": {
           "before": 1904,
-          "after": 1911
+          "after": 1912
+        }
+      }
+    },
+    "correspondenceEnds": {
+      "correspondence": {
+        "score": {
+          "win": 1,
+          "loss": 0,
+          "draw": 0,
+          "rp": {
+            "before": 1942,
+            "after": 1942
+          }
+        },
+        "games": [
+          {
+            "id": "Yh5vd5Cj",
+            "color": "white",
+            "url": "/Yh5vd5Cj/white",
+            "opponent": {
+              "user": "neio",
+              "rating": 1500
+            }
+          }
+        ]
+      }
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "ahmedmsh141",
+          "kinderekpolska12345",
+          "mikrobi",
+          "unknownplayer43",
+          "chvii",
+          "aurorastern_kt93",
+          "gagarinww2",
+          "binudi2008",
+          "hchez",
+          "madmaltenx"
+        ]
+      }
+    },
+    "posts": [
+      {
+        "topicUrl": "/forum/lichess-feedback/invisible-rooks-and-knights-on-firefox",
+        "topicName": "Invisible rooks and knights on Firefox?",
+        "posts": [
+          {
+            "url": "/forum/redirect/post/SwGDDdUX",
+            "text": "OK so apparently it makes no difference whether the pieces are linked from remote files, or embedded as base64 in the CSS."
+          },
+          {
+            "url": "/forum/redirect/post/Ld2XUXvc",
+            "text": "@Arndti said in #20:\r\n> My Browser isn't loading any board when I open one anymore. But there is also nothing else loading on the gameboard (like the chat etc):\r\n> Firefox 142.0.1 (64-Bit)\r\n> Windows 11 (64-Bit)\r\n\r\nThat's very interesting, can you help me investigate that? It would help if you could go to lichess.org/#debug and click \"send to lichess\"\r\nAlso, please go to a page that is broken, and open the browser console with Ctrl+Shift+C and copy paste any error you find here, so I can find wh"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "interval": {
+      "start": 1757894400000,
+      "end": 1757980800000
+    },
+    "games": {
+      "blitz": {
+        "win": 1,
+        "loss": 0,
+        "draw": 0,
+        "rp": {
+          "before": 1766,
+          "after": 1773
         }
       }
     },
     "follows": {
       "in": {
         "ids": [
-          "ivanbenitez11",
-          "bethechess",
-          "boomraiser",
-          "jameswebb1",
-          "ethanmatthewhunt_exe",
-          "lishanth03",
-          "mishikachess",
-          "jamesbehan",
-          "blackvoid",
-          "phwhjssjjsiia"
+          "kavinthegoatcricket",
+          "kepha",
+          "dafutboom",
+          "drstrangyer",
+          "margem_1",
+          "cowduckcat",
+          "hackasaur",
+          "issier",
+          "anthonyoja",
+          "abhinav001n",
+          "b_e_r_t_r_a_n_d",
+          "anhkhoa2015hp",
+          "podderswapnil",
+          "alexmm22",
+          "lastwhitepawn"
+        ]
+      },
+      "out": {
+        "ids": ["fredo599"]
+      }
+    },
+    "posts": [
+      {
+        "topicUrl": "/forum/lichess-feedback/invisible-rooks-and-knights-on-firefox",
+        "topicName": "Invisible rooks and knights on Firefox?",
+        "posts": [
+          {
+            "url": "/forum/redirect/post/9TwKUeK7",
+            "text": "We're now experimenting with a different way to load pieces (individual SVG files). If you (still) have missing pieces, or if you did but now it's fixed, please report here with the following info:\r\n- your browser and version (firefox 142)\r\n- your operating system (windows, mac, android, ios, linux)\r\n- your desktop or laptop GPU (if you have one and happen to know what kind, mobile users just ignore)"
+          },
+          {
+            "url": "/forum/redirect/post/IZoAcxZW",
+            "text": "Thank you for an opportunity to practice my patience and diplomacy.\r\n\r\nWhat \"happened\" exactly? What's your browser and version? What's your operating system? What's your desktop or laptop GPU?"
+          },
+          {
+            "url": "/forum/redirect/post/lkqcyJsZ",
+            "text": "I stopped the experiment. Is it working better now? @MadMaltenX"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "interval": {
+      "start": 1757808000000,
+      "end": 1757894400000
+    },
+    "follows": {
+      "in": {
+        "ids": ["khurshid_rm", "unclj", "bilgin7", "pimarhu", "gdeniz7389", "ridiculousx", "johntom", "wangmuzhen"]
+      }
+    }
+  },
+  {
+    "interval": {
+      "start": 1757721600000,
+      "end": 1757808000000
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "chesssked",
+          "theplaa",
+          "wic8085",
+          "aladrish_2024",
+          "thamizhinban",
+          "krishna_souri",
+          "plimplimploum",
+          "doroteia"
         ]
       }
     }
   },
   {
     "interval": {
-      "start": 1744588800000,
-      "end": 1744675200000
-    },
-    "games": {
-      "blitz": {
-        "win": 3,
-        "loss": 9,
-        "draw": 1,
-        "rp": {
-          "before": 1680,
-          "after": 1651
-        }
-      }
+      "start": 1757635200000,
+      "end": 1757721600000
     },
     "follows": {
       "in": {
-        "ids": ["dihaan1207", "janclan25", "chess_in_hikaru", "pd2011", "abir1981", "ar_rd"]
+        "ids": [
+          "empowered_pawn",
+          "garrett_thompson",
+          "bornready2011",
+          "danskdanskerdk",
+          "ninjaswat",
+          "rithijaabeykoon2010",
+          "advaitpal123",
+          "abhinav_sub08",
+          "felixad"
+        ]
       }
     }
   },
   {
     "interval": {
-      "start": 1744502400000,
-      "end": 1744588800000
-    },
-    "games": {
-      "blitz": {
-        "win": 7,
-        "loss": 8,
-        "draw": 3,
-        "rp": {
-          "before": 1686,
-          "after": 1680
-        }
-      }
-    },
-    "puzzles": {
-      "score": {
-        "win": 0,
-        "loss": 1,
-        "draw": 0,
-        "rp": {
-          "before": 1925,
-          "after": 1904
-        }
-      }
+      "start": 1757548800000,
+      "end": 1757635200000
     },
     "follows": {
       "in": {
-        "ids": ["sawwent", "tks-kans-harrisonf", "iamabigcheesefan", "menons", "cr_123", "xavier-b"]
+        "ids": ["ironmanabtin", "dissipatioh_g", "elianjairo23"]
       }
     }
   }

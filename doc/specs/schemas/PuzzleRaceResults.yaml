@@ -25,6 +25,9 @@ properties:
         flair:
           type: string
           description: User's flair icon
+        patron:
+          type: boolean
+          deprecated: true
         patronTier:
           $ref: "./PatronTier.yaml"
       required:

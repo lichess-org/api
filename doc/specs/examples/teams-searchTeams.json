@@ -11,15 +11,17 @@
         "name": "thibault",
         "flair": "nature.seedling",
         "patron": true,
+        "patronTier": "lifetime",
         "id": "thibault"
       },
-      "nbMembers": 434,
+      "nbMembers": 458,
       "flair": "objects.hammer-and-wrench",
       "leaders": [
         {
           "name": "thibault",
           "flair": "nature.seedling",
           "patron": true,
+          "patronTier": "lifetime",
           "id": "thibault"
         }
       ]
@@ -34,7 +36,7 @@
         "flair": "nature.fire",
         "id": "zkwong1877"
       },
-      "nbMembers": 5,
+      "nbMembers": 6,
       "leaders": []
     },
     {
@@ -172,6 +174,7 @@
         "name": "intermezo",
         "flair": "smileys.flushed-face",
         "patron": true,
+        "patronTier": "months1",
         "id": "intermezo"
       },
       "nbMembers": 5,
@@ -180,45 +183,10 @@
           "name": "intermezo",
           "flair": "smileys.flushed-face",
           "patron": true,
+          "patronTier": "months1",
           "id": "intermezo"
         }
       ]
-    },
-    {
-      "id": "morse-code",
-      "name": "Morse Code",
-      "description": ".- / .-.. .. -.-. .... . ... ... / - . .- -- / ..-. --- .-. / - .... . / -- --- .-. ... . / -.-. --- -.. . / -.-. --- -- -- ..- -. .. - -.-- -.-.--\r\n\r\nTranslation for non Morse Coders: A lichess team for the Morse Code community!",
-      "open": true,
-      "leader": {
-        "name": "PhilMikeOck",
-        "id": "philmikeock"
-      },
-      "nbMembers": 0,
-      "leaders": []
-    },
-    {
-      "id": "replit",
-      "name": "Repl.it",
-      "description": "A lichess team for all Repl.it coders, we are a smart community willing to learn and improve at chess.",
-      "open": true,
-      "leader": {
-        "name": "SantiagoForero",
-        "id": "santiagoforero"
-      },
-      "nbMembers": 0,
-      "leaders": []
-    },
-    {
-      "id": "team-of-coders",
-      "name": "Team Of Coder'S",
-      "description": "Hi Welcome To Team Of Coder's. Here You Will Play Many Tournament's Like Blitz,Rapid,bullet,Hyperbullet,Ultrabullet & Main Team Battle On Every Sunday. In This Team You Are Requested To Be Follow Some Of Our Team Rule's\r\n\r\nRULE 1- NO CHEATING DURING TOURNEY'S\r\nRULE 2- REGULAR MESSAGE WILL BE SEND OF INFORMATIVE THING'S\r\nRULE 3- THERE WILL BE ONLY 2 LEADER. NO ONE ELSE WILL BE MADE LEADER\r\nRULE 4- IF A PERSON HAVE A BOT ID SO HE/SHE HAVE TO COME WITH THEIR REAL ID IN TOURNAMENT'S\r\nRULE 5- IF A PLAYER OF OUR TEAM MAY ACCUSED CHEATED BY LICHESS LIKE THIS PLAYER ARTIFICIALLY INCREASES AND DECREASE HIS/HER RATING THEN HE/SHE WILL BE KICKED\r\n\r\nNOTE ABOUT TEAM ETIQUETTE- lichess.org/page/team-etiquette\r\n\r\nThank You",
-      "open": true,
-      "leader": {
-        "name": "PartonWingsOfficial",
-        "id": "partonwingsofficial"
-      },
-      "nbMembers": 0,
-      "leaders": []
     },
     {
       "id": "coders-start-here",
@@ -259,10 +227,63 @@
           "id": "abpnet"
         }
       ]
+    },
+    {
+      "id": "coder-knight-team",
+      "name": "Coder Knight Team",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus diam in nibh molestie, id feugiat lorem cursus. Etiam finibus tellus purus, nec volutpat augue aliquet sed. Phasellus ornare tincidunt velit, id feugiat augue aliquam vitae. Integer blandit aliquam sem, a posuere purus posuere a. Nam congue dolor magna, non dictum elit eleifend ac. Nam mattis nisl vel molestie condimentum. Duis bibendum ipsum ut mauris vestibulum viverra. Praesent lobortis neque at elementum lacinia.",
+      "open": true,
+      "leader": {
+        "name": "CoderKnight64",
+        "id": "coderknight64"
+      },
+      "nbMembers": 2,
+      "leaders": [
+        {
+          "name": "CoderKnight64",
+          "id": "coderknight64"
+        }
+      ]
+    },
+    {
+      "id": "coders-hub",
+      "name": "Coders Hub",
+      "description": "Play Chess and Enjoy the days. A lot of tournaments on the way.",
+      "open": false,
+      "leader": {
+        "name": "ranjanv_01",
+        "flair": "people.heart-hands",
+        "id": "ranjanv_01"
+      },
+      "nbMembers": 1,
+      "leaders": [
+        {
+          "name": "ranjanv_01",
+          "flair": "people.heart-hands",
+          "id": "ranjanv_01"
+        }
+      ]
+    },
+    {
+      "id": "coders-gambit",
+      "name": "coder's gambit",
+      "description": "A chess team started by RRT members of Infinera. All friends and family welcome. We plan to have weekly arena for playing.",
+      "open": true,
+      "leader": {
+        "name": "e8pawn",
+        "id": "e8pawn"
+      },
+      "nbMembers": 4,
+      "leaders": [
+        {
+          "name": "e8pawn",
+          "id": "e8pawn"
+        }
+      ]
     }
   ],
   "previousPage": null,
   "nextPage": 2,
-  "nbResults": 21,
+  "nbResults": 17,
   "nbPages": 2
 }
