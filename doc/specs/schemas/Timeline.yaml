@@ -49,8 +49,8 @@ properties:
           $ref: "./Title.yaml"
         flair:
           $ref: "./Flair.yaml"
-        patron:
-          type: boolean
+        patronTier:
+          $ref: "./PatronTier.yaml"
       required:
         - id
         - name

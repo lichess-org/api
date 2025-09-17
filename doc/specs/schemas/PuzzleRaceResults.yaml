@@ -25,9 +25,8 @@ properties:
         flair:
           type: string
           description: User's flair icon
-        patron:
-          type: boolean
-          description: Whether the player is a Lichess patron
+        patronTier:
+          $ref: "./PatronTier.yaml"
       required:
         - name
         - score

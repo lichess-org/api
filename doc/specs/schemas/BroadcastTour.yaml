@@ -67,6 +67,8 @@ properties:
   url:
     type: string
     format: uri
+  communityOwner:
+    $ref: "./LightUser.yaml"
 
 required:
   - id
