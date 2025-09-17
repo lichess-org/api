@@ -5,6 +5,10 @@ properties:
   description:
     type: string
     example: "Buchholz Cut 1"
-  "points":
+  points:
     type: number
     example: 45.5
+required:
+  - extendedCode
+  - description
+  - points
