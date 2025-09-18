@@ -1,11 +1,19 @@
-name: Lint OpenAPI specification
+name: Lint OpenAPI spec
+
 on:
   - push
   - pull_request
+
 jobs:
-  lint:
-    name: Lint OpenAPI spec
+  ci:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        script:
+          - spectral
+          - lint
+          - check-format
     defaults:
       run:
         working-directory: doc
@@ -18,6 +26,4 @@ jobs:
         with:
           run_install: true
           package_json_file: doc/package.json
-      - run: pnpm spectral
-      - run: pnpm lint
-      - run: pnpm check-format
+      - run: pnpm ${{ matrix.script }}
