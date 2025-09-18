@@ -11,3 +11,8 @@ properties:
     type: array
     items:
       $ref: "./BroadcastGroupTour.yaml"
+required:
+  - id
+  - slug
+  - name
+  - tours
