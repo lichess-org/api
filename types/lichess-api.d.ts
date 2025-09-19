@@ -5933,10 +5933,10 @@ export interface components {
       live?: boolean;
     };
     BroadcastGroup: {
-      id?: string;
-      slug?: string;
-      name?: string;
-      tours?: components["schemas"]["BroadcastGroupTour"][];
+      id: string;
+      slug: string;
+      name: string;
+      tours: components["schemas"]["BroadcastGroupTour"][];
     };
     BroadcastCustomPoints: {
       win: number;
