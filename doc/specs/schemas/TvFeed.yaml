@@ -65,7 +65,9 @@ properties:
             description: The FEN of the current position
           lm:
             type: string
-            description: The last move in UCI format
+            description: |
+              The last move in UCI format (King to rook for Chess960-compatible
+              castling notation)
           wc:
             type: integer
             description: White's clock in seconds

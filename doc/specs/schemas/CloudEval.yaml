@@ -27,7 +27,9 @@ properties:
               description: Evaluation in centi-pawns, from White's point of view
             moves:
               type: string
-              description: Variation in UCI notation
+              description: |
+                Variation in UCI notation (King to rook for Chess960-compatible
+                castling notation)
         - type: object
           title: Mate variation
           required:
@@ -39,7 +41,9 @@ properties:
               description: Evaluation in moves to mate, from White's point of view
             moves:
               type: string
-              description: Variation in UCI notation
+              description: |
+                Variation in UCI notation (King to rook for Chess960-compatible
+                castling notation)
 
 example:
   {
