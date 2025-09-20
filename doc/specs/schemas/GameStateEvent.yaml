@@ -5,7 +5,9 @@ properties:
     const: gameState
   moves:
     type: string
-    description: Current moves in UCI format
+    description: |
+      Current moves in UCI format (King to rook for Chess690-compatible castling
+      notation)
   wtime:
     type: integer
     description: Integer of milliseconds White has left on the clock
