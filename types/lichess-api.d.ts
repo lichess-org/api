@@ -5485,7 +5485,9 @@ export interface components {
         | {
             /** @description The FEN of the current position */
             fen: string;
-            /** @description The last move in UCI format */
+            /** @description The last move in UCI format (King to rook for Chess960-compatible
+             *     castling notation)
+             *      */
             lm: string;
             /** @description White's clock in seconds */
             wc: number;
@@ -6741,7 +6743,9 @@ export interface components {
     GameStateEvent: {
       /** @constant */
       type: "gameState";
-      /** @description Current moves in UCI format */
+      /** @description Current moves in UCI format (King to rook for Chess690-compatible castling
+       *     notation)
+       *      */
       moves: string;
       /** @description Integer of milliseconds White has left on the clock */
       wtime: number;
@@ -6979,13 +6983,17 @@ export interface components {
         | {
             /** @description Evaluation in centi-pawns, from White's point of view */
             cp: number;
-            /** @description Variation in UCI notation */
+            /** @description Variation in UCI notation (King to rook for Chess960-compatible
+             *     castling notation)
+             *      */
             moves: string;
           }
         | {
             /** @description Evaluation in moves to mate, from White's point of view */
             mate: number;
-            /** @description Variation in UCI notation */
+            /** @description Variation in UCI notation (King to rook for Chess960-compatible
+             *     castling notation)
+             *      */
             moves: string;
           }
       )[];
