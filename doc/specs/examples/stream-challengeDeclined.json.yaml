@@ -3,31 +3,17 @@ value:
     "type": "challengeDeclined",
     "challenge":
       {
-        "id": "DCRqwk2q",
-        "url": "https://lichess.org/DCRqwk2q",
+        "id": "kjGHA2fn",
+        "url": "https://lichess.org/kjGHA2fn",
         "status": "declined",
-        "challenger":
-          {
-            "name": "Adriana",
-            "flair": "smileys.expressionless-face",
-            "id": "adriana",
-            "rating": 682,
-            "provisional": true,
-          },
-        "destUser":
-          {
-            "name": "Gabriela",
-            "flair": "people.man-in-lotus-position-medium-light-skin-tone",
-            "id": "gabriela",
-            "rating": 1502,
-            "online": true,
-          },
+        "challenger": { "name": "Adriana", "flair": "smileys.unamused-face", "id": "adriana", "rating": 760 },
+        "destUser": { "name": "Gabriela", "id": "gabriela", "rating": 1572, "online": true },
         "variant": { "key": "standard", "name": "Standard", "short": "Std" },
         "rated": false,
         "speed": "correspondence",
         "timeControl": { "type": "unlimited" },
         "color": "random",
-        "finalColor": "white",
+        "finalColor": "black",
         "perf": { "icon": "", "name": "Correspondence" },
         "declineReason": "I'm not accepting challenges at the moment.",
         "declineReasonKey": "generic",

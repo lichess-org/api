@@ -71,6 +71,9 @@ value:
         "slug": "norway-chess-2025",
         "name": "Norway Chess 2025",
         "tours":
-          [{ "id": "PcsMbQ9J", "name": "Open", "live": false }, { "id": "lrKI0bSz", "name": "Women", "live": false }],
+          [
+            { "id": "PcsMbQ9J", "name": "Open", "active": false, "live": false },
+            { "id": "lrKI0bSz", "name": "Women", "active": false, "live": false },
+          ],
       },
   }

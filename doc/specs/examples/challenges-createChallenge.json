@@ -1,20 +1,18 @@
 {
-  "id": "iCmWRom9",
-  "url": "https://lichess.org/iCmWRom9",
+  "id": "6u5R12on",
+  "url": "https://lichess.org/6u5R12on",
   "status": "created",
   "challenger": {
     "name": "Bobby",
-    "flair": "people.woman-with-veil-light-skin-tone",
+    "patron": true,
+    "patronColor": 1,
     "id": "bobby",
-    "rating": 1693
+    "rating": 1734
   },
   "destUser": {
     "name": "Mary",
-    "flair": "people.snowboarder-dark-skin-tone",
-    "patron": true,
-    "patronTier": "months1",
     "id": "mary",
-    "rating": 1147
+    "rating": 1104
   },
   "variant": {
     "key": "standard",
@@ -27,7 +25,7 @@
     "type": "unlimited"
   },
   "color": "random",
-  "finalColor": "white",
+  "finalColor": "black",
   "perf": {
     "icon": "",
     "name": "Correspondence"

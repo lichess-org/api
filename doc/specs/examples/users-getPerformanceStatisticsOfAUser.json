@@ -4,14 +4,14 @@
   },
   "perf": {
     "glicko": {
-      "rating": 1027,
-      "deviation": 98.44
+      "rating": 980,
+      "deviation": 95.23
     },
-    "nb": 2625,
-    "progress": -12
+    "nb": 158,
+    "progress": 10
   },
   "rank": null,
-  "percentile": 21.9,
+  "percentile": 20.3,
   "stat": {
     "id": "jose/2",
     "userId": {
@@ -30,24 +30,24 @@
       "results": []
     },
     "count": {
-      "all": 2625,
-      "rated": 2584,
-      "win": 1027,
-      "loss": 1097,
-      "draw": 501,
-      "tour": 149,
-      "berserk": 26,
-      "opAvg": 0.51,
-      "seconds": 787500,
-      "disconnects": 10
+      "all": 158,
+      "rated": 120,
+      "win": 69,
+      "loss": 77,
+      "draw": 12,
+      "tour": 85,
+      "berserk": 28,
+      "opAvg": 0.52,
+      "seconds": 47400,
+      "disconnects": 8
     },
     "resultStreak": {
       "win": {
         "cur": {
-          "v": 1
+          "v": 0
         },
         "max": {
-          "v": 5
+          "v": 4
         }
       },
       "loss": {
@@ -55,25 +55,25 @@
           "v": 1
         },
         "max": {
-          "v": 4
+          "v": 3
         }
       }
     },
     "playStreak": {
       "nb": {
         "cur": {
-          "v": 1
+          "v": 0
         },
         "max": {
-          "v": 2
+          "v": 1
         }
       },
       "time": {
         "cur": {
-          "v": 1
+          "v": 3
         },
         "max": {
-          "v": 4
+          "v": 5
         }
       }
     }

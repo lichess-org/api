@@ -1,51 +1,51 @@
 {
-  "id": "halcyonbot",
-  "username": "halcyonbot",
+  "id": "cosettebot",
+  "username": "CosetteBot",
   "perfs": {
     "bullet": {
-      "games": 28497,
-      "rating": 2206,
-      "rd": 45,
-      "prog": -3
+      "games": 26804,
+      "rating": 2160,
+      "rd": 48,
+      "prog": -1
     },
     "blitz": {
-      "games": 37587,
-      "rating": 2222,
-      "rd": 45,
-      "prog": 17
+      "games": 20847,
+      "rating": 2217,
+      "rd": 48,
+      "prog": -7
     },
     "rapid": {
-      "games": 23594,
-      "rating": 2309,
-      "rd": 45,
-      "prog": 15
+      "games": 14657,
+      "rating": 2251,
+      "rd": 50,
+      "prog": -5
     },
     "classical": {
-      "games": 0,
-      "rating": 2000,
-      "rd": 500,
-      "prog": 0,
-      "prov": true
+      "games": 6395,
+      "rating": 2120,
+      "rd": 54,
+      "prog": 5
     },
     "correspondence": {
       "games": 0,
-      "rating": 2000,
+      "rating": 1500,
       "rd": 500,
       "prog": 0,
       "prov": true
     }
   },
   "title": "BOT",
-  "patron": true,
-  "createdAt": 1674374156963,
+  "createdAt": 1598804364031,
   "profile": {
-    "bio": "I'm a chess engine written from scratch. Challenge me to a rated or casual game of bullet, blitz, or rapid! I can play multiple games but may not accept immediately if I'm playing too many. Created by @thinic.",
-    "realName": "Halcyon 1",
-    "links": "https://lishogi.org/@/kawasemi\r\nhttps://github.com/nhamil/halcyon"
+    "flag": "PL",
+    "location": "Raspberry Pi 3B+, 1,4 GHz, 64 MB hashtable, 5 men tablebase, single thread",
+    "bio": "I'm Cosette - the chess engine, aspiring to be the strongest one written in .NET. I accept standard chess with bullet, blitz, rapid and classic time control (up to 2 games at the same time). Operator: @Tearth, Homepage and source code: https://github.com/Tearth/Cosette.",
+    "realName": "Cosette v5.0",
+    "links": "https://github.com/Tearth/Cosette\r\nhttp://ccrl.chessdom.com/ccrl/404/cgi/compare_engines.cgi?family=Cosette&print=Rating+list&print=Results+table&print=LOS+table&print=Ponder+hit+table&print=Eval+difference+table&print=Comopp+gamenum+table&print=Overlap+table&print=Score+with+common+opponents"
   },
-  "seenAt": 1758106397744,
+  "seenAt": 1758636276008,
   "playTime": {
-    "total": 63499917,
-    "tv": 783712
+    "total": 53938064,
+    "tv": 3041391
   }
 }

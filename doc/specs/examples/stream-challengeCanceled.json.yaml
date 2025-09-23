@@ -3,21 +3,11 @@ value:
     "type": "challengeCanceled",
     "challenge":
       {
-        "id": "9An239a8",
-        "url": "https://lichess.org/9An239a8",
+        "id": "6wAsTgU3",
+        "url": "https://lichess.org/6wAsTgU3",
         "status": "canceled",
-        "challenger": { "name": "Elena", "title": "WFM", "id": "elena", "rating": 2254, "provisional": true },
-        "destUser":
-          {
-            "name": "Diego",
-            "flair": "people.man-gesturing-no",
-            "patron": true,
-            "patronTier": "months1",
-            "id": "diego",
-            "rating": 2009,
-            "provisional": true,
-            "online": true,
-          },
+        "challenger": { "name": "Elena", "title": "WIM", "id": "elena", "rating": 2217 },
+        "destUser": { "name": "Diego", "id": "diego", "rating": 1867, "online": true },
         "variant": { "key": "standard", "name": "Standard", "short": "Std" },
         "rated": false,
         "speed": "correspondence",

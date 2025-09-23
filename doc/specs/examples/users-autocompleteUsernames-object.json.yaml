@@ -1,1 +1,1 @@
-value: { "result": [{ "name": "Bobby", "flair": "people.woman-with-veil-light-skin-tone", "id": "bobby" }] }
+value: { "result": [{ "name": "Bobby", "patron": true, "patronColor": 1, "id": "bobby" }] }

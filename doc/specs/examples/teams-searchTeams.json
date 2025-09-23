@@ -11,17 +11,17 @@
         "name": "thibault",
         "flair": "nature.seedling",
         "patron": true,
-        "patronTier": "lifetime",
+        "patronColor": 9,
         "id": "thibault"
       },
-      "nbMembers": 458,
+      "nbMembers": 461,
       "flair": "objects.hammer-and-wrench",
       "leaders": [
         {
           "name": "thibault",
           "flair": "nature.seedling",
           "patron": true,
-          "patronTier": "lifetime",
+          "patronColor": 9,
           "id": "thibault"
         }
       ]
@@ -174,7 +174,7 @@
         "name": "intermezo",
         "flair": "smileys.flushed-face",
         "patron": true,
-        "patronTier": "months1",
+        "patronColor": 1,
         "id": "intermezo"
       },
       "nbMembers": 5,
@@ -183,7 +183,7 @@
           "name": "intermezo",
           "flair": "smileys.flushed-face",
           "patron": true,
-          "patronTier": "months1",
+          "patronColor": 1,
           "id": "intermezo"
         }
       ]
@@ -284,6 +284,6 @@
   ],
   "previousPage": null,
   "nextPage": 2,
-  "nbResults": 17,
+  "nbResults": 16,
   "nbPages": 2
 }

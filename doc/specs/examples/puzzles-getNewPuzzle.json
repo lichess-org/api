@@ -1,6 +1,6 @@
 {
   "game": {
-    "id": "Nj6E8QmC",
+    "id": "oXmU07Il",
     "perf": {
       "key": "blitz",
       "name": "Blitz"
@@ -8,28 +8,27 @@
     "rated": true,
     "players": [
       {
-        "name": "Supercampeon64",
-        "title": "FM",
-        "id": "supercampeon64",
+        "name": "paximi",
+        "id": "paximi",
         "color": "white",
-        "rating": 2346
+        "rating": 2009
       },
       {
-        "name": "phoenixonfire",
-        "id": "phoenixonfire",
+        "name": "Patteblomquist",
+        "id": "patteblomquist",
         "color": "black",
-        "rating": 2260
+        "rating": 2000
       }
     ],
-    "pgn": "e4 c5 Nf3 d6 Bc4 e6 Qe2 a6 a4 b6 O-O Bb7 c3 Nd7 d4 Rc8 Bxa6 Bxa6 Qxa6 cxd4 cxd4 Ngf6 Nc3 Be7 e5 Ng4 h3 h5 Rd1 Qc7 Nb5 Qb8 exd6 Bf6 Nc7+ Kf8 hxg4 hxg4 Ng5 g3 fxg3 g6 Bf4 Kg7 Ne4 Rh5 Nxf6 Nxf6 Be5 Rch8 Rf1 Rxe5 dxe5 Ng4 Qc4",
-    "clock": "3+0"
+    "pgn": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 f3 e5 Nb3 Be6 Be3 Be7 Nd5 Nxd5 exd5 Bf5 Bd3 Bxd3 Qxd3 Nd7 Qd2 h5 O-O Rc8 Na5 Qc7 c4 Nc5 b4 Nd7 Rac1 f5 Rfd1 f4 Bf2 h4 c5 h3 Nc4 dxc5 bxc5 Bxc5 Bxc5 Qxc5+ Kh1 hxg2+ Kxg2 Qe7 d6 Qh4 Kh1 Qh3 Qg2 Qxg2+ Kxg2 Kf7 Re1 Kf6 Nd2 Nc5",
+    "clock": "3+2"
   },
   "puzzle": {
-    "id": "SAfon",
-    "rating": 1659,
-    "plays": 2300,
-    "solution": ["h8h1", "g1h1", "b8h8", "h1g1", "h8h2"],
-    "themes": ["attraction", "long", "mateIn3", "sacrifice", "master", "middlegame"],
-    "initialPly": 54
+    "id": "hFFk9",
+    "rating": 1733,
+    "plays": 469,
+    "solution": ["c1c5", "c8c5", "d2e4", "f6e6", "e4c5"],
+    "themes": ["endgame", "advantage", "attraction", "fork", "long", "sacrifice"],
+    "initialPly": 63
   }
 }
