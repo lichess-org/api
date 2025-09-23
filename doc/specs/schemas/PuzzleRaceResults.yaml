@@ -28,8 +28,8 @@ properties:
         patron:
           type: boolean
           deprecated: true
-        patronTier:
-          $ref: "./PatronTier.yaml"
+        patronColor:
+          $ref: "./PatronColor.yaml"
       required:
         - name
         - score

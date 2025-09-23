@@ -77,8 +77,8 @@ get:
                 patron:
                   type: boolean
                   deprecated: true
-                patronTier:
-                  $ref: "../../schemas/PatronTier.yaml"
+                patronColor:
+                  $ref: "../../schemas/PatronColor.yaml"
               required:
                 - id
                 - name

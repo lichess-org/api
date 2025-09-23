@@ -1,12 +1,16 @@
 type: object
 
 properties:
-  name:
-    type: string
   id:
     type: string
+  name:
+    type: string
+  active:
+    type: boolean
   live:
     type: boolean
 required:
-  - name
   - id
+  - name
+  - active
+  - live
