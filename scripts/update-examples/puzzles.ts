@@ -95,7 +95,7 @@ example(
   await prodClient().GET("/api/racer/{id}", {
     params: {
       path: {
-        id: "v3ZG9",
+        id: "nkEw7",
       },
     },
   }),
