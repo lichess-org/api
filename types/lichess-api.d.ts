@@ -3952,19 +3952,10 @@ export interface components {
       | "WNM"
       | "LM"
       | "BOT";
-    /** @enum {string} */
-    PatronTier:
-      | "months1"
-      | "months2"
-      | "months3"
-      | "months6"
-      | "months9"
-      | "years1"
-      | "years2"
-      | "years3"
-      | "years4"
-      | "years5"
-      | "lifetime";
+    /** @description Players can choose a color for their Patron wings.
+     *     See [here for the color mappings](https://github.com/lichess-org/lila/blob/master/ui/lib/css/abstract/_patron-colors.scss).
+     *      */
+    PatronColor: number;
     TopUser: {
       id: string;
       username: string;
@@ -4108,7 +4099,7 @@ export interface components {
       playTime?: components["schemas"]["PlayTime"];
       /** @deprecated */
       patron?: boolean;
-      patronTier?: components["schemas"]["PatronTier"];
+      patronColor?: components["schemas"]["PatronColor"];
       /** @example true */
       verified?: boolean;
     };
@@ -4592,7 +4583,7 @@ export interface components {
           name: string;
           /** @deprecated */
           patron?: boolean;
-          patronTier?: components["schemas"]["PatronTier"];
+          patronColor?: components["schemas"]["PatronColor"];
           rating: number;
           title?: components["schemas"]["Title"];
         }[];
@@ -4690,7 +4681,7 @@ export interface components {
         flair?: string;
         /** @deprecated */
         patron?: boolean;
-        patronTier?: components["schemas"]["PatronTier"];
+        patronColor?: components["schemas"]["PatronColor"];
       }[];
       /** @description List of puzzles in the race */
       puzzles: {
@@ -5162,7 +5153,7 @@ export interface components {
           flair?: components["schemas"]["Flair"];
           /** @deprecated */
           patron?: boolean;
-          patronTier?: components["schemas"]["PatronTier"];
+          patronColor?: components["schemas"]["PatronColor"];
         };
       };
     };
@@ -5219,7 +5210,7 @@ export interface components {
       title?: components["schemas"]["Title"];
       /** @deprecated */
       patron?: boolean;
-      patronTier?: components["schemas"]["PatronTier"];
+      patronColor?: components["schemas"]["PatronColor"];
     };
     GameUser: {
       user: components["schemas"]["LightUser"];
@@ -5669,7 +5660,7 @@ export interface components {
           title?: components["schemas"]["Title"];
           /** @deprecated */
           patron?: boolean;
-          patronTier?: components["schemas"]["PatronTier"];
+          patronColor?: components["schemas"]["PatronColor"];
           flair?: components["schemas"]["Flair"];
           rank?: number;
           rating?: number;
@@ -5707,7 +5698,7 @@ export interface components {
         title?: components["schemas"]["Title"];
         /** @deprecated */
         patron?: boolean;
-        patronTier?: components["schemas"]["PatronTier"];
+        patronColor?: components["schemas"]["PatronColor"];
         flair?: components["schemas"]["Flair"];
         rank?: number;
         rating?: number;
@@ -5930,9 +5921,10 @@ export interface components {
       communityOwner?: components["schemas"]["LightUser"];
     };
     BroadcastGroupTour: {
-      name: string;
       id: string;
-      live?: boolean;
+      name: string;
+      active: boolean;
+      live: boolean;
     };
     BroadcastGroup: {
       id: string;
@@ -6595,7 +6587,7 @@ export interface components {
       flair?: components["schemas"]["Flair"];
       /** @deprecated */
       patron?: boolean;
-      patronTier?: components["schemas"]["PatronTier"];
+      patronColor?: components["schemas"]["PatronColor"];
       provisional?: boolean;
       online?: boolean;
       lag?: number;
@@ -7511,15 +7503,12 @@ export interface operations {
           /** @example [
            *       {
            *         "name": "Mary",
-           *         "flair": "people.snowboarder-dark-skin-tone",
-           *         "patron": true,
-           *         "patronTier": "months1",
            *         "id": "mary"
            *       },
            *       {
            *         "name": "Ana",
-           *         "title": "CM",
-           *         "flair": "people.person-in-motorized-wheelchair-medium-light-skin-tone",
+           *         "title": "WNM",
+           *         "flair": "food-drink.ginger",
            *         "id": "ana"
            *       }
            *     ] */
@@ -7533,7 +7522,7 @@ export interface operations {
             streaming?: boolean;
             /** @deprecated */
             patron?: boolean;
-            patronTier?: components["schemas"]["PatronTier"];
+            patronColor?: components["schemas"]["PatronColor"];
           }[];
         };
       };
@@ -7562,41 +7551,19 @@ export interface operations {
            *           "username": "pawn2queen4checkmate",
            *           "perfs": {
            *             "bullet": {
-           *               "rating": 3428,
-           *               "progress": 28
-           *             }
-           *           }
-           *         },
-           *         {
-           *           "id": "chess-art-us",
-           *           "username": "chess-art-us",
-           *           "perfs": {
-           *             "bullet": {
-           *               "rating": 3352,
-           *               "progress": 26
+           *               "rating": 3399,
+           *               "progress": 4
            *             }
            *           },
-           *           "title": "GM",
            *           "online": true
            *         },
            *         {
-           *           "id": "ediz_gurel",
-           *           "username": "Ediz_Gurel",
+           *           "id": "thegreencloud",
+           *           "username": "TheGreenCloud",
            *           "perfs": {
            *             "bullet": {
-           *               "rating": 3325,
-           *               "progress": -10
-           *             }
-           *           },
-           *           "title": "GM"
-           *         },
-           *         {
-           *           "id": "abudabi22840",
-           *           "username": "abudabi22840",
-           *           "perfs": {
-           *             "bullet": {
-           *               "rating": 3314,
-           *               "progress": 5
+           *               "rating": 3386,
+           *               "progress": 16
            *             }
            *           }
            *         },
@@ -7605,19 +7572,42 @@ export interface operations {
            *           "username": "Dr_Tiger",
            *           "perfs": {
            *             "bullet": {
-           *               "rating": 3302,
-           *               "progress": 20
+           *               "rating": 3313,
+           *               "progress": 8
            *             }
            *           },
            *           "title": "GM"
+           *         },
+           *         {
+           *           "id": "ediz_gurel",
+           *           "username": "Ediz_Gurel",
+           *           "perfs": {
+           *             "bullet": {
+           *               "rating": 3310,
+           *               "progress": 13
+           *             }
+           *           },
+           *           "title": "GM",
+           *           "online": true
+           *         },
+           *         {
+           *           "id": "liamputnam2008",
+           *           "username": "LiamPutnam2008",
+           *           "perfs": {
+           *             "bullet": {
+           *               "rating": 3303,
+           *               "progress": 57
+           *             }
+           *           },
+           *           "title": "IM"
            *         },
            *         {
            *           "id": "arkadiy_khromaev",
            *           "username": "Arkadiy_Khromaev",
            *           "perfs": {
            *             "bullet": {
-           *               "rating": 3273,
-           *               "progress": 2
+           *               "rating": 3268,
+           *               "progress": -16
            *             }
            *           },
            *           "patron": true
@@ -7627,85 +7617,55 @@ export interface operations {
            *           "username": "chessplayer202024",
            *           "perfs": {
            *             "bullet": {
-           *               "rating": 3272,
-           *               "progress": -46
+           *               "rating": 3268,
+           *               "progress": 26
            *             }
            *           }
-           *         },
-           *         {
-           *           "id": "arm-777777",
-           *           "username": "ARM-777777",
-           *           "perfs": {
-           *             "bullet": {
-           *               "rating": 3257,
-           *               "progress": 25
-           *             }
-           *           },
-           *           "title": "GM"
            *         },
            *         {
            *           "id": "night-king96",
            *           "username": "Night-King96",
            *           "perfs": {
            *             "bullet": {
-           *               "rating": 3235,
-           *               "progress": -8
+           *               "rating": 3257,
+           *               "progress": -21
            *             }
            *           },
            *           "title": "GM",
            *           "patron": true
            *         },
            *         {
-           *           "id": "vladimirovich9000",
-           *           "username": "Vladimirovich9000",
+           *           "id": "chess-art-us",
+           *           "username": "chess-art-us",
            *           "perfs": {
            *             "bullet": {
-           *               "rating": 3234,
-           *               "progress": 26
+           *               "rating": 3242,
+           *               "progress": 15
            *             }
            *           },
-           *           "title": "GM"
-           *         }
-           *       ],
-           *       "blitz": [
+           *           "title": "GM",
+           *           "online": true
+           *         },
            *         {
-           *           "id": "sportik_shark",
-           *           "username": "Sportik_Shark",
+           *           "id": "mishka_the_great",
+           *           "username": "Mishka_The_Great",
            *           "perfs": {
-           *             "blitz": {
-           *               "rating": 3019,
-           *               "progress": 19
+           *             "bullet": {
+           *               "rating": 3236,
+           *               "progress": 17
            *             }
            *           },
            *           "title": "IM"
-           *         },
-           *         {
-           *           "id": "doughnut42",
-           *           "username": "doughnut42",
-           *           "perfs": {
-           *             "blitz": {
-           *               "rating": 3000,
-           *               "progress": 4
-           *             }
-           *           }
-           *         },
-           *         {
-           *           "id": "calisthenicsboy",
-           *           "username": "CalisthenicsBoy",
-           *           "perfs": {
-           *             "blitz": {
-           *               "rating": 2964,
-           *               "progress": 4
-           *             }
-           *           }
-           *         },
+           *         }
+           *       ],
+           *       "blitz": [
            *         {
            *           "id": "cutemouse83",
            *           "username": "cutemouse83",
            *           "perfs": {
            *             "blitz": {
-           *               "rating": 2950,
-           *               "progress": 9
+           *               "rating": 3014,
+           *               "progress": 12
            *             }
            *           },
            *           "title": "GM",
@@ -7713,116 +7673,114 @@ export interface operations {
            *           "online": true
            *         },
            *         {
-           *           "id": "ilqar_7474",
-           *           "username": "ilqar_7474",
+           *           "id": "sportik_shark",
+           *           "username": "Sportik_Shark",
            *           "perfs": {
            *             "blitz": {
-           *               "rating": 2923,
-           *               "progress": 23
+           *               "rating": 3011,
+           *               "progress": 6
            *             }
-           *           }
+           *           },
+           *           "title": "IM"
+           *         },
+           *         {
+           *           "id": "yarebore",
+           *           "username": "Yarebore",
+           *           "perfs": {
+           *             "blitz": {
+           *               "rating": 2985,
+           *               "progress": 11
+           *             }
+           *           },
+           *           "title": "GM"
+           *         },
+           *         {
+           *           "id": "aspiringstar",
+           *           "username": "aspiringstar",
+           *           "perfs": {
+           *             "blitz": {
+           *               "rating": 2958,
+           *               "progress": 18
+           *             }
+           *           },
+           *           "title": "GM"
            *         },
            *         {
            *           "id": "teem1",
            *           "username": "teem1",
            *           "perfs": {
            *             "blitz": {
-           *               "rating": 2923,
-           *               "progress": 5
-           *             }
-           *           }
-           *         },
-           *         {
-           *           "id": "delta_horsey",
-           *           "username": "delta_horsey",
-           *           "perfs": {
-           *             "blitz": {
-           *               "rating": 2919,
-           *               "progress": 8
+           *               "rating": 2937,
+           *               "progress": -25
            *             }
            *           },
-           *           "title": "GM"
-           *         },
-           *         {
-           *           "id": "gordima",
-           *           "username": "Gordima",
-           *           "perfs": {
-           *             "blitz": {
-           *               "rating": 2916,
-           *               "progress": 20
-           *             }
-           *           },
-           *           "title": "GM",
-           *           "patron": true,
            *           "online": true
            *         },
            *         {
-           *           "id": "ultraking1",
-           *           "username": "ultraking1",
+           *           "id": "invisibleguest2023",
+           *           "username": "InvisibleGuest2023",
            *           "perfs": {
            *             "blitz": {
-           *               "rating": 2913,
-           *               "progress": 7
-           *             }
-           *           }
-           *         },
-           *         {
-           *           "id": "tsoi_dima",
-           *           "username": "Tsoi_Dima",
-           *           "perfs": {
-           *             "blitz": {
-           *               "rating": 2907,
-           *               "progress": 40
+           *               "rating": 2928,
+           *               "progress": 12
            *             }
            *           },
-           *           "title": "FM",
            *           "online": true
-           *         }
-           *       ],
-           *       "rapid": [
-           *         {
-           *           "id": "pap-g",
-           *           "username": "Pap-G",
-           *           "perfs": {
-           *             "rapid": {
-           *               "rating": 2959,
-           *               "progress": -12
-           *             }
-           *           },
-           *           "title": "GM",
-           *           "patron": true
            *         },
            *         {
            *           "id": "ilqar_7474",
            *           "username": "ilqar_7474",
            *           "perfs": {
-           *             "rapid": {
-           *               "rating": 2830,
-           *               "progress": -95
+           *             "blitz": {
+           *               "rating": 2915,
+           *               "progress": -1
            *             }
            *           }
            *         },
+           *         {
+           *           "id": "doughnut42",
+           *           "username": "doughnut42",
+           *           "perfs": {
+           *             "blitz": {
+           *               "rating": 2914,
+           *               "progress": -17
+           *             }
+           *           }
+           *         },
+           *         {
+           *           "id": "xiaochess",
+           *           "username": "xiaochess",
+           *           "perfs": {
+           *             "blitz": {
+           *               "rating": 2904,
+           *               "progress": 2
+           *             }
+           *           },
+           *           "title": "GM"
+           *         },
+           *         {
+           *           "id": "athena-pallada",
+           *           "username": "athena-pallada",
+           *           "perfs": {
+           *             "blitz": {
+           *               "rating": 2902,
+           *               "progress": -23
+           *             }
+           *           },
+           *           "title": "GM"
+           *         }
+           *       ],
+           *       "rapid": [
            *         {
            *           "id": "yuuki-asuna",
            *           "username": "yuuki-asuna",
            *           "perfs": {
            *             "rapid": {
-           *               "rating": 2822,
-           *               "progress": 12
+           *               "rating": 2825,
+           *               "progress": 14
            *             }
            *           },
            *           "title": "CM"
-           *         },
-           *         {
-           *           "id": "drawdenied_twitch",
-           *           "username": "DrawDenied_Twitch",
-           *           "perfs": {
-           *             "rapid": {
-           *               "rating": 2804,
-           *               "progress": 13
-           *             }
-           *           },
-           *           "title": "GM"
            *         },
            *         {
            *           "id": "kurald_galain",
@@ -7830,30 +7788,39 @@ export interface operations {
            *           "perfs": {
            *             "rapid": {
            *               "rating": 2803,
-           *               "progress": 23
+           *               "progress": 10
            *             }
            *           },
-           *           "patron": true,
-           *           "online": true
+           *           "patron": true
            *         },
            *         {
-           *           "id": "aborigen100500",
-           *           "username": "Aborigen100500",
+           *           "id": "drawdenied_twitch",
+           *           "username": "DrawDenied_Twitch",
            *           "perfs": {
            *             "rapid": {
-           *               "rating": 2802,
-           *               "progress": 11
+           *               "rating": 2796,
+           *               "progress": -6
            *             }
            *           },
-           *           "title": "NM"
+           *           "title": "GM"
+           *         },
+           *         {
+           *           "id": "ilqar_7474",
+           *           "username": "ilqar_7474",
+           *           "perfs": {
+           *             "rapid": {
+           *               "rating": 2793,
+           *               "progress": -65
+           *             }
+           *           }
            *         },
            *         {
            *           "id": "aristarch_kukuev",
            *           "username": "Aristarch_Kukuev",
            *           "perfs": {
            *             "rapid": {
-           *               "rating": 2778,
-           *               "progress": 6
+           *               "rating": 2777,
+           *               "progress": 4
            *             }
            *           },
            *           "title": "NM"
@@ -7869,12 +7836,12 @@ export interface operations {
            *           }
            *         },
            *         {
-           *           "id": "tuzakli_egitim",
-           *           "username": "Tuzakli_Egitim",
+           *           "id": "arteler",
+           *           "username": "Arteler",
            *           "perfs": {
            *             "rapid": {
-           *               "rating": 2757,
-           *               "progress": 33
+           *               "rating": 2771,
+           *               "progress": 10
            *             }
            *           },
            *           "title": "FM"
@@ -7884,8 +7851,30 @@ export interface operations {
            *           "username": "chessmem",
            *           "perfs": {
            *             "rapid": {
-           *               "rating": 2752,
+           *               "rating": 2754,
            *               "progress": 8
+           *             }
+           *           },
+           *           "title": "FM"
+           *         },
+           *         {
+           *           "id": "andrey11976",
+           *           "username": "Andrey11976",
+           *           "perfs": {
+           *             "rapid": {
+           *               "rating": 2742,
+           *               "progress": 5
+           *             }
+           *           },
+           *           "title": "NM"
+           *         },
+           *         {
+           *           "id": "tuzakli_egitim",
+           *           "username": "Tuzakli_Egitim",
+           *           "perfs": {
+           *             "rapid": {
+           *               "rating": 2740,
+           *               "progress": 6
            *             }
            *           },
            *           "title": "FM",
@@ -7898,83 +7887,82 @@ export interface operations {
            *           "username": "yuuki-asuna",
            *           "perfs": {
            *             "classical": {
-           *               "rating": 2626,
-           *               "progress": 10
+           *               "rating": 2630,
+           *               "progress": 8
            *             }
            *           },
            *           "title": "CM"
-           *         },
-           *         {
-           *           "id": "chesstheory64",
-           *           "username": "ChessTheory64",
-           *           "perfs": {
-           *             "classical": {
-           *               "rating": 2542,
-           *               "progress": 42
-           *             }
-           *           },
-           *           "title": "FM",
-           *           "patron": true
-           *         },
-           *         {
-           *           "id": "matteorf2b",
-           *           "username": "matteorf2b",
-           *           "perfs": {
-           *             "classical": {
-           *               "rating": 2518,
-           *               "progress": 15
-           *             }
-           *           },
-           *           "title": "CM"
-           *         },
-           *         {
-           *           "id": "byebob",
-           *           "username": "byebob",
-           *           "perfs": {
-           *             "classical": {
-           *               "rating": 2512,
-           *               "progress": 65
-           *             }
-           *           }
            *         },
            *         {
            *           "id": "unstoppable_rob",
            *           "username": "Unstoppable_Rob",
            *           "perfs": {
            *             "classical": {
-           *               "rating": 2499,
-           *               "progress": 0
+           *               "rating": 2514,
+           *               "progress": 4
            *             }
            *           }
+           *         },
+           *         {
+           *           "id": "byebob",
+           *           "username": "byebob",
+           *           "perfs": {
+           *             "classical": {
+           *               "rating": 2507,
+           *               "progress": 30
+           *             }
+           *           }
+           *         },
+           *         {
+           *           "id": "chesstheory64",
+           *           "username": "ChessTheory64",
+           *           "perfs": {
+           *             "classical": {
+           *               "rating": 2504,
+           *               "progress": 0
+           *             }
+           *           },
+           *           "title": "FM",
+           *           "patron": true
            *         },
            *         {
            *           "id": "vlad_lazarev79",
            *           "username": "Vlad_Lazarev79",
            *           "perfs": {
            *             "classical": {
-           *               "rating": 2482,
-           *               "progress": -5
+           *               "rating": 2489,
+           *               "progress": 4
            *             }
            *           }
+           *         },
+           *         {
+           *           "id": "mw1966",
+           *           "username": "MW1966",
+           *           "perfs": {
+           *             "classical": {
+           *               "rating": 2482,
+           *               "progress": -1
+           *             }
+           *           }
+           *         },
+           *         {
+           *           "id": "ojaijoao",
+           *           "username": "OjaiJoao",
+           *           "perfs": {
+           *             "classical": {
+           *               "rating": 2460,
+           *               "progress": 14
+           *             }
+           *           },
+           *           "title": "FM"
            *         },
            *         {
            *           "id": "thorwald5",
            *           "username": "Thorwald5",
            *           "perfs": {
            *             "classical": {
-           *               "rating": 2469,
-           *               "progress": 13
-           *             }
-           *           },
-           *           "title": "FM"
-           *         },
-           *         {
-           *           "id": "truemasterme",
-           *           "username": "Truemasterme",
-           *           "perfs": {
-           *             "classical": {
-           *               "rating": 2469,
-           *               "progress": -40
+           *               "rating": 2459,
+           *               "progress": -2
            *             }
            *           },
            *           "title": "FM"
@@ -7984,211 +7972,173 @@ export interface operations {
            *           "username": "avcs",
            *           "perfs": {
            *             "classical": {
-           *               "rating": 2454,
-           *               "progress": 33
+           *               "rating": 2456,
+           *               "progress": 36
+           *             }
+           *           }
+           *         },
+           *         {
+           *           "id": "uzkuzk",
+           *           "username": "uzkuzk",
+           *           "perfs": {
+           *             "classical": {
+           *               "rating": 2442,
+           *               "progress": -29
+           *             }
+           *           }
+           *         }
+           *       ],
+           *       "ultraBullet": [
+           *         {
+           *           "id": "pawn2queen4checkmate",
+           *           "username": "pawn2queen4checkmate",
+           *           "perfs": {
+           *             "ultraBullet": {
+           *               "rating": 2820,
+           *               "progress": 15
            *             }
            *           },
            *           "online": true
            *         },
-           *         {
-           *           "id": "ojaijoao",
-           *           "username": "OjaiJoao",
-           *           "perfs": {
-           *             "classical": {
-           *               "rating": 2453,
-           *               "progress": 1
-           *             }
-           *           },
-           *           "title": "FM"
-           *         }
-           *       ],
-           *       "ultraBullet": [
            *         {
            *           "id": "arkadiy_khromaev",
            *           "username": "Arkadiy_Khromaev",
            *           "perfs": {
            *             "ultraBullet": {
-           *               "rating": 2767,
-           *               "progress": 0
+           *               "rating": 2801,
+           *               "progress": 4
            *             }
            *           },
            *           "patron": true
-           *         },
-           *         {
-           *           "id": "ohanyaneminchess",
-           *           "username": "OhanyanEminChess",
-           *           "perfs": {
-           *             "ultraBullet": {
-           *               "rating": 2717,
-           *               "progress": -2
-           *             }
-           *           },
-           *           "title": "GM",
-           *           "online": true
-           *         },
-           *         {
-           *           "id": "chess-art-us",
-           *           "username": "chess-art-us",
-           *           "perfs": {
-           *             "ultraBullet": {
-           *               "rating": 2657,
-           *               "progress": 17
-           *             }
-           *           },
-           *           "title": "GM",
-           *           "online": true
-           *         },
-           *         {
-           *           "id": "blazinq",
-           *           "username": "Blazinq",
-           *           "perfs": {
-           *             "ultraBullet": {
-           *               "rating": 2654,
-           *               "progress": 7
-           *             }
-           *           },
-           *           "title": "IM"
            *         },
            *         {
            *           "id": "sslimey",
            *           "username": "sslimey",
            *           "perfs": {
            *             "ultraBullet": {
-           *               "rating": 2620,
-           *               "progress": 26
+           *               "rating": 2710,
+           *               "progress": 28
            *             }
            *           }
            *         },
            *         {
-           *           "id": "abudabi22840",
-           *           "username": "abudabi22840",
+           *           "id": "ohanyaneminchess",
+           *           "username": "OhanyanEminChess",
            *           "perfs": {
            *             "ultraBullet": {
-           *               "rating": 2616,
-           *               "progress": 12
-           *             }
-           *           }
-           *         },
-           *         {
-           *           "id": "olegpro1",
-           *           "username": "OlegPro1",
-           *           "perfs": {
-           *             "ultraBullet": {
-           *               "rating": 2609,
-           *               "progress": 16
+           *               "rating": 2704,
+           *               "progress": -13
            *             }
            *           },
-           *           "title": "CM",
-           *           "patron": true
+           *           "title": "GM"
            *         },
            *         {
-           *           "id": "impogthefunnyfrog",
-           *           "username": "impogthefunnyfrog",
+           *           "id": "chess-art-us",
+           *           "username": "chess-art-us",
            *           "perfs": {
            *             "ultraBullet": {
-           *               "rating": 2574,
-           *               "progress": 12
+           *               "rating": 2662,
+           *               "progress": 15
+           *             }
+           *           },
+           *           "title": "GM",
+           *           "online": true
+           *         },
+           *         {
+           *           "id": "mereseberserknhi",
+           *           "username": "MereseBerserkNhi",
+           *           "perfs": {
+           *             "ultraBullet": {
+           *               "rating": 2650,
+           *               "progress": 8
            *             }
            *           }
            *         },
            *         {
-           *           "id": "hyo_lee",
-           *           "username": "hyo_lee",
+           *           "id": "bardyk01",
+           *           "username": "Bardyk01",
            *           "perfs": {
            *             "ultraBullet": {
-           *               "rating": 2560,
-           *               "progress": 29
-           *             }
-           *           }
-           *         },
-           *         {
-           *           "id": "shcheglovgleb10",
-           *           "username": "ShcheglovGleb10",
-           *           "perfs": {
-           *             "ultraBullet": {
-           *               "rating": 2547,
-           *               "progress": -21
+           *               "rating": 2644,
+           *               "progress": -12
            *             }
            *           },
            *           "title": "FM"
+           *         },
+           *         {
+           *           "id": "blazinq",
+           *           "username": "Blazinq",
+           *           "perfs": {
+           *             "ultraBullet": {
+           *               "rating": 2642,
+           *               "progress": 26
+           *             }
+           *           },
+           *           "title": "IM"
+           *         },
+           *         {
+           *           "id": "trojanhorse2009",
+           *           "username": "Trojanhorse2009",
+           *           "perfs": {
+           *             "ultraBullet": {
+           *               "rating": 2615,
+           *               "progress": -32
+           *             }
+           *           },
+           *           "title": "IM"
+           *         },
+           *         {
+           *           "id": "zakharelyashevich",
+           *           "username": "ZakharElyashevich",
+           *           "perfs": {
+           *             "ultraBullet": {
+           *               "rating": 2591,
+           *               "progress": 10
+           *             }
+           *           }
            *         }
            *       ],
            *       "crazyhouse": [
+           *         {
+           *           "id": "grxbullet",
+           *           "username": "GRXbullet",
+           *           "perfs": {
+           *             "crazyhouse": {
+           *               "rating": 2837,
+           *               "progress": 18
+           *             }
+           *           },
+           *           "patron": true
+           *         },
            *         {
            *           "id": "larso",
            *           "username": "larso",
            *           "perfs": {
            *             "crazyhouse": {
-           *               "rating": 2751,
-           *               "progress": -1
+           *               "rating": 2753,
+           *               "progress": 11
            *             }
            *           },
            *           "title": "GM",
            *           "patron": true
            *         },
            *         {
-           *           "id": "crazy_eight",
-           *           "username": "Crazy_Eight",
+           *           "id": "neutralizerr",
+           *           "username": "Neutralizerr",
            *           "perfs": {
            *             "crazyhouse": {
-           *               "rating": 2669,
-           *               "progress": -3
+           *               "rating": 2645,
+           *               "progress": 17
            *             }
-           *           },
-           *           "title": "FM",
-           *           "patron": true
-           *         },
-           *         {
-           *           "id": "blitzbullet",
-           *           "username": "blitzbullet",
-           *           "perfs": {
-           *             "crazyhouse": {
-           *               "rating": 2663,
-           *               "progress": -1
-           *             }
-           *           },
-           *           "title": "NM",
-           *           "patron": true
-           *         },
-           *         {
-           *           "id": "littleplotkin",
-           *           "username": "littleplotkin",
-           *           "perfs": {
-           *             "crazyhouse": {
-           *               "rating": 2648,
-           *               "progress": 7
-           *             }
-           *           },
-           *           "title": "IM"
-           *         },
-           *         {
-           *           "id": "tobyrizzo",
-           *           "username": "tobyrizzo",
-           *           "perfs": {
-           *             "crazyhouse": {
-           *               "rating": 2637,
-           *               "progress": -9
-           *             }
-           *           },
-           *           "title": "NM"
+           *           }
            *         },
            *         {
            *           "id": "sonogoneli",
            *           "username": "sonogoneli",
            *           "perfs": {
            *             "crazyhouse": {
-           *               "rating": 2630,
-           *               "progress": -12
-           *             }
-           *           }
-           *         },
-           *         {
-           *           "id": "hanzotherazor",
-           *           "username": "HanzoTheRazor",
-           *           "perfs": {
-           *             "crazyhouse": {
-           *               "rating": 2620,
-           *               "progress": 1
+           *               "rating": 2637,
+           *               "progress": 0
            *             }
            *           }
            *         },
@@ -8197,147 +8147,183 @@ export interface operations {
            *           "username": "turkeysniper",
            *           "perfs": {
            *             "crazyhouse": {
-           *               "rating": 2620,
-           *               "progress": 10
+           *               "rating": 2617,
+           *               "progress": 3
            *             }
            *           }
            *         },
            *         {
-           *           "id": "visualdennis",
-           *           "username": "visualdennis",
+           *           "id": "tobyrizzo",
+           *           "username": "tobyrizzo",
            *           "perfs": {
            *             "crazyhouse": {
            *               "rating": 2616,
            *               "progress": -23
            *             }
            *           },
-           *           "title": "NM",
-           *           "patron": true
+           *           "title": "NM"
            *         },
            *         {
            *           "id": "zhigalko_sergei",
            *           "username": "Zhigalko_Sergei",
            *           "perfs": {
            *             "crazyhouse": {
-           *               "rating": 2611,
+           *               "rating": 2616,
            *               "progress": 20
            *             }
            *           },
            *           "title": "GM",
            *           "patron": true
-           *         }
-           *       ],
-           *       "chess960": [
+           *         },
            *         {
-           *           "id": "zhigalko_sergei",
-           *           "username": "Zhigalko_Sergei",
+           *           "id": "visualdennis",
+           *           "username": "visualdennis",
            *           "perfs": {
-           *             "chess960": {
-           *               "rating": 2827,
-           *               "progress": 21
+           *             "crazyhouse": {
+           *               "rating": 2602,
+           *               "progress": 16
            *             }
            *           },
-           *           "title": "GM",
+           *           "title": "NM",
            *           "patron": true
            *         },
            *         {
-           *           "id": "abudabi22840",
-           *           "username": "abudabi22840",
+           *           "id": "crawlingflour",
+           *           "username": "Crawlingflour",
            *           "perfs": {
-           *             "chess960": {
-           *               "rating": 2823,
-           *               "progress": -4
+           *             "crazyhouse": {
+           *               "rating": 2597,
+           *               "progress": 18
            *             }
-           *           }
+           *           },
+           *           "online": true
            *         },
+           *         {
+           *           "id": "crazy_eight",
+           *           "username": "Crazy_Eight",
+           *           "perfs": {
+           *             "crazyhouse": {
+           *               "rating": 2597,
+           *               "progress": 15
+           *             }
+           *           },
+           *           "title": "FM",
+           *           "patron": true,
+           *           "online": true
+           *         }
+           *       ],
+           *       "chess960": [
            *         {
            *           "id": "pawn2queen4checkmate",
            *           "username": "pawn2queen4checkmate",
            *           "perfs": {
            *             "chess960": {
-           *               "rating": 2812,
-           *               "progress": 7
+           *               "rating": 2829,
+           *               "progress": 9
            *             }
-           *           }
+           *           },
+           *           "online": true
+           *         },
+           *         {
+           *           "id": "zhigalko_sergei",
+           *           "username": "Zhigalko_Sergei",
+           *           "perfs": {
+           *             "chess960": {
+           *               "rating": 2813,
+           *               "progress": -2
+           *             }
+           *           },
+           *           "title": "GM",
+           *           "patron": true
            *         },
            *         {
            *           "id": "chess-art-us",
            *           "username": "chess-art-us",
            *           "perfs": {
            *             "chess960": {
-           *               "rating": 2780,
-           *               "progress": 5
+           *               "rating": 2786,
+           *               "progress": 20
            *             }
            *           },
            *           "title": "GM",
            *           "online": true
            *         },
            *         {
+           *           "id": "arkadiy_khromaev",
+           *           "username": "Arkadiy_Khromaev",
+           *           "perfs": {
+           *             "chess960": {
+           *               "rating": 2751,
+           *               "progress": -5
+           *             }
+           *           },
+           *           "patron": true
+           *         },
+           *         {
            *           "id": "homayooont",
            *           "username": "HomayooonT",
            *           "perfs": {
            *             "chess960": {
-           *               "rating": 2658,
-           *               "progress": 2
+           *               "rating": 2652,
+           *               "progress": -33
            *             }
            *           },
-           *           "title": "GM"
-           *         },
-           *         {
-           *           "id": "anonim9765",
-           *           "username": "Anonim9765",
-           *           "perfs": {
-           *             "chess960": {
-           *               "rating": 2629,
-           *               "progress": 3
-           *             }
-           *           }
-           *         },
-           *         {
-           *           "id": "thesalesman456",
-           *           "username": "TheSalesMan456",
-           *           "perfs": {
-           *             "chess960": {
-           *               "rating": 2622,
-           *               "progress": 11
-           *             }
-           *           },
-           *           "patron": true
+           *           "title": "GM",
+           *           "online": true
            *         },
            *         {
            *           "id": "pap-g",
            *           "username": "Pap-G",
            *           "perfs": {
            *             "chess960": {
-           *               "rating": 2620,
-           *               "progress": -5
+           *               "rating": 2627,
+           *               "progress": 12
            *             }
            *           },
            *           "title": "GM",
            *           "patron": true
+           *         },
+           *         {
+           *           "id": "ck-king-2024",
+           *           "username": "CK-king-2024",
+           *           "perfs": {
+           *             "chess960": {
+           *               "rating": 2614,
+           *               "progress": 5
+           *             }
+           *           }
            *         },
            *         {
            *           "id": "realdavidnavara",
            *           "username": "RealDavidNavara",
            *           "perfs": {
            *             "chess960": {
-           *               "rating": 2617,
-           *               "progress": -33
+           *               "rating": 2607,
+           *               "progress": -14
            *             }
            *           },
            *           "title": "GM",
            *           "patron": true
            *         },
            *         {
-           *           "id": "turboplombir",
-           *           "username": "Turboplombir",
+           *           "id": "ice2breaker",
+           *           "username": "ice2breaker",
            *           "perfs": {
            *             "chess960": {
-           *               "rating": 2614,
-           *               "progress": 55
+           *               "rating": 2567,
+           *               "progress": -34
            *             }
-           *           },
-           *           "title": "FM"
+           *           }
+           *         },
+           *         {
+           *           "id": "arhia-alagemand",
+           *           "username": "Arhia-alagemand",
+           *           "perfs": {
+           *             "chess960": {
+           *               "rating": 2562,
+           *               "progress": -9
+           *             }
+           *           }
            *         }
            *       ],
            *       "kingOfTheHill": [
@@ -8346,10 +8332,33 @@ export interface operations {
            *           "username": "pawn2queen4checkmate",
            *           "perfs": {
            *             "kingOfTheHill": {
-           *               "rating": 2704,
-           *               "progress": 22
+           *               "rating": 2721,
+           *               "progress": 35
+           *             }
+           *           },
+           *           "online": true
+           *         },
+           *         {
+           *           "id": "visiontactician",
+           *           "username": "VisionTactician",
+           *           "perfs": {
+           *             "kingOfTheHill": {
+           *               "rating": 2692,
+           *               "progress": -28
            *             }
            *           }
+           *         },
+           *         {
+           *           "id": "zhigalko_sergei",
+           *           "username": "Zhigalko_Sergei",
+           *           "perfs": {
+           *             "kingOfTheHill": {
+           *               "rating": 2665,
+           *               "progress": 17
+           *             }
+           *           },
+           *           "title": "GM",
+           *           "patron": true
            *         },
            *         {
            *           "id": "homayooont",
@@ -8360,201 +8369,180 @@ export interface operations {
            *               "progress": 33
            *             }
            *           },
-           *           "title": "GM"
-           *         },
-           *         {
-           *           "id": "zhigalko_sergei",
-           *           "username": "Zhigalko_Sergei",
-           *           "perfs": {
-           *             "kingOfTheHill": {
-           *               "rating": 2660,
-           *               "progress": 19
-           *             }
-           *           },
            *           "title": "GM",
-           *           "patron": true
+           *           "online": true
            *         },
            *         {
-           *           "id": "aqua_blazing",
-           *           "username": "Aqua_Blazing",
+           *           "id": "trojanhorse2009",
+           *           "username": "Trojanhorse2009",
            *           "perfs": {
            *             "kingOfTheHill": {
-           *               "rating": 2562,
-           *               "progress": 17
-           *             }
-           *           }
-           *         },
-           *         {
-           *           "id": "yuuki-asuna",
-           *           "username": "yuuki-asuna",
-           *           "perfs": {
-           *             "kingOfTheHill": {
-           *               "rating": 2537,
-           *               "progress": 15
+           *               "rating": 2588,
+           *               "progress": 14
            *             }
            *           },
-           *           "title": "CM"
-           *         },
-           *         {
-           *           "id": "nurhan2020",
-           *           "username": "NURHAN2020",
-           *           "perfs": {
-           *             "kingOfTheHill": {
-           *               "rating": 2528,
-           *               "progress": 6
-           *             }
-           *           }
+           *           "title": "IM"
            *         },
            *         {
            *           "id": "anindianchessplayer",
            *           "username": "AnIndianChessplayer",
            *           "perfs": {
            *             "kingOfTheHill": {
-           *               "rating": 2510,
-           *               "progress": 4
+           *               "rating": 2543,
+           *               "progress": 44
            *             }
            *           },
            *           "title": "CM",
            *           "online": true
            *         },
            *         {
-           *           "id": "skodakylaq",
-           *           "username": "SkodaKylaq",
+           *           "id": "yuuki-asuna",
+           *           "username": "yuuki-asuna",
            *           "perfs": {
            *             "kingOfTheHill": {
-           *               "rating": 2506,
-           *               "progress": -13
-           *             }
-           *           }
-           *         },
-           *         {
-           *           "id": "pap-g",
-           *           "username": "Pap-G",
-           *           "perfs": {
-           *             "kingOfTheHill": {
-           *               "rating": 2479,
-           *               "progress": 28
+           *               "rating": 2538,
+           *               "progress": 14
            *             }
            *           },
-           *           "title": "GM",
-           *           "patron": true
+           *           "title": "CM"
            *         },
            *         {
-           *           "id": "jessica_rabbitt",
-           *           "username": "Jessica_Rabbitt",
+           *           "id": "bgah",
+           *           "username": "Bgah",
            *           "perfs": {
            *             "kingOfTheHill": {
-           *               "rating": 2477,
-           *               "progress": 6
-           *             }
-           *           }
-           *         }
-           *       ],
-           *       "threeCheck": [
-           *         {
-           *           "id": "superbamir",
-           *           "username": "SuperbAmir",
-           *           "perfs": {
-           *             "threeCheck": {
-           *               "rating": 2527,
-           *               "progress": -7
+           *               "rating": 2532,
+           *               "progress": 27
            *             }
            *           },
            *           "title": "FM"
            *         },
            *         {
-           *           "id": "zhigalko_sergei",
-           *           "username": "Zhigalko_Sergei",
+           *           "id": "bijiy",
+           *           "username": "bijiy",
            *           "perfs": {
-           *             "threeCheck": {
-           *               "rating": 2496,
-           *               "progress": -14
+           *             "kingOfTheHill": {
+           *               "rating": 2521,
+           *               "progress": 14
            *             }
            *           },
-           *           "title": "GM",
-           *           "patron": true
+           *           "title": "FM"
            *         },
            *         {
-           *           "id": "homayooont",
-           *           "username": "HomayooonT",
+           *           "id": "jimakos",
+           *           "username": "jimakos",
            *           "perfs": {
-           *             "threeCheck": {
-           *               "rating": 2480,
-           *               "progress": 8
+           *             "kingOfTheHill": {
+           *               "rating": 2516,
+           *               "progress": 20
            *             }
            *           },
-           *           "title": "GM"
-           *         },
+           *           "title": "FM"
+           *         }
+           *       ],
+           *       "threeCheck": [
            *         {
-           *           "id": "nthsleagueacc",
-           *           "username": "NTHSLeagueAcc",
+           *           "id": "pawn2queen4checkmate",
+           *           "username": "pawn2queen4checkmate",
            *           "perfs": {
            *             "threeCheck": {
-           *               "rating": 2459,
-           *               "progress": 21
+           *               "rating": 2725,
+           *               "progress": -2
            *             }
-           *           }
+           *           },
+           *           "online": true
            *         },
            *         {
-           *           "id": "luukdegrote",
-           *           "username": "LuukDeGrote",
+           *           "id": "statham_13",
+           *           "username": "Statham_13",
            *           "perfs": {
            *             "threeCheck": {
-           *               "rating": 2450,
-           *               "progress": -23
+           *               "rating": 2638,
+           *               "progress": 18
            *             }
            *           },
            *           "title": "FM",
-           *           "patron": true
+           *           "online": true
+           *         },
+           *         {
+           *           "id": "superbamir",
+           *           "username": "SuperbAmir",
+           *           "perfs": {
+           *             "threeCheck": {
+           *               "rating": 2540,
+           *               "progress": 8
+           *             }
+           *           },
+           *           "title": "FM"
+           *         },
+           *         {
+           *           "id": "trojanhorse2009",
+           *           "username": "Trojanhorse2009",
+           *           "perfs": {
+           *             "threeCheck": {
+           *               "rating": 2502,
+           *               "progress": 41
+           *             }
+           *           },
+           *           "title": "IM"
+           *         },
+           *         {
+           *           "id": "aryan_rahimpour_2004",
+           *           "username": "Aryan_Rahimpour_2004",
+           *           "perfs": {
+           *             "threeCheck": {
+           *               "rating": 2455,
+           *               "progress": 27
+           *             }
+           *           }
            *         },
            *         {
            *           "id": "yakov25",
            *           "username": "Yakov25",
            *           "perfs": {
            *             "threeCheck": {
-           *               "rating": 2445,
-           *               "progress": 35
+           *               "rating": 2454,
+           *               "progress": 34
            *             }
            *           }
            *         },
            *         {
-           *           "id": "k271",
-           *           "username": "k271",
+           *           "id": "nthsleagueacc",
+           *           "username": "NTHSLeagueAcc",
            *           "perfs": {
            *             "threeCheck": {
-           *               "rating": 2427,
-           *               "progress": 0
+           *               "rating": 2451,
+           *               "progress": -12
            *             }
            *           }
            *         },
            *         {
-           *           "id": "lion2006-45",
-           *           "username": "lion2006-45",
+           *           "id": "skodakylaq",
+           *           "username": "SkodaKylaq",
+           *           "perfs": {
+           *             "threeCheck": {
+           *               "rating": 2450,
+           *               "progress": -1
+           *             }
+           *           }
+           *         },
+           *         {
+           *           "id": "tammenpelaaja_72",
+           *           "username": "tammenpelaaja_72",
            *           "perfs": {
            *             "threeCheck": {
            *               "rating": 2419,
-           *               "progress": -44
+           *               "progress": 40
            *             }
            *           }
-           *         },
-           *         {
-           *           "id": "yuuki-asuna",
-           *           "username": "yuuki-asuna",
-           *           "perfs": {
-           *             "threeCheck": {
-           *               "rating": 2394,
-           *               "progress": 5
-           *             }
-           *           },
-           *           "title": "CM"
            *         },
            *         {
            *           "id": "vikal00",
            *           "username": "vikal00",
            *           "perfs": {
            *             "threeCheck": {
-           *               "rating": 2393,
-           *               "progress": 27
+           *               "rating": 2415,
+           *               "progress": 3
            *             }
            *           }
            *         }
@@ -8565,19 +8553,18 @@ export interface operations {
            *           "username": "devansh2008",
            *           "perfs": {
            *             "antichess": {
-           *               "rating": 2518,
-           *               "progress": 9
+           *               "rating": 2562,
+           *               "progress": -41
            *             }
-           *           },
-           *           "online": true
+           *           }
            *         },
            *         {
            *           "id": "pinni7",
            *           "username": "Pinni7",
            *           "perfs": {
            *             "antichess": {
-           *               "rating": 2518,
-           *               "progress": 29
+           *               "rating": 2529,
+           *               "progress": 19
            *             }
            *           },
            *           "online": true
@@ -8587,18 +8574,29 @@ export interface operations {
            *           "username": "Antichess_Valentino",
            *           "perfs": {
            *             "antichess": {
-           *               "rating": 2503,
-           *               "progress": 5
+           *               "rating": 2509,
+           *               "progress": -8
            *             }
            *           }
+           *         },
+           *         {
+           *           "id": "neverplayfastanti",
+           *           "username": "neverplayfastanti",
+           *           "perfs": {
+           *             "antichess": {
+           *               "rating": 2497,
+           *               "progress": -9
+           *             }
+           *           },
+           *           "patron": true
            *         },
            *         {
            *           "id": "lmaoooooooooooooooo",
            *           "username": "Lmaoooooooooooooooo",
            *           "perfs": {
            *             "antichess": {
-           *               "rating": 2491,
-           *               "progress": 15
+           *               "rating": 2483,
+           *               "progress": -2
            *             }
            *           },
            *           "patron": true
@@ -8608,28 +8606,8 @@ export interface operations {
            *           "username": "pf2000",
            *           "perfs": {
            *             "antichess": {
-           *               "rating": 2477,
-           *               "progress": -16
-           *             }
-           *           }
-           *         },
-           *         {
-           *           "id": "antichessepico",
-           *           "username": "AntichessEpico",
-           *           "perfs": {
-           *             "antichess": {
-           *               "rating": 2461,
-           *               "progress": 38
-           *             }
-           *           }
-           *         },
-           *         {
-           *           "id": "hmvc_boi",
-           *           "username": "hmvc_boi",
-           *           "perfs": {
-           *             "antichess": {
-           *               "rating": 2454,
-           *               "progress": 6
+           *               "rating": 2480,
+           *               "progress": 21
            *             }
            *           },
            *           "online": true
@@ -8639,31 +8617,41 @@ export interface operations {
            *           "username": "Vaaaaas24",
            *           "perfs": {
            *             "antichess": {
-           *               "rating": 2437,
-           *               "progress": -10
-           *             }
-           *           }
-           *         },
-           *         {
-           *           "id": "supwitches",
-           *           "username": "SupWitches",
-           *           "perfs": {
-           *             "antichess": {
-           *               "rating": 2434,
-           *               "progress": 24
-           *             }
-           *           }
-           *         },
-           *         {
-           *           "id": "avdna8",
-           *           "username": "AVDNA8",
-           *           "perfs": {
-           *             "antichess": {
-           *               "rating": 2412,
-           *               "progress": 13
+           *               "rating": 2459,
+           *               "progress": 3
            *             }
            *           },
            *           "online": true
+           *         },
+           *         {
+           *           "id": "peanutbutter12345",
+           *           "username": "Peanutbutter12345",
+           *           "perfs": {
+           *             "antichess": {
+           *               "rating": 2430,
+           *               "progress": 33
+           *             }
+           *           }
+           *         },
+           *         {
+           *           "id": "hidra31",
+           *           "username": "hidra31",
+           *           "perfs": {
+           *             "antichess": {
+           *               "rating": 2426,
+           *               "progress": -11
+           *             }
+           *           }
+           *         },
+           *         {
+           *           "id": "grohochetgrom",
+           *           "username": "GrohochetGrom",
+           *           "perfs": {
+           *             "antichess": {
+           *               "rating": 2423,
+           *               "progress": 0
+           *             }
+           *           }
            *         }
            *       ],
            *       "atomic": [
@@ -8672,19 +8660,32 @@ export interface operations {
            *           "username": "NeverOFzero",
            *           "perfs": {
            *             "atomic": {
-           *               "rating": 2565,
-           *               "progress": -12
+           *               "rating": 2566,
+           *               "progress": -11
            *             }
            *           },
-           *           "patron": true
+           *           "patron": true,
+           *           "online": true
+           *         },
+           *         {
+           *           "id": "wolfram_ep",
+           *           "username": "Wolfram_EP",
+           *           "perfs": {
+           *             "atomic": {
+           *               "rating": 2444,
+           *               "progress": 5
+           *             }
+           *           },
+           *           "patron": true,
+           *           "online": true
            *         },
            *         {
            *           "id": "chrisrapid",
            *           "username": "chrisrapid",
            *           "perfs": {
            *             "atomic": {
-           *               "rating": 2440,
-           *               "progress": 7
+           *               "rating": 2430,
+           *               "progress": 8
            *             }
            *           }
            *         },
@@ -8693,8 +8694,8 @@ export interface operations {
            *           "username": "ihatespaMMers",
            *           "perfs": {
            *             "atomic": {
-           *               "rating": 2440,
-           *               "progress": -12
+           *               "rating": 2426,
+           *               "progress": -2
            *             }
            *           }
            *         },
@@ -8703,63 +8704,18 @@ export interface operations {
            *           "username": "vlad_00",
            *           "perfs": {
            *             "atomic": {
-           *               "rating": 2423,
-           *               "progress": -6
+           *               "rating": 2399,
+           *               "progress": -11
            *             }
            *           }
-           *         },
-           *         {
-           *           "id": "wolfram_ep",
-           *           "username": "Wolfram_EP",
-           *           "perfs": {
-           *             "atomic": {
-           *               "rating": 2412,
-           *               "progress": -6
-           *             }
-           *           },
-           *           "patron": true
            *         },
            *         {
            *           "id": "sutcunuri",
            *           "username": "sutcunuri",
            *           "perfs": {
            *             "atomic": {
-           *               "rating": 2390,
-           *               "progress": 28
-           *             }
-           *           },
-           *           "title": "FM"
-           *         },
-           *         {
-           *           "id": "judebaetorrens",
-           *           "username": "JudeBaeTorrens",
-           *           "perfs": {
-           *             "atomic": {
-           *               "rating": 2373,
-           *               "progress": -18
-           *             }
-           *           },
-           *           "patron": true,
-           *           "online": true
-           *         },
-           *         {
-           *           "id": "loopy23",
-           *           "username": "Loopy23",
-           *           "perfs": {
-           *             "atomic": {
-           *               "rating": 2363,
-           *               "progress": 5
-           *             }
-           *           },
-           *           "online": true
-           *         },
-           *         {
-           *           "id": "statham_13",
-           *           "username": "Statham_13",
-           *           "perfs": {
-           *             "atomic": {
-           *               "rating": 2357,
-           *               "progress": 5
+           *               "rating": 2381,
+           *               "progress": 26
            *             }
            *           },
            *           "title": "FM"
@@ -8769,30 +8725,65 @@ export interface operations {
            *           "username": "Opabinia",
            *           "perfs": {
            *             "atomic": {
-           *               "rating": 2355,
-           *               "progress": -7
-           *             }
-           *           }
-           *         }
-           *       ],
-           *       "horde": [
-           *         {
-           *           "id": "horus_88",
-           *           "username": "Horus_88",
-           *           "perfs": {
-           *             "horde": {
-           *               "rating": 2744,
-           *               "progress": 12
+           *               "rating": 2366,
+           *               "progress": 13
            *             }
            *           }
            *         },
+           *         {
+           *           "id": "judebaetorrens",
+           *           "username": "JudeBaeTorrens",
+           *           "perfs": {
+           *             "atomic": {
+           *               "rating": 2345,
+           *               "progress": -36
+           *             }
+           *           },
+           *           "patron": true,
+           *           "online": true
+           *         },
+           *         {
+           *           "id": "grx_bullet",
+           *           "username": "GRX_BULLET",
+           *           "perfs": {
+           *             "atomic": {
+           *               "rating": 2326,
+           *               "progress": 9
+           *             }
+           *           },
+           *           "online": true
+           *         },
+           *         {
+           *           "id": "trojanhorse2009",
+           *           "username": "Trojanhorse2009",
+           *           "perfs": {
+           *             "atomic": {
+           *               "rating": 2324,
+           *               "progress": 28
+           *             }
+           *           },
+           *           "title": "IM"
+           *         }
+           *       ],
+           *       "horde": [
            *         {
            *           "id": "albinsajan",
            *           "username": "Albinsajan",
            *           "perfs": {
            *             "horde": {
-           *               "rating": 2741,
+           *               "rating": 2766,
            *               "progress": 3
+           *             }
+           *           },
+           *           "online": true
+           *         },
+           *         {
+           *           "id": "horus_88",
+           *           "username": "Horus_88",
+           *           "perfs": {
+           *             "horde": {
+           *               "rating": 2758,
+           *               "progress": 8
            *             }
            *           }
            *         },
@@ -8801,29 +8792,19 @@ export interface operations {
            *           "username": "bijiy",
            *           "perfs": {
            *             "horde": {
-           *               "rating": 2717,
-           *               "progress": -16
+           *               "rating": 2707,
+           *               "progress": -13
            *             }
            *           },
            *           "title": "FM"
-           *         },
-           *         {
-           *           "id": "matvei-e2e4",
-           *           "username": "Matvei-e2e4",
-           *           "perfs": {
-           *             "horde": {
-           *               "rating": 2693,
-           *               "progress": 3
-           *             }
-           *           }
            *         },
            *         {
            *           "id": "kiwitrain",
            *           "username": "KiwiTrain",
            *           "perfs": {
            *             "horde": {
-           *               "rating": 2660,
-           *               "progress": -6
+           *               "rating": 2669,
+           *               "progress": -13
            *             }
            *           },
            *           "patron": true
@@ -8833,73 +8814,72 @@ export interface operations {
            *           "username": "Luquihorde08",
            *           "perfs": {
            *             "horde": {
-           *               "rating": 2647,
-           *               "progress": 12
+           *               "rating": 2644,
+           *               "progress": 9
            *             }
            *           },
            *           "patron": true
            *         },
            *         {
-           *           "id": "matteorf2b",
-           *           "username": "matteorf2b",
+           *           "id": "matvei-e2e4",
+           *           "username": "Matvei-e2e4",
            *           "perfs": {
            *             "horde": {
-           *               "rating": 2627,
-           *               "progress": 20
+           *               "rating": 2628,
+           *               "progress": -19
            *             }
-           *           },
-           *           "title": "CM"
+           *           }
            *         },
            *         {
            *           "id": "yakov25",
            *           "username": "Yakov25",
            *           "perfs": {
            *             "horde": {
-           *               "rating": 2623,
-           *               "progress": 8
+           *               "rating": 2626,
+           *               "progress": 9
            *             }
            *           }
            *         },
            *         {
-           *           "id": "stubenfisch",
-           *           "username": "Stubenfisch",
+           *           "id": "matteorf2b",
+           *           "username": "matteorf2b",
            *           "perfs": {
            *             "horde": {
-           *               "rating": 2620,
-           *               "progress": -9
+           *               "rating": 2606,
+           *               "progress": -3
            *             }
            *           },
-           *           "patron": true
+           *           "title": "CM"
            *         },
            *         {
-           *           "id": "hod-konem96",
-           *           "username": "hod-konem96",
+           *           "id": "lion2006-45",
+           *           "username": "lion2006-45",
            *           "perfs": {
            *             "horde": {
-           *               "rating": 2604,
-           *               "progress": -9
+           *               "rating": 2599,
+           *               "progress": 9
+           *             }
+           *           }
+           *         },
+           *         {
+           *           "id": "aar_77on",
+           *           "username": "Aar_77on",
+           *           "perfs": {
+           *             "horde": {
+           *               "rating": 2572,
+           *               "progress": 9
            *             }
            *           }
            *         }
            *       ],
            *       "racingKings": [
            *         {
-           *           "id": "r2300",
-           *           "username": "R2300",
-           *           "perfs": {
-           *             "racingKings": {
-           *               "rating": 2500,
-           *               "progress": 9
-           *             }
-           *           }
-           *         },
-           *         {
            *           "id": "bijiy",
            *           "username": "bijiy",
            *           "perfs": {
            *             "racingKings": {
-           *               "rating": 2471,
-           *               "progress": 11
+           *               "rating": 2475,
+           *               "progress": 7
            *             }
            *           },
            *           "title": "FM"
@@ -8909,28 +8889,51 @@ export interface operations {
            *           "username": "seth_777",
            *           "perfs": {
            *             "racingKings": {
-           *               "rating": 2462,
+           *               "rating": 2467,
            *               "progress": 5
            *             }
            *           }
+           *         },
+           *         {
+           *           "id": "nilsewon",
+           *           "username": "NilSeWon",
+           *           "perfs": {
+           *             "racingKings": {
+           *               "rating": 2465,
+           *               "progress": 53
+           *             }
+           *           },
+           *           "online": true
+           *         },
+           *         {
+           *           "id": "queeneatingdragon",
+           *           "username": "QueenEatingDragon",
+           *           "perfs": {
+           *             "racingKings": {
+           *               "rating": 2420,
+           *               "progress": 5
+           *             }
+           *           },
+           *           "title": "NM"
            *         },
            *         {
            *           "id": "cybershredder",
            *           "username": "CyberShredder",
            *           "perfs": {
            *             "racingKings": {
-           *               "rating": 2437,
-           *               "progress": 12
+           *               "rating": 2387,
+           *               "progress": 8
            *             }
-           *           }
+           *           },
+           *           "online": true
            *         },
            *         {
            *           "id": "imakemanymistakes",
            *           "username": "IMakeManyMistakes",
            *           "perfs": {
            *             "racingKings": {
-           *               "rating": 2367,
-           *               "progress": 23
+           *               "rating": 2353,
+           *               "progress": -1
            *             }
            *           }
            *         },
@@ -8939,18 +8942,18 @@ export interface operations {
            *           "username": "OSCARSM80",
            *           "perfs": {
            *             "racingKings": {
-           *               "rating": 2332,
-           *               "progress": -6
+           *               "rating": 2349,
+           *               "progress": 27
            *             }
            *           }
            *         },
            *         {
-           *           "id": "cemalziya027",
-           *           "username": "CemalZiya027",
+           *           "id": "chess23456789",
+           *           "username": "CHESS23456789",
            *           "perfs": {
            *             "racingKings": {
-           *               "rating": 2315,
-           *               "progress": 12
+           *               "rating": 2328,
+           *               "progress": 7
            *             }
            *           }
            *         },
@@ -8959,29 +8962,18 @@ export interface operations {
            *           "username": "lion2006-45",
            *           "perfs": {
            *             "racingKings": {
-           *               "rating": 2314,
-           *               "progress": 4
+           *               "rating": 2325,
+           *               "progress": 13
            *             }
            *           }
            *         },
            *         {
-           *           "id": "xiliov",
-           *           "username": "Xiliov",
+           *           "id": "panagiskosmatos",
+           *           "username": "panagiskosmatos",
            *           "perfs": {
            *             "racingKings": {
-           *               "rating": 2312,
-           *               "progress": -16
-           *             }
-           *           },
-           *           "online": true
-           *         },
-           *         {
-           *           "id": "james126",
-           *           "username": "james126",
-           *           "perfs": {
-           *             "racingKings": {
-           *               "rating": 2305,
-           *               "progress": -23
+           *               "rating": 2321,
+           *               "progress": 17
            *             }
            *           }
            *         }
@@ -9029,39 +9021,38 @@ export interface operations {
           /** @example {
            *       "users": [
            *         {
-           *           "id": "lola",
-           *           "username": "Lola",
+           *           "id": "ana",
+           *           "username": "Ana",
            *           "perfs": {
            *             "blitz": {
-           *               "rating": 2419,
+           *               "rating": 2441,
            *               "progress": 0
            *             }
            *           },
-           *           "title": "WFM",
+           *           "title": "WNM"
+           *         },
+           *         {
+           *           "id": "angel",
+           *           "username": "Angel",
+           *           "perfs": {
+           *             "blitz": {
+           *               "rating": 2384,
+           *               "progress": 0
+           *             }
+           *           },
+           *           "title": "FM",
            *           "patron": true
            *         },
            *         {
-           *           "id": "yulia",
-           *           "username": "Yulia",
+           *           "id": "elena",
+           *           "username": "Elena",
            *           "perfs": {
            *             "blitz": {
-           *               "rating": 2372,
+           *               "rating": 2374,
            *               "progress": 0
            *             }
            *           },
-           *           "title": "WNM",
-           *           "patron": true
-           *         },
-           *         {
-           *           "id": "mei",
-           *           "username": "Mei",
-           *           "perfs": {
-           *             "blitz": {
-           *               "rating": 2353,
-           *               "progress": 0
-           *             }
-           *           },
-           *           "title": "WCM"
+           *           "title": "WIM"
            *         }
            *       ]
            *     } */
@@ -9096,122 +9087,118 @@ export interface operations {
            *       "username": "Mary",
            *       "perfs": {
            *         "bullet": {
-           *           "games": 13,
-           *           "rating": 1017,
-           *           "rd": 75,
-           *           "prog": -6
+           *           "games": 19,
+           *           "rating": 1143,
+           *           "rd": 59,
+           *           "prog": 5
            *         },
            *         "blitz": {
-           *           "games": 11,
-           *           "rating": 990,
-           *           "rd": 45,
-           *           "prog": -30
-           *         },
-           *         "rapid": {
-           *           "games": 85,
-           *           "rating": 1096,
-           *           "rd": 111,
-           *           "prog": -18,
-           *           "prov": true
-           *         },
-           *         "classical": {
-           *           "games": 19,
-           *           "rating": 950,
-           *           "rd": 93,
-           *           "prog": -44
-           *         },
-           *         "correspondence": {
-           *           "games": 22,
-           *           "rating": 1147,
+           *           "games": 10,
+           *           "rating": 939,
            *           "rd": 47,
-           *           "prog": -27
-           *         },
-           *         "chess960": {
-           *           "games": 1063,
-           *           "rating": 1023,
-           *           "rd": 54,
-           *           "prog": 21
-           *         },
-           *         "kingOfTheHill": {
-           *           "games": 85,
-           *           "rating": 1142,
-           *           "rd": 53,
-           *           "prog": -34
-           *         },
-           *         "threeCheck": {
-           *           "games": 507,
-           *           "rating": 1044,
-           *           "rd": 54,
-           *           "prog": 14
-           *         },
-           *         "antichess": {
-           *           "games": 57,
-           *           "rating": 933,
-           *           "rd": 111,
-           *           "prog": -5,
-           *           "prov": true
-           *         },
-           *         "atomic": {
-           *           "games": 516,
-           *           "rating": 1015,
-           *           "rd": 103,
            *           "prog": -1
            *         },
-           *         "horde": {
-           *           "games": 202,
-           *           "rating": 1098,
+           *         "rapid": {
+           *           "games": 27,
+           *           "rating": 1042,
+           *           "rd": 45,
+           *           "prog": 6
+           *         },
+           *         "classical": {
+           *           "games": 7,
+           *           "rating": 1059,
+           *           "rd": 45,
+           *           "prog": -42
+           *         },
+           *         "correspondence": {
+           *           "games": 29,
+           *           "rating": 1104,
+           *           "rd": 47,
+           *           "prog": -41
+           *         },
+           *         "chess960": {
+           *           "games": 109,
+           *           "rating": 1147,
            *           "rd": 59,
-           *           "prog": 8
+           *           "prog": 38
+           *         },
+           *         "kingOfTheHill": {
+           *           "games": 900,
+           *           "rating": 965,
+           *           "rd": 46,
+           *           "prog": 18
+           *         },
+           *         "threeCheck": {
+           *           "games": 76,
+           *           "rating": 999,
+           *           "rd": 94,
+           *           "prog": 11
+           *         },
+           *         "antichess": {
+           *           "games": 109,
+           *           "rating": 1100,
+           *           "rd": 63,
+           *           "prog": 9
+           *         },
+           *         "atomic": {
+           *           "games": 5,
+           *           "rating": 1030,
+           *           "rd": 111,
+           *           "prog": -8,
+           *           "prov": true
+           *         },
+           *         "horde": {
+           *           "games": 455,
+           *           "rating": 1162,
+           *           "rd": 48,
+           *           "prog": -38
            *         },
            *         "crazyhouse": {
-           *           "games": 328,
-           *           "rating": 1163,
-           *           "rd": 72,
-           *           "prog": 33
+           *           "games": 12,
+           *           "rating": 950,
+           *           "rd": 92,
+           *           "prog": 36
            *         },
            *         "puzzle": {
-           *           "games": 21,
-           *           "rating": 1071,
-           *           "rd": 50,
-           *           "prog": -16
+           *           "games": 48,
+           *           "rating": 1139,
+           *           "rd": 45,
+           *           "prog": -27
            *         }
            *       },
-           *       "flair": "people.snowboarder-dark-skin-tone",
-           *       "patron": true,
-           *       "patronTier": "months1",
-           *       "createdAt": 1757481165779,
+           *       "createdAt": 1757270375141,
            *       "profile": {
-           *         "flag": "ET",
+           *         "flag": "GI",
            *         "location": "Mary City",
-           *         "bio": "In the first place, he clearly enunciates that the money form of commodities is only the further development of the simple form of value—i. e., of the expression of the value of one commodity in some other commodity taken at random; for he says",
+           *         "bio": "⁠\"Assai bene è trascorsa",
            *         "fideRating": 1050,
-           *         "uscfRating": 1180,
-           *         "ecfRating": 883,
-           *         "rcfRating": 1096,
-           *         "cfcRating": 930,
-           *         "dsbRating": 883,
-           *         "links": ""
+           *         "uscfRating": 1027,
+           *         "ecfRating": 925,
+           *         "rcfRating": 901,
+           *         "cfcRating": 862,
+           *         "dsbRating": 1237,
+           *         "links": "https://en.wikipedia.org/wiki/Euler\nhttps://en.wikipedia.org/wiki/Socialism\nhttps://en.wikipedia.org/wiki/Nelson_Mandela"
            *       },
-           *       "seenAt": 1757615672673,
+           *       "seenAt": 1757340447056,
            *       "playTime": {
-           *         "total": 15865,
+           *         "total": 15213,
            *         "tv": 0
            *       },
            *       "url": "https://lichess.org/@/Mary",
            *       "count": {
-           *         "all": 3301,
-           *         "rated": 2640,
+           *         "all": 2047,
+           *         "rated": 1637,
            *         "ai": 0,
-           *         "draw": 148,
-           *         "drawH": 148,
-           *         "loss": 1588,
-           *         "lossH": 1588,
-           *         "win": 1565,
-           *         "winH": 1565,
+           *         "draw": 113,
+           *         "drawH": 113,
+           *         "loss": 976,
+           *         "lossH": 976,
+           *         "win": 958,
+           *         "winH": 958,
            *         "bookmark": 0,
            *         "playing": 0,
            *         "import": 0,
-           *         "me": 2
+           *         "me": 1
            *       },
            *       "streamer": {
            *         "twitch": {
@@ -9256,8 +9243,32 @@ export interface operations {
            *           [
            *             2025,
            *             8,
+           *             7,
+           *             728
+           *           ],
+           *           [
+           *             2025,
+           *             8,
            *             10,
-           *             873
+           *             859
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             13,
+           *             851
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             16,
+           *             1085
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             19,
+           *             1074
            *           ]
            *         ]
            *       },
@@ -9267,26 +9278,32 @@ export interface operations {
            *           [
            *             2025,
            *             8,
+           *             7,
+           *             771
+           *           ],
+           *           [
+           *             2025,
+           *             8,
            *             10,
-           *             1233
+           *             854
            *           ],
            *           [
            *             2025,
            *             8,
-           *             12,
-           *             1162
-           *           ],
-           *           [
-           *             2025,
-           *             8,
-           *             14,
-           *             1155
+           *             13,
+           *             937
            *           ],
            *           [
            *             2025,
            *             8,
            *             16,
-           *             918
+           *             825
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             19,
+           *             886
            *           ]
            *         ]
            *       },
@@ -9296,26 +9313,32 @@ export interface operations {
            *           [
            *             2025,
            *             8,
+           *             7,
+           *             848
+           *           ],
+           *           [
+           *             2025,
+           *             8,
            *             10,
-           *             1432
+           *             851
            *           ],
            *           [
            *             2025,
            *             8,
-           *             12,
-           *             1393
-           *           ],
-           *           [
-           *             2025,
-           *             8,
-           *             14,
-           *             1216
+           *             13,
+           *             919
            *           ],
            *           [
            *             2025,
            *             8,
            *             16,
-           *             1114
+           *             932
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             19,
+           *             1044
            *           ]
            *         ]
            *       },
@@ -9325,26 +9348,32 @@ export interface operations {
            *           [
            *             2025,
            *             8,
+           *             7,
+           *             1020
+           *           ],
+           *           [
+           *             2025,
+           *             8,
            *             10,
-           *             940
+           *             949
            *           ],
            *           [
            *             2025,
            *             8,
-           *             12,
-           *             1043
-           *           ],
-           *           [
-           *             2025,
-           *             8,
-           *             14,
-           *             899
+           *             13,
+           *             1007
            *           ],
            *           [
            *             2025,
            *             8,
            *             16,
-           *             967
+           *             977
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             19,
+           *             1121
            *           ]
            *         ]
            *       },
@@ -9354,8 +9383,20 @@ export interface operations {
            *           [
            *             2025,
            *             8,
-           *             10,
-           *             1020
+           *             7,
+           *             1426
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             14,
+           *             1217
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             21,
+           *             1208
            *           ]
            *         ]
            *       },
@@ -9365,8 +9406,26 @@ export interface operations {
            *           [
            *             2025,
            *             8,
-           *             10,
-           *             928
+           *             7,
+           *             1461
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             11,
+           *             1247
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             15,
+           *             1175
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             19,
+           *             982
            *           ]
            *         ]
            *       },
@@ -9376,14 +9435,20 @@ export interface operations {
            *           [
            *             2025,
            *             8,
-           *             10,
-           *             882
+           *             7,
+           *             733
            *           ],
            *           [
            *             2025,
            *             8,
-           *             15,
-           *             924
+           *             13,
+           *             992
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             19,
+           *             1064
            *           ]
            *         ]
            *       },
@@ -9393,8 +9458,20 @@ export interface operations {
            *           [
            *             2025,
            *             8,
-           *             10,
-           *             1113
+           *             7,
+           *             1415
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             14,
+           *             1264
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             21,
+           *             947
            *           ]
            *         ]
            *       },
@@ -9404,14 +9481,14 @@ export interface operations {
            *           [
            *             2025,
            *             8,
-           *             10,
-           *             577
+           *             7,
+           *             1425
            *           ],
            *           [
            *             2025,
            *             8,
-           *             15,
-           *             871
+           *             16,
+           *             1247
            *           ]
            *         ]
            *       },
@@ -9421,14 +9498,14 @@ export interface operations {
            *           [
            *             2025,
            *             8,
-           *             10,
-           *             559
+           *             7,
+           *             1400
            *           ],
            *           [
            *             2025,
            *             8,
            *             15,
-           *             766
+           *             1199
            *           ]
            *         ]
            *       },
@@ -9438,26 +9515,14 @@ export interface operations {
            *           [
            *             2025,
            *             8,
-           *             10,
-           *             713
+           *             7,
+           *             1079
            *           ],
            *           [
            *             2025,
            *             8,
-           *             12,
-           *             878
-           *           ],
-           *           [
-           *             2025,
-           *             8,
-           *             14,
-           *             911
-           *           ],
-           *           [
-           *             2025,
-           *             8,
-           *             16,
-           *             902
+           *             15,
+           *             1037
            *           ]
            *         ]
            *       },
@@ -9467,20 +9532,32 @@ export interface operations {
            *           [
            *             2025,
            *             8,
+           *             7,
+           *             767
+           *           ],
+           *           [
+           *             2025,
+           *             8,
            *             10,
-           *             740
+           *             926
            *           ],
            *           [
            *             2025,
            *             8,
            *             13,
-           *             884
+           *             990
            *           ],
            *           [
            *             2025,
            *             8,
            *             16,
-           *             1112
+           *             980
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             19,
+           *             1081
            *           ]
            *         ]
            *       },
@@ -9494,14 +9571,50 @@ export interface operations {
            *           [
            *             2025,
            *             8,
-           *             10,
-           *             979
+           *             7,
+           *             1273
            *           ],
            *           [
            *             2025,
            *             8,
-           *             16,
-           *             1137
+           *             9,
+           *             1238
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             11,
+           *             1276
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             13,
+           *             1294
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             15,
+           *             1225
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             17,
+           *             1210
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             19,
+           *             1238
+           *           ],
+           *           [
+           *             2025,
+           *             8,
+           *             21,
+           *             1180
            *           ]
            *         ]
            *       }
@@ -9536,14 +9649,14 @@ export interface operations {
            *       },
            *       "perf": {
            *         "glicko": {
-           *           "rating": 1027,
-           *           "deviation": 98.44
+           *           "rating": 980,
+           *           "deviation": 95.23
            *         },
-           *         "nb": 2625,
-           *         "progress": -12
+           *         "nb": 158,
+           *         "progress": 10
            *       },
            *       "rank": null,
-           *       "percentile": 21.9,
+           *       "percentile": 20.3,
            *       "stat": {
            *         "id": "jose/2",
            *         "userId": {
@@ -9562,24 +9675,24 @@ export interface operations {
            *           "results": []
            *         },
            *         "count": {
-           *           "all": 2625,
-           *           "rated": 2584,
-           *           "win": 1027,
-           *           "loss": 1097,
-           *           "draw": 501,
-           *           "tour": 149,
-           *           "berserk": 26,
-           *           "opAvg": 0.51,
-           *           "seconds": 787500,
-           *           "disconnects": 10
+           *           "all": 158,
+           *           "rated": 120,
+           *           "win": 69,
+           *           "loss": 77,
+           *           "draw": 12,
+           *           "tour": 85,
+           *           "berserk": 28,
+           *           "opAvg": 0.52,
+           *           "seconds": 47400,
+           *           "disconnects": 8
            *         },
            *         "resultStreak": {
            *           "win": {
            *             "cur": {
-           *               "v": 1
+           *               "v": 0
            *             },
            *             "max": {
-           *               "v": 5
+           *               "v": 4
            *             }
            *           },
            *           "loss": {
@@ -9587,25 +9700,25 @@ export interface operations {
            *               "v": 1
            *             },
            *             "max": {
-           *               "v": 4
+           *               "v": 3
            *             }
            *           }
            *         },
            *         "playStreak": {
            *           "nb": {
            *             "cur": {
-           *               "v": 1
+           *               "v": 0
            *             },
            *             "max": {
-           *               "v": 2
+           *               "v": 1
            *             }
            *           },
            *           "time": {
            *             "cur": {
-           *               "v": 1
+           *               "v": 3
            *             },
            *             "max": {
-           *               "v": 4
+           *               "v": 5
            *             }
            *           }
            *         }
@@ -9637,32 +9750,194 @@ export interface operations {
           /** @example [
            *       {
            *         "interval": {
-           *           "start": 1758067200000,
-           *           "end": 1758153600000
+           *           "start": 1758585600000,
+           *           "end": 1758672000000
+           *         },
+           *         "racer": {
+           *           "runs": 1,
+           *           "score": 28
            *         },
            *         "follows": {
            *           "in": {
            *             "ids": [
-           *               "gchen44",
-           *               "pabloboris",
-           *               "bababoing"
+           *               "tripitz",
+           *               "yan-g",
+           *               "hanter_2011",
+           *               "super-super",
+           *               "gameswinger",
+           *               "casknk",
+           *               "kkaleks",
+           *               "bigotelo",
+           *               "ze_0122",
+           *               "vihaan-ottters",
+           *               "chesscanada55"
            *             ]
            *           }
            *         }
            *       },
            *       {
            *         "interval": {
-           *           "start": 1757980800000,
-           *           "end": 1758067200000
+           *           "start": 1758499200000,
+           *           "end": 1758585600000
+           *         },
+           *         "follows": {
+           *           "in": {
+           *             "ids": [
+           *               "wisebarkingkangaroo",
+           *               "thenytefury",
+           *               "meetsatyadev",
+           *               "akira_s24",
+           *               "taeseong17",
+           *               "shawnthenoob",
+           *               "leosmmr",
+           *               "vancesterling",
+           *               "oliver_285",
+           *               "pehchana_kaunn",
+           *               "wolfsbane",
+           *               "blunderproofwin",
+           *               "schachhorizont_de"
+           *             ]
+           *           }
+           *         },
+           *         "posts": [
+           *           {
+           *             "topicUrl": "/forum/lichess-feedback/when-entering-games-via-url-from-chessgamescom-in-study-it-just-gives-an-empty-chapter",
+           *             "topicName": "When entering games via URL from chessgames.com in study it just gives an empty chapter",
+           *             "posts": [
+           *               {
+           *                 "url": "/forum/redirect/post/gVV5zSid",
+           *                 "text": "I looked it up. It's chessgames.com that explicitely forbids it. They worked on making it impossible to export the PGN to another server such as lichess.\r\n\r\nThis is therefore out of my hands. I recommend you send them an email asking for a solution."
+           *               }
+           *             ]
+           *           }
+           *         ]
+           *       },
+           *       {
+           *         "interval": {
+           *           "start": 1758412800000,
+           *           "end": 1758499200000
+           *         },
+           *         "follows": {
+           *           "in": {
+           *             "ids": [
+           *               "esabisa",
+           *               "lucasz05",
+           *               "rvihaan",
+           *               "chess_time_sr",
+           *               "amethistos",
+           *               "fa_had",
+           *               "mr9goals",
+           *               "armerul9",
+           *               "adr3v",
+           *               "chessplayer_0604",
+           *               "chezzspieler",
+           *               "lordmannyjinx2",
+           *               "maggieratson2382",
+           *               "kimsaro",
+           *               "just3elax"
+           *             ]
+           *           }
+           *         }
+           *       },
+           *       {
+           *         "interval": {
+           *           "start": 1758326400000,
+           *           "end": 1758412800000
+           *         },
+           *         "follows": {
+           *           "in": {
+           *             "ids": [
+           *               "aymanma8",
+           *               "red_spear",
+           *               "hannah_zoe",
+           *               "verymotorox",
+           *               "gabrielbekauri2016",
+           *               "ak47gamer",
+           *               "i_am_clancy",
+           *               "seniorjriii",
+           *               "shasswath1",
+           *               "angraj_karn",
+           *               "alicedorarozenfeld",
+           *               "ghooo",
+           *               "alextece",
+           *               "illaga_2",
+           *               "richniftyrabbit"
+           *             ],
+           *             "nb": 18
+           *           }
+           *         }
+           *       },
+           *       {
+           *         "interval": {
+           *           "start": 1758240000000,
+           *           "end": 1758326400000
+           *         },
+           *         "games": {
+           *           "bullet": {
+           *             "win": 2,
+           *             "loss": 0,
+           *             "draw": 0,
+           *             "rp": {
+           *               "before": 1767,
+           *               "after": 1787
+           *             }
+           *           }
+           *         },
+           *         "follows": {
+           *           "in": {
+           *             "ids": [
+           *               "luis_andre2",
+           *               "dswift1_makar-1",
+           *               "faizan_ccs",
+           *               "sukiwks",
+           *               "falcon_fast",
+           *               "divyanka2015",
+           *               "putneypawn68",
+           *               "tanjiro101314",
+           *               "kodster42015",
+           *               "alphatse",
+           *               "geniusgennadios",
+           *               "level1slime",
+           *               "viyaan0714"
+           *             ]
+           *           }
+           *         },
+           *         "posts": [
+           *           {
+           *             "topicUrl": "/forum/lichess-feedback/cant-create-new-game-3",
+           *             "topicName": "Can't create \"new game\"",
+           *             "posts": [
+           *               {
+           *                 "url": "/forum/redirect/post/X1BBn8HN",
+           *                 "text": "It's the same thing. Click that button."
+           *               }
+           *             ]
+           *           },
+           *           {
+           *             "topicUrl": "/forum/lichess-feedback/when-entering-games-via-url-from-chessgamescom-in-study-it-just-gives-an-empty-chapter",
+           *             "topicName": "When entering games via URL from chessgames.com in study it just gives an empty chapter",
+           *             "posts": [
+           *               {
+           *                 "url": "/forum/redirect/post/kj2bw6RL",
+           *                 "text": "Please paste here the exact chessgames.com URL so I can try it out and reproduce the issue."
+           *               }
+           *             ]
+           *           }
+           *         ]
+           *       },
+           *       {
+           *         "interval": {
+           *           "start": 1758153600000,
+           *           "end": 1758240000000
            *         },
            *         "games": {
            *           "blitz": {
            *             "win": 1,
-           *             "loss": 2,
+           *             "loss": 0,
            *             "draw": 0,
            *             "rp": {
-           *               "before": 1773,
-           *               "after": 1772
+           *               "before": 1772,
+           *               "after": 1778
            *             }
            *           }
            *         },
@@ -9672,206 +9947,83 @@ export interface operations {
            *             "loss": 0,
            *             "draw": 0,
            *             "rp": {
-           *               "before": 1904,
-           *               "after": 1912
+           *               "before": 1940,
+           *               "after": 1954
            *             }
-           *           }
-           *         },
-           *         "correspondenceEnds": {
-           *           "correspondence": {
-           *             "score": {
-           *               "win": 1,
-           *               "loss": 0,
-           *               "draw": 0,
-           *               "rp": {
-           *                 "before": 1942,
-           *                 "after": 1942
-           *               }
-           *             },
-           *             "games": [
-           *               {
-           *                 "id": "Yh5vd5Cj",
-           *                 "color": "white",
-           *                 "url": "/Yh5vd5Cj/white",
-           *                 "opponent": {
-           *                   "user": "neio",
-           *                   "rating": 1500
-           *                 }
-           *               }
-           *             ]
            *           }
            *         },
            *         "follows": {
            *           "in": {
            *             "ids": [
-           *               "ahmedmsh141",
-           *               "kinderekpolska12345",
-           *               "mikrobi",
-           *               "unknownplayer43",
-           *               "chvii",
-           *               "aurorastern_kt93",
-           *               "gagarinww2",
-           *               "binudi2008",
-           *               "hchez",
-           *               "madmaltenx"
+           *               "privatechessplayer44",
+           *               "manolete000",
+           *               "aadhirananandkumar",
+           *               "kondratevalyudmila",
+           *               "sreedev19",
+           *               "nguyenquangvoan2014",
+           *               "axolotlserz",
+           *               "dohluc",
+           *               "messi95",
+           *               "the_berserk_account",
+           *               "kavinthegoatcricket"
            *             ]
            *           }
-           *         },
-           *         "posts": [
-           *           {
-           *             "topicUrl": "/forum/lichess-feedback/invisible-rooks-and-knights-on-firefox",
-           *             "topicName": "Invisible rooks and knights on Firefox?",
-           *             "posts": [
-           *               {
-           *                 "url": "/forum/redirect/post/SwGDDdUX",
-           *                 "text": "OK so apparently it makes no difference whether the pieces are linked from remote files, or embedded as base64 in the CSS."
-           *               },
-           *               {
-           *                 "url": "/forum/redirect/post/Ld2XUXvc",
-           *                 "text": "@Arndti said in #20:\r\n> My Browser isn't loading any board when I open one anymore. But there is also nothing else loading on the gameboard (like the chat etc):\r\n> Firefox 142.0.1 (64-Bit)\r\n> Windows 11 (64-Bit)\r\n\r\nThat's very interesting, can you help me investigate that? It would help if you could go to lichess.org/#debug and click \"send to lichess\"\r\nAlso, please go to a page that is broken, and open the browser console with Ctrl+Shift+C and copy paste any error you find here, so I can find wh"
-           *               }
-           *             ]
-           *           }
-           *         ]
+           *         }
            *       },
            *       {
            *         "interval": {
-           *           "start": 1757894400000,
-           *           "end": 1757980800000
+           *           "start": 1758067200000,
+           *           "end": 1758153600000
            *         },
-           *         "games": {
-           *           "blitz": {
-           *             "win": 1,
+           *         "puzzles": {
+           *           "score": {
+           *             "win": 2,
            *             "loss": 0,
            *             "draw": 0,
            *             "rp": {
-           *               "before": 1766,
-           *               "after": 1773
+           *               "before": 1912,
+           *               "after": 1940
            *             }
            *           }
            *         },
            *         "follows": {
            *           "in": {
            *             "ids": [
-           *               "kavinthegoatcricket",
-           *               "kepha",
-           *               "dafutboom",
-           *               "drstrangyer",
-           *               "margem_1",
-           *               "cowduckcat",
-           *               "hackasaur",
-           *               "issier",
-           *               "anthonyoja",
-           *               "abhinav001n",
-           *               "b_e_r_t_r_a_n_d",
-           *               "anhkhoa2015hp",
-           *               "podderswapnil",
-           *               "alexmm22",
-           *               "lastwhitepawn"
-           *             ]
-           *           },
-           *           "out": {
-           *             "ids": [
-           *               "fredo599"
+           *               "ajq64",
+           *               "magnum_carlsen09",
+           *               "mg_votte",
+           *               "oregolagantse09",
+           *               "zeydex11",
+           *               "fox2024",
+           *               "ved_2013",
+           *               "gchen44",
+           *               "pabloboris",
+           *               "bababoing"
            *             ]
            *           }
            *         },
            *         "posts": [
            *           {
+           *             "topicUrl": "/forum/diagnostic/arndti-problem-report",
+           *             "topicName": "Arndti problem report",
+           *             "posts": [
+           *               {
+           *                 "url": "/forum/redirect/post/00tKyQ47",
+           *                 "text": "Thanks @Arndti that's helpful.\r\n\r\nIs it working better now? If not, could you try clearing your browser cache and see if that helps? Like this: https://support.mozilla.org/en-US/kb/how-clear-firefox-cache"
+           *               }
+           *             ]
+           *           },
+           *           {
            *             "topicUrl": "/forum/lichess-feedback/invisible-rooks-and-knights-on-firefox",
            *             "topicName": "Invisible rooks and knights on Firefox?",
            *             "posts": [
            *               {
-           *                 "url": "/forum/redirect/post/9TwKUeK7",
-           *                 "text": "We're now experimenting with a different way to load pieces (individual SVG files). If you (still) have missing pieces, or if you did but now it's fixed, please report here with the following info:\r\n- your browser and version (firefox 142)\r\n- your operating system (windows, mac, android, ios, linux)\r\n- your desktop or laptop GPU (if you have one and happen to know what kind, mobile users just ignore)"
-           *               },
-           *               {
-           *                 "url": "/forum/redirect/post/IZoAcxZW",
-           *                 "text": "Thank you for an opportunity to practice my patience and diplomacy.\r\n\r\nWhat \"happened\" exactly? What's your browser and version? What's your operating system? What's your desktop or laptop GPU?"
-           *               },
-           *               {
-           *                 "url": "/forum/redirect/post/lkqcyJsZ",
-           *                 "text": "I stopped the experiment. Is it working better now? @MadMaltenX"
+           *                 "url": "/forum/redirect/post/o2CwTagW",
+           *                 "text": "Thank you all, that's very helpful. I'm on it."
            *               }
            *             ]
            *           }
            *         ]
-           *       },
-           *       {
-           *         "interval": {
-           *           "start": 1757808000000,
-           *           "end": 1757894400000
-           *         },
-           *         "follows": {
-           *           "in": {
-           *             "ids": [
-           *               "khurshid_rm",
-           *               "unclj",
-           *               "bilgin7",
-           *               "pimarhu",
-           *               "gdeniz7389",
-           *               "ridiculousx",
-           *               "johntom",
-           *               "wangmuzhen"
-           *             ]
-           *           }
-           *         }
-           *       },
-           *       {
-           *         "interval": {
-           *           "start": 1757721600000,
-           *           "end": 1757808000000
-           *         },
-           *         "follows": {
-           *           "in": {
-           *             "ids": [
-           *               "chesssked",
-           *               "theplaa",
-           *               "wic8085",
-           *               "aladrish_2024",
-           *               "thamizhinban",
-           *               "krishna_souri",
-           *               "plimplimploum",
-           *               "doroteia"
-           *             ]
-           *           }
-           *         }
-           *       },
-           *       {
-           *         "interval": {
-           *           "start": 1757635200000,
-           *           "end": 1757721600000
-           *         },
-           *         "follows": {
-           *           "in": {
-           *             "ids": [
-           *               "empowered_pawn",
-           *               "garrett_thompson",
-           *               "bornready2011",
-           *               "danskdanskerdk",
-           *               "ninjaswat",
-           *               "rithijaabeykoon2010",
-           *               "advaitpal123",
-           *               "abhinav_sub08",
-           *               "felixad"
-           *             ]
-           *           }
-           *         }
-           *       },
-           *       {
-           *         "interval": {
-           *           "start": 1757548800000,
-           *           "end": 1757635200000
-           *         },
-           *         "follows": {
-           *           "in": {
-           *             "ids": [
-           *               "ironmanabtin",
-           *               "dissipatioh_g",
-           *               "elianjairo23"
-           *             ]
-           *           }
-           *         }
            *       }
            *     ] */
           "application/json": components["schemas"]["UserActivity"][];
@@ -9897,46 +10049,46 @@ export interface operations {
         content: {
           /** @example {
            *       "game": {
-           *         "id": "OzyvB60J",
+           *         "id": "2MAMUFYo",
            *         "perf": {
-           *           "key": "rapid",
-           *           "name": "Rapid"
+           *           "key": "blitz",
+           *           "name": "Blitz"
            *         },
            *         "rated": true,
            *         "players": [
            *           {
-           *             "name": "rzzky",
-           *             "id": "rzzky",
+           *             "name": "iaonder06",
+           *             "id": "iaonder06",
            *             "color": "white",
-           *             "rating": 1833
+           *             "rating": 1842
            *           },
            *           {
-           *             "name": "Barrister13",
-           *             "id": "barrister13",
+           *             "name": "gwenthecelte",
+           *             "id": "gwenthecelte",
            *             "color": "black",
-           *             "rating": 1877
+           *             "rating": 1858
            *           }
            *         ],
-           *         "pgn": "d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 cxd5 exd5 e3 Bf5 Bd3 Bxd3 Qxd3 c6 Nge2 Nbd7 f3 O-O h4 h6 Bf4 Re8 g4 Nf8 g5 hxg5 hxg5 N6h7 O-O-O Bxg5 Rdg1 Bxf4 Nxf4 Qe7 Kd2 Nf6 Rg2 g6 Nxg6 Nxg6 f4 Ne4+ Nxe4 dxe4 Qe2 Qb4+ Kc2 Qb5 Qg4 Qd3+ Kc1 Qxe3+ Kb1 Qd3+ Ka1 Qxd4",
-           *         "clock": "15+0"
+           *         "pgn": "e4 a5 d4 e6 Nf3 d5 Bg5 f6 Be3 dxe4 Nfd2 f5 Nc4 Qf6 Ne5 Bd6 Bf4 g5 Be3 Bxe5 dxe5 Qxe5 Qh5+ Kf8 Bxg5 Qxb2 Kd2 Qxa1 Nc3 Qb2 Bb5 c6 Bc4 Qb6 Be3 Qc7 Bc5+ Kg7 Qg5+ Kf7 Bd4 Qd7 Ke3 b5 Be2 b4 Bh5+ Kf8 Rd1 Qe7",
+           *         "clock": "3+0"
            *       },
            *       "puzzle": {
-           *         "id": "gSDvS",
-           *         "rating": 2013,
-           *         "plays": 103172,
+           *         "id": "1qnBM",
+           *         "rating": 1772,
+           *         "plays": 13664,
            *         "solution": [
-           *           "f4f5",
-           *           "a8d8",
-           *           "f5g6",
-           *           "f7f5",
-           *           "g4h5"
+           *           "d4g7",
+           *           "e7g7",
+           *           "g5d8"
            *         ],
            *         "themes": [
+           *           "mateIn2",
            *           "middlegame",
-           *           "long",
-           *           "advantage"
+           *           "short",
+           *           "fork",
+           *           "sacrifice"
            *         ],
-           *         "initialPly": 57
+           *         "initialPly": 49
            *       }
            *     } */
           "application/json": components["schemas"]["PuzzleAndGame"];
@@ -9977,7 +10129,7 @@ export interface operations {
            *             "title": "IM",
            *             "flair": "travel-places.ambulance",
            *             "patron": true,
-           *             "patronTier": "years5",
+           *             "patronColor": 10,
            *             "id": "ericrosen",
            *             "color": "white",
            *             "rating": 2642
@@ -10043,7 +10195,7 @@ export interface operations {
         content: {
           /** @example {
            *       "game": {
-           *         "id": "Nj6E8QmC",
+           *         "id": "oXmU07Il",
            *         "perf": {
            *           "key": "blitz",
            *           "name": "Blitz"
@@ -10051,42 +10203,41 @@ export interface operations {
            *         "rated": true,
            *         "players": [
            *           {
-           *             "name": "Supercampeon64",
-           *             "title": "FM",
-           *             "id": "supercampeon64",
+           *             "name": "paximi",
+           *             "id": "paximi",
            *             "color": "white",
-           *             "rating": 2346
+           *             "rating": 2009
            *           },
            *           {
-           *             "name": "phoenixonfire",
-           *             "id": "phoenixonfire",
+           *             "name": "Patteblomquist",
+           *             "id": "patteblomquist",
            *             "color": "black",
-           *             "rating": 2260
+           *             "rating": 2000
            *           }
            *         ],
-           *         "pgn": "e4 c5 Nf3 d6 Bc4 e6 Qe2 a6 a4 b6 O-O Bb7 c3 Nd7 d4 Rc8 Bxa6 Bxa6 Qxa6 cxd4 cxd4 Ngf6 Nc3 Be7 e5 Ng4 h3 h5 Rd1 Qc7 Nb5 Qb8 exd6 Bf6 Nc7+ Kf8 hxg4 hxg4 Ng5 g3 fxg3 g6 Bf4 Kg7 Ne4 Rh5 Nxf6 Nxf6 Be5 Rch8 Rf1 Rxe5 dxe5 Ng4 Qc4",
-           *         "clock": "3+0"
+           *         "pgn": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 f3 e5 Nb3 Be6 Be3 Be7 Nd5 Nxd5 exd5 Bf5 Bd3 Bxd3 Qxd3 Nd7 Qd2 h5 O-O Rc8 Na5 Qc7 c4 Nc5 b4 Nd7 Rac1 f5 Rfd1 f4 Bf2 h4 c5 h3 Nc4 dxc5 bxc5 Bxc5 Bxc5 Qxc5+ Kh1 hxg2+ Kxg2 Qe7 d6 Qh4 Kh1 Qh3 Qg2 Qxg2+ Kxg2 Kf7 Re1 Kf6 Nd2 Nc5",
+           *         "clock": "3+2"
            *       },
            *       "puzzle": {
-           *         "id": "SAfon",
-           *         "rating": 1659,
-           *         "plays": 2300,
+           *         "id": "hFFk9",
+           *         "rating": 1733,
+           *         "plays": 469,
            *         "solution": [
-           *           "h8h1",
-           *           "g1h1",
-           *           "b8h8",
-           *           "h1g1",
-           *           "h8h2"
+           *           "c1c5",
+           *           "c8c5",
+           *           "d2e4",
+           *           "f6e6",
+           *           "e4c5"
            *         ],
            *         "themes": [
+           *           "endgame",
+           *           "advantage",
            *           "attraction",
+           *           "fork",
            *           "long",
-           *           "mateIn3",
-           *           "sacrifice",
-           *           "master",
-           *           "middlegame"
+           *           "sacrifice"
            *         ],
-           *         "initialPly": 54
+           *         "initialPly": 63
            *       }
            *     } */
           "application/json": components["schemas"]["PuzzleAndGame"];
@@ -10116,24 +10267,26 @@ export interface operations {
         };
         content: {
           /** @example {
-           *       "date": 1757976250132,
-           *       "win": false,
+           *       "date": 1758607357000,
+           *       "win": true,
            *       "puzzle": {
-           *         "id": "1lXWz",
-           *         "rating": 1883,
-           *         "plays": 23621,
+           *         "id": "DVlu9",
+           *         "rating": 1875,
+           *         "plays": 11261,
            *         "solution": [
-           *           "e1e6",
-           *           "e8e7",
-           *           "e6e7"
+           *           "c7d6",
+           *           "c6a7",
+           *           "c8b7",
+           *           "d2b4",
+           *           "b7a8"
            *         ],
            *         "themes": [
            *           "middlegame",
-           *           "short",
-           *           "crushing"
+           *           "equality",
+           *           "long"
            *         ],
-           *         "fen": "4rr1k/2p1Rppp/p1N1b3/8/2P5/2Q4P/PP3qPK/4R3 w - - 1 1",
-           *         "lastMove": "a8e8"
+           *         "fen": "2krr3/p1p2p1p/2NB4/3p2p1/N2P2n1/7q/PPPQ1P2/R3R1K1 b - - 0 1",
+           *         "lastMove": "g3d6"
            *       }
            *     } */
           "application/x-ndjson": components["schemas"]["PuzzleActivity"];
@@ -10166,14 +10319,10 @@ export interface operations {
            *       "replay": {
            *         "days": 90,
            *         "theme": "mix",
-           *         "nb": 6,
+           *         "nb": 2,
            *         "remaining": [
-           *           "2W8WA",
-           *           "2jweq",
-           *           "BodF4",
-           *           "8KhRF",
-           *           "3OB8d",
-           *           "7frOO"
+           *           "5VY0M",
+           *           "79PJa"
            *         ]
            *       },
            *       "angle": {
@@ -10222,90 +10371,90 @@ export interface operations {
            *       "days": 30,
            *       "global": {
            *         "nb": 10,
-           *         "firstWins": 5,
+           *         "firstWins": 8,
            *         "replayWins": 0,
-           *         "puzzleRatingAvg": 1527,
-           *         "performance": 1527
+           *         "puzzleRatingAvg": 1634,
+           *         "performance": 1934
            *       },
            *       "themes": {
-           *         "middlegame": {
-           *           "theme": "Middlegame",
-           *           "results": {
-           *             "nb": 7,
-           *             "firstWins": 4,
-           *             "replayWins": 0,
-           *             "puzzleRatingAvg": 1676,
-           *             "performance": 1747
-           *           }
-           *         },
            *         "endgame": {
            *           "theme": "Endgame",
            *           "results": {
-           *             "nb": 2,
-           *             "firstWins": 0,
+           *             "nb": 5,
+           *             "firstWins": 4,
            *             "replayWins": 0,
-           *             "puzzleRatingAvg": 1061,
-           *             "performance": 561
+           *             "puzzleRatingAvg": 1750,
+           *             "performance": 2050
            *           }
            *         },
            *         "fork": {
            *           "theme": "Fork",
            *           "results": {
-           *             "nb": 1,
-           *             "firstWins": 1,
+           *             "nb": 4,
+           *             "firstWins": 2,
            *             "replayWins": 0,
-           *             "puzzleRatingAvg": 1543,
-           *             "performance": 2043
+           *             "puzzleRatingAvg": 1316,
+           *             "performance": 1316
            *           }
            *         },
-           *         "intermezzo": {
-           *           "theme": "Intermezzo",
+           *         "middlegame": {
+           *           "theme": "Middlegame",
            *           "results": {
-           *             "nb": 1,
-           *             "firstWins": 1,
+           *             "nb": 3,
+           *             "firstWins": 3,
            *             "replayWins": 0,
-           *             "puzzleRatingAvg": 1730,
-           *             "performance": 2230
+           *             "puzzleRatingAvg": 1708,
+           *             "performance": 2208
            *           }
            *         },
            *         "opening": {
            *           "theme": "Opening",
            *           "results": {
-           *             "nb": 1,
+           *             "nb": 2,
            *             "firstWins": 1,
            *             "replayWins": 0,
-           *             "puzzleRatingAvg": 1419,
-           *             "performance": 1919
+           *             "puzzleRatingAvg": 1233,
+           *             "performance": 1233
            *           }
            *         },
-           *         "defensiveMove": {
-           *           "theme": "Defensive move",
+           *         "pin": {
+           *           "theme": "Pin",
+           *           "results": {
+           *             "nb": 2,
+           *             "firstWins": 2,
+           *             "replayWins": 0,
+           *             "puzzleRatingAvg": 1730,
+           *             "performance": 2230
+           *           }
+           *         },
+           *         "kingsideAttack": {
+           *           "theme": "Kingside attack",
            *           "results": {
            *             "nb": 1,
            *             "firstWins": 1,
            *             "replayWins": 0,
-           *             "puzzleRatingAvg": 1662,
-           *             "performance": 2162
+           *             "puzzleRatingAvg": 1069,
+           *             "performance": 1569
+           *           }
+           *         },
+           *         "discoveredAttack": {
+           *           "theme": "Discovered attack",
+           *           "results": {
+           *             "nb": 1,
+           *             "firstWins": 1,
+           *             "replayWins": 0,
+           *             "puzzleRatingAvg": 2391,
+           *             "performance": 2891
            *           }
            *         },
            *         "hangingPiece": {
            *           "theme": "Hanging piece",
            *           "results": {
            *             "nb": 1,
-           *             "firstWins": 0,
+           *             "firstWins": 1,
            *             "replayWins": 0,
-           *             "puzzleRatingAvg": 1166,
-           *             "performance": 666
-           *           }
-           *         },
-           *         "mate": {
-           *           "theme": "Checkmate",
-           *           "results": {
-           *             "nb": 1,
-           *             "firstWins": 0,
-           *             "replayWins": 0,
-           *             "puzzleRatingAvg": 955,
-           *             "performance": 455
+           *             "puzzleRatingAvg": 2180,
+           *             "performance": 2680
            *           }
            *         }
            *       }
@@ -10399,8 +10548,8 @@ export interface operations {
         };
         content: {
           /** @example {
-           *       "id": "CAjZa",
-           *       "url": "https://lichess.org/racer/CAjZa"
+           *       "id": "PJIf6",
+           *       "url": "https://lichess.org/racer/PJIf6"
            *     } */
           "application/json": components["schemas"]["PuzzleRacer"];
         };
@@ -10427,477 +10576,479 @@ export interface operations {
         };
         content: {
           /** @example {
-           *       "id": "v3ZG9",
+           *       "id": "nkEw7",
            *       "owner": "lichess",
            *       "players": [
+           *         {
+           *           "name": "Hossienshirmohamady",
+           *           "flair": "activity.yo-yo",
+           *           "id": "hossienshirmohamady",
+           *           "score": 62
+           *         },
+           *         {
+           *           "name": "Dswift1_Makar-1",
+           *           "flair": "activity.lichess-variant-crazyhouse",
+           *           "id": "dswift1_makar-1",
+           *           "score": 41
+           *         },
+           *         {
+           *           "name": "ManavKumar1865",
+           *           "id": "manavkumar1865",
+           *           "score": 50
+           *         },
+           *         {
+           *           "name": "sir_john_doe",
+           *           "id": "sir_john_doe",
+           *           "score": 40
+           *         },
+           *         {
+           *           "name": "BubblyBakerHound",
+           *           "score": 6
+           *         },
            *         {
            *           "name": "ttrv",
            *           "flair": "activity.trophy",
            *           "patron": true,
-           *           "patronTier": "lifetime",
+           *           "patronColor": 10,
            *           "id": "ttrv",
-           *           "score": 28
+           *           "score": 37
            *         },
            *         {
-           *           "name": "tejas_40",
-           *           "id": "tejas_40",
-           *           "score": 18
+           *           "name": "FairyGliedt",
+           *           "id": "fairygliedt",
+           *           "score": 11
            *         },
            *         {
-           *           "name": "varshaasmiley",
-           *           "id": "varshaasmiley",
-           *           "score": 10
+           *           "name": "BecomingWillingRuyLopez",
+           *           "score": 29
            *         },
            *         {
-           *           "name": "S_O_L_A_N_A",
-           *           "id": "s_o_l_a_n_a",
-           *           "score": 53
-           *         },
-           *         {
-           *           "name": "sriguhan_balaji",
-           *           "id": "sriguhan_balaji",
-           *           "score": 16
-           *         },
-           *         {
-           *           "name": "SwiftActorWren",
+           *           "name": "EternalDrummerSalmon",
            *           "score": 0
            *         },
            *         {
-           *           "name": "TunefulHomelyDuelist",
+           *           "name": "AdroitLiterateCoder",
            *           "score": 0
-           *         },
-           *         {
-           *           "name": "ProfoundBanjoistHyena",
-           *           "score": 0
-           *         },
-           *         {
-           *           "name": "YellowEnticingEagle",
-           *           "score": 61
-           *         },
-           *         {
-           *           "name": "bakikhan",
-           *           "id": "bakikhan",
-           *           "score": 50
            *         }
            *       ],
            *       "puzzles": [
            *         {
-           *           "id": "4ouwq",
-           *           "fen": "1N6/2p4p/p3k1p1/2P1n3/PP2p3/4P3/3K2P1/8 b - - 0 32",
-           *           "line": "a6a5 b4a5 e5c4 d2c3",
-           *           "rating": 1020
+           *           "id": "oiHY2",
+           *           "fen": "1r6/7R/1n2p2p/p2kN3/3P3P/PPp5/2P5/2K5 b - - 1 38",
+           *           "line": "d5d4 e5c6 d4e4 c6b8",
+           *           "rating": 1016
            *         },
            *         {
-           *           "id": "88AGD",
-           *           "fen": "r1b3qk/7p/p2p1Q2/4p3/8/1BN5/1P4PP/6K1 b - - 1 32",
-           *           "line": "g8g7 f6d8 g7f8 d8f8",
-           *           "rating": 1038
+           *           "id": "3EzyJ",
+           *           "fen": "8/p3r1pp/1pp5/2p5/3k4/2RP4/PP3KPP/8 b - - 5 38",
+           *           "line": "e7e3 c3c4 d4d3 c4c3 d3d2 c3e3",
+           *           "rating": 1031
            *         },
            *         {
-           *           "id": "GdNyY",
-           *           "fen": "7k/p1p3p1/3pB2p/2p5/4P3/7P/P1q5/5RK1 b - - 1 24",
-           *           "line": "c2e4 f1f8 h8h7 e6f5 e4f5 f8f5",
-           *           "rating": 1058
+           *           "id": "uclhP",
+           *           "fen": "1n1r2k1/N2Prppp/1p6/2p5/2P1p3/P6B/1P3P2/3R1K2 b - - 0 29",
+           *           "line": "b8d7 a7c6 g8f8 c6d8",
+           *           "rating": 1062
            *         },
            *         {
-           *           "id": "jmijP",
-           *           "fen": "8/pp3p2/2p4k/3p1K1P/P2Pr3/2P5/1P6/1R6 b - - 2 37",
-           *           "line": "h6h5 b1h1 e4h4 h1h4 h5h4 f5f6",
-           *           "rating": 1092
+           *           "id": "A6eYH",
+           *           "fen": "r4r2/1p2q3/p1p1p1pQ/3nP3/P5k1/4P3/1P4K1/R4R2 b - - 1 31",
+           *           "line": "e7g5 h6h3",
+           *           "rating": 1088
            *         },
            *         {
-           *           "id": "xsRMM",
-           *           "fen": "r1b2rk1/pppp4/2n1pP1Q/8/1b1P4/2NB4/PPP1Nq2/2KR4 b - - 0 15",
-           *           "line": "f2f6 h6h7",
-           *           "rating": 1118
+           *           "id": "KCUmn",
+           *           "fen": "r1bq1rk1/pppnBppp/2n1p3/3p4/3P3Q/1N1B1P2/PPP3PP/R3K1NR b KQ - 0 11",
+           *           "line": "d8e7 h4h7",
+           *           "rating": 1129
            *         },
            *         {
-           *           "id": "HZeDo",
-           *           "fen": "2kr1b1r/p1pp1pp1/1p1q1n1p/nN1P4/3P4/5N2/PPQ2PPP/R1B1R1K1 b - - 2 13",
-           *           "line": "d6d5 c2c7",
-           *           "rating": 1151
+           *           "id": "V6fYA",
+           *           "fen": "5rk1/pp1b2pp/2p4b/2nprp2/5N1P/P1NB1PP1/1PP5/1K2RR2 b - - 1 22",
+           *           "line": "f8d8 e1e5 h6f4 g3f4 c5d3 c2d3",
+           *           "rating": 1161
            *         },
            *         {
-           *           "id": "jFRTX",
-           *           "fen": "4r3/4Pkpp/8/3N4/2pK4/8/P6P/8 b - - 4 40",
-           *           "line": "f7e6 d5c7 e6e7 c7e8 e7e8 d4c4",
-           *           "rating": 1173
+           *           "id": "BLlhu",
+           *           "fen": "r4rk1/1b1n1ppp/p2p4/1pqN1PP1/8/5Q2/PPPR3P/2K2B1R b - - 4 17",
+           *           "line": "d7b6 d5e7 g8h8 f3b7",
+           *           "rating": 1190
            *         },
            *         {
-           *           "id": "wAOLa",
-           *           "fen": "6rk/ppp3p1/4Q1Pq/8/7r/1P2R3/PKP4P/8 b - - 8 36",
-           *           "line": "h4h2 e6g8 h8g8 e3e8",
-           *           "rating": 1275
+           *           "id": "wGzcz",
+           *           "fen": "r1b2rk1/5pp1/1q2pn1p/n2p4/1ppP2N1/4P1P1/PPQ2PP1/1BR1RNK1 b - - 4 19",
+           *           "line": "b4b3 g4f6 g7f6 c2h7",
+           *           "rating": 1272
            *         },
            *         {
-           *           "id": "9EAbf",
-           *           "fen": "r4rk1/p1q4b/1p1bp2Q/3p1p2/3P4/2P3P1/PP3PP1/2KR1B1R b - - 0 24",
-           *           "line": "c7g7 h6e6 g7f7 e6d6",
-           *           "rating": 1298
+           *           "id": "koNaI",
+           *           "fen": "4r3/pk1nr3/1pp1q2p/4n3/4QB2/1PP5/P5PP/3R1R1K b - - 9 35",
+           *           "line": "e5g4 e4e6 e7e6 d1d7",
+           *           "rating": 1291
            *         },
            *         {
-           *           "id": "jQ4eE",
-           *           "fen": "r7/pp1n2kp/2qpQbp1/8/2R5/7P/P5P1/3R3K b - - 0 30",
-           *           "line": "a8e8 e6e8 c6c4 e8d7",
-           *           "rating": 1312
+           *           "id": "UrPl5",
+           *           "fen": "1k5r/p6P/1p4p1/1Pp1Pr2/2P5/5NP1/1P4K1/7R b - - 4 31",
+           *           "line": "f5h5 h1h5 g6h5 f3g5",
+           *           "rating": 1309
            *         },
            *         {
-           *           "id": "vfgh4",
-           *           "fen": "8/2B3r1/P1K1p3/1p2P3/2k5/8/8/8 b - - 0 59",
-           *           "line": "b5b4 a6a7 g7g8 c7b8 b4b3 a7a8q",
-           *           "rating": 1328
+           *           "id": "UOc8p",
+           *           "fen": "r3qr2/6pk/3b1p1p/1p1P1N2/p1n3RQ/4P2P/3R1PP1/6K1 b - - 9 30",
+           *           "line": "f8f7 g4g7 f7g7 h4h6 h7g8 h6g7",
+           *           "rating": 1327
            *         },
            *         {
-           *           "id": "dsgHi",
-           *           "fen": "q1RQ4/5pk1/r5p1/P3p2p/3p3P/8/5PP1/6K1 b - - 3 38",
-           *           "line": "a8b7 d8h8",
-           *           "rating": 1408
+           *           "id": "lz9D3",
+           *           "fen": "8/pp6/8/2P5/1Pk4p/P7/6K1/8 b - - 2 45",
+           *           "line": "c4b3 b4b5 b3c4 c5c6 b7c6 b5c6",
+           *           "rating": 1414
            *         },
            *         {
-           *           "id": "drZCJ",
-           *           "fen": "1B5r/ppQ3bp/2n2pk1/5P2/3P2Pp/5q2/PP6/4R1K1 b - - 0 30",
-           *           "line": "g6h6 c7f4 f3f4 b8f4",
+           *           "id": "6kFcn",
+           *           "fen": "r1b2r2/5pkp/1qpQ1np1/2n1p3/p3P1P1/P1N2N1P/1PP1BP2/2KR3R b - - 0 17",
+           *           "line": "c5e4 c3e4 f6e4 d6e5",
            *           "rating": 1431
            *         },
            *         {
-           *           "id": "CaRXt",
-           *           "fen": "r5k1/ppR1Qppp/5n2/8/8/5q2/P4P1P/4R1K1 b - - 0 22",
-           *           "line": "a8f8 e7f8 g8f8 c7c8 f6e8 e1e8",
-           *           "rating": 1447
+           *           "id": "6tr7c",
+           *           "fen": "2q1r1k1/5pp1/2p4p/3p1N2/3PR2P/2P3P1/2Q2PK1/8 b - - 0 31",
+           *           "line": "e8e4 c2e4 d5e4 f5e7 g8h7 e7c8",
+           *           "rating": 1445
            *         },
            *         {
-           *           "id": "EemTb",
-           *           "fen": "r6r/1p1b1kb1/4pq1p/p7/P3Q3/B2B4/2P2PPP/1R4K1 b - - 2 27",
-           *           "line": "d7c6 b1b7 c6b7 e4b7 f7g8 b7a8",
-           *           "rating": 1462
+           *           "id": "mkyEZ",
+           *           "fen": "3k1r2/1p3p2/p2P1Q2/P1p5/2P1P3/8/P5PK/2q5 b - - 2 39",
+           *           "line": "d8d7 f6e7 d7c6 e7c7",
+           *           "rating": 1459
            *         },
            *         {
-           *           "id": "j6K9P",
-           *           "fen": "4q1k1/5r1p/4pBR1/p2nPp2/3Pp3/P1r3Q1/6PP/5RK1 b - - 0 28",
-           *           "line": "h7g6 g3g6 g8f8 g6h6 f7g7 h6g7",
-           *           "rating": 1489
+           *           "id": "fX84W",
+           *           "fen": "2b2rk1/4b1pp/1q3p2/1p1BN3/1p3Q2/7P/PPP3PK/5R2 b - - 1 25",
+           *           "line": "g8h8 e5g6 h7g6 f4h4",
+           *           "rating": 1479
            *         },
            *         {
-           *           "id": "wph6J",
-           *           "fen": "r6r/ppp3Rp/2p5/5NBk/1n1P1p2/7P/5PP1/6K1 b - - 2 23",
-           *           "line": "a8g8 g2g4 f4g3 f5g3",
-           *           "rating": 1557
+           *           "id": "MI2jt",
+           *           "fen": "5rk1/1rpq2b1/Q1np2pp/3Npp2/2P1P3/3P2P1/P3NPBP/5RK1 b - - 0 20",
+           *           "line": "b7a7 a6c6 d7c6 d5e7 g8h8 e7c6",
+           *           "rating": 1559
            *         },
            *         {
-           *           "id": "u3KFl",
-           *           "fen": "r4rk1/1b2bpp1/pq1ppn1p/1p6/4P2B/P1NP3P/1P1Q1PPN/2R2R1K b - - 1 17",
-           *           "line": "f6d5 c3d5 e6d5 h4e7",
-           *           "rating": 1573
+           *           "id": "Yz0fD",
+           *           "fen": "r1bqkb1r/pp1n1ppp/5n2/1B1pp3/3P4/2N1PN2/PP3PPP/R1BQK2R b KQkq - 1 7",
+           *           "line": "f8d6 d4e5 d6e5 f3e5",
+           *           "rating": 1575
            *         },
            *         {
-           *           "id": "eeP5a",
-           *           "fen": "1r2k2R/p2n4/7P/P7/2p5/8/2K5/8 b - - 2 61",
-           *           "line": "d7f8 h6h7 e8d7 h8g8 f8h7 g8b8",
-           *           "rating": 1592
+           *           "id": "gLXCp",
+           *           "fen": "r1b2rk1/ppq3b1/2pp4/4pP2/3P2p1/2PB2Pn/PP1N2K1/R2Q2BR b - - 0 24",
+           *           "line": "c8f5 d3f5 f8f5 d1g4 h3f4 g3f4",
+           *           "rating": 1588
            *         },
            *         {
-           *           "id": "pDAHL",
-           *           "fen": "r4rk1/ppq2pp1/2pb2bp/3P4/4N3/3Q1PP1/PP1B3P/2R1R1K1 b - - 0 22",
-           *           "line": "f7f5 e4d6 c7d6 e1e6 d6d5 d3d5 c6d5 e6g6",
+           *           "id": "jAqV7",
+           *           "fen": "6k1/1ppr1pp1/pb5B/8/P1Q5/2P4P/1P3qPK/R7 b - - 0 30",
+           *           "line": "g7h6 c4g4 g8f8 g4d7 f2f4 h2h1",
            *           "rating": 1604
            *         },
            *         {
-           *           "id": "2IodZ",
-           *           "fen": "1r4k1/1qnbpp1p/p2p2P1/2pP4/2P1P3/1rNB4/3Q2PP/RR3K2 b - - 0 23",
-           *           "line": "h7g6 b1b3 b7b3 a1b1",
-           *           "rating": 1617
+           *           "id": "EhkBX",
+           *           "fen": "3r2k1/pp4pp/5p2/q2Rp3/2Q5/1P6/P3RPPP/6K1 b - - 0 27",
+           *           "line": "a5d5 e2d2 d5c4 d2d8 g8f7 b3c4",
+           *           "rating": 1615
            *         },
            *         {
-           *           "id": "NAgAq",
-           *           "fen": "r4rk1/1b2b1pp/p3pq2/1p1p4/2P5/1P1B3R/P2NQ1PP/5RK1 b - - 1 20",
-           *           "line": "e7c5 g1h1 f6f1 d2f1",
-           *           "rating": 1697
+           *           "id": "ECY0A",
+           *           "fen": "4rrk1/1p3p2/5q2/p2pp3/4N3/1BPP2R1/Pb3PP1/1N4K1 b - - 1 27",
+           *           "line": "f6g7 e4f6 g8h8 g3h3 g7h6 h3h6",
+           *           "rating": 1695
            *         },
            *         {
-           *           "id": "vfvpt",
-           *           "fen": "5r2/p4B1k/1p3Qp1/2q4p/r6P/8/5PP1/3R2K1 b - - 0 29",
-           *           "line": "c5f5 f7g6 h7h6 f6f5 f8f5 g6f5",
-           *           "rating": 1709
+           *           "id": "XmDE6",
+           *           "fen": "rR4k1/p1p1brp1/2q2pNp/2n1p3/3p2Q1/3P2BP/2P2PP1/1R4K1 b - - 5 24",
+           *           "line": "a8b8 b1b8 e7f8 b8f8 f7f8 g6e7",
+           *           "rating": 1707
            *         },
            *         {
-           *           "id": "vDpWz",
-           *           "fen": "2kr2nr/pppq2bp/2n5/1N1p2p1/4p3/4P1BP/PPP1NPP1/R2Q1RK1 b - - 4 14",
-           *           "line": "g7e5 b5a7 c6a7 g3e5",
-           *           "rating": 1724
+           *           "id": "RWGfE",
+           *           "fen": "3rkbr1/pp3p1p/5p2/2p5/2P1P1b1/q2n1N2/P1QBB1PP/1R3K1R b - - 11 19",
+           *           "line": "b7b6 b1b3 a3a4 e2d3 g4f3 g2f3",
+           *           "rating": 1726
            *         },
            *         {
-           *           "id": "IjTxR",
-           *           "fen": "6k1/5pp1/1R2p2p/8/PQ1q4/1P4KP/5r2/5R2 b - - 0 34",
-           *           "line": "d4b4 b6b4 f2f1 a4a5",
-           *           "rating": 1736
+           *           "id": "52zOY",
+           *           "fen": "8/p1r2k1p/1p3p2/1P1p4/1QbBnPqN/6P1/P6P/4R1K1 b - - 2 40",
+           *           "line": "e4g3 h2g3 g4g3 h4g2",
+           *           "rating": 1737
            *         },
            *         {
-           *           "id": "J6xkT",
-           *           "fen": "2r3k1/ppqn1pp1/2r1p1np/3pP3/3P4/1P3N2/P2QNPPP/2R2R1K b - - 9 20",
-           *           "line": "c6c2 c1c2 c7c2 f1c1 c2c1 e2c1",
-           *           "rating": 1748
+           *           "id": "fT2rI",
+           *           "fen": "8/4n1p1/p2BPk1p/PB1p4/1P1P4/2P2K2/3b4/8 b - - 0 45",
+           *           "line": "a6b5 d6e7 f6e7 a5a6",
+           *           "rating": 1753
            *         },
            *         {
-           *           "id": "7YT0R",
-           *           "fen": "3R4/8/1p2rpk1/p5p1/1p4P1/1P3K2/P1PR1P2/r7 b - - 6 36",
-           *           "line": "a1a2 d2d7 a2c2 d8g8",
-           *           "rating": 1834
+           *           "id": "YGDJo",
+           *           "fen": "5n2/p1n5/1pP1kqp1/7p/1P3N2/P1Q1P3/7K/8 b - - 13 40",
+           *           "line": "e6f5 e3e4 f5f4 c3f6",
+           *           "rating": 1829
            *         },
            *         {
-           *           "id": "38RRz",
-           *           "fen": "5r1k/1r6/3qBp1Q/p7/1p6/6R1/PPP3PP/1K6 b - - 0 35",
-           *           "line": "b7h7 h6f6 f8f6 g3g8",
-           *           "rating": 1856
+           *           "id": "rH2VZ",
+           *           "fen": "r3kb1r/1pp2pp1/p1n2q1p/4N3/Q2PB1b1/2P1P1P1/PP3PP1/R3K2R b KQkq - 1 13",
+           *           "line": "g4d7 e5d7 e8d7 d4d5 b7b5 d5c6",
+           *           "rating": 1875
            *         },
            *         {
-           *           "id": "K95BD",
-           *           "fen": "6K1/5R2/R3P3/P2p1n2/4k3/2b5/r6P/8 b - - 0 51",
-           *           "line": "a2a5 a6a5 c3a5 f7f5 e4f5 e6e7",
-           *           "rating": 1883
+           *           "id": "aKemL",
+           *           "fen": "r1b1kbnr/ppppqppp/6n1/1N2P3/3P4/8/PPP1QPPP/R1B1KB1R b KQkq - 4 8",
+           *           "line": "d7d6 b5c7 e8d8 c7a8",
+           *           "rating": 1899
            *         },
            *         {
-           *           "id": "83fBE",
-           *           "fen": "8/8/prp5/4R2p/1P2P2k/P4K2/8/8 b - - 0 44",
-           *           "line": "b6b5 e5b5 c6b5 f3f4",
-           *           "rating": 1915
+           *           "id": "pYMPH",
+           *           "fen": "r1bqkb1r/p1pn3p/2p1pp2/3p2B1/3N4/3P4/PPP2PPP/RN1QK2R b KQkq - 1 9",
+           *           "line": "f6g5 d1h5 e8e7 d4c6 e7d6 c6d8",
+           *           "rating": 1925
            *         },
            *         {
-           *           "id": "1Bl1P",
-           *           "fen": "8/5p2/3pk1p1/2p1P1Pp/p1P4P/P1Q5/2P2K2/3q4 b - - 0 38",
-           *           "line": "d1d4 c3d4 c5d4 e5d6 e6d6 f2e2",
-           *           "rating": 1936
+           *           "id": "zwwhE",
+           *           "fen": "r7/2P2pkp/4p1p1/8/3bN3/1R4PP/5PK1/8 b - - 0 39",
+           *           "line": "a8c8 e4d6 c8c7 d6e8 g7g8 e8c7",
+           *           "rating": 1940
            *         },
            *         {
-           *           "id": "DWLl0",
-           *           "fen": "1k3r2/4p3/P2r2p1/2pn4/7Q/1q4PP/5P2/3RR1K1 b - - 0 41",
-           *           "line": "b8a7 d1d5 b3d5 h4e7 d6d7 e7f8",
-           *           "rating": 1959
+           *           "id": "pe36T",
+           *           "fen": "6k1/pbp1R1pp/1p6/8/2P3P1/1PKB4/P4r2/8 b - - 4 36",
+           *           "line": "f2f7 e7e8 f7f8 d3h7 g8f7 h7g6",
+           *           "rating": 1967
            *         },
            *         {
-           *           "id": "ujDJP",
-           *           "fen": "2r5/3r1kpp/P1N2p2/P2P4/3R1P2/5K2/8/8 b - - 0 41",
-           *           "line": "c8c6 d5c6 d7d4 c6c7 d4c4 a6a7",
-           *           "rating": 1996
+           *           "id": "J1B1v",
+           *           "fen": "6k1/4rp2/6p1/1p1p4/3q4/3PpR1Q/2r3PP/4R2K b - - 1 29",
+           *           "line": "c2f2 h3c8 g8g7 f3h3 d4h4 h3h4",
+           *           "rating": 1988
            *         },
            *         {
-           *           "id": "qvrsM",
-           *           "fen": "8/1p1r2k1/p4p2/r1Pp1P1B/3P3p/7R/5PK1/8 b - - 3 47",
-           *           "line": "a5a4 h5e8 a4d4 e8d7",
-           *           "rating": 2010
+           *           "id": "GkNRd",
+           *           "fen": "3r1rk1/1p2bppp/p1q1b3/2p5/4B3/4BP2/PPP3PP/R1QR2K1 b - - 5 17",
+           *           "line": "e6d5 d1d5 d8d5 c2c4 d5d6 e4c6",
+           *           "rating": 2007
            *         },
            *         {
-           *           "id": "o8Tho",
-           *           "fen": "2kr3r/pp1qb2p/3p2p1/2p2b2/PPB2P2/2N5/2nB1QPP/R3R1K1 b - - 0 20",
-           *           "line": "c2a1 c4b5 e7f6 b5d7",
-           *           "rating": 2023
+           *           "id": "SvmVG",
+           *           "fen": "r2r1k2/p4ppp/3p2n1/6Q1/3N4/2P5/Pq3PPP/1R2R1K1 b - - 1 21",
+           *           "line": "d8e8 e1e8 a8e8 d4e6 e8e6 g5d8 e6e8 d8e8 f8e8 b1b2",
+           *           "rating": 2018
            *         },
            *         {
-           *           "id": "ieNOZ",
-           *           "fen": "1k3r2/ppqn4/2pb2p1/3pprPp/7P/1P1PRN1Q/PBP2P2/1K2R3 b - - 3 24",
-           *           "line": "d5d4 f3d4 e5d4 e3e8 c7c8 e8c8",
+           *           "id": "Z9d0B",
+           *           "fen": "r3kb1r/pp3ppp/2p1pq2/3P1n2/5N2/3Q1P2/PPPB2PP/R4RK1 b kq - 0 15",
+           *           "line": "c6d5 d3b5 e8d8 b5b7",
            *           "rating": 2036
            *         },
            *         {
-           *           "id": "yrCzf",
-           *           "fen": "r4rk1/pp3ppp/1n6/1Q1p4/3P2b1/P1q2N2/4BPPP/R3R1K1 b - - 3 18",
-           *           "line": "f8e8 e1c1 g4f3 c1c3",
+           *           "id": "vdTvR",
+           *           "fen": "3r1r1k/p3q1p1/1pQb2Pp/3Rp1p1/4P3/3R1PB1/P5K1/8 b - - 11 37",
+           *           "line": "e7f6 d5d6 d8d6 c6d6 f6d6 d3d6",
            *           "rating": 2048
            *         },
            *         {
-           *           "id": "3IOqD",
-           *           "fen": "5rr1/p3k3/2p5/2N1p3/1P2P2p/P1PPp2b/4R1PK/R7 b - - 3 31",
-           *           "line": "h3g2 e2g2 g8g2 h2g2 f8f2 g2h3",
-           *           "rating": 2056
+           *           "id": "glKGa",
+           *           "fen": "8/p6p/1pk2pp1/2p1pP2/2NnP1PP/PP2K3/8/8 b - - 1 34",
+           *           "line": "d4b3 f5g6 h7g6 h4h5 g6h5 g4h5",
+           *           "rating": 2067
            *         },
            *         {
-           *           "id": "LjofT",
-           *           "fen": "8/3k3p/p3p1p1/P1P3P1/1pK1P2P/8/8/8 b - - 3 43",
-           *           "line": "d7c6 c4b4 c6d7 b4c4 d7c7 c4d4 c7c6 d4e5",
-           *           "rating": 2071
+           *           "id": "G7VSz",
+           *           "fen": "8/1p4R1/4p3/3rPkp1/8/4K1P1/5P2/8 b - - 4 40",
+           *           "line": "b7b6 f2f4 g5f4 g3f4 d5e5 f4e5",
+           *           "rating": 2076
            *         },
            *         {
-           *           "id": "g3urn",
-           *           "fen": "6k1/3R2pp/p3pr2/qp3p2/8/1B6/PP3PPP/2R3K1 b - - 1 23",
-           *           "line": "a5b4 c1c8 f6f8 b3e6 g8h8 c8f8 b4f8 d7c7",
-           *           "rating": 2085
+           *           "id": "sF6cP",
+           *           "fen": "3rr1k1/2p2ppp/pp2bq2/2n5/7P/2N5/PPPR1QP1/1K3B1R b - - 0 22",
+           *           "line": "e6a2 b1a2 d8d2 f2d2",
+           *           "rating": 2089
            *         },
            *         {
-           *           "id": "j0kf7",
-           *           "fen": "6k1/pp1bR3/5np1/7r/3q2n1/2N2BPp/PP2QP1P/6K1 b - - 1 30",
-           *           "line": "d4d6 e2c4 g8h8 c4f7 d6e7 f7e7 h5e5 e7f8",
-           *           "rating": 2098
+           *           "id": "7YkHn",
+           *           "fen": "4r1k1/p4pN1/1p1qr2p/2pn4/1P1p3R/P4PP1/3Q1PK1/7R b - - 0 28",
+           *           "line": "e6e2 g7e8 e2d2 e8d6",
+           *           "rating": 2104
            *         },
            *         {
-           *           "id": "sJRPL",
-           *           "fen": "r1q2rk1/1pp3pp/p1np4/4pPQ1/7N/2P3P1/P1P3KP/1R3R2 b - - 1 17",
-           *           "line": "g8h8 h4g6 h8g8 g6f8",
-           *           "rating": 2112
+           *           "id": "j7Rjj",
+           *           "fen": "1rb1kb1r/3pqp1p/pn3P2/4p1QB/1p6/1P2B3/6PP/5RK1 b k - 0 23",
+           *           "line": "e7e6 h5f7 e6f7 g5e5 e8d8 e5b8",
+           *           "rating": 2111
            *         },
            *         {
-           *           "id": "V0Hwn",
-           *           "fen": "8/8/3kp3/1P2bp1p/2K2P2/4B2P/8/8 b - - 0 47",
-           *           "line": "e5g7 e3d4 g7h6 d4e5",
-           *           "rating": 2127
+           *           "id": "fgreb",
+           *           "fen": "6k1/2r4p/1pP5/1P3p2/4p3/2R5/1r3P1P/3R2K1 b - - 1 33",
+           *           "line": "b2b5 d1d7 c7d7 c6d7 b5d5 c3c8",
+           *           "rating": 2120
            *         },
            *         {
-           *           "id": "ik9sh",
-           *           "fen": "r1b2rk1/pp1nqppp/2n1p3/4P3/6Q1/2NB1N2/PP3PPP/R3K2R b KQ - 4 12",
-           *           "line": "d7e5 d3h7 g8h7 g4h5 h7g8 f3g5 e7g5 h5g5",
-           *           "rating": 2141
+           *           "id": "paaOW",
+           *           "fen": "2BQ4/6Rp/4P3/2Pp1p1k/br1P4/1p2q3/7K/8 b - - 0 40",
+           *           "line": "b4d4 g7h7 h5g4 h7h4 g4f3 h4h3 f3f2 h3e3",
+           *           "rating": 2135
            *         },
            *         {
-           *           "id": "wotWK",
-           *           "fen": "3k4/3b2p1/p4p2/2PK1P2/1P4P1/P2P4/8/8 b - - 0 38",
-           *           "line": "d7b5 d5e6 b5d3 e6f7",
-           *           "rating": 2150
+           *           "id": "NBV0m",
+           *           "fen": "r2q1rk1/ppp2pb1/3nb1pp/8/8/2NB1N2/PP1Q1PPP/3RR1K1 b - - 1 15",
+           *           "line": "d6c4 d3c4 e6c4 d2f4",
+           *           "rating": 2143
            *         },
            *         {
-           *           "id": "r4ema",
-           *           "fen": "2krQ3/ppp2ppp/5q2/2Pn4/2B2p2/8/PP4PP/R1B1R1K1 b - - 0 18",
-           *           "line": "d8e8 e1e8 c8d7 e8e4",
-           *           "rating": 2161
+           *           "id": "W8D1X",
+           *           "fen": "5r2/4N3/p1R1p3/1k1p4/P2P2qr/6P1/1P3P2/5RK1 b - - 0 37",
+           *           "line": "b5a4 c6b6 g4g3 f2g3 f8f1 g1f1",
+           *           "rating": 2154
            *         },
            *         {
-           *           "id": "Cq8WQ",
-           *           "fen": "r2r2k1/p3bp1p/1p2pnp1/8/2qP4/2N2PP1/PBQ3KP/2R2R2 b - - 1 18",
-           *           "line": "c4d4 c3e4 d4e3 b2f6 e7f6 e4f6",
-           *           "rating": 2172
+           *           "id": "HYmzY",
+           *           "fen": "3r3k/5p1p/3P4/8/R3Q3/1P2p3/K1Pq4/8 b - - 8 37",
+           *           "line": "d8d6 e4e5 h8g8 a4a8 d6d8 e5g5",
+           *           "rating": 2169
            *         },
            *         {
-           *           "id": "tJAIZ",
-           *           "fen": "2R5/rp4k1/3r2p1/q2Bp3/2Q1PpPb/8/P7/1R4K1 b - - 1 32",
-           *           "line": "a5d2 c4c7 g7h6 c8h8 h6g5 c7e7 d6f6 e7e5",
-           *           "rating": 2185
+           *           "id": "QqJEy",
+           *           "fen": "r7/7k/p4Qp1/1p3b2/4p3/2P2q2/PPB5/1K1R4 b - - 2 32",
+           *           "line": "e4e3 d1d7 h7h6 f6h4 f3h5 h4f4",
+           *           "rating": 2180
            *         },
            *         {
-           *           "id": "AHVsM",
-           *           "fen": "2r3k1/1b3ppp/p4q2/1p1p1r2/4p2n/P1P2PQP/1P2N1P1/1B1R1RK1 b - - 0 28",
-           *           "line": "e4f3 b1f5 f3e2 f5c8 e2f1r d1f1",
-           *           "rating": 2198
+           *           "id": "9v76Q",
+           *           "fen": "2k5/pb3P2/1pnqp2p/3p3P/P1pP1Pr1/2P5/2PQ4/1R1KR3 b - - 0 28",
+           *           "line": "d6f4 d2e2 f4f7 e2g4",
+           *           "rating": 2196
            *         },
            *         {
-           *           "id": "KzrTm",
-           *           "fen": "r3k3/3p1p2/p3pBrp/q2bPp2/7Q/6P1/PR3P1P/2R3K1 b q - 4 25",
-           *           "line": "a5a3 c1b1 a3b2 b1b2",
-           *           "rating": 2210
+           *           "id": "HIjI8",
+           *           "fen": "7r/2pk2pp/p7/P5B1/3Q3P/P4q2/2P1rP2/1R4K1 b - - 4 26",
+           *           "line": "d7e6 d4c4 e6f5 c4f7 f5g4 b1b4 e2e4 f7e6",
+           *           "rating": 2211
            *         },
            *         {
-           *           "id": "R6N3T",
-           *           "fen": "r1b1k3/p2p1p2/2p1pP1Q/q7/6B1/2P5/P1P2PrP/R3K2R b KQq - 0 16",
-           *           "line": "a5c3 e1f1 c3c4 g4e2 g2f2 f1f2",
-           *           "rating": 2222
+           *           "id": "hIwiE",
+           *           "fen": "8/7p/8/5pPP/2p1k3/8/2K5/8 b - - 0 52",
+           *           "line": "e4e5 h5h6 e5f4 g5g6",
+           *           "rating": 2224
            *         },
            *         {
-           *           "id": "9KxQx",
-           *           "fen": "8/4k3/6Kp/1Pr3p1/5p2/1R5P/8/8 b - - 8 44",
-           *           "line": "h6h5 b5b6 c5c8 g6g5",
-           *           "rating": 2236
+           *           "id": "jN5Ts",
+           *           "fen": "r4rk1/1R1R3p/5ppq/8/p2QP3/2P5/2P2P2/5K2 b - - 1 33",
+           *           "line": "a4a3 d4c4 g8h8 c4c7 h6h1 f1e2 h1e4 e2d2",
+           *           "rating": 2242
            *         },
            *         {
-           *           "id": "9t7Ke",
-           *           "fen": "rnbq2kr/ppp3b1/3p1RQp/8/3BP3/3P4/PPP3pP/RN4K1 b - - 0 14",
-           *           "line": "h8h7 g6f7 g8h8 f7f8 g7f8 f6f8",
-           *           "rating": 2255
+           *           "id": "6tSB4",
+           *           "fen": "2r1k2r/3b3p/1p2Rpp1/p7/3p1PQ1/6PK/P1q4P/1N2R3 b k - 0 32",
+           *           "line": "d7e6 g4e6 e8f8 e6f6 f8g8 f6e6",
+           *           "rating": 2252
            *         },
            *         {
-           *           "id": "PzqPf",
-           *           "fen": "3rb1r1/1k3p2/1Pp5/p2pP2p/P2PpQ2/1RN4q/R5P1/6K1 b - - 1 32",
-           *           "line": "h3d3 e5e6 d3g3 e6f7 g3f4 f7g8q",
-           *           "rating": 2269
+           *           "id": "M98Hk",
+           *           "fen": "7r/1pq3kp/3pB1pR/2pPb1P1/5r2/pP1Q4/P1P5/1K5R b - - 5 27",
+           *           "line": "c7e7 h6h7 h8h7 h1h7 g7f8 h7e7",
+           *           "rating": 2273
            *         },
            *         {
-           *           "id": "vfXw2",
-           *           "fen": "2r5/5p2/p4P2/1p1pP1kp/2rP4/P1P2R2/3B3P/7K b - - 2 39",
-           *           "line": "g5g4 h1g2 h5h4 h2h3 g4h5 f3f5 h5g6 f5g5",
+           *           "id": "z57yq",
+           *           "fen": "8/2r3k1/3R2R1/1p2P1p1/6Pp/4r2P/6K1/8 b - - 11 48",
+           *           "line": "g7f7 d6f6 f7e8 g6g8 e8d7 f6d6 d7e7 g8g7 e7f8 g7c7",
            *           "rating": 2282
            *         },
            *         {
-           *           "id": "WmgaQ",
-           *           "fen": "r1bq1rk1/2p5/p2pnp1Q/1p4b1/1P2P3/N1PP2R1/P3BKP1/R7 b - - 1 20",
-           *           "line": "g8f7 h6h7 e6g7 e2h5 f7e6 h7g7",
-           *           "rating": 2300
+           *           "id": "zPOBo",
+           *           "fen": "8/8/7p/1BKPkp1P/b5p1/8/6P1/8 b - - 1 43",
+           *           "line": "f5f4 b5a4 f4f3 g2g3 f3f2 a4b5",
+           *           "rating": 2297
            *         },
            *         {
-           *           "id": "2gRto",
-           *           "fen": "r5k1/5rb1/3pp3/2p3Q1/4q3/pPP2pP1/P4B1R/2K4R b - - 0 42",
-           *           "line": "f7f5 g5g6 g8f8 h2h8",
-           *           "rating": 2315
+           *           "id": "6b1KE",
+           *           "fen": "r4rk1/pp3ppp/5n1B/7q/2PP4/3B1b2/P1PQ1P1P/R3K1R1 b Q - 2 15",
+           *           "line": "h5h2 g1g7 g8h8 d2g5 a8e8 e1d2 h2f2 d2c3 f6e4 d3e4 f2d4 c3d4",
+           *           "rating": 2309
            *         },
            *         {
-           *           "id": "mGEvr",
-           *           "fen": "r3r1k1/pp5p/2n2pp1/2p4b/6NQ/2P1p3/PP1qPPB1/R4K1R b - - 1 19",
-           *           "line": "e3f2 g2d5 d2d5 g4f6 g8g7 f6d5",
-           *           "rating": 2334
+           *           "id": "EAPaS",
+           *           "fen": "6k1/p6p/1b3N2/1Q4K1/4q3/P5P1/2P1p2P/6r1 b - - 1 38",
+           *           "line": "g8g7 b5d7 g7f8 d7c8 f8f7 c8g8",
+           *           "rating": 2337
            *         },
            *         {
-           *           "id": "DUn4a",
-           *           "fen": "r3r3/pp3Q1p/6p1/2P2pk1/2B1b3/8/Pb2R1PP/7K b - - 5 31",
-           *           "line": "a8d8 h2h4 g5h4 e2b2",
-           *           "rating": 2352
+           *           "id": "PJswp",
+           *           "fen": "6k1/2p3b1/p3p1q1/1pBrPp2/1Pn1NP2/2P2QR1/P4PKP/2r5 b - - 7 35",
+           *           "line": "g6h6 e4f6 g8f7 f6d5 c4d2 f3e3",
+           *           "rating": 2354
            *         },
            *         {
-           *           "id": "9eIGY",
-           *           "fen": "R7/5p1p/p5pk/3p2n1/5Q1P/4P3/4rPPK/4q3 b - - 0 39",
-           *           "line": "e1f2 f4g5 h6g7 h4h5 h7h6 g5e5 f2f6 a8g8 g7g8 e5f6",
-           *           "rating": 2357
+           *           "id": "fg9uw",
+           *           "fen": "r3n1k1/p5bp/1pq3p1/2p5/8/1PP2N2/PB2Q1PP/2R2K2 b - - 1 22",
+           *           "line": "e8d6 e2e6 g8h8 c1d1 c6e4 e6d6",
+           *           "rating": 2361
            *         },
            *         {
-           *           "id": "4Kjh3",
-           *           "fen": "k3r3/pp4b1/2p1qp1p/Q1P3p1/N1N2nP1/1P6/P4P2/1K1R4 b - - 3 40",
-           *           "line": "e6e4 b1b2 f4d3 b2a3",
-           *           "rating": 2368
+           *           "id": "UaOV4",
+           *           "fen": "r1bq1k1r/pppp1Bpp/2n5/4P1B1/1bQ5/2n2N2/P4PPP/R4K1R b - - 3 12",
+           *           "line": "d7d5 c4f4 d8d7 f7e6 f8e8 e6d7",
+           *           "rating": 2374
            *         },
            *         {
-           *           "id": "DrqMn",
-           *           "fen": "6k1/pb3rP1/1p2pr2/3p4/2pP4/q1P4Q/2PK1P1P/3R2R1 b - - 0 31",
-           *           "line": "f6f2 d2e1 f2h2 h3h2 a3c3 d1d2 c3e3 e1d1",
-           *           "rating": 2378
+           *           "id": "6q7pY",
+           *           "fen": "8/8/2p5/pp3p1p/2kPpPpP/P1P3P1/1PK5/8 b - - 3 52",
+           *           "line": "e4e3 b2b3 c4d5 c2d3 e3e2 c3c4",
+           *           "rating": 2386
            *         },
            *         {
-           *           "id": "Er54g",
-           *           "fen": "2kr4/Qpp1qp2/2b1p3/7p/8/2BPnN1P/PPP3r1/2KR1R2 b - - 3 23",
-           *           "line": "e3d1 f3e5 e7g5 c1d1 g2d2 c3d2",
-           *           "rating": 2391
+           *           "id": "WU2iW",
+           *           "fen": "rnb1rk2/ppp4p/6pb/q3P3/2B1Q3/2P5/P5PP/3R1RK1 b - - 0 20",
+           *           "line": "c8f5 f1f5 f8g7 f5f7 g7h8 e4h4 a5b6 g1h1",
+           *           "rating": 2399
            *         },
            *         {
-           *           "id": "u6R2z",
-           *           "fen": "4b1k1/2p3p1/6P1/2rP1P2/1p4KP/2bR4/3R4/8 b - - 4 45",
-           *           "line": "e8b5 d2a2 g8f8 d3e3 b5c6 d5c6",
-           *           "rating": 2405
+           *           "id": "ruvnu",
+           *           "fen": "2k2Q2/p5p1/2r5/1p3p1p/4q2b/1PP4P/P3p1PB/4R2K b - - 7 35",
+           *           "line": "c8b7 f8b8 b7a6 h2g1 c6b6 g1b6",
+           *           "rating": 2413
            *         },
            *         {
-           *           "id": "gPgCF",
-           *           "fen": "8/7p/8/3Bkp2/8/4K1P1/5P2/8 b - - 0 45",
-           *           "line": "e5d5 e3f4 d5e6 f4g5 e6e5 f2f3 f5f4 g3g4",
-           *           "rating": 2418
+           *           "id": "09L17",
+           *           "fen": "8/8/1p1P1k2/p4P1p/1P2K3/8/8/8 b - - 0 55",
+           *           "line": "a5b4 e4d5 b4b3 d6d7 f6e7 d5c6 b3b2 f5f6 e7f7 d7d8q b2b1q d8e7 f7g6 e7g7 g6f5 g7h7 f5f6 h7b1",
+           *           "rating": 2424
            *         },
            *         {
-           *           "id": "HnUJW",
-           *           "fen": "5r2/pp1nk1pQ/4p1N1/3p1B2/8/P7/1q3PPP/2r1R1K1 b - - 3 26",
-           *           "line": "e7f6 h7h4 f6f7 h4e7 f7g8 f5e6 g8h7 g6f8 d7f8 e7h4",
-           *           "rating": 2435
+           *           "id": "sXZNJ",
+           *           "fen": "2r3k1/p2P1ppp/5q2/Q2p4/3np3/B3P1Pb/P3BP1P/3R3K b - - 0 28",
+           *           "line": "h3d7 e3d4 f6f2 a5e1",
+           *           "rating": 2444
            *         },
            *         {
-           *           "id": "WZObX",
-           *           "fen": "r2q1rk1/pp2bppp/3p4/4n1P1/3NP3/2N3nP/PPP2R2/R1BQ2K1 b - - 3 15",
-           *           "line": "e7g5 f2g2 g5c1 a1c1 g3e4 c3e4",
-           *           "rating": 2461
+           *           "id": "M2T99",
+           *           "fen": "8/k7/3K4/2Q2p2/8/8/6P1/4q3 b - - 1 54",
+           *           "line": "a7a6 d6c7 e1g3 c5d6 g3d6 c7d6",
+           *           "rating": 2458
            *         },
            *         {
-           *           "id": "2XP1b",
-           *           "fen": "r1bq1k1r/pp4pp/2p2p2/2bnn2Q/2B2B2/2NP4/PPP2PPP/R3R1K1 b - - 1 11",
-           *           "line": "d5c3 e1e5 c3d5 c4d5 c6d5 e5d5",
+           *           "id": "yLsF4",
+           *           "fen": "r1b2r2/ppq3k1/2nRp3/5pR1/4Q3/PP4P1/4P2P/7K b - - 0 24",
+           *           "line": "g7f6 e4f5 f6e7 g5g7 e7d6 f5d3",
            *           "rating": 2476
            *         },
            *         {
-           *           "id": "wq8xF",
-           *           "fen": "3rr1k1/ppp2ppp/2n3q1/2BNp3/8/5NP1/PP1Q1P1P/3R1K2 b - - 2 18",
-           *           "line": "b7b6 d5e7 c6e7 d2d8 f7f6 f3h4 g6h5 g3g4",
-           *           "rating": 2497
+           *           "id": "N1FQs",
+           *           "fen": "5nk1/p4rpp/1p2p3/4P1QP/1P3P2/P1q5/2pR2P1/2B4K b - - 3 31",
+           *           "line": "f7d7 d2d7 f8d7 h5h6 g8f7 h6g7",
+           *           "rating": 2496
            *         }
            *       ],
-           *       "startsAt": 1758108999053,
-           *       "finishesAt": 1758109089053
+           *       "startsAt": 1758635599928,
+           *       "finishesAt": 1758635689928
            *     } */
           "application/json": components["schemas"]["PuzzleRaceResults"];
         };
@@ -10948,35 +11099,35 @@ export interface operations {
            *             "prov": true
            *           },
            *           "bullet": {
-           *             "games": 7474,
-           *             "rating": 1767,
-           *             "rd": 79,
-           *             "prog": -36
+           *             "games": 7475,
+           *             "rating": 1787,
+           *             "rd": 78,
+           *             "prog": -6
            *           },
            *           "blitz": {
-           *             "games": 11535,
-           *             "rating": 1772,
+           *             "games": 11536,
+           *             "rating": 1778,
            *             "rd": 47,
            *             "prog": 3
            *           },
            *           "rapid": {
            *             "games": 873,
            *             "rating": 1746,
-           *             "rd": 130,
+           *             "rd": 131,
            *             "prog": -71,
            *             "prov": true
            *           },
            *           "classical": {
            *             "games": 24,
            *             "rating": 1806,
-           *             "rd": 245,
+           *             "rd": 246,
            *             "prog": -5,
            *             "prov": true
            *           },
            *           "correspondence": {
            *             "games": 377,
            *             "rating": 1942,
-           *             "rd": 147,
+           *             "rd": 148,
            *             "prog": -12,
            *             "prov": true
            *           },
@@ -11004,14 +11155,14 @@ export interface operations {
            *           "antichess": {
            *             "games": 72,
            *             "rating": 1512,
-           *             "rd": 271,
+           *             "rd": 272,
            *             "prog": -20,
            *             "prov": true
            *           },
            *           "atomic": {
            *             "games": 99,
            *             "rating": 1633,
-           *             "rd": 287,
+           *             "rd": 288,
            *             "prog": 18,
            *             "prov": true
            *           },
@@ -11032,14 +11183,14 @@ export interface operations {
            *           "crazyhouse": {
            *             "games": 50,
            *             "rating": 1567,
-           *             "rd": 285,
+           *             "rd": 286,
            *             "prog": -34,
            *             "prov": true
            *           },
            *           "puzzle": {
-           *             "games": 5693,
-           *             "rating": 1912,
-           *             "rd": 72,
+           *             "games": 5696,
+           *             "rating": 1954,
+           *             "rd": 71,
            *             "prog": 0
            *           },
            *           "storm": {
@@ -11047,7 +11198,7 @@ export interface operations {
            *             "score": 33
            *           },
            *           "racer": {
-           *             "runs": 81,
+           *             "runs": 82,
            *             "score": 51
            *           },
            *           "streak": {
@@ -11057,6 +11208,7 @@ export interface operations {
            *         },
            *         "flair": "nature.seedling",
            *         "patron": true,
+           *         "patronColor": 9,
            *         "verified": true,
            *         "createdAt": 1290415680000,
            *         "profile": {
@@ -11064,9 +11216,9 @@ export interface operations {
            *           "realName": "Thibault Duplessis",
            *           "links": "github.com/ornicar\r\nmas.to/@thibault"
            *         },
-           *         "seenAt": 1758104278333,
+           *         "seenAt": 1758635849909,
            *         "playTime": {
-           *           "total": 6435880,
+           *           "total": 6436845,
            *           "tv": 17974
            *         }
            *       },
@@ -11075,28 +11227,28 @@ export interface operations {
            *         "username": "maia1",
            *         "perfs": {
            *           "bullet": {
-           *             "games": 192504,
-           *             "rating": 1667,
+           *             "games": 193064,
+           *             "rating": 1512,
            *             "rd": 45,
-           *             "prog": -16
+           *             "prog": 17
            *           },
            *           "blitz": {
-           *             "games": 355568,
-           *             "rating": 1436,
+           *             "games": 357366,
+           *             "rating": 1412,
            *             "rd": 45,
-           *             "prog": -30
+           *             "prog": -12
            *           },
            *           "rapid": {
-           *             "games": 404838,
-           *             "rating": 1529,
+           *             "games": 408246,
+           *             "rating": 1590,
            *             "rd": 45,
-           *             "prog": -45
+           *             "prog": -25
            *           },
            *           "classical": {
-           *             "games": 118131,
-           *             "rating": 1672,
+           *             "games": 118909,
+           *             "rating": 1626,
            *             "rd": 45,
-           *             "prog": 9
+           *             "prog": 10
            *           },
            *           "correspondence": {
            *             "games": 265,
@@ -11114,9 +11266,9 @@ export interface operations {
            *           "realName": "Maia Chess 1100",
            *           "links": "https://maiachess.com\r\nhttps://github.com/CSSLab/maia-chess\r\nhttps://twitter.com/maiachess"
            *         },
-           *         "seenAt": 1758106110635,
+           *         "seenAt": 1758635494337,
            *         "playTime": {
-           *           "total": 1077845090,
+           *           "total": 1083092110,
            *           "tv": 3019408
            *         }
            *       },
@@ -11125,28 +11277,28 @@ export interface operations {
            *         "username": "maia5",
            *         "perfs": {
            *           "bullet": {
-           *             "games": 58974,
-           *             "rating": 1571,
+           *             "games": 59096,
+           *             "rating": 1569,
            *             "rd": 45,
-           *             "prog": -4
+           *             "prog": 17
            *           },
            *           "blitz": {
-           *             "games": 161048,
-           *             "rating": 1520,
+           *             "games": 161720,
+           *             "rating": 1485,
            *             "rd": 45,
-           *             "prog": -40
+           *             "prog": -7
            *           },
            *           "rapid": {
-           *             "games": 176004,
-           *             "rating": 1620,
+           *             "games": 176792,
+           *             "rating": 1640,
            *             "rd": 45,
-           *             "prog": -17
+           *             "prog": -14
            *           },
            *           "classical": {
-           *             "games": 42881,
-           *             "rating": 1665,
+           *             "games": 43066,
+           *             "rating": 1621,
            *             "rd": 45,
-           *             "prog": 3
+           *             "prog": 8
            *           },
            *           "correspondence": {
            *             "games": 18,
@@ -11164,9 +11316,9 @@ export interface operations {
            *           "realName": "Maia Chess 1500",
            *           "links": "https://maiachess.com\r\ngithub.com/CSSLab/maia-chess\r\nhttps://twitter.com/maiachess"
            *         },
-           *         "seenAt": 1758106473265,
+           *         "seenAt": 1758635443518,
            *         "playTime": {
-           *           "total": 506876472,
+           *           "total": 508638915,
            *           "tv": 3849828
            *         }
            *       }
@@ -11197,116 +11349,117 @@ export interface operations {
            *       "username": "Bobby",
            *       "perfs": {
            *         "bullet": {
-           *           "games": 230,
-           *           "rating": 1762,
-           *           "rd": 45,
-           *           "prog": 0
+           *           "games": 510,
+           *           "rating": 1757,
+           *           "rd": 57,
+           *           "prog": -8
            *         },
            *         "blitz": {
-           *           "games": 45,
-           *           "rating": 1663,
+           *           "games": 61,
+           *           "rating": 1615,
            *           "rd": 45,
-           *           "prog": -41
+           *           "prog": -42
            *         },
            *         "rapid": {
-           *           "games": 209,
-           *           "rating": 1629,
-           *           "rd": 62,
-           *           "prog": -37
+           *           "games": 222,
+           *           "rating": 1725,
+           *           "rd": 49,
+           *           "prog": 31
            *         },
            *         "classical": {
-           *           "games": 61,
-           *           "rating": 1782,
-           *           "rd": 71,
-           *           "prog": -4
+           *           "games": 103,
+           *           "rating": 1758,
+           *           "rd": 111,
+           *           "prog": -31,
+           *           "prov": true
            *         },
            *         "correspondence": {
-           *           "games": 710,
-           *           "rating": 1810,
-           *           "rd": 66,
-           *           "prog": -40
+           *           "games": 24,
+           *           "rating": 1734,
+           *           "rd": 45,
+           *           "prog": 15
            *         },
            *         "chess960": {
-           *           "games": 203,
-           *           "rating": 1695,
+           *           "games": 31,
+           *           "rating": 1631,
            *           "rd": 48,
-           *           "prog": 13
-           *         },
-           *         "kingOfTheHill": {
-           *           "games": 725,
-           *           "rating": 1678,
-           *           "rd": 92,
-           *           "prog": 26
-           *         },
-           *         "threeCheck": {
-           *           "games": 3493,
-           *           "rating": 1653,
-           *           "rd": 52,
-           *           "prog": 23
-           *         },
-           *         "antichess": {
-           *           "games": 464,
-           *           "rating": 1679,
-           *           "rd": 94,
-           *           "prog": 51
-           *         },
-           *         "atomic": {
-           *           "games": 508,
-           *           "rating": 1685,
-           *           "rd": 98,
-           *           "prog": 18
-           *         },
-           *         "horde": {
-           *           "games": 79,
-           *           "rating": 1835,
-           *           "rd": 45,
-           *           "prog": 45
-           *         },
-           *         "crazyhouse": {
-           *           "games": 231,
-           *           "rating": 1614,
-           *           "rd": 64,
            *           "prog": -16
            *         },
+           *         "kingOfTheHill": {
+           *           "games": 38,
+           *           "rating": 1683,
+           *           "rd": 98,
+           *           "prog": 25
+           *         },
+           *         "threeCheck": {
+           *           "games": 7,
+           *           "rating": 1627,
+           *           "rd": 108,
+           *           "prog": -26
+           *         },
+           *         "antichess": {
+           *           "games": 219,
+           *           "rating": 1826,
+           *           "rd": 48,
+           *           "prog": -13
+           *         },
+           *         "atomic": {
+           *           "games": 29,
+           *           "rating": 1728,
+           *           "rd": 83,
+           *           "prog": -4
+           *         },
+           *         "horde": {
+           *           "games": 11,
+           *           "rating": 1809,
+           *           "rd": 53,
+           *           "prog": -44
+           *         },
+           *         "crazyhouse": {
+           *           "games": 351,
+           *           "rating": 1652,
+           *           "rd": 67,
+           *           "prog": -3
+           *         },
            *         "puzzle": {
-           *           "games": 99,
-           *           "rating": 1657,
-           *           "rd": 120,
-           *           "prog": 25,
+           *           "games": 17,
+           *           "rating": 1614,
+           *           "rd": 112,
+           *           "prog": 22,
            *           "prov": true
            *         }
            *       },
            *       "patron": true,
-           *       "patronTier": "months1",
-           *       "createdAt": 1753152844110,
+           *       "patronColor": 1,
+           *       "createdAt": 1749204284150,
            *       "profile": {
-           *         "flag": "BA",
+           *         "flag": "BV",
            *         "location": "Bobby City",
-           *         "bio": "The substance of that earlier work is summarised in the first three chapters of this volume. This is done not merely for the sake of connection and completeness. This presentation of the subject-matter is improved. As far as circumstances in any way permit, many points only hinted at in the earlier book are here worked out more fully, whilst, conve",
+           *         "bio": "Price is the money-name of the labour realised in a commodity. Hence the expression of the equivalence of a commodity with the sum of money constituting its price, is a tautology,[14] just as in general the expression of the relative value of a commodity is a statement of the equivalence of two commodities. But although price, being the exponent of",
            *         "fideRating": 1725,
-           *         "uscfRating": 1739,
-           *         "ecfRating": 1856,
-           *         "rcfRating": 1560,
-           *         "cfcRating": 1719,
-           *         "dsbRating": 1711,
-           *         "links": "https://lichess.org"
+           *         "uscfRating": 1814,
+           *         "ecfRating": 1564,
+           *         "rcfRating": 1633,
+           *         "cfcRating": 1721,
+           *         "dsbRating": 1777,
+           *         "links": "https://en.wikipedia.org/wiki/Srinivasa_Ramanujan\nhttps://lichess.org\nhttps://en.wikipedia.org/wiki/Euler"
            *       },
-           *       "seenAt": 1757335480301,
+           *       "seenAt": 1757757502772,
            *       "playTime": {
-           *         "total": 13656,
+           *         "total": 16188,
            *         "tv": 0
            *       },
            *       "url": "https://lichess.org/@/Bobby",
            *       "count": {
-           *         "all": 7944,
-           *         "rated": 6355,
+           *         "all": 2959,
+           *         "rated": 2367,
            *         "ai": 0,
-           *         "draw": 403,
-           *         "drawH": 403,
-           *         "loss": 3872,
-           *         "lossH": 3872,
-           *         "win": 3669,
-           *         "winH": 3669,
+           *         "draw": 516,
+           *         "drawH": 516,
+           *         "loss": 1246,
+           *         "lossH": 1246,
+           *         "win": 1197,
+           *         "winH": 1197,
            *         "bookmark": 0,
            *         "playing": 0,
            *         "import": 0,
@@ -11497,185 +11650,165 @@ export interface operations {
            *         {
            *           "type": "follow",
            *           "data": {
-           *             "u1": "akeem",
-           *             "u2": "mohammed"
+           *             "u1": "patron11",
+           *             "u2": "jose"
            *           },
-           *           "date": 1758103939748
-           *         },
-           *         {
-           *           "type": "follow",
-           *           "data": {
-           *             "u1": "jacob",
-           *             "u2": "emmanuel"
-           *           },
-           *           "date": 1758081242528
+           *           "date": 1758634096293
            *         },
            *         {
            *           "type": "team-join",
            *           "data": {
-           *             "userId": "abubakar",
-           *             "teamId": "lucena-in-the-sky-with-diamonds"
+           *             "userId": "qing",
+           *             "teamId": "sacsacoops"
            *           },
-           *           "date": 1758078798498
+           *           "date": 1758630695664
            *         },
            *         {
            *           "type": "follow",
            *           "data": {
-           *             "u1": "abubakar",
+           *             "u1": "engine",
            *             "u2": "nushi"
            *           },
-           *           "date": 1758044486322
+           *           "date": 1758622370817
            *         },
            *         {
            *           "type": "team-join",
            *           "data": {
-           *             "userId": "suresh",
-           *             "teamId": "this-team-name-has-been-purchased-by-chesscom"
+           *             "userId": "benjamin",
+           *             "teamId": "anyway-heres-blunderwall"
            *           },
-           *           "date": 1758035083946
+           *           "date": 1758618184685
            *         },
            *         {
            *           "type": "team-join",
            *           "data": {
-           *             "userId": "akeem",
-           *             "teamId": "the-nonspecific-allegation-gambit"
+           *             "userId": "yaroslava",
+           *             "teamId": "captain-james-t-pirc"
            *           },
-           *           "date": 1758005494845
-           *         },
-           *         {
-           *           "type": "team-join",
-           *           "data": {
-           *             "userId": "jacob",
-           *             "teamId": "ive-seen-this-1b4"
-           *           },
-           *           "date": 1757994370456
-           *         },
-           *         {
-           *           "type": "team-join",
-           *           "data": {
-           *             "userId": "patricia",
-           *             "teamId": "the-prep-leaks-for-itself"
-           *           },
-           *           "date": 1757981060327
-           *         },
-           *         {
-           *           "type": "team-join",
-           *           "data": {
-           *             "userId": "suresh",
-           *             "teamId": "the-nonspecific-allegation-gambit"
-           *           },
-           *           "date": 1757975357342
-           *         },
-           *         {
-           *           "type": "team-join",
-           *           "data": {
-           *             "userId": "david",
-           *             "teamId": "the-neal-bruce-experience"
-           *           },
-           *           "date": 1757974703282
+           *           "date": 1758617487558
            *         },
            *         {
            *           "type": "follow",
            *           "data": {
-           *             "u1": "akeem",
+           *             "u1": "nushi",
+           *             "u2": "aaron"
+           *           },
+           *           "date": 1758616944673
+           *         },
+           *         {
+           *           "type": "follow",
+           *           "data": {
+           *             "u1": "engine",
+           *             "u2": "sai"
+           *           },
+           *           "date": 1758587760345
+           *         },
+           *         {
+           *           "type": "follow",
+           *           "data": {
+           *             "u1": "patron11",
+           *             "u2": "ana"
+           *           },
+           *           "date": 1758575320624
+           *         },
+           *         {
+           *           "type": "follow",
+           *           "data": {
+           *             "u1": "nushi",
            *             "u2": "bobby"
            *           },
-           *           "date": 1757974407214
+           *           "date": 1758572527650
            *         },
            *         {
            *           "type": "team-join",
            *           "data": {
-           *             "userId": "akeem",
-           *             "teamId": "the-neal-bruce-experience"
+           *             "userId": "kenneth",
+           *             "teamId": "the-fischermen"
            *           },
-           *           "date": 1757961307888
+           *           "date": 1758557241244
            *         },
            *         {
            *           "type": "follow",
            *           "data": {
-           *             "u1": "suresh",
-           *             "u2": "li"
+           *             "u1": "qing",
+           *             "u2": "ana"
            *           },
-           *           "date": 1757946121869
+           *           "date": 1758555872827
            *         },
            *         {
            *           "type": "team-join",
            *           "data": {
-           *             "userId": "abubakar",
-           *             "teamId": "knights-to-meet-you"
+           *             "userId": "nushi",
+           *             "teamId": "captain-james-t-pirc"
            *           },
-           *           "date": 1757900243363
-           *         },
-           *         {
-           *           "type": "follow",
-           *           "data": {
-           *             "u1": "suresh",
-           *             "u2": "elizabeth"
-           *           },
-           *           "date": 1757840150166
+           *           "date": 1758537737893
            *         }
            *       ],
            *       "users": {
-           *         "elizabeth": {
-           *           "name": "Elizabeth",
-           *           "id": "elizabeth"
+           *         "kenneth": {
+           *           "name": "Kenneth",
+           *           "id": "kenneth"
            *         },
-           *         "david": {
-           *           "name": "David",
-           *           "flair": "people.couple-with-heart-man-man-medium-light-skin-tone-medium-dark-skin-tone",
-           *           "id": "david"
+           *         "ana": {
+           *           "name": "Ana",
+           *           "title": "WNM",
+           *           "flair": "food-drink.ginger",
+           *           "id": "ana"
+           *         },
+           *         "aaron": {
+           *           "name": "Aaron",
+           *           "flair": "people.man-police-officer-medium-dark-skin-tone",
+           *           "id": "aaron"
+           *         },
+           *         "patron11": {
+           *           "name": "Patron11",
+           *           "patron": true,
+           *           "patronColor": 5,
+           *           "id": "patron11"
+           *         },
+           *         "jose": {
+           *           "name": "Jose",
+           *           "flair": "symbols.hole",
+           *           "id": "jose"
+           *         },
+           *         "yaroslava": {
+           *           "name": "Yaroslava",
+           *           "title": "FM",
+           *           "id": "yaroslava"
+           *         },
+           *         "benjamin": {
+           *           "name": "Benjamin",
+           *           "id": "benjamin"
+           *         },
+           *         "engine": {
+           *           "name": "Engine",
+           *           "flair": "people.backhand-index-pointing-up-medium-dark-skin-tone",
+           *           "id": "engine"
+           *         },
+           *         "qing": {
+           *           "name": "Qing",
+           *           "flair": "people.woman-lifting-weights-medium-skin-tone",
+           *           "patron": true,
+           *           "patronColor": 1,
+           *           "id": "qing"
            *         },
            *         "bobby": {
            *           "name": "Bobby",
-           *           "flair": "people.woman-with-veil-light-skin-tone",
+           *           "patron": true,
+           *           "patronColor": 1,
            *           "id": "bobby"
-           *         },
-           *         "abubakar": {
-           *           "name": "Abubakar",
-           *           "id": "abubakar"
            *         },
            *         "nushi": {
            *           "name": "Nushi",
+           *           "flair": "smileys.sleeping-face",
+           *           "patron": true,
+           *           "patronColor": 1,
            *           "id": "nushi"
            *         },
-           *         "jacob": {
-           *           "name": "Jacob",
-           *           "flair": "people.merperson-dark-skin-tone",
-           *           "id": "jacob"
-           *         },
-           *         "akeem": {
-           *           "name": "Akeem",
-           *           "flair": "people.brain",
-           *           "id": "akeem"
-           *         },
-           *         "patricia": {
-           *           "name": "Patricia",
-           *           "flair": "objects.reminder-ribbon",
-           *           "id": "patricia"
-           *         },
-           *         "li": {
-           *           "name": "Li",
-           *           "flair": "people.snowboarder-dark-skin-tone",
-           *           "id": "li"
-           *         },
-           *         "mohammed": {
-           *           "name": "Mohammed",
-           *           "flair": "people.woman-with-veil-medium-skin-tone",
-           *           "id": "mohammed"
-           *         },
-           *         "suresh": {
-           *           "name": "Suresh",
-           *           "flair": "people.person-dark-skin-tone-blond-hair",
-           *           "patron": true,
-           *           "patronTier": "months1",
-           *           "id": "suresh"
-           *         },
-           *         "emmanuel": {
-           *           "name": "Emmanuel",
-           *           "flair": "people.man-in-steamy-room-light-skin-tone",
-           *           "patron": true,
-           *           "patronTier": "months1",
-           *           "id": "emmanuel"
+           *         "sai": {
+           *           "name": "Sai",
+           *           "flair": "people.men-holding-hands",
+           *           "id": "sai"
            *         }
            *       }
            *     } */
@@ -12330,40 +12463,354 @@ export interface operations {
         content: {
           "application/x-chess-pgn": components["schemas"]["GamePgn"];
           /** @example {
-           *       "id": "xerffrRn",
-           *       "rated": false,
+           *       "id": "8y40iLEJ",
+           *       "rated": true,
            *       "variant": "standard",
            *       "speed": "blitz",
            *       "perf": "blitz",
-           *       "createdAt": 1758060605392,
-           *       "lastMoveAt": 1758060605392,
-           *       "status": "aborted",
-           *       "source": "friend",
+           *       "createdAt": 1758409631392,
+           *       "lastMoveAt": 1758409826541,
+           *       "status": "mate",
+           *       "source": "pool",
            *       "players": {
            *         "white": {
+           *           "user": {
+           *             "name": "fiancheeto_bishop",
+           *             "id": "fiancheeto_bishop"
+           *           },
+           *           "rating": 2775,
+           *           "ratingDiff": 3,
+           *           "analysis": {
+           *             "inaccuracy": 3,
+           *             "mistake": 0,
+           *             "blunder": 0,
+           *             "acpl": 18,
+           *             "accuracy": 94
+           *           }
+           *         },
+           *         "black": {
            *           "user": {
            *             "name": "Lance5500",
            *             "title": "LM",
            *             "id": "lance5500"
            *           },
-           *           "rating": 2655
-           *         },
-           *         "black": {
-           *           "user": {
-           *             "name": "bigbishopb8",
-           *             "flair": "activity.diamond-suit",
-           *             "id": "bigbishopb8"
-           *           },
-           *           "rating": 1841
+           *           "rating": 2596,
+           *           "ratingDiff": -3,
+           *           "analysis": {
+           *             "inaccuracy": 4,
+           *             "mistake": 1,
+           *             "blunder": 1,
+           *             "acpl": 43,
+           *             "accuracy": 87
+           *           }
            *         }
            *       },
-           *       "moves": "",
-           *       "clock": {
-           *         "initial": 300,
-           *         "increment": 0,
-           *         "totalTime": 300
+           *       "winner": "white",
+           *       "opening": {
+           *         "eco": "B56",
+           *         "name": "Sicilian Defense: Classical Variation",
+           *         "ply": 10
            *       },
-           *       "division": {}
+           *       "moves": "e4 c5 Nc3 Nc6 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nb3 g6 Be2 Bg7 O-O O-O Bg5 a5 a4 Be6 Re1 h6 Be3 Kh7 Rb1 Rc8 Bb5 Nb4 Nd4 Bc4 f3 Bxb5 Ndxb5 Nd7 Re2 Ne5 Bd4 Nec6 Bxg7 Kxg7 b3 Qb6+ Kh1 Qc5 Qe1 Rfe8 Rd1 Na7 Nxa7 Qxa7 Nb5 Qc5 c3 Nc6 Rd5 Qb6 h4 Na7 h5 Nxb5 Rxb5 Qc6 c4 b6 hxg6 fxg6 e5 Rf8 exd6 exd6 Qc3+ Kg8 Qe3 Rce8 Qxh6 Rxe2 Qxg6+ Kh8 Rh5#",
+           *       "analysis": [
+           *         {
+           *           "eval": 18
+           *         },
+           *         {
+           *           "eval": 24
+           *         },
+           *         {
+           *           "eval": 26
+           *         },
+           *         {
+           *           "eval": 23
+           *         },
+           *         {
+           *           "eval": 19
+           *         },
+           *         {
+           *           "eval": 41
+           *         },
+           *         {
+           *           "eval": 32
+           *         },
+           *         {
+           *           "eval": 34
+           *         },
+           *         {
+           *           "eval": 39
+           *         },
+           *         {
+           *           "eval": 30
+           *         },
+           *         {
+           *           "eval": 18
+           *         },
+           *         {
+           *           "eval": 17
+           *         },
+           *         {
+           *           "eval": 1
+           *         },
+           *         {
+           *           "eval": 0
+           *         },
+           *         {
+           *           "eval": 8
+           *         },
+           *         {
+           *           "eval": 4
+           *         },
+           *         {
+           *           "eval": -3
+           *         },
+           *         {
+           *           "eval": 28
+           *         },
+           *         {
+           *           "eval": 31
+           *         },
+           *         {
+           *           "eval": 36
+           *         },
+           *         {
+           *           "eval": 18
+           *         },
+           *         {
+           *           "eval": 16
+           *         },
+           *         {
+           *           "eval": 17
+           *         },
+           *         {
+           *           "eval": 43
+           *         },
+           *         {
+           *           "eval": 23
+           *         },
+           *         {
+           *           "eval": 22
+           *         },
+           *         {
+           *           "eval": -30
+           *         },
+           *         {
+           *           "eval": 20
+           *         },
+           *         {
+           *           "eval": 20
+           *         },
+           *         {
+           *           "eval": 46
+           *         },
+           *         {
+           *           "eval": -24,
+           *           "best": "b5c4",
+           *           "variation": "Bxc4 Rxc4 f3 e5 Ndb5 d5 Qe2 Rc6 exd5 Nbxd5 Nxd5 Qxd5",
+           *           "judgment": {
+           *             "name": "Inaccuracy",
+           *             "comment": "Inaccuracy. Bxc4 was best."
+           *           }
+           *         },
+           *         {
+           *           "eval": 65,
+           *           "best": "e7e5",
+           *           "variation": "e5",
+           *           "judgment": {
+           *             "name": "Inaccuracy",
+           *             "comment": "Inaccuracy. e5 was best."
+           *           }
+           *         },
+           *         {
+           *           "eval": 48
+           *         },
+           *         {
+           *           "eval": 68
+           *         },
+           *         {
+           *           "eval": 58
+           *         },
+           *         {
+           *           "eval": 68
+           *         },
+           *         {
+           *           "eval": 94
+           *         },
+           *         {
+           *           "eval": 115
+           *         },
+           *         {
+           *           "eval": 122
+           *         },
+           *         {
+           *           "eval": 109
+           *         },
+           *         {
+           *           "eval": 71
+           *         },
+           *         {
+           *           "eval": 69
+           *         },
+           *         {
+           *           "eval": 66
+           *         },
+           *         {
+           *           "eval": 96
+           *         },
+           *         {
+           *           "eval": 9,
+           *           "best": "c3d5",
+           *           "variation": "Nd5 e6",
+           *           "judgment": {
+           *             "name": "Inaccuracy",
+           *             "comment": "Inaccuracy. Nd5 was best."
+           *           }
+           *         },
+           *         {
+           *           "eval": 82,
+           *           "best": "c8d8",
+           *           "variation": "Rcd8",
+           *           "judgment": {
+           *             "name": "Inaccuracy",
+           *             "comment": "Inaccuracy. Rcd8 was best."
+           *           }
+           *         },
+           *         {
+           *           "eval": 79
+           *         },
+           *         {
+           *           "eval": 88
+           *         },
+           *         {
+           *           "eval": 85
+           *         },
+           *         {
+           *           "eval": 91
+           *         },
+           *         {
+           *           "eval": 83
+           *         },
+           *         {
+           *           "eval": 102
+           *         },
+           *         {
+           *           "eval": 94
+           *         },
+           *         {
+           *           "eval": 96
+           *         },
+           *         {
+           *           "eval": 79
+           *         },
+           *         {
+           *           "eval": 86
+           *         },
+           *         {
+           *           "eval": 56
+           *         },
+           *         {
+           *           "eval": 77
+           *         },
+           *         {
+           *           "eval": 82
+           *         },
+           *         {
+           *           "eval": 177,
+           *           "best": "e7e6",
+           *           "variation": "e6",
+           *           "judgment": {
+           *             "name": "Inaccuracy",
+           *             "comment": "Inaccuracy. e6 was best."
+           *           }
+           *         },
+           *         {
+           *           "eval": 171
+           *         },
+           *         {
+           *           "eval": 211
+           *         },
+           *         {
+           *           "eval": 207
+           *         },
+           *         {
+           *           "eval": 220
+           *         },
+           *         {
+           *           "eval": 203
+           *         },
+           *         {
+           *           "eval": 216
+           *         },
+           *         {
+           *           "eval": 212
+           *         },
+           *         {
+           *           "eval": 439,
+           *           "best": "c8d8",
+           *           "variation": "Rcd8 exd6 Rxd6 Rxe7+ Kf8 Ree5 Kf7 f4 Qd7 Rbd5 Rxd5 cxd5",
+           *           "judgment": {
+           *             "name": "Mistake",
+           *             "comment": "Mistake. Rcd8 was best."
+           *           }
+           *         },
+           *         {
+           *           "eval": 426
+           *         },
+           *         {
+           *           "eval": 424
+           *         },
+           *         {
+           *           "eval": 385
+           *         },
+           *         {
+           *           "eval": 553,
+           *           "best": "g7f7",
+           *           "variation": "Kf7 Qd4 Rce8 Rxe8 Qxe8 Kh2 Qe1 Rxb6 Qe5+ Qxe5 dxe5 Rb5",
+           *           "judgment": {
+           *             "name": "Inaccuracy",
+           *             "comment": "Inaccuracy. Kf7 was best."
+           *           }
+           *         },
+           *         {
+           *           "eval": 362,
+           *           "best": "e2e6",
+           *           "variation": "Re6 Qd7 Rxg6+ Kh7 Qd3 Rc5 Rxd6+ Qf5 Qxf5+ Rcxf5 Rdxb6 R8f6",
+           *           "judgment": {
+           *             "name": "Inaccuracy",
+           *             "comment": "Inaccuracy. Re6 was best."
+           *           }
+           *         },
+           *         {
+           *           "eval": 347
+           *         },
+           *         {
+           *           "eval": 357
+           *         },
+           *         {
+           *           "mate": 2,
+           *           "best": "g8f7",
+           *           "variation": "Kf7 Qf4+ Kg8 Qg5 Kf7 Re3 Qc7 Qd5+ Kg7 Qd4+ Kh7 Kg1",
+           *           "judgment": {
+           *             "name": "Blunder",
+           *             "comment": "Checkmate is now unavoidable. Kf7 was best."
+           *           }
+           *         },
+           *         {
+           *           "mate": 1
+           *         },
+           *         {
+           *           "mate": 1
+           *         }
+           *       ],
+           *       "clock": {
+           *         "initial": 180,
+           *         "increment": 0,
+           *         "totalTime": 180
+           *       },
+           *       "division": {
+           *         "middle": 24,
+           *         "end": 61
+           *       }
            *     } */
           "application/json": components["schemas"]["GameJson"];
         };
@@ -12456,29 +12903,29 @@ export interface operations {
         content: {
           "application/x-chess-pgn": components["schemas"]["GamePgn"];
           /** @example {
-           *       "id": "zfZawvxl",
-           *       "rated": false,
+           *       "id": "8y40iLEJ",
+           *       "rated": true,
            *       "variant": "standard",
            *       "speed": "blitz",
            *       "perf": "blitz",
-           *       "createdAt": 1758058187854,
-           *       "lastMoveAt": 1758058715199,
-           *       "status": "resign",
-           *       "source": "friend",
+           *       "createdAt": 1758409631392,
+           *       "lastMoveAt": 1758409826541,
+           *       "status": "mate",
+           *       "source": "pool",
            *       "players": {
            *         "white": {
            *           "user": {
-           *             "name": "bigbishopb8",
-           *             "flair": "activity.diamond-suit",
-           *             "id": "bigbishopb8"
+           *             "name": "fiancheeto_bishop",
+           *             "id": "fiancheeto_bishop"
            *           },
-           *           "rating": 1841,
+           *           "rating": 2775,
+           *           "ratingDiff": 3,
            *           "analysis": {
-           *             "inaccuracy": 2,
-           *             "mistake": 1,
-           *             "blunder": 1,
-           *             "acpl": 33,
-           *             "accuracy": 86
+           *             "inaccuracy": 3,
+           *             "mistake": 0,
+           *             "blunder": 0,
+           *             "acpl": 18,
+           *             "accuracy": 94
            *           }
            *         },
            *         "black": {
@@ -12487,243 +12934,322 @@ export interface operations {
            *             "title": "LM",
            *             "id": "lance5500"
            *           },
-           *           "rating": 2655,
+           *           "rating": 2596,
+           *           "ratingDiff": -3,
            *           "analysis": {
-           *             "inaccuracy": 0,
+           *             "inaccuracy": 4,
            *             "mistake": 1,
-           *             "blunder": 0,
-           *             "acpl": 16,
-           *             "accuracy": 95
+           *             "blunder": 1,
+           *             "acpl": 43,
+           *             "accuracy": 87
            *           }
            *         }
            *       },
-           *       "winner": "black",
+           *       "winner": "white",
            *       "opening": {
-           *         "eco": "E70",
-           *         "name": "King's Indian Defense: Normal Variation",
-           *         "ply": 7
+           *         "eco": "B56",
+           *         "name": "Sicilian Defense: Classical Variation",
+           *         "ply": 10
            *       },
-           *       "moves": "d4 Nf6 c4 g6 Nc3 Bg7 e4 O-O f3 c5 Nge2 d6 Be3 Qa5 Nc1 cxd4 Nb3 Qxc3+ bxc3 dxe3 Qe2 Bh6 Nd4 Nc6 Nc2 Bg7 Nxe3 Nxe4 fxe4 Bxc3+ Kf2 Bxa1 h4 Bd4 Ke1 h5 Nd5 Bg4 Qd2 e6 Ne7+ Nxe7 Qxd4 Rfd8 Be2 Nc6 Qf6 Ne5 Rf1 Rd7 Bxg4 Nxg4 Qb2 Rc8 Ke2 Rxc4 Kd3 Ne5+ Ke3 Rdc7",
+           *       "moves": "e4 c5 Nc3 Nc6 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nb3 g6 Be2 Bg7 O-O O-O Bg5 a5 a4 Be6 Re1 h6 Be3 Kh7 Rb1 Rc8 Bb5 Nb4 Nd4 Bc4 f3 Bxb5 Ndxb5 Nd7 Re2 Ne5 Bd4 Nec6 Bxg7 Kxg7 b3 Qb6+ Kh1 Qc5 Qe1 Rfe8 Rd1 Na7 Nxa7 Qxa7 Nb5 Qc5 c3 Nc6 Rd5 Qb6 h4 Na7 h5 Nxb5 Rxb5 Qc6 c4 b6 hxg6 fxg6 e5 Rf8 exd6 exd6 Qc3+ Kg8 Qe3 Rce8 Qxh6 Rxe2 Qxg6+ Kh8 Rh5#",
            *       "analysis": [
            *         {
-           *           "eval": 17
+           *           "eval": 18
+           *         },
+           *         {
+           *           "eval": 24
+           *         },
+           *         {
+           *           "eval": 26
+           *         },
+           *         {
+           *           "eval": 23
            *         },
            *         {
            *           "eval": 19
            *         },
            *         {
-           *           "eval": 18
+           *           "eval": 41
            *         },
            *         {
-           *           "eval": 28
+           *           "eval": 32
            *         },
            *         {
-           *           "eval": 18
-           *         },
-           *         {
-           *           "eval": 51
-           *         },
-           *         {
-           *           "eval": 40
-           *         },
-           *         {
-           *           "eval": 53
-           *         },
-           *         {
-           *           "eval": 38
-           *         },
-           *         {
-           *           "eval": 46
-           *         },
-           *         {
-           *           "eval": 26
-           *         },
-           *         {
-           *           "eval": 35
-           *         },
-           *         {
-           *           "eval": 31
-           *         },
-           *         {
-           *           "eval": 26
-           *         },
-           *         {
-           *           "eval": 50
-           *         },
-           *         {
-           *           "eval": 28
+           *           "eval": 34
            *         },
            *         {
            *           "eval": 39
            *         },
            *         {
-           *           "eval": 155,
-           *           "best": "a5c7",
-           *           "variation": "Qc7 Nxd4 Nc6 Be2 Nh5 Rc1 Nxd4 Bxd4 Bxd4 Qxd4 Be6 b3",
+           *           "eval": 30
+           *         },
+           *         {
+           *           "eval": 18
+           *         },
+           *         {
+           *           "eval": 17
+           *         },
+           *         {
+           *           "eval": 1
+           *         },
+           *         {
+           *           "eval": 0
+           *         },
+           *         {
+           *           "eval": 8
+           *         },
+           *         {
+           *           "eval": 4
+           *         },
+           *         {
+           *           "eval": -3
+           *         },
+           *         {
+           *           "eval": 28
+           *         },
+           *         {
+           *           "eval": 31
+           *         },
+           *         {
+           *           "eval": 36
+           *         },
+           *         {
+           *           "eval": 18
+           *         },
+           *         {
+           *           "eval": 16
+           *         },
+           *         {
+           *           "eval": 17
+           *         },
+           *         {
+           *           "eval": 43
+           *         },
+           *         {
+           *           "eval": 23
+           *         },
+           *         {
+           *           "eval": 22
+           *         },
+           *         {
+           *           "eval": -30
+           *         },
+           *         {
+           *           "eval": 20
+           *         },
+           *         {
+           *           "eval": 20
+           *         },
+           *         {
+           *           "eval": 46
+           *         },
+           *         {
+           *           "eval": -24,
+           *           "best": "b5c4",
+           *           "variation": "Bxc4 Rxc4 f3 e5 Ndb5 d5 Qe2 Rc6 exd5 Nbxd5 Nxd5 Qxd5",
            *           "judgment": {
-           *             "name": "Mistake",
-           *             "comment": "Mistake. Qc7 was best."
+           *             "name": "Inaccuracy",
+           *             "comment": "Inaccuracy. Bxc4 was best."
            *           }
            *         },
            *         {
-           *           "eval": 152
-           *         },
-           *         {
-           *           "eval": 147
-           *         },
-           *         {
-           *           "eval": 119
-           *         },
-           *         {
-           *           "eval": 116
-           *         },
-           *         {
-           *           "eval": 142
-           *         },
-           *         {
-           *           "eval": 141
-           *         },
-           *         {
-           *           "eval": 149
-           *         },
-           *         {
-           *           "eval": 204
-           *         },
-           *         {
-           *           "eval": 41,
-           *           "best": "e2e3",
-           *           "variation": "Qxe3 Nd7 Be2 Nb6 c5 Na4 cxd6 exd6 h4 h5 O-O Nxc3",
+           *           "eval": 65,
+           *           "best": "e7e5",
+           *           "variation": "e5",
            *           "judgment": {
-           *             "name": "Mistake",
-           *             "comment": "Mistake. Qxe3 was best."
+           *             "name": "Inaccuracy",
+           *             "comment": "Inaccuracy. e5 was best."
            *           }
            *         },
            *         {
-           *           "eval": 42
+           *           "eval": 48
            *         },
            *         {
-           *           "eval": -218,
-           *           "best": "a1c1",
-           *           "variation": "Rc1",
+           *           "eval": 68
+           *         },
+           *         {
+           *           "eval": 58
+           *         },
+           *         {
+           *           "eval": 68
+           *         },
+           *         {
+           *           "eval": 94
+           *         },
+           *         {
+           *           "eval": 115
+           *         },
+           *         {
+           *           "eval": 122
+           *         },
+           *         {
+           *           "eval": 109
+           *         },
+           *         {
+           *           "eval": 71
+           *         },
+           *         {
+           *           "eval": 69
+           *         },
+           *         {
+           *           "eval": 66
+           *         },
+           *         {
+           *           "eval": 96
+           *         },
+           *         {
+           *           "eval": 9,
+           *           "best": "c3d5",
+           *           "variation": "Nd5 e6",
+           *           "judgment": {
+           *             "name": "Inaccuracy",
+           *             "comment": "Inaccuracy. Nd5 was best."
+           *           }
+           *         },
+           *         {
+           *           "eval": 82,
+           *           "best": "c8d8",
+           *           "variation": "Rcd8",
+           *           "judgment": {
+           *             "name": "Inaccuracy",
+           *             "comment": "Inaccuracy. Rcd8 was best."
+           *           }
+           *         },
+           *         {
+           *           "eval": 79
+           *         },
+           *         {
+           *           "eval": 88
+           *         },
+           *         {
+           *           "eval": 85
+           *         },
+           *         {
+           *           "eval": 91
+           *         },
+           *         {
+           *           "eval": 83
+           *         },
+           *         {
+           *           "eval": 102
+           *         },
+           *         {
+           *           "eval": 94
+           *         },
+           *         {
+           *           "eval": 96
+           *         },
+           *         {
+           *           "eval": 79
+           *         },
+           *         {
+           *           "eval": 86
+           *         },
+           *         {
+           *           "eval": 56
+           *         },
+           *         {
+           *           "eval": 77
+           *         },
+           *         {
+           *           "eval": 82
+           *         },
+           *         {
+           *           "eval": 177,
+           *           "best": "e7e6",
+           *           "variation": "e6",
+           *           "judgment": {
+           *             "name": "Inaccuracy",
+           *             "comment": "Inaccuracy. e6 was best."
+           *           }
+           *         },
+           *         {
+           *           "eval": 171
+           *         },
+           *         {
+           *           "eval": 211
+           *         },
+           *         {
+           *           "eval": 207
+           *         },
+           *         {
+           *           "eval": 220
+           *         },
+           *         {
+           *           "eval": 203
+           *         },
+           *         {
+           *           "eval": 216
+           *         },
+           *         {
+           *           "eval": 212
+           *         },
+           *         {
+           *           "eval": 439,
+           *           "best": "c8d8",
+           *           "variation": "Rcd8 exd6 Rxd6 Rxe7+ Kf8 Ree5 Kf7 f4 Qd7 Rbd5 Rxd5 cxd5",
+           *           "judgment": {
+           *             "name": "Mistake",
+           *             "comment": "Mistake. Rcd8 was best."
+           *           }
+           *         },
+           *         {
+           *           "eval": 426
+           *         },
+           *         {
+           *           "eval": 424
+           *         },
+           *         {
+           *           "eval": 385
+           *         },
+           *         {
+           *           "eval": 553,
+           *           "best": "g7f7",
+           *           "variation": "Kf7 Qd4 Rce8 Rxe8 Qxe8 Kh2 Qe1 Rxb6 Qe5+ Qxe5 dxe5 Rb5",
+           *           "judgment": {
+           *             "name": "Inaccuracy",
+           *             "comment": "Inaccuracy. Kf7 was best."
+           *           }
+           *         },
+           *         {
+           *           "eval": 362,
+           *           "best": "e2e6",
+           *           "variation": "Re6 Qd7 Rxg6+ Kh7 Qd3 Rc5 Rxd6+ Qf5 Qxf5+ Rcxf5 Rdxb6 R8f6",
+           *           "judgment": {
+           *             "name": "Inaccuracy",
+           *             "comment": "Inaccuracy. Re6 was best."
+           *           }
+           *         },
+           *         {
+           *           "eval": 347
+           *         },
+           *         {
+           *           "eval": 357
+           *         },
+           *         {
+           *           "mate": 2,
+           *           "best": "g8f7",
+           *           "variation": "Kf7 Qf4+ Kg8 Qg5 Kf7 Re3 Qc7 Qd5+ Kg7 Qd4+ Kh7 Kg1",
            *           "judgment": {
            *             "name": "Blunder",
-           *             "comment": "Blunder. Rc1 was best."
+           *             "comment": "Checkmate is now unavoidable. Kf7 was best."
            *           }
            *         },
            *         {
-           *           "eval": -234
+           *           "mate": 1
            *         },
            *         {
-           *           "eval": -228
-           *         },
-           *         {
-           *           "eval": -222
-           *         },
-           *         {
-           *           "eval": -207
-           *         },
-           *         {
-           *           "eval": -191
-           *         },
-           *         {
-           *           "eval": -212
-           *         },
-           *         {
-           *           "eval": -251
-           *         },
-           *         {
-           *           "eval": -255
-           *         },
-           *         {
-           *           "eval": -203
-           *         },
-           *         {
-           *           "eval": -218
-           *         },
-           *         {
-           *           "eval": -171
-           *         },
-           *         {
-           *           "eval": -171
-           *         },
-           *         {
-           *           "eval": -169
-           *         },
-           *         {
-           *           "eval": -165
-           *         },
-           *         {
-           *           "eval": -139
-           *         },
-           *         {
-           *           "eval": -132
-           *         },
-           *         {
-           *           "eval": -95
-           *         },
-           *         {
-           *           "eval": -149
-           *         },
-           *         {
-           *           "eval": -157
-           *         },
-           *         {
-           *           "eval": -249,
-           *           "best": "c4c5",
-           *           "variation": "c5 Bxe2",
-           *           "judgment": {
-           *             "name": "Inaccuracy",
-           *             "comment": "Inaccuracy. c5 was best."
-           *           }
-           *         },
-           *         {
-           *           "eval": -226
-           *         },
-           *         {
-           *           "eval": -270
-           *         },
-           *         {
-           *           "eval": -265
-           *         },
-           *         {
-           *           "eval": -321
-           *         },
-           *         {
-           *           "eval": -342
-           *         },
-           *         {
-           *           "eval": -344
-           *         },
-           *         {
-           *           "eval": -350
-           *         },
-           *         {
-           *           "eval": -491,
-           *           "best": "f1c1",
-           *           "variation": "Rc1 Rxe4+ Kf1 Ne5 Rc8+ Kg7 g3 b6 Kg2 Ra4 Kf1 Ra5",
-           *           "judgment": {
-           *             "name": "Inaccuracy",
-           *             "comment": "Inaccuracy. Rc1 was best."
-           *           }
-           *         },
-           *         {
-           *           "eval": -459
-           *         },
-           *         {
-           *           "eval": -512
-           *         },
-           *         {
-           *           "eval": -540
+           *           "mate": 1
            *         }
            *       ],
            *       "clock": {
-           *         "initial": 300,
+           *         "initial": 180,
            *         "increment": 0,
-           *         "totalTime": 300
+           *         "totalTime": 180
            *       },
            *       "division": {
-           *         "middle": 14,
-           *         "end": 51
+           *         "middle": 24,
+           *         "end": 61
            *       }
            *     } */
           "application/x-ndjson": components["schemas"]["GameJson"];
@@ -12801,7 +13327,7 @@ export interface operations {
            *           "user": {
            *             "name": "arex",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "arex"
            *           },
            *           "rating": 1627,
@@ -13163,161 +13689,159 @@ export interface operations {
           /** @example {
            *       "chess960": {
            *         "user": {
-           *           "name": "Oleksiyenko",
-           *           "title": "GM",
-           *           "id": "oleksiyenko"
+           *           "name": "jean_val_jean",
+           *           "flair": "people.couple-with-heart-man-man-dark-skin-tone-light-skin-tone",
+           *           "id": "jean_val_jean"
            *         },
-           *         "rating": 2384,
-           *         "gameId": "cPt7vu7l",
-           *         "color": "black"
+           *         "rating": 2448,
+           *         "gameId": "A86sOhFU",
+           *         "color": "white"
            *       },
            *       "best": {
            *         "user": {
-           *           "name": "ABachmann",
+           *           "name": "Sergoy45",
            *           "title": "GM",
-           *           "patron": true,
-           *           "patronTier": "years2",
-           *           "id": "abachmann"
+           *           "flair": "nature.wolf",
+           *           "id": "sergoy45"
            *         },
-           *         "rating": 3118,
-           *         "gameId": "rTlNMf6e",
+           *         "rating": 2955,
+           *         "gameId": "tL6k89SU",
            *         "color": "black"
            *       },
            *       "antichess": {
            *         "user": {
-           *           "name": "devansh2008",
-           *           "flair": "people.zombie",
-           *           "id": "devansh2008"
+           *           "name": "Hodobox",
+           *           "flair": "smileys.melting-face",
+           *           "id": "hodobox"
            *         },
-           *         "rating": 2518,
-           *         "gameId": "VqoFarhr",
-           *         "color": "black"
+           *         "rating": 2220,
+           *         "gameId": "ddKTixTl",
+           *         "color": "white"
            *       },
            *       "computer": {
            *         "user": {
-           *           "name": "MihailMih",
-           *           "flair": "smileys.face-with-raised-eyebrow",
-           *           "id": "mihailmih"
+           *           "name": "Mathusalae",
+           *           "id": "mathusalae"
            *         },
-           *         "rating": 2151,
-           *         "gameId": "gqg7D6BO",
+           *         "rating": 2207,
+           *         "gameId": "G0gAKCwa",
            *         "color": "black"
            *       },
            *       "bullet": {
            *         "user": {
-           *           "name": "ABachmann",
+           *           "name": "Sergoy45",
            *           "title": "GM",
-           *           "patron": true,
-           *           "patronTier": "years2",
-           *           "id": "abachmann"
+           *           "flair": "nature.wolf",
+           *           "id": "sergoy45"
            *         },
-           *         "rating": 3118,
-           *         "gameId": "rTlNMf6e",
+           *         "rating": 2955,
+           *         "gameId": "tL6k89SU",
            *         "color": "black"
            *       },
            *       "horde": {
            *         "user": {
-           *           "name": "gamedefender",
-           *           "id": "gamedefender"
+           *           "name": "ILikeBlitz",
+           *           "title": "GM",
+           *           "flair": "nature.cloud-with-lightning",
+           *           "id": "ilikeblitz"
            *         },
-           *         "rating": 2500,
-           *         "gameId": "w69pix0T",
-           *         "color": "black"
+           *         "rating": 2319,
+           *         "gameId": "dFkyk9o0",
+           *         "color": "white"
            *       },
            *       "atomic": {
            *         "user": {
-           *           "name": "Nawanadoo",
-           *           "flair": "activity.lichess-variant-atomic",
-           *           "id": "nawanadoo"
+           *           "name": "memeliciouss",
+           *           "flair": "objects.headphone",
+           *           "id": "memeliciouss"
            *         },
-           *         "rating": 2030,
-           *         "gameId": "0av4TVOG",
-           *         "color": "black"
+           *         "rating": 2042,
+           *         "gameId": "IeodZKR1",
+           *         "color": "white"
            *       },
            *       "bot": {
            *         "user": {
-           *           "name": "PINEAPPLEMASK",
+           *           "name": "Cheszter",
            *           "title": "BOT",
-           *           "flair": "smileys.face-with-medical-mask",
-           *           "id": "pineapplemask"
+           *           "id": "cheszter"
            *         },
-           *         "rating": 3126,
-           *         "gameId": "69RxHUS6",
+           *         "rating": 3089,
+           *         "gameId": "YmdxmQl5",
            *         "color": "black"
            *       },
            *       "racingKings": {
            *         "user": {
-           *           "name": "MKmojster",
-           *           "id": "mkmojster"
+           *           "name": "CyberShredder",
+           *           "flair": "symbols.linux-tux-penguin",
+           *           "id": "cybershredder"
            *         },
-           *         "rating": 1960,
-           *         "gameId": "OukZHHou",
+           *         "rating": 2378,
+           *         "gameId": "F95lDLUT",
            *         "color": "white"
            *       },
            *       "ultraBullet": {
            *         "user": {
-           *           "name": "Why_did_u_lose",
-           *           "flair": "symbols.red-triangle-pointed-down",
-           *           "id": "why_did_u_lose"
+           *           "name": "Traymond",
+           *           "id": "traymond"
            *         },
-           *         "rating": 1943,
-           *         "gameId": "mSEIjscn",
+           *         "rating": 2015,
+           *         "gameId": "mcX8eRbF",
            *         "color": "black"
            *       },
            *       "blitz": {
            *         "user": {
-           *           "name": "SaraciNderim",
+           *           "name": "Toro123",
            *           "title": "IM",
-           *           "id": "saracinderim"
+           *           "id": "toro123"
            *         },
-           *         "rating": 2821,
-           *         "gameId": "pFlT0BIn",
-           *         "color": "black"
+           *         "rating": 2655,
+           *         "gameId": "ENgdWtYK",
+           *         "color": "white"
            *       },
            *       "kingOfTheHill": {
            *         "user": {
-           *           "name": "HinaHongou",
-           *           "id": "hinahongou"
+           *           "name": "StefanBojin",
+           *           "id": "stefanbojin"
            *         },
-           *         "rating": 2198,
-           *         "gameId": "b5YYmvKP",
-           *         "color": "white"
+           *         "rating": 2006,
+           *         "gameId": "DMwk2SD4",
+           *         "color": "black"
            *       },
            *       "crazyhouse": {
            *         "user": {
-           *           "name": "Denaturalizer",
-           *           "flair": "smileys.skull-and-crossbones",
-           *           "id": "denaturalizer"
+           *           "name": "Reinemer",
+           *           "id": "reinemer"
            *         },
-           *         "rating": 2262,
-           *         "gameId": "hzDiKrdR",
+           *         "rating": 2185,
+           *         "gameId": "AWFEu0Bj",
            *         "color": "black"
            *       },
            *       "threeCheck": {
            *         "user": {
-           *           "name": "Banaantje",
-           *           "id": "banaantje"
+           *           "name": "Limochess",
+           *           "id": "limochess"
            *         },
-           *         "rating": 1968,
-           *         "gameId": "RT3LwlMQ",
-           *         "color": "white"
+           *         "rating": 2229,
+           *         "gameId": "wdXLBmip",
+           *         "color": "black"
            *       },
            *       "classical": {
            *         "user": {
-           *           "name": "Crapablanca91",
-           *           "id": "crapablanca91"
+           *           "name": "ReubenFine2025",
+           *           "id": "reubenfine2025"
            *         },
-           *         "rating": 2181,
-           *         "gameId": "Xf7WCZHW",
-           *         "color": "black"
+           *         "rating": 2565,
+           *         "gameId": "UgBieNXf",
+           *         "color": "white"
            *       },
            *       "rapid": {
            *         "user": {
-           *           "name": "DeadpoolFTS",
-           *           "id": "deadpoolfts"
+           *           "name": "Ondiiik2007",
+           *           "flair": "smileys.cold-face",
+           *           "id": "ondiiik2007"
            *         },
-           *         "rating": 2511,
-           *         "gameId": "5Lda55yU",
+           *         "rating": 2494,
+           *         "gameId": "4QIYyyuQ",
            *         "color": "black"
            *       }
            *     } */
@@ -13424,89 +13948,90 @@ export interface operations {
         content: {
           "application/x-chess-pgn": components["schemas"]["GamePgn"];
           /** @example {
-           *       "id": "rTlNMf6e",
+           *       "id": "dxBS4CGQ",
            *       "rated": true,
            *       "variant": "standard",
            *       "speed": "bullet",
            *       "perf": "bullet",
-           *       "createdAt": 1758106612560,
-           *       "lastMoveAt": 1758106685289,
+           *       "createdAt": 1758636886990,
+           *       "lastMoveAt": 1758636939684,
            *       "status": "started",
            *       "source": "pool",
            *       "players": {
            *         "white": {
            *           "user": {
-           *             "name": "VladimirIlyich917",
-           *             "flair": "people.construction-worker-light-skin-tone",
-           *             "id": "vladimirilyich917"
+           *             "name": "Ediz_Gurel",
+           *             "title": "GM",
+           *             "flair": "smileys.alien",
+           *             "id": "ediz_gurel"
            *           },
-           *           "rating": 3028
+           *           "rating": 3306
            *         },
            *         "black": {
            *           "user": {
-           *             "name": "ABachmann",
-           *             "title": "GM",
-           *             "patron": true,
-           *             "patronTier": "years2",
-           *             "id": "abachmann"
+           *             "name": "Polyclinical",
+           *             "id": "polyclinical"
            *           },
-           *           "rating": 3118
+           *           "rating": 3096
            *         }
            *       },
            *       "opening": {
-           *         "eco": "B00",
-           *         "name": "Nimzowitsch Defense",
-           *         "ply": 2
+           *         "eco": "B10",
+           *         "name": "Caro-Kann Defense: Two Knights Attack",
+           *         "ply": 5
            *       },
-           *       "moves": "e4 Nc6 Nc3 d6 d4 Nf6 Nf3 Bg4 Bb5 a6 Ba4 b5 Bb3 Bxf3 gxf3 e6 Rg1 d5 Bg5 dxe4 d5 Ne5 fxe4 b4 f4 Ng6 Ba4+ Ke7 Ne2 h6 Bxf6+ gxf6 Qd4 Qd6 O-O-O Nxf4 Nxf4 Qxf4+ Kb1 Qd6 Rgf1 e5 Qf2 h5 Bc6",
+           *       "moves": "e4 c6 Nc3 d5 Nf3 dxe4 Nxe4 Nd7 Qe2 Ndf6 d4 Bf5 Ng3 Bg4 c3 e6 h3 Bxf3 Qxf3 Bd6 Bd3 Qa5 O-O Ne7 Ne4 Nxe4 Bxe4 O-O Re1 Rad8 Bd2 Ng6 a3 Qb6 b4 Rfe8 Rad1 Bb8 g3 Qc7 h4 Nf8 h5 f5 Bc2 Qf7 h6 g6",
            *       "clocks": [
            *         6000,
            *         6000,
-           *         5904,
-           *         5961,
-           *         5770,
-           *         5914,
-           *         5695,
-           *         5840,
-           *         5618,
-           *         5749,
-           *         5554,
-           *         5646,
-           *         5486,
-           *         5475,
-           *         5353,
-           *         5422,
-           *         5083,
-           *         5323,
-           *         4950,
-           *         5078,
-           *         4917,
-           *         4707,
-           *         4722,
-           *         4415,
-           *         4511,
-           *         3942,
-           *         4371,
-           *         3759,
-           *         3689,
-           *         3698,
-           *         3427,
-           *         3698,
-           *         3370,
-           *         3562,
-           *         3175,
-           *         3489,
-           *         3055,
-           *         3489,
-           *         2976,
-           *         3291,
-           *         2857,
-           *         3242,
-           *         2761,
-           *         3116,
-           *         2668
+           *         6000,
+           *         6000,
+           *         5942,
+           *         5898,
+           *         5942,
+           *         5880,
+           *         5938,
+           *         5736,
+           *         5908,
+           *         5624,
+           *         5660,
+           *         5501,
+           *         5579,
+           *         5445,
+           *         5468,
+           *         5386,
+           *         5468,
+           *         5357,
+           *         5411,
+           *         5175,
+           *         5335,
+           *         5138,
+           *         5217,
+           *         5051,
+           *         5217,
+           *         4871,
+           *         5113,
+           *         4760,
+           *         5054,
+           *         4433,
+           *         4928,
+           *         4318,
+           *         4801,
+           *         4161,
+           *         4748,
+           *         4091,
+           *         4695,
+           *         3929,
+           *         4597,
+           *         3709,
+           *         4519,
+           *         3385,
+           *         4446,
+           *         3358,
+           *         4268,
+           *         3283
            *       ],
-           *       "pgn": "[Event \"rated bullet game\"]\n[Site \"https://lichess.org/rTlNMf6e\"]\n[Date \"2025.09.17\"]\n[White \"VladimirIlyich917\"]\n[Black \"ABachmann\"]\n[Result \"*\"]\n[GameId \"rTlNMf6e\"]\n[UTCDate \"2025.09.17\"]\n[UTCTime \"10:56:52\"]\n[WhiteElo \"3028\"]\n[BlackElo \"3118\"]\n[BlackTitle \"GM\"]\n[Variant \"Standard\"]\n[TimeControl \"60+0\"]\n[ECO \"B00\"]\n[Opening \"Nimzowitsch Defense\"]\n[Termination \"Unterminated\"]\n\n1. e4 { [%clk 0:01:00] } 1... Nc6 { [%clk 0:01:00] } 2. Nc3 { [%clk 0:00:59] } 2... d6 { [%clk 0:01:00] } 3. d4 { [%clk 0:00:58] } 3... Nf6 { [%clk 0:00:59] } 4. Nf3 { [%clk 0:00:57] } 4... Bg4 { [%clk 0:00:58] } 5. Bb5 { [%clk 0:00:56] } 5... a6 { [%clk 0:00:57] } 6. Ba4 { [%clk 0:00:56] } 6... b5 { [%clk 0:00:56] } 7. Bb3 { [%clk 0:00:55] } 7... Bxf3 { [%clk 0:00:55] } 8. gxf3 { [%clk 0:00:54] } 8... e6 { [%clk 0:00:54] } 9. Rg1 { [%clk 0:00:51] } 9... d5 { [%clk 0:00:53] } 10. Bg5 { [%clk 0:00:50] } 10... dxe4 { [%clk 0:00:51] } 11. d5 { [%clk 0:00:49] } 11... Ne5 { [%clk 0:00:47] } 12. fxe4 { [%clk 0:00:47] } 12... b4 { [%clk 0:00:44] } 13. f4 { [%clk 0:00:45] } 13... Ng6 { [%clk 0:00:39] } 14. Ba4+ { [%clk 0:00:44] } 14... Ke7 { [%clk 0:00:38] } 15. Ne2 { [%clk 0:00:37] } 15... h6 { [%clk 0:00:37] } 16. Bxf6+ { [%clk 0:00:34] } 16... gxf6 { [%clk 0:00:37] } 17. Qd4 { [%clk 0:00:34] } 17... Qd6 { [%clk 0:00:36] } 18. O-O-O { [%clk 0:00:32] } 18... Nxf4 { [%clk 0:00:35] } 19. Nxf4 { [%clk 0:00:31] } 19... Qxf4+ { [%clk 0:00:35] } 20. Kb1 { [%clk 0:00:30] } 20... Qd6 { [%clk 0:00:33] } 21. Rgf1 { [%clk 0:00:29] } 21... e5 { [%clk 0:00:32] } 22. Qf2 { [%clk 0:00:28] } 22... h5 { [%clk 0:00:31] } 23. Bc6 { [%clk 0:00:27] } *\n\n\n",
+           *       "pgn": "[Event \"rated bullet game\"]\n[Site \"https://lichess.org/dxBS4CGQ\"]\n[Date \"2025.09.23\"]\n[White \"Ediz_Gurel\"]\n[Black \"Polyclinical\"]\n[Result \"*\"]\n[GameId \"dxBS4CGQ\"]\n[UTCDate \"2025.09.23\"]\n[UTCTime \"14:14:46\"]\n[WhiteElo \"3306\"]\n[BlackElo \"3096\"]\n[WhiteTitle \"GM\"]\n[Variant \"Standard\"]\n[TimeControl \"60+0\"]\n[ECO \"B10\"]\n[Opening \"Caro-Kann Defense: Two Knights Attack\"]\n[Termination \"Unterminated\"]\n\n1. e4 { [%clk 0:01:00] } 1... c6 { [%clk 0:01:00] } 2. Nc3 { [%clk 0:01:00] } 2... d5 { [%clk 0:01:00] } 3. Nf3 { [%clk 0:00:59] } 3... dxe4 { [%clk 0:00:59] } 4. Nxe4 { [%clk 0:00:59] } 4... Nd7 { [%clk 0:00:59] } 5. Qe2 { [%clk 0:00:59] } 5... Ndf6 { [%clk 0:00:57] } 6. d4 { [%clk 0:00:59] } 6... Bf5 { [%clk 0:00:56] } 7. Ng3 { [%clk 0:00:57] } 7... Bg4 { [%clk 0:00:55] } 8. c3 { [%clk 0:00:56] } 8... e6 { [%clk 0:00:54] } 9. h3 { [%clk 0:00:55] } 9... Bxf3 { [%clk 0:00:54] } 10. Qxf3 { [%clk 0:00:55] } 10... Bd6 { [%clk 0:00:54] } 11. Bd3 { [%clk 0:00:54] } 11... Qa5 { [%clk 0:00:52] } 12. O-O { [%clk 0:00:53] } 12... Ne7 { [%clk 0:00:51] } 13. Ne4 { [%clk 0:00:52] } 13... Nxe4 { [%clk 0:00:51] } 14. Bxe4 { [%clk 0:00:52] } 14... O-O { [%clk 0:00:49] } 15. Re1 { [%clk 0:00:51] } 15... Rad8 { [%clk 0:00:48] } 16. Bd2 { [%clk 0:00:51] } 16... Ng6 { [%clk 0:00:44] } 17. a3 { [%clk 0:00:49] } 17... Qb6 { [%clk 0:00:43] } 18. b4 { [%clk 0:00:48] } 18... Rfe8 { [%clk 0:00:42] } 19. Rad1 { [%clk 0:00:47] } 19... Bb8 { [%clk 0:00:41] } 20. g3 { [%clk 0:00:47] } 20... Qc7 { [%clk 0:00:39] } 21. h4 { [%clk 0:00:46] } 21... Nf8 { [%clk 0:00:37] } 22. h5 { [%clk 0:00:45] } 22... f5 { [%clk 0:00:34] } 23. Bc2 { [%clk 0:00:44] } 23... Qf7 { [%clk 0:00:34] } 24. h6 { [%clk 0:00:43] } 24... g6 { [%clk 0:00:33] } *\n\n\n",
            *       "clock": {
            *         "initial": 60,
            *         "increment": 0,
@@ -13537,24 +14062,24 @@ export interface operations {
           /** @example {
            *       "created": [
            *         {
-           *           "id": "HSa6HP9h",
+           *           "id": "NrsjrH31",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 27,
            *           "clock": {
            *             "limit": 60,
-           *             "increment": 0
+           *             "increment": 1
            *           },
            *           "rated": true,
-           *           "fullName": "Sicilian Defense Bullet Arena",
-           *           "nbPlayers": 2,
+           *           "fullName": "≤1700 Bullet Arena",
+           *           "nbPlayers": 0,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758106800000,
-           *           "finishesAt": 1758108420000,
+           *           "startsAt": 1758637800000,
+           *           "finishesAt": 1758639420000,
            *           "status": 10,
            *           "perf": {
            *             "key": "bullet",
@@ -13562,219 +14087,7 @@ export interface operations {
            *             "position": 0,
            *             "icon": "T"
            *           },
-           *           "secondsToStart": 244,
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "position": {
-           *             "eco": "B90",
-           *             "name": "Sicilian Defense: Najdorf Variation",
-           *             "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq -",
-           *             "url": "https://lichess.org/opening/Sicilian_Defense_Najdorf_Variation"
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "k2Ekpiqu",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 300,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Antichess Arena",
-           *           "nbPlayers": 1,
-           *           "variant": {
-           *             "key": "antichess",
-           *             "short": "Anti",
-           *             "name": "Antichess"
-           *           },
-           *           "startsAt": 1758106802500,
-           *           "finishesAt": 1758110222500,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "antichess",
-           *             "name": "Antichess",
-           *             "position": 9
-           *           },
-           *           "secondsToStart": 246,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "blitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "EC69lZxJ",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly SuperBlitz Arena",
-           *           "nbPlayers": 9,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758106805000,
-           *           "finishesAt": 1758110225000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "secondsToStart": 249,
-           *           "minRatedGames": {
-           *             "nb": 15
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "2pfveEHt",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Racing Kings Arena",
-           *           "nbPlayers": 2,
-           *           "variant": {
-           *             "key": "racingKings",
-           *             "short": "Racing",
-           *             "name": "Racing Kings"
-           *           },
-           *           "startsAt": 1758106807500,
-           *           "finishesAt": 1758110227500,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "racingKings",
-           *             "name": "Racing Kings",
-           *             "position": 12
-           *           },
-           *           "secondsToStart": 251,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "ZzpLMWJY",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 300,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1500 Blitz Arena",
-           *           "nbPlayers": 24,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758106810000,
-           *           "finishesAt": 1758110230000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "secondsToStart": 254,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1500
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "blitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "Al5VFY5L",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 300,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Blitz Arena",
-           *           "nbPlayers": 9,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758106815000,
-           *           "finishesAt": 1758110235000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "secondsToStart": 259,
-           *           "minRatedGames": {
-           *             "nb": 15
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "blitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "5t6hWLTy",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1700 SuperBlitz Arena",
-           *           "nbPlayers": 12,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758106820000,
-           *           "finishesAt": 1758110240000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "secondsToStart": 264,
+           *           "secondsToStart": 973,
            *           "hasMaxRating": true,
            *           "maxRating": {
            *             "rating": 1700
@@ -13784,225 +14097,11 @@ export interface operations {
            *           },
            *           "schedule": {
            *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "Euy90C9z",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 600,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1300 Rapid Arena",
-           *           "nbPlayers": 32,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758106825000,
-           *           "finishesAt": 1758110245000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "rapid",
-           *             "name": "Rapid",
-           *             "position": 2,
-           *             "icon": "#"
-           *           },
-           *           "secondsToStart": 269,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1300
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "rapid"
-           *           }
-           *         },
-           *         {
-           *           "id": "YSURLY5U",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 30,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly HyperBullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758106830000,
-           *           "finishesAt": 1758108450000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 274,
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "hyperBullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "qO5IsYtD",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Crazyhouse Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "crazyhouse",
-           *             "short": "Crazy",
-           *             "name": "Crazyhouse"
-           *           },
-           *           "startsAt": 1758106835000,
-           *           "finishesAt": 1758108455000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "crazyhouse",
-           *             "name": "Crazyhouse",
-           *             "position": 5
-           *           },
-           *           "secondsToStart": 279,
-           *           "schedule": {
-           *             "freq": "hourly",
            *             "speed": "bullet"
            *           }
            *         },
            *         {
-           *           "id": "oRp3nob1",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤2000 Bullet Arena",
-           *           "nbPlayers": 18,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758106840000,
-           *           "finishesAt": 1758108460000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 284,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 2000
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "Cm9llYPM",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 1
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤2000 Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758108600000,
-           *           "finishesAt": 1758110220000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 2044,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 2000
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "fFyXCHyu",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Crazyhouse Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "crazyhouse",
-           *             "short": "Crazy",
-           *             "name": "Crazyhouse"
-           *           },
-           *           "startsAt": 1758108610000,
-           *           "finishesAt": 1758110230000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "crazyhouse",
-           *             "name": "Crazyhouse",
-           *             "position": 5
-           *           },
-           *           "secondsToStart": 2054,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "iozim60Z",
+           *           "id": "Hp3Qxhv3",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 27,
@@ -14012,14 +14111,14 @@ export interface operations {
            *           },
            *           "rated": true,
            *           "fullName": "Hourly Bullet Arena",
-           *           "nbPlayers": 0,
+           *           "nbPlayers": 1,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758108620000,
-           *           "finishesAt": 1758110240000,
+           *           "startsAt": 1758637820000,
+           *           "finishesAt": 1758639440000,
            *           "status": 10,
            *           "perf": {
            *             "key": "bullet",
@@ -14027,7 +14126,7 @@ export interface operations {
            *             "position": 0,
            *             "icon": "T"
            *           },
-           *           "secondsToStart": 2064,
+           *           "secondsToStart": 993,
            *           "minRatedGames": {
            *             "nb": 20
            *           },
@@ -14037,7 +14136,7 @@ export interface operations {
            *           }
            *         },
            *         {
-           *           "id": "b60YiFbs",
+           *           "id": "T8gPBmyi",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 27,
@@ -14047,14 +14146,14 @@ export interface operations {
            *           },
            *           "rated": true,
            *           "fullName": "Hourly UltraBullet Arena",
-           *           "nbPlayers": 1,
+           *           "nbPlayers": 0,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758108640000,
-           *           "finishesAt": 1758110260000,
+           *           "startsAt": 1758637840000,
+           *           "finishesAt": 1758639460000,
            *           "status": 10,
            *           "perf": {
            *             "key": "ultraBullet",
@@ -14062,86 +14161,14 @@ export interface operations {
            *             "position": 4,
            *             "icon": "{"
            *           },
-           *           "secondsToStart": 2084,
+           *           "secondsToStart": 1013,
            *           "schedule": {
            *             "freq": "hourly",
            *             "speed": "ultraBullet"
            *           }
            *         },
            *         {
-           *           "id": "Qmnx0i3M",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Sicilian Defense SuperBlitz Arena",
-           *           "nbPlayers": 1,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758110400000,
-           *           "finishesAt": 1758113820000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "secondsToStart": 3844,
-           *           "minRatedGames": {
-           *             "nb": 15
-           *           },
-           *           "position": {
-           *             "eco": "B90",
-           *             "name": "Sicilian Defense: Najdorf Variation",
-           *             "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq -",
-           *             "url": "https://lichess.org/opening/Sicilian_Defense_Najdorf_Variation"
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "CEcE94Qq",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Chess960 Arena",
-           *           "nbPlayers": 3,
-           *           "variant": {
-           *             "key": "chess960",
-           *             "short": "960",
-           *             "name": "Chess960"
-           *           },
-           *           "startsAt": 1758110402500,
-           *           "finishesAt": 1758113822500,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "chess960",
-           *             "name": "Chess960",
-           *             "position": 6
-           *           },
-           *           "secondsToStart": 3846,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "ENfu7Zzc",
+           *           "id": "6sJ738Wm",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 27,
@@ -14150,15 +14177,15 @@ export interface operations {
            *             "increment": 0
            *           },
            *           "rated": true,
-           *           "fullName": "Hourly Bullet Arena",
-           *           "nbPlayers": 0,
+           *           "fullName": "≤2000 Bullet Arena",
+           *           "nbPlayers": 1,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758110405000,
-           *           "finishesAt": 1758112025000,
+           *           "startsAt": 1758639600000,
+           *           "finishesAt": 1758641220000,
            *           "status": 10,
            *           "perf": {
            *             "key": "bullet",
@@ -14166,7 +14193,11 @@ export interface operations {
            *             "position": 0,
            *             "icon": "T"
            *           },
-           *           "secondsToStart": 3849,
+           *           "secondsToStart": 2773,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 2000
+           *           },
            *           "minRatedGames": {
            *             "nb": 20
            *           },
@@ -14176,77 +14207,73 @@ export interface operations {
            *           }
            *         },
            *         {
-           *           "id": "BF3Jg4hz",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Atomic Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "atomic",
-           *             "short": "Atom",
-           *             "name": "Atomic"
-           *           },
-           *           "startsAt": 1758110407500,
-           *           "finishesAt": 1758112027500,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "atomic",
-           *             "name": "Atomic",
-           *             "position": 10
-           *           },
-           *           "secondsToStart": 3851,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "HecRPwzR",
+           *           "id": "vi0QMYyM",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 57,
            *           "clock": {
-           *             "limit": 600,
+           *             "limit": 120,
            *             "increment": 0
            *           },
            *           "rated": true,
-           *           "fullName": "≤1500 Rapid Arena",
-           *           "nbPlayers": 3,
+           *           "fullName": "Hourly Antichess Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "antichess",
+           *             "short": "Anti",
+           *             "name": "Antichess"
+           *           },
+           *           "startsAt": 1758639602500,
+           *           "finishesAt": 1758643022500,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "antichess",
+           *             "name": "Antichess",
+           *             "position": 9
+           *           },
+           *           "secondsToStart": 2775,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "hippoBullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "GyH8S2aF",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly SuperBlitz Arena",
+           *           "nbPlayers": 0,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758110410000,
-           *           "finishesAt": 1758113830000,
+           *           "startsAt": 1758639605000,
+           *           "finishesAt": 1758643025000,
            *           "status": 10,
            *           "perf": {
-           *             "key": "rapid",
-           *             "name": "Rapid",
-           *             "position": 2,
-           *             "icon": "#"
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
            *           },
-           *           "secondsToStart": 3854,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1500
-           *           },
+           *           "secondsToStart": 2778,
            *           "minRatedGames": {
-           *             "nb": 20
+           *             "nb": 15
            *           },
            *           "schedule": {
            *             "freq": "hourly",
-           *             "speed": "rapid"
+           *             "speed": "superBlitz"
            *           }
            *         },
            *         {
-           *           "id": "wSqiWNER",
+           *           "id": "I3qMl8aR",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 57,
@@ -14262,22 +14289,57 @@ export interface operations {
            *             "short": "3check",
            *             "name": "Three-check"
            *           },
-           *           "startsAt": 1758110412500,
-           *           "finishesAt": 1758113832500,
+           *           "startsAt": 1758639607500,
+           *           "finishesAt": 1758643027500,
            *           "status": 10,
            *           "perf": {
            *             "key": "threeCheck",
            *             "name": "Three-check",
            *             "position": 8
            *           },
-           *           "secondsToStart": 3856,
+           *           "secondsToStart": 2780,
            *           "schedule": {
            *             "freq": "hourly",
            *             "speed": "blitz"
            *           }
            *         },
            *         {
-           *           "id": "5DnUpkBJ",
+           *           "id": "sIxHBRIH",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 30,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly HyperBullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758639610000,
+           *           "finishesAt": 1758641230000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 2783,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "hyperBullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "nQujqrP3",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 57,
@@ -14287,14 +14349,14 @@ export interface operations {
            *           },
            *           "rated": true,
            *           "fullName": "Hourly Blitz Arena",
-           *           "nbPlayers": 0,
+           *           "nbPlayers": 1,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758110415000,
-           *           "finishesAt": 1758113835000,
+           *           "startsAt": 1758639615000,
+           *           "finishesAt": 1758643035000,
            *           "status": 10,
            *           "perf": {
            *             "key": "blitz",
@@ -14302,7 +14364,7 @@ export interface operations {
            *             "position": 1,
            *             "icon": ")"
            *           },
-           *           "secondsToStart": 3859,
+           *           "secondsToStart": 2788,
            *           "minRatedGames": {
            *             "nb": 15
            *           },
@@ -14312,7 +14374,466 @@ export interface operations {
            *           }
            *         },
            *         {
-           *           "id": "D7cmVPii",
+           *           "id": "1UFSOLpJ",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 300,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1500 Blitz Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758639620000,
+           *           "finishesAt": 1758643040000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "secondsToStart": 2793,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1500
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "blitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "QjuyBmJl",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 600,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1300 Rapid Arena",
+           *           "nbPlayers": 5,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758639625000,
+           *           "finishesAt": 1758643045000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "rapid",
+           *             "name": "Rapid",
+           *             "position": 2,
+           *             "icon": "#"
+           *           },
+           *           "secondsToStart": 2798,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1300
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "rapid"
+           *           }
+           *         },
+           *         {
+           *           "id": "LsLUuBVE",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Bullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758639630000,
+           *           "finishesAt": 1758641250000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 2803,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "l4UDmI6o",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Chess960 Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "chess960",
+           *             "short": "960",
+           *             "name": "Chess960"
+           *           },
+           *           "startsAt": 1758639635000,
+           *           "finishesAt": 1758641255000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "chess960",
+           *             "name": "Chess960",
+           *             "position": 6
+           *           },
+           *           "secondsToStart": 2808,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "KlZ9O7VO",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1700 SuperBlitz Arena",
+           *           "nbPlayers": 1,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758639640000,
+           *           "finishesAt": 1758643060000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "secondsToStart": 2813,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1700
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "superBlitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "lJnuwi9c",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 1
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤2000 Bullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758641400000,
+           *           "finishesAt": 1758643020000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 4573,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 2000
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "COGnBLLL",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Chess960 Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "chess960",
+           *             "short": "960",
+           *             "name": "Chess960"
+           *           },
+           *           "startsAt": 1758641410000,
+           *           "finishesAt": 1758643030000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "chess960",
+           *             "name": "Chess960",
+           *             "position": 6
+           *           },
+           *           "secondsToStart": 4583,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "lOTMoljO",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Bullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758641420000,
+           *           "finishesAt": 1758643040000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 4593,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "NTGabEge",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 15,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly UltraBullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758641440000,
+           *           "finishesAt": 1758643060000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "ultraBullet",
+           *             "name": "UltraBullet",
+           *             "position": 4,
+           *             "icon": "{"
+           *           },
+           *           "secondsToStart": 4613,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "ultraBullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "eZEFNZWm",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 360,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 2
+           *           },
+           *           "rated": true,
+           *           "fullName": "King of the Hill Shield Arena",
+           *           "nbPlayers": 6,
+           *           "variant": {
+           *             "key": "kingOfTheHill",
+           *             "short": "KotH",
+           *             "name": "King of the Hill"
+           *           },
+           *           "startsAt": 1758643200000,
+           *           "finishesAt": 1758664800000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "kingOfTheHill",
+           *             "name": "King of the Hill",
+           *             "position": 7
+           *           },
+           *           "secondsToStart": 6373,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "shield",
+           *             "speed": "blitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "GRqtuaRs",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1300 Bullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758643202500,
+           *           "finishesAt": 1758644822500,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 6375,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1300
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "F5nbHw0I",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 30,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly HyperBullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758643205000,
+           *           "finishesAt": 1758644825000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 6378,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "hyperBullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "MzI1xc1y",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Atomic Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "atomic",
+           *             "short": "Atom",
+           *             "name": "Atomic"
+           *           },
+           *           "startsAt": 1758643207500,
+           *           "finishesAt": 1758644827500,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "atomic",
+           *             "name": "Atomic",
+           *             "position": 10
+           *           },
+           *           "secondsToStart": 6380,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "3R2x76X4",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 57,
@@ -14328,8 +14849,8 @@ export interface operations {
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758110420000,
-           *           "finishesAt": 1758113840000,
+           *           "startsAt": 1758643210000,
+           *           "finishesAt": 1758646630000,
            *           "status": 10,
            *           "perf": {
            *             "key": "blitz",
@@ -14337,7 +14858,7 @@ export interface operations {
            *             "position": 1,
            *             "icon": ")"
            *           },
-           *           "secondsToStart": 3864,
+           *           "secondsToStart": 6383,
            *           "hasMaxRating": true,
            *           "maxRating": {
            *             "rating": 1700
@@ -14351,116 +14872,73 @@ export interface operations {
            *           }
            *         },
            *         {
-           *           "id": "SXzOR0vL",
+           *           "id": "nd4SsUgr",
            *           "createdBy": "lichess",
            *           "system": "arena",
-           *           "minutes": 117,
+           *           "minutes": 57,
            *           "clock": {
-           *             "limit": 600,
+           *             "limit": 120,
            *             "increment": 0
            *           },
            *           "rated": true,
-           *           "fullName": "Hourly Rapid Arena",
-           *           "nbPlayers": 13,
+           *           "fullName": "Hourly Horde Arena",
+           *           "nbPlayers": 0,
            *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
+           *             "key": "horde",
+           *             "short": "Horde",
+           *             "name": "Horde"
            *           },
-           *           "startsAt": 1758110425000,
-           *           "finishesAt": 1758117445000,
+           *           "startsAt": 1758643212500,
+           *           "finishesAt": 1758646632500,
            *           "status": 10,
            *           "perf": {
-           *             "key": "rapid",
-           *             "name": "Rapid",
-           *             "position": 2,
-           *             "icon": "#"
+           *             "key": "horde",
+           *             "name": "Horde",
+           *             "position": 11
            *           },
-           *           "secondsToStart": 3869,
-           *           "minRatedGames": {
-           *             "nb": 10
-           *           },
+           *           "secondsToStart": 6385,
            *           "schedule": {
            *             "freq": "hourly",
-           *             "speed": "rapid"
+           *             "speed": "hippoBullet"
            *           }
            *         },
            *         {
-           *           "id": "korWJOZN",
+           *           "id": "KezzICzP",
            *           "createdBy": "lichess",
            *           "system": "arena",
-           *           "minutes": 27,
+           *           "minutes": 57,
            *           "clock": {
-           *             "limit": 30,
+           *             "limit": 180,
            *             "increment": 0
            *           },
            *           "rated": true,
-           *           "fullName": "Hourly HyperBullet Arena",
+           *           "fullName": "Hourly SuperBlitz Arena",
            *           "nbPlayers": 0,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758110430000,
-           *           "finishesAt": 1758112050000,
+           *           "startsAt": 1758643215000,
+           *           "finishesAt": 1758646635000,
            *           "status": 10,
            *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
            *           },
-           *           "secondsToStart": 3874,
+           *           "secondsToStart": 6388,
            *           "minRatedGames": {
-           *             "nb": 20
+           *             "nb": 15
            *           },
            *           "schedule": {
            *             "freq": "hourly",
-           *             "speed": "hyperBullet"
+           *             "speed": "superBlitz"
            *           }
            *         },
            *         {
-           *           "id": "5eI1s4PK",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1300 Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758110435000,
-           *           "finishesAt": 1758112055000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 3879,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1300
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "nkwW4ioM",
+           *           "id": "LkLK8313",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 57,
@@ -14476,8 +14954,8 @@ export interface operations {
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758110440000,
-           *           "finishesAt": 1758113860000,
+           *           "startsAt": 1758643220000,
+           *           "finishesAt": 1758646640000,
            *           "status": 10,
            *           "perf": {
            *             "key": "blitz",
@@ -14485,7 +14963,7 @@ export interface operations {
            *             "position": 1,
            *             "icon": ")"
            *           },
-           *           "secondsToStart": 3884,
+           *           "secondsToStart": 6393,
            *           "hasMaxRating": true,
            *           "maxRating": {
            *             "rating": 2000
@@ -14499,161 +14977,24 @@ export interface operations {
            *           }
            *         },
            *         {
-           *           "id": "uDFUTx56",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 15,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly UltraBullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758112200000,
-           *           "finishesAt": 1758113820000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "ultraBullet",
-           *             "name": "UltraBullet",
-           *             "position": 4,
-           *             "icon": "{"
-           *           },
-           *           "secondsToStart": 5644,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "ultraBullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "VYrDNsgk",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Atomic Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "atomic",
-           *             "short": "Atom",
-           *             "name": "Atomic"
-           *           },
-           *           "startsAt": 1758112210000,
-           *           "finishesAt": 1758113830000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "atomic",
-           *             "name": "Atomic",
-           *             "position": 10
-           *           },
-           *           "secondsToStart": 5654,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "0w0FBetD",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 1
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1300 Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758112220000,
-           *           "finishesAt": 1758113840000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 5664,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1300
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "ylwaUO8f",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758112240000,
-           *           "finishesAt": 1758113860000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 5684,
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "M1y51tWT",
+           *           "id": "F4chYtii",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 57,
            *           "clock": {
-           *             "limit": 180,
-           *             "increment": 2
+           *             "limit": 300,
+           *             "increment": 0
            *           },
            *           "rated": true,
-           *           "fullName": "Sicilian Defense Blitz Arena",
+           *           "fullName": "Hourly Blitz Arena",
            *           "nbPlayers": 0,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758114000000,
-           *           "finishesAt": 1758117420000,
+           *           "startsAt": 1758643225000,
+           *           "finishesAt": 1758646645000,
            *           "status": 10,
            *           "perf": {
            *             "key": "blitz",
@@ -14661,15 +15002,9 @@ export interface operations {
            *             "position": 1,
            *             "icon": ")"
            *           },
-           *           "secondsToStart": 7444,
+           *           "secondsToStart": 6398,
            *           "minRatedGames": {
            *             "nb": 15
-           *           },
-           *           "position": {
-           *             "eco": "B90",
-           *             "name": "Sicilian Defense: Najdorf Variation",
-           *             "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq -",
-           *             "url": "https://lichess.org/opening/Sicilian_Defense_Najdorf_Variation"
            *           },
            *           "schedule": {
            *             "freq": "hourly",
@@ -14677,178 +15012,7 @@ export interface operations {
            *           }
            *         },
            *         {
-           *           "id": "K2moVY6V",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Antichess Arena",
-           *           "nbPlayers": 1,
-           *           "variant": {
-           *             "key": "antichess",
-           *             "short": "Anti",
-           *             "name": "Antichess"
-           *           },
-           *           "startsAt": 1758114002500,
-           *           "finishesAt": 1758117422500,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "antichess",
-           *             "name": "Antichess",
-           *             "position": 9
-           *           },
-           *           "secondsToStart": 7446,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "wdT2kP67",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758114005000,
-           *           "finishesAt": 1758115625000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 7449,
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "ZHN7v9Q5",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Horde Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "horde",
-           *             "short": "Horde",
-           *             "name": "Horde"
-           *           },
-           *           "startsAt": 1758114007500,
-           *           "finishesAt": 1758115627500,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "horde",
-           *             "name": "Horde",
-           *             "position": 11
-           *           },
-           *           "secondsToStart": 7451,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "0d2aWAEY",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1500 Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758114010000,
-           *           "finishesAt": 1758115630000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 7454,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1500
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "EDKhxZUo",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly SuperBlitz Arena",
-           *           "nbPlayers": 1,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758114015000,
-           *           "finishesAt": 1758117435000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "secondsToStart": 7459,
-           *           "minRatedGames": {
-           *             "nb": 15
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "XRpxEK54",
+           *           "id": "aTuBBsW3",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 57,
@@ -14857,15 +15021,15 @@ export interface operations {
            *             "increment": 0
            *           },
            *           "rated": true,
-           *           "fullName": "≤1700 Rapid Arena",
-           *           "nbPlayers": 0,
+           *           "fullName": "≤1500 Rapid Arena",
+           *           "nbPlayers": 2,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758114020000,
-           *           "finishesAt": 1758117440000,
+           *           "startsAt": 1758643230000,
+           *           "finishesAt": 1758646650000,
            *           "status": 10,
            *           "perf": {
            *             "key": "rapid",
@@ -14873,10 +15037,10 @@ export interface operations {
            *             "position": 2,
            *             "icon": "#"
            *           },
-           *           "secondsToStart": 7464,
+           *           "secondsToStart": 6403,
            *           "hasMaxRating": true,
            *           "maxRating": {
-           *             "rating": 1700
+           *             "rating": 1500
            *           },
            *           "minRatedGames": {
            *             "nb": 20
@@ -14887,288 +15051,7 @@ export interface operations {
            *           }
            *         },
            *         {
-           *           "id": "dKRZ4s5v",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1300 SuperBlitz Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758114025000,
-           *           "finishesAt": 1758117445000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "secondsToStart": 7469,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1300
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "xL0bR3u3",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 30,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly HyperBullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758114030000,
-           *           "finishesAt": 1758115650000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 7474,
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "hyperBullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "cctT2fXi",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 300,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly King of the Hill Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "kingOfTheHill",
-           *             "short": "KotH",
-           *             "name": "King of the Hill"
-           *           },
-           *           "startsAt": 1758114035000,
-           *           "finishesAt": 1758117455000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "kingOfTheHill",
-           *             "name": "King of the Hill",
-           *             "position": 7
-           *           },
-           *           "secondsToStart": 7479,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "blitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "hVrluj9z",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 2
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤2000 Blitz Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758114040000,
-           *           "finishesAt": 1758117460000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "secondsToStart": 7484,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 2000
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "blitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "naqP93Ad",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 1
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1500 Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758115800000,
-           *           "finishesAt": 1758117420000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 9244,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1500
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "v0Rlmthy",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Horde Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "horde",
-           *             "short": "Horde",
-           *             "name": "Horde"
-           *           },
-           *           "startsAt": 1758115810000,
-           *           "finishesAt": 1758117430000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "horde",
-           *             "name": "Horde",
-           *             "position": 11
-           *           },
-           *           "secondsToStart": 9254,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "cSOgxR1j",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758115820000,
-           *           "finishesAt": 1758117440000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 9264,
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "5ymX61pw",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 15,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly UltraBullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758115840000,
-           *           "finishesAt": 1758117460000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "ultraBullet",
-           *             "name": "UltraBullet",
-           *             "position": 4,
-           *             "icon": "{"
-           *           },
-           *           "secondsToStart": 9284,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "ultraBullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "ejlmdohp",
+           *           "id": "v5eomr6N",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 117,
@@ -15177,15 +15060,15 @@ export interface operations {
            *             "increment": 0
            *           },
            *           "rated": true,
-           *           "fullName": "Sicilian Defense Rapid Arena",
-           *           "nbPlayers": 0,
+           *           "fullName": "Hourly Rapid Arena",
+           *           "nbPlayers": 3,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758117600000,
-           *           "finishesAt": 1758124620000,
+           *           "startsAt": 1758643235000,
+           *           "finishesAt": 1758650255000,
            *           "status": 10,
            *           "perf": {
            *             "key": "rapid",
@@ -15193,1044 +15076,17 @@ export interface operations {
            *             "position": 2,
            *             "icon": "#"
            *           },
-           *           "secondsToStart": 11044,
+           *           "secondsToStart": 6408,
            *           "minRatedGames": {
            *             "nb": 10
            *           },
-           *           "position": {
-           *             "eco": "B90",
-           *             "name": "Sicilian Defense: Najdorf Variation",
-           *             "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq -",
-           *             "url": "https://lichess.org/opening/Sicilian_Defense_Najdorf_Variation"
-           *           },
            *           "schedule": {
            *             "freq": "hourly",
            *             "speed": "rapid"
            *           }
            *         },
            *         {
-           *           "id": "sXDNrtIg",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 120,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Crazyhouse Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "crazyhouse",
-           *             "short": "Crazy",
-           *             "name": "Crazyhouse"
-           *           },
-           *           "startsAt": 1758117602500,
-           *           "finishesAt": 1758121022500,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "crazyhouse",
-           *             "name": "Crazyhouse",
-           *             "position": 5
-           *           },
-           *           "secondsToStart": 11046,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "hippoBullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "Vn2S1u4G",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758117605000,
-           *           "finishesAt": 1758119225000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 11049,
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "lAbK2RQA",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 300,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Atomic Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "atomic",
-           *             "short": "Atom",
-           *             "name": "Atomic"
-           *           },
-           *           "startsAt": 1758117607500,
-           *           "finishesAt": 1758121027500,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "atomic",
-           *             "name": "Atomic",
-           *             "position": 10
-           *           },
-           *           "secondsToStart": 11051,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "blitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "O1w9Zcsh",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1500 SuperBlitz Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758117610000,
-           *           "finishesAt": 1758121030000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "secondsToStart": 11054,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1500
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "fynKJzdq",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Racing Kings Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "racingKings",
-           *             "short": "Racing",
-           *             "name": "Racing Kings"
-           *           },
-           *           "startsAt": 1758117612500,
-           *           "finishesAt": 1758121032500,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "racingKings",
-           *             "name": "Racing Kings",
-           *             "position": 12
-           *           },
-           *           "secondsToStart": 11056,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "AjXAY9hS",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly SuperBlitz Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758117615000,
-           *           "finishesAt": 1758121035000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "secondsToStart": 11059,
-           *           "minRatedGames": {
-           *             "nb": 15
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "gpczSZ1V",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1700 Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758117620000,
-           *           "finishesAt": 1758119240000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 11064,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1700
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "XNfWfOol",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 300,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Blitz Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758117625000,
-           *           "finishesAt": 1758121045000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "secondsToStart": 11069,
-           *           "minRatedGames": {
-           *             "nb": 15
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "blitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "FahPtv3I",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 30,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly HyperBullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758117630000,
-           *           "finishesAt": 1758119250000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 11074,
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "hyperBullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "eO8GbM4c",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 300,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1300 Blitz Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758117635000,
-           *           "finishesAt": 1758121055000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "secondsToStart": 11079,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1300
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "blitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "wz2Wr9V8",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 600,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤2000 Rapid Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758117640000,
-           *           "finishesAt": 1758121060000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "rapid",
-           *             "name": "Rapid",
-           *             "position": 2,
-           *             "icon": "#"
-           *           },
-           *           "secondsToStart": 11084,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 2000
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "rapid"
-           *           }
-           *         },
-           *         {
-           *           "id": "jZh7vLj3",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 1
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1700 Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758119400000,
-           *           "finishesAt": 1758121020000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 12844,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1700
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "2imZfMid",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758119420000,
-           *           "finishesAt": 1758121040000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 12864,
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "EzHtO1n8",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 15,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly UltraBullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758119440000,
-           *           "finishesAt": 1758121060000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "ultraBullet",
-           *             "name": "UltraBullet",
-           *             "position": 4,
-           *             "icon": "{"
-           *           },
-           *           "secondsToStart": 12884,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "ultraBullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "TCu7Gdfw",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤2000 Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758121200000,
-           *           "finishesAt": 1758122820000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 14644,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 2000
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "01eDHBLj",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 120,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Antichess Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "antichess",
-           *             "short": "Anti",
-           *             "name": "Antichess"
-           *           },
-           *           "startsAt": 1758121202500,
-           *           "finishesAt": 1758124622500,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "antichess",
-           *             "name": "Antichess",
-           *             "position": 9
-           *           },
-           *           "secondsToStart": 14646,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "hippoBullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "EkA4s0ZH",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly SuperBlitz Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758121205000,
-           *           "finishesAt": 1758124625000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "secondsToStart": 14649,
-           *           "minRatedGames": {
-           *             "nb": 15
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "6FUmjWKc",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 300,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Three-check Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "threeCheck",
-           *             "short": "3check",
-           *             "name": "Three-check"
-           *           },
-           *           "startsAt": 1758121207500,
-           *           "finishesAt": 1758124627500,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "threeCheck",
-           *             "name": "Three-check",
-           *             "position": 8
-           *           },
-           *           "secondsToStart": 14651,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "blitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "plaYze0s",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 30,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly HyperBullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758121210000,
-           *           "finishesAt": 1758122830000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 14654,
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "hyperBullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "mRdea5b3",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 300,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Blitz Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758121215000,
-           *           "finishesAt": 1758124635000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "secondsToStart": 14659,
-           *           "minRatedGames": {
-           *             "nb": 15
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "blitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "XbhE18mx",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 300,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1500 Blitz Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758121220000,
-           *           "finishesAt": 1758124640000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "secondsToStart": 14664,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1500
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "blitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "JURmgBHz",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 600,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1300 Rapid Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758121225000,
-           *           "finishesAt": 1758124645000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "rapid",
-           *             "name": "Rapid",
-           *             "position": 2,
-           *             "icon": "#"
-           *           },
-           *           "secondsToStart": 14669,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1300
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "rapid"
-           *           }
-           *         },
-           *         {
-           *           "id": "izVMGmzZ",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758121230000,
-           *           "finishesAt": 1758122850000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 14674,
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "8ZLniD0G",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Chess960 Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "chess960",
-           *             "short": "960",
-           *             "name": "Chess960"
-           *           },
-           *           "startsAt": 1758121235000,
-           *           "finishesAt": 1758122855000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "chess960",
-           *             "name": "Chess960",
-           *             "position": 6
-           *           },
-           *           "secondsToStart": 14679,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "CvqsQXvj",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1700 SuperBlitz Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758121240000,
-           *           "finishesAt": 1758124660000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "secondsToStart": 14684,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1700
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "Piyt7hFf",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 1
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤2000 Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758123000000,
-           *           "finishesAt": 1758124620000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 16444,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 2000
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "5rmxL52d",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Chess960 Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "chess960",
-           *             "short": "960",
-           *             "name": "Chess960"
-           *           },
-           *           "startsAt": 1758123010000,
-           *           "finishesAt": 1758124630000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "chess960",
-           *             "name": "Chess960",
-           *             "position": 6
-           *           },
-           *           "secondsToStart": 16454,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "2ZcwdODx",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758123020000,
-           *           "finishesAt": 1758124640000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 16464,
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "lNbz8Tqc",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 15,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly UltraBullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758123040000,
-           *           "finishesAt": 1758124660000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "ultraBullet",
-           *             "name": "UltraBullet",
-           *             "position": 4,
-           *             "icon": "{"
-           *           },
-           *           "secondsToStart": 16484,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "ultraBullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "dPkJZ9aj",
+           *           "id": "Gnq2B6NV",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 60,
@@ -16240,14 +15096,14 @@ export interface operations {
            *           },
            *           "rated": true,
            *           "fullName": "Daily Bullet Arena",
-           *           "nbPlayers": 0,
+           *           "nbPlayers": 1,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758124800000,
-           *           "finishesAt": 1758128400000,
+           *           "startsAt": 1758643240000,
+           *           "finishesAt": 1758646840000,
            *           "status": 10,
            *           "perf": {
            *             "key": "bullet",
@@ -16255,7 +15111,7 @@ export interface operations {
            *             "position": 0,
            *             "icon": "T"
            *           },
-           *           "secondsToStart": 18244,
+           *           "secondsToStart": 6413,
            *           "minRatedGames": {
            *             "nb": 20
            *           },
@@ -16265,73 +15121,39 @@ export interface operations {
            *           }
            *         },
            *         {
-           *           "id": "eR9BmPqC",
+           *           "id": "Tun5TOxy",
            *           "createdBy": "lichess",
            *           "system": "arena",
-           *           "minutes": 57,
+           *           "minutes": 27,
            *           "clock": {
-           *             "limit": 180,
+           *             "limit": 15,
            *             "increment": 0
            *           },
            *           "rated": true,
-           *           "fullName": "Hourly King of the Hill Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "kingOfTheHill",
-           *             "short": "KotH",
-           *             "name": "King of the Hill"
-           *           },
-           *           "startsAt": 1758124802500,
-           *           "finishesAt": 1758128222500,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "kingOfTheHill",
-           *             "name": "King of the Hill",
-           *             "position": 7
-           *           },
-           *           "secondsToStart": 18246,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "KJYHb1YY",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly SuperBlitz Arena",
+           *           "fullName": "Hourly UltraBullet Arena",
            *           "nbPlayers": 0,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758124805000,
-           *           "finishesAt": 1758128225000,
+           *           "startsAt": 1758645000000,
+           *           "finishesAt": 1758646620000,
            *           "status": 10,
            *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
+           *             "key": "ultraBullet",
+           *             "name": "UltraBullet",
+           *             "position": 4,
+           *             "icon": "{"
            *           },
-           *           "secondsToStart": 18249,
-           *           "minRatedGames": {
-           *             "nb": 15
-           *           },
+           *           "secondsToStart": 8173,
            *           "schedule": {
            *             "freq": "hourly",
-           *             "speed": "superBlitz"
+           *             "speed": "ultraBullet"
            *           }
            *         },
            *         {
-           *           "id": "p2VAINpI",
+           *           "id": "6vf4muUi",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 27,
@@ -16347,47 +15169,218 @@ export interface operations {
            *             "short": "Atom",
            *             "name": "Atomic"
            *           },
-           *           "startsAt": 1758124807500,
-           *           "finishesAt": 1758126427500,
+           *           "startsAt": 1758645020000,
+           *           "finishesAt": 1758646640000,
            *           "status": 10,
            *           "perf": {
            *             "key": "atomic",
            *             "name": "Atomic",
            *             "position": 10
            *           },
-           *           "secondsToStart": 18251,
+           *           "secondsToStart": 8193,
            *           "schedule": {
            *             "freq": "hourly",
            *             "speed": "bullet"
            *           }
            *         },
            *         {
-           *           "id": "bUriN806",
+           *           "id": "Y7WfveOg",
            *           "createdBy": "lichess",
            *           "system": "arena",
-           *           "minutes": 57,
+           *           "minutes": 27,
            *           "clock": {
-           *             "limit": 600,
-           *             "increment": 0
+           *             "limit": 60,
+           *             "increment": 1
            *           },
            *           "rated": true,
-           *           "fullName": "≤1500 Rapid Arena",
+           *           "fullName": "≤1300 Bullet Arena",
            *           "nbPlayers": 0,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758124810000,
-           *           "finishesAt": 1758128230000,
+           *           "startsAt": 1758645040000,
+           *           "finishesAt": 1758646660000,
            *           "status": 10,
            *           "perf": {
-           *             "key": "rapid",
-           *             "name": "Rapid",
-           *             "position": 2,
-           *             "icon": "#"
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
            *           },
-           *           "secondsToStart": 18254,
+           *           "secondsToStart": 8213,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1300
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "rl6sy8kI",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 180,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Weekly SuperBlitz Arena",
+           *           "nbPlayers": 7,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758646800000,
+           *           "finishesAt": 1758657600000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "secondsToStart": 9973,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "weekly",
+           *             "speed": "superBlitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "YUcLDQfX",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Antichess Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "antichess",
+           *             "short": "Anti",
+           *             "name": "Antichess"
+           *           },
+           *           "startsAt": 1758646802500,
+           *           "finishesAt": 1758650222500,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "antichess",
+           *             "name": "Antichess",
+           *             "position": 9
+           *           },
+           *           "secondsToStart": 9975,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "superBlitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "aTORECyk",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Bullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758646805000,
+           *           "finishesAt": 1758648425000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 9978,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "VOkjlnN2",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Racing Kings Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "racingKings",
+           *             "short": "Racing",
+           *             "name": "Racing Kings"
+           *           },
+           *           "startsAt": 1758646807500,
+           *           "finishesAt": 1758648427500,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "racingKings",
+           *             "name": "Racing Kings",
+           *             "position": 12
+           *           },
+           *           "secondsToStart": 9980,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "B9fUqF3u",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1500 Bullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758646810000,
+           *           "finishesAt": 1758648430000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 9983,
            *           "hasMaxRating": true,
            *           "maxRating": {
            *             "rating": 1500
@@ -16397,42 +15390,11 @@ export interface operations {
            *           },
            *           "schedule": {
            *             "freq": "hourly",
-           *             "speed": "rapid"
+           *             "speed": "bullet"
            *           }
            *         },
            *         {
-           *           "id": "ixpoL3MJ",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 120,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Horde Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "horde",
-           *             "short": "Horde",
-           *             "name": "Horde"
-           *           },
-           *           "startsAt": 1758124812500,
-           *           "finishesAt": 1758128232500,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "horde",
-           *             "name": "Horde",
-           *             "position": 11
-           *           },
-           *           "secondsToStart": 18256,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "hippoBullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "sx0zYW5S",
+           *           "id": "ZEoM4mJU",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 57,
@@ -16448,8 +15410,8 @@ export interface operations {
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758124815000,
-           *           "finishesAt": 1758128235000,
+           *           "startsAt": 1758646815000,
+           *           "finishesAt": 1758650235000,
            *           "status": 10,
            *           "perf": {
            *             "key": "blitz",
@@ -16457,7 +15419,7 @@ export interface operations {
            *             "position": 1,
            *             "icon": ")"
            *           },
-           *           "secondsToStart": 18259,
+           *           "secondsToStart": 9988,
            *           "minRatedGames": {
            *             "nb": 15
            *           },
@@ -16467,7 +15429,1419 @@ export interface operations {
            *           }
            *         },
            *         {
-           *           "id": "lL2xV5Y0",
+           *           "id": "wj5DejBO",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 600,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1700 Rapid Arena",
+           *           "nbPlayers": 1,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758646820000,
+           *           "finishesAt": 1758650240000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "rapid",
+           *             "name": "Rapid",
+           *             "position": 2,
+           *             "icon": "#"
+           *           },
+           *           "secondsToStart": 9993,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1700
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "rapid"
+           *           }
+           *         },
+           *         {
+           *           "id": "3c0h9H0z",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1300 SuperBlitz Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758646825000,
+           *           "finishesAt": 1758650245000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "secondsToStart": 9998,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1300
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "superBlitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "XJr3ZOUo",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 30,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly HyperBullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758646830000,
+           *           "finishesAt": 1758648450000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 10003,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "hyperBullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "QU2GglOZ",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 300,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Crazyhouse Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "crazyhouse",
+           *             "short": "Crazy",
+           *             "name": "Crazyhouse"
+           *           },
+           *           "startsAt": 1758646835000,
+           *           "finishesAt": 1758650255000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "crazyhouse",
+           *             "name": "Crazyhouse",
+           *             "position": 5
+           *           },
+           *           "secondsToStart": 10008,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "blitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "LXzlofph",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 300,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤2000 Blitz Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758646840000,
+           *           "finishesAt": 1758650260000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "secondsToStart": 10013,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 2000
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "blitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "ZDAD37Mi",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 1
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1500 Bullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758648600000,
+           *           "finishesAt": 1758650220000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 11773,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1500
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "nAP3ZMSe",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Racing Kings Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "racingKings",
+           *             "short": "Racing",
+           *             "name": "Racing Kings"
+           *           },
+           *           "startsAt": 1758648610000,
+           *           "finishesAt": 1758650230000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "racingKings",
+           *             "name": "Racing Kings",
+           *             "position": 12
+           *           },
+           *           "secondsToStart": 11783,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "TYBVbeHr",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Bullet Arena",
+           *           "nbPlayers": 1,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758648620000,
+           *           "finishesAt": 1758650240000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 11793,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "UJxHoCy5",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 15,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly UltraBullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758648640000,
+           *           "finishesAt": 1758650260000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "ultraBullet",
+           *             "name": "UltraBullet",
+           *             "position": 4,
+           *             "icon": "{"
+           *           },
+           *           "secondsToStart": 11813,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "ultraBullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "bzNP0LjW",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 120,
+           *           "clock": {
+           *             "limit": 300,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Daily Blitz Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758650400000,
+           *           "finishesAt": 1758657600000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "secondsToStart": 13573,
+           *           "minRatedGames": {
+           *             "nb": 15
+           *           },
+           *           "schedule": {
+           *             "freq": "daily",
+           *             "speed": "blitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "O7FNdRcz",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Three-check Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "threeCheck",
+           *             "short": "3check",
+           *             "name": "Three-check"
+           *           },
+           *           "startsAt": 1758650402500,
+           *           "finishesAt": 1758653822500,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "threeCheck",
+           *             "name": "Three-check",
+           *             "position": 8
+           *           },
+           *           "secondsToStart": 13575,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "superBlitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "X7PerUs8",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Bullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758650405000,
+           *           "finishesAt": 1758652025000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 13578,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "nmXMT6cg",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1500 SuperBlitz Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758650410000,
+           *           "finishesAt": 1758653830000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "secondsToStart": 13583,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1500
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "superBlitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "rYbhRK6L",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 300,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1300 Blitz Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758650415000,
+           *           "finishesAt": 1758653835000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "secondsToStart": 13588,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1300
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "blitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "BfBWufNp",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1700 Bullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758650420000,
+           *           "finishesAt": 1758652040000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 13593,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1700
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "orIyBbLW",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Chess960 Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "chess960",
+           *             "short": "960",
+           *             "name": "Chess960"
+           *           },
+           *           "startsAt": 1758650425000,
+           *           "finishesAt": 1758652045000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "chess960",
+           *             "name": "Chess960",
+           *             "position": 6
+           *           },
+           *           "secondsToStart": 13598,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "WiQi8ILg",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 30,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly HyperBullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758650430000,
+           *           "finishesAt": 1758652050000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 13603,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "hyperBullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "34NR2jUM",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 300,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Atomic Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "atomic",
+           *             "short": "Atom",
+           *             "name": "Atomic"
+           *           },
+           *           "startsAt": 1758650435000,
+           *           "finishesAt": 1758653855000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "atomic",
+           *             "name": "Atomic",
+           *             "position": 10
+           *           },
+           *           "secondsToStart": 13608,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "blitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "SwLclNay",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 600,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤2000 Rapid Arena",
+           *           "nbPlayers": 1,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758650440000,
+           *           "finishesAt": 1758653860000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "rapid",
+           *             "name": "Rapid",
+           *             "position": 2,
+           *             "icon": "#"
+           *           },
+           *           "secondsToStart": 13613,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 2000
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "rapid"
+           *           }
+           *         },
+           *         {
+           *           "id": "GA5DA7A3",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 1
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1700 Bullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758652200000,
+           *           "finishesAt": 1758653820000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 15373,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1700
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "nNytKgpt",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Chess960 Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "chess960",
+           *             "short": "960",
+           *             "name": "Chess960"
+           *           },
+           *           "startsAt": 1758652210000,
+           *           "finishesAt": 1758653830000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "chess960",
+           *             "name": "Chess960",
+           *             "position": 6
+           *           },
+           *           "secondsToStart": 15383,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "vxan9EOu",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Bullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758652220000,
+           *           "finishesAt": 1758653840000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 15393,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "RQQLrHBr",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 15,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly UltraBullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758652240000,
+           *           "finishesAt": 1758653860000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "ultraBullet",
+           *             "name": "UltraBullet",
+           *             "position": 4,
+           *             "icon": "{"
+           *           },
+           *           "secondsToStart": 15413,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "ultraBullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "edNKwPH4",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 180,
+           *           "clock": {
+           *             "limit": 300,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Weekly Crazyhouse Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "crazyhouse",
+           *             "short": "Crazy",
+           *             "name": "Crazyhouse"
+           *           },
+           *           "startsAt": 1758654000000,
+           *           "finishesAt": 1758664800000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "crazyhouse",
+           *             "name": "Crazyhouse",
+           *             "position": 5
+           *           },
+           *           "secondsToStart": 17173,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "weekly",
+           *             "speed": "blitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "1gfpHknF",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 300,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Horde Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "horde",
+           *             "short": "Horde",
+           *             "name": "Horde"
+           *           },
+           *           "startsAt": 1758654002500,
+           *           "finishesAt": 1758657422500,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "horde",
+           *             "name": "Horde",
+           *             "position": 11
+           *           },
+           *           "secondsToStart": 17175,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "blitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "fNDiONjQ",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 2
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1500 Blitz Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758654005000,
+           *           "finishesAt": 1758657425000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "secondsToStart": 17178,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1500
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "blitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "Lrzaqvr7",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤2000 Bullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758654010000,
+           *           "finishesAt": 1758655630000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 17183,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 2000
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "iTPoRLAd",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 30,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly HyperBullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758654015000,
+           *           "finishesAt": 1758655635000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 17188,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "hyperBullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "b2Ws9fla",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "English Opening Bullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758654020000,
+           *           "finishesAt": 1758655640000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 17193,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "position": {
+           *             "eco": "A30",
+           *             "name": "English Opening: Symmetrical Variation",
+           *             "fen": "rnbqkbnr/pp1ppppp/8/2p5/2P5/8/PP1PPPPP/RNBQKBNR w KQkq -",
+           *             "url": "https://lichess.org/opening/English_Opening_Symmetrical_Variation"
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "jKpJNNNs",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 600,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1300 Rapid Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758654025000,
+           *           "finishesAt": 1758657445000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "rapid",
+           *             "name": "Rapid",
+           *             "position": 2,
+           *             "icon": "#"
+           *           },
+           *           "secondsToStart": 17198,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1300
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "rapid"
+           *           }
+           *         },
+           *         {
+           *           "id": "rkPz02TZ",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1700 SuperBlitz Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758654030000,
+           *           "finishesAt": 1758657450000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "secondsToStart": 17203,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1700
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "superBlitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "0xDH2hPC",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Antichess Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "antichess",
+           *             "short": "Anti",
+           *             "name": "Antichess"
+           *           },
+           *           "startsAt": 1758654035000,
+           *           "finishesAt": 1758655655000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "antichess",
+           *             "name": "Antichess",
+           *             "position": 9
+           *           },
+           *           "secondsToStart": 17208,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "59aCdodD",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 150,
+           *           "clock": {
+           *             "limit": 600,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Daily Rapid Arena",
+           *           "nbPlayers": 2,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758654040000,
+           *           "finishesAt": 1758663040000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "rapid",
+           *             "name": "Rapid",
+           *             "position": 2,
+           *             "icon": "#"
+           *           },
+           *           "secondsToStart": 17213,
+           *           "minRatedGames": {
+           *             "nb": 10
+           *           },
+           *           "schedule": {
+           *             "freq": "daily",
+           *             "speed": "rapid"
+           *           }
+           *         },
+           *         {
+           *           "id": "619QrqgY",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 1
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤2000 Bullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758655800000,
+           *           "finishesAt": 1758657420000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 18973,
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 2000
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "ofwEcQZH",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Antichess Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "antichess",
+           *             "short": "Anti",
+           *             "name": "Antichess"
+           *           },
+           *           "startsAt": 1758655810000,
+           *           "finishesAt": 1758657430000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "antichess",
+           *             "name": "Antichess",
+           *             "position": 9
+           *           },
+           *           "secondsToStart": 18983,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "P046LWj7",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Bullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758655820000,
+           *           "finishesAt": 1758657440000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 18993,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "cuVTuieu",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 15,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly UltraBullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758655840000,
+           *           "finishesAt": 1758657460000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "ultraBullet",
+           *             "name": "UltraBullet",
+           *             "position": 4,
+           *             "icon": "{"
+           *           },
+           *           "secondsToStart": 19013,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "ultraBullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "loPYPRw6",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 60,
+           *           "clock": {
+           *             "limit": 30,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Daily HyperBullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758657600000,
+           *           "finishesAt": 1758661200000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 20773,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "daily",
+           *             "speed": "hyperBullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "cibiP102",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Racing Kings Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "racingKings",
+           *             "short": "Racing",
+           *             "name": "Racing Kings"
+           *           },
+           *           "startsAt": 1758657602500,
+           *           "finishesAt": 1758659222500,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "racingKings",
+           *             "name": "Racing Kings",
+           *             "position": 12
+           *           },
+           *           "secondsToStart": 20775,
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "2Xi2nAAS",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Bullet Arena",
+           *           "nbPlayers": 0,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758657605000,
+           *           "finishesAt": 1758659225000,
+           *           "status": 10,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "secondsToStart": 20778,
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "MLILoML8",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 57,
@@ -16483,8 +16857,8 @@ export interface operations {
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758124820000,
-           *           "finishesAt": 1758128240000,
+           *           "startsAt": 1758657610000,
+           *           "finishesAt": 1758661030000,
            *           "status": 10,
            *           "perf": {
            *             "key": "blitz",
@@ -16492,7 +16866,7 @@ export interface operations {
            *             "position": 1,
            *             "icon": ")"
            *           },
-           *           "secondsToStart": 18264,
+           *           "secondsToStart": 20783,
            *           "hasMaxRating": true,
            *           "maxRating": {
            *             "rating": 1700
@@ -16506,116 +16880,42 @@ export interface operations {
            *           }
            *         },
            *         {
-           *           "id": "foFpeaYK",
+           *           "id": "OxUKbUnL",
            *           "createdBy": "lichess",
            *           "system": "arena",
-           *           "minutes": 117,
+           *           "minutes": 57,
            *           "clock": {
-           *             "limit": 600,
+           *             "limit": 300,
            *             "increment": 0
            *           },
            *           "rated": true,
-           *           "fullName": "Hourly Rapid Arena",
+           *           "fullName": "Hourly Blitz Arena",
            *           "nbPlayers": 0,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758124825000,
-           *           "finishesAt": 1758131845000,
+           *           "startsAt": 1758657615000,
+           *           "finishesAt": 1758661035000,
            *           "status": 10,
            *           "perf": {
-           *             "key": "rapid",
-           *             "name": "Rapid",
-           *             "position": 2,
-           *             "icon": "#"
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
            *           },
-           *           "secondsToStart": 18269,
+           *           "secondsToStart": 20788,
            *           "minRatedGames": {
-           *             "nb": 10
+           *             "nb": 15
            *           },
            *           "schedule": {
            *             "freq": "hourly",
-           *             "speed": "rapid"
+           *             "speed": "blitz"
            *           }
            *         },
            *         {
-           *           "id": "X2gVAlag",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 30,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly HyperBullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758124830000,
-           *           "finishesAt": 1758126450000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 18274,
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "hyperBullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "a2sa6NvD",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1300 Bullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758124835000,
-           *           "finishesAt": 1758126455000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "secondsToStart": 18279,
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1300
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "0IFuPQNh",
+           *           "id": "4wNb4rh1",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 57,
@@ -16631,8 +16931,8 @@ export interface operations {
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758124840000,
-           *           "finishesAt": 1758128260000,
+           *           "startsAt": 1758657620000,
+           *           "finishesAt": 1758661040000,
            *           "status": 10,
            *           "perf": {
            *             "key": "blitz",
@@ -16640,7 +16940,7 @@ export interface operations {
            *             "position": 1,
            *             "icon": ")"
            *           },
-           *           "secondsToStart": 18284,
+           *           "secondsToStart": 20793,
            *           "hasMaxRating": true,
            *           "maxRating": {
            *             "rating": 2000
@@ -16654,76 +16954,13 @@ export interface operations {
            *           }
            *         },
            *         {
-           *           "id": "Od1BxRMK",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 15,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly UltraBullet Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758126600000,
-           *           "finishesAt": 1758128220000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "ultraBullet",
-           *             "name": "UltraBullet",
-           *             "position": 4,
-           *             "icon": "{"
-           *           },
-           *           "secondsToStart": 20044,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "ultraBullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "RA9xSUqP",
+           *           "id": "YZcAizne",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 27,
            *           "clock": {
            *             "limit": 60,
            *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Atomic Arena",
-           *           "nbPlayers": 0,
-           *           "variant": {
-           *             "key": "atomic",
-           *             "short": "Atom",
-           *             "name": "Atomic"
-           *           },
-           *           "startsAt": 1758126620000,
-           *           "finishesAt": 1758128240000,
-           *           "status": 10,
-           *           "perf": {
-           *             "key": "atomic",
-           *             "name": "Atomic",
-           *             "position": 10
-           *           },
-           *           "secondsToStart": 20064,
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "QPMXGSs2",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 1
            *           },
            *           "rated": true,
            *           "fullName": "≤1300 Bullet Arena",
@@ -16733,8 +16970,8 @@ export interface operations {
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758126640000,
-           *           "finishesAt": 1758128260000,
+           *           "startsAt": 1758657625000,
+           *           "finishesAt": 1758659245000,
            *           "status": 10,
            *           "perf": {
            *             "key": "bullet",
@@ -16742,7 +16979,7 @@ export interface operations {
            *             "position": 0,
            *             "icon": "T"
            *           },
-           *           "secondsToStart": 20084,
+           *           "secondsToStart": 20798,
            *           "hasMaxRating": true,
            *           "maxRating": {
            *             "rating": 1300
@@ -16754,11 +16991,9 @@ export interface operations {
            *             "freq": "hourly",
            *             "speed": "bullet"
            *           }
-           *         }
-           *       ],
-           *       "started": [
+           *         },
            *         {
-           *           "id": "DHNFUQsO",
+           *           "id": "73Xuy8gW",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 57,
@@ -16767,25 +17002,26 @@ export interface operations {
            *             "increment": 0
            *           },
            *           "rated": true,
-           *           "fullName": "≤2000 Rapid Arena",
-           *           "nbPlayers": 440,
+           *           "fullName": "≤1500 Rapid Arena",
+           *           "nbPlayers": 0,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758103200000,
-           *           "finishesAt": 1758106620000,
-           *           "status": 20,
+           *           "startsAt": 1758657630000,
+           *           "finishesAt": 1758661050000,
+           *           "status": 10,
            *           "perf": {
            *             "key": "rapid",
            *             "name": "Rapid",
            *             "position": 2,
            *             "icon": "#"
            *           },
+           *           "secondsToStart": 20803,
            *           "hasMaxRating": true,
            *           "maxRating": {
-           *             "rating": 2000
+           *             "rating": 1500
            *           },
            *           "minRatedGames": {
            *             "nb": 20
@@ -16796,45 +17032,7 @@ export interface operations {
            *           }
            *         },
            *         {
-           *           "id": "F6YA0nAi",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 1
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1700 Bullet Arena",
-           *           "nbPlayers": 165,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758105000000,
-           *           "finishesAt": 1758106620000,
-           *           "status": 20,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1700
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "jo1sZqIo",
+           *           "id": "yV0qJfIg",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 57,
@@ -16843,101 +17041,29 @@ export interface operations {
            *             "increment": 0
            *           },
            *           "rated": true,
-           *           "fullName": "≤1500 SuperBlitz Arena",
-           *           "nbPlayers": 187,
+           *           "fullName": "Hourly Atomic Arena",
+           *           "nbPlayers": 0,
            *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
+           *             "key": "atomic",
+           *             "short": "Atom",
+           *             "name": "Atomic"
            *           },
-           *           "startsAt": 1758103220000,
-           *           "finishesAt": 1758106640000,
-           *           "status": 20,
+           *           "startsAt": 1758657635000,
+           *           "finishesAt": 1758661055000,
+           *           "status": 10,
            *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
+           *             "key": "atomic",
+           *             "name": "Atomic",
+           *             "position": 10
            *           },
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1500
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
+           *           "secondsToStart": 20808,
            *           "schedule": {
            *             "freq": "hourly",
            *             "speed": "superBlitz"
            *           }
            *         },
            *         {
-           *           "id": "Dhuaoc1W",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 15,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly UltraBullet Arena",
-           *           "nbPlayers": 104,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758105040000,
-           *           "finishesAt": 1758106660000,
-           *           "status": 20,
-           *           "perf": {
-           *             "key": "ultraBullet",
-           *             "name": "UltraBullet",
-           *             "position": 4,
-           *             "icon": "{"
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "ultraBullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "5kh10oYh",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Bullet Arena",
-           *           "nbPlayers": 341,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758105020000,
-           *           "finishesAt": 1758106640000,
-           *           "status": 20,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           }
-           *         },
-           *         {
-           *           "id": "fG7o07LI",
+           *           "id": "VH2EmhCk",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 57,
@@ -16946,66 +17072,41 @@ export interface operations {
            *             "increment": 0
            *           },
            *           "rated": true,
-           *           "fullName": "Hourly SuperBlitz Arena",
-           *           "nbPlayers": 793,
+           *           "fullName": "English Opening SuperBlitz Arena",
+           *           "nbPlayers": 0,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758103205000,
-           *           "finishesAt": 1758106625000,
-           *           "status": 20,
+           *           "startsAt": 1758657640000,
+           *           "finishesAt": 1758661060000,
+           *           "status": 10,
            *           "perf": {
            *             "key": "blitz",
            *             "name": "Blitz",
            *             "position": 1,
            *             "icon": ")"
            *           },
+           *           "secondsToStart": 20813,
            *           "minRatedGames": {
            *             "nb": 15
+           *           },
+           *           "position": {
+           *             "eco": "A30",
+           *             "name": "English Opening: Symmetrical Variation",
+           *             "fen": "rnbqkbnr/pp1ppppp/8/2p5/2P5/8/PP1PPPPP/RNBQKBNR w KQkq -",
+           *             "url": "https://lichess.org/opening/English_Opening_Symmetrical_Variation"
            *           },
            *           "schedule": {
            *             "freq": "hourly",
            *             "speed": "superBlitz"
            *           }
-           *         },
+           *         }
+           *       ],
+           *       "started": [
            *         {
-           *           "id": "KyPiqQCP",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 300,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Blitz Arena",
-           *           "nbPlayers": 397,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758103215000,
-           *           "finishesAt": 1758106635000,
-           *           "status": 20,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 15
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "blitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "Fju1xKkq",
+           *           "id": "25MfUoNP",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 117,
@@ -17014,15 +17115,15 @@ export interface operations {
            *             "increment": 0
            *           },
            *           "rated": true,
-           *           "fullName": "Hourly Rapid Arena",
-           *           "nbPlayers": 380,
+           *           "fullName": "French Defense Rapid Arena",
+           *           "nbPlayers": 130,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758103225000,
-           *           "finishesAt": 1758110245000,
+           *           "startsAt": 1758636000000,
+           *           "finishesAt": 1758643020000,
            *           "status": 20,
            *           "perf": {
            *             "key": "rapid",
@@ -17033,13 +17134,269 @@ export interface operations {
            *           "minRatedGames": {
            *             "nb": 10
            *           },
+           *           "position": {
+           *             "eco": "C10",
+           *             "name": "French Defense: Rubinstein Variation",
+           *             "fen": "rnbqkbnr/ppp2ppp/4p3/8/3Pp3/2N5/PPP2PPP/R1BQKBNR w KQkq -",
+           *             "url": "https://lichess.org/opening/French_Defense_Rubinstein_Variation"
+           *           },
            *           "schedule": {
            *             "freq": "hourly",
            *             "speed": "rapid"
            *           }
            *         },
            *         {
-           *           "id": "UrMH8wOU",
+           *           "id": "TQNA7zIU",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 600,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤2000 Rapid Arena",
+           *           "nbPlayers": 330,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758636040000,
+           *           "finishesAt": 1758639460000,
+           *           "status": 20,
+           *           "perf": {
+           *             "key": "rapid",
+           *             "name": "Rapid",
+           *             "position": 2,
+           *             "icon": "#"
+           *           },
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 2000
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "rapid"
+           *           }
+           *         },
+           *         {
+           *           "id": "ev5T13d6",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1700 Bullet Arena",
+           *           "nbPlayers": 128,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758636020000,
+           *           "finishesAt": 1758637640000,
+           *           "status": 20,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1700
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "tOtlKOkh",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1500 SuperBlitz Arena",
+           *           "nbPlayers": 143,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758636010000,
+           *           "finishesAt": 1758639430000,
+           *           "status": 20,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1500
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "superBlitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "ZGxC9tbg",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 30,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly HyperBullet Arena",
+           *           "nbPlayers": 90,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758636030000,
+           *           "finishesAt": 1758637650000,
+           *           "status": 20,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "hyperBullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "Ud02I9DW",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Bullet Arena",
+           *           "nbPlayers": 295,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758636005000,
+           *           "finishesAt": 1758637625000,
+           *           "status": 20,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "hqcf7jza",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly SuperBlitz Arena",
+           *           "nbPlayers": 515,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758636015000,
+           *           "finishesAt": 1758639435000,
+           *           "status": 20,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 15
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "superBlitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "0QB4uD44",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 300,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Blitz Arena",
+           *           "nbPlayers": 274,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758636025000,
+           *           "finishesAt": 1758639445000,
+           *           "status": 20,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 15
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "blitz"
+           *           }
+           *         },
+           *         {
+           *           "id": "BZd3ukOV",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 57,
@@ -17049,14 +17406,14 @@ export interface operations {
            *           },
            *           "rated": true,
            *           "fullName": "≤1300 Blitz Arena",
-           *           "nbPlayers": 104,
+           *           "nbPlayers": 66,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758103235000,
-           *           "finishesAt": 1758106655000,
+           *           "startsAt": 1758636035000,
+           *           "finishesAt": 1758639455000,
            *           "status": 20,
            *           "perf": {
            *             "key": "blitz",
@@ -17077,7 +17434,37 @@ export interface operations {
            *           }
            *         },
            *         {
-           *           "id": "gdFpG4Yr",
+           *           "id": "gAvJYvgt",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 120,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Crazyhouse Arena",
+           *           "nbPlayers": 43,
+           *           "variant": {
+           *             "key": "crazyhouse",
+           *             "short": "Crazy",
+           *             "name": "Crazyhouse"
+           *           },
+           *           "startsAt": 1758636002500,
+           *           "finishesAt": 1758639422500,
+           *           "status": 20,
+           *           "perf": {
+           *             "key": "crazyhouse",
+           *             "name": "Crazyhouse",
+           *             "position": 5
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "hippoBullet"
+           *           }
+           *         },
+           *         {
+           *           "id": "iJb0R8jQ",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 57,
@@ -17086,45 +17473,15 @@ export interface operations {
            *             "increment": 0
            *           },
            *           "rated": true,
-           *           "fullName": "Hourly King of the Hill Arena",
-           *           "nbPlayers": 59,
-           *           "variant": {
-           *             "key": "kingOfTheHill",
-           *             "short": "KotH",
-           *             "name": "King of the Hill"
-           *           },
-           *           "startsAt": 1758103202500,
-           *           "finishesAt": 1758106622500,
-           *           "status": 20,
-           *           "perf": {
-           *             "key": "kingOfTheHill",
-           *             "name": "King of the Hill",
-           *             "position": 7
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "blitz"
-           *           }
-           *         },
-           *         {
-           *           "id": "LjRrECmO",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
            *           "fullName": "Hourly Atomic Arena",
-           *           "nbPlayers": 100,
+           *           "nbPlayers": 52,
            *           "variant": {
            *             "key": "atomic",
            *             "short": "Atom",
            *             "name": "Atomic"
            *           },
-           *           "startsAt": 1758103207500,
-           *           "finishesAt": 1758106627500,
+           *           "startsAt": 1758636007500,
+           *           "finishesAt": 1758639427500,
            *           "status": 20,
            *           "perf": {
            *             "key": "atomic",
@@ -17133,195 +17490,43 @@ export interface operations {
            *           },
            *           "schedule": {
            *             "freq": "hourly",
-           *             "speed": "superBlitz"
+           *             "speed": "blitz"
            *           }
            *         },
            *         {
-           *           "id": "91xypewf",
+           *           "id": "7iVGoiW8",
            *           "createdBy": "lichess",
            *           "system": "arena",
-           *           "minutes": 27,
+           *           "minutes": 57,
            *           "clock": {
-           *             "limit": 60,
+           *             "limit": 180,
            *             "increment": 0
            *           },
            *           "rated": true,
-           *           "fullName": "Hourly Horde Arena",
-           *           "nbPlayers": 28,
+           *           "fullName": "Hourly Racing Kings Arena",
+           *           "nbPlayers": 26,
            *           "variant": {
-           *             "key": "horde",
-           *             "short": "Horde",
-           *             "name": "Horde"
+           *             "key": "racingKings",
+           *             "short": "Racing",
+           *             "name": "Racing Kings"
            *           },
-           *           "startsAt": 1758105010000,
-           *           "finishesAt": 1758106630000,
+           *           "startsAt": 1758636012500,
+           *           "finishesAt": 1758639432500,
            *           "status": 20,
            *           "perf": {
-           *             "key": "horde",
-           *             "name": "Horde",
-           *             "position": 11
+           *             "key": "racingKings",
+           *             "name": "Racing Kings",
+           *             "position": 12
            *           },
            *           "schedule": {
            *             "freq": "hourly",
-           *             "speed": "bullet"
+           *             "speed": "superBlitz"
            *           }
            *         }
            *       ],
            *       "finished": [
            *         {
-           *           "id": "x0PzNQ5A",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1700 Bullet Arena",
-           *           "nbPlayers": 120,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758103240000,
-           *           "finishesAt": 1758104860000,
-           *           "status": 30,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1700
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           },
-           *           "winner": {
-           *             "name": "deutre",
-           *             "id": "deutre"
-           *           }
-           *         },
-           *         {
-           *           "id": "68rDBLq4",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Bullet Arena",
-           *           "nbPlayers": 293,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758103230000,
-           *           "finishesAt": 1758104850000,
-           *           "status": 30,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           },
-           *           "winner": {
-           *             "name": "Slimeball2025",
-           *             "id": "slimeball2025"
-           *           }
-           *         },
-           *         {
-           *           "id": "H6pNHCD4",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Horde Arena",
-           *           "nbPlayers": 27,
-           *           "variant": {
-           *             "key": "horde",
-           *             "short": "Horde",
-           *             "name": "Horde"
-           *           },
-           *           "startsAt": 1758103212500,
-           *           "finishesAt": 1758104832500,
-           *           "status": 30,
-           *           "perf": {
-           *             "key": "horde",
-           *             "name": "Horde",
-           *             "position": 11
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           },
-           *           "winner": {
-           *             "name": "AlwaysImprove96",
-           *             "id": "alwaysimprove96"
-           *           }
-           *         },
-           *         {
-           *           "id": "2Kk3w23a",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 30,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly HyperBullet Arena",
-           *           "nbPlayers": 96,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758103210000,
-           *           "finishesAt": 1758104830000,
-           *           "status": 30,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "hyperBullet"
-           *           },
-           *           "winner": {
-           *             "name": "donnyrules",
-           *             "id": "donnyrules"
-           *           }
-           *         },
-           *         {
-           *           "id": "huphUt9q",
+           *           "id": "108z3f3S",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 27,
@@ -17331,14 +17536,14 @@ export interface operations {
            *           },
            *           "rated": true,
            *           "fullName": "Hourly UltraBullet Arena",
-           *           "nbPlayers": 90,
+           *           "nbPlayers": 113,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758101440000,
-           *           "finishesAt": 1758103060000,
+           *           "startsAt": 1758634240000,
+           *           "finishesAt": 1758635860000,
            *           "status": 30,
            *           "perf": {
            *             "key": "ultraBullet",
@@ -17351,12 +17556,12 @@ export interface operations {
            *             "speed": "ultraBullet"
            *           },
            *           "winner": {
-           *             "name": "Antvik",
-           *             "id": "antvik"
+           *             "name": "MyFavTrajectory",
+           *             "id": "myfavtrajectory"
            *           }
            *         },
            *         {
-           *           "id": "bRSTBYNg",
+           *           "id": "vDyAkgDh",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 27,
@@ -17366,14 +17571,14 @@ export interface operations {
            *           },
            *           "rated": true,
            *           "fullName": "Hourly Bullet Arena",
-           *           "nbPlayers": 311,
+           *           "nbPlayers": 459,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758101420000,
-           *           "finishesAt": 1758103040000,
+           *           "startsAt": 1758634220000,
+           *           "finishesAt": 1758635840000,
            *           "status": 30,
            *           "perf": {
            *             "key": "bullet",
@@ -17389,15 +17594,13 @@ export interface operations {
            *             "speed": "bullet"
            *           },
            *           "winner": {
-           *             "name": "Kurald_Galain",
-           *             "flair": "people.troll",
-           *             "patron": true,
-           *             "patronTier": "years1",
-           *             "id": "kurald_galain"
+           *             "name": "Nsomer_000",
+           *             "flair": "smileys.face-with-open-mouth",
+           *             "id": "nsomer_000"
            *           }
            *         },
            *         {
-           *           "id": "kaCSq3du",
+           *           "id": "vkVrdmi2",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 27,
@@ -17406,34 +17609,32 @@ export interface operations {
            *             "increment": 0
            *           },
            *           "rated": true,
-           *           "fullName": "Hourly Antichess Arena",
-           *           "nbPlayers": 65,
+           *           "fullName": "Hourly Horde Arena",
+           *           "nbPlayers": 44,
            *           "variant": {
-           *             "key": "antichess",
-           *             "short": "Anti",
-           *             "name": "Antichess"
+           *             "key": "horde",
+           *             "short": "Horde",
+           *             "name": "Horde"
            *           },
-           *           "startsAt": 1758101410000,
-           *           "finishesAt": 1758103030000,
+           *           "startsAt": 1758634210000,
+           *           "finishesAt": 1758635830000,
            *           "status": 30,
            *           "perf": {
-           *             "key": "antichess",
-           *             "name": "Antichess",
-           *             "position": 9
+           *             "key": "horde",
+           *             "name": "Horde",
+           *             "position": 11
            *           },
            *           "schedule": {
            *             "freq": "hourly",
            *             "speed": "bullet"
            *           },
            *           "winner": {
-           *             "name": "Siddiq1911",
-           *             "patron": true,
-           *             "patronTier": "months3",
-           *             "id": "siddiq1911"
+           *             "name": "thisisspartaa",
+           *             "id": "thisisspartaa"
            *           }
            *         },
            *         {
-           *           "id": "NAcDkP8q",
+           *           "id": "6pz1a3eb",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 27,
@@ -17443,14 +17644,14 @@ export interface operations {
            *           },
            *           "rated": true,
            *           "fullName": "≤1500 Bullet Arena",
-           *           "nbPlayers": 100,
+           *           "nbPlayers": 102,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758101400000,
-           *           "finishesAt": 1758103020000,
+           *           "startsAt": 1758634200000,
+           *           "finishesAt": 1758635820000,
            *           "status": 30,
            *           "perf": {
            *             "key": "bullet",
@@ -17470,415 +17671,29 @@ export interface operations {
            *             "speed": "bullet"
            *           },
            *           "winner": {
-           *             "name": "ElishaS12",
-           *             "id": "elishas12"
+           *             "name": "lexus80",
+           *             "id": "lexus80"
            *           }
            *         },
            *         {
-           *           "id": "VMj9Tksp",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 600,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1700 Rapid Arena",
-           *           "nbPlayers": 284,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758099640000,
-           *           "finishesAt": 1758103060000,
-           *           "status": 30,
-           *           "perf": {
-           *             "key": "rapid",
-           *             "name": "Rapid",
-           *             "position": 2,
-           *             "icon": "#"
-           *           },
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1700
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "rapid"
-           *           },
-           *           "winner": {
-           *             "name": "mera15",
-           *             "id": "mera15"
-           *           }
-           *         },
-           *         {
-           *           "id": "odq02NzJ",
+           *           "id": "BAIJFhXo",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 57,
            *           "clock": {
            *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Chess960 Arena",
-           *           "nbPlayers": 80,
-           *           "variant": {
-           *             "key": "chess960",
-           *             "short": "960",
-           *             "name": "Chess960"
-           *           },
-           *           "startsAt": 1758099635000,
-           *           "finishesAt": 1758103055000,
-           *           "status": 30,
-           *           "perf": {
-           *             "key": "chess960",
-           *             "name": "Chess960",
-           *             "position": 6
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           },
-           *           "winner": {
-           *             "name": "maxumfirda",
-           *             "id": "maxumfirda"
-           *           }
-           *         },
-           *         {
-           *           "id": "CWRRDgEm",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Bullet Arena",
-           *           "nbPlayers": 298,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758099630000,
-           *           "finishesAt": 1758101250000,
-           *           "status": 30,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           },
-           *           "winner": {
-           *             "name": "wateenellende",
-           *             "title": "IM",
-           *             "flair": "activity.chess-pawn",
-           *             "patron": true,
-           *             "patronTier": "lifetime",
-           *             "id": "wateenellende"
-           *           }
-           *         },
-           *         {
-           *           "id": "p7MDEeHD",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1300 SuperBlitz Arena",
-           *           "nbPlayers": 88,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758099625000,
-           *           "finishesAt": 1758103045000,
-           *           "status": 30,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1300
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           },
-           *           "winner": {
-           *             "name": "atusa-panahi",
-           *             "id": "atusa-panahi"
-           *           }
-           *         },
-           *         {
-           *           "id": "KHATmexA",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "≤1500 Bullet Arena",
-           *           "nbPlayers": 66,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758099620000,
-           *           "finishesAt": 1758101240000,
-           *           "status": 30,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "hasMaxRating": true,
-           *           "maxRating": {
-           *             "rating": 1500
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           },
-           *           "winner": {
-           *             "name": "Tlhabi",
-           *             "id": "tlhabi"
-           *           }
-           *         },
-           *         {
-           *           "id": "apcXZECr",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 300,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Blitz Arena",
-           *           "nbPlayers": 301,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758099615000,
-           *           "finishesAt": 1758103035000,
-           *           "status": 30,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 15
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "blitz"
-           *           },
-           *           "winner": {
-           *             "name": "hadodo",
-           *             "id": "hadodo"
-           *           }
-           *         },
-           *         {
-           *           "id": "QM4WZ89H",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 30,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly HyperBullet Arena",
-           *           "nbPlayers": 88,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758099610000,
-           *           "finishesAt": 1758101230000,
-           *           "status": 30,
-           *           "perf": {
-           *             "key": "bullet",
-           *             "name": "Bullet",
-           *             "position": 0,
-           *             "icon": "T"
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 20
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "hyperBullet"
-           *           },
-           *           "winner": {
-           *             "name": "decidement",
-           *             "id": "decidement"
-           *           }
-           *         },
-           *         {
-           *           "id": "nYFkyurR",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 120,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Three-check Arena",
-           *           "nbPlayers": 49,
-           *           "variant": {
-           *             "key": "threeCheck",
-           *             "short": "3check",
-           *             "name": "Three-check"
-           *           },
-           *           "startsAt": 1758099607500,
-           *           "finishesAt": 1758103027500,
-           *           "status": 30,
-           *           "perf": {
-           *             "key": "threeCheck",
-           *             "name": "Three-check",
-           *             "position": 8
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "hippoBullet"
-           *           },
-           *           "winner": {
-           *             "name": "VadimCernov",
-           *             "title": "IM",
-           *             "id": "vadimcernov"
-           *           }
-           *         },
-           *         {
-           *           "id": "FK3NYWio",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 180,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly SuperBlitz Arena",
-           *           "nbPlayers": 763,
-           *           "variant": {
-           *             "key": "standard",
-           *             "short": "Std",
-           *             "name": "Standard"
-           *           },
-           *           "startsAt": 1758099605000,
-           *           "finishesAt": 1758103025000,
-           *           "status": 30,
-           *           "perf": {
-           *             "key": "blitz",
-           *             "name": "Blitz",
-           *             "position": 1,
-           *             "icon": ")"
-           *           },
-           *           "minRatedGames": {
-           *             "nb": 15
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "superBlitz"
-           *           },
-           *           "winner": {
-           *             "name": "Gostevsergheiigor",
-           *             "id": "gostevsergheiigor"
-           *           }
-           *         },
-           *         {
-           *           "id": "SPqqU1tQ",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 27,
-           *           "clock": {
-           *             "limit": 60,
-           *             "increment": 0
-           *           },
-           *           "rated": true,
-           *           "fullName": "Hourly Antichess Arena",
-           *           "nbPlayers": 64,
-           *           "variant": {
-           *             "key": "antichess",
-           *             "short": "Anti",
-           *             "name": "Antichess"
-           *           },
-           *           "startsAt": 1758099602500,
-           *           "finishesAt": 1758101222500,
-           *           "status": 30,
-           *           "perf": {
-           *             "key": "antichess",
-           *             "name": "Antichess",
-           *             "position": 9
-           *           },
-           *           "schedule": {
-           *             "freq": "hourly",
-           *             "speed": "bullet"
-           *           },
-           *           "winner": {
-           *             "name": "Dilmurod05",
-           *             "flair": "nature.butterfly",
-           *             "id": "dilmurod05"
-           *           }
-           *         },
-           *         {
-           *           "id": "LlHn2Rt8",
-           *           "createdBy": "lichess",
-           *           "system": "arena",
-           *           "minutes": 57,
-           *           "clock": {
-           *             "limit": 300,
-           *             "increment": 0
+           *             "increment": 2
            *           },
            *           "rated": true,
            *           "fullName": "≤2000 Blitz Arena",
-           *           "nbPlayers": 498,
+           *           "nbPlayers": 616,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758099600000,
-           *           "finishesAt": 1758103020000,
+           *           "startsAt": 1758632440000,
+           *           "finishesAt": 1758635860000,
            *           "status": 30,
            *           "perf": {
            *             "key": "blitz",
@@ -17898,12 +17713,284 @@ export interface operations {
            *             "speed": "blitz"
            *           },
            *           "winner": {
-           *             "name": "sara3211",
-           *             "id": "sara3211"
+           *             "name": "LenaFox13",
+           *             "id": "lenafox13"
            *           }
            *         },
            *         {
-           *           "id": "cRk2QMsU",
+           *           "id": "wnb7vl3A",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 300,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly King of the Hill Arena",
+           *           "nbPlayers": 60,
+           *           "variant": {
+           *             "key": "kingOfTheHill",
+           *             "short": "KotH",
+           *             "name": "King of the Hill"
+           *           },
+           *           "startsAt": 1758632435000,
+           *           "finishesAt": 1758635855000,
+           *           "status": 30,
+           *           "perf": {
+           *             "key": "kingOfTheHill",
+           *             "name": "King of the Hill",
+           *             "position": 7
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "blitz"
+           *           },
+           *           "winner": {
+           *             "name": "gbtami",
+           *             "id": "gbtami"
+           *           }
+           *         },
+           *         {
+           *           "id": "YUdyuaMu",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 30,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly HyperBullet Arena",
+           *           "nbPlayers": 97,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758632430000,
+           *           "finishesAt": 1758634050000,
+           *           "status": 30,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "hyperBullet"
+           *           },
+           *           "winner": {
+           *             "name": "Hoegi",
+           *             "patron": true,
+           *             "patronColor": 10,
+           *             "id": "hoegi"
+           *           }
+           *         },
+           *         {
+           *           "id": "0Gnx0Jbd",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1300 SuperBlitz Arena",
+           *           "nbPlayers": 144,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758632425000,
+           *           "finishesAt": 1758635845000,
+           *           "status": 30,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1300
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "superBlitz"
+           *           },
+           *           "winner": {
+           *             "name": "MichaFirst",
+           *             "id": "michafirst"
+           *           }
+           *         },
+           *         {
+           *           "id": "9LOTAvzz",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 600,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1700 Rapid Arena",
+           *           "nbPlayers": 413,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758632420000,
+           *           "finishesAt": 1758635840000,
+           *           "status": 30,
+           *           "perf": {
+           *             "key": "rapid",
+           *             "name": "Rapid",
+           *             "position": 2,
+           *             "icon": "#"
+           *           },
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1700
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "rapid"
+           *           },
+           *           "winner": {
+           *             "name": "ganzorig88",
+           *             "id": "ganzorig88"
+           *           }
+           *         },
+           *         {
+           *           "id": "dUDhRKCQ",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly SuperBlitz Arena",
+           *           "nbPlayers": 1030,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758632415000,
+           *           "finishesAt": 1758635835000,
+           *           "status": 30,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 15
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "superBlitz"
+           *           },
+           *           "winner": {
+           *             "name": "newrolandocortes",
+           *             "id": "newrolandocortes"
+           *           }
+           *         },
+           *         {
+           *           "id": "nBrcNdLh",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1500 Bullet Arena",
+           *           "nbPlayers": 95,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758632410000,
+           *           "finishesAt": 1758634030000,
+           *           "status": 30,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1500
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           },
+           *           "winner": {
+           *             "name": "Timurfaizullini",
+           *             "id": "timurfaizullini"
+           *           }
+           *         },
+           *         {
+           *           "id": "YLbCvpN6",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Horde Arena",
+           *           "nbPlayers": 39,
+           *           "variant": {
+           *             "key": "horde",
+           *             "short": "Horde",
+           *             "name": "Horde"
+           *           },
+           *           "startsAt": 1758632407500,
+           *           "finishesAt": 1758634027500,
+           *           "status": 30,
+           *           "perf": {
+           *             "key": "horde",
+           *             "name": "Horde",
+           *             "position": 11
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           },
+           *           "winner": {
+           *             "name": "smacoach",
+           *             "id": "smacoach"
+           *           }
+           *         },
+           *         {
+           *           "id": "ANFEShTA",
            *           "createdBy": "lichess",
            *           "system": "arena",
            *           "minutes": 27,
@@ -17913,14 +18000,14 @@ export interface operations {
            *           },
            *           "rated": true,
            *           "fullName": "Hourly Bullet Arena",
-           *           "nbPlayers": 305,
+           *           "nbPlayers": 413,
            *           "variant": {
            *             "key": "standard",
            *             "short": "Std",
            *             "name": "Standard"
            *           },
-           *           "startsAt": 1758097840000,
-           *           "finishesAt": 1758099460000,
+           *           "startsAt": 1758632405000,
+           *           "finishesAt": 1758634025000,
            *           "status": 30,
            *           "perf": {
            *             "key": "bullet",
@@ -17936,11 +18023,280 @@ export interface operations {
            *             "speed": "bullet"
            *           },
            *           "winner": {
-           *             "name": "Kurald_Galain",
-           *             "flair": "people.troll",
-           *             "patron": true,
-           *             "patronTier": "years1",
-           *             "id": "kurald_galain"
+           *             "name": "kamil_agishev",
+           *             "id": "kamil_agishev"
+           *           }
+           *         },
+           *         {
+           *           "id": "VdtUtv50",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Antichess Arena",
+           *           "nbPlayers": 148,
+           *           "variant": {
+           *             "key": "antichess",
+           *             "short": "Anti",
+           *             "name": "Antichess"
+           *           },
+           *           "startsAt": 1758632402500,
+           *           "finishesAt": 1758635822500,
+           *           "status": 30,
+           *           "perf": {
+           *             "key": "antichess",
+           *             "name": "Antichess",
+           *             "position": 9
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "superBlitz"
+           *           },
+           *           "winner": {
+           *             "name": "gur10",
+           *             "id": "gur10"
+           *           }
+           *         },
+           *         {
+           *           "id": "DaPFfbsf",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 2
+           *           },
+           *           "rated": true,
+           *           "fullName": "French Defense Blitz Arena",
+           *           "nbPlayers": 196,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758632400000,
+           *           "finishesAt": 1758635820000,
+           *           "status": 30,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 15
+           *           },
+           *           "position": {
+           *             "eco": "C10",
+           *             "name": "French Defense: Rubinstein Variation",
+           *             "fen": "rnbqkbnr/ppp2ppp/4p3/8/3Pp3/2N5/PPP2PPP/R1BQKBNR w KQkq -",
+           *             "url": "https://lichess.org/opening/French_Defense_Rubinstein_Variation"
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "blitz"
+           *           },
+           *           "winner": {
+           *             "name": "ProudtobeCroat",
+           *             "id": "proudtobecroat"
+           *           }
+           *         },
+           *         {
+           *           "id": "WBXGSNYS",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Bullet Arena",
+           *           "nbPlayers": 419,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758630640000,
+           *           "finishesAt": 1758632260000,
+           *           "status": 30,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           },
+           *           "winner": {
+           *             "name": "Darmin_D",
+           *             "title": "FM",
+           *             "flair": "objects.graduation-cap",
+           *             "id": "darmin_d"
+           *           }
+           *         },
+           *         {
+           *           "id": "zgSmgBZx",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 1
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤1300 Bullet Arena",
+           *           "nbPlayers": 54,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758630620000,
+           *           "finishesAt": 1758632240000,
+           *           "status": 30,
+           *           "perf": {
+           *             "key": "bullet",
+           *             "name": "Bullet",
+           *             "position": 0,
+           *             "icon": "T"
+           *           },
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 1300
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           },
+           *           "winner": {
+           *             "name": "Notego1",
+           *             "id": "notego1"
+           *           }
+           *         },
+           *         {
+           *           "id": "2c2lrI14",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 60,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly Atomic Arena",
+           *           "nbPlayers": 77,
+           *           "variant": {
+           *             "key": "atomic",
+           *             "short": "Atom",
+           *             "name": "Atomic"
+           *           },
+           *           "startsAt": 1758630610000,
+           *           "finishesAt": 1758632230000,
+           *           "status": 30,
+           *           "perf": {
+           *             "key": "atomic",
+           *             "name": "Atomic",
+           *             "position": 10
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "bullet"
+           *           },
+           *           "winner": {
+           *             "name": "Rider3208",
+           *             "flair": "activity.lichess-variant-atomic",
+           *             "id": "rider3208"
+           *           }
+           *         },
+           *         {
+           *           "id": "pEdITXda",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 27,
+           *           "clock": {
+           *             "limit": 15,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "Hourly UltraBullet Arena",
+           *           "nbPlayers": 109,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758630600000,
+           *           "finishesAt": 1758632220000,
+           *           "status": 30,
+           *           "perf": {
+           *             "key": "ultraBullet",
+           *             "name": "UltraBullet",
+           *             "position": 4,
+           *             "icon": "{"
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "ultraBullet"
+           *           },
+           *           "winner": {
+           *             "name": "DustinDeWind",
+           *             "id": "dustindewind"
+           *           }
+           *         },
+           *         {
+           *           "id": "71yHZsmX",
+           *           "createdBy": "lichess",
+           *           "system": "arena",
+           *           "minutes": 57,
+           *           "clock": {
+           *             "limit": 180,
+           *             "increment": 0
+           *           },
+           *           "rated": true,
+           *           "fullName": "≤2000 SuperBlitz Arena",
+           *           "nbPlayers": 636,
+           *           "variant": {
+           *             "key": "standard",
+           *             "short": "Std",
+           *             "name": "Standard"
+           *           },
+           *           "startsAt": 1758628840000,
+           *           "finishesAt": 1758632260000,
+           *           "status": 30,
+           *           "perf": {
+           *             "key": "blitz",
+           *             "name": "Blitz",
+           *             "position": 1,
+           *             "icon": ")"
+           *           },
+           *           "hasMaxRating": true,
+           *           "maxRating": {
+           *             "rating": 2000
+           *           },
+           *           "minRatedGames": {
+           *             "nb": 20
+           *           },
+           *           "schedule": {
+           *             "freq": "hourly",
+           *             "speed": "superBlitz"
+           *           },
+           *           "winner": {
+           *             "name": "mebbel",
+           *             "id": "mebbel"
            *           }
            *         }
            *       ]
@@ -18201,11 +18557,11 @@ export interface operations {
            *         "page": 1,
            *         "players": []
            *       },
-           *       "id": "tbumT8AW",
+           *       "id": "89lOASJ3",
            *       "createdBy": "bobby",
-           *       "startsAt": "2025-09-17T11:00:57.211784327Z",
+           *       "startsAt": "2025-09-23T14:18:47.808186256Z",
            *       "system": "arena",
-           *       "fullName": "Grischuk Arena",
+           *       "fullName": "Letelier Arena",
            *       "minutes": 60,
            *       "perf": {
            *         "key": "blitz",
@@ -18229,12 +18585,12 @@ export interface operations {
            *         "accepted": true
            *       },
            *       "quote": {
-           *         "text": "Chess will always be in the doldrums as a spectator sport while a draw is given equal mathematical value as a decisive result.",
-           *         "author": "Michael Basman"
+           *         "text": "The battle for the ultimate truth will never be won. And that's why chess is so fascinating.",
+           *         "author": "Hans Kmoch"
            *       },
            *       "greatPlayer": {
-           *         "name": "Grischuk",
-           *         "url": "https://wikipedia.org/wiki/Alexander_Grischuk"
+           *         "name": "Letelier",
+           *         "url": "https://wikipedia.org/wiki/Ren%C3%A9_Letelier"
            *       },
            *       "myUsername": "Bobby"
            *     } */
@@ -18283,7 +18639,7 @@ export interface operations {
            *           "name": "RebeccaHarris",
            *           "title": "GM",
            *           "patron": true,
-           *           "patronTier": "lifetime",
+           *           "patronColor": 10,
            *           "rank": 1,
            *           "rating": 3257,
            *           "score": 148,
@@ -18312,7 +18668,7 @@ export interface operations {
            *           "name": "msb2",
            *           "title": "GM",
            *           "patron": true,
-           *           "patronTier": "lifetime",
+           *           "patronColor": 10,
            *           "rank": 3,
            *           "rating": 3218,
            *           "score": 131,
@@ -18341,7 +18697,7 @@ export interface operations {
            *             "name": "RebeccaHarris",
            *             "title": "GM",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "rank": 1,
            *             "rating": 3257,
            *             "score": 148,
@@ -18365,7 +18721,7 @@ export interface operations {
            *             "name": "msb2",
            *             "title": "GM",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "rank": 3,
            *             "rating": 3218,
            *             "score": 131,
@@ -18377,7 +18733,7 @@ export interface operations {
            *             "name": "nihalsarin2004",
            *             "title": "GM",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "rank": 4,
            *             "rating": 3236,
            *             "score": 124,
@@ -18430,7 +18786,7 @@ export interface operations {
            *             "name": "Night-King96",
            *             "title": "GM",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "rank": 9,
            *             "rating": 3131,
            *             "score": 119,
@@ -18728,14 +19084,14 @@ export interface operations {
           /** @example {
            *       "nbPlayers": 0,
            *       "duels": [],
-           *       "secondsToStart": 300,
+           *       "secondsToStart": 299,
            *       "standing": {
            *         "page": 1,
            *         "players": []
            *       },
-           *       "id": "tbumT8AW",
+           *       "id": "89lOASJ3",
            *       "createdBy": "bobby",
-           *       "startsAt": "2025-09-17T11:00:57.211Z",
+           *       "startsAt": "2025-09-23T14:18:47.808Z",
            *       "system": "arena",
            *       "fullName": "Updated Arena Arena",
            *       "minutes": 60,
@@ -18761,8 +19117,8 @@ export interface operations {
            *         "accepted": true
            *       },
            *       "quote": {
-           *         "text": "What is the object of playing a gambit opening...? To acquire a reputation of being a dashing player at the cost of losing a game.",
-           *         "author": "Siegbert Tarrasch"
+           *         "text": "Later, I began to succeed in decisive games. Perhaps because I realized a very simple truth: not only was I worried, but also my opponent.",
+           *         "author": "Mikhail Tal"
            *       },
            *       "myUsername": "Bobby"
            *     } */
@@ -19096,7 +19452,7 @@ export interface operations {
            *                 "title": "IM",
            *                 "flair": "objects.alarm-clock",
            *                 "patron": true,
-           *                 "patronTier": "months3",
+           *                 "patronColor": 3,
            *                 "id": "yoseph2013"
            *               },
            *               "score": 126
@@ -19124,7 +19480,7 @@ export interface operations {
            *                 "title": "CM",
            *                 "flair": "objects.crown",
            *                 "patron": true,
-           *                 "patronTier": "years5",
+           *                 "patronColor": 10,
            *                 "id": "kingscrusher-youtube"
            *               },
            *               "score": 50
@@ -19347,7 +19703,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "nneptune",
-           *                 "flair": "people.victory-hand-medium-light-skin-tone",
+           *                 "flair": "people.hand-with-index-finger-and-thumb-crossed-medium-light-skin-tone",
            *                 "id": "nneptune"
            *               },
            *               "score": 34
@@ -19415,7 +19771,7 @@ export interface operations {
            *               "user": {
            *                 "name": "TheFinnisher",
            *                 "patron": true,
-           *                 "patronTier": "lifetime",
+           *                 "patronColor": 10,
            *                 "id": "thefinnisher"
            *               },
            *               "score": 72
@@ -19439,7 +19795,7 @@ export interface operations {
            *                 "name": "L1-Master",
            *                 "flair": "objects.telephone",
            *                 "patron": true,
-           *                 "patronTier": "months6",
+           *                 "patronColor": 4,
            *                 "id": "l1-master"
            *               },
            *               "score": 51
@@ -19572,7 +19928,7 @@ export interface operations {
            *               "user": {
            *                 "name": "Shefer_Aleksandr",
            *                 "patron": true,
-           *                 "patronTier": "months1",
+           *                 "patronColor": 1,
            *                 "id": "shefer_aleksandr"
            *               },
            *               "score": 63
@@ -20286,6 +20642,8 @@ export interface operations {
            *               "user": {
            *                 "name": "ks3sa1",
            *                 "flair": "food-drink.pear",
+           *                 "patron": true,
+           *                 "patronColor": 1,
            *                 "id": "ks3sa1"
            *               },
            *               "score": 29
@@ -20515,6 +20873,8 @@ export interface operations {
            *               "user": {
            *                 "name": "sadisticTushi",
            *                 "flair": "food-drink.french-fries",
+           *                 "patron": true,
+           *                 "patronColor": 10,
            *                 "id": "sadistictushi"
            *               },
            *               "score": 47
@@ -20532,7 +20892,7 @@ export interface operations {
            *                 "name": "HaraldEtuna",
            *                 "title": "FM",
            *                 "patron": true,
-           *                 "patronTier": "lifetime",
+           *                 "patronColor": 10,
            *                 "id": "haraldetuna"
            *               },
            *               "score": 39
@@ -20546,8 +20906,7 @@ export interface operations {
            *             },
            *             {
            *               "user": {
-           *                 "name": "AarushBhat512",
-           *                 "flair": "people.baby-angel-light-skin-tone",
+           *                 "name": "aarushbhat512",
            *                 "id": "aarushbhat512"
            *               },
            *               "score": 33
@@ -20602,7 +20961,7 @@ export interface operations {
            *                 "name": "Gee_2006",
            *                 "flair": "smileys.alien",
            *                 "patron": true,
-           *                 "patronTier": "months1",
+           *                 "patronColor": 1,
            *                 "id": "gee_2006"
            *               },
            *               "score": 20
@@ -20867,7 +21226,7 @@ export interface operations {
            *                 "name": "Olga31",
            *                 "flair": "activity.chess-pawn",
            *                 "patron": true,
-           *                 "patronTier": "lifetime",
+           *                 "patronColor": 10,
            *                 "id": "olga31"
            *               },
            *               "score": 28
@@ -20966,7 +21325,7 @@ export interface operations {
            *                 "title": "GM",
            *                 "flair": "nature.crocodile",
            *                 "patron": true,
-           *                 "patronTier": "years1",
+           *                 "patronColor": 6,
            *                 "id": "dj_haubi"
            *               },
            *               "score": 55
@@ -20999,7 +21358,7 @@ export interface operations {
            *                 "name": "knix05",
            *                 "flair": "symbols.copyright",
            *                 "patron": true,
-           *                 "patronTier": "years4",
+           *                 "patronColor": 9,
            *                 "id": "knix05"
            *               },
            *               "score": 42
@@ -21044,7 +21403,7 @@ export interface operations {
            *                 "name": "Alcedo",
            *                 "flair": "symbols.small-blue-diamond",
            *                 "patron": true,
-           *                 "patronTier": "years1",
+           *                 "patronColor": 6,
            *                 "id": "alcedo"
            *               },
            *               "score": 19
@@ -21099,7 +21458,7 @@ export interface operations {
            *                 "name": "MagBlaise",
            *                 "flair": "people.dna",
            *                 "patron": true,
-           *                 "patronTier": "lifetime",
+           *                 "patronColor": 10,
            *                 "id": "magblaise"
            *               },
            *               "score": 5
@@ -21116,7 +21475,7 @@ export interface operations {
            *                 "name": "Renoir1718",
            *                 "flair": "objects.hiking-boot",
            *                 "patron": true,
-           *                 "patronTier": "months9",
+           *                 "patronColor": 5,
            *                 "id": "renoir1718"
            *               },
            *               "score": 2
@@ -21339,7 +21698,7 @@ export interface operations {
            *               "user": {
            *                 "name": "vcothurnatus",
            *                 "patron": true,
-           *                 "patronTier": "years5",
+           *                 "patronColor": 10,
            *                 "id": "vcothurnatus"
            *               },
            *               "score": 25
@@ -21385,7 +21744,7 @@ export interface operations {
            *               "user": {
            *                 "name": "vasyl_puzanov",
            *                 "patron": true,
-           *                 "patronTier": "years5",
+           *                 "patronColor": 10,
            *                 "id": "vasyl_puzanov"
            *               },
            *               "score": 0
@@ -21523,7 +21882,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "fair18",
-           *                 "flair": "activity.crystal-ball",
+           *                 "flair": "symbols.white-star",
            *                 "id": "fair18"
            *               },
            *               "score": 27
@@ -22054,7 +22413,7 @@ export interface operations {
            *               "user": {
            *                 "name": "WI_ST",
            *                 "patron": true,
-           *                 "patronTier": "months2",
+           *                 "patronColor": 2,
            *                 "id": "wi_st"
            *               },
            *               "score": 24
@@ -22322,7 +22681,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "mimimishka2507",
-           *                 "flair": "nature.high-voltage",
+           *                 "flair": "food-drink.shaved-ice",
            *                 "id": "mimimishka2507"
            *               },
            *               "score": 39
@@ -23013,7 +23372,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "komeilghorbani93",
-           *                 "flair": "symbols.pirate-flag",
+           *                 "flair": "symbols.trident-emblem",
            *                 "id": "komeilghorbani93"
            *               },
            *               "score": 20
@@ -23160,6 +23519,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "murod_teacher",
+           *                 "flair": "people.love-you-gesture",
            *                 "id": "murod_teacher"
            *               },
            *               "score": 13
@@ -23183,7 +23543,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "PaukovKirill",
-           *                 "flair": "travel-places.globe-with-meridians",
+           *                 "flair": "travel-places.tractor",
            *                 "id": "paukovkirill"
            *               },
            *               "score": 0
@@ -23587,6 +23947,8 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "Chessmaste",
+           *                 "patron": true,
+           *                 "patronColor": 1,
            *                 "id": "chessmaste"
            *               },
            *               "score": 40
@@ -23751,7 +24113,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "SeYhU699",
-           *                 "flair": "symbols.white-star",
+           *                 "flair": "smileys.smiling-face-with-horns-blob",
            *                 "id": "seyhu699"
            *               },
            *               "score": 8
@@ -23991,7 +24353,7 @@ export interface operations {
            *               "user": {
            *                 "name": "terra87",
            *                 "patron": true,
-           *                 "patronTier": "months1",
+           *                 "patronColor": 1,
            *                 "id": "terra87"
            *               },
            *               "score": 17
@@ -24015,7 +24377,7 @@ export interface operations {
            *               "user": {
            *                 "name": "Rollton",
            *                 "patron": true,
-           *                 "patronTier": "months1",
+           *                 "patronColor": 1,
            *                 "id": "rollton"
            *               },
            *               "score": 34
@@ -24484,6 +24846,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "DE-DAW",
+           *                 "flair": "smileys.alien-monster",
            *                 "id": "de-daw"
            *               },
            *               "score": 2
@@ -24642,7 +25005,7 @@ export interface operations {
            *                 "name": "Wojcieslaw2405",
            *                 "flair": "smileys.cowboy-hat-face",
            *                 "patron": true,
-           *                 "patronTier": "months2",
+           *                 "patronColor": 2,
            *                 "id": "wojcieslaw2405"
            *               },
            *               "score": 0
@@ -24818,7 +25181,7 @@ export interface operations {
            *                 "name": "VelociRraptorr",
            *                 "flair": "activity.jack-o-lantern",
            *                 "patron": true,
-           *                 "patronTier": "months9",
+           *                 "patronColor": 5,
            *                 "id": "velocirraptorr"
            *               },
            *               "score": 0
@@ -24842,7 +25205,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "RaimondM",
-           *                 "flair": "nature.black-bird",
+           *                 "flair": "nature.phoenix-bird",
            *                 "id": "raimondm"
            *               },
            *               "score": 0
@@ -25053,7 +25416,7 @@ export interface operations {
            *                 "name": "DarkOnCrack",
            *                 "flair": "nature.wing",
            *                 "patron": true,
-           *                 "patronTier": "months3",
+           *                 "patronColor": 3,
            *                 "id": "darkoncrack"
            *               },
            *               "score": 0
@@ -25280,7 +25643,7 @@ export interface operations {
            *                 "name": "SmurFinnn",
            *                 "flair": "activity.lichess-horsey",
            *                 "patron": true,
-           *                 "patronTier": "years4",
+           *                 "patronColor": 9,
            *                 "id": "smurfinnn"
            *               },
            *               "score": 0
@@ -25289,7 +25652,7 @@ export interface operations {
            *               "user": {
            *                 "name": "jpdmayo1986",
            *                 "patron": true,
-           *                 "patronTier": "lifetime",
+           *                 "patronColor": 10,
            *                 "id": "jpdmayo1986"
            *               },
            *               "score": 0
@@ -25369,7 +25732,7 @@ export interface operations {
            *               "user": {
            *                 "name": "qech",
            *                 "patron": true,
-           *                 "patronTier": "years3",
+           *                 "patronColor": 8,
            *                 "id": "qech"
            *               },
            *               "score": 0
@@ -25413,6 +25776,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "dasfach",
+           *                 "flair": "smileys.smiling-face-with-sunglasses-blob",
            *                 "id": "dasfach"
            *               },
            *               "score": 4
@@ -25420,7 +25784,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "ChurrisDeuz",
-           *                 "flair": "symbols.infinity",
+           *                 "flair": "objects.top-hat",
            *                 "id": "churrisdeuz"
            *               },
            *               "score": 3
@@ -25836,7 +26200,7 @@ export interface operations {
            *                 "title": "FM",
            *                 "flair": "activity.lichess-horsey",
            *                 "patron": true,
-           *                 "patronTier": "lifetime",
+           *                 "patronColor": 10,
            *                 "id": "jeffforever"
            *               },
            *               "score": 0
@@ -26035,7 +26399,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "MOLLINTAMBUNAN",
-           *                 "flair": "objects.crossed-swords",
+           *                 "flair": "objects.crown",
            *                 "id": "mollintambunan"
            *               },
            *               "score": 4
@@ -26118,9 +26482,9 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "ajedrezconzeta",
-           *                 "flair": "travel-places.rocket",
+           *                 "flair": "nature.ringed-planet",
            *                 "patron": true,
-           *                 "patronTier": "years5",
+           *                 "patronColor": 1,
            *                 "id": "ajedrezconzeta"
            *               },
            *               "score": 1
@@ -26223,7 +26587,7 @@ export interface operations {
            *                 "name": "cormacobear",
            *                 "flair": "nature.polar-bear",
            *                 "patron": true,
-           *                 "patronTier": "lifetime",
+           *                 "patronColor": 10,
            *                 "id": "cormacobear"
            *               },
            *               "score": 2
@@ -26233,7 +26597,7 @@ export interface operations {
            *                 "name": "YoniLavo",
            *                 "flair": "objects.headphone",
            *                 "patron": true,
-           *                 "patronTier": "months9",
+           *                 "patronColor": 5,
            *                 "id": "yonilavo"
            *               },
            *               "score": 0
@@ -26689,7 +27053,7 @@ export interface operations {
            *                 "title": "NM",
            *                 "flair": "nature.dove",
            *                 "patron": true,
-           *                 "patronTier": "lifetime",
+           *                 "patronColor": 10,
            *                 "id": "oberschlumpf"
            *               },
            *               "score": 16
@@ -26707,7 +27071,7 @@ export interface operations {
            *                 "name": "Drunken_Drongo",
            *                 "flair": "food-drink.broccoli",
            *                 "patron": true,
-           *                 "patronTier": "lifetime",
+           *                 "patronColor": 10,
            *                 "id": "drunken_drongo"
            *               },
            *               "score": 8
@@ -26715,7 +27079,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "BigDog2008",
-           *                 "flair": "food-drink.lollipop",
+           *                 "flair": "activity.confetti-ball",
            *                 "id": "bigdog2008"
            *               },
            *               "score": 5
@@ -26864,7 +27228,7 @@ export interface operations {
            *                 "name": "shagnik",
            *                 "flair": "nature.sunflower",
            *                 "patron": true,
-           *                 "patronTier": "years3",
+           *                 "patronColor": 8,
            *                 "id": "shagnik"
            *               },
            *               "score": 9
@@ -26947,7 +27311,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "Daniil1007",
-           *                 "flair": "nature.phoenix-bird",
+           *                 "flair": "symbols.move-brilliant",
            *                 "id": "daniil1007"
            *               },
            *               "score": 16
@@ -26955,7 +27319,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "bsm16",
-           *                 "flair": "symbols.cross-mark",
+           *                 "flair": "nature.phoenix-bird",
            *                 "id": "bsm16"
            *               },
            *               "score": 2
@@ -26978,7 +27342,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "David_Chess2014",
-           *                 "flair": "nature.wolf",
+           *                 "flair": "symbols.move-brilliant",
            *                 "id": "david_chess2014"
            *               },
            *               "score": 0
@@ -27341,7 +27705,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "rohammoa",
-           *                 "flair": "smileys.smiling-face-with-sunglasses",
+           *                 "flair": "smileys.shushing-face",
            *                 "id": "rohammoa"
            *               },
            *               "score": 0
@@ -27445,7 +27809,7 @@ export interface operations {
            *               "user": {
            *                 "name": "English_Chess",
            *                 "patron": true,
-           *                 "patronTier": "years2",
+           *                 "patronColor": 7,
            *                 "id": "english_chess"
            *               },
            *               "score": 0
@@ -27520,7 +27884,7 @@ export interface operations {
            *                 "name": "D_A_N_I_Y_A_R",
            *                 "flair": "symbols.collision",
            *                 "patron": true,
-           *                 "patronTier": "months2",
+           *                 "patronColor": 2,
            *                 "id": "d_a_n_i_y_a_r"
            *               },
            *               "score": 4
@@ -27655,7 +28019,7 @@ export interface operations {
            *                 "name": "Luca661",
            *                 "flair": "activity.lichess-horsey-yin-yang",
            *                 "patron": true,
-           *                 "patronTier": "months1",
+           *                 "patronColor": 1,
            *                 "id": "luca661"
            *               },
            *               "score": 2
@@ -27978,7 +28342,7 @@ export interface operations {
            *               "user": {
            *                 "name": "hemulet",
            *                 "patron": true,
-           *                 "patronTier": "years3",
+           *                 "patronColor": 8,
            *                 "id": "hemulet"
            *               },
            *               "score": 15
@@ -28002,7 +28366,7 @@ export interface operations {
            *                 "name": "Rustan",
            *                 "flair": "symbols.gnu-logo",
            *                 "patron": true,
-           *                 "patronTier": "years5",
+           *                 "patronColor": 10,
            *                 "id": "rustan"
            *               },
            *               "score": 0
@@ -28034,7 +28398,7 @@ export interface operations {
            *                 "name": "Checkmate_Drifters",
            *                 "flair": "smileys.alien",
            *                 "patron": true,
-           *                 "patronTier": "months2",
+           *                 "patronColor": 2,
            *                 "id": "checkmate_drifters"
            *               },
            *               "score": 0
@@ -28366,7 +28730,7 @@ export interface operations {
            *                 "name": "astroy-jo",
            *                 "flair": "activity.lichess-blitz",
            *                 "patron": true,
-           *                 "patronTier": "years1",
+           *                 "patronColor": 6,
            *                 "id": "astroy-jo"
            *               },
            *               "score": 0
@@ -28426,7 +28790,7 @@ export interface operations {
            *               "user": {
            *                 "name": "LuisAlce",
            *                 "patron": true,
-           *                 "patronTier": "years4",
+           *                 "patronColor": 9,
            *                 "id": "luisalce"
            *               },
            *               "score": 6
@@ -28480,7 +28844,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "ChessClassic_555",
-           *                 "flair": "smileys.angry-face-with-horns",
+           *                 "flair": "symbols.collision",
            *                 "id": "chessclassic_555"
            *               },
            *               "score": 0
@@ -28528,7 +28892,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "Stamatis3",
-           *                 "flair": "activity.lichess-bullet",
+           *                 "flair": "nature.phoenix-bird",
            *                 "id": "stamatis3"
            *               },
            *               "score": 0
@@ -29113,6 +29477,8 @@ export interface operations {
            *               "user": {
            *                 "name": "Ar4Asd1_Chess",
            *                 "flair": "smileys.alien",
+           *                 "patron": true,
+           *                 "patronColor": 3,
            *                 "id": "ar4asd1_chess"
            *               },
            *               "score": 0
@@ -29120,7 +29486,7 @@ export interface operations {
            *             {
            *               "user": {
            *                 "name": "kumuDan",
-           *                 "flair": "food-drink.kitchen-knife",
+           *                 "flair": "people.ninja",
            *                 "id": "kumudan"
            *               },
            *               "score": 0
@@ -29144,7 +29510,7 @@ export interface operations {
            *                 "name": "vjc06",
            *                 "flair": "symbols.heart-on-fire",
            *                 "patron": true,
-           *                 "patronTier": "months3",
+           *                 "patronColor": 3,
            *                 "id": "vjc06"
            *               },
            *               "score": 0
@@ -29216,7 +29582,7 @@ export interface operations {
            *                 "name": "PumucklGerman",
            *                 "flair": "nature.wing",
            *                 "patron": true,
-           *                 "patronTier": "years2",
+           *                 "patronColor": 7,
            *                 "id": "pumucklgerman"
            *               },
            *               "score": 0
@@ -30583,9 +30949,9 @@ export interface operations {
         };
         content: {
           /** @example {
-           *       "id": "4dfmDRlM",
+           *       "id": "evawc1WJ",
            *       "createdBy": "lichess",
-           *       "startsAt": "2025-09-20T23:30:00Z",
+           *       "startsAt": "2025-09-26T23:30:00Z",
            *       "name": "Rapid Increment",
            *       "clock": {
            *         "limit": 420,
@@ -30598,8 +30964,8 @@ export interface operations {
            *       "nbOngoing": 0,
            *       "status": "created",
            *       "nextRound": {
-           *         "at": "2025-09-20T23:30:00Z",
-           *         "in": 304320
+           *         "at": "2025-09-26T23:30:00Z",
+           *         "in": 292464
            *       },
            *       "verdicts": {
            *         "list": [
@@ -30936,60 +31302,60 @@ export interface operations {
         content: {
           /** @example {
            *       "tour": {
-           *         "id": "Sl0bjbWn",
+           *         "id": "i4qWomtq",
            *         "name": "Knight Invitational",
            *         "slug": "knight-invitational",
            *         "info": {},
-           *         "createdAt": 1758106615654,
-           *         "url": "https://lichess.org/broadcast/knight-invitational/Sl0bjbWn",
+           *         "createdAt": 1758636956497,
+           *         "url": "https://lichess.org/broadcast/knight-invitational/i4qWomtq",
            *         "tier": 5,
            *         "dates": [
-           *           1758106615766
+           *           1758636956587
            *         ]
            *       },
            *       "rounds": [
            *         {
-           *           "id": "B28LL1kx",
+           *           "id": "WnhNmprO",
            *           "name": "Round 1",
            *           "slug": "round-1",
-           *           "createdAt": 1758106615672,
+           *           "createdAt": 1758636956518,
            *           "rated": false,
            *           "ongoing": true,
-           *           "startsAt": 1758110215661,
-           *           "url": "https://lichess.org/broadcast/knight-invitational/round-1/B28LL1kx"
+           *           "startsAt": 1758640556508,
+           *           "url": "https://lichess.org/broadcast/knight-invitational/round-1/WnhNmprO"
            *         },
            *         {
-           *           "id": "f3Mk3J68",
+           *           "id": "SjPgcE1i",
            *           "name": "Round 2",
            *           "slug": "round-2",
-           *           "createdAt": 1758106615705,
+           *           "createdAt": 1758636956544,
            *           "rated": false,
            *           "ongoing": true,
-           *           "startsAt": 1758113815661,
-           *           "url": "https://lichess.org/broadcast/knight-invitational/round-2/f3Mk3J68"
+           *           "startsAt": 1758644156508,
+           *           "url": "https://lichess.org/broadcast/knight-invitational/round-2/SjPgcE1i"
            *         },
            *         {
-           *           "id": "ZEf8MDEa",
+           *           "id": "xyShgpPn",
            *           "name": "Round 3",
            *           "slug": "round-3",
-           *           "createdAt": 1758106615741,
+           *           "createdAt": 1758636956566,
            *           "rated": false,
            *           "ongoing": true,
-           *           "startsAt": 1758117415661,
-           *           "url": "https://lichess.org/broadcast/knight-invitational/round-3/ZEf8MDEa"
+           *           "startsAt": 1758647756508,
+           *           "url": "https://lichess.org/broadcast/knight-invitational/round-3/xyShgpPn"
            *         },
            *         {
-           *           "id": "ntaljGss",
+           *           "id": "9kbmXL5J",
            *           "name": "Final Round",
            *           "slug": "final-round",
-           *           "createdAt": 1758106615766,
+           *           "createdAt": 1758636956587,
            *           "rated": false,
            *           "ongoing": true,
-           *           "startsAt": 1758106615766,
-           *           "url": "https://lichess.org/broadcast/knight-invitational/final-round/ntaljGss"
+           *           "startsAt": 1758636956587,
+           *           "url": "https://lichess.org/broadcast/knight-invitational/final-round/9kbmXL5J"
            *         }
            *       ],
-           *       "defaultRoundId": "B28LL1kx"
+           *       "defaultRoundId": "WnhNmprO"
            *     } */
           "application/x-ndjson": components["schemas"]["BroadcastWithRounds"];
         };
@@ -31024,26 +31390,26 @@ export interface operations {
            *       "active": [
            *         {
            *           "tour": {
-           *             "id": "Sl0bjbWn",
+           *             "id": "i4qWomtq",
            *             "name": "Knight Invitational",
            *             "slug": "knight-invitational",
            *             "info": {},
-           *             "createdAt": 1758106615654,
-           *             "url": "https://lichess.org/broadcast/knight-invitational/Sl0bjbWn",
+           *             "createdAt": 1758636956497,
+           *             "url": "https://lichess.org/broadcast/knight-invitational/i4qWomtq",
            *             "tier": 5,
            *             "dates": [
-           *               1758106615766
+           *               1758636956587
            *             ]
            *           },
            *           "round": {
-           *             "id": "B28LL1kx",
+           *             "id": "WnhNmprO",
            *             "name": "Round 1",
            *             "slug": "round-1",
-           *             "createdAt": 1758106615672,
+           *             "createdAt": 1758636956518,
            *             "rated": false,
            *             "ongoing": true,
-           *             "startsAt": 1758110215661,
-           *             "url": "https://lichess.org/broadcast/knight-invitational/round-1/B28LL1kx"
+           *             "startsAt": 1758640556508,
+           *             "url": "https://lichess.org/broadcast/knight-invitational/round-1/WnhNmprO"
            *           }
            *         }
            *       ],
@@ -31092,18 +31458,38 @@ export interface operations {
            *       "currentPageResults": [
            *         {
            *           "tour": {
-           *             "id": "5CWmvSY2",
+           *             "id": "1mOPQROx",
            *             "name": "Bobby's Tournament",
            *             "slug": "bobbys-tournament",
            *             "info": {
            *               "format": "5-round Swiss",
            *               "location": "Chess Club"
            *             },
-           *             "createdAt": 1758106569089,
-           *             "url": "https://lichess.org/broadcast/bobbys-tournament/5CWmvSY2",
+           *             "createdAt": 1758636956662,
+           *             "url": "https://lichess.org/broadcast/bobbys-tournament/1mOPQROx",
            *             "communityOwner": {
            *               "name": "Bobby",
-           *               "flair": "people.woman-with-veil-light-skin-tone",
+           *               "patron": true,
+           *               "patronColor": 1,
+           *               "id": "bobby"
+           *             }
+           *           }
+           *         },
+           *         {
+           *           "tour": {
+           *             "id": "6I07VJMl",
+           *             "name": "Bobby's Tournament",
+           *             "slug": "bobbys-tournament",
+           *             "info": {
+           *               "format": "5-round Swiss",
+           *               "location": "Chess Club"
+           *             },
+           *             "createdAt": 1758636832010,
+           *             "url": "https://lichess.org/broadcast/bobbys-tournament/6I07VJMl",
+           *             "communityOwner": {
+           *               "name": "Bobby",
+           *               "patron": true,
+           *               "patronColor": 1,
            *               "id": "bobby"
            *             }
            *           }
@@ -31111,7 +31497,7 @@ export interface operations {
            *       ],
            *       "previousPage": null,
            *       "nextPage": null,
-           *       "nbResults": 1,
+           *       "nbResults": 2,
            *       "nbPages": 1
            *     } */
           "application/json": {
@@ -31160,26 +31546,26 @@ export interface operations {
            *       "currentPageResults": [
            *         {
            *           "tour": {
-           *             "id": "Sl0bjbWn",
+           *             "id": "i4qWomtq",
            *             "name": "Knight Invitational",
            *             "slug": "knight-invitational",
            *             "info": {},
-           *             "createdAt": 1758106615654,
-           *             "url": "https://lichess.org/broadcast/knight-invitational/Sl0bjbWn",
+           *             "createdAt": 1758636956497,
+           *             "url": "https://lichess.org/broadcast/knight-invitational/i4qWomtq",
            *             "tier": 5,
            *             "dates": [
-           *               1758106615766
+           *               1758636956587
            *             ]
            *           },
            *           "round": {
-           *             "id": "ntaljGss",
+           *             "id": "9kbmXL5J",
            *             "name": "Final Round",
            *             "slug": "final-round",
-           *             "createdAt": 1758106615766,
+           *             "createdAt": 1758636956587,
            *             "rated": false,
            *             "ongoing": true,
-           *             "startsAt": 1758106615766,
-           *             "url": "https://lichess.org/broadcast/knight-invitational/final-round/ntaljGss"
+           *             "startsAt": 1758636956587,
+           *             "url": "https://lichess.org/broadcast/knight-invitational/final-round/9kbmXL5J"
            *           }
            *         }
            *       ],
@@ -31219,12 +31605,12 @@ export interface operations {
         content: {
           /** @example {
            *       "tour": {
-           *         "id": "Sl0bjbWn",
+           *         "id": "i4qWomtq",
            *         "name": "Knight Invitational",
            *         "slug": "knight-invitational",
            *         "info": {},
-           *         "createdAt": 1758106615654,
-           *         "url": "https://lichess.org/broadcast/knight-invitational/Sl0bjbWn",
+           *         "createdAt": 1758636956497,
+           *         "url": "https://lichess.org/broadcast/knight-invitational/i4qWomtq",
            *         "tier": 5
            *       },
            *       "rounds": []
@@ -31263,60 +31649,60 @@ export interface operations {
         content: {
           /** @example {
            *       "tour": {
-           *         "id": "Sl0bjbWn",
+           *         "id": "i4qWomtq",
            *         "name": "Knight Invitational",
            *         "slug": "knight-invitational",
            *         "info": {},
-           *         "createdAt": 1758106615654,
-           *         "url": "https://lichess.org/broadcast/knight-invitational/Sl0bjbWn",
+           *         "createdAt": 1758636956497,
+           *         "url": "https://lichess.org/broadcast/knight-invitational/i4qWomtq",
            *         "tier": 5,
            *         "dates": [
-           *           1758106615766
+           *           1758636956587
            *         ]
            *       },
            *       "rounds": [
            *         {
-           *           "id": "B28LL1kx",
+           *           "id": "WnhNmprO",
            *           "name": "Round 1",
            *           "slug": "round-1",
-           *           "createdAt": 1758106615672,
+           *           "createdAt": 1758636956518,
            *           "rated": false,
            *           "ongoing": true,
-           *           "startsAt": 1758110215661,
-           *           "url": "https://lichess.org/broadcast/knight-invitational/round-1/B28LL1kx"
+           *           "startsAt": 1758640556508,
+           *           "url": "https://lichess.org/broadcast/knight-invitational/round-1/WnhNmprO"
            *         },
            *         {
-           *           "id": "f3Mk3J68",
+           *           "id": "SjPgcE1i",
            *           "name": "Round 2",
            *           "slug": "round-2",
-           *           "createdAt": 1758106615705,
+           *           "createdAt": 1758636956544,
            *           "rated": false,
            *           "ongoing": true,
-           *           "startsAt": 1758113815661,
-           *           "url": "https://lichess.org/broadcast/knight-invitational/round-2/f3Mk3J68"
+           *           "startsAt": 1758644156508,
+           *           "url": "https://lichess.org/broadcast/knight-invitational/round-2/SjPgcE1i"
            *         },
            *         {
-           *           "id": "ZEf8MDEa",
+           *           "id": "xyShgpPn",
            *           "name": "Round 3",
            *           "slug": "round-3",
-           *           "createdAt": 1758106615741,
+           *           "createdAt": 1758636956566,
            *           "rated": false,
            *           "ongoing": true,
-           *           "startsAt": 1758117415661,
-           *           "url": "https://lichess.org/broadcast/knight-invitational/round-3/ZEf8MDEa"
+           *           "startsAt": 1758647756508,
+           *           "url": "https://lichess.org/broadcast/knight-invitational/round-3/xyShgpPn"
            *         },
            *         {
-           *           "id": "ntaljGss",
+           *           "id": "9kbmXL5J",
            *           "name": "Final Round",
            *           "slug": "final-round",
-           *           "createdAt": 1758106615766,
+           *           "createdAt": 1758636956587,
            *           "rated": false,
            *           "ongoing": true,
-           *           "startsAt": 1758106615766,
-           *           "url": "https://lichess.org/broadcast/knight-invitational/final-round/ntaljGss"
+           *           "startsAt": 1758636956587,
+           *           "url": "https://lichess.org/broadcast/knight-invitational/final-round/9kbmXL5J"
            *         }
            *       ],
-           *       "defaultRoundId": "B28LL1kx"
+           *       "defaultRoundId": "WnhNmprO"
            *     } */
           "application/json": components["schemas"]["BroadcastWithRounds"];
         };
@@ -31429,25 +31815,25 @@ export interface operations {
         content: {
           /** @example {
            *       "round": {
-           *         "id": "ntaljGss",
+           *         "id": "9kbmXL5J",
            *         "name": "Final Round",
            *         "slug": "final-round",
-           *         "createdAt": 1758106615766,
+           *         "createdAt": 1758636956587,
            *         "rated": false,
            *         "ongoing": true,
-           *         "startsAt": 1758106615766,
-           *         "url": "https://lichess.org/broadcast/knight-invitational/final-round/ntaljGss"
+           *         "startsAt": 1758636956587,
+           *         "url": "https://lichess.org/broadcast/knight-invitational/final-round/9kbmXL5J"
            *       },
            *       "tour": {
-           *         "id": "Sl0bjbWn",
+           *         "id": "i4qWomtq",
            *         "name": "Knight Invitational",
            *         "slug": "knight-invitational",
            *         "info": {},
-           *         "createdAt": 1758106615654,
-           *         "url": "https://lichess.org/broadcast/knight-invitational/Sl0bjbWn",
+           *         "createdAt": 1758636956497,
+           *         "url": "https://lichess.org/broadcast/knight-invitational/i4qWomtq",
            *         "tier": 5,
            *         "dates": [
-           *           1758110215661
+           *           1758640556508
            *         ]
            *       },
            *       "study": {
@@ -31520,24 +31906,24 @@ export interface operations {
         content: {
           /** @example {
            *       "round": {
-           *         "id": "ntaljGss",
+           *         "id": "9kbmXL5J",
            *         "name": "Final Round 2",
            *         "slug": "final-round-2",
-           *         "createdAt": 1758106615766,
+           *         "createdAt": 1758636956587,
            *         "rated": false,
            *         "ongoing": true,
-           *         "startsAt": 1758106615766,
-           *         "url": "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ntaljGss"
+           *         "startsAt": 1758636956587,
+           *         "url": "https://lichess.org/broadcast/knight-invitational-2/final-round-2/9kbmXL5J"
            *       },
            *       "tour": {
-           *         "id": "Sl0bjbWn",
+           *         "id": "i4qWomtq",
            *         "name": "Knight Invitational 2",
            *         "slug": "knight-invitational-2",
            *         "info": {},
-           *         "createdAt": 1758106615654,
-           *         "url": "https://lichess.org/broadcast/knight-invitational-2/Sl0bjbWn",
+           *         "createdAt": 1758636956497,
+           *         "url": "https://lichess.org/broadcast/knight-invitational-2/i4qWomtq",
            *         "dates": [
-           *           1758106615766
+           *           1758636956587
            *         ]
            *       },
            *       "study": {
@@ -31545,7 +31931,7 @@ export interface operations {
            *       },
            *       "games": [
            *         {
-           *           "id": "qiFLnai1",
+           *           "id": "iE2P7xmV",
            *           "name": "Player 1 - Player 2",
            *           "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
            *           "players": [
@@ -31561,7 +31947,7 @@ export interface operations {
            *           "status": "*"
            *         },
            *         {
-           *           "id": "LL2rDiuJ",
+           *           "id": "EldTK572",
            *           "name": "Player 3 - Player 4",
            *           "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2",
            *           "players": [
@@ -31775,24 +32161,24 @@ export interface operations {
         content: {
           /** @example {
            *       "round": {
-           *         "id": "ntaljGss",
+           *         "id": "9kbmXL5J",
            *         "name": "Final Round 2",
            *         "slug": "final-round-2",
-           *         "createdAt": 1758106615766,
+           *         "createdAt": 1758636956587,
            *         "rated": false,
            *         "ongoing": true,
-           *         "startsAt": 1758106615766,
-           *         "url": "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ntaljGss"
+           *         "startsAt": 1758636956587,
+           *         "url": "https://lichess.org/broadcast/knight-invitational-2/final-round-2/9kbmXL5J"
            *       },
            *       "tour": {
-           *         "id": "Sl0bjbWn",
+           *         "id": "i4qWomtq",
            *         "name": "Knight Invitational 2",
            *         "slug": "knight-invitational-2",
            *         "info": {},
-           *         "createdAt": 1758106615654,
-           *         "url": "https://lichess.org/broadcast/knight-invitational-2/Sl0bjbWn",
+           *         "createdAt": 1758636956497,
+           *         "url": "https://lichess.org/broadcast/knight-invitational-2/i4qWomtq",
            *         "dates": [
-           *           1758106615766
+           *           1758636956587
            *         ]
            *       },
            *       "study": {
@@ -31887,19 +32273,49 @@ export interface operations {
         content: {
           /** @example {
            *       "pending": [],
-           *       "created": [
+           *       "created": [],
+           *       "started": [
            *         {
-           *           "id": "dZwtbLrI",
+           *           "id": "WNB6V2f8",
            *           "host": {
-           *             "name": "surrenderPLS",
-           *             "title": "FM",
-           *             "id": "surrenderpls",
-           *             "rating": 2517,
+           *             "name": "PriyaRangAcademy",
+           *             "flair": "activity.chess",
+           *             "id": "priyarangacademy",
+           *             "rating": 1500,
            *             "provisional": true,
+           *             "gameId": "vVYPYO6B",
            *             "online": true
            *           },
-           *           "name": "FM surrenderPLS",
-           *           "fullName": "FM surrenderPLS simul",
+           *           "name": "PriyaRangAcademy",
+           *           "fullName": "PriyaRangAcademy simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": true,
+           *           "isFinished": false,
+           *           "text": "",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 4,
+           *           "estimatedStartAt": 1758636745074,
+           *           "startedAt": 1758636745074
+           *         },
+           *         {
+           *           "id": "4pgcG7qh",
+           *           "host": {
+           *             "name": "SagarSisodia",
+           *             "id": "sagarsisodia",
+           *             "rating": 1623,
+           *             "provisional": true,
+           *             "gameId": "uI2C16kv",
+           *             "online": true
+           *           },
+           *           "name": "Abhinav Gola",
+           *           "fullName": "Abhinav Gola simul",
            *           "variants": [
            *             {
            *               "key": "standard",
@@ -31907,27 +32323,170 @@ export interface operations {
            *               "name": "Standard"
            *             }
            *           ],
-           *           "isCreated": true,
-           *           "isRunning": false,
+           *           "isCreated": false,
+           *           "isRunning": true,
            *           "isFinished": false,
-           *           "text": "https://lichess.org/team/shturman_arseniy--friends",
-           *           "nbApplicants": 1,
-           *           "nbPairings": 0
-           *         }
-           *       ],
-           *       "started": [
+           *           "text": "",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 2,
+           *           "estimatedStartAt": 1758636784923,
+           *           "startedAt": 1758636784923
+           *         },
            *         {
-           *           "id": "XltCkN6Q",
+           *           "id": "1kZcKVMS",
            *           "host": {
-           *             "name": "STNDDI",
-           *             "id": "stnddi",
-           *             "rating": 1799,
-           *             "provisional": true,
-           *             "gameId": "miuQ0y7M",
+           *             "name": "Paarth_Aggarwal",
+           *             "id": "paarth_aggarwal",
+           *             "rating": 1247,
+           *             "provisional": false,
+           *             "gameId": "sgiawGlD",
            *             "online": true
            *           },
-           *           "name": "Подготовка к РСЯ",
-           *           "fullName": "Подготовка к РСЯ simul",
+           *           "name": "Paarth",
+           *           "fullName": "Paarth simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": true,
+           *           "isFinished": false,
+           *           "text": "",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 2,
+           *           "estimatedStartAt": 1758636477993,
+           *           "startedAt": 1758636477993
+           *         },
+           *         {
+           *           "id": "g5tCaDhq",
+           *           "host": {
+           *             "name": "kintsugi1",
+           *             "id": "kintsugi1",
+           *             "rating": 1959,
+           *             "provisional": false,
+           *             "gameId": "GfLKR2RU",
+           *             "online": true
+           *           },
+           *           "name": "kintsugi1",
+           *           "fullName": "kintsugi1 simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": true,
+           *           "isFinished": false,
+           *           "text": "",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 2,
+           *           "estimatedStartAt": 1758636494248,
+           *           "startedAt": 1758636494248
+           *         },
+           *         {
+           *           "id": "VUKwA9vL",
+           *           "host": {
+           *             "name": "ChessKidsTournament",
+           *             "id": "chesskidstournament",
+           *             "rating": 2334,
+           *             "provisional": false,
+           *             "gameId": "0zIUxfuq",
+           *             "online": true
+           *           },
+           *           "name": "ChessKidsTournament",
+           *           "fullName": "ChessKidsTournament simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": true,
+           *           "isFinished": false,
+           *           "text": "",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 3,
+           *           "estimatedStartAt": 1758636426432,
+           *           "startedAt": 1758636426432
+           *         },
+           *         {
+           *           "id": "Lr5G0Gxb",
+           *           "host": {
+           *             "name": "kamuscatur",
+           *             "flair": "travel-places.flying-saucer",
+           *             "id": "kamuscatur",
+           *             "rating": 1955,
+           *             "provisional": true,
+           *             "gameId": "GfYHY74I",
+           *             "online": true
+           *           },
+           *           "name": "SELASA SANTAI",
+           *           "fullName": "SELASA SANTAI simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": true,
+           *           "isFinished": false,
+           *           "text": "",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 10,
+           *           "estimatedStartAt": 1758635581324,
+           *           "startedAt": 1758635581324
+           *         },
+           *         {
+           *           "id": "aYlEiZ0R",
+           *           "host": {
+           *             "name": "Ruchess27",
+           *             "title": "WIM",
+           *             "flair": "objects.crown",
+           *             "id": "ruchess27",
+           *             "rating": 2509,
+           *             "provisional": true,
+           *             "gameId": "Qxe71MSV",
+           *             "online": true
+           *           },
+           *           "name": "WIM Ruchess27",
+           *           "fullName": "WIM Ruchess27 simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": true,
+           *           "isFinished": false,
+           *           "text": "• Join team: lichess.org/team/ruchess-masters",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 10,
+           *           "estimatedStartAt": 1758636031730,
+           *           "startedAt": 1758636031730
+           *         },
+           *         {
+           *           "id": "BpVgRzYS",
+           *           "host": {
+           *             "name": "Baskarpanneerselvam",
+           *             "id": "baskarpanneerselvam",
+           *             "rating": 1802,
+           *             "provisional": true,
+           *             "gameId": "k5PO3WQs",
+           *             "online": true
+           *           },
+           *           "name": "Baskarpanneerselvam",
+           *           "fullName": "Baskarpanneerselvam simul",
            *           "variants": [
            *             {
            *               "key": "standard",
@@ -31941,269 +32500,22 @@ export interface operations {
            *           "text": "",
            *           "nbApplicants": 0,
            *           "nbPairings": 6,
-           *           "estimatedStartAt": 1758105660477,
-           *           "startedAt": 1758105660477
-           *         },
-           *         {
-           *           "id": "S8p0Enxc",
-           *           "host": {
-           *             "name": "ChessTasticBattles",
-           *             "id": "chesstasticbattles",
-           *             "rating": 1500,
-           *             "provisional": true,
-           *             "gameId": "O4ERHA4K",
-           *             "online": true
-           *           },
-           *           "name": "ChessTasticBattles",
-           *           "fullName": "ChessTasticBattles simul",
-           *           "variants": [
-           *             {
-           *               "key": "standard",
-           *               "icon": "",
-           *               "name": "Standard"
-           *             },
-           *             {
-           *               "key": "crazyhouse",
-           *               "icon": "",
-           *               "name": "Crazyhouse"
-           *             }
-           *           ],
-           *           "isCreated": false,
-           *           "isRunning": true,
-           *           "isFinished": false,
-           *           "text": "",
-           *           "nbApplicants": 0,
-           *           "nbPairings": 2,
-           *           "estimatedStartAt": 1758103926905,
-           *           "startedAt": 1758103926905
+           *           "estimatedStartAt": 1758634782343,
+           *           "startedAt": 1758634782343
            *         }
            *       ],
            *       "finished": [
            *         {
-           *           "id": "iH6czOEv",
+           *           "id": "TLcPeiyJ",
            *           "host": {
-           *             "name": "Sohamchess64",
-           *             "title": "CM",
-           *             "patron": true,
-           *             "patronTier": "months1",
-           *             "id": "sohamchess64",
-           *             "rating": 2342,
-           *             "provisional": true,
-           *             "online": true
-           *           },
-           *           "name": "R vs B reloaded",
-           *           "fullName": "R vs B reloaded simul",
-           *           "variants": [
-           *             {
-           *               "key": "standard",
-           *               "icon": "",
-           *               "name": "Standard"
-           *             }
-           *           ],
-           *           "isCreated": false,
-           *           "isRunning": false,
-           *           "isFinished": true,
-           *           "text": "",
-           *           "nbApplicants": 0,
-           *           "nbPairings": 5,
-           *           "estimatedStartAt": 1758105364447,
-           *           "startedAt": 1758105364447,
-           *           "finishedAt": 1758106491619
-           *         },
-           *         {
-           *           "id": "6rB9w8Uo",
-           *           "host": {
-           *             "name": "Dani097",
-           *             "title": "CM",
-           *             "flair": "smileys.cold-face",
-           *             "id": "dani097",
-           *             "rating": 2336,
-           *             "provisional": false
-           *           },
-           *           "name": "CM Dani097",
-           *           "fullName": "CM Dani097 simul",
-           *           "variants": [
-           *             {
-           *               "key": "standard",
-           *               "icon": "",
-           *               "name": "Standard"
-           *             }
-           *           ],
-           *           "isCreated": false,
-           *           "isRunning": false,
-           *           "isFinished": true,
-           *           "text": "Kindly check my coaching profile\r\nhttps://lichess.org/coach/Dani097",
-           *           "nbApplicants": 0,
-           *           "nbPairings": 6,
-           *           "estimatedStartAt": 1758069409454,
-           *           "startedAt": 1758069409454,
-           *           "finishedAt": 1758070862726
-           *         },
-           *         {
-           *           "id": "bicmcR7h",
-           *           "host": {
-           *             "name": "MaxiDag30",
-           *             "title": "CM",
-           *             "flair": "smileys.clown-face",
-           *             "id": "maxidag30",
-           *             "rating": 2351,
-           *             "provisional": false
-           *           },
-           *           "name": "CM MaxiDag30",
-           *           "fullName": "CM MaxiDag30 simul",
-           *           "variants": [
-           *             {
-           *               "key": "standard",
-           *               "icon": "",
-           *               "name": "Standard"
-           *             }
-           *           ],
-           *           "isCreated": false,
-           *           "isRunning": false,
-           *           "isFinished": true,
-           *           "text": "10 people",
-           *           "nbApplicants": 0,
-           *           "nbPairings": 5,
-           *           "estimatedStartAt": 1758067161352,
-           *           "startedAt": 1758067161352,
-           *           "finishedAt": 1758068688124
-           *         },
-           *         {
-           *           "id": "KcDlC5CQ",
-           *           "host": {
-           *             "name": "MaxiDag30",
-           *             "title": "CM",
-           *             "flair": "smileys.clown-face",
-           *             "id": "maxidag30",
-           *             "rating": 2351,
-           *             "provisional": false
-           *           },
-           *           "name": "CM MaxiDag30",
-           *           "fullName": "CM MaxiDag30 simul",
-           *           "variants": [
-           *             {
-           *               "key": "standard",
-           *               "icon": "",
-           *               "name": "Standard"
-           *             }
-           *           ],
-           *           "isCreated": false,
-           *           "isRunning": false,
-           *           "isFinished": true,
-           *           "text": "10 people",
-           *           "nbApplicants": 0,
-           *           "nbPairings": 11,
-           *           "estimatedStartAt": 1758065282233,
-           *           "startedAt": 1758065282233,
-           *           "finishedAt": 1758066800308
-           *         },
-           *         {
-           *           "id": "9cHaiDbt",
-           *           "host": {
-           *             "name": "david_gomez",
-           *             "title": "FM",
-           *             "id": "david_gomez",
-           *             "rating": 2346,
-           *             "provisional": true
-           *           },
-           *           "name": "B-B",
-           *           "fullName": "B-B simul",
-           *           "variants": [
-           *             {
-           *               "key": "standard",
-           *               "icon": "",
-           *               "name": "Standard"
-           *             }
-           *           ],
-           *           "isCreated": false,
-           *           "isRunning": false,
-           *           "isFinished": true,
-           *           "text": "",
-           *           "nbApplicants": 0,
-           *           "nbPairings": 2,
-           *           "estimatedStartAt": 1758064291319,
-           *           "startedAt": 1758064291319,
-           *           "finishedAt": 1758065079364
-           *         },
-           *         {
-           *           "id": "Ow926aaH",
-           *           "host": {
-           *             "name": "david_gomez",
-           *             "title": "FM",
-           *             "id": "david_gomez",
-           *             "rating": 2346,
-           *             "provisional": true
-           *           },
-           *           "name": "W-C",
-           *           "fullName": "W-C simul",
-           *           "variants": [
-           *             {
-           *               "key": "standard",
-           *               "icon": "",
-           *               "name": "Standard"
-           *             }
-           *           ],
-           *           "isCreated": false,
-           *           "isRunning": false,
-           *           "isFinished": true,
-           *           "text": "",
-           *           "nbApplicants": 0,
-           *           "nbPairings": 2,
-           *           "estimatedStartAt": 1758062333832,
-           *           "startedAt": 1758062333832,
-           *           "finishedAt": 1758063368066
-           *         },
-           *         {
-           *           "id": "bnSczAKw",
-           *           "host": {
-           *             "name": "Seelenjagd",
+           *             "name": "qeeqer",
            *             "title": "IM",
-           *             "flair": "nature.zebra",
-           *             "id": "seelenjagd",
-           *             "rating": 2330,
-           *             "provisional": true,
-           *             "online": true
-           *           },
-           *           "name": "OSG Dienstag IM Seelenjagd",
-           *           "fullName": "OSG Dienstag IM Seelenjagd simul",
-           *           "variants": [
-           *             {
-           *               "key": "standard",
-           *               "icon": "",
-           *               "name": "Standard"
-           *             },
-           *             {
-           *               "key": "crazyhouse",
-           *               "icon": "",
-           *               "name": "Crazyhouse"
-           *             },
-           *             {
-           *               "key": "chess960",
-           *               "icon": "",
-           *               "name": "Chess960"
-           *             }
-           *           ],
-           *           "isCreated": false,
-           *           "isRunning": false,
-           *           "isFinished": true,
-           *           "text": "Simultan findet wie immer um 18.30 deutscher Zeit also in ca. 15 Minuten statt. Bis maximal etwa 30 Spieler. Viel Spaß und spannende Partien! \r\n\r\nAs usual the simul start is at 6:30 p.m. German time, i.e. in about 15 minutes. Up to a maximum of around 30 players. Have fun and exciting games! \r\n\r\nIM Rolf Schlindwein",
-           *           "nbApplicants": 0,
-           *           "nbPairings": 28,
-           *           "estimatedStartAt": 1758040203399,
-           *           "startedAt": 1758040203399,
-           *           "finishedAt": 1758048978396
-           *         },
-           *         {
-           *           "id": "JgivW6xm",
-           *           "host": {
-           *             "name": "Kovalchuk94",
-           *             "title": "FM",
-           *             "id": "kovalchuk94",
-           *             "rating": 2638,
+           *             "id": "qeeqer",
+           *             "rating": 2476,
            *             "provisional": false
            *           },
-           *           "name": "FM Kovalchuk94 coach",
-           *           "fullName": "FM Kovalchuk94 coach simul",
+           *           "name": "IM qeeqer",
+           *           "fullName": "IM qeeqer simul",
            *           "variants": [
            *             {
            *               "key": "standard",
@@ -32214,25 +32526,53 @@ export interface operations {
            *           "isCreated": false,
            *           "isRunning": false,
            *           "isFinished": true,
-           *           "text": "Мы стартуем в 18:00 по Москве",
+           *           "text": "https://t.me/iloveb3 - заходите в тг канал",
            *           "nbApplicants": 0,
-           *           "nbPairings": 13,
-           *           "estimatedStartAt": 1758034861276,
-           *           "startedAt": 1758034861276,
-           *           "finishedAt": 1758037664422
+           *           "nbPairings": 3,
+           *           "estimatedStartAt": 1758635997942,
+           *           "startedAt": 1758635997942,
+           *           "finishedAt": 1758636864257
            *         },
            *         {
-           *           "id": "1D0DNnr2",
+           *           "id": "xsQvOPCm",
            *           "host": {
-           *             "name": "bholenath123",
-           *             "title": "CM",
-           *             "id": "bholenath123",
-           *             "rating": 2255,
-           *             "provisional": false,
-           *             "online": true
+           *             "name": "qeeqer",
+           *             "title": "IM",
+           *             "id": "qeeqer",
+           *             "rating": 2476,
+           *             "provisional": false
            *           },
-           *           "name": "CM bholenath123",
-           *           "fullName": "CM bholenath123 simul",
+           *           "name": "IM qeeqer",
+           *           "fullName": "IM qeeqer simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": false,
+           *           "isFinished": true,
+           *           "text": "https://t.me/iloveb3 - заходите в telegram канал",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 24,
+           *           "estimatedStartAt": 1758633309186,
+           *           "startedAt": 1758633309186,
+           *           "finishedAt": 1758635380981
+           *         },
+           *         {
+           *           "id": "8bFEh9tp",
+           *           "host": {
+           *             "name": "enclasesUNI",
+           *             "title": "FM",
+           *             "flair": "objects.bookmark-tabs",
+           *             "id": "enclasesuni",
+           *             "rating": 2616,
+           *             "provisional": true
+           *           },
+           *           "name": "Juega y Entrena",
+           *           "fullName": "Juega y Entrena simul",
            *           "variants": [
            *             {
            *               "key": "standard",
@@ -32243,15 +32583,15 @@ export interface operations {
            *           "isCreated": false,
            *           "isRunning": false,
            *           "isFinished": true,
-           *           "text": "",
+           *           "text": "Si ganas obtienes una semana de entrenamiento gratis \r\n\r\nSi de todas maneras estás interesado en entrenar contáctame \r\n\r\nhttps://walink.co/9e68b4",
            *           "nbApplicants": 0,
-           *           "nbPairings": 2,
-           *           "estimatedStartAt": 1758035259002,
-           *           "startedAt": 1758035259002,
-           *           "finishedAt": 1758036821487
+           *           "nbPairings": 10,
+           *           "estimatedStartAt": 1758630663683,
+           *           "startedAt": 1758630663683,
+           *           "finishedAt": 1758634057933
            *         },
            *         {
-           *           "id": "4jdNX8S3",
+           *           "id": "D9nj9FmQ",
            *           "host": {
            *             "name": "Nozdrachev_Vladislav",
            *             "title": "IM",
@@ -32271,25 +32611,52 @@ export interface operations {
            *           "isCreated": false,
            *           "isRunning": false,
            *           "isFinished": true,
-           *           "text": "1) Drop me a msg if you like to take lessons\r\n2) Ban for asking start earlier or \"when start\". Unban for 10 euros",
+           *           "text": "1) Drop me a msg if you like to take lessons\r\n2) Ban for asking \"when start\" or \"start\". Unban for 10 euros",
            *           "nbApplicants": 0,
            *           "nbPairings": 23,
-           *           "estimatedStartAt": 1758006006565,
-           *           "startedAt": 1758006006565,
-           *           "finishedAt": 1758011524346
+           *           "estimatedStartAt": 1758610826967,
+           *           "startedAt": 1758610826967,
+           *           "finishedAt": 1758614032915
            *         },
            *         {
-           *           "id": "58j7CZoB",
+           *           "id": "uMLzAVMm",
            *           "host": {
-           *             "name": "CoachAnton",
-           *             "title": "CM",
-           *             "flair": "people.man-teacher",
-           *             "id": "coachanton",
-           *             "rating": 2307,
+           *             "name": "AghasiyevaFidan",
+           *             "title": "WIM",
+           *             "id": "aghasiyevafidan",
+           *             "rating": 2181,
            *             "provisional": true
            *           },
-           *           "name": "CM CoachAnton",
-           *           "fullName": "CM CoachAnton simul",
+           *           "name": "WIM AghasiyevaFidan",
+           *           "fullName": "WIM AghasiyevaFidan simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": false,
+           *           "isFinished": true,
+           *           "text": "",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 2,
+           *           "estimatedStartAt": 1758591918916,
+           *           "startedAt": 1758591918916,
+           *           "finishedAt": 1758592162715
+           *         },
+           *         {
+           *           "id": "fvjL4zdK",
+           *           "host": {
+           *             "name": "lefonghua",
+           *             "title": "FM",
+           *             "id": "lefonghua",
+           *             "rating": 2728,
+           *             "provisional": true
+           *           },
+           *           "name": "5+5 Sub",
+           *           "fullName": "5+5 Sub simul",
            *           "variants": [
            *             {
            *               "key": "standard",
@@ -32300,176 +32667,52 @@ export interface operations {
            *           "isCreated": false,
            *           "isRunning": false,
            *           "isFinished": true,
-           *           "text": "",
-           *           "nbApplicants": 0,
-           *           "nbPairings": 3,
-           *           "estimatedStartAt": 1757991142552,
-           *           "startedAt": 1757991142552,
-           *           "finishedAt": 1757992861375
-           *         },
-           *         {
-           *           "id": "or5uhlxF",
-           *           "host": {
-           *             "name": "Dani097",
-           *             "title": "CM",
-           *             "flair": "smileys.cold-face",
-           *             "id": "dani097",
-           *             "rating": 2067,
-           *             "provisional": false
-           *           },
-           *           "name": "CM Dani097",
-           *           "fullName": "CM Dani097 simul",
-           *           "variants": [
-           *             {
-           *               "key": "standard",
-           *               "icon": "",
-           *               "name": "Standard"
-           *             }
-           *           ],
-           *           "isCreated": false,
-           *           "isRunning": false,
-           *           "isFinished": true,
-           *           "text": "Kindly check my coaching profile\r\nhttps://lichess.org/coach/Dani097",
+           *           "text": "Subs only: twitch.tv/lefonghua",
            *           "nbApplicants": 0,
            *           "nbPairings": 6,
-           *           "estimatedStartAt": 1757962932383,
-           *           "startedAt": 1757962932383,
-           *           "finishedAt": 1757965773186
+           *           "estimatedStartAt": 1758588916392,
+           *           "startedAt": 1758588916392,
+           *           "finishedAt": 1758589966904
            *         },
            *         {
-           *           "id": "tSAx5KKz",
+           *           "id": "v9gGypHw",
            *           "host": {
-           *             "name": "beatles_21",
-           *             "title": "IM",
-           *             "id": "beatles_21",
-           *             "rating": 2325,
-           *             "provisional": false
-           *           },
-           *           "name": "IM beatles Return of written off",
-           *           "fullName": "IM beatles Return of written off simul",
-           *           "variants": [
-           *             {
-           *               "key": "standard",
-           *               "icon": "",
-           *               "name": "Standard"
-           *             },
-           *             {
-           *               "key": "chess960",
-           *               "icon": "",
-           *               "name": "Chess960"
-           *             }
-           *           ],
-           *           "isCreated": false,
-           *           "isRunning": false,
-           *           "isFinished": true,
-           *           "text": "",
-           *           "nbApplicants": 0,
-           *           "nbPairings": 10,
-           *           "estimatedStartAt": 1757943146983,
-           *           "startedAt": 1757943146983,
-           *           "finishedAt": 1757946914874
-           *         },
-           *         {
-           *           "id": "x474BmZr",
-           *           "host": {
-           *             "name": "Sohamchess64",
-           *             "title": "CM",
-           *             "patron": true,
-           *             "patronTier": "months1",
-           *             "id": "sohamchess64",
-           *             "rating": 2342,
-           *             "provisional": true,
-           *             "online": true
-           *           },
-           *           "name": "R vs B",
-           *           "fullName": "R vs B simul",
-           *           "variants": [
-           *             {
-           *               "key": "standard",
-           *               "icon": "",
-           *               "name": "Standard"
-           *             }
-           *           ],
-           *           "isCreated": false,
-           *           "isRunning": false,
-           *           "isFinished": true,
-           *           "text": "",
-           *           "nbApplicants": 0,
-           *           "nbPairings": 4,
-           *           "estimatedStartAt": 1757934677897,
-           *           "startedAt": 1757934677897,
-           *           "finishedAt": 1757936043998
-           *         },
-           *         {
-           *           "id": "xifMUh6C",
-           *           "host": {
-           *             "name": "Sohamchess64",
-           *             "title": "CM",
-           *             "patron": true,
-           *             "patronTier": "months1",
-           *             "id": "sohamchess64",
-           *             "rating": 2342,
-           *             "provisional": true,
-           *             "online": true
-           *           },
-           *           "name": "R vs B",
-           *           "fullName": "R vs B simul",
-           *           "variants": [
-           *             {
-           *               "key": "standard",
-           *               "icon": "",
-           *               "name": "Standard"
-           *             }
-           *           ],
-           *           "isCreated": false,
-           *           "isRunning": false,
-           *           "isFinished": true,
-           *           "text": "",
-           *           "nbApplicants": 0,
-           *           "nbPairings": 4,
-           *           "estimatedStartAt": 1757934589853,
-           *           "startedAt": 1757934589853,
-           *           "finishedAt": 1757934619245
-           *         },
-           *         {
-           *           "id": "4YTEJ15i",
-           *           "host": {
-           *             "name": "Yefry_Hidalgo_QUI",
-           *             "title": "CM",
-           *             "flair": "smileys.face-blowing-a-kiss-blob",
-           *             "id": "yefry_hidalgo_qui",
-           *             "rating": 1919,
+           *             "name": "lefonghua",
+           *             "title": "FM",
+           *             "id": "lefonghua",
+           *             "rating": 2728,
            *             "provisional": true
            *           },
-           *           "name": "Yef el tiburon",
-           *           "fullName": "Yef el tiburon simul",
+           *           "name": "5+5 Sub",
+           *           "fullName": "5+5 Sub simul",
            *           "variants": [
            *             {
            *               "key": "standard",
-           *               "icon": "",
+           *               "icon": "",
            *               "name": "Standard"
            *             }
            *           ],
            *           "isCreated": false,
            *           "isRunning": false,
            *           "isFinished": true,
-           *           "text": "",
+           *           "text": "Subs only: twitch.tv/lefonghua",
            *           "nbApplicants": 0,
-           *           "nbPairings": 13,
-           *           "estimatedStartAt": 1757886908637,
-           *           "startedAt": 1757886908637,
-           *           "finishedAt": 1757892078706
+           *           "nbPairings": 7,
+           *           "estimatedStartAt": 1758502678609,
+           *           "startedAt": 1758502678609,
+           *           "finishedAt": 1758503686683
            *         },
            *         {
-           *           "id": "UcoAJtz5",
+           *           "id": "xjTWUty6",
            *           "host": {
            *             "name": "Art-Vega",
            *             "title": "CM",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "art-vega",
-           *             "rating": 2352,
-           *             "provisional": false
+           *             "rating": 2356,
+           *             "provisional": false,
+           *             "online": true
            *           },
            *           "name": "Sunday",
            *           "fullName": "Sunday simul",
@@ -32493,44 +32736,73 @@ export interface operations {
            *           "isCreated": false,
            *           "isRunning": false,
            *           "isFinished": true,
-           *           "text": "Waiting for 8-10 players to begin. Simul will last approx. 1 and half hours so please join if you have time to spare. Streaming this at https://www.twitch.tv/art_vega1983/\r\n\r\nhttps://www.youtube.com/channel/UCcdWYFMXmjIrUsbXSOUo5FQ\r\nCheck out my YouTube Chess channel.",
+           *           "text": "Waiting for 8-10 players to begin. Simul will last approx. 2 hours so please join if you have time to spare. Streaming this at https://www.twitch.tv/art_vega1983/\r\n\r\nhttps://www.youtube.com/channel/UCcdWYFMXmjIrUsbXSOUo5FQ\r\nCheck out my YouTube Chess channel.",
            *           "nbApplicants": 0,
-           *           "nbPairings": 17,
-           *           "estimatedStartAt": 1757886234529,
-           *           "startedAt": 1757886234529,
-           *           "finishedAt": 1757891539519
+           *           "nbPairings": 16,
+           *           "estimatedStartAt": 1758491019357,
+           *           "startedAt": 1758491019357,
+           *           "finishedAt": 1758498726723
            *         },
            *         {
-           *           "id": "IdcOmGaV",
+           *           "id": "Wa3YQCY4",
            *           "host": {
-           *             "name": "Sparklehorse",
-           *             "title": "IM",
-           *             "flair": "nature.panda",
-           *             "id": "sparklehorse",
-           *             "rating": 2338,
-           *             "provisional": true
+           *             "name": "MaxiDag30",
+           *             "title": "CM",
+           *             "flair": "smileys.clown-face",
+           *             "id": "maxidag30",
+           *             "rating": 2326,
+           *             "provisional": false
            *           },
-           *           "name": "IM Sparklehorse Twitch",
-           *           "fullName": "IM Sparklehorse Twitch simul",
+           *           "name": "CM MaxiDag30",
+           *           "fullName": "CM MaxiDag30 simul",
            *           "variants": [
            *             {
            *               "key": "standard",
-           *               "icon": "",
+           *               "icon": "",
            *               "name": "Standard"
            *             }
            *           ],
            *           "isCreated": false,
            *           "isRunning": false,
            *           "isFinished": true,
-           *           "text": "Weekly Classical Simul \r\n\r\n                    vs 25 players\r\n\r\n                       https://www.twitch.tv/sladgie\r\n\r\n                     https://streamlabs.com/sladgie/tip          (Donate !  Proceeds Go to World Senior)\r\n\r\n\r\n                         Simul Rules\r\n\r\n                                 NO LONDON \r\n\r\n                                  NO CHEETING\r\n\r\n                                   NO BULLET \r\n\r\n                                    LONG SIMUL DONT JOIN UNLESS YOU CAN PLAY 3 HOURS !\r\n\r\n\r\n         Good luck !!",
+           *           "text": "Solamente para seguidores de twitch: https://www.twitch.tv/cmMaxiDag30\r\n\r\nMáximo 10 personas",
            *           "nbApplicants": 0,
-           *           "nbPairings": 25,
-           *           "estimatedStartAt": 1757869130976,
-           *           "startedAt": 1757869130976,
-           *           "finishedAt": 1757882677200
+           *           "nbPairings": 3,
+           *           "estimatedStartAt": 1758493904910,
+           *           "startedAt": 1758493904910,
+           *           "finishedAt": 1758494674047
            *         },
            *         {
-           *           "id": "mAfnhRM9",
+           *           "id": "NvF9xNON",
+           *           "host": {
+           *             "name": "MaxiDag30",
+           *             "title": "CM",
+           *             "flair": "smileys.clown-face",
+           *             "id": "maxidag30",
+           *             "rating": 2326,
+           *             "provisional": false
+           *           },
+           *           "name": "CM MaxiDag30",
+           *           "fullName": "CM MaxiDag30 simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": false,
+           *           "isFinished": true,
+           *           "text": "Simultánea para seguidores de twitch: https://www.twitch.tv/cmmaxidag30\r\n\r\nMáximo 10 personas",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 5,
+           *           "estimatedStartAt": 1758492019556,
+           *           "startedAt": 1758492019556,
+           *           "finishedAt": 1758493422814
+           *         },
+           *         {
+           *           "id": "MTKlCjsK",
            *           "host": {
            *             "name": "Mischuk_D",
            *             "title": "IM",
@@ -32553,22 +32825,110 @@ export interface operations {
            *           "isFinished": true,
            *           "text": "10 boards\r\nMy profile as a coach is - lichess.org/coach/Mischuk_D",
            *           "nbApplicants": 0,
-           *           "nbPairings": 9,
-           *           "estimatedStartAt": 1757878419351,
-           *           "startedAt": 1757878419351,
-           *           "finishedAt": 1757880450661
+           *           "nbPairings": 10,
+           *           "estimatedStartAt": 1758485589914,
+           *           "startedAt": 1758485589914,
+           *           "finishedAt": 1758487895139
            *         },
            *         {
-           *           "id": "KamXdysv",
+           *           "id": "ziFxFvkO",
            *           "host": {
-           *             "name": "Jactorres",
-           *             "title": "FM",
-           *             "id": "jactorres",
-           *             "rating": 1981,
-           *             "provisional": false
+           *             "name": "Sparklehorse",
+           *             "title": "IM",
+           *             "flair": "nature.panda",
+           *             "id": "sparklehorse",
+           *             "rating": 2338,
+           *             "provisional": true
            *           },
-           *           "name": "FM Jactorres",
-           *           "fullName": "FM Jactorres simul",
+           *           "name": "IM Sparklehorse Twitch",
+           *           "fullName": "IM Sparklehorse Twitch simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": false,
+           *           "isFinished": true,
+           *           "text": "Weekly Classical Simul w/IM Will Paschall on lichess ! \r\n\r\n                Playing vs 25 \r\n\r\n\r\n                            Please follow live !   https://www.twitch.tv/sladgie\r\n\r\n\r\n                           DONATE TO World Senior Trip !        https://streamlabs.com/sladgie/tip\r\n\r\n              SIMUL RULES \r\n\r\n\r\n                                 NO BULLET\r\n\r\n                                   NO PLAYING IF YOU CANT STAY 3 HOURS ! \r\n\r\n                                       NO LONDON\r\n\r\n                                         NO CHEETERS !\r\n\r\n\r\n\r\n        GL all\r\n\r\n                 Will and Pawnda",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 25,
+           *           "estimatedStartAt": 1758473843372,
+           *           "startedAt": 1758473843372,
+           *           "finishedAt": 1758487820222
+           *         },
+           *         {
+           *           "id": "cABiaGXS",
+           *           "host": {
+           *             "name": "recapture",
+           *             "title": "GM",
+           *             "id": "recapture",
+           *             "rating": 1500,
+           *             "provisional": true
+           *           },
+           *           "name": "GM recapture",
+           *           "fullName": "GM recapture simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": false,
+           *           "isFinished": true,
+           *           "text": "",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 15,
+           *           "estimatedStartAt": 1758479681586,
+           *           "startedAt": 1758479681586,
+           *           "finishedAt": 1758483288183
+           *         },
+           *         {
+           *           "id": "HUGNN8rt",
+           *           "host": {
+           *             "name": "aberbacha",
+           *             "title": "NM",
+           *             "id": "aberbacha",
+           *             "rating": 1473,
+           *             "provisional": true
+           *           },
+           *           "name": "NM aberbacha",
+           *           "fullName": "NM aberbacha simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": false,
+           *           "isFinished": true,
+           *           "text": "",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 3,
+           *           "estimatedStartAt": 1758481214814,
+           *           "startedAt": 1758481214814,
+           *           "finishedAt": 1758483196373
+           *         },
+           *         {
+           *           "id": "SoB9b88n",
+           *           "host": {
+           *             "name": "mysterious_expert",
+           *             "title": "IM",
+           *             "flair": "activity.lichess-berserk",
+           *             "patron": true,
+           *             "patronColor": 10,
+           *             "id": "mysterious_expert",
+           *             "rating": 2799,
+           *             "provisional": true
+           *           },
+           *           "name": "IM mysteriousexpert",
+           *           "fullName": "IM mysteriousexpert simul",
            *           "variants": [
            *             {
            *               "key": "standard",
@@ -32579,12 +32939,155 @@ export interface operations {
            *           "isCreated": false,
            *           "isRunning": false,
            *           "isFinished": true,
+           *           "text": "Weekly Simul as a part of my chess improvement organization.\r\n\r\nEveryone is welcome to join!\r\n\r\n If you are interested in a 1 on 1 mentorship program where I coach you for FREE, send me a message here: https://mardovchess.com/contact-me/\r\n\r\nJoin the lichess team for updates: https://lichess.org/team/mardovchess-mentorship-program\r\nGood luck!",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 20,
+           *           "estimatedStartAt": 1758477312453,
+           *           "startedAt": 1758477312453,
+           *           "finishedAt": 1758479943838
+           *         },
+           *         {
+           *           "id": "8L2JMj2Y",
+           *           "host": {
+           *             "name": "recapture",
+           *             "title": "GM",
+           *             "id": "recapture",
+           *             "rating": 1500,
+           *             "provisional": true
+           *           },
+           *           "name": "GM recapture",
+           *           "fullName": "GM recapture simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": false,
+           *           "isFinished": true,
            *           "text": "",
            *           "nbApplicants": 0,
-           *           "nbPairings": 3,
-           *           "estimatedStartAt": 1757875912932,
-           *           "startedAt": 1757875912932,
-           *           "finishedAt": 1757877540594
+           *           "nbPairings": 17,
+           *           "estimatedStartAt": 1758474604354,
+           *           "startedAt": 1758474604354,
+           *           "finishedAt": 1758477646207
+           *         },
+           *         {
+           *           "id": "kmCFYPjL",
+           *           "host": {
+           *             "name": "EvilGenius94",
+           *             "title": "GM",
+           *             "id": "evilgenius94",
+           *             "rating": 2585
+           *           },
+           *           "name": "GM EvilGenius94",
+           *           "fullName": "GM EvilGenius94 simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": false,
+           *           "isFinished": true,
+           *           "text": "",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 8,
+           *           "estimatedStartAt": 1758470981671,
+           *           "startedAt": 1758470981671,
+           *           "finishedAt": 1758475788257
+           *         },
+           *         {
+           *           "id": "o1WKkPNE",
+           *           "host": {
+           *             "name": "Yanidze",
+           *             "title": "NM",
+           *             "patron": true,
+           *             "patronColor": 7,
+           *             "id": "yanidze",
+           *             "rating": 2229,
+           *             "provisional": false
+           *           },
+           *           "name": "you can't win",
+           *           "fullName": "you can't win simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": false,
+           *           "isFinished": true,
+           *           "text": "https://www.twitch.tv/actionchess\r\n\r\nThe time control is 5 mins + 3 seconds per move. As the person doing the simul, I will be getting an additional 3 minutes per board. This means that if we get a lot of players, this simul will likely take a while. Please plan accordingly.",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 32,
+           *           "estimatedStartAt": 1758463563086,
+           *           "startedAt": 1758463563086,
+           *           "finishedAt": 1758470285376
+           *         },
+           *         {
+           *           "id": "2ZlCZ92y",
+           *           "host": {
+           *             "name": "Mischuk_D",
+           *             "title": "IM",
+           *             "id": "mischuk_d",
+           *             "rating": 2632,
+           *             "provisional": false,
+           *             "online": true
+           *           },
+           *           "name": "MischukD",
+           *           "fullName": "MischukD simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": false,
+           *           "isFinished": true,
+           *           "text": "10 boards\r\nMy profile as a coach is - lichess.org/coach/Mischuk_D",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 10,
+           *           "estimatedStartAt": 1758443595758,
+           *           "startedAt": 1758443595758,
+           *           "finishedAt": 1758445243609
+           *         },
+           *         {
+           *           "id": "b35MtX1X",
+           *           "host": {
+           *             "name": "Mischuk_D",
+           *             "title": "IM",
+           *             "id": "mischuk_d",
+           *             "rating": 2632,
+           *             "provisional": false,
+           *             "online": true
+           *           },
+           *           "name": "MischukD",
+           *           "fullName": "MischukD simul",
+           *           "variants": [
+           *             {
+           *               "key": "standard",
+           *               "icon": "",
+           *               "name": "Standard"
+           *             }
+           *           ],
+           *           "isCreated": false,
+           *           "isRunning": false,
+           *           "isFinished": true,
+           *           "text": "10 boards\r\nMy profile as a coach is - lichess.org/coach/Mischuk_D",
+           *           "nbApplicants": 0,
+           *           "nbPairings": 8,
+           *           "estimatedStartAt": 1758396183898,
+           *           "startedAt": 1758396183898,
+           *           "finishedAt": 1758397723040
            *         }
            *       ]
            *     } */
@@ -32625,24 +33128,24 @@ export interface operations {
            *         "name": "Lichess",
            *         "flair": "activity.lichess",
            *         "patron": true,
-           *         "patronTier": "lifetime",
+           *         "patronColor": 10,
            *         "id": "lichess"
            *       },
-           *       "nbMembers": 630972,
+           *       "nbMembers": 632729,
            *       "flair": "food-drink.cheese-wedge",
            *       "leaders": [
            *         {
            *           "name": "Lichess",
            *           "flair": "activity.lichess",
            *           "patron": true,
-           *           "patronTier": "lifetime",
+           *           "patronColor": 10,
            *           "id": "lichess"
            *         },
            *         {
            *           "name": "thibault",
            *           "flair": "nature.seedling",
            *           "patron": true,
-           *           "patronTier": "lifetime",
+           *           "patronColor": 9,
            *           "id": "thibault"
            *         }
            *       ],
@@ -32685,24 +33188,24 @@ export interface operations {
            *             "name": "Lichess",
            *             "flair": "activity.lichess",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "lichess"
            *           },
-           *           "nbMembers": 630972,
+           *           "nbMembers": 632729,
            *           "flair": "food-drink.cheese-wedge",
            *           "leaders": [
            *             {
            *               "name": "Lichess",
            *               "flair": "activity.lichess",
            *               "patron": true,
-           *               "patronTier": "lifetime",
+           *               "patronColor": 10,
            *               "id": "lichess"
            *             },
            *             {
            *               "name": "thibault",
            *               "flair": "nature.seedling",
            *               "patron": true,
-           *               "patronTier": "lifetime",
+           *               "patronColor": 9,
            *               "id": "thibault"
            *             }
            *           ]
@@ -32716,30 +33219,30 @@ export interface operations {
            *             "name": "Zhigalko_Sergei",
            *             "title": "GM",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "zhigalko_sergei"
            *           },
-           *           "nbMembers": 74703,
+           *           "nbMembers": 74729,
            *           "leaders": [
            *             {
            *               "name": "Zhigalko_Sergei",
            *               "title": "GM",
            *               "patron": true,
-           *               "patronTier": "lifetime",
+           *               "patronColor": 10,
            *               "id": "zhigalko_sergei"
            *             },
            *             {
            *               "name": "Chess_Blondinka",
            *               "title": "WFM",
            *               "patron": true,
-           *               "patronTier": "lifetime",
+           *               "patronColor": 10,
            *               "id": "chess_blondinka"
            *             },
            *             {
            *               "name": "SergeyVoronChess",
            *               "flair": "nature.phoenix-bird",
            *               "patron": true,
-           *               "patronTier": "years1",
+           *               "patronColor": 6,
            *               "id": "sergeyvoronchess"
            *             }
            *           ]
@@ -32752,15 +33255,15 @@ export interface operations {
            *           "leader": {
            *             "name": "Challenger_Spy",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "challenger_spy"
            *           },
-           *           "nbMembers": 43354,
+           *           "nbMembers": 43361,
            *           "leaders": [
            *             {
            *               "name": "Challenger_Spy",
            *               "patron": true,
-           *               "patronTier": "lifetime",
+           *               "patronColor": 10,
            *               "id": "challenger_spy"
            *             },
            *             {
@@ -32782,7 +33285,7 @@ export interface operations {
            *             "name": "FIDE",
            *             "id": "fide"
            *           },
-           *           "nbMembers": 37964,
+           *           "nbMembers": 37982,
            *           "leaders": [
            *             {
            *               "name": "FIDE",
@@ -32828,7 +33331,7 @@ export interface operations {
            *             "name": "Bipulb",
            *             "id": "bipulb"
            *           },
-           *           "nbMembers": 33132,
+           *           "nbMembers": 33137,
            *           "leaders": [
            *             {
            *               "name": "Bipulb",
@@ -32858,7 +33361,7 @@ export interface operations {
            *             "name": "mcw2011",
            *             "id": "mcw2011"
            *           },
-           *           "nbMembers": 30348,
+           *           "nbMembers": 30346,
            *           "leaders": [
            *             {
            *               "name": "mcw2011",
@@ -32879,7 +33382,7 @@ export interface operations {
            *             "name": "Unknown_Warrior11",
            *             "id": "unknown_warrior11"
            *           },
-           *           "nbMembers": 30107,
+           *           "nbMembers": 30110,
            *           "leaders": [
            *             {
            *               "name": "Bhavisha0101",
@@ -32901,10 +33404,10 @@ export interface operations {
            *             "title": "FM",
            *             "flair": "symbols.play-button",
            *             "patron": true,
-           *             "patronTier": "years2",
+           *             "patronColor": 7,
            *             "id": "yasinemrah"
            *           },
-           *           "nbMembers": 27315,
+           *           "nbMembers": 27419,
            *           "flair": "symbols.play-button",
            *           "leaders": [
            *             {
@@ -32912,7 +33415,7 @@ export interface operations {
            *               "title": "FM",
            *               "flair": "symbols.play-button",
            *               "patron": true,
-           *               "patronTier": "years2",
+           *               "patronColor": 7,
            *               "id": "yasinemrah"
            *             },
            *             {
@@ -32932,17 +33435,17 @@ export interface operations {
            *             "title": "IM",
            *             "flair": "travel-places.ambulance",
            *             "patron": true,
-           *             "patronTier": "years5",
+           *             "patronColor": 10,
            *             "id": "ericrosen"
            *           },
-           *           "nbMembers": 25727,
+           *           "nbMembers": 25732,
            *           "leaders": [
            *             {
            *               "name": "EricRosen",
            *               "title": "IM",
            *               "flair": "travel-places.ambulance",
            *               "patron": true,
-           *               "patronTier": "years5",
+           *               "patronColor": 10,
            *               "id": "ericrosen"
            *             }
            *           ]
@@ -32956,10 +33459,10 @@ export interface operations {
            *             "name": "Lichess",
            *             "flair": "activity.lichess",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "lichess"
            *           },
-           *           "nbMembers": 24779,
+           *           "nbMembers": 24799,
            *           "flair": "activity.lichess-variant-960",
            *           "leaders": [
            *             {
@@ -32967,14 +33470,14 @@ export interface operations {
            *               "title": "NM",
            *               "flair": "activity.lichess-blitz",
            *               "patron": true,
-           *               "patronTier": "months9",
+           *               "patronColor": 5,
            *               "id": "visualdennis"
            *             },
            *             {
            *               "name": "Lichess",
            *               "flair": "activity.lichess",
            *               "patron": true,
-           *               "patronTier": "lifetime",
+           *               "patronColor": 10,
            *               "id": "lichess"
            *             },
            *             {
@@ -32992,7 +33495,7 @@ export interface operations {
            *             "name": "TheHouseDiscord",
            *             "id": "thehousediscord"
            *           },
-           *           "nbMembers": 24590,
+           *           "nbMembers": 24674,
            *           "leaders": [
            *             {
            *               "name": "TheHouseDiscord",
@@ -33001,7 +33504,7 @@ export interface operations {
            *             {
            *               "name": "TheFinnisher",
            *               "patron": true,
-           *               "patronTier": "lifetime",
+           *               "patronColor": 10,
            *               "id": "thefinnisher"
            *             },
            *             {
@@ -33025,15 +33528,15 @@ export interface operations {
            *           "leader": {
            *             "name": "agadmator",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "agadmator"
            *           },
-           *           "nbMembers": 23616,
+           *           "nbMembers": 23612,
            *           "leaders": [
            *             {
            *               "name": "agadmator",
            *               "patron": true,
-           *               "patronTier": "lifetime",
+           *               "patronColor": 10,
            *               "id": "agadmator"
            *             },
            *             {
@@ -33045,20 +33548,15 @@ export interface operations {
            *         {
            *           "id": "online-world-chess-lovers",
            *           "name": "Online World Chess Lovers",
-           *           "description": "**Join Qualifiers For 60 USD Tmt and Daily Cash Prize Tournament** (Daily)\r\nhttps://lichess.org/team/austin-grandmaster-chess-academy/tournaments\r\n\r\n**Join 50 USD Tmt,** (30 August)\r\nhttps://lichess.org/swiss/tpV82oAu\r\n-\r\n**Join 200 USD Prize Fund Tournament,** (31 August)\r\nhttps://lichess.org/tournament/s06Ffc7Z\r\n\"For Registration and Details-\"\r\nhttps://forms.gle/GQwXvqxvMqix4PE7A\r\n-\r\n![](https://i.imgur.com/2R1xWvI.jpeg)\r\n**GP Chess Promotion**\r\n@gouravprithyani\r\nhttps://wa.me/918871232674\r\n-\r\nWe frequently Conduct Free Cash Prize Tournaments,Daily So Many Practice Tournaments.\r\n\r\nIf you want to sponsor any cash events on your birthday,Special Events.Inform us.\r\n\r\n**If you want to support us.You can Use below Details.Don't forget to mention the note**\r\nPaypal- https://www.paypal.me/GouravPrithyani\r\nUpi- gouravprithyani@okhdfcbank\r\n-\r\n**Join Daily Cash Tournaments Qualifier-** https://lichess.org/team/online-world-chess-lovers/tournaments\r\n**Join Our Group,For Updates**\r\nhttps://chat.whatsapp.com/GIdRFZ6aXc0Is9ydRbdylv\r\n-",
+           *           "description": "*Team Battle On Sunday* \r\nJoin Team- https://lichess.org/team/chess-city-team\r\n\r\nJoin Team Battle-\r\nhttps://lichess.org/tournament/CMQ20Sep\r\n________________________________________\r\n\r\n*Join Team-*\r\nhttps://lichess.org/team/online-world-chess-lovers\r\n\r\n*Join Team Battle-*\r\nhttps://lichess.org/tournament/pejJsA3h\r\n\r\nIf our Team Come 1st, (40 USD)\r\n1)10 USD\r\n2)10 USD\r\n3)10 USD\r\n4)5 USD\r\n5)5 USD\r\n\r\nIf Our Team Comes 2nd, (25 USD)\r\n1)10 USD\r\n2)5 USD\r\n3)5 USD\r\n4)5 USD\r\n\r\n*Join Now* !!\r\nPrizes by paypal/Upi.\r\n-\r\n**Join Qualifiers For 60 USD Tmt and Daily Cash Prize Tournament** (Daily)\r\nhttps://lichess.org/team/austin-grandmaster-chess-academy/tournaments\r\n-\r\n![](https://i.imgur.com/2R1xWvI.jpeg)\r\n**GP Chess Promotion**\r\n@gouravprithyani\r\nhttps://wa.me/918871232674\r\n-\r\nWe frequently Conduct Free Cash Prize Tournaments,Daily So Many Practice Tournaments.\r\n\r\nIf you want to sponsor any cash events on your birthday,Special Events.Inform us.\r\n\r\n**If you want to support us.You can Use below Details.Don't forget to mention the note**\r\nPaypal- https://www.paypal.me/GouravPrithyani\r\nUpi- gouravprithyani@okhdfcbank\r\n-\r\n**Join Daily Cash Tournaments Qualifier-** https://lichess.org/team/online-world-chess-lovers/tournaments\r\n**Join Our Group,For Updates**\r\nhttps://chat.whatsapp.com/GIdRFZ6aXc0Is9ydRbdylv\r\n-",
            *           "open": true,
            *           "leader": {
            *             "name": "Yogesh02005",
            *             "id": "yogesh02005"
            *           },
-           *           "nbMembers": 21133,
+           *           "nbMembers": 21407,
            *           "flair": "activity.mirror-ball",
            *           "leaders": [
-           *             {
-           *               "name": "Gouravprithyani",
-           *               "flair": "smileys.smiling-face-with-sunglasses",
-           *               "id": "gouravprithyani"
-           *             },
            *             {
            *               "name": "SANCHU2703",
            *               "id": "sanchu2703"
@@ -33073,10 +33571,24 @@ export interface operations {
            *               "id": "stambul65"
            *             },
            *             {
+           *               "name": "VEERSAMRATSINGH",
+           *               "flair": "activity.xmas-lichess-horsey",
+           *               "id": "veersamratsingh"
+           *             },
+           *             {
            *               "name": "black_knight22",
            *               "title": "IM",
            *               "flair": "smileys.alien",
            *               "id": "black_knight22"
+           *             },
+           *             {
+           *               "name": "nexcroitic-12",
+           *               "flair": "smileys.skull-and-crossbones",
+           *               "id": "nexcroitic-12"
+           *             },
+           *             {
+           *               "name": "AaRaMk",
+           *               "id": "aaramk"
            *             }
            *           ]
            *         },
@@ -33090,7 +33602,7 @@ export interface operations {
            *             "flair": "nature.high-voltage",
            *             "id": "witaj_i_am_light"
            *           },
-           *           "nbMembers": 21028,
+           *           "nbMembers": 21049,
            *           "flair": "activity.sparkles",
            *           "leaders": [
            *             {
@@ -33119,7 +33631,7 @@ export interface operations {
            *             "name": "AQL547",
            *             "id": "aql547"
            *           },
-           *           "nbMembers": 20224,
+           *           "nbMembers": 20198,
            *           "flair": "objects.money-bag",
            *           "leaders": [
            *             {
@@ -33135,8 +33647,8 @@ export interface operations {
            *       ],
            *       "previousPage": null,
            *       "nextPage": 2,
-           *       "nbResults": 372219,
-           *       "nbPages": 24815
+           *       "nbResults": 372896,
+           *       "nbPages": 24860
            *     } */
           "application/json": components["schemas"]["TeamPaginatorJson"];
         };
@@ -33172,17 +33684,17 @@ export interface operations {
            *           "title": "LM",
            *           "flair": "activity.xmas-lichess-horsey",
            *           "patron": true,
-           *           "patronTier": "lifetime",
+           *           "patronColor": 10,
            *           "id": "assios"
            *         },
-           *         "nbMembers": 268,
+           *         "nbMembers": 270,
            *         "leaders": [
            *           {
            *             "name": "Assios",
            *             "title": "LM",
            *             "flair": "activity.xmas-lichess-horsey",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "assios"
            *           }
            *         ]
@@ -33196,17 +33708,17 @@ export interface operations {
            *           "name": "thibault",
            *           "flair": "nature.seedling",
            *           "patron": true,
-           *           "patronTier": "lifetime",
+           *           "patronColor": 9,
            *           "id": "thibault"
            *         },
-           *         "nbMembers": 458,
+           *         "nbMembers": 461,
            *         "flair": "objects.hammer-and-wrench",
            *         "leaders": [
            *           {
            *             "name": "thibault",
            *             "flair": "nature.seedling",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 9,
            *             "id": "thibault"
            *           }
            *         ]
@@ -33220,17 +33732,17 @@ export interface operations {
            *           "name": "thibault",
            *           "flair": "nature.seedling",
            *           "patron": true,
-           *           "patronTier": "lifetime",
+           *           "patronColor": 9,
            *           "id": "thibault"
            *         },
-           *         "nbMembers": 124,
+           *         "nbMembers": 125,
            *         "flair": "symbols.extinction",
            *         "leaders": [
            *           {
            *             "name": "thibault",
            *             "flair": "nature.seedling",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 9,
            *             "id": "thibault"
            *           }
            *         ]
@@ -33244,17 +33756,17 @@ export interface operations {
            *           "name": "thibault",
            *           "flair": "nature.seedling",
            *           "patron": true,
-           *           "patronTier": "lifetime",
+           *           "patronColor": 9,
            *           "id": "thibault"
            *         },
-           *         "nbMembers": 4980,
+           *         "nbMembers": 4975,
            *         "flair": "nature.frog",
            *         "leaders": [
            *           {
            *             "name": "thibault",
            *             "flair": "nature.seedling",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 9,
            *             "id": "thibault"
            *           }
            *         ]
@@ -33268,29 +33780,29 @@ export interface operations {
            *           "name": "Lichess",
            *           "flair": "activity.lichess",
            *           "patron": true,
-           *           "patronTier": "lifetime",
+           *           "patronColor": 10,
            *           "id": "lichess"
            *         },
-           *         "nbMembers": 4188,
+           *         "nbMembers": 4198,
            *         "leaders": [
            *           {
            *             "name": "Lichess",
            *             "flair": "activity.lichess",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "lichess"
            *           },
            *           {
            *             "name": "thibault",
            *             "flair": "nature.seedling",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 9,
            *             "id": "thibault"
            *           },
            *           {
            *             "name": "fredo599",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "fredo599"
            *           }
            *         ]
@@ -33305,7 +33817,7 @@ export interface operations {
            *           "title": "BOT",
            *           "id": "thibot"
            *         },
-           *         "nbMembers": 6824,
+           *         "nbMembers": 6832,
            *         "flair": "smileys.robot",
            *         "leaders": [
            *           {
@@ -33325,13 +33837,13 @@ export interface operations {
            *           "title": "LM",
            *           "id": "broadcaster2"
            *         },
-           *         "nbMembers": 1472,
+           *         "nbMembers": 1475,
            *         "leaders": [
            *           {
            *             "name": "broadcaster",
            *             "title": "LM",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "broadcaster"
            *           }
            *         ]
@@ -33344,30 +33856,30 @@ export interface operations {
            *         "leader": {
            *           "name": "curator",
            *           "patron": true,
-           *           "patronTier": "lifetime",
+           *           "patronColor": 10,
            *           "id": "curator"
            *         },
-           *         "nbMembers": 4776,
+           *         "nbMembers": 4779,
            *         "flair": "symbols.information",
            *         "leaders": [
            *           {
            *             "name": "curator",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "curator"
            *           },
            *           {
            *             "name": "NoJoke",
            *             "flair": "food-drink.watermelon",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "nojoke"
            *           },
            *           {
            *             "name": "loepare",
            *             "flair": "activity.lichess",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "loepare"
            *           }
            *         ]
@@ -33381,49 +33893,35 @@ export interface operations {
            *           "name": "TCF_Namelecc",
            *           "id": "tcf_namelecc"
            *         },
-           *         "nbMembers": 2174,
+           *         "nbMembers": 2177,
            *         "flair": "symbols.information",
            *         "leaders": [
            *           {
            *             "name": "cormacobear",
            *             "flair": "nature.polar-bear",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "cormacobear"
-           *           },
-           *           {
-           *             "name": "NoJoke",
-           *             "flair": "food-drink.watermelon",
-           *             "patron": true,
-           *             "patronTier": "lifetime",
-           *             "id": "nojoke"
            *           },
            *           {
            *             "name": "jeffforever",
            *             "title": "FM",
            *             "flair": "activity.lichess-horsey",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "jeffforever"
            *           },
            *           {
            *             "name": "Numeroid",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "numeroid"
            *           },
            *           {
            *             "name": "shamalamadingdong",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "shamalamadingdong"
-           *           },
-           *           {
-           *             "name": "loepare",
-           *             "flair": "activity.lichess",
-           *             "patron": true,
-           *             "patronTier": "lifetime",
-           *             "id": "loepare"
            *           }
            *         ]
            *       },
@@ -33436,29 +33934,29 @@ export interface operations {
            *           "name": "Lichess",
            *           "flair": "activity.lichess",
            *           "patron": true,
-           *           "patronTier": "lifetime",
+           *           "patronColor": 10,
            *           "id": "lichess"
            *         },
-           *         "nbMembers": 2380,
+           *         "nbMembers": 2382,
            *         "leaders": [
            *           {
            *             "name": "NoJoke",
            *             "flair": "food-drink.watermelon",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "nojoke"
            *           },
            *           {
            *             "name": "curator",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "curator"
            *           },
            *           {
            *             "name": "loepare",
            *             "flair": "activity.lichess",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "loepare"
            *           },
            *           {
@@ -33466,7 +33964,7 @@ export interface operations {
            *             "title": "FM",
            *             "flair": "activity.lichess-horsey",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "jeffforever"
            *           }
            *         ]
@@ -33480,24 +33978,24 @@ export interface operations {
            *           "name": "Lichess",
            *           "flair": "activity.lichess",
            *           "patron": true,
-           *           "patronTier": "lifetime",
+           *           "patronColor": 10,
            *           "id": "lichess"
            *         },
-           *         "nbMembers": 630972,
+           *         "nbMembers": 632729,
            *         "flair": "food-drink.cheese-wedge",
            *         "leaders": [
            *           {
            *             "name": "Lichess",
            *             "flair": "activity.lichess",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "lichess"
            *           },
            *           {
            *             "name": "thibault",
            *             "flair": "nature.seedling",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 9,
            *             "id": "thibault"
            *           }
            *         ]
@@ -33523,16 +34021,16 @@ export interface operations {
            *         "leader": {
            *           "name": "FiveKnights",
            *           "patron": true,
-           *           "patronTier": "lifetime",
+           *           "patronColor": 10,
            *           "id": "fiveknights"
            *         },
-           *         "nbMembers": 268,
+           *         "nbMembers": 267,
            *         "flair": "nature.seedling",
            *         "leaders": [
            *           {
            *             "name": "FiveKnights",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "fiveknights"
            *           },
            *           {
@@ -33545,7 +34043,7 @@ export interface operations {
            *             "name": "BBisplaying",
            *             "flair": "people.troll",
            *             "patron": true,
-           *             "patronTier": "years3",
+           *             "patronColor": 8,
            *             "id": "bbisplaying"
            *           },
            *           {
@@ -33558,7 +34056,7 @@ export interface operations {
            *             "title": "NM",
            *             "flair": "nature.dove",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "oberschlumpf"
            *           },
            *           {
@@ -33578,7 +34076,7 @@ export interface operations {
            *           "name": "LordButternoodles",
            *           "id": "lordbutternoodles"
            *         },
-           *         "nbMembers": 274,
+           *         "nbMembers": 273,
            *         "leaders": [
            *           {
            *             "name": "LordButternoodles",
@@ -33589,7 +34087,7 @@ export interface operations {
            *             "title": "NM",
            *             "flair": "symbols.zzz",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 10,
            *             "id": "zugaddict"
            *           }
            *         ]
@@ -33632,17 +34130,17 @@ export interface operations {
            *             "name": "thibault",
            *             "flair": "nature.seedling",
            *             "patron": true,
-           *             "patronTier": "lifetime",
+           *             "patronColor": 9,
            *             "id": "thibault"
            *           },
-           *           "nbMembers": 458,
+           *           "nbMembers": 461,
            *           "flair": "objects.hammer-and-wrench",
            *           "leaders": [
            *             {
            *               "name": "thibault",
            *               "flair": "nature.seedling",
            *               "patron": true,
-           *               "patronTier": "lifetime",
+           *               "patronColor": 9,
            *               "id": "thibault"
            *             }
            *           ]
@@ -33795,7 +34293,7 @@ export interface operations {
            *             "name": "intermezo",
            *             "flair": "smileys.flushed-face",
            *             "patron": true,
-           *             "patronTier": "months1",
+           *             "patronColor": 1,
            *             "id": "intermezo"
            *           },
            *           "nbMembers": 5,
@@ -33804,7 +34302,7 @@ export interface operations {
            *               "name": "intermezo",
            *               "flair": "smileys.flushed-face",
            *               "patron": true,
-           *               "patronTier": "months1",
+           *               "patronColor": 1,
            *               "id": "intermezo"
            *             }
            *           ]
@@ -33905,7 +34403,7 @@ export interface operations {
            *       ],
            *       "previousPage": null,
            *       "nextPage": 2,
-           *       "nbResults": 17,
+           *       "nbResults": 16,
            *       "nbPages": 2
            *     } */
           "application/json": components["schemas"]["TeamPaginatorJson"];
@@ -33947,7 +34445,7 @@ export interface operations {
             /** @example Chess-Network */
             name: string;
             title?: components["schemas"]["Title"];
-            patronTier?: components["schemas"]["PatronTier"];
+            patronColor?: components["schemas"]["PatronColor"];
           };
         };
       };
@@ -34225,86 +34723,94 @@ export interface operations {
         content: {
           /** @example [
            *       {
-           *         "name": "PokochajSzachy",
+           *         "name": "Art-Vega",
            *         "title": "CM",
-           *         "flair": "symbols.orange-heart",
            *         "patron": true,
-           *         "id": "pokochajszachy",
+           *         "patronColor": 10,
+           *         "id": "art-vega",
            *         "stream": {
            *           "service": "twitch",
-           *           "status": "CHess & Chill & Good Music !youtube !instagram lichess.org [EN] [PL]",
-           *           "lang": "pl"
-           *         },
-           *         "streamer": {
-           *           "name": "Pokochaj Szachy",
-           *           "headline": "Streaming in Polish and English. Come by and say hello! Pokochaj Szachy to miejsce dla pasjonatów królewskiej gry!",
-           *           "description": "Hi! Have a good time watching the stream! I very often play against viewers on DGT chessboard. So, if you would like to play against me just let me know during the stream.  Zapraszam wszystkich do oglądania, i aktywnego uczestnictwa. Łączą nas Szachy!",
-           *           "twitch": "https://www.twitch.tv/pokochajszachy",
-           *           "image": "https://image.lichess1.org/display?fmt=png&h=350&op=thumbnail&path=pokochajszachy:streamer:pokochajszachy:qfVf3nXP.png&w=350&sig=e329d57f8e6815da63dba66992fa8b3c4b100ba9"
-           *         }
-           *       },
-           *       {
-           *         "name": "RESET-101",
-           *         "id": "reset-101",
-           *         "stream": {
-           *           "service": "twitch",
-           *           "status": "Playing viewers and 2400 Rapid on lichess.org",
+           *           "status": "The Mustache Show (Training stream) - lichess.org",
            *           "lang": "en"
            *         },
            *         "streamer": {
-           *           "name": "RESET-101",
-           *           "headline": "I stream because I would like to meet similar minded people who share the same enthusiasm for chess",
-           *           "twitch": "https://www.twitch.tv/chess_dexter",
-           *           "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=reset-101:streamer:reset-101:KjGH8CPF.jpg&w=350&sig=a24efd256d7f5feeac638ebd5954ce2902326b2a"
+           *           "name": "Art-Vega",
+           *           "headline": "Game play combined with Chess education and learning.",
+           *           "twitch": "https://www.twitch.tv/art_vega1983",
+           *           "youTube": "https://www.youtube.com/channel/UCcdWYFMXmjIrUsbXSOUo5FQ/live",
+           *           "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=art-vega:streamer:art-vega:2IYoARRQ.jpg&w=350&sig=814dee1d132d94a6f488b5eb3b3354cc5ac834bd"
            *         }
            *       },
            *       {
-           *         "name": "neverplayslowanti",
-           *         "flair": "smileys.hugging-face",
-           *         "id": "neverplayslowanti",
+           *         "name": "ElyneLee",
+           *         "patron": true,
+           *         "patronColor": 10,
+           *         "id": "elynelee",
            *         "stream": {
            *           "service": "twitch",
-           *           "status": "Night Antichess Grind on lichess.org !!",
+           *           "status": "Day 4 Subathon | RACERRRRRRRRRRR| lichess.org",
            *           "lang": "en"
            *         },
            *         "streamer": {
-           *           "name": "ASGM Preslav Petkov",
-           *           "headline": "Antichess World Champion & Chess Amateur trying his best to bring you (anti)chess-related content!",
-           *           "twitch": "https://www.twitch.tv/neversmartenough",
-           *           "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:neverplayslowanti:fl0ap4YM.webp&w=350&sig=568c0f86bf3afc85854bdb1cba80f7bc28b179b1"
+           *           "name": "ElyneLee",
+           *           "headline": "CHESS + MUSIC STREAM EVERYDAY ",
+           *           "description": "hi there! i do chess + music(metal) stream everyday on Twitch. Come hangout with me in chat and have fun together ",
+           *           "twitch": "https://www.twitch.tv/elynelee",
+           *           "youTube": "https://www.youtube.com/channel/UCxigACw3ehZU2UTrfK-FYtA/live",
+           *           "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=elynelee:streamer:elynelee:2aAvyqcR.jpg&w=350&sig=5b90229c9f61d8bcb2f2f35648314d94618d33be"
            *         }
            *       },
            *       {
-           *         "name": "XadrezTotalTV",
-           *         "flair": "objects.telescope",
-           *         "id": "xadreztotaltv",
+           *         "name": "acidgambit",
+           *         "id": "acidgambit",
+           *         "stream": {
+           *           "service": "twitch",
+           *           "status": "MORNING COFFEE (spiked) lichess.org",
+           *           "lang": "en"
+           *         },
+           *         "streamer": {
+           *           "name": "TommyFOOKINShelby",
+           *           "headline": "Bad Chess. So Bad.",
+           *           "description": "Oh God I'm Bad. So Bad. The Worst. None Worser. Please Help Me. Help.  ",
+           *           "twitch": "https://www.twitch.tv/tommyfookinshelby",
+           *           "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=acidgambit:streamer:acidgambit:C9ZM8jyf.jpg&w=350&sig=74e12dbf6b002f34729b7ca6dddb894ee04c93e9"
+           *         }
+           *       },
+           *       {
+           *         "name": "Zug-Zwang-Zebra",
+           *         "flair": "nature.zebra",
+           *         "id": "zug-zwang-zebra",
+           *         "stream": {
+           *           "service": "twitch",
+           *           "status": "🦓♟️Road to 1500! Schaffen wir heute die 200 Follows voll?! Ballert mit mir ein bisschen dieses Schach auf Lichess.org!🦓♟",
+           *           "lang": "de"
+           *         },
+           *         "streamer": {
+           *           "name": "Zug-Zwang-Zebra",
+           *           "headline": "Road to 1500 auf Lichess.org",
+           *           "description": "Ich kämpfe gerade um die 1500 :)",
+           *           "twitch": "https://www.twitch.tv/ZugZwangZebra",
+           *           "youTube": "https://www.youtube.com/channel/UCWp_1jTkZTWbEjxknk3JOWA/live",
+           *           "image": "https://image.lichess1.org/display?fmt=png&h=350&op=thumbnail&path=streamer:zug-zwang-zebra:mUPwsbSp.png&w=350&sig=660195373368210c769fe738b713c591e51546e0"
+           *         }
+           *       },
+           *       {
+           *         "name": "sadisticTushi",
+           *         "flair": "food-drink.french-fries",
+           *         "patron": true,
+           *         "patronColor": 10,
+           *         "id": "sadistictushi",
            *         "stream": {
            *           "service": "youTube",
-           *           "status": "Xadrez Total | Analisando partidas e  batendo papo  Lichess.org",
+           *           "status": "600 ELO Chess on lichess.org",
            *           "lang": "en-US"
            *         },
            *         "streamer": {
-           *           "name": "XadrezTotal",
-           *           "headline": "Empresa de Organizaçao de torenios FIDE com comentários de jogadores e árbitros titulados",
-           *           "description": "Xadrez Total é uma empresa que organiza torneios FIDE, sob a coordenação do Árbitro Internacional Mauro Amaral. \r\nTrabalhamos e/ou organizamos em masi de 15 páises, e em mais de 30 torneios do Calendário da FIDE, tais como Olimpíadas, Campeonatos Mundiais, Continetais FIDE, Pan-Americanos, Sul-Americanos e Zonais 2.4 FIDE, além de mais de uma centena de torneios Open e ITTs fechados de Norma de GM, MI, WGM e WIM ! ",
-           *           "twitch": "https://www.twitch.tv/xadreztotaltv",
-           *           "youTube": "https://www.youtube.com/channel/UCl0pW-vG9r8AT8N2bJdMu8Q/live",
-           *           "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=xadreztotaltv:streamer:xadreztotaltv:4DueCXhP.jpg&w=350&sig=e5fb7e683cb3ec7258778f727decd50b0495417a"
-           *         }
-           *       },
-           *       {
-           *         "name": "JaquetonEnigmatico",
-           *         "id": "jaquetonenigmatico",
-           *         "stream": {
-           *           "service": "twitch",
-           *           "status": "tratando de volver al prime lichess.org",
-           *           "lang": "es"
-           *         },
-           *         "streamer": {
-           *           "name": "JaquetonEnigmatico",
-           *           "headline": "jugador malo xd",
-           *           "description": "aprendi a jugar a los 10 y ahora voy a demostrar lo poco que se xd",
-           *           "twitch": "https://www.twitch.tv/gablots_gyt"
+           *           "name": "SadisticTushi",
+           *           "headline": "Beating GM's for FUN",
+           *           "description": "⭐️ Something about ME:\r\n➡️ 27 yrs from India, now in Hong Kong. \r\n➡️ Chess Title: Arena Grand Master (AGM)\r\n➡️ FIDE: 1859 (https://ratings.fide.com/profile/5079128)\r\n➡️ Lichess: 2461 (https://lichess.org/@/sadisticTushi)\r\n➡️ Chess.com: 2312 (https://www.chess.com/member/tushar20008)\r\n\r\n❤️ SOCIAL MEDIA \r\n➡️ TWITTER: https://twitter.com/sadisticTushi\r\n➡️ INSTAGRAM: https://instagram.com/sadisticTushi\r\n➡️ DISCORD: https://discord.gg/B7Z3AgQCTY\r\n\r\n⭐️ Wanna Support Me More? Donate Here: https://streamlabs.com/tusharanand/tip",
+           *           "youTube": "https://www.youtube.com/channel/UCNCwk2YndqegSmcMRDoIkdQ/live",
+           *           "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=sadistictushi:streamer:sadistictushi:i1LsBVq5.jpg&w=350&sig=8fcbfff8491ae789668167282ba9019bc1d6de32"
            *         }
            *       }
            *     ] */
@@ -34439,18 +34945,16 @@ export interface operations {
            *       {
            *         "from": {
            *           "name": "Bobby",
-           *           "flair": "people.woman-with-veil-light-skin-tone",
+           *           "patron": true,
+           *           "patronColor": 1,
            *           "id": "bobby"
            *         },
            *         "to": {
            *           "name": "Mary",
-           *           "flair": "people.snowboarder-dark-skin-tone",
-           *           "patron": true,
-           *           "patronTier": "months1",
            *           "id": "mary"
            *         },
            *         "text": "this is a private note",
-           *         "date": 1758106691565
+           *         "date": 1758636943174
            *       }
            *     ] */
           "application/json": components["schemas"]["UserNote"][];
@@ -34507,98 +35011,96 @@ export interface operations {
         };
         content: {
           /** @example {
-           *       "id": "ekaterina",
-           *       "username": "Ekaterina",
+           *       "id": "yaroslava",
+           *       "username": "Yaroslava",
            *       "perfs": {
            *         "bullet": {
-           *           "games": 15,
-           *           "rating": 2245,
-           *           "rd": 47,
-           *           "prog": 9
+           *           "games": 146,
+           *           "rating": 2175,
+           *           "rd": 51,
+           *           "prog": 17
            *         },
            *         "blitz": {
-           *           "games": 28,
-           *           "rating": 2122,
-           *           "rd": 46,
-           *           "prog": -39
+           *           "games": 286,
+           *           "rating": 2204,
+           *           "rd": 47,
+           *           "prog": -49
            *         },
            *         "rapid": {
-           *           "games": 570,
-           *           "rating": 2096,
-           *           "rd": 72,
-           *           "prog": 26
+           *           "games": 231,
+           *           "rating": 2259,
+           *           "rd": 102,
+           *           "prog": 20
            *         },
            *         "classical": {
-           *           "games": 94,
-           *           "rating": 2310,
-           *           "rd": 45,
-           *           "prog": 39
+           *           "games": 201,
+           *           "rating": 2278,
+           *           "rd": 103,
+           *           "prog": 20
            *         },
            *         "correspondence": {
-           *           "games": 79,
-           *           "rating": 2249,
-           *           "rd": 45,
-           *           "prog": -16
+           *           "games": 420,
+           *           "rating": 2296,
+           *           "rd": 102,
+           *           "prog": 36
            *         },
            *         "chess960": {
-           *           "games": 239,
-           *           "rating": 2107,
-           *           "rd": 45,
-           *           "prog": -35
+           *           "games": 22,
+           *           "rating": 2231,
+           *           "rd": 50,
+           *           "prog": 36
            *         },
            *         "kingOfTheHill": {
-           *           "games": 1348,
-           *           "rating": 2133,
-           *           "rd": 45,
-           *           "prog": -37
+           *           "games": 37,
+           *           "rating": 2238,
+           *           "rd": 47,
+           *           "prog": 33
            *         },
            *         "threeCheck": {
-           *           "games": 392,
-           *           "rating": 2288,
-           *           "rd": 113,
-           *           "prog": 12,
-           *           "prov": true
+           *           "games": 405,
+           *           "rating": 2208,
+           *           "rd": 52,
+           *           "prog": 1
            *         },
            *         "antichess": {
-           *           "games": 95,
-           *           "rating": 2114,
-           *           "rd": 87,
-           *           "prog": -46
+           *           "games": 114,
+           *           "rating": 2273,
+           *           "rd": 52,
+           *           "prog": -1
            *         },
            *         "atomic": {
-           *           "games": 262,
-           *           "rating": 2249,
-           *           "rd": 58,
-           *           "prog": 32
+           *           "games": 248,
+           *           "rating": 2341,
+           *           "rd": 59,
+           *           "prog": 48
            *         },
            *         "horde": {
-           *           "games": 96,
-           *           "rating": 2204,
-           *           "rd": 50,
-           *           "prog": -20
+           *           "games": 368,
+           *           "rating": 2222,
+           *           "rd": 45,
+           *           "prog": 26
            *         },
            *         "crazyhouse": {
-           *           "games": 148,
-           *           "rating": 2219,
-           *           "rd": 52,
-           *           "prog": -45
+           *           "games": 109,
+           *           "rating": 2276,
+           *           "rd": 81,
+           *           "prog": 30
            *         },
            *         "puzzle": {
-           *           "games": 334,
-           *           "rating": 2305,
-           *           "rd": 89,
-           *           "prog": 30
+           *           "games": 1470,
+           *           "rating": 2241,
+           *           "rd": 48,
+           *           "prog": -8
            *         }
            *       },
-           *       "title": "WFM",
-           *       "flair": "people.heart-hands",
-           *       "createdAt": 1757904517554,
-           *       "seenAt": 1757916691023,
+           *       "title": "FM",
+           *       "createdAt": 1751447947021,
+           *       "seenAt": 1752420698593,
            *       "playTime": {
-           *         "total": 19509,
+           *         "total": 19478,
            *         "tv": 0
            *       },
-           *       "url": "https://lichess.org/@/Ekaterina"
+           *       "url": "https://lichess.org/@/Yaroslava"
            *     } */
           "application/x-ndjson": components["schemas"]["UserExtended"];
         };
@@ -35190,54 +35692,54 @@ export interface operations {
         };
         content: {
           /** @example {
-           *       "id": "halcyonbot",
-           *       "username": "halcyonbot",
+           *       "id": "cosettebot",
+           *       "username": "CosetteBot",
            *       "perfs": {
            *         "bullet": {
-           *           "games": 28497,
-           *           "rating": 2206,
-           *           "rd": 45,
-           *           "prog": -3
+           *           "games": 26804,
+           *           "rating": 2160,
+           *           "rd": 48,
+           *           "prog": -1
            *         },
            *         "blitz": {
-           *           "games": 37587,
-           *           "rating": 2222,
-           *           "rd": 45,
-           *           "prog": 17
+           *           "games": 20847,
+           *           "rating": 2217,
+           *           "rd": 48,
+           *           "prog": -7
            *         },
            *         "rapid": {
-           *           "games": 23594,
-           *           "rating": 2309,
-           *           "rd": 45,
-           *           "prog": 15
+           *           "games": 14657,
+           *           "rating": 2251,
+           *           "rd": 50,
+           *           "prog": -5
            *         },
            *         "classical": {
-           *           "games": 0,
-           *           "rating": 2000,
-           *           "rd": 500,
-           *           "prog": 0,
-           *           "prov": true
+           *           "games": 6395,
+           *           "rating": 2120,
+           *           "rd": 54,
+           *           "prog": 5
            *         },
            *         "correspondence": {
            *           "games": 0,
-           *           "rating": 2000,
+           *           "rating": 1500,
            *           "rd": 500,
            *           "prog": 0,
            *           "prov": true
            *         }
            *       },
            *       "title": "BOT",
-           *       "patron": true,
-           *       "createdAt": 1674374156963,
+           *       "createdAt": 1598804364031,
            *       "profile": {
-           *         "bio": "I'm a chess engine written from scratch. Challenge me to a rated or casual game of bullet, blitz, or rapid! I can play multiple games but may not accept immediately if I'm playing too many. Created by @thinic.",
-           *         "realName": "Halcyon 1",
-           *         "links": "https://lishogi.org/@/kawasemi\r\nhttps://github.com/nhamil/halcyon"
+           *         "flag": "PL",
+           *         "location": "Raspberry Pi 3B+, 1,4 GHz, 64 MB hashtable, 5 men tablebase, single thread",
+           *         "bio": "I'm Cosette - the chess engine, aspiring to be the strongest one written in .NET. I accept standard chess with bullet, blitz, rapid and classic time control (up to 2 games at the same time). Operator: @Tearth, Homepage and source code: https://github.com/Tearth/Cosette.",
+           *         "realName": "Cosette v5.0",
+           *         "links": "https://github.com/Tearth/Cosette\r\nhttp://ccrl.chessdom.com/ccrl/404/cgi/compare_engines.cgi?family=Cosette&print=Rating+list&print=Results+table&print=LOS+table&print=Ponder+hit+table&print=Eval+difference+table&print=Comopp+gamenum+table&print=Overlap+table&print=Score+with+common+opponents"
            *       },
-           *       "seenAt": 1758106397744,
+           *       "seenAt": 1758636276008,
            *       "playTime": {
-           *         "total": 63499917,
-           *         "tv": 783712
+           *         "total": 53938064,
+           *         "tv": 3041391
            *       }
            *     } */
           "application/x-ndjson": components["schemas"]["User"];
@@ -35625,22 +36127,20 @@ export interface operations {
           /** @example {
            *       "in": [
            *         {
-           *           "id": "iCmWRom9",
-           *           "url": "https://lichess.org/iCmWRom9",
+           *           "id": "6u5R12on",
+           *           "url": "https://lichess.org/6u5R12on",
            *           "status": "created",
            *           "challenger": {
            *             "name": "Bobby",
-           *             "flair": "people.woman-with-veil-light-skin-tone",
+           *             "patron": true,
+           *             "patronColor": 1,
            *             "id": "bobby",
-           *             "rating": 1693
+           *             "rating": 1734
            *           },
            *           "destUser": {
            *             "name": "Mary",
-           *             "flair": "people.snowboarder-dark-skin-tone",
-           *             "patron": true,
-           *             "patronTier": "months1",
            *             "id": "mary",
-           *             "rating": 1147
+           *             "rating": 1104
            *           },
            *           "variant": {
            *             "key": "standard",
@@ -35653,7 +36153,7 @@ export interface operations {
            *             "type": "unlimited"
            *           },
            *           "color": "random",
-           *           "finalColor": "white",
+           *           "finalColor": "black",
            *           "perf": {
            *             "icon": "",
            *             "name": "Correspondence"
@@ -35751,22 +36251,20 @@ export interface operations {
         };
         content: {
           /** @example {
-           *       "id": "iCmWRom9",
-           *       "url": "https://lichess.org/iCmWRom9",
+           *       "id": "6u5R12on",
+           *       "url": "https://lichess.org/6u5R12on",
            *       "status": "created",
            *       "challenger": {
            *         "name": "Bobby",
-           *         "flair": "people.woman-with-veil-light-skin-tone",
+           *         "patron": true,
+           *         "patronColor": 1,
            *         "id": "bobby",
-           *         "rating": 1693
+           *         "rating": 1734
            *       },
            *       "destUser": {
            *         "name": "Mary",
-           *         "flair": "people.snowboarder-dark-skin-tone",
-           *         "patron": true,
-           *         "patronTier": "months1",
            *         "id": "mary",
-           *         "rating": 1147
+           *         "rating": 1104
            *       },
            *       "variant": {
            *         "key": "standard",
@@ -35779,7 +36277,7 @@ export interface operations {
            *         "type": "unlimited"
            *       },
            *       "color": "random",
-           *       "finalColor": "white",
+           *       "finalColor": "black",
            *       "perf": {
            *         "icon": "",
            *         "name": "Correspondence"
@@ -35820,22 +36318,20 @@ export interface operations {
         };
         content: {
           /** @example {
-           *       "id": "iCmWRom9",
-           *       "url": "https://lichess.org/iCmWRom9",
+           *       "id": "6u5R12on",
+           *       "url": "https://lichess.org/6u5R12on",
            *       "status": "created",
            *       "challenger": {
            *         "name": "Bobby",
-           *         "flair": "people.woman-with-veil-light-skin-tone",
+           *         "patron": true,
+           *         "patronColor": 1,
            *         "id": "bobby",
-           *         "rating": 1693
+           *         "rating": 1734
            *       },
            *       "destUser": {
            *         "name": "Mary",
-           *         "flair": "people.snowboarder-dark-skin-tone",
-           *         "patron": true,
-           *         "patronTier": "months1",
            *         "id": "mary",
-           *         "rating": 1147
+           *         "rating": 1104
            *       },
            *       "variant": {
            *         "key": "standard",
@@ -35848,7 +36344,7 @@ export interface operations {
            *         "type": "unlimited"
            *       },
            *       "color": "random",
-           *       "finalColor": "white",
+           *       "finalColor": "black",
            *       "perf": {
            *         "icon": "",
            *         "name": "Correspondence"
@@ -36041,7 +36537,7 @@ export interface operations {
         };
         content: {
           /** @example {
-           *       "id": "diCxWe6w",
+           *       "id": "9gkby8Lg",
            *       "variant": {
            *         "key": "standard",
            *         "name": "Standard",
@@ -36057,9 +36553,9 @@ export interface operations {
            *         "id": 20,
            *         "name": "started"
            *       },
-           *       "createdAt": 1758106629188,
+           *       "createdAt": 1758636965510,
            *       "player": "white",
-           *       "fullId": "diCxWe6wKlI0"
+           *       "fullId": "9gkby8LgKkub"
            *     } */
           "application/json": {
             id?: string;
@@ -36160,8 +36656,8 @@ export interface operations {
         };
         content: {
           /** @example {
-           *       "id": "7UaKVEuu",
-           *       "url": "https://lichess.org/7UaKVEuu",
+           *       "id": "nMVpeZL8",
+           *       "url": "https://lichess.org/nMVpeZL8",
            *       "status": "created",
            *       "challenger": null,
            *       "destUser": null,
@@ -36182,8 +36678,8 @@ export interface operations {
            *         "name": "Correspondence"
            *       },
            *       "open": {},
-           *       "urlWhite": "https://lichess.org/7UaKVEuu?color=white",
-           *       "urlBlack": "https://lichess.org/7UaKVEuu?color=black"
+           *       "urlWhite": "https://lichess.org/nMVpeZL8?color=white",
+           *       "urlBlack": "https://lichess.org/nMVpeZL8?color=black"
            *     } */
           "application/json": components["schemas"]["ChallengeOpenJson"];
         };
@@ -36683,7 +37179,7 @@ export interface operations {
         content: {
           /** @example [
            *       {
-           *         "id": "eei_5BtA7xu0Pret",
+           *         "id": "eei_yQo4LaPVD1ai",
            *         "name": "Stockfish 17",
            *         "userId": "bobby",
            *         "maxThreads": 8,
@@ -36692,7 +37188,7 @@ export interface operations {
            *           "chess"
            *         ],
            *         "providerData": null,
-           *         "clientSecret": "ees_Z1NjOliVR0Ughuf3"
+           *         "clientSecret": "ees_LcUfwiqpVpRGwBez"
            *       }
            *     ] */
           "application/json": components["schemas"]["ExternalEngine"][];
@@ -36722,7 +37218,7 @@ export interface operations {
         };
         content: {
           /** @example {
-           *       "id": "eei_5BtA7xu0Pret",
+           *       "id": "eei_yQo4LaPVD1ai",
            *       "name": "Stockfish 17",
            *       "userId": "bobby",
            *       "maxThreads": 8,
@@ -36731,7 +37227,7 @@ export interface operations {
            *         "chess"
            *       ],
            *       "providerData": null,
-           *       "clientSecret": "ees_Z1NjOliVR0Ughuf3"
+           *       "clientSecret": "ees_LcUfwiqpVpRGwBez"
            *     } */
           "application/json": components["schemas"]["ExternalEngine"];
         };
@@ -36761,7 +37257,7 @@ export interface operations {
         };
         content: {
           /** @example {
-           *       "id": "eei_5BtA7xu0Pret",
+           *       "id": "eei_yQo4LaPVD1ai",
            *       "name": "Stockfish 17",
            *       "userId": "bobby",
            *       "maxThreads": 8,
@@ -36770,7 +37266,7 @@ export interface operations {
            *         "chess"
            *       ],
            *       "providerData": null,
-           *       "clientSecret": "ees_Z1NjOliVR0Ughuf3"
+           *       "clientSecret": "ees_LcUfwiqpVpRGwBez"
            *     } */
           "application/json": components["schemas"]["ExternalEngine"];
         };
@@ -36805,7 +37301,7 @@ export interface operations {
         };
         content: {
           /** @example {
-           *       "id": "eei_5BtA7xu0Pret",
+           *       "id": "eei_yQo4LaPVD1ai",
            *       "name": "Stockfish 17.1",
            *       "userId": "bobby",
            *       "maxThreads": 8,
@@ -36814,7 +37310,7 @@ export interface operations {
            *         "chess"
            *       ],
            *       "providerData": null,
-           *       "clientSecret": "ees_Z1NjOliVR0Ughuf3"
+           *       "clientSecret": "ees_LcUfwiqpVpRGwBez"
            *     } */
           "application/json": components["schemas"]["ExternalEngine"];
         };
@@ -38050,7 +38546,7 @@ export interface operations {
            *         "eco": "D00",
            *         "name": "Queen's Pawn Game"
            *       },
-           *       "queuePosition": 34
+           *       "queuePosition": 199
            *     } */
           "application/x-ndjson": components["schemas"]["OpeningExplorerPlayer"];
         };
