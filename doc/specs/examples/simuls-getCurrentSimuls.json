@@ -1,18 +1,48 @@
 {
   "pending": [],
-  "created": [
+  "created": [],
+  "started": [
     {
-      "id": "dZwtbLrI",
+      "id": "WNB6V2f8",
       "host": {
-        "name": "surrenderPLS",
-        "title": "FM",
-        "id": "surrenderpls",
-        "rating": 2517,
+        "name": "PriyaRangAcademy",
+        "flair": "activity.chess",
+        "id": "priyarangacademy",
+        "rating": 1500,
         "provisional": true,
+        "gameId": "vVYPYO6B",
         "online": true
       },
-      "name": "FM surrenderPLS",
-      "fullName": "FM surrenderPLS simul",
+      "name": "PriyaRangAcademy",
+      "fullName": "PriyaRangAcademy simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": true,
+      "isFinished": false,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 4,
+      "estimatedStartAt": 1758636745074,
+      "startedAt": 1758636745074
+    },
+    {
+      "id": "4pgcG7qh",
+      "host": {
+        "name": "SagarSisodia",
+        "id": "sagarsisodia",
+        "rating": 1623,
+        "provisional": true,
+        "gameId": "uI2C16kv",
+        "online": true
+      },
+      "name": "Abhinav Gola",
+      "fullName": "Abhinav Gola simul",
       "variants": [
         {
           "key": "standard",
@@ -20,27 +50,170 @@
           "name": "Standard"
         }
       ],
-      "isCreated": true,
-      "isRunning": false,
+      "isCreated": false,
+      "isRunning": true,
       "isFinished": false,
-      "text": "https://lichess.org/team/shturman_arseniy--friends",
-      "nbApplicants": 1,
-      "nbPairings": 0
-    }
-  ],
-  "started": [
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 2,
+      "estimatedStartAt": 1758636784923,
+      "startedAt": 1758636784923
+    },
     {
-      "id": "XltCkN6Q",
+      "id": "1kZcKVMS",
       "host": {
-        "name": "STNDDI",
-        "id": "stnddi",
-        "rating": 1799,
-        "provisional": true,
-        "gameId": "miuQ0y7M",
+        "name": "Paarth_Aggarwal",
+        "id": "paarth_aggarwal",
+        "rating": 1247,
+        "provisional": false,
+        "gameId": "sgiawGlD",
         "online": true
       },
-      "name": "Подготовка к РСЯ",
-      "fullName": "Подготовка к РСЯ simul",
+      "name": "Paarth",
+      "fullName": "Paarth simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": true,
+      "isFinished": false,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 2,
+      "estimatedStartAt": 1758636477993,
+      "startedAt": 1758636477993
+    },
+    {
+      "id": "g5tCaDhq",
+      "host": {
+        "name": "kintsugi1",
+        "id": "kintsugi1",
+        "rating": 1959,
+        "provisional": false,
+        "gameId": "GfLKR2RU",
+        "online": true
+      },
+      "name": "kintsugi1",
+      "fullName": "kintsugi1 simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": true,
+      "isFinished": false,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 2,
+      "estimatedStartAt": 1758636494248,
+      "startedAt": 1758636494248
+    },
+    {
+      "id": "VUKwA9vL",
+      "host": {
+        "name": "ChessKidsTournament",
+        "id": "chesskidstournament",
+        "rating": 2334,
+        "provisional": false,
+        "gameId": "0zIUxfuq",
+        "online": true
+      },
+      "name": "ChessKidsTournament",
+      "fullName": "ChessKidsTournament simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": true,
+      "isFinished": false,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 3,
+      "estimatedStartAt": 1758636426432,
+      "startedAt": 1758636426432
+    },
+    {
+      "id": "Lr5G0Gxb",
+      "host": {
+        "name": "kamuscatur",
+        "flair": "travel-places.flying-saucer",
+        "id": "kamuscatur",
+        "rating": 1955,
+        "provisional": true,
+        "gameId": "GfYHY74I",
+        "online": true
+      },
+      "name": "SELASA SANTAI",
+      "fullName": "SELASA SANTAI simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": true,
+      "isFinished": false,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 10,
+      "estimatedStartAt": 1758635581324,
+      "startedAt": 1758635581324
+    },
+    {
+      "id": "aYlEiZ0R",
+      "host": {
+        "name": "Ruchess27",
+        "title": "WIM",
+        "flair": "objects.crown",
+        "id": "ruchess27",
+        "rating": 2509,
+        "provisional": true,
+        "gameId": "Qxe71MSV",
+        "online": true
+      },
+      "name": "WIM Ruchess27",
+      "fullName": "WIM Ruchess27 simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": true,
+      "isFinished": false,
+      "text": "• Join team: lichess.org/team/ruchess-masters",
+      "nbApplicants": 0,
+      "nbPairings": 10,
+      "estimatedStartAt": 1758636031730,
+      "startedAt": 1758636031730
+    },
+    {
+      "id": "BpVgRzYS",
+      "host": {
+        "name": "Baskarpanneerselvam",
+        "id": "baskarpanneerselvam",
+        "rating": 1802,
+        "provisional": true,
+        "gameId": "k5PO3WQs",
+        "online": true
+      },
+      "name": "Baskarpanneerselvam",
+      "fullName": "Baskarpanneerselvam simul",
       "variants": [
         {
           "key": "standard",
@@ -54,269 +227,22 @@
       "text": "",
       "nbApplicants": 0,
       "nbPairings": 6,
-      "estimatedStartAt": 1758105660477,
-      "startedAt": 1758105660477
-    },
-    {
-      "id": "S8p0Enxc",
-      "host": {
-        "name": "ChessTasticBattles",
-        "id": "chesstasticbattles",
-        "rating": 1500,
-        "provisional": true,
-        "gameId": "O4ERHA4K",
-        "online": true
-      },
-      "name": "ChessTasticBattles",
-      "fullName": "ChessTasticBattles simul",
-      "variants": [
-        {
-          "key": "standard",
-          "icon": "",
-          "name": "Standard"
-        },
-        {
-          "key": "crazyhouse",
-          "icon": "",
-          "name": "Crazyhouse"
-        }
-      ],
-      "isCreated": false,
-      "isRunning": true,
-      "isFinished": false,
-      "text": "",
-      "nbApplicants": 0,
-      "nbPairings": 2,
-      "estimatedStartAt": 1758103926905,
-      "startedAt": 1758103926905
+      "estimatedStartAt": 1758634782343,
+      "startedAt": 1758634782343
     }
   ],
   "finished": [
     {
-      "id": "iH6czOEv",
+      "id": "TLcPeiyJ",
       "host": {
-        "name": "Sohamchess64",
-        "title": "CM",
-        "patron": true,
-        "patronTier": "months1",
-        "id": "sohamchess64",
-        "rating": 2342,
-        "provisional": true,
-        "online": true
-      },
-      "name": "R vs B reloaded",
-      "fullName": "R vs B reloaded simul",
-      "variants": [
-        {
-          "key": "standard",
-          "icon": "",
-          "name": "Standard"
-        }
-      ],
-      "isCreated": false,
-      "isRunning": false,
-      "isFinished": true,
-      "text": "",
-      "nbApplicants": 0,
-      "nbPairings": 5,
-      "estimatedStartAt": 1758105364447,
-      "startedAt": 1758105364447,
-      "finishedAt": 1758106491619
-    },
-    {
-      "id": "6rB9w8Uo",
-      "host": {
-        "name": "Dani097",
-        "title": "CM",
-        "flair": "smileys.cold-face",
-        "id": "dani097",
-        "rating": 2336,
-        "provisional": false
-      },
-      "name": "CM Dani097",
-      "fullName": "CM Dani097 simul",
-      "variants": [
-        {
-          "key": "standard",
-          "icon": "",
-          "name": "Standard"
-        }
-      ],
-      "isCreated": false,
-      "isRunning": false,
-      "isFinished": true,
-      "text": "Kindly check my coaching profile\r\nhttps://lichess.org/coach/Dani097",
-      "nbApplicants": 0,
-      "nbPairings": 6,
-      "estimatedStartAt": 1758069409454,
-      "startedAt": 1758069409454,
-      "finishedAt": 1758070862726
-    },
-    {
-      "id": "bicmcR7h",
-      "host": {
-        "name": "MaxiDag30",
-        "title": "CM",
-        "flair": "smileys.clown-face",
-        "id": "maxidag30",
-        "rating": 2351,
-        "provisional": false
-      },
-      "name": "CM MaxiDag30",
-      "fullName": "CM MaxiDag30 simul",
-      "variants": [
-        {
-          "key": "standard",
-          "icon": "",
-          "name": "Standard"
-        }
-      ],
-      "isCreated": false,
-      "isRunning": false,
-      "isFinished": true,
-      "text": "10 people",
-      "nbApplicants": 0,
-      "nbPairings": 5,
-      "estimatedStartAt": 1758067161352,
-      "startedAt": 1758067161352,
-      "finishedAt": 1758068688124
-    },
-    {
-      "id": "KcDlC5CQ",
-      "host": {
-        "name": "MaxiDag30",
-        "title": "CM",
-        "flair": "smileys.clown-face",
-        "id": "maxidag30",
-        "rating": 2351,
-        "provisional": false
-      },
-      "name": "CM MaxiDag30",
-      "fullName": "CM MaxiDag30 simul",
-      "variants": [
-        {
-          "key": "standard",
-          "icon": "",
-          "name": "Standard"
-        }
-      ],
-      "isCreated": false,
-      "isRunning": false,
-      "isFinished": true,
-      "text": "10 people",
-      "nbApplicants": 0,
-      "nbPairings": 11,
-      "estimatedStartAt": 1758065282233,
-      "startedAt": 1758065282233,
-      "finishedAt": 1758066800308
-    },
-    {
-      "id": "9cHaiDbt",
-      "host": {
-        "name": "david_gomez",
-        "title": "FM",
-        "id": "david_gomez",
-        "rating": 2346,
-        "provisional": true
-      },
-      "name": "B-B",
-      "fullName": "B-B simul",
-      "variants": [
-        {
-          "key": "standard",
-          "icon": "",
-          "name": "Standard"
-        }
-      ],
-      "isCreated": false,
-      "isRunning": false,
-      "isFinished": true,
-      "text": "",
-      "nbApplicants": 0,
-      "nbPairings": 2,
-      "estimatedStartAt": 1758064291319,
-      "startedAt": 1758064291319,
-      "finishedAt": 1758065079364
-    },
-    {
-      "id": "Ow926aaH",
-      "host": {
-        "name": "david_gomez",
-        "title": "FM",
-        "id": "david_gomez",
-        "rating": 2346,
-        "provisional": true
-      },
-      "name": "W-C",
-      "fullName": "W-C simul",
-      "variants": [
-        {
-          "key": "standard",
-          "icon": "",
-          "name": "Standard"
-        }
-      ],
-      "isCreated": false,
-      "isRunning": false,
-      "isFinished": true,
-      "text": "",
-      "nbApplicants": 0,
-      "nbPairings": 2,
-      "estimatedStartAt": 1758062333832,
-      "startedAt": 1758062333832,
-      "finishedAt": 1758063368066
-    },
-    {
-      "id": "bnSczAKw",
-      "host": {
-        "name": "Seelenjagd",
+        "name": "qeeqer",
         "title": "IM",
-        "flair": "nature.zebra",
-        "id": "seelenjagd",
-        "rating": 2330,
-        "provisional": true,
-        "online": true
-      },
-      "name": "OSG Dienstag IM Seelenjagd",
-      "fullName": "OSG Dienstag IM Seelenjagd simul",
-      "variants": [
-        {
-          "key": "standard",
-          "icon": "",
-          "name": "Standard"
-        },
-        {
-          "key": "crazyhouse",
-          "icon": "",
-          "name": "Crazyhouse"
-        },
-        {
-          "key": "chess960",
-          "icon": "",
-          "name": "Chess960"
-        }
-      ],
-      "isCreated": false,
-      "isRunning": false,
-      "isFinished": true,
-      "text": "Simultan findet wie immer um 18.30 deutscher Zeit also in ca. 15 Minuten statt. Bis maximal etwa 30 Spieler. Viel Spaß und spannende Partien! \r\n\r\nAs usual the simul start is at 6:30 p.m. German time, i.e. in about 15 minutes. Up to a maximum of around 30 players. Have fun and exciting games! \r\n\r\nIM Rolf Schlindwein",
-      "nbApplicants": 0,
-      "nbPairings": 28,
-      "estimatedStartAt": 1758040203399,
-      "startedAt": 1758040203399,
-      "finishedAt": 1758048978396
-    },
-    {
-      "id": "JgivW6xm",
-      "host": {
-        "name": "Kovalchuk94",
-        "title": "FM",
-        "id": "kovalchuk94",
-        "rating": 2638,
+        "id": "qeeqer",
+        "rating": 2476,
         "provisional": false
       },
-      "name": "FM Kovalchuk94 coach",
-      "fullName": "FM Kovalchuk94 coach simul",
+      "name": "IM qeeqer",
+      "fullName": "IM qeeqer simul",
       "variants": [
         {
           "key": "standard",
@@ -327,25 +253,53 @@
       "isCreated": false,
       "isRunning": false,
       "isFinished": true,
-      "text": "Мы стартуем в 18:00 по Москве",
+      "text": "https://t.me/iloveb3 - заходите в тг канал",
       "nbApplicants": 0,
-      "nbPairings": 13,
-      "estimatedStartAt": 1758034861276,
-      "startedAt": 1758034861276,
-      "finishedAt": 1758037664422
+      "nbPairings": 3,
+      "estimatedStartAt": 1758635997942,
+      "startedAt": 1758635997942,
+      "finishedAt": 1758636864257
     },
     {
-      "id": "1D0DNnr2",
+      "id": "xsQvOPCm",
       "host": {
-        "name": "bholenath123",
-        "title": "CM",
-        "id": "bholenath123",
-        "rating": 2255,
-        "provisional": false,
-        "online": true
+        "name": "qeeqer",
+        "title": "IM",
+        "id": "qeeqer",
+        "rating": 2476,
+        "provisional": false
       },
-      "name": "CM bholenath123",
-      "fullName": "CM bholenath123 simul",
+      "name": "IM qeeqer",
+      "fullName": "IM qeeqer simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "https://t.me/iloveb3 - заходите в telegram канал",
+      "nbApplicants": 0,
+      "nbPairings": 24,
+      "estimatedStartAt": 1758633309186,
+      "startedAt": 1758633309186,
+      "finishedAt": 1758635380981
+    },
+    {
+      "id": "8bFEh9tp",
+      "host": {
+        "name": "enclasesUNI",
+        "title": "FM",
+        "flair": "objects.bookmark-tabs",
+        "id": "enclasesuni",
+        "rating": 2616,
+        "provisional": true
+      },
+      "name": "Juega y Entrena",
+      "fullName": "Juega y Entrena simul",
       "variants": [
         {
           "key": "standard",
@@ -356,15 +310,15 @@
       "isCreated": false,
       "isRunning": false,
       "isFinished": true,
-      "text": "",
+      "text": "Si ganas obtienes una semana de entrenamiento gratis \r\n\r\nSi de todas maneras estás interesado en entrenar contáctame \r\n\r\nhttps://walink.co/9e68b4",
       "nbApplicants": 0,
-      "nbPairings": 2,
-      "estimatedStartAt": 1758035259002,
-      "startedAt": 1758035259002,
-      "finishedAt": 1758036821487
+      "nbPairings": 10,
+      "estimatedStartAt": 1758630663683,
+      "startedAt": 1758630663683,
+      "finishedAt": 1758634057933
     },
     {
-      "id": "4jdNX8S3",
+      "id": "D9nj9FmQ",
       "host": {
         "name": "Nozdrachev_Vladislav",
         "title": "IM",
@@ -384,25 +338,52 @@
       "isCreated": false,
       "isRunning": false,
       "isFinished": true,
-      "text": "1) Drop me a msg if you like to take lessons\r\n2) Ban for asking start earlier or \"when start\". Unban for 10 euros",
+      "text": "1) Drop me a msg if you like to take lessons\r\n2) Ban for asking \"when start\" or \"start\". Unban for 10 euros",
       "nbApplicants": 0,
       "nbPairings": 23,
-      "estimatedStartAt": 1758006006565,
-      "startedAt": 1758006006565,
-      "finishedAt": 1758011524346
+      "estimatedStartAt": 1758610826967,
+      "startedAt": 1758610826967,
+      "finishedAt": 1758614032915
     },
     {
-      "id": "58j7CZoB",
+      "id": "uMLzAVMm",
       "host": {
-        "name": "CoachAnton",
-        "title": "CM",
-        "flair": "people.man-teacher",
-        "id": "coachanton",
-        "rating": 2307,
+        "name": "AghasiyevaFidan",
+        "title": "WIM",
+        "id": "aghasiyevafidan",
+        "rating": 2181,
         "provisional": true
       },
-      "name": "CM CoachAnton",
-      "fullName": "CM CoachAnton simul",
+      "name": "WIM AghasiyevaFidan",
+      "fullName": "WIM AghasiyevaFidan simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 2,
+      "estimatedStartAt": 1758591918916,
+      "startedAt": 1758591918916,
+      "finishedAt": 1758592162715
+    },
+    {
+      "id": "fvjL4zdK",
+      "host": {
+        "name": "lefonghua",
+        "title": "FM",
+        "id": "lefonghua",
+        "rating": 2728,
+        "provisional": true
+      },
+      "name": "5+5 Sub",
+      "fullName": "5+5 Sub simul",
       "variants": [
         {
           "key": "standard",
@@ -413,176 +394,52 @@
       "isCreated": false,
       "isRunning": false,
       "isFinished": true,
-      "text": "",
-      "nbApplicants": 0,
-      "nbPairings": 3,
-      "estimatedStartAt": 1757991142552,
-      "startedAt": 1757991142552,
-      "finishedAt": 1757992861375
-    },
-    {
-      "id": "or5uhlxF",
-      "host": {
-        "name": "Dani097",
-        "title": "CM",
-        "flair": "smileys.cold-face",
-        "id": "dani097",
-        "rating": 2067,
-        "provisional": false
-      },
-      "name": "CM Dani097",
-      "fullName": "CM Dani097 simul",
-      "variants": [
-        {
-          "key": "standard",
-          "icon": "",
-          "name": "Standard"
-        }
-      ],
-      "isCreated": false,
-      "isRunning": false,
-      "isFinished": true,
-      "text": "Kindly check my coaching profile\r\nhttps://lichess.org/coach/Dani097",
+      "text": "Subs only: twitch.tv/lefonghua",
       "nbApplicants": 0,
       "nbPairings": 6,
-      "estimatedStartAt": 1757962932383,
-      "startedAt": 1757962932383,
-      "finishedAt": 1757965773186
+      "estimatedStartAt": 1758588916392,
+      "startedAt": 1758588916392,
+      "finishedAt": 1758589966904
     },
     {
-      "id": "tSAx5KKz",
+      "id": "v9gGypHw",
       "host": {
-        "name": "beatles_21",
-        "title": "IM",
-        "id": "beatles_21",
-        "rating": 2325,
-        "provisional": false
-      },
-      "name": "IM beatles Return of written off",
-      "fullName": "IM beatles Return of written off simul",
-      "variants": [
-        {
-          "key": "standard",
-          "icon": "",
-          "name": "Standard"
-        },
-        {
-          "key": "chess960",
-          "icon": "",
-          "name": "Chess960"
-        }
-      ],
-      "isCreated": false,
-      "isRunning": false,
-      "isFinished": true,
-      "text": "",
-      "nbApplicants": 0,
-      "nbPairings": 10,
-      "estimatedStartAt": 1757943146983,
-      "startedAt": 1757943146983,
-      "finishedAt": 1757946914874
-    },
-    {
-      "id": "x474BmZr",
-      "host": {
-        "name": "Sohamchess64",
-        "title": "CM",
-        "patron": true,
-        "patronTier": "months1",
-        "id": "sohamchess64",
-        "rating": 2342,
-        "provisional": true,
-        "online": true
-      },
-      "name": "R vs B",
-      "fullName": "R vs B simul",
-      "variants": [
-        {
-          "key": "standard",
-          "icon": "",
-          "name": "Standard"
-        }
-      ],
-      "isCreated": false,
-      "isRunning": false,
-      "isFinished": true,
-      "text": "",
-      "nbApplicants": 0,
-      "nbPairings": 4,
-      "estimatedStartAt": 1757934677897,
-      "startedAt": 1757934677897,
-      "finishedAt": 1757936043998
-    },
-    {
-      "id": "xifMUh6C",
-      "host": {
-        "name": "Sohamchess64",
-        "title": "CM",
-        "patron": true,
-        "patronTier": "months1",
-        "id": "sohamchess64",
-        "rating": 2342,
-        "provisional": true,
-        "online": true
-      },
-      "name": "R vs B",
-      "fullName": "R vs B simul",
-      "variants": [
-        {
-          "key": "standard",
-          "icon": "",
-          "name": "Standard"
-        }
-      ],
-      "isCreated": false,
-      "isRunning": false,
-      "isFinished": true,
-      "text": "",
-      "nbApplicants": 0,
-      "nbPairings": 4,
-      "estimatedStartAt": 1757934589853,
-      "startedAt": 1757934589853,
-      "finishedAt": 1757934619245
-    },
-    {
-      "id": "4YTEJ15i",
-      "host": {
-        "name": "Yefry_Hidalgo_QUI",
-        "title": "CM",
-        "flair": "smileys.face-blowing-a-kiss-blob",
-        "id": "yefry_hidalgo_qui",
-        "rating": 1919,
+        "name": "lefonghua",
+        "title": "FM",
+        "id": "lefonghua",
+        "rating": 2728,
         "provisional": true
       },
-      "name": "Yef el tiburon",
-      "fullName": "Yef el tiburon simul",
+      "name": "5+5 Sub",
+      "fullName": "5+5 Sub simul",
       "variants": [
         {
           "key": "standard",
-          "icon": "",
+          "icon": "",
           "name": "Standard"
         }
       ],
       "isCreated": false,
       "isRunning": false,
       "isFinished": true,
-      "text": "",
+      "text": "Subs only: twitch.tv/lefonghua",
       "nbApplicants": 0,
-      "nbPairings": 13,
-      "estimatedStartAt": 1757886908637,
-      "startedAt": 1757886908637,
-      "finishedAt": 1757892078706
+      "nbPairings": 7,
+      "estimatedStartAt": 1758502678609,
+      "startedAt": 1758502678609,
+      "finishedAt": 1758503686683
     },
     {
-      "id": "UcoAJtz5",
+      "id": "xjTWUty6",
       "host": {
         "name": "Art-Vega",
         "title": "CM",
         "patron": true,
-        "patronTier": "lifetime",
+        "patronColor": 10,
         "id": "art-vega",
-        "rating": 2352,
-        "provisional": false
+        "rating": 2356,
+        "provisional": false,
+        "online": true
       },
       "name": "Sunday",
       "fullName": "Sunday simul",
@@ -606,44 +463,73 @@
       "isCreated": false,
       "isRunning": false,
       "isFinished": true,
-      "text": "Waiting for 8-10 players to begin. Simul will last approx. 1 and half hours so please join if you have time to spare. Streaming this at https://www.twitch.tv/art_vega1983/\r\n\r\nhttps://www.youtube.com/channel/UCcdWYFMXmjIrUsbXSOUo5FQ\r\nCheck out my YouTube Chess channel.",
+      "text": "Waiting for 8-10 players to begin. Simul will last approx. 2 hours so please join if you have time to spare. Streaming this at https://www.twitch.tv/art_vega1983/\r\n\r\nhttps://www.youtube.com/channel/UCcdWYFMXmjIrUsbXSOUo5FQ\r\nCheck out my YouTube Chess channel.",
       "nbApplicants": 0,
-      "nbPairings": 17,
-      "estimatedStartAt": 1757886234529,
-      "startedAt": 1757886234529,
-      "finishedAt": 1757891539519
+      "nbPairings": 16,
+      "estimatedStartAt": 1758491019357,
+      "startedAt": 1758491019357,
+      "finishedAt": 1758498726723
     },
     {
-      "id": "IdcOmGaV",
+      "id": "Wa3YQCY4",
       "host": {
-        "name": "Sparklehorse",
-        "title": "IM",
-        "flair": "nature.panda",
-        "id": "sparklehorse",
-        "rating": 2338,
-        "provisional": true
+        "name": "MaxiDag30",
+        "title": "CM",
+        "flair": "smileys.clown-face",
+        "id": "maxidag30",
+        "rating": 2326,
+        "provisional": false
       },
-      "name": "IM Sparklehorse Twitch",
-      "fullName": "IM Sparklehorse Twitch simul",
+      "name": "CM MaxiDag30",
+      "fullName": "CM MaxiDag30 simul",
       "variants": [
         {
           "key": "standard",
-          "icon": "",
+          "icon": "",
           "name": "Standard"
         }
       ],
       "isCreated": false,
       "isRunning": false,
       "isFinished": true,
-      "text": "Weekly Classical Simul \r\n\r\n                    vs 25 players\r\n\r\n                       https://www.twitch.tv/sladgie\r\n\r\n                     https://streamlabs.com/sladgie/tip          (Donate !  Proceeds Go to World Senior)\r\n\r\n\r\n                         Simul Rules\r\n\r\n                                 NO LONDON \r\n\r\n                                  NO CHEETING\r\n\r\n                                   NO BULLET \r\n\r\n                                    LONG SIMUL DONT JOIN UNLESS YOU CAN PLAY 3 HOURS !\r\n\r\n\r\n         Good luck !!",
+      "text": "Solamente para seguidores de twitch: https://www.twitch.tv/cmMaxiDag30\r\n\r\nMáximo 10 personas",
       "nbApplicants": 0,
-      "nbPairings": 25,
-      "estimatedStartAt": 1757869130976,
-      "startedAt": 1757869130976,
-      "finishedAt": 1757882677200
+      "nbPairings": 3,
+      "estimatedStartAt": 1758493904910,
+      "startedAt": 1758493904910,
+      "finishedAt": 1758494674047
     },
     {
-      "id": "mAfnhRM9",
+      "id": "NvF9xNON",
+      "host": {
+        "name": "MaxiDag30",
+        "title": "CM",
+        "flair": "smileys.clown-face",
+        "id": "maxidag30",
+        "rating": 2326,
+        "provisional": false
+      },
+      "name": "CM MaxiDag30",
+      "fullName": "CM MaxiDag30 simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "Simultánea para seguidores de twitch: https://www.twitch.tv/cmmaxidag30\r\n\r\nMáximo 10 personas",
+      "nbApplicants": 0,
+      "nbPairings": 5,
+      "estimatedStartAt": 1758492019556,
+      "startedAt": 1758492019556,
+      "finishedAt": 1758493422814
+    },
+    {
+      "id": "MTKlCjsK",
       "host": {
         "name": "Mischuk_D",
         "title": "IM",
@@ -666,22 +552,110 @@
       "isFinished": true,
       "text": "10 boards\r\nMy profile as a coach is - lichess.org/coach/Mischuk_D",
       "nbApplicants": 0,
-      "nbPairings": 9,
-      "estimatedStartAt": 1757878419351,
-      "startedAt": 1757878419351,
-      "finishedAt": 1757880450661
+      "nbPairings": 10,
+      "estimatedStartAt": 1758485589914,
+      "startedAt": 1758485589914,
+      "finishedAt": 1758487895139
     },
     {
-      "id": "KamXdysv",
+      "id": "ziFxFvkO",
       "host": {
-        "name": "Jactorres",
-        "title": "FM",
-        "id": "jactorres",
-        "rating": 1981,
-        "provisional": false
+        "name": "Sparklehorse",
+        "title": "IM",
+        "flair": "nature.panda",
+        "id": "sparklehorse",
+        "rating": 2338,
+        "provisional": true
       },
-      "name": "FM Jactorres",
-      "fullName": "FM Jactorres simul",
+      "name": "IM Sparklehorse Twitch",
+      "fullName": "IM Sparklehorse Twitch simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "Weekly Classical Simul w/IM Will Paschall on lichess ! \r\n\r\n                Playing vs 25 \r\n\r\n\r\n                            Please follow live !   https://www.twitch.tv/sladgie\r\n\r\n\r\n                           DONATE TO World Senior Trip !        https://streamlabs.com/sladgie/tip\r\n\r\n              SIMUL RULES \r\n\r\n\r\n                                 NO BULLET\r\n\r\n                                   NO PLAYING IF YOU CANT STAY 3 HOURS ! \r\n\r\n                                       NO LONDON\r\n\r\n                                         NO CHEETERS !\r\n\r\n\r\n\r\n        GL all\r\n\r\n                 Will and Pawnda",
+      "nbApplicants": 0,
+      "nbPairings": 25,
+      "estimatedStartAt": 1758473843372,
+      "startedAt": 1758473843372,
+      "finishedAt": 1758487820222
+    },
+    {
+      "id": "cABiaGXS",
+      "host": {
+        "name": "recapture",
+        "title": "GM",
+        "id": "recapture",
+        "rating": 1500,
+        "provisional": true
+      },
+      "name": "GM recapture",
+      "fullName": "GM recapture simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 15,
+      "estimatedStartAt": 1758479681586,
+      "startedAt": 1758479681586,
+      "finishedAt": 1758483288183
+    },
+    {
+      "id": "HUGNN8rt",
+      "host": {
+        "name": "aberbacha",
+        "title": "NM",
+        "id": "aberbacha",
+        "rating": 1473,
+        "provisional": true
+      },
+      "name": "NM aberbacha",
+      "fullName": "NM aberbacha simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 3,
+      "estimatedStartAt": 1758481214814,
+      "startedAt": 1758481214814,
+      "finishedAt": 1758483196373
+    },
+    {
+      "id": "SoB9b88n",
+      "host": {
+        "name": "mysterious_expert",
+        "title": "IM",
+        "flair": "activity.lichess-berserk",
+        "patron": true,
+        "patronColor": 10,
+        "id": "mysterious_expert",
+        "rating": 2799,
+        "provisional": true
+      },
+      "name": "IM mysteriousexpert",
+      "fullName": "IM mysteriousexpert simul",
       "variants": [
         {
           "key": "standard",
@@ -692,12 +666,155 @@
       "isCreated": false,
       "isRunning": false,
       "isFinished": true,
+      "text": "Weekly Simul as a part of my chess improvement organization.\r\n\r\nEveryone is welcome to join!\r\n\r\n If you are interested in a 1 on 1 mentorship program where I coach you for FREE, send me a message here: https://mardovchess.com/contact-me/\r\n\r\nJoin the lichess team for updates: https://lichess.org/team/mardovchess-mentorship-program\r\nGood luck!",
+      "nbApplicants": 0,
+      "nbPairings": 20,
+      "estimatedStartAt": 1758477312453,
+      "startedAt": 1758477312453,
+      "finishedAt": 1758479943838
+    },
+    {
+      "id": "8L2JMj2Y",
+      "host": {
+        "name": "recapture",
+        "title": "GM",
+        "id": "recapture",
+        "rating": 1500,
+        "provisional": true
+      },
+      "name": "GM recapture",
+      "fullName": "GM recapture simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
       "text": "",
       "nbApplicants": 0,
-      "nbPairings": 3,
-      "estimatedStartAt": 1757875912932,
-      "startedAt": 1757875912932,
-      "finishedAt": 1757877540594
+      "nbPairings": 17,
+      "estimatedStartAt": 1758474604354,
+      "startedAt": 1758474604354,
+      "finishedAt": 1758477646207
+    },
+    {
+      "id": "kmCFYPjL",
+      "host": {
+        "name": "EvilGenius94",
+        "title": "GM",
+        "id": "evilgenius94",
+        "rating": 2585
+      },
+      "name": "GM EvilGenius94",
+      "fullName": "GM EvilGenius94 simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "",
+      "nbApplicants": 0,
+      "nbPairings": 8,
+      "estimatedStartAt": 1758470981671,
+      "startedAt": 1758470981671,
+      "finishedAt": 1758475788257
+    },
+    {
+      "id": "o1WKkPNE",
+      "host": {
+        "name": "Yanidze",
+        "title": "NM",
+        "patron": true,
+        "patronColor": 7,
+        "id": "yanidze",
+        "rating": 2229,
+        "provisional": false
+      },
+      "name": "you can't win",
+      "fullName": "you can't win simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "https://www.twitch.tv/actionchess\r\n\r\nThe time control is 5 mins + 3 seconds per move. As the person doing the simul, I will be getting an additional 3 minutes per board. This means that if we get a lot of players, this simul will likely take a while. Please plan accordingly.",
+      "nbApplicants": 0,
+      "nbPairings": 32,
+      "estimatedStartAt": 1758463563086,
+      "startedAt": 1758463563086,
+      "finishedAt": 1758470285376
+    },
+    {
+      "id": "2ZlCZ92y",
+      "host": {
+        "name": "Mischuk_D",
+        "title": "IM",
+        "id": "mischuk_d",
+        "rating": 2632,
+        "provisional": false,
+        "online": true
+      },
+      "name": "MischukD",
+      "fullName": "MischukD simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "10 boards\r\nMy profile as a coach is - lichess.org/coach/Mischuk_D",
+      "nbApplicants": 0,
+      "nbPairings": 10,
+      "estimatedStartAt": 1758443595758,
+      "startedAt": 1758443595758,
+      "finishedAt": 1758445243609
+    },
+    {
+      "id": "b35MtX1X",
+      "host": {
+        "name": "Mischuk_D",
+        "title": "IM",
+        "id": "mischuk_d",
+        "rating": 2632,
+        "provisional": false,
+        "online": true
+      },
+      "name": "MischukD",
+      "fullName": "MischukD simul",
+      "variants": [
+        {
+          "key": "standard",
+          "icon": "",
+          "name": "Standard"
+        }
+      ],
+      "isCreated": false,
+      "isRunning": false,
+      "isFinished": true,
+      "text": "10 boards\r\nMy profile as a coach is - lichess.org/coach/Mischuk_D",
+      "nbApplicants": 0,
+      "nbPairings": 8,
+      "estimatedStartAt": 1758396183898,
+      "startedAt": 1758396183898,
+      "finishedAt": 1758397723040
     }
   ]
 }

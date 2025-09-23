@@ -1,15 +1,12 @@
 [
   {
     "name": "Mary",
-    "flair": "people.snowboarder-dark-skin-tone",
-    "patron": true,
-    "patronTier": "months1",
     "id": "mary"
   },
   {
     "name": "Ana",
-    "title": "CM",
-    "flair": "people.person-in-motorized-wheelchair-medium-light-skin-tone",
+    "title": "WNM",
+    "flair": "food-drink.ginger",
     "id": "ana"
   }
 ]

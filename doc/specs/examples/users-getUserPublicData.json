@@ -3,122 +3,118 @@
   "username": "Mary",
   "perfs": {
     "bullet": {
-      "games": 13,
-      "rating": 1017,
-      "rd": 75,
-      "prog": -6
+      "games": 19,
+      "rating": 1143,
+      "rd": 59,
+      "prog": 5
     },
     "blitz": {
-      "games": 11,
-      "rating": 990,
-      "rd": 45,
-      "prog": -30
-    },
-    "rapid": {
-      "games": 85,
-      "rating": 1096,
-      "rd": 111,
-      "prog": -18,
-      "prov": true
-    },
-    "classical": {
-      "games": 19,
-      "rating": 950,
-      "rd": 93,
-      "prog": -44
-    },
-    "correspondence": {
-      "games": 22,
-      "rating": 1147,
+      "games": 10,
+      "rating": 939,
       "rd": 47,
-      "prog": -27
-    },
-    "chess960": {
-      "games": 1063,
-      "rating": 1023,
-      "rd": 54,
-      "prog": 21
-    },
-    "kingOfTheHill": {
-      "games": 85,
-      "rating": 1142,
-      "rd": 53,
-      "prog": -34
-    },
-    "threeCheck": {
-      "games": 507,
-      "rating": 1044,
-      "rd": 54,
-      "prog": 14
-    },
-    "antichess": {
-      "games": 57,
-      "rating": 933,
-      "rd": 111,
-      "prog": -5,
-      "prov": true
-    },
-    "atomic": {
-      "games": 516,
-      "rating": 1015,
-      "rd": 103,
       "prog": -1
     },
-    "horde": {
-      "games": 202,
-      "rating": 1098,
+    "rapid": {
+      "games": 27,
+      "rating": 1042,
+      "rd": 45,
+      "prog": 6
+    },
+    "classical": {
+      "games": 7,
+      "rating": 1059,
+      "rd": 45,
+      "prog": -42
+    },
+    "correspondence": {
+      "games": 29,
+      "rating": 1104,
+      "rd": 47,
+      "prog": -41
+    },
+    "chess960": {
+      "games": 109,
+      "rating": 1147,
       "rd": 59,
-      "prog": 8
+      "prog": 38
+    },
+    "kingOfTheHill": {
+      "games": 900,
+      "rating": 965,
+      "rd": 46,
+      "prog": 18
+    },
+    "threeCheck": {
+      "games": 76,
+      "rating": 999,
+      "rd": 94,
+      "prog": 11
+    },
+    "antichess": {
+      "games": 109,
+      "rating": 1100,
+      "rd": 63,
+      "prog": 9
+    },
+    "atomic": {
+      "games": 5,
+      "rating": 1030,
+      "rd": 111,
+      "prog": -8,
+      "prov": true
+    },
+    "horde": {
+      "games": 455,
+      "rating": 1162,
+      "rd": 48,
+      "prog": -38
     },
     "crazyhouse": {
-      "games": 328,
-      "rating": 1163,
-      "rd": 72,
-      "prog": 33
+      "games": 12,
+      "rating": 950,
+      "rd": 92,
+      "prog": 36
     },
     "puzzle": {
-      "games": 21,
-      "rating": 1071,
-      "rd": 50,
-      "prog": -16
+      "games": 48,
+      "rating": 1139,
+      "rd": 45,
+      "prog": -27
     }
   },
-  "flair": "people.snowboarder-dark-skin-tone",
-  "patron": true,
-  "patronTier": "months1",
-  "createdAt": 1757481165779,
+  "createdAt": 1757270375141,
   "profile": {
-    "flag": "ET",
+    "flag": "GI",
     "location": "Mary City",
-    "bio": "In the first place, he clearly enunciates that the money form of commodities is only the further development of the simple form of value—i. e., of the expression of the value of one commodity in some other commodity taken at random; for he says",
+    "bio": "⁠\"Assai bene è trascorsa",
     "fideRating": 1050,
-    "uscfRating": 1180,
-    "ecfRating": 883,
-    "rcfRating": 1096,
-    "cfcRating": 930,
-    "dsbRating": 883,
-    "links": ""
+    "uscfRating": 1027,
+    "ecfRating": 925,
+    "rcfRating": 901,
+    "cfcRating": 862,
+    "dsbRating": 1237,
+    "links": "https://en.wikipedia.org/wiki/Euler\nhttps://en.wikipedia.org/wiki/Socialism\nhttps://en.wikipedia.org/wiki/Nelson_Mandela"
   },
-  "seenAt": 1757615672673,
+  "seenAt": 1757340447056,
   "playTime": {
-    "total": 15865,
+    "total": 15213,
     "tv": 0
   },
   "url": "https://lichess.org/@/Mary",
   "count": {
-    "all": 3301,
-    "rated": 2640,
+    "all": 2047,
+    "rated": 1637,
     "ai": 0,
-    "draw": 148,
-    "drawH": 148,
-    "loss": 1588,
-    "lossH": 1588,
-    "win": 1565,
-    "winH": 1565,
+    "draw": 113,
+    "drawH": 113,
+    "loss": 976,
+    "lossH": 976,
+    "win": 958,
+    "winH": 958,
     "bookmark": 0,
     "playing": 0,
     "import": 0,
-    "me": 2
+    "me": 1
   },
   "streamer": {
     "twitch": {

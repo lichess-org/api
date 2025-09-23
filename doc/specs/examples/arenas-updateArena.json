@@ -1,14 +1,14 @@
 {
   "nbPlayers": 0,
   "duels": [],
-  "secondsToStart": 300,
+  "secondsToStart": 299,
   "standing": {
     "page": 1,
     "players": []
   },
-  "id": "tbumT8AW",
+  "id": "89lOASJ3",
   "createdBy": "bobby",
-  "startsAt": "2025-09-17T11:00:57.211Z",
+  "startsAt": "2025-09-23T14:18:47.808Z",
   "system": "arena",
   "fullName": "Updated Arena Arena",
   "minutes": 60,
@@ -34,8 +34,8 @@
     "accepted": true
   },
   "quote": {
-    "text": "What is the object of playing a gambit opening...? To acquire a reputation of being a dashing player at the cost of losing a game.",
-    "author": "Siegbert Tarrasch"
+    "text": "Later, I began to succeed in decisive games. Perhaps because I realized a very simple truth: not only was I worried, but also my opponent.",
+    "author": "Mikhail Tal"
   },
   "myUsername": "Bobby"
 }

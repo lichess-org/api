@@ -1,7 +1,7 @@
 {
-  "id": "4dfmDRlM",
+  "id": "evawc1WJ",
   "createdBy": "lichess",
-  "startsAt": "2025-09-20T23:30:00Z",
+  "startsAt": "2025-09-26T23:30:00Z",
   "name": "Rapid Increment",
   "clock": {
     "limit": 420,
@@ -14,8 +14,8 @@
   "nbOngoing": 0,
   "status": "created",
   "nextRound": {
-    "at": "2025-09-20T23:30:00Z",
-    "in": 304320
+    "at": "2025-09-26T23:30:00Z",
+    "in": 292464
   },
   "verdicts": {
     "list": [

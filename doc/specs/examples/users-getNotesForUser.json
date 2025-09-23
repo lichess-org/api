@@ -2,17 +2,15 @@
   {
     "from": {
       "name": "Bobby",
-      "flair": "people.woman-with-veil-light-skin-tone",
+      "patron": true,
+      "patronColor": 1,
       "id": "bobby"
     },
     "to": {
       "name": "Mary",
-      "flair": "people.snowboarder-dark-skin-tone",
-      "patron": true,
-      "patronTier": "months1",
       "id": "mary"
     },
     "text": "this is a private note",
-    "date": 1758106691565
+    "date": 1758636943174
   }
 ]

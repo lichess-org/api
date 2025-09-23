@@ -13,7 +13,7 @@
       "user": {
         "name": "arex",
         "patron": true,
-        "patronTier": "lifetime",
+        "patronColor": 10,
         "id": "arex"
       },
       "rating": 1627,

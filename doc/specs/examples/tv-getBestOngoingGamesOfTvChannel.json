@@ -1,45 +1,43 @@
 {
-  "id": "rTlNMf6e",
+  "id": "dxBS4CGQ",
   "rated": true,
   "variant": "standard",
   "speed": "bullet",
   "perf": "bullet",
-  "createdAt": 1758106612560,
-  "lastMoveAt": 1758106685289,
+  "createdAt": 1758636886990,
+  "lastMoveAt": 1758636939684,
   "status": "started",
   "source": "pool",
   "players": {
     "white": {
       "user": {
-        "name": "VladimirIlyich917",
-        "flair": "people.construction-worker-light-skin-tone",
-        "id": "vladimirilyich917"
+        "name": "Ediz_Gurel",
+        "title": "GM",
+        "flair": "smileys.alien",
+        "id": "ediz_gurel"
       },
-      "rating": 3028
+      "rating": 3306
     },
     "black": {
       "user": {
-        "name": "ABachmann",
-        "title": "GM",
-        "patron": true,
-        "patronTier": "years2",
-        "id": "abachmann"
+        "name": "Polyclinical",
+        "id": "polyclinical"
       },
-      "rating": 3118
+      "rating": 3096
     }
   },
   "opening": {
-    "eco": "B00",
-    "name": "Nimzowitsch Defense",
-    "ply": 2
+    "eco": "B10",
+    "name": "Caro-Kann Defense: Two Knights Attack",
+    "ply": 5
   },
-  "moves": "e4 Nc6 Nc3 d6 d4 Nf6 Nf3 Bg4 Bb5 a6 Ba4 b5 Bb3 Bxf3 gxf3 e6 Rg1 d5 Bg5 dxe4 d5 Ne5 fxe4 b4 f4 Ng6 Ba4+ Ke7 Ne2 h6 Bxf6+ gxf6 Qd4 Qd6 O-O-O Nxf4 Nxf4 Qxf4+ Kb1 Qd6 Rgf1 e5 Qf2 h5 Bc6",
+  "moves": "e4 c6 Nc3 d5 Nf3 dxe4 Nxe4 Nd7 Qe2 Ndf6 d4 Bf5 Ng3 Bg4 c3 e6 h3 Bxf3 Qxf3 Bd6 Bd3 Qa5 O-O Ne7 Ne4 Nxe4 Bxe4 O-O Re1 Rad8 Bd2 Ng6 a3 Qb6 b4 Rfe8 Rad1 Bb8 g3 Qc7 h4 Nf8 h5 f5 Bc2 Qf7 h6 g6",
   "clocks": [
-    6000, 6000, 5904, 5961, 5770, 5914, 5695, 5840, 5618, 5749, 5554, 5646, 5486, 5475, 5353, 5422, 5083, 5323, 4950,
-    5078, 4917, 4707, 4722, 4415, 4511, 3942, 4371, 3759, 3689, 3698, 3427, 3698, 3370, 3562, 3175, 3489, 3055, 3489,
-    2976, 3291, 2857, 3242, 2761, 3116, 2668
+    6000, 6000, 6000, 6000, 5942, 5898, 5942, 5880, 5938, 5736, 5908, 5624, 5660, 5501, 5579, 5445, 5468, 5386, 5468,
+    5357, 5411, 5175, 5335, 5138, 5217, 5051, 5217, 4871, 5113, 4760, 5054, 4433, 4928, 4318, 4801, 4161, 4748, 4091,
+    4695, 3929, 4597, 3709, 4519, 3385, 4446, 3358, 4268, 3283
   ],
-  "pgn": "[Event \"rated bullet game\"]\n[Site \"https://lichess.org/rTlNMf6e\"]\n[Date \"2025.09.17\"]\n[White \"VladimirIlyich917\"]\n[Black \"ABachmann\"]\n[Result \"*\"]\n[GameId \"rTlNMf6e\"]\n[UTCDate \"2025.09.17\"]\n[UTCTime \"10:56:52\"]\n[WhiteElo \"3028\"]\n[BlackElo \"3118\"]\n[BlackTitle \"GM\"]\n[Variant \"Standard\"]\n[TimeControl \"60+0\"]\n[ECO \"B00\"]\n[Opening \"Nimzowitsch Defense\"]\n[Termination \"Unterminated\"]\n\n1. e4 { [%clk 0:01:00] } 1... Nc6 { [%clk 0:01:00] } 2. Nc3 { [%clk 0:00:59] } 2... d6 { [%clk 0:01:00] } 3. d4 { [%clk 0:00:58] } 3... Nf6 { [%clk 0:00:59] } 4. Nf3 { [%clk 0:00:57] } 4... Bg4 { [%clk 0:00:58] } 5. Bb5 { [%clk 0:00:56] } 5... a6 { [%clk 0:00:57] } 6. Ba4 { [%clk 0:00:56] } 6... b5 { [%clk 0:00:56] } 7. Bb3 { [%clk 0:00:55] } 7... Bxf3 { [%clk 0:00:55] } 8. gxf3 { [%clk 0:00:54] } 8... e6 { [%clk 0:00:54] } 9. Rg1 { [%clk 0:00:51] } 9... d5 { [%clk 0:00:53] } 10. Bg5 { [%clk 0:00:50] } 10... dxe4 { [%clk 0:00:51] } 11. d5 { [%clk 0:00:49] } 11... Ne5 { [%clk 0:00:47] } 12. fxe4 { [%clk 0:00:47] } 12... b4 { [%clk 0:00:44] } 13. f4 { [%clk 0:00:45] } 13... Ng6 { [%clk 0:00:39] } 14. Ba4+ { [%clk 0:00:44] } 14... Ke7 { [%clk 0:00:38] } 15. Ne2 { [%clk 0:00:37] } 15... h6 { [%clk 0:00:37] } 16. Bxf6+ { [%clk 0:00:34] } 16... gxf6 { [%clk 0:00:37] } 17. Qd4 { [%clk 0:00:34] } 17... Qd6 { [%clk 0:00:36] } 18. O-O-O { [%clk 0:00:32] } 18... Nxf4 { [%clk 0:00:35] } 19. Nxf4 { [%clk 0:00:31] } 19... Qxf4+ { [%clk 0:00:35] } 20. Kb1 { [%clk 0:00:30] } 20... Qd6 { [%clk 0:00:33] } 21. Rgf1 { [%clk 0:00:29] } 21... e5 { [%clk 0:00:32] } 22. Qf2 { [%clk 0:00:28] } 22... h5 { [%clk 0:00:31] } 23. Bc6 { [%clk 0:00:27] } *\n\n\n",
+  "pgn": "[Event \"rated bullet game\"]\n[Site \"https://lichess.org/dxBS4CGQ\"]\n[Date \"2025.09.23\"]\n[White \"Ediz_Gurel\"]\n[Black \"Polyclinical\"]\n[Result \"*\"]\n[GameId \"dxBS4CGQ\"]\n[UTCDate \"2025.09.23\"]\n[UTCTime \"14:14:46\"]\n[WhiteElo \"3306\"]\n[BlackElo \"3096\"]\n[WhiteTitle \"GM\"]\n[Variant \"Standard\"]\n[TimeControl \"60+0\"]\n[ECO \"B10\"]\n[Opening \"Caro-Kann Defense: Two Knights Attack\"]\n[Termination \"Unterminated\"]\n\n1. e4 { [%clk 0:01:00] } 1... c6 { [%clk 0:01:00] } 2. Nc3 { [%clk 0:01:00] } 2... d5 { [%clk 0:01:00] } 3. Nf3 { [%clk 0:00:59] } 3... dxe4 { [%clk 0:00:59] } 4. Nxe4 { [%clk 0:00:59] } 4... Nd7 { [%clk 0:00:59] } 5. Qe2 { [%clk 0:00:59] } 5... Ndf6 { [%clk 0:00:57] } 6. d4 { [%clk 0:00:59] } 6... Bf5 { [%clk 0:00:56] } 7. Ng3 { [%clk 0:00:57] } 7... Bg4 { [%clk 0:00:55] } 8. c3 { [%clk 0:00:56] } 8... e6 { [%clk 0:00:54] } 9. h3 { [%clk 0:00:55] } 9... Bxf3 { [%clk 0:00:54] } 10. Qxf3 { [%clk 0:00:55] } 10... Bd6 { [%clk 0:00:54] } 11. Bd3 { [%clk 0:00:54] } 11... Qa5 { [%clk 0:00:52] } 12. O-O { [%clk 0:00:53] } 12... Ne7 { [%clk 0:00:51] } 13. Ne4 { [%clk 0:00:52] } 13... Nxe4 { [%clk 0:00:51] } 14. Bxe4 { [%clk 0:00:52] } 14... O-O { [%clk 0:00:49] } 15. Re1 { [%clk 0:00:51] } 15... Rad8 { [%clk 0:00:48] } 16. Bd2 { [%clk 0:00:51] } 16... Ng6 { [%clk 0:00:44] } 17. a3 { [%clk 0:00:49] } 17... Qb6 { [%clk 0:00:43] } 18. b4 { [%clk 0:00:48] } 18... Rfe8 { [%clk 0:00:42] } 19. Rad1 { [%clk 0:00:47] } 19... Bb8 { [%clk 0:00:41] } 20. g3 { [%clk 0:00:47] } 20... Qc7 { [%clk 0:00:39] } 21. h4 { [%clk 0:00:46] } 21... Nf8 { [%clk 0:00:37] } 22. h5 { [%clk 0:00:45] } 22... f5 { [%clk 0:00:34] } 23. Bc2 { [%clk 0:00:44] } 23... Qf7 { [%clk 0:00:34] } 24. h6 { [%clk 0:00:43] } 24... g6 { [%clk 0:00:33] } *\n\n\n",
   "clock": {
     "initial": 60,
     "increment": 0,

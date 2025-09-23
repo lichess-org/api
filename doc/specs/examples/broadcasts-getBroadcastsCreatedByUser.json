@@ -4,18 +4,38 @@
   "currentPageResults": [
     {
       "tour": {
-        "id": "5CWmvSY2",
+        "id": "1mOPQROx",
         "name": "Bobby's Tournament",
         "slug": "bobbys-tournament",
         "info": {
           "format": "5-round Swiss",
           "location": "Chess Club"
         },
-        "createdAt": 1758106569089,
-        "url": "https://lichess.org/broadcast/bobbys-tournament/5CWmvSY2",
+        "createdAt": 1758636956662,
+        "url": "https://lichess.org/broadcast/bobbys-tournament/1mOPQROx",
         "communityOwner": {
           "name": "Bobby",
-          "flair": "people.woman-with-veil-light-skin-tone",
+          "patron": true,
+          "patronColor": 1,
+          "id": "bobby"
+        }
+      }
+    },
+    {
+      "tour": {
+        "id": "6I07VJMl",
+        "name": "Bobby's Tournament",
+        "slug": "bobbys-tournament",
+        "info": {
+          "format": "5-round Swiss",
+          "location": "Chess Club"
+        },
+        "createdAt": 1758636832010,
+        "url": "https://lichess.org/broadcast/bobbys-tournament/6I07VJMl",
+        "communityOwner": {
+          "name": "Bobby",
+          "patron": true,
+          "patronColor": 1,
           "id": "bobby"
         }
       }
@@ -23,6 +43,6 @@
   ],
   "previousPage": null,
   "nextPage": null,
-  "nbResults": 1,
+  "nbResults": 2,
   "nbPages": 1
 }

@@ -6,11 +6,11 @@
     "page": 1,
     "players": []
   },
-  "id": "tbumT8AW",
+  "id": "89lOASJ3",
   "createdBy": "bobby",
-  "startsAt": "2025-09-17T11:00:57.211784327Z",
+  "startsAt": "2025-09-23T14:18:47.808186256Z",
   "system": "arena",
-  "fullName": "Grischuk Arena",
+  "fullName": "Letelier Arena",
   "minutes": 60,
   "perf": {
     "key": "blitz",
@@ -34,12 +34,12 @@
     "accepted": true
   },
   "quote": {
-    "text": "Chess will always be in the doldrums as a spectator sport while a draw is given equal mathematical value as a decisive result.",
-    "author": "Michael Basman"
+    "text": "The battle for the ultimate truth will never be won. And that's why chess is so fascinating.",
+    "author": "Hans Kmoch"
   },
   "greatPlayer": {
-    "name": "Grischuk",
-    "url": "https://wikipedia.org/wiki/Alexander_Grischuk"
+    "name": "Letelier",
+    "url": "https://wikipedia.org/wiki/Ren%C3%A9_Letelier"
   },
   "myUsername": "Bobby"
 }

@@ -12,7 +12,7 @@
         "title": "IM",
         "flair": "travel-places.ambulance",
         "patron": true,
-        "patronTier": "years5",
+        "patronColor": 10,
         "id": "ericrosen",
         "color": "white",
         "rating": 2642

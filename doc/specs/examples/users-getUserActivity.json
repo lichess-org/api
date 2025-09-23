@@ -1,28 +1,194 @@
 [
   {
     "interval": {
-      "start": 1758067200000,
-      "end": 1758153600000
+      "start": 1758585600000,
+      "end": 1758672000000
+    },
+    "racer": {
+      "runs": 1,
+      "score": 28
     },
     "follows": {
       "in": {
-        "ids": ["gchen44", "pabloboris", "bababoing"]
+        "ids": [
+          "tripitz",
+          "yan-g",
+          "hanter_2011",
+          "super-super",
+          "gameswinger",
+          "casknk",
+          "kkaleks",
+          "bigotelo",
+          "ze_0122",
+          "vihaan-ottters",
+          "chesscanada55"
+        ]
       }
     }
   },
   {
     "interval": {
-      "start": 1757980800000,
-      "end": 1758067200000
+      "start": 1758499200000,
+      "end": 1758585600000
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "wisebarkingkangaroo",
+          "thenytefury",
+          "meetsatyadev",
+          "akira_s24",
+          "taeseong17",
+          "shawnthenoob",
+          "leosmmr",
+          "vancesterling",
+          "oliver_285",
+          "pehchana_kaunn",
+          "wolfsbane",
+          "blunderproofwin",
+          "schachhorizont_de"
+        ]
+      }
+    },
+    "posts": [
+      {
+        "topicUrl": "/forum/lichess-feedback/when-entering-games-via-url-from-chessgamescom-in-study-it-just-gives-an-empty-chapter",
+        "topicName": "When entering games via URL from chessgames.com in study it just gives an empty chapter",
+        "posts": [
+          {
+            "url": "/forum/redirect/post/gVV5zSid",
+            "text": "I looked it up. It's chessgames.com that explicitely forbids it. They worked on making it impossible to export the PGN to another server such as lichess.\r\n\r\nThis is therefore out of my hands. I recommend you send them an email asking for a solution."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "interval": {
+      "start": 1758412800000,
+      "end": 1758499200000
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "esabisa",
+          "lucasz05",
+          "rvihaan",
+          "chess_time_sr",
+          "amethistos",
+          "fa_had",
+          "mr9goals",
+          "armerul9",
+          "adr3v",
+          "chessplayer_0604",
+          "chezzspieler",
+          "lordmannyjinx2",
+          "maggieratson2382",
+          "kimsaro",
+          "just3elax"
+        ]
+      }
+    }
+  },
+  {
+    "interval": {
+      "start": 1758326400000,
+      "end": 1758412800000
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "aymanma8",
+          "red_spear",
+          "hannah_zoe",
+          "verymotorox",
+          "gabrielbekauri2016",
+          "ak47gamer",
+          "i_am_clancy",
+          "seniorjriii",
+          "shasswath1",
+          "angraj_karn",
+          "alicedorarozenfeld",
+          "ghooo",
+          "alextece",
+          "illaga_2",
+          "richniftyrabbit"
+        ],
+        "nb": 18
+      }
+    }
+  },
+  {
+    "interval": {
+      "start": 1758240000000,
+      "end": 1758326400000
+    },
+    "games": {
+      "bullet": {
+        "win": 2,
+        "loss": 0,
+        "draw": 0,
+        "rp": {
+          "before": 1767,
+          "after": 1787
+        }
+      }
+    },
+    "follows": {
+      "in": {
+        "ids": [
+          "luis_andre2",
+          "dswift1_makar-1",
+          "faizan_ccs",
+          "sukiwks",
+          "falcon_fast",
+          "divyanka2015",
+          "putneypawn68",
+          "tanjiro101314",
+          "kodster42015",
+          "alphatse",
+          "geniusgennadios",
+          "level1slime",
+          "viyaan0714"
+        ]
+      }
+    },
+    "posts": [
+      {
+        "topicUrl": "/forum/lichess-feedback/cant-create-new-game-3",
+        "topicName": "Can't create \"new game\"",
+        "posts": [
+          {
+            "url": "/forum/redirect/post/X1BBn8HN",
+            "text": "It's the same thing. Click that button."
+          }
+        ]
+      },
+      {
+        "topicUrl": "/forum/lichess-feedback/when-entering-games-via-url-from-chessgamescom-in-study-it-just-gives-an-empty-chapter",
+        "topicName": "When entering games via URL from chessgames.com in study it just gives an empty chapter",
+        "posts": [
+          {
+            "url": "/forum/redirect/post/kj2bw6RL",
+            "text": "Please paste here the exact chessgames.com URL so I can try it out and reproduce the issue."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "interval": {
+      "start": 1758153600000,
+      "end": 1758240000000
     },
     "games": {
       "blitz": {
         "win": 1,
-        "loss": 2,
+        "loss": 0,
         "draw": 0,
         "rp": {
-          "before": 1773,
-          "after": 1772
+          "before": 1772,
+          "after": 1778
         }
       }
     },
@@ -32,190 +198,82 @@
         "loss": 0,
         "draw": 0,
         "rp": {
-          "before": 1904,
-          "after": 1912
+          "before": 1940,
+          "after": 1954
         }
-      }
-    },
-    "correspondenceEnds": {
-      "correspondence": {
-        "score": {
-          "win": 1,
-          "loss": 0,
-          "draw": 0,
-          "rp": {
-            "before": 1942,
-            "after": 1942
-          }
-        },
-        "games": [
-          {
-            "id": "Yh5vd5Cj",
-            "color": "white",
-            "url": "/Yh5vd5Cj/white",
-            "opponent": {
-              "user": "neio",
-              "rating": 1500
-            }
-          }
-        ]
       }
     },
     "follows": {
       "in": {
         "ids": [
-          "ahmedmsh141",
-          "kinderekpolska12345",
-          "mikrobi",
-          "unknownplayer43",
-          "chvii",
-          "aurorastern_kt93",
-          "gagarinww2",
-          "binudi2008",
-          "hchez",
-          "madmaltenx"
+          "privatechessplayer44",
+          "manolete000",
+          "aadhirananandkumar",
+          "kondratevalyudmila",
+          "sreedev19",
+          "nguyenquangvoan2014",
+          "axolotlserz",
+          "dohluc",
+          "messi95",
+          "the_berserk_account",
+          "kavinthegoatcricket"
         ]
       }
-    },
-    "posts": [
-      {
-        "topicUrl": "/forum/lichess-feedback/invisible-rooks-and-knights-on-firefox",
-        "topicName": "Invisible rooks and knights on Firefox?",
-        "posts": [
-          {
-            "url": "/forum/redirect/post/SwGDDdUX",
-            "text": "OK so apparently it makes no difference whether the pieces are linked from remote files, or embedded as base64 in the CSS."
-          },
-          {
-            "url": "/forum/redirect/post/Ld2XUXvc",
-            "text": "@Arndti said in #20:\r\n> My Browser isn't loading any board when I open one anymore. But there is also nothing else loading on the gameboard (like the chat etc):\r\n> Firefox 142.0.1 (64-Bit)\r\n> Windows 11 (64-Bit)\r\n\r\nThat's very interesting, can you help me investigate that? It would help if you could go to lichess.org/#debug and click \"send to lichess\"\r\nAlso, please go to a page that is broken, and open the browser console with Ctrl+Shift+C and copy paste any error you find here, so I can find wh"
-          }
-        ]
-      }
-    ]
+    }
   },
   {
     "interval": {
-      "start": 1757894400000,
-      "end": 1757980800000
+      "start": 1758067200000,
+      "end": 1758153600000
     },
-    "games": {
-      "blitz": {
-        "win": 1,
+    "puzzles": {
+      "score": {
+        "win": 2,
         "loss": 0,
         "draw": 0,
         "rp": {
-          "before": 1766,
-          "after": 1773
+          "before": 1912,
+          "after": 1940
         }
       }
     },
     "follows": {
       "in": {
         "ids": [
-          "kavinthegoatcricket",
-          "kepha",
-          "dafutboom",
-          "drstrangyer",
-          "margem_1",
-          "cowduckcat",
-          "hackasaur",
-          "issier",
-          "anthonyoja",
-          "abhinav001n",
-          "b_e_r_t_r_a_n_d",
-          "anhkhoa2015hp",
-          "podderswapnil",
-          "alexmm22",
-          "lastwhitepawn"
+          "ajq64",
+          "magnum_carlsen09",
+          "mg_votte",
+          "oregolagantse09",
+          "zeydex11",
+          "fox2024",
+          "ved_2013",
+          "gchen44",
+          "pabloboris",
+          "bababoing"
         ]
-      },
-      "out": {
-        "ids": ["fredo599"]
       }
     },
     "posts": [
+      {
+        "topicUrl": "/forum/diagnostic/arndti-problem-report",
+        "topicName": "Arndti problem report",
+        "posts": [
+          {
+            "url": "/forum/redirect/post/00tKyQ47",
+            "text": "Thanks @Arndti that's helpful.\r\n\r\nIs it working better now? If not, could you try clearing your browser cache and see if that helps? Like this: https://support.mozilla.org/en-US/kb/how-clear-firefox-cache"
+          }
+        ]
+      },
       {
         "topicUrl": "/forum/lichess-feedback/invisible-rooks-and-knights-on-firefox",
         "topicName": "Invisible rooks and knights on Firefox?",
         "posts": [
           {
-            "url": "/forum/redirect/post/9TwKUeK7",
-            "text": "We're now experimenting with a different way to load pieces (individual SVG files). If you (still) have missing pieces, or if you did but now it's fixed, please report here with the following info:\r\n- your browser and version (firefox 142)\r\n- your operating system (windows, mac, android, ios, linux)\r\n- your desktop or laptop GPU (if you have one and happen to know what kind, mobile users just ignore)"
-          },
-          {
-            "url": "/forum/redirect/post/IZoAcxZW",
-            "text": "Thank you for an opportunity to practice my patience and diplomacy.\r\n\r\nWhat \"happened\" exactly? What's your browser and version? What's your operating system? What's your desktop or laptop GPU?"
-          },
-          {
-            "url": "/forum/redirect/post/lkqcyJsZ",
-            "text": "I stopped the experiment. Is it working better now? @MadMaltenX"
+            "url": "/forum/redirect/post/o2CwTagW",
+            "text": "Thank you all, that's very helpful. I'm on it."
           }
         ]
       }
     ]
-  },
-  {
-    "interval": {
-      "start": 1757808000000,
-      "end": 1757894400000
-    },
-    "follows": {
-      "in": {
-        "ids": ["khurshid_rm", "unclj", "bilgin7", "pimarhu", "gdeniz7389", "ridiculousx", "johntom", "wangmuzhen"]
-      }
-    }
-  },
-  {
-    "interval": {
-      "start": 1757721600000,
-      "end": 1757808000000
-    },
-    "follows": {
-      "in": {
-        "ids": [
-          "chesssked",
-          "theplaa",
-          "wic8085",
-          "aladrish_2024",
-          "thamizhinban",
-          "krishna_souri",
-          "plimplimploum",
-          "doroteia"
-        ]
-      }
-    }
-  },
-  {
-    "interval": {
-      "start": 1757635200000,
-      "end": 1757721600000
-    },
-    "follows": {
-      "in": {
-        "ids": [
-          "empowered_pawn",
-          "garrett_thompson",
-          "bornready2011",
-          "danskdanskerdk",
-          "ninjaswat",
-          "rithijaabeykoon2010",
-          "advaitpal123",
-          "abhinav_sub08",
-          "felixad"
-        ]
-      }
-    }
-  },
-  {
-    "interval": {
-      "start": 1757548800000,
-      "end": 1757635200000
-    },
-    "follows": {
-      "in": {
-        "ids": ["ironmanabtin", "dissipatioh_g", "elianjairo23"]
-      }
-    }
   }
 ]

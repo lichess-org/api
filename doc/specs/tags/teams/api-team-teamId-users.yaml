@@ -49,8 +49,8 @@ get:
                 example: "Chess-Network"
               title:
                 $ref: "../../schemas/Title.yaml"
-              patronTier:
-                $ref: "../../schemas/PatronTier.yaml"
+              patronColor:
+                $ref: "../../schemas/PatronColor.yaml"
             required:
               - id
               - name

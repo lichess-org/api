@@ -11,24 +11,24 @@
         "name": "Lichess",
         "flair": "activity.lichess",
         "patron": true,
-        "patronTier": "lifetime",
+        "patronColor": 10,
         "id": "lichess"
       },
-      "nbMembers": 630972,
+      "nbMembers": 632729,
       "flair": "food-drink.cheese-wedge",
       "leaders": [
         {
           "name": "Lichess",
           "flair": "activity.lichess",
           "patron": true,
-          "patronTier": "lifetime",
+          "patronColor": 10,
           "id": "lichess"
         },
         {
           "name": "thibault",
           "flair": "nature.seedling",
           "patron": true,
-          "patronTier": "lifetime",
+          "patronColor": 9,
           "id": "thibault"
         }
       ]
@@ -42,30 +42,30 @@
         "name": "Zhigalko_Sergei",
         "title": "GM",
         "patron": true,
-        "patronTier": "lifetime",
+        "patronColor": 10,
         "id": "zhigalko_sergei"
       },
-      "nbMembers": 74703,
+      "nbMembers": 74729,
       "leaders": [
         {
           "name": "Zhigalko_Sergei",
           "title": "GM",
           "patron": true,
-          "patronTier": "lifetime",
+          "patronColor": 10,
           "id": "zhigalko_sergei"
         },
         {
           "name": "Chess_Blondinka",
           "title": "WFM",
           "patron": true,
-          "patronTier": "lifetime",
+          "patronColor": 10,
           "id": "chess_blondinka"
         },
         {
           "name": "SergeyVoronChess",
           "flair": "nature.phoenix-bird",
           "patron": true,
-          "patronTier": "years1",
+          "patronColor": 6,
           "id": "sergeyvoronchess"
         }
       ]
@@ -78,15 +78,15 @@
       "leader": {
         "name": "Challenger_Spy",
         "patron": true,
-        "patronTier": "lifetime",
+        "patronColor": 10,
         "id": "challenger_spy"
       },
-      "nbMembers": 43354,
+      "nbMembers": 43361,
       "leaders": [
         {
           "name": "Challenger_Spy",
           "patron": true,
-          "patronTier": "lifetime",
+          "patronColor": 10,
           "id": "challenger_spy"
         },
         {
@@ -108,7 +108,7 @@
         "name": "FIDE",
         "id": "fide"
       },
-      "nbMembers": 37964,
+      "nbMembers": 37982,
       "leaders": [
         {
           "name": "FIDE",
@@ -154,7 +154,7 @@
         "name": "Bipulb",
         "id": "bipulb"
       },
-      "nbMembers": 33132,
+      "nbMembers": 33137,
       "leaders": [
         {
           "name": "Bipulb",
@@ -184,7 +184,7 @@
         "name": "mcw2011",
         "id": "mcw2011"
       },
-      "nbMembers": 30348,
+      "nbMembers": 30346,
       "leaders": [
         {
           "name": "mcw2011",
@@ -205,7 +205,7 @@
         "name": "Unknown_Warrior11",
         "id": "unknown_warrior11"
       },
-      "nbMembers": 30107,
+      "nbMembers": 30110,
       "leaders": [
         {
           "name": "Bhavisha0101",
@@ -227,10 +227,10 @@
         "title": "FM",
         "flair": "symbols.play-button",
         "patron": true,
-        "patronTier": "years2",
+        "patronColor": 7,
         "id": "yasinemrah"
       },
-      "nbMembers": 27315,
+      "nbMembers": 27419,
       "flair": "symbols.play-button",
       "leaders": [
         {
@@ -238,7 +238,7 @@
           "title": "FM",
           "flair": "symbols.play-button",
           "patron": true,
-          "patronTier": "years2",
+          "patronColor": 7,
           "id": "yasinemrah"
         },
         {
@@ -258,17 +258,17 @@
         "title": "IM",
         "flair": "travel-places.ambulance",
         "patron": true,
-        "patronTier": "years5",
+        "patronColor": 10,
         "id": "ericrosen"
       },
-      "nbMembers": 25727,
+      "nbMembers": 25732,
       "leaders": [
         {
           "name": "EricRosen",
           "title": "IM",
           "flair": "travel-places.ambulance",
           "patron": true,
-          "patronTier": "years5",
+          "patronColor": 10,
           "id": "ericrosen"
         }
       ]
@@ -282,10 +282,10 @@
         "name": "Lichess",
         "flair": "activity.lichess",
         "patron": true,
-        "patronTier": "lifetime",
+        "patronColor": 10,
         "id": "lichess"
       },
-      "nbMembers": 24779,
+      "nbMembers": 24799,
       "flair": "activity.lichess-variant-960",
       "leaders": [
         {
@@ -293,14 +293,14 @@
           "title": "NM",
           "flair": "activity.lichess-blitz",
           "patron": true,
-          "patronTier": "months9",
+          "patronColor": 5,
           "id": "visualdennis"
         },
         {
           "name": "Lichess",
           "flair": "activity.lichess",
           "patron": true,
-          "patronTier": "lifetime",
+          "patronColor": 10,
           "id": "lichess"
         },
         {
@@ -318,7 +318,7 @@
         "name": "TheHouseDiscord",
         "id": "thehousediscord"
       },
-      "nbMembers": 24590,
+      "nbMembers": 24674,
       "leaders": [
         {
           "name": "TheHouseDiscord",
@@ -327,7 +327,7 @@
         {
           "name": "TheFinnisher",
           "patron": true,
-          "patronTier": "lifetime",
+          "patronColor": 10,
           "id": "thefinnisher"
         },
         {
@@ -351,15 +351,15 @@
       "leader": {
         "name": "agadmator",
         "patron": true,
-        "patronTier": "lifetime",
+        "patronColor": 10,
         "id": "agadmator"
       },
-      "nbMembers": 23616,
+      "nbMembers": 23612,
       "leaders": [
         {
           "name": "agadmator",
           "patron": true,
-          "patronTier": "lifetime",
+          "patronColor": 10,
           "id": "agadmator"
         },
         {
@@ -371,20 +371,15 @@
     {
       "id": "online-world-chess-lovers",
       "name": "Online World Chess Lovers",
-      "description": "**Join Qualifiers For 60 USD Tmt and Daily Cash Prize Tournament** (Daily)\r\nhttps://lichess.org/team/austin-grandmaster-chess-academy/tournaments\r\n\r\n**Join 50 USD Tmt,** (30 August)\r\nhttps://lichess.org/swiss/tpV82oAu\r\n-\r\n**Join 200 USD Prize Fund Tournament,** (31 August)\r\nhttps://lichess.org/tournament/s06Ffc7Z\r\n\"For Registration and Details-\"\r\nhttps://forms.gle/GQwXvqxvMqix4PE7A\r\n-\r\n![](https://i.imgur.com/2R1xWvI.jpeg)\r\n**GP Chess Promotion**\r\n@gouravprithyani\r\nhttps://wa.me/918871232674\r\n-\r\nWe frequently Conduct Free Cash Prize Tournaments,Daily So Many Practice Tournaments.\r\n\r\nIf you want to sponsor any cash events on your birthday,Special Events.Inform us.\r\n\r\n**If you want to support us.You can Use below Details.Don't forget to mention the note**\r\nPaypal- https://www.paypal.me/GouravPrithyani\r\nUpi- gouravprithyani@okhdfcbank\r\n-\r\n**Join Daily Cash Tournaments Qualifier-** https://lichess.org/team/online-world-chess-lovers/tournaments\r\n**Join Our Group,For Updates**\r\nhttps://chat.whatsapp.com/GIdRFZ6aXc0Is9ydRbdylv\r\n-",
+      "description": "*Team Battle On Sunday* \r\nJoin Team- https://lichess.org/team/chess-city-team\r\n\r\nJoin Team Battle-\r\nhttps://lichess.org/tournament/CMQ20Sep\r\n________________________________________\r\n\r\n*Join Team-*\r\nhttps://lichess.org/team/online-world-chess-lovers\r\n\r\n*Join Team Battle-*\r\nhttps://lichess.org/tournament/pejJsA3h\r\n\r\nIf our Team Come 1st, (40 USD)\r\n1)10 USD\r\n2)10 USD\r\n3)10 USD\r\n4)5 USD\r\n5)5 USD\r\n\r\nIf Our Team Comes 2nd, (25 USD)\r\n1)10 USD\r\n2)5 USD\r\n3)5 USD\r\n4)5 USD\r\n\r\n*Join Now* !!\r\nPrizes by paypal/Upi.\r\n-\r\n**Join Qualifiers For 60 USD Tmt and Daily Cash Prize Tournament** (Daily)\r\nhttps://lichess.org/team/austin-grandmaster-chess-academy/tournaments\r\n-\r\n![](https://i.imgur.com/2R1xWvI.jpeg)\r\n**GP Chess Promotion**\r\n@gouravprithyani\r\nhttps://wa.me/918871232674\r\n-\r\nWe frequently Conduct Free Cash Prize Tournaments,Daily So Many Practice Tournaments.\r\n\r\nIf you want to sponsor any cash events on your birthday,Special Events.Inform us.\r\n\r\n**If you want to support us.You can Use below Details.Don't forget to mention the note**\r\nPaypal- https://www.paypal.me/GouravPrithyani\r\nUpi- gouravprithyani@okhdfcbank\r\n-\r\n**Join Daily Cash Tournaments Qualifier-** https://lichess.org/team/online-world-chess-lovers/tournaments\r\n**Join Our Group,For Updates**\r\nhttps://chat.whatsapp.com/GIdRFZ6aXc0Is9ydRbdylv\r\n-",
       "open": true,
       "leader": {
         "name": "Yogesh02005",
         "id": "yogesh02005"
       },
-      "nbMembers": 21133,
+      "nbMembers": 21407,
       "flair": "activity.mirror-ball",
       "leaders": [
-        {
-          "name": "Gouravprithyani",
-          "flair": "smileys.smiling-face-with-sunglasses",
-          "id": "gouravprithyani"
-        },
         {
           "name": "SANCHU2703",
           "id": "sanchu2703"
@@ -399,10 +394,24 @@
           "id": "stambul65"
         },
         {
+          "name": "VEERSAMRATSINGH",
+          "flair": "activity.xmas-lichess-horsey",
+          "id": "veersamratsingh"
+        },
+        {
           "name": "black_knight22",
           "title": "IM",
           "flair": "smileys.alien",
           "id": "black_knight22"
+        },
+        {
+          "name": "nexcroitic-12",
+          "flair": "smileys.skull-and-crossbones",
+          "id": "nexcroitic-12"
+        },
+        {
+          "name": "AaRaMk",
+          "id": "aaramk"
         }
       ]
     },
@@ -416,7 +425,7 @@
         "flair": "nature.high-voltage",
         "id": "witaj_i_am_light"
       },
-      "nbMembers": 21028,
+      "nbMembers": 21049,
       "flair": "activity.sparkles",
       "leaders": [
         {
@@ -445,7 +454,7 @@
         "name": "AQL547",
         "id": "aql547"
       },
-      "nbMembers": 20224,
+      "nbMembers": 20198,
       "flair": "objects.money-bag",
       "leaders": [
         {
@@ -461,6 +470,6 @@
   ],
   "previousPage": null,
   "nextPage": 2,
-  "nbResults": 372219,
-  "nbPages": 24815
+  "nbResults": 372896,
+  "nbPages": 24860
 }

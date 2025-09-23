@@ -11,35 +11,35 @@
         "prov": true
       },
       "bullet": {
-        "games": 7474,
-        "rating": 1767,
-        "rd": 79,
-        "prog": -36
+        "games": 7475,
+        "rating": 1787,
+        "rd": 78,
+        "prog": -6
       },
       "blitz": {
-        "games": 11535,
-        "rating": 1772,
+        "games": 11536,
+        "rating": 1778,
         "rd": 47,
         "prog": 3
       },
       "rapid": {
         "games": 873,
         "rating": 1746,
-        "rd": 130,
+        "rd": 131,
         "prog": -71,
         "prov": true
       },
       "classical": {
         "games": 24,
         "rating": 1806,
-        "rd": 245,
+        "rd": 246,
         "prog": -5,
         "prov": true
       },
       "correspondence": {
         "games": 377,
         "rating": 1942,
-        "rd": 147,
+        "rd": 148,
         "prog": -12,
         "prov": true
       },
@@ -67,14 +67,14 @@
       "antichess": {
         "games": 72,
         "rating": 1512,
-        "rd": 271,
+        "rd": 272,
         "prog": -20,
         "prov": true
       },
       "atomic": {
         "games": 99,
         "rating": 1633,
-        "rd": 287,
+        "rd": 288,
         "prog": 18,
         "prov": true
       },
@@ -95,14 +95,14 @@
       "crazyhouse": {
         "games": 50,
         "rating": 1567,
-        "rd": 285,
+        "rd": 286,
         "prog": -34,
         "prov": true
       },
       "puzzle": {
-        "games": 5693,
-        "rating": 1912,
-        "rd": 72,
+        "games": 5696,
+        "rating": 1954,
+        "rd": 71,
         "prog": 0
       },
       "storm": {
@@ -110,7 +110,7 @@
         "score": 33
       },
       "racer": {
-        "runs": 81,
+        "runs": 82,
         "score": 51
       },
       "streak": {
@@ -120,6 +120,7 @@
     },
     "flair": "nature.seedling",
     "patron": true,
+    "patronColor": 9,
     "verified": true,
     "createdAt": 1290415680000,
     "profile": {
@@ -127,9 +128,9 @@
       "realName": "Thibault Duplessis",
       "links": "github.com/ornicar\r\nmas.to/@thibault"
     },
-    "seenAt": 1758104278333,
+    "seenAt": 1758635849909,
     "playTime": {
-      "total": 6435880,
+      "total": 6436845,
       "tv": 17974
     }
   },
@@ -138,28 +139,28 @@
     "username": "maia1",
     "perfs": {
       "bullet": {
-        "games": 192504,
-        "rating": 1667,
+        "games": 193064,
+        "rating": 1512,
         "rd": 45,
-        "prog": -16
+        "prog": 17
       },
       "blitz": {
-        "games": 355568,
-        "rating": 1436,
+        "games": 357366,
+        "rating": 1412,
         "rd": 45,
-        "prog": -30
+        "prog": -12
       },
       "rapid": {
-        "games": 404838,
-        "rating": 1529,
+        "games": 408246,
+        "rating": 1590,
         "rd": 45,
-        "prog": -45
+        "prog": -25
       },
       "classical": {
-        "games": 118131,
-        "rating": 1672,
+        "games": 118909,
+        "rating": 1626,
         "rd": 45,
-        "prog": 9
+        "prog": 10
       },
       "correspondence": {
         "games": 265,
@@ -177,9 +178,9 @@
       "realName": "Maia Chess 1100",
       "links": "https://maiachess.com\r\nhttps://github.com/CSSLab/maia-chess\r\nhttps://twitter.com/maiachess"
     },
-    "seenAt": 1758106110635,
+    "seenAt": 1758635494337,
     "playTime": {
-      "total": 1077845090,
+      "total": 1083092110,
       "tv": 3019408
     }
   },
@@ -188,28 +189,28 @@
     "username": "maia5",
     "perfs": {
       "bullet": {
-        "games": 58974,
-        "rating": 1571,
+        "games": 59096,
+        "rating": 1569,
         "rd": 45,
-        "prog": -4
+        "prog": 17
       },
       "blitz": {
-        "games": 161048,
-        "rating": 1520,
+        "games": 161720,
+        "rating": 1485,
         "rd": 45,
-        "prog": -40
+        "prog": -7
       },
       "rapid": {
-        "games": 176004,
-        "rating": 1620,
+        "games": 176792,
+        "rating": 1640,
         "rd": 45,
-        "prog": -17
+        "prog": -14
       },
       "classical": {
-        "games": 42881,
-        "rating": 1665,
+        "games": 43066,
+        "rating": 1621,
         "rd": 45,
-        "prog": 3
+        "prog": 8
       },
       "correspondence": {
         "games": 18,
@@ -227,9 +228,9 @@
       "realName": "Maia Chess 1500",
       "links": "https://maiachess.com\r\ngithub.com/CSSLab/maia-chess\r\nhttps://twitter.com/maiachess"
     },
-    "seenAt": 1758106473265,
+    "seenAt": 1758635443518,
     "playTime": {
-      "total": 506876472,
+      "total": 508638915,
       "tv": 3849828
     }
   }
