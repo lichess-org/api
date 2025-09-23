@@ -1,4 +1,8 @@
 type: integer
 
+description: |
+  Players can choose a color for their Patron wings.
+  See [here for the color mappings](https://github.com/lichess-org/lila/blob/master/ui/lib/css/abstract/_patron-colors.scss).
+
 minimum: 1
 maximum: 10
