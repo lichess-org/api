@@ -1,5 +1,5 @@
 get:
-  operationId: apiPuzzleBatchAngle
+  operationId: apiPuzzleBatchSelect
   summary: Get multiple puzzles at once
   description: |
     Get a batch of random Lichess puzzles in JSON format.
@@ -19,7 +19,7 @@ get:
         example: "mix"
       required: true
       description: |
-        The theme or opening to filter puzzles with. Recommended: "mix".
+        The theme or opening to filter puzzles with. Recommended: `mix`.
 
         Available themes are listed in [the lichess source code](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
     - in: query
@@ -55,6 +55,62 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../../schemas/PuzzleBatch.yaml"
+            $ref: "../../schemas/PuzzleBatchSelect.yaml"
+          example:
+            $ref: "../../examples/puzzles-getPuzzleBatch.json"
+
+post:
+  operationId: apiPuzzleBatchSolve
+  summary: Solve multiple puzzles at once
+  description: |
+    Set puzzles as solved and update ratings.
+  tags:
+    - Puzzles
+  security:
+    - OAuth2: ["puzzle:write"]
+  parameters:
+    - in: path
+      name: angle
+      schema:
+        type: string
+        example: "mix"
+      required: true
+      description: |
+        The theme or opening of the solved puzzles.
+
+        Available themes are listed in [the lichess source code](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
+    - in: query
+      name: nb
+      description: |
+        When > 0, the response includes a new puzzle batch with that many puzzles.
+
+        This is equivalent to calling [/api/puzzle/batch/{angle}](#tag/Puzzles/operation/apiPuzzleBatchSelect),
+        and can sometimes save a request.
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 50
+        example: 1
+        default: 0
+      required: false
+  requestBody:
+    description: A new external engine registration.
+    required: true
+    content:
+      application/json:
+        schema:
+            $ref: "../../schemas/PuzzleBatchSolveRequest.yaml"
+  responses:
+    "200":
+      description: The solved puzzles, named `rounds`, and a new puzzle batch named `puzzles`.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/PuzzleBatchSolveResponse.yaml"
           example:
             $ref: "../../examples/puzzles-getPuzzleBatch.json"

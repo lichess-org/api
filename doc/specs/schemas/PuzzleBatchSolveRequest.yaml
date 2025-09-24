@@ -1,0 +1,14 @@
+type: object
+
+properties:
+  solutions:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+        win:
+          type: boolean
+        rated:
+          type: boolean
