@@ -10223,6 +10223,8 @@ export interface operations {
         angle?: string;
         /** @description The desired puzzle difficulty, relative to the authenticated user puzzle rating, or 1500 if anonymous. */
         difficulty?: "easiest" | "easier" | "normal" | "harder" | "hardest";
+        /** @description The color to play. Better left empty to automatically get 50% white. */
+        color?: "white" | "black";
       };
       header?: never;
       path?: never;
@@ -10297,6 +10299,10 @@ export interface operations {
         /** @description How many puzzles to fetch. Just set it to `1` if you only need one puzzle.
          *      */
         nb?: number;
+        /** @description The color to play. Better left empty to automatically get 50% white.
+         *     Currently only works when `nb=1`.
+         *      */
+        color?: "white" | "black";
       };
       header?: never;
       path: {
