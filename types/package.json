@@ -1,6 +1,6 @@
 {
   "name": "@lichess-org/types",
-  "version": "2.0.78",
+  "version": "2.0.79",
   "description": "Lichess.org API types",
   "homepage": "https://github.com/lichess-org/api",
   "license": "AGPL-3.0-or-later",
