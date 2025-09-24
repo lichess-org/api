@@ -26,12 +26,22 @@ get:
       required: false
       description: The desired puzzle difficulty, relative to the authenticated user puzzle rating, or 1500 if anonymous.
       schema:
+        type: string
         enum:
           - easiest
           - easier
           - normal
           - harder
           - hardest
+    - in: query
+      name: color
+      required: false
+      description: The color to play. Better left empty to automatically get 50% white.
+      schema:
+        type: string
+        enum:
+          - white
+          - black
   responses:
     "200":
       description: The requested puzzle.

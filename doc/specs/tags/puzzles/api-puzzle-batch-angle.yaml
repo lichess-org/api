@@ -27,6 +27,7 @@ get:
       required: false
       description: The desired puzzle difficulty, relative to the authenticated user puzzle rating, or 1500 if anonymous.
       schema:
+        type: string
         enum:
           - easiest
           - easier
@@ -44,6 +45,17 @@ get:
         example: 10
         default: 15
       required: false
+    - in: query
+      name: color
+      required: false
+      description: |
+        The color to play. Better left empty to automatically get 50% white.
+        Currently only works when `nb=1`.
+      schema:
+        type: string
+        enum:
+          - white
+          - black
   responses:
     "200":
       description: The requested puzzles.
