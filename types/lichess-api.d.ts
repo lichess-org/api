@@ -10393,7 +10393,7 @@ export interface operations {
       };
       cookie?: never;
     };
-    /** @description A new external engine registration. */
+    /** @description List of solved puzzles */
     requestBody: {
       content: {
         "application/json": components["schemas"]["PuzzleBatchSolveRequest"];
