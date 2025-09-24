@@ -5,4 +5,3 @@ properties:
     type: array
     items:
       $ref: "./PuzzleAndGame.yaml"
-
