@@ -228,6 +228,31 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/api/puzzle/batch/{angle}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get multiple puzzles at once
+     * @description Get a batch of random Lichess puzzles in JSON format.
+     *
+     *     If authenticated, only returns puzzles that the user has never seen before.
+     *
+     *     **DO NOT** use this endpoint to enumerate puzzles for mass download. Instead, download the [full public puzzle database](https://database.lichess.org/#puzzles).
+     *
+     */
+    get: operations["apiPuzzleBatchAngle"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/api/puzzle/activity": {
     parameters: {
       query?: never;
@@ -4597,6 +4622,9 @@ export interface components {
         solution: string[];
         themes: string[];
       };
+    };
+    PuzzleBatch: {
+      puzzles?: components["schemas"]["PuzzleAndGame"][];
     };
     PuzzleActivity: {
       date: number;
@@ -10241,6 +10269,90 @@ export interface operations {
            *       }
            *     } */
           "application/json": components["schemas"]["PuzzleAndGame"];
+        };
+      };
+    };
+  };
+  apiPuzzleBatchAngle: {
+    parameters: {
+      query?: {
+        /** @description The desired puzzle difficulty, relative to the authenticated user puzzle rating, or 1500 if anonymous. */
+        difficulty?: "easiest" | "easier" | "normal" | "harder" | "hardest";
+        /** @description How many puzzles to fetch. Just set it to `1` if you only need one puzzle.
+         *      */
+        nb?: number;
+      };
+      header?: never;
+      path: {
+        /** @description The theme or opening to filter puzzles with. Recommended: "mix".
+         *
+         *     Available themes are listed in [the lichess source code](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
+         *      */
+        angle: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The requested puzzles. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          /** @example {
+           *       "puzzles": [
+           *         {
+           *           "game": {
+           *             "id": "oXmU07Il",
+           *             "perf": {
+           *               "key": "blitz",
+           *               "name": "Blitz"
+           *             },
+           *             "rated": true,
+           *             "players": [
+           *               {
+           *                 "name": "paximi",
+           *                 "id": "paximi",
+           *                 "color": "white",
+           *                 "rating": 2009
+           *               },
+           *               {
+           *                 "name": "Patteblomquist",
+           *                 "id": "patteblomquist",
+           *                 "color": "black",
+           *                 "rating": 2000
+           *               }
+           *             ],
+           *             "pgn": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 f3 e5 Nb3 Be6 Be3 Be7 Nd5 Nxd5 exd5 Bf5 Bd3 Bxd3 Qxd3 Nd7 Qd2 h5 O-O Rc8 Na5 Qc7 c4 Nc5 b4 Nd7 Rac1 f5 Rfd1 f4 Bf2 h4 c5 h3 Nc4 dxc5 bxc5 Bxc5 Bxc5 Qxc5+ Kh1 hxg2+ Kxg2 Qe7 d6 Qh4 Kh1 Qh3 Qg2 Qxg2+ Kxg2 Kf7 Re1 Kf6 Nd2 Nc5",
+           *             "clock": "3+2"
+           *           },
+           *           "puzzle": {
+           *             "id": "hFFk9",
+           *             "rating": 1733,
+           *             "plays": 469,
+           *             "solution": [
+           *               "c1c5",
+           *               "c8c5",
+           *               "d2e4",
+           *               "f6e6",
+           *               "e4c5"
+           *             ],
+           *             "themes": [
+           *               "endgame",
+           *               "advantage",
+           *               "attraction",
+           *               "fork",
+           *               "long",
+           *               "sacrifice"
+           *             ],
+           *             "initialPly": 63
+           *           }
+           *         }
+           *       ]
+           *     } */
+          "application/json": components["schemas"]["PuzzleBatch"];
         };
       };
     };
