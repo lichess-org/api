@@ -99,7 +99,7 @@ post:
     content:
       application/json:
         schema:
-            $ref: "../../schemas/PuzzleBatchSolveRequest.yaml"
+          $ref: "../../schemas/PuzzleBatchSolveRequest.yaml"
   responses:
     "200":
       description: The solved puzzles, named `rounds`, and a new puzzle batch named `puzzles`.
