@@ -1,0 +1,8 @@
+type: object
+
+properties:
+  puzzles:
+    type: array
+    items:
+      $ref: "./PuzzleAndGame.yaml"
+

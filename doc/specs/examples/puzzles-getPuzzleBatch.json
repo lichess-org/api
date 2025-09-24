@@ -1,0 +1,38 @@
+{
+  "puzzles": [
+    {
+      "game": {
+        "id": "oXmU07Il",
+        "perf": {
+          "key": "blitz",
+          "name": "Blitz"
+        },
+        "rated": true,
+        "players": [
+          {
+            "name": "paximi",
+            "id": "paximi",
+            "color": "white",
+            "rating": 2009
+          },
+          {
+            "name": "Patteblomquist",
+            "id": "patteblomquist",
+            "color": "black",
+            "rating": 2000
+          }
+        ],
+        "pgn": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 f3 e5 Nb3 Be6 Be3 Be7 Nd5 Nxd5 exd5 Bf5 Bd3 Bxd3 Qxd3 Nd7 Qd2 h5 O-O Rc8 Na5 Qc7 c4 Nc5 b4 Nd7 Rac1 f5 Rfd1 f4 Bf2 h4 c5 h3 Nc4 dxc5 bxc5 Bxc5 Bxc5 Qxc5+ Kh1 hxg2+ Kxg2 Qe7 d6 Qh4 Kh1 Qh3 Qg2 Qxg2+ Kxg2 Kf7 Re1 Kf6 Nd2 Nc5",
+        "clock": "3+2"
+      },
+      "puzzle": {
+        "id": "hFFk9",
+        "rating": 1733,
+        "plays": 469,
+        "solution": ["c1c5", "c8c5", "d2e4", "f6e6", "e4c5"],
+        "themes": ["endgame", "advantage", "attraction", "fork", "long", "sacrifice"],
+        "initialPly": 63
+      }
+    }
+  ]
+}
