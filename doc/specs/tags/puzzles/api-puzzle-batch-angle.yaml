@@ -94,7 +94,7 @@ post:
         default: 0
       required: false
   requestBody:
-    description: A new external engine registration.
+    description: List of solved puzzles
     required: true
     content:
       application/json:
