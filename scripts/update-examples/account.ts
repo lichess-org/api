@@ -8,11 +8,13 @@ example(
   await localClient().GET("/api/account/email"),
 );
 
-example(
-  "account",
-  "getMyPreferences",
-  await localClient().GET("/api/account/preferences"),
-);
+await (async () => {
+  const prefs = await localClient().GET("/api/account/preferences");
+  if (prefs.data?.prefs?.bgImg && !prefs.data.prefs.bgImg.includes("http")) {
+    prefs.data.prefs.bgImg = `https://lichess1.org${prefs.data.prefs.bgImg}`;
+  }
+  example("account", "getMyPreferences", prefs);
+})();
 
 example(
   "account",
