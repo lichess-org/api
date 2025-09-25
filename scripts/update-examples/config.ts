@@ -56,7 +56,7 @@ export function example(
     "https://lichess.org",
   );
 
-  writeFileSync(filename, contents);
+  writeFileSync(filename, contents + "\n");
 }
 
 const convertStringToYaml = (str: string, isJson: boolean) => {
