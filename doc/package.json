@@ -7,7 +7,7 @@
     "@redocly/cli": "^1.34.3",
     "@stoplight/spectral-cli": "^6.15.0",
     "@stoplight/spectral-rulesets": "1.18.1",
-    "prettier": "^3.5.3"
+    "prettier": "^3.6.2"
   },
   "scripts": {
     "spectral": "spectral lint --fail-severity=warn specs/*.yaml",
