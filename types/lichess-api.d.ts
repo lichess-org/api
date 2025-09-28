@@ -5557,22 +5557,22 @@ export interface components {
     ArenaPosition:
       | {
           /** @example C41 */
-          eco?: string;
+          eco: string;
           /** @example Philidor Defense */
-          name?: string;
+          name: string;
           /** @example rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - */
-          fen?: string;
+          fen: string;
           /**
            * Format: uri
            * @example https://lichess.org/opening/Philidor_Defense
            */
-          url?: string;
+          url: string;
         }
       | {
           /** @constant */
-          name?: "Custom position";
+          name: "Custom position";
           /** @example rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 2 3 */
-          fen?: string;
+          fen: string;
         };
     ArenaTournament: {
       id: string;
@@ -37648,7 +37648,7 @@ export interface operations {
       content: {
         "application/json": {
           /** @example Dee3uwieZei9ahpaici9bee2yahsai0K */
-          providerSecret?: string;
+          providerSecret: string;
         };
       };
     };
