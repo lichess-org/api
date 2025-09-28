@@ -25,7 +25,7 @@ post:
               type: string
               example: Dee3uwieZei9ahpaici9bee2yahsai0K
           required:
-            - secret
+            - providerSecret
   responses:
     "200":
       description: Analysis has been requested
