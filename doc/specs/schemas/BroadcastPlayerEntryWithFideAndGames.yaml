@@ -1,0 +1,25 @@
+type: object
+allOf:
+  - $ref: "./BroadcastPlayerEntry.yaml"
+  - type: object
+    properties:
+      fide:
+        type: object
+        properties:
+          year:
+            type: integer
+            description: Year of birth
+          ratings:
+            type: object
+            properties:
+              standard:
+                type: integer
+              rapid:
+                type: integer
+              blitz:
+                type: integer
+      games:
+        type: array
+        description: List of games played by the player in the broadcast tournament
+        items:
+          $ref: "./BroadcastGameEntry.yaml"

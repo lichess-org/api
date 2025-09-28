@@ -489,6 +489,9 @@ paths:
   /broadcast/{broadcastTournamentId}/players:
     $ref: "./tags/broadcasts/broadcast-broadcastTournamentId-players.yaml"
 
+  /broadcast/{broadcastTournamentId}/players/{playerId}:
+    $ref: "./tags/broadcasts/broadcast-broadcastTournamentId-players-playerId.yaml"
+
   /broadcast/{broadcastTournamentId}/edit:
     $ref: "./tags/broadcasts/broadcast-broadcastTournamentId-edit.yaml"
 

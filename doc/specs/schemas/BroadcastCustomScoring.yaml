@@ -3,10 +3,10 @@ description: Scoring overrides for wins or draws.
 properties:
   white:
     type: object
-    $ref: "./BroadcastCustomPoints.yaml"
+    $ref: "./BroadcastCustomPointsPerColor.yaml"
   black:
     type: object
-    $ref: "./BroadcastCustomPoints.yaml"
+    $ref: "./BroadcastCustomPointsPerColor.yaml"
 
 required:
   - white

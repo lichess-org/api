@@ -1,0 +1,10 @@
+type: object
+properties:
+  win:
+    $ref: "./BroadcastCustomPoints.yaml"
+  draw:
+    $ref: "./BroadcastCustomPoints.yaml"
+
+required:
+  - win
+  - draw
