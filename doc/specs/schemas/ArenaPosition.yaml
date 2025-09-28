@@ -15,6 +15,11 @@ oneOf:
         type: string
         format: uri
         example: "https://lichess.org/opening/Philidor_Defense"
+    required:
+      - eco
+      - name
+      - fen
+      - url
   - type: object
     title: Custom position
     properties:
@@ -24,7 +29,6 @@ oneOf:
       fen:
         type: string
         example: "rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 2 3"
-
-required:
-  - name
-  - fen
+    required:
+      - name
+      - fen
