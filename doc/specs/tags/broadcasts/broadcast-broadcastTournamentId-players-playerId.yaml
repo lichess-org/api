@@ -29,9 +29,10 @@ get:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              $ref: "../../schemas/BroadcastPlayerEntryWithFideAndGames.yaml"
+            type: object
+            $ref: "../../schemas/BroadcastPlayerEntryWithFideAndGames.yaml"
+          example:
+            $ref: "../../examples/broadcasts-getPlayer.json"
     "404":
       description: The player was not found
       content:
