@@ -167,13 +167,13 @@ allOf:
         default: true
         description: "Whether the round is used when calculating players' rating changes."
       customScoring.white.win:
-        $ref: "./BroadcastCustomPoints.yaml#/properties/win"
+        $ref: "./BroadcastCustomPointsPerColor.yaml#/properties/win"
       customScoring.white.draw:
-        $ref: "./BroadcastCustomPoints.yaml#/properties/draw"
+        $ref: "./BroadcastCustomPointsPerColor.yaml#/properties/draw"
       customScoring.black.win:
-        $ref: "./BroadcastCustomPoints.yaml#/properties/win"
+        $ref: "./BroadcastCustomPointsPerColor.yaml#/properties/win"
       customScoring.black.draw:
-        $ref: "./BroadcastCustomPoints.yaml#/properties/draw"
+        $ref: "./BroadcastCustomPointsPerColor.yaml#/properties/draw"
       period:
         type: integer
         description: |

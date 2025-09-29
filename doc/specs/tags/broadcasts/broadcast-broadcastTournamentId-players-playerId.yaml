@@ -1,0 +1,41 @@
+get:
+  operationId: broadcastPlayerGet
+  summary: Get a player from a broadcast
+  description: |
+    Get the details of a specific player and their games from a broadcast tournament.
+  tags:
+    - Broadcasts
+  security: []
+  parameters:
+    - in: path
+      name: broadcastTournamentId
+      description: The broadcast tournament ID
+      required: true
+      schema:
+        type: string
+        minLength: 8
+        maxLength: 8
+    - in: path
+      name: playerId
+      description: |
+        The unique player ID within the broadcast. This is usually their fideId. 
+        If the player does not have a fideId, it is their name. Consult the [list of players for the broadcast](#tag/Broadcasts/operation/broadcastPlayersGet) for which ID to use.
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: The broadcast player
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: "../../schemas/BroadcastPlayerEntryWithFideAndGames.yaml"
+          example:
+            $ref: "../../examples/broadcasts-getPlayer.json"
+    "404":
+      description: The player was not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/NotFound.yaml"

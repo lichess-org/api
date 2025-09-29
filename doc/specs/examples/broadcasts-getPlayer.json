@@ -1,0 +1,38 @@
+{
+  "name": "Praggnanandhaa R",
+  "title": "GM",
+  "rating": 2758,
+  "fideId": 25059530,
+  "fed": "IND",
+  "played": 9,
+  "score": 5.5,
+  "ratingDiff": 6,
+  "performance": 2802,
+  "tiebreaks": [
+    { "extendedCode": "DE", "description": "Direct encounter", "points": 2 },
+    { "extendedCode": "SB", "description": "Sonneborn-Berger", "points": 25.25 },
+    { "extendedCode": "WON", "description": "Number of Wins", "points": 4 },
+    { "extendedCode": "BWG", "description": "Number of wins with black", "points": 1 },
+    { "extendedCode": "KS", "description": "Koya system (limit 50% of score)", "points": 3.5 }
+  ],
+  "rank": 1,
+  "fide": { "ratings": { "standard": 2785, "rapid": 2691, "blitz": 2707 }, "year": 2005 },
+  "games": [
+    {
+      "round": "JTpOdyxT",
+      "id": "RLVorwj5",
+      "opponent": { "name": "Erigaisi Arjun", "title": "GM", "rating": 2782, "fideId": 35009192, "fed": "IND" },
+      "color": "white",
+      "points": "1",
+      "ratingDiff": 5
+    },
+    {
+      "round": "F7Ytc5UF",
+      "id": "TBEiFey0",
+      "opponent": { "name": "Abdusattorov, Nodirbek", "title": "GM", "rating": 2771, "fideId": 14204118, "fed": "UZB" },
+      "color": "black",
+      "points": "1",
+      "ratingDiff": 5
+    }
+  ]
+}

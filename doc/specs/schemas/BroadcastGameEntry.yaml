@@ -1,0 +1,29 @@
+type: object
+properties:
+  round:
+    type: string
+    description: ID of the round
+  id:
+    type: string
+    description: The game ID. Analogous to chapterId.
+  opponent:
+    type: object
+    $ref: "./BroadcastPlayerWithFed.yaml"
+  color:
+    $ref: "./GameColor.yaml"
+  points:
+    type: string
+    enum:
+      - "1"
+      - "1/2"
+      - "0"
+  customPoints:
+    $ref: "./BroadcastCustomPoints.yaml"
+  ratingDiff:
+    type: integer
+    description: The change in rating for the player as a result of this game
+required:
+  - round
+  - id
+  - opponent
+  - color

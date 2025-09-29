@@ -1,38 +1,26 @@
 type: object
-properties:
-  name:
-    type: string
-    example: Hernandez Riera, Jose
-  score:
-    type: number
-    example: 2.5
-  played:
-    type: integer
-    example: 7
-  rating:
-    type: integer
-    example: 2149
-  ratingDiff:
-    type: integer
-    example: -5
-  performance:
-    type: integer
-    example: 2138
-  title:
-    $ref: "./Title.yaml"
-    example: FM
-  fideId:
-    type: integer
-    example: 3408230
-  fed:
-    type: string
-    example: CHI
-  tiebreaks:
-    type: array
-    maxItems: 5
-    items:
-      $ref: "./BroadcastPlayerTiebreak.yaml"
-  rank:
-    type: integer
-    example: 1
-    minimum: 1
+allOf:
+  - $ref: "./BroadcastPlayerWithFed.yaml"
+  - type: object
+    properties:
+      score:
+        type: number
+        example: 2.5
+      played:
+        type: integer
+        example: 7
+      ratingDiff:
+        type: integer
+        example: -5
+      performance:
+        type: integer
+        example: 2138
+      tiebreaks:
+        type: array
+        maxItems: 5
+        items:
+          $ref: "./BroadcastPlayerTiebreak.yaml"
+      rank:
+        type: integer
+        example: 1
+        minimum: 1
