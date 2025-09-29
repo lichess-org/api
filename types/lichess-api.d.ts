@@ -1772,6 +1772,27 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/broadcast/{broadcastTournamentId}/players/{playerId}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get a player from a broadcast
+     * @description Get the details of a specific player and their games from a broadcast tournament.
+     *
+     */
+    get: operations["broadcastPlayerGet"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/broadcast/{broadcastTournamentId}/edit": {
     parameters: {
       query?: never;
@@ -5976,14 +5997,15 @@ export interface components {
       name: string;
       tours: components["schemas"]["BroadcastGroupTour"][];
     };
-    BroadcastCustomPoints: {
-      win: number;
-      draw: number;
+    BroadcastCustomPoints: number;
+    BroadcastCustomPointsPerColor: {
+      win: components["schemas"]["BroadcastCustomPoints"];
+      draw: components["schemas"]["BroadcastCustomPoints"];
     };
     /** @description Scoring overrides for wins or draws. */
     BroadcastCustomScoring: {
-      white: components["schemas"]["BroadcastCustomPoints"];
-      black: components["schemas"]["BroadcastCustomPoints"];
+      white: components["schemas"]["BroadcastCustomPointsPerColor"];
+      black: components["schemas"]["BroadcastCustomPointsPerColor"];
     };
     BroadcastRoundInfo: {
       id: string;
@@ -6212,6 +6234,19 @@ export interface components {
       tier?: 3 | 4 | 5;
       "tiebreaks[]"?: components["schemas"]["BroadcastTiebreakExtendedCode"][];
     };
+    BroadcastPlayerWithFed: {
+      /** @example Hernandez Riera, Jose */
+      name?: string;
+      /** @example FM */
+      title?: components["schemas"]["Title"];
+      /** @example 2149 */
+      rating?: number;
+      /** @example 3408230 */
+      fideId?: number;
+      team?: string;
+      /** @example CHI */
+      fed?: string;
+    };
     BroadcastPlayerTiebreak: {
       extendedCode: components["schemas"]["BroadcastTiebreakExtendedCode"];
       /** @example Buchholz Cut 1 */
@@ -6219,35 +6254,49 @@ export interface components {
       /** @example 45.5 */
       points: number;
     };
-    BroadcastPlayerEntry: {
-      /** @example Hernandez Riera, Jose */
-      name?: string;
+    BroadcastPlayerEntry: components["schemas"]["BroadcastPlayerWithFed"] & {
       /** @example 2.5 */
       score?: number;
       /** @example 7 */
       played?: number;
-      /** @example 2149 */
-      rating?: number;
       /** @example -5 */
       ratingDiff?: number;
       /** @example 2138 */
       performance?: number;
-      /** @example FM */
-      title?: components["schemas"]["Title"];
-      /** @example 3408230 */
-      fideId?: number;
-      /** @example CHI */
-      fed?: string;
       tiebreaks?: components["schemas"]["BroadcastPlayerTiebreak"][];
       /** @example 1 */
       rank?: number;
+    };
+    BroadcastGameEntry: {
+      /** @description ID of the round */
+      round: string;
+      /** @description The game ID. Analogous to chapterId. */
+      id: string;
+      opponent: components["schemas"]["BroadcastPlayerWithFed"];
+      color: components["schemas"]["GameColor"];
+      /** @enum {string} */
+      points?: "1" | "1/2" | "0";
+      customPoints?: components["schemas"]["BroadcastCustomPoints"];
+      /** @description The change in rating for the player as a result of this game */
+      ratingDiff?: number;
+    };
+    BroadcastPlayerEntryWithFideAndGames: components["schemas"]["BroadcastPlayerEntry"] & {
+      fide?: {
+        /** @description Year of birth */
+        year?: number;
+        ratings?: {
+          standard?: number;
+          rapid?: number;
+          blitz?: number;
+        };
+      };
+      /** @description List of games played by the player in the broadcast tournament */
+      games?: components["schemas"]["BroadcastGameEntry"][];
     };
     /** @description Name of the broadcast round.
      *     Example: `Round 1`
      *      */
     BroadcastRoundFormName: string;
-    win: number;
-    draw: number;
     BroadcastRoundForm: (
       | {
           name: components["schemas"]["BroadcastRoundFormName"];
@@ -6376,10 +6425,10 @@ export interface components {
        * @default true
        */
       rated?: boolean;
-      "customScoring.white.win"?: components["schemas"]["win"];
-      "customScoring.white.draw"?: components["schemas"]["draw"];
-      "customScoring.black.win"?: components["schemas"]["win"];
-      "customScoring.black.draw"?: components["schemas"]["draw"];
+      "customScoring.white.win"?: components["schemas"]["BroadcastCustomPoints"];
+      "customScoring.white.draw"?: components["schemas"]["BroadcastCustomPoints"];
+      "customScoring.black.win"?: components["schemas"]["BroadcastCustomPoints"];
+      "customScoring.black.draw"?: components["schemas"]["BroadcastCustomPoints"];
       /** @description (Only for Admins) Waiting time for each poll.
        *      */
       period?: number;
@@ -31970,6 +32019,119 @@ export interface operations {
            *       }
            *     ] */
           "application/json": components["schemas"]["BroadcastPlayerEntry"][];
+        };
+      };
+    };
+  };
+  broadcastPlayerGet: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The broadcast tournament ID */
+        broadcastTournamentId: string;
+        /** @description The unique player ID within the broadcast. This is usually their fideId.
+         *     If the player does not have a fideId, it is their name. Consult the [list of players for the broadcast](#tag/Broadcasts/operation/broadcastPlayersGet) for which ID to use.
+         *      */
+        playerId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The broadcast player */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          /** @example {
+           *       "name": "Praggnanandhaa R",
+           *       "title": "GM",
+           *       "rating": 2758,
+           *       "fideId": 25059530,
+           *       "fed": "IND",
+           *       "played": 9,
+           *       "score": 5.5,
+           *       "ratingDiff": 6,
+           *       "performance": 2802,
+           *       "tiebreaks": [
+           *         {
+           *           "extendedCode": "DE",
+           *           "description": "Direct encounter",
+           *           "points": 2
+           *         },
+           *         {
+           *           "extendedCode": "SB",
+           *           "description": "Sonneborn-Berger",
+           *           "points": 25.25
+           *         },
+           *         {
+           *           "extendedCode": "WON",
+           *           "description": "Number of Wins",
+           *           "points": 4
+           *         },
+           *         {
+           *           "extendedCode": "BWG",
+           *           "description": "Number of wins with black",
+           *           "points": 1
+           *         },
+           *         {
+           *           "extendedCode": "KS",
+           *           "description": "Koya system (limit 50% of score)",
+           *           "points": 3.5
+           *         }
+           *       ],
+           *       "rank": 1,
+           *       "fide": {
+           *         "ratings": {
+           *           "standard": 2785,
+           *           "rapid": 2691,
+           *           "blitz": 2707
+           *         },
+           *         "year": 2005
+           *       },
+           *       "games": [
+           *         {
+           *           "round": "JTpOdyxT",
+           *           "id": "RLVorwj5",
+           *           "opponent": {
+           *             "name": "Erigaisi Arjun",
+           *             "title": "GM",
+           *             "rating": 2782,
+           *             "fideId": 35009192,
+           *             "fed": "IND"
+           *           },
+           *           "color": "white",
+           *           "points": "1",
+           *           "ratingDiff": 5
+           *         },
+           *         {
+           *           "round": "F7Ytc5UF",
+           *           "id": "TBEiFey0",
+           *           "opponent": {
+           *             "name": "Abdusattorov, Nodirbek",
+           *             "title": "GM",
+           *             "rating": 2771,
+           *             "fideId": 14204118,
+           *             "fed": "UZB"
+           *           },
+           *           "color": "black",
+           *           "points": "1",
+           *           "ratingDiff": 5
+           *         }
+           *       ]
+           *     } */
+          "application/json": components["schemas"]["BroadcastPlayerEntryWithFideAndGames"];
+        };
+      };
+      /** @description The player was not found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["NotFound"];
         };
       };
     };
