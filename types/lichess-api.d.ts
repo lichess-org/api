@@ -10267,7 +10267,7 @@ export interface operations {
       query?: {
         /** @description The theme or opening to filter puzzles with.
          *
-         *     Available themes are listed in [the lichess source code](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
+         *     Available themes are listed in [the lichess source code](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml) and [the lichess training themes hyperlinks](https://lichess.org/training/themes).
          *      */
         angle?: string;
         /** @description The desired puzzle difficulty, relative to the authenticated user puzzle rating, or 1500 if anonymous. */
@@ -10357,7 +10357,7 @@ export interface operations {
       path: {
         /** @description The theme or opening to filter puzzles with. Recommended: `mix`.
          *
-         *     Available themes are listed in [the lichess source code](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
+         *     Available themes are listed in [the lichess source code](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml) and [the lichess training themes hyperlinks](https://lichess.org/training/themes).
          *      */
         angle: string;
       };
@@ -10442,7 +10442,7 @@ export interface operations {
       path: {
         /** @description The theme or opening of the solved puzzles.
          *
-         *     Available themes are listed in [the lichess source code](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
+         *     Available themes are listed in [the lichess source code](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml) and [the lichess training themes hyperlinks](https://lichess.org/training/themes).
          *      */
         angle: string;
       };
