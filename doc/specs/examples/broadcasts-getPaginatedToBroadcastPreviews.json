@@ -2,24 +2,24 @@
   "active": [
     {
       "tour": {
-        "id": "i4qWomtq",
+        "id": "dkGBWEoa",
         "name": "Knight Invitational",
         "slug": "knight-invitational",
         "info": {},
-        "createdAt": 1758636956497,
-        "url": "https://lichess.org/broadcast/knight-invitational/i4qWomtq",
+        "createdAt": 1760452031769,
+        "url": "https://lichess.org/broadcast/knight-invitational/dkGBWEoa",
         "tier": 5,
-        "dates": [1758636956587]
+        "dates": [1760452032087]
       },
       "round": {
-        "id": "WnhNmprO",
+        "id": "KpayT1YZ",
         "name": "Round 1",
         "slug": "round-1",
-        "createdAt": 1758636956518,
+        "createdAt": 1760452031888,
         "rated": false,
         "ongoing": true,
-        "startsAt": 1758640556508,
-        "url": "https://lichess.org/broadcast/knight-invitational/round-1/WnhNmprO"
+        "startsAt": 1760455631824,
+        "url": "https://lichess.org/broadcast/knight-invitational/round-1/KpayT1YZ"
       }
     }
   ],

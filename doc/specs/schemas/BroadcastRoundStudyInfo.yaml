@@ -4,3 +4,16 @@ properties:
   writeable:
     description: Whether the currently authenticated user has permission to update the study
     type: boolean
+
+  features:
+    type: object
+    properties:
+      chat:
+        type: boolean
+        description: Whether the study has chat enabled
+      computer:
+        type: boolean
+        description: Whether the study has computer analysis enabled
+      explorer:
+        type: boolean
+        description: Whether the study has opening explorer enabled
