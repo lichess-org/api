@@ -10,10 +10,10 @@ properties:
     properties:
       chat:
         type: boolean
-        description: Whether the study has chat enabled
+        description: Whether chat is enabled for the currently authenticated user
       computer:
         type: boolean
-        description: Whether the study has computer analysis enabled
+        description: Whether engine analysis is enabled for the currently authenticated user
       explorer:
         type: boolean
-        description: Whether the study has opening explorer enabled
+        description: Whether the opening explorer + tablebase is enabled for the currently authenticated user
