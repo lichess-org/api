@@ -4,3 +4,16 @@ properties:
   writeable:
     description: Whether the currently authenticated user has permission to update the study
     type: boolean
+
+  features:
+    type: object
+    properties:
+      chat:
+        type: boolean
+        description: Whether chat is enabled for the currently authenticated user
+      computer:
+        type: boolean
+        description: Whether engine analysis is enabled for the currently authenticated user
+      explorer:
+        type: boolean
+        description: Whether the opening explorer + tablebase is enabled for the currently authenticated user

@@ -4,38 +4,18 @@
   "currentPageResults": [
     {
       "tour": {
-        "id": "1mOPQROx",
+        "id": "SSCQsHi5",
         "name": "Bobby's Tournament",
         "slug": "bobbys-tournament",
         "info": {
           "format": "5-round Swiss",
           "location": "Chess Club"
         },
-        "createdAt": 1758636956662,
-        "url": "https://lichess.org/broadcast/bobbys-tournament/1mOPQROx",
+        "createdAt": 1760452032543,
+        "url": "https://lichess.org/broadcast/bobbys-tournament/SSCQsHi5",
         "communityOwner": {
           "name": "Bobby",
-          "patron": true,
-          "patronColor": 1,
-          "id": "bobby"
-        }
-      }
-    },
-    {
-      "tour": {
-        "id": "6I07VJMl",
-        "name": "Bobby's Tournament",
-        "slug": "bobbys-tournament",
-        "info": {
-          "format": "5-round Swiss",
-          "location": "Chess Club"
-        },
-        "createdAt": 1758636832010,
-        "url": "https://lichess.org/broadcast/bobbys-tournament/6I07VJMl",
-        "communityOwner": {
-          "name": "Bobby",
-          "patron": true,
-          "patronColor": 1,
+          "flair": "food-drink.cooked-rice",
           "id": "bobby"
         }
       }
@@ -43,6 +23,6 @@
   ],
   "previousPage": null,
   "nextPage": null,
-  "nbResults": 2,
+  "nbResults": 1,
   "nbPages": 1
 }
