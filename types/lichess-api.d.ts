@@ -6436,6 +6436,14 @@ export interface components {
     BroadcastRoundStudyInfo: {
       /** @description Whether the currently authenticated user has permission to update the study */
       writeable?: boolean;
+      features?: {
+        /** @description Whether chat is enabled for the currently authenticated user */
+        chat?: boolean;
+        /** @description Whether engine analysis is enabled for the currently authenticated user */
+        computer?: boolean;
+        /** @description Whether the opening explorer + tablebase is enabled for the currently authenticated user */
+        explorer?: boolean;
+      };
     };
     BroadcastRoundNew: {
       round: components["schemas"]["BroadcastRoundInfo"];
@@ -31575,60 +31583,60 @@ export interface operations {
         content: {
           /** @example {
            *       "tour": {
-           *         "id": "i4qWomtq",
+           *         "id": "dkGBWEoa",
            *         "name": "Knight Invitational",
            *         "slug": "knight-invitational",
            *         "info": {},
-           *         "createdAt": 1758636956497,
-           *         "url": "https://lichess.org/broadcast/knight-invitational/i4qWomtq",
+           *         "createdAt": 1760452031769,
+           *         "url": "https://lichess.org/broadcast/knight-invitational/dkGBWEoa",
            *         "tier": 5,
            *         "dates": [
-           *           1758636956587
+           *           1760452032087
            *         ]
            *       },
            *       "rounds": [
            *         {
-           *           "id": "WnhNmprO",
+           *           "id": "KpayT1YZ",
            *           "name": "Round 1",
            *           "slug": "round-1",
-           *           "createdAt": 1758636956518,
+           *           "createdAt": 1760452031888,
            *           "rated": false,
            *           "ongoing": true,
-           *           "startsAt": 1758640556508,
-           *           "url": "https://lichess.org/broadcast/knight-invitational/round-1/WnhNmprO"
+           *           "startsAt": 1760455631824,
+           *           "url": "https://lichess.org/broadcast/knight-invitational/round-1/KpayT1YZ"
            *         },
            *         {
-           *           "id": "SjPgcE1i",
+           *           "id": "JmMB52Fd",
            *           "name": "Round 2",
            *           "slug": "round-2",
-           *           "createdAt": 1758636956544,
+           *           "createdAt": 1760452032027,
            *           "rated": false,
            *           "ongoing": true,
-           *           "startsAt": 1758644156508,
-           *           "url": "https://lichess.org/broadcast/knight-invitational/round-2/SjPgcE1i"
+           *           "startsAt": 1760459231824,
+           *           "url": "https://lichess.org/broadcast/knight-invitational/round-2/JmMB52Fd"
            *         },
            *         {
-           *           "id": "xyShgpPn",
+           *           "id": "iMXP05Cu",
            *           "name": "Round 3",
            *           "slug": "round-3",
-           *           "createdAt": 1758636956566,
+           *           "createdAt": 1760452032058,
            *           "rated": false,
            *           "ongoing": true,
-           *           "startsAt": 1758647756508,
-           *           "url": "https://lichess.org/broadcast/knight-invitational/round-3/xyShgpPn"
+           *           "startsAt": 1760462831824,
+           *           "url": "https://lichess.org/broadcast/knight-invitational/round-3/iMXP05Cu"
            *         },
            *         {
-           *           "id": "9kbmXL5J",
+           *           "id": "UpDXGrhz",
            *           "name": "Final Round",
            *           "slug": "final-round",
-           *           "createdAt": 1758636956587,
+           *           "createdAt": 1760452032086,
            *           "rated": false,
            *           "ongoing": true,
-           *           "startsAt": 1758636956587,
-           *           "url": "https://lichess.org/broadcast/knight-invitational/final-round/9kbmXL5J"
+           *           "startsAt": 1760452032087,
+           *           "url": "https://lichess.org/broadcast/knight-invitational/final-round/UpDXGrhz"
            *         }
            *       ],
-           *       "defaultRoundId": "WnhNmprO"
+           *       "defaultRoundId": "KpayT1YZ"
            *     } */
           "application/x-ndjson": components["schemas"]["BroadcastWithRounds"];
         };
@@ -31663,26 +31671,26 @@ export interface operations {
            *       "active": [
            *         {
            *           "tour": {
-           *             "id": "i4qWomtq",
+           *             "id": "dkGBWEoa",
            *             "name": "Knight Invitational",
            *             "slug": "knight-invitational",
            *             "info": {},
-           *             "createdAt": 1758636956497,
-           *             "url": "https://lichess.org/broadcast/knight-invitational/i4qWomtq",
+           *             "createdAt": 1760452031769,
+           *             "url": "https://lichess.org/broadcast/knight-invitational/dkGBWEoa",
            *             "tier": 5,
            *             "dates": [
-           *               1758636956587
+           *               1760452032087
            *             ]
            *           },
            *           "round": {
-           *             "id": "WnhNmprO",
+           *             "id": "KpayT1YZ",
            *             "name": "Round 1",
            *             "slug": "round-1",
-           *             "createdAt": 1758636956518,
+           *             "createdAt": 1760452031888,
            *             "rated": false,
            *             "ongoing": true,
-           *             "startsAt": 1758640556508,
-           *             "url": "https://lichess.org/broadcast/knight-invitational/round-1/WnhNmprO"
+           *             "startsAt": 1760455631824,
+           *             "url": "https://lichess.org/broadcast/knight-invitational/round-1/KpayT1YZ"
            *           }
            *         }
            *       ],
@@ -31731,38 +31739,18 @@ export interface operations {
            *       "currentPageResults": [
            *         {
            *           "tour": {
-           *             "id": "1mOPQROx",
+           *             "id": "SSCQsHi5",
            *             "name": "Bobby's Tournament",
            *             "slug": "bobbys-tournament",
            *             "info": {
            *               "format": "5-round Swiss",
            *               "location": "Chess Club"
            *             },
-           *             "createdAt": 1758636956662,
-           *             "url": "https://lichess.org/broadcast/bobbys-tournament/1mOPQROx",
+           *             "createdAt": 1760452032543,
+           *             "url": "https://lichess.org/broadcast/bobbys-tournament/SSCQsHi5",
            *             "communityOwner": {
            *               "name": "Bobby",
-           *               "patron": true,
-           *               "patronColor": 1,
-           *               "id": "bobby"
-           *             }
-           *           }
-           *         },
-           *         {
-           *           "tour": {
-           *             "id": "6I07VJMl",
-           *             "name": "Bobby's Tournament",
-           *             "slug": "bobbys-tournament",
-           *             "info": {
-           *               "format": "5-round Swiss",
-           *               "location": "Chess Club"
-           *             },
-           *             "createdAt": 1758636832010,
-           *             "url": "https://lichess.org/broadcast/bobbys-tournament/6I07VJMl",
-           *             "communityOwner": {
-           *               "name": "Bobby",
-           *               "patron": true,
-           *               "patronColor": 1,
+           *               "flair": "food-drink.cooked-rice",
            *               "id": "bobby"
            *             }
            *           }
@@ -31770,7 +31758,7 @@ export interface operations {
            *       ],
            *       "previousPage": null,
            *       "nextPage": null,
-           *       "nbResults": 2,
+           *       "nbResults": 1,
            *       "nbPages": 1
            *     } */
           "application/json": {
@@ -31819,26 +31807,26 @@ export interface operations {
            *       "currentPageResults": [
            *         {
            *           "tour": {
-           *             "id": "i4qWomtq",
+           *             "id": "dkGBWEoa",
            *             "name": "Knight Invitational",
            *             "slug": "knight-invitational",
            *             "info": {},
-           *             "createdAt": 1758636956497,
-           *             "url": "https://lichess.org/broadcast/knight-invitational/i4qWomtq",
+           *             "createdAt": 1760452031769,
+           *             "url": "https://lichess.org/broadcast/knight-invitational/dkGBWEoa",
            *             "tier": 5,
            *             "dates": [
-           *               1758636956587
+           *               1760452032087
            *             ]
            *           },
            *           "round": {
-           *             "id": "9kbmXL5J",
+           *             "id": "UpDXGrhz",
            *             "name": "Final Round",
            *             "slug": "final-round",
-           *             "createdAt": 1758636956587,
+           *             "createdAt": 1760452032086,
            *             "rated": false,
            *             "ongoing": true,
-           *             "startsAt": 1758636956587,
-           *             "url": "https://lichess.org/broadcast/knight-invitational/final-round/9kbmXL5J"
+           *             "startsAt": 1760452032087,
+           *             "url": "https://lichess.org/broadcast/knight-invitational/final-round/UpDXGrhz"
            *           }
            *         }
            *       ],
@@ -31878,12 +31866,12 @@ export interface operations {
         content: {
           /** @example {
            *       "tour": {
-           *         "id": "i4qWomtq",
+           *         "id": "dkGBWEoa",
            *         "name": "Knight Invitational",
            *         "slug": "knight-invitational",
            *         "info": {},
-           *         "createdAt": 1758636956497,
-           *         "url": "https://lichess.org/broadcast/knight-invitational/i4qWomtq",
+           *         "createdAt": 1760452031769,
+           *         "url": "https://lichess.org/broadcast/knight-invitational/dkGBWEoa",
            *         "tier": 5
            *       },
            *       "rounds": []
@@ -31922,60 +31910,60 @@ export interface operations {
         content: {
           /** @example {
            *       "tour": {
-           *         "id": "i4qWomtq",
+           *         "id": "dkGBWEoa",
            *         "name": "Knight Invitational",
            *         "slug": "knight-invitational",
            *         "info": {},
-           *         "createdAt": 1758636956497,
-           *         "url": "https://lichess.org/broadcast/knight-invitational/i4qWomtq",
+           *         "createdAt": 1760452031769,
+           *         "url": "https://lichess.org/broadcast/knight-invitational/dkGBWEoa",
            *         "tier": 5,
            *         "dates": [
-           *           1758636956587
+           *           1760452032087
            *         ]
            *       },
            *       "rounds": [
            *         {
-           *           "id": "WnhNmprO",
+           *           "id": "KpayT1YZ",
            *           "name": "Round 1",
            *           "slug": "round-1",
-           *           "createdAt": 1758636956518,
+           *           "createdAt": 1760452031888,
            *           "rated": false,
            *           "ongoing": true,
-           *           "startsAt": 1758640556508,
-           *           "url": "https://lichess.org/broadcast/knight-invitational/round-1/WnhNmprO"
+           *           "startsAt": 1760455631824,
+           *           "url": "https://lichess.org/broadcast/knight-invitational/round-1/KpayT1YZ"
            *         },
            *         {
-           *           "id": "SjPgcE1i",
+           *           "id": "JmMB52Fd",
            *           "name": "Round 2",
            *           "slug": "round-2",
-           *           "createdAt": 1758636956544,
+           *           "createdAt": 1760452032027,
            *           "rated": false,
            *           "ongoing": true,
-           *           "startsAt": 1758644156508,
-           *           "url": "https://lichess.org/broadcast/knight-invitational/round-2/SjPgcE1i"
+           *           "startsAt": 1760459231824,
+           *           "url": "https://lichess.org/broadcast/knight-invitational/round-2/JmMB52Fd"
            *         },
            *         {
-           *           "id": "xyShgpPn",
+           *           "id": "iMXP05Cu",
            *           "name": "Round 3",
            *           "slug": "round-3",
-           *           "createdAt": 1758636956566,
+           *           "createdAt": 1760452032058,
            *           "rated": false,
            *           "ongoing": true,
-           *           "startsAt": 1758647756508,
-           *           "url": "https://lichess.org/broadcast/knight-invitational/round-3/xyShgpPn"
+           *           "startsAt": 1760462831824,
+           *           "url": "https://lichess.org/broadcast/knight-invitational/round-3/iMXP05Cu"
            *         },
            *         {
-           *           "id": "9kbmXL5J",
+           *           "id": "UpDXGrhz",
            *           "name": "Final Round",
            *           "slug": "final-round",
-           *           "createdAt": 1758636956587,
+           *           "createdAt": 1760452032086,
            *           "rated": false,
            *           "ongoing": true,
-           *           "startsAt": 1758636956587,
-           *           "url": "https://lichess.org/broadcast/knight-invitational/final-round/9kbmXL5J"
+           *           "startsAt": 1760452032087,
+           *           "url": "https://lichess.org/broadcast/knight-invitational/final-round/UpDXGrhz"
            *         }
            *       ],
-           *       "defaultRoundId": "WnhNmprO"
+           *       "defaultRoundId": "KpayT1YZ"
            *     } */
           "application/json": components["schemas"]["BroadcastWithRounds"];
         };
@@ -32201,29 +32189,34 @@ export interface operations {
         content: {
           /** @example {
            *       "round": {
-           *         "id": "9kbmXL5J",
+           *         "id": "UpDXGrhz",
            *         "name": "Final Round",
            *         "slug": "final-round",
-           *         "createdAt": 1758636956587,
+           *         "createdAt": 1760452032086,
            *         "rated": false,
            *         "ongoing": true,
-           *         "startsAt": 1758636956587,
-           *         "url": "https://lichess.org/broadcast/knight-invitational/final-round/9kbmXL5J"
+           *         "startsAt": 1760452032087,
+           *         "url": "https://lichess.org/broadcast/knight-invitational/final-round/UpDXGrhz"
            *       },
            *       "tour": {
-           *         "id": "i4qWomtq",
+           *         "id": "dkGBWEoa",
            *         "name": "Knight Invitational",
            *         "slug": "knight-invitational",
            *         "info": {},
-           *         "createdAt": 1758636956497,
-           *         "url": "https://lichess.org/broadcast/knight-invitational/i4qWomtq",
+           *         "createdAt": 1760452031769,
+           *         "url": "https://lichess.org/broadcast/knight-invitational/dkGBWEoa",
            *         "tier": 5,
            *         "dates": [
-           *           1758640556508
+           *           1760455631824
            *         ]
            *       },
            *       "study": {
-           *         "writeable": true
+           *         "writeable": true,
+           *         "features": {
+           *           "chat": true,
+           *           "computer": true,
+           *           "explorer": true
+           *         }
            *       }
            *     } */
           "application/json": components["schemas"]["BroadcastRoundNew"];
@@ -32292,32 +32285,37 @@ export interface operations {
         content: {
           /** @example {
            *       "round": {
-           *         "id": "9kbmXL5J",
+           *         "id": "UpDXGrhz",
            *         "name": "Final Round 2",
            *         "slug": "final-round-2",
-           *         "createdAt": 1758636956587,
+           *         "createdAt": 1760452032086,
            *         "rated": false,
            *         "ongoing": true,
-           *         "startsAt": 1758636956587,
-           *         "url": "https://lichess.org/broadcast/knight-invitational-2/final-round-2/9kbmXL5J"
+           *         "startsAt": 1760452032087,
+           *         "url": "https://lichess.org/broadcast/knight-invitational-2/final-round-2/UpDXGrhz"
            *       },
            *       "tour": {
-           *         "id": "i4qWomtq",
+           *         "id": "dkGBWEoa",
            *         "name": "Knight Invitational 2",
            *         "slug": "knight-invitational-2",
            *         "info": {},
-           *         "createdAt": 1758636956497,
-           *         "url": "https://lichess.org/broadcast/knight-invitational-2/i4qWomtq",
+           *         "createdAt": 1760452031769,
+           *         "url": "https://lichess.org/broadcast/knight-invitational-2/dkGBWEoa",
            *         "dates": [
-           *           1758636956587
+           *           1760452032087
            *         ]
            *       },
            *       "study": {
-           *         "writeable": true
+           *         "writeable": true,
+           *         "features": {
+           *           "chat": true,
+           *           "computer": true,
+           *           "explorer": true
+           *         }
            *       },
            *       "games": [
            *         {
-           *           "id": "iE2P7xmV",
+           *           "id": "n6z0jerF",
            *           "name": "Player 1 - Player 2",
            *           "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
            *           "players": [
@@ -32333,7 +32331,7 @@ export interface operations {
            *           "status": "*"
            *         },
            *         {
-           *           "id": "EldTK572",
+           *           "id": "03cTYZaY",
            *           "name": "Player 3 - Player 4",
            *           "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2",
            *           "players": [
@@ -32547,28 +32545,33 @@ export interface operations {
         content: {
           /** @example {
            *       "round": {
-           *         "id": "9kbmXL5J",
+           *         "id": "UpDXGrhz",
            *         "name": "Final Round 2",
            *         "slug": "final-round-2",
-           *         "createdAt": 1758636956587,
+           *         "createdAt": 1760452032086,
            *         "rated": false,
            *         "ongoing": true,
-           *         "startsAt": 1758636956587,
-           *         "url": "https://lichess.org/broadcast/knight-invitational-2/final-round-2/9kbmXL5J"
+           *         "startsAt": 1760452032087,
+           *         "url": "https://lichess.org/broadcast/knight-invitational-2/final-round-2/UpDXGrhz"
            *       },
            *       "tour": {
-           *         "id": "i4qWomtq",
+           *         "id": "dkGBWEoa",
            *         "name": "Knight Invitational 2",
            *         "slug": "knight-invitational-2",
            *         "info": {},
-           *         "createdAt": 1758636956497,
-           *         "url": "https://lichess.org/broadcast/knight-invitational-2/i4qWomtq",
+           *         "createdAt": 1760452031769,
+           *         "url": "https://lichess.org/broadcast/knight-invitational-2/dkGBWEoa",
            *         "dates": [
-           *           1758636956587
+           *           1760452032087
            *         ]
            *       },
            *       "study": {
-           *         "writeable": true
+           *         "writeable": true,
+           *         "features": {
+           *           "chat": true,
+           *           "computer": true,
+           *           "explorer": true
+           *         }
            *       }
            *     } */
           "application/x-ndjson": components["schemas"]["BroadcastMyRound"];
