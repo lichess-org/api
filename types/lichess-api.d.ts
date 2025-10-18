@@ -7510,8 +7510,8 @@ export interface components {
        *     last pawn move or capture.
        *
        *     `maybe-win` and `maybe-loss` means the result with regard to the
-       *     50-move rule is unknown because the DTC tablebase does not
-       *     guarantee to reach a zeroing move as soon as possible.
+       *     50-move rule is unknown, because DTZ is unknown and the DTC tablebase
+       *     does not guarantee to reach a zeroing move as soon as possible.
        *
        * @enum {string}
        */
@@ -7526,17 +7526,25 @@ export interface components {
         | "maybe-loss"
         | "syzygy-loss"
         | "loss";
-      /** @description [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) or null if unknown
+      /** @description [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) or null
+       *     if unknown
        *      */
       dtz?: null | number;
       /** @description DTZ50'' (only if guaranteed to be not rounded) or null if unknown
        *      */
       precise_dtz?: null | number;
-      /** @description Depth to Conversion (experimental) */
+      /** @description Depth to Conversion: Moves to next capture or promotion (available
+       *     only for Standard *op1* positions with 8 pieces, i.e., positions where
+       *     there is at least one pair of opposing pawns)
+       *      */
       dtc?: null | number;
-      /** @description Depth To Mate (only for Standard positions with not more than 5 pieces) */
+      /** @description Depth To Mate: Plies to mate (available only for Standard positions
+       *     with not more than 5 pieces)
+       *      */
       dtm?: null | number;
-      /** @description Depth To Win (only for Antichess positions with not more than 4 pieces) */
+      /** @description Depth To Win: Plies to win (available only for Antichess positions
+       *     with not more than 4 pieces)
+       *      */
       dtw?: null | number;
       checkmate?: boolean;
       stalemate?: boolean;
@@ -38970,6 +38978,11 @@ export interface operations {
       query: {
         /** @description FEN of the position. Underscores allowed. */
         fen: string;
+        /** @description When to query the op1 tablebase. The current default is *never*.
+         *     It is eventually going to be *auxiliary*, i.e., only when the position
+         *     is not covered by one of the other tablebases.
+         *      */
+        op1?: "never" | "auxiliary" | "always";
       };
       header?: never;
       path?: never;
