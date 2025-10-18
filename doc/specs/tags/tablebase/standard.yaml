@@ -16,6 +16,19 @@ get:
       schema:
         type: string
       required: true
+    - in: query
+      name: op1
+      description: |
+        When to query the op1 tablebase. The current default is *never*.
+        It is eventually going to be *auxiliary*, i.e., only when the position
+        is not covered by one of the other tablebases.
+      schema:
+        type: string
+        enum:
+          - never
+          - auxiliary
+          - always
+      required: false
   responses:
     "200":
       description: The tablebase information for the position in standard chess.

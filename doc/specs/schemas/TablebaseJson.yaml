@@ -24,25 +24,33 @@ properties:
       last pawn move or capture.
 
       `maybe-win` and `maybe-loss` means the result with regard to the
-      50-move rule is unknown because the DTC tablebase does not
-      guarantee to reach a zeroing move as soon as possible.
+      50-move rule is unknown, because DTZ is unknown and the DTC tablebase
+      does not guarantee to reach a zeroing move as soon as possible.
   dtz:
     type: ["null", "integer"]
     description: |
-      [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) or null if unknown
+      [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) or null
+      if unknown
   precise_dtz:
     type: ["null", "integer"]
     description: |
       DTZ50'' (only if guaranteed to be not rounded) or null if unknown
   dtc:
     type: ["null", "integer"]
-    description: Depth to Conversion (experimental)
+    description: |
+      Depth to Conversion: Moves to next capture or promotion (available
+      only for Standard *op1* positions with 8 pieces, i.e., positions where
+      there is at least one pair of opposing pawns)
   dtm:
     type: ["null", "integer"]
-    description: Depth To Mate (only for Standard positions with not more than 5 pieces)
+    description: |
+      Depth To Mate: Plies to mate (available only for Standard positions
+      with not more than 5 pieces)
   dtw:
     type: ["null", "integer"]
-    description: Depth To Win (only for Antichess positions with not more than 4 pieces)
+    description: |
+      Depth To Win: Plies to win (available only for Antichess positions
+      with not more than 4 pieces)
   checkmate:
     type: boolean
   stalemate:
