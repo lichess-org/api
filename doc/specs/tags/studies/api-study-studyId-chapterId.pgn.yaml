@@ -3,9 +3,12 @@ get:
   summary: Export one study chapter
   description: |
     Download one study chapter in PGN format.
+    If authenticated, then all public, unlisted, and private study chapters are read.
+    If not, only public (non-unlisted) study chapters are read.
   tags:
     - Studies
-  security: []
+  security:
+    - OAuth2: ["study:read"]
   parameters:
     - in: path
       name: studyId
