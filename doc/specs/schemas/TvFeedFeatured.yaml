@@ -1,0 +1,55 @@
+type: object
+
+title: featured
+
+properties:
+  t:
+    type: string
+    description: |
+      The type of message.
+      A summary of the game is sent as the first message and when the featured game changes.
+      Subsequent messages are just the FEN, last move, and clocks.
+    const: "featured"
+  d:
+    type: object
+    description: The data of the message
+    title: featured
+    properties:
+      id:
+        type: string
+        description: The game ID
+      orientation:
+        $ref: "./GameColor.yaml"
+      players:
+        type: array
+        items:
+          type: object
+          properties:
+            color:
+              $ref: "./GameColor.yaml"
+            user:
+              $ref: "./LightUser.yaml"
+            rating:
+              type: integer
+            seconds:
+              type: integer
+              description: The player's remaining time in seconds
+          required:
+            - color
+            - rating
+            - seconds
+            - user
+        minItems: 2
+        maxItems: 2
+      fen:
+        type: string
+        description: The FEN of the current position
+    required:
+      - id
+      - orientation
+      - players
+      - fen
+
+required:
+  - t
+  - d
