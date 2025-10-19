@@ -3,8 +3,8 @@ get:
   summary: Export all chapters
   description: |
     Download all chapters of a study in PGN format.
-    If authenticated, then all public, unlisted, and private study's all chapters are read.
-    If not, only public (non-unlisted) study's chapters are read.
+    If authenticated, then all public, unlisted, and private study chapters are read.
+    If not, only public (non-unlisted) study chapters are read.
   tags:
     - Studies
   security:
