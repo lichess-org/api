@@ -1463,6 +1463,8 @@ export interface paths {
     /**
      * Export one study chapter
      * @description Download one study chapter in PGN format.
+     *     If authenticated, then all public, unlisted, and private study chapters are read.
+     *     If not, only public (non-unlisted) study chapters are read.
      *
      */
     get: operations["studyChapterPgn"];
@@ -1484,6 +1486,8 @@ export interface paths {
     /**
      * Export all chapters
      * @description Download all chapters of a study in PGN format.
+     *     If authenticated, then all public, unlisted, and private study chapters are read.
+     *     If not, only public (non-unlisted) study chapters are read.
      *
      */
     get: operations["studyAllChaptersPgn"];
@@ -5360,6 +5364,73 @@ export interface components {
         end?: number;
       };
     };
+    /** @enum {integer} */
+    GameStatusId:
+      | 10
+      | 20
+      | 25
+      | 30
+      | 31
+      | 32
+      | 33
+      | 34
+      | 35
+      | 36
+      | 37
+      | 38
+      | 39
+      | 60;
+    /** @example {
+     *       "id": "A5fcMO3k",
+     *       "rated": true,
+     *       "variant": "standard",
+     *       "speed": "bullet",
+     *       "perf": "bullet",
+     *       "createdAt": 1525789431889,
+     *       "status": 20,
+     *       "statusName": "started",
+     *       "clock": {
+     *         "initial": 60,
+     *         "increment": 0,
+     *         "totalTime": 60
+     *       },
+     *       "players": {
+     *         "white": {
+     *           "userId": "kastorcito",
+     *           "rating": 2617
+     *         },
+     *         "black": {
+     *           "userId": "er_or",
+     *           "rating": 2288
+     *         }
+     *       }
+     *     } */
+    GameStreamGame: {
+      id: string;
+      rated?: boolean;
+      variant?: components["schemas"]["VariantKey"];
+      speed?: components["schemas"]["Speed"];
+      perf?: components["schemas"]["PerfType"];
+      createdAt?: number;
+      status?: components["schemas"]["GameStatusId"];
+      statusName?: components["schemas"]["GameStatusName"];
+      clock?: {
+        initial?: number;
+        increment?: number;
+        totalTime?: number;
+      };
+      players?: {
+        white?: {
+          userId?: string;
+          rating?: number;
+        };
+        black?: {
+          userId?: string;
+          rating?: number;
+        };
+      };
+      winner?: components["schemas"]["GameColor"];
+    };
     /** @example [
      *       {
      *         "id": "A5fcMO3k",
@@ -5413,7 +5484,7 @@ export interface components {
      *         "winner": "white"
      *       }
      *     ] */
-    GameStream: unknown;
+    GameStream: components["schemas"]["GameStreamGame"][];
     /** @enum {string} */
     GameSource:
       | "lobby"
@@ -5511,46 +5582,65 @@ export interface components {
       gameId: string;
       color: components["schemas"]["GameColor"];
     };
-    TvFeed: {
+    /** featured */
+    TvFeedFeatured: {
       /**
        * @description The type of message.
        *     A summary of the game is sent as the first message and when the featured game changes.
        *     Subsequent messages are just the FEN, last move, and clocks.
        *
-       * @enum {string}
+       * @constant
        */
-      t: "featured" | "fen";
-      /** @description The data of the message */
-      d:
-        | {
-            /** @description The game ID */
-            id: string;
-            /** @enum {string} */
-            orientation: "white" | "black";
-            players: {
-              /** @enum {string} */
-              color: "white" | "black";
-              user: components["schemas"]["LightUser"];
-              rating: number;
-              /** @description The player's remaining time in seconds */
-              seconds: number;
-            }[];
-            /** @description The FEN of the current position */
-            fen: string;
-          }
-        | {
-            /** @description The FEN of the current position */
-            fen: string;
-            /** @description The last move in UCI format (King to rook for Chess960-compatible
-             *     castling notation)
-             *      */
-            lm: string;
-            /** @description White's clock in seconds */
-            wc: number;
-            /** @description Black's clock in seconds */
-            bc: number;
-          };
+      t: "featured";
+      /**
+       * featured
+       * @description The data of the message
+       */
+      d: {
+        /** @description The game ID */
+        id: string;
+        orientation: components["schemas"]["GameColor"];
+        players: {
+          color: components["schemas"]["GameColor"];
+          user: components["schemas"]["LightUser"];
+          rating: number;
+          /** @description The player's remaining time in seconds */
+          seconds: number;
+        }[];
+        /** @description The FEN of the current position */
+        fen: string;
+      };
     };
+    /** fen */
+    TvFeedFen: {
+      /**
+       * @description The type of message.
+       *     A summary of the game is sent as the first message and when the featured game changes.
+       *     Subsequent messages are just the FEN, last move, and clocks.
+       *
+       * @constant
+       */
+      t: "fen";
+      /**
+       * fen
+       * @description The data of the message
+       */
+      d: {
+        /** @description The FEN of the current position */
+        fen: string;
+        /** @description The last move in UCI format (King to rook for Chess960-compatible
+         *     castling notation)
+         *      */
+        lm: string;
+        /** @description White's clock in seconds */
+        wc: number;
+        /** @description Black's clock in seconds */
+        bc: number;
+      };
+    };
+    TvFeed:
+      | components["schemas"]["TvFeedFeatured"]
+      | components["schemas"]["TvFeedFen"];
     Clock: {
       limit: number;
       increment: number;
@@ -6603,22 +6693,6 @@ export interface components {
        */
       date?: number;
     };
-    /** @enum {integer} */
-    GameStatusId:
-      | 10
-      | 20
-      | 25
-      | 30
-      | 31
-      | 32
-      | 33
-      | 34
-      | 35
-      | 36
-      | 37
-      | 38
-      | 39
-      | 60;
     GameStatus: {
       id: components["schemas"]["GameStatusId"];
       name: components["schemas"]["GameStatusName"];
