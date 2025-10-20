@@ -59,9 +59,5 @@ example:
     "status": 20,
     "statusName": "started",
     "clock": { "initial": 60, "increment": 0, "totalTime": 60 },
-    "players":
-      {
-        "white": { "userId": "kastorcito", "rating": 2617 },
-        "black": { "userId": "er_or", "rating": 2288 },
-      },
+    "players": { "white": { "userId": "kastorcito", "rating": 2617 }, "black": { "userId": "er_or", "rating": 2288 } },
   }
