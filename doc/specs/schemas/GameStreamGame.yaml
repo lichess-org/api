@@ -1,0 +1,63 @@
+type: object
+properties:
+  id:
+    type: string
+  rated:
+    type: boolean
+  variant:
+    $ref: "./VariantKey.yaml"
+  speed:
+    $ref: "./Speed.yaml"
+  perf:
+    $ref: "./PerfType.yaml"
+  createdAt:
+    type: integer
+  status:
+    $ref: "./GameStatusId.yaml"
+  statusName:
+    $ref: "./GameStatusName.yaml"
+  clock:
+    type: object
+    properties:
+      initial:
+        type: integer
+      increment:
+        type: integer
+      totalTime:
+        type: integer
+  players:
+    type: object
+    properties:
+      white:
+        type: object
+        properties:
+          userId:
+            type: string
+          rating:
+            type: integer
+      black:
+        type: object
+        properties:
+          userId:
+            type: string
+          rating:
+            type: integer
+  winner:
+    $ref: "./GameColor.yaml"
+
+required:
+  - id
+
+example:
+  {
+    "id": "A5fcMO3k",
+    "rated": true,
+    "variant": "standard",
+    "speed": "bullet",
+    "perf": "bullet",
+    "createdAt": 1525789431889,
+    "status": 20,
+    "statusName": "started",
+    "clock": { "initial": 60, "increment": 0, "totalTime": 60 },
+    "players": { "white": { "userId": "kastorcito", "rating": 2617 }, "black": { "userId": "er_or", "rating": 2288 } },
+  }
