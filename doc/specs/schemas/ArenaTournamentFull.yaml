@@ -19,15 +19,15 @@ properties:
   clock:
     $ref: "./Clock.yaml"
   minutes:
-    type: number
+    type: integer
   createdBy:
     type: string
   system:
     type: string
   secondsToStart:
-    type: number
+    type: integer
   secondsToFinish:
-    type: number
+    type: integer
   isFinished:
     type: boolean
   isRecentlyFinished:
@@ -38,7 +38,7 @@ properties:
     type: string
     format: int64
   nbPlayers:
-    type: number
+    type: integer
   verdicts:
     $ref: "./Verdicts.yaml"
   quote:
@@ -121,14 +121,14 @@ properties:
               n:
                 type: string
               r:
-                type: number
+                type: integer
               k:
-                type: number
+                type: integer
   standing:
     type: object
     properties:
       page:
-        type: number
+        type: integer
       players:
         type: array
         items:
@@ -146,11 +146,11 @@ properties:
             flair:
               $ref: "./Flair.yaml"
             rank:
-              type: number
+              type: integer
             rating:
-              type: number
+              type: integer
             score:
-              type: number
+              type: integer
             sheet:
               $ref: "./ArenaSheet.yaml"
   featured:
@@ -174,9 +174,9 @@ properties:
           id:
             type: string
           rank:
-            type: number
+            type: integer
           rating:
-            type: number
+            type: integer
       black:
         type: object
         properties:
@@ -185,17 +185,17 @@ properties:
           id:
             type: string
           rank:
-            type: number
+            type: integer
           rating:
-            type: number
+            type: integer
       c:
         type: object
         properties:
           white:
-            type: number
+            type: integer
             description: white's clock in seconds
           black:
-            type: number
+            type: integer
             description: black's clock in seconds
   podium:
     type: array
@@ -214,40 +214,40 @@ properties:
         flair:
           $ref: "./Flair.yaml"
         rank:
-          type: number
+          type: integer
         rating:
-          type: number
+          type: integer
         score:
-          type: number
+          type: integer
         nb:
           type: object
           properties:
             game:
-              type: number
+              type: integer
             berserk:
-              type: number
+              type: integer
             win:
-              type: number
+              type: integer
         performance:
-          type: number
+          type: integer
 
   stats:
     type: object
     properties:
       games:
-        type: number
+        type: integer
       moves:
-        type: number
+        type: integer
       whiteWins:
-        type: number
+        type: integer
       blackWins:
-        type: number
+        type: integer
       draws:
-        type: number
+        type: integer
       berserks:
-        type: number
+        type: integer
       averageRating:
-        type: number
+        type: integer
     required:
       - games
       - moves
