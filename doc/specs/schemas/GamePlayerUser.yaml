@@ -1,4 +1,5 @@
 type: object
+
 properties:
   user:
     $ref: "./LightUser.yaml"
@@ -16,15 +17,15 @@ properties:
     type: object
     properties:
       inaccuracy:
-        type: number
+        type: integer
       mistake:
-        type: number
+        type: integer
       blunder:
-        type: number
+        type: integer
       acpl:
-        type: number
+        type: integer
       accuracy:
-        type: number
+        type: integer
     required: [inaccuracy, mistake, blunder, acpl]
   team:
     type: string

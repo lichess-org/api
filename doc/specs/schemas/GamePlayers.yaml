@@ -1,9 +1,10 @@
 type: object
+
 properties:
   white:
-    $ref: "./GameUser.yaml"
+    $ref: "./GamePlayerUser.yaml"
   black:
-    $ref: "./GameUser.yaml"
+    $ref: "./GamePlayerUser.yaml"
 
 required:
   - white
