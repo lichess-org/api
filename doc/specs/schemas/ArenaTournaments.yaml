@@ -1,4 +1,5 @@
 type: object
+
 properties:
   created:
     type: array
@@ -12,3 +13,8 @@ properties:
     type: array
     items:
       $ref: "./ArenaTournament.yaml"
+
+required:
+  - created
+  - started
+  - finished
