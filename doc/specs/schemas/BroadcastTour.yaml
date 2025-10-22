@@ -52,7 +52,7 @@ properties:
         type: string
         description: "Tournament format"
   tier:
-    type: number
+    type: integer
     description: "Used to designate featured tournaments on Lichess"
   image:
     type: string

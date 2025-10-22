@@ -33,7 +33,6 @@ properties:
     type: integer
     format: int64
   customScoring:
-    type: object
     $ref: "./BroadcastCustomScoring.yaml"
 
 required:

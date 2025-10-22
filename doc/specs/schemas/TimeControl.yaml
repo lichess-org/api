@@ -6,9 +6,9 @@ oneOf:
         type: string
         const: clock
       limit:
-        type: number
+        type: integer
       increment:
-        type: number
+        type: integer
       show:
         example: 5+2
         type: string
@@ -20,7 +20,7 @@ oneOf:
         type: string
         const: correspondence
       daysPerTurn:
-        type: number
+        type: integer
     additionalProperties: false
   - type: object
     title: Unlimited

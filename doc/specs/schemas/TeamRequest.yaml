@@ -7,7 +7,7 @@ properties:
     type: string
     example: thibault
   date:
-    type: number
+    type: integer
     example: 1514505150384
   message:
     type: string

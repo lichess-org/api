@@ -5,11 +5,9 @@ properties:
   name:
     type: string
   rating:
-    type: number
+    type: integer
   title:
-    oneOf:
-      - $ref: "./Title.yaml"
-      - type: "null"
+    $ref: "./Title.yaml"
   flair:
     $ref: "./Flair.yaml"
   patron:
@@ -22,7 +20,7 @@ properties:
   online:
     type: boolean
   lag:
-    type: number
+    type: integer
 
 required:
   - id
