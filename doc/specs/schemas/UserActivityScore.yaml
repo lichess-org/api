@@ -2,18 +2,21 @@ type: object
 
 properties:
   win:
-    type: number
+    type: integer
   loss:
-    type: number
+    type: integer
   draw:
-    type: number
+    type: integer
   rp:
     type: object
     properties:
       before:
-        type: number
+        type: integer
       after:
-        type: number
+        type: integer
+    required:
+      - before
+      - after
 
 required:
   - win
