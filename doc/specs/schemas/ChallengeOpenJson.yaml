@@ -20,8 +20,7 @@ properties:
   timeControl:
     $ref: "./TimeControl.yaml"
   color:
-    type: string
-    enum: ["white", "black", "random"]
+    $ref: "./ChallengeColor.yaml"
   finalColor:
     $ref: "./GameColor.yaml"
   perf:
@@ -35,8 +34,10 @@ properties:
     type: string
   urlWhite:
     type: string
+    format: uri
   urlBlack:
     type: string
+    format: uri
   open:
     type: object
     properties:
@@ -45,6 +46,8 @@ properties:
         type: array
         items:
           type: string
+        minItems: 2
+        maxItems: 2
 
 required:
   - id

@@ -22,8 +22,7 @@ properties:
   timeControl:
     $ref: "./TimeControl.yaml"
   color:
-    type: string
-    enum: ["white", "black", "random"]
+    $ref: "./ChallengeColor.yaml"
   finalColor:
     $ref: "./GameColor.yaml"
   perf:
