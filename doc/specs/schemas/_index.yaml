@@ -52,8 +52,8 @@ ChallengeOpenJson:
 BulkPairing:
   $ref: "./BulkPairing.yaml"
 
-GameUser:
-  $ref: "./GameUser.yaml"
+GamePlayerUser:
+  $ref: "./GamePlayerUser.yaml"
 
 GameJson:
   $ref: "./GameJson.yaml"
