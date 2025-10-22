@@ -4772,7 +4772,7 @@ export interface components {
      *       "error": "Not found."
      *     } */
     NotFound: {
-      error?: string;
+      error: string;
     };
     UserPreferences: {
       dark?: boolean;
@@ -4911,7 +4911,7 @@ export interface components {
       sayGG?: 0 | 1 | 2;
     };
     Ok: {
-      ok?: boolean;
+      ok: boolean;
     };
     TimelineEntryFollow: {
       /** @enum {string} */
@@ -5726,9 +5726,9 @@ export interface components {
       winner?: components["schemas"]["LightUser"];
     };
     ArenaTournaments: {
-      created?: components["schemas"]["ArenaTournament"][];
-      started?: components["schemas"]["ArenaTournament"][];
-      finished?: components["schemas"]["ArenaTournament"][];
+      created: components["schemas"]["ArenaTournament"][];
+      started: components["schemas"]["ArenaTournament"][];
+      finished: components["schemas"]["ArenaTournament"][];
     };
     /**
      * @description Custom initial position (in FEN). Variant must be standard, fromPosition, or chess960 (if a valid 960 starting position), and the game cannot be rated.
@@ -5881,7 +5881,7 @@ export interface components {
      *     } */
     Error: {
       /** @description The cause of the error. */
-      error?: string;
+      error: string;
     };
     /** @example {
      *       "games": 10,
@@ -5896,8 +5896,8 @@ export interface components {
       performance?: number;
     };
     ArenaTournamentPlayed: {
-      tournament?: components["schemas"]["ArenaTournament"];
-      player?: components["schemas"]["ArenaTournamentPlayer"];
+      tournament: components["schemas"]["ArenaTournament"];
+      player: components["schemas"]["ArenaTournamentPlayer"];
     };
     /**
      * @description Custom initial position (in FEN). Variant must be standard and the game cannot be rated.
@@ -6739,13 +6739,13 @@ export interface components {
     };
     GameStartEvent: {
       /** @constant */
-      type?: "gameStart";
-      game?: components["schemas"]["GameEventInfo"];
+      type: "gameStart";
+      game: components["schemas"]["GameEventInfo"];
     };
     GameFinishEvent: {
       /** @constant */
-      type?: "gameFinish";
-      game?: components["schemas"]["GameEventInfo"];
+      type: "gameFinish";
+      game: components["schemas"]["GameEventInfo"];
     };
     /** @enum {string} */
     ChallengeStatus:
@@ -6858,8 +6858,8 @@ export interface components {
     };
     ChallengeCanceledEvent: {
       /** @constant */
-      type?: "challengeCanceled";
-      challenge?: components["schemas"]["ChallengeJson"];
+      type: "challengeCanceled";
+      challenge: components["schemas"]["ChallengeJson"];
     };
     ChallengeDeclinedJson: {
       /** @description Human readable, possibly translated reason why the challenge was declined. */
@@ -6883,8 +6883,8 @@ export interface components {
     } & components["schemas"]["ChallengeJson"];
     ChallengeDeclinedEvent: {
       /** @constant */
-      type?: "challengeDeclined";
-      challenge?: components["schemas"]["ChallengeDeclinedJson"];
+      type: "challengeDeclined";
+      challenge: components["schemas"]["ChallengeDeclinedJson"];
     };
     GameEventPlayer: {
       aiLevel?: number;
@@ -7284,7 +7284,7 @@ export interface components {
      *     } */
     OAuthError: {
       /** @description The cause of the error. */
-      error?: string;
+      error: string;
       /** @description The reason why the request was rejected. */
       error_description?: string;
     };
