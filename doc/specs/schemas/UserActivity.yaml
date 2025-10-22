@@ -3,14 +3,15 @@ type: object
 properties:
   interval:
     type: object
+    properties:
+      start:
+        type: integer
+      end:
+        type: integer
     required:
       - start
       - end
-    properties:
-      start:
-        type: number
-      end:
-        type: number
+
   games:
     type: object
     properties:
@@ -51,11 +52,12 @@ properties:
     $ref: "./PuzzleModePerf.yaml"
   streak:
     $ref: "./PuzzleModePerf.yaml"
+
   tournaments:
     type: object
     properties:
       nb:
-        type: number
+        type: integer
       best:
         type: array
         items:
@@ -78,13 +80,14 @@ properties:
                 name:
                   type: string
             nbGames:
-              type: number
+              type: integer
             score:
-              type: number
+              type: integer
             rank:
-              type: number
+              type: integer
             rankPercent:
-              type: number
+              type: integer
+
   practice:
     type: array
     items:
@@ -99,11 +102,13 @@ properties:
         name:
           type: string
         nbPositions:
-          type: number
+          type: integer
+
   simuls:
     type: array
     items:
       type: string
+
   correspondenceMoves:
     type: object
     required:
@@ -111,7 +116,7 @@ properties:
       - games
     properties:
       nb:
-        type: number
+        type: integer
       games:
         type: array
         items:
@@ -133,6 +138,7 @@ properties:
           - games
     required:
       - correspondence
+
   follows:
     type: object
     properties:
@@ -140,8 +146,20 @@ properties:
         $ref: "./UserActivityFollowList.yaml"
       out:
         $ref: "./UserActivityFollowList.yaml"
+
   studies:
-    type: object
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+        - id
+        - name
+
   teams:
     type: array
     items:
@@ -152,10 +170,12 @@ properties:
       properties:
         url:
           type: string
+          format: uri
         name:
           type: string
         flair:
           $ref: "./Flair.yaml"
+
   posts:
     type: array
     items:
@@ -181,13 +201,15 @@ properties:
                 type: string
               text:
                 type: string
+
   patron:
     type: object
     required:
       - months
     properties:
       months:
-        type: number
+        type: integer
+
   stream:
     type: boolean
 

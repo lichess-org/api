@@ -7,6 +7,7 @@ properties:
     $ref: "./GameColor.yaml"
   url:
     type: string
+    format: uri
   variant:
     $ref: "./VariantKey.yaml"
   speed:
@@ -26,7 +27,7 @@ properties:
       user:
         type: string
       rating:
-        type: number
+        type: integer
 
 required:
   - id

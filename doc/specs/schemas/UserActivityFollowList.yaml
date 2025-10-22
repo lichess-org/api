@@ -6,7 +6,7 @@ properties:
     items:
       type: string
   nb:
-    type: number
+    type: integer
 
 required:
   - ids
