@@ -202,8 +202,8 @@ OpeningExplorerPlayer:
 TablebaseJson:
   $ref: "./TablebaseJson.yaml"
 
-Move:
-  $ref: "./Move.yaml"
+TablebaseMove:
+  $ref: "./TablebaseMove.yaml"
 
 Team:
   $ref: "./Team.yaml"
