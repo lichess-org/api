@@ -1,6 +1,11 @@
 type: object
+
 properties:
   tournament:
     $ref: "./ArenaTournament.yaml"
   player:
     $ref: "./ArenaTournamentPlayer.yaml"
+
+required:
+  - tournament
+  - player
