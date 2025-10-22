@@ -1,7 +1,12 @@
 type: object
+
 properties:
   type:
     type: string
     const: challengeDeclined
   challenge:
     $ref: "./ChallengeDeclinedJson.yaml"
+
+required:
+  - type
+  - challenge

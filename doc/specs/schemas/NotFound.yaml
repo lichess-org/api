@@ -1,5 +1,9 @@
 properties:
   error:
     type: string
+
+required:
+  - error
+
 example:
   error: "Not found."

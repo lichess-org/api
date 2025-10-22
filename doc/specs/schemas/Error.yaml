@@ -2,5 +2,9 @@ properties:
   error:
     type: string
     description: The cause of the error.
+
+required:
+  - error
+
 example:
   error: "This request is invalid because [...]"
