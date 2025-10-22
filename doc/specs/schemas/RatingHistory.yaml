@@ -1,3 +1,7 @@
+type: array
+items:
+  $ref: "./RatingHistoryEntry.yaml"
+
 example:
   [
     { "name": "Bullet", "points": [[2011, 0, 8, 1472], [2011, 0, 9, 1332], [2011, 8, 12, 1314]] },
