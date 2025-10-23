@@ -60,10 +60,7 @@ get:
                     fen:
                       type: string
                     color:
-                      type: string
-                      enum:
-                        - white
-                        - black
+                      $ref: "../../schemas/GameColor.yaml"
                     lastMove:
                       type: string
                     source:
@@ -105,10 +102,7 @@ get:
                     swissId:
                       type: string
                     winner:
-                      type: string
-                      enum:
-                        - white
-                        - black
+                      $ref: "../../schemas/GameColor.yaml"
                     ratingDiff:
                       type: number
             example:

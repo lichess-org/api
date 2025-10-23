@@ -69,12 +69,8 @@ post:
                   description: Game is rated and impacts players ratings
                   default: false
                 color:
-                  type: string
+                  $ref: "../../schemas/ChallengeColor.yaml"
                   description: Which color you get to play
-                  enum:
-                    - random
-                    - white
-                    - black
                   default: "random"
                 variant:
                   $ref: "../../schemas/VariantKey.yaml"
