@@ -1,4 +1,5 @@
 type: object
+
 properties:
   id:
     type: integer
@@ -9,7 +10,7 @@ properties:
   federation:
     type: string
   year:
-    type: [number, "null"]
+    type: [integer, "null"]
   inactive:
     type: integer
   standard:

@@ -30,13 +30,9 @@ properties:
 required:
   - all
   - rated
-  - ai
   - draw
-  - drawH
   - loss
-  - lossH
   - win
-  - winH
   - bookmark
   - playing
   - import
