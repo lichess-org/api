@@ -10,7 +10,7 @@ oneOf:
       increment:
         type: integer
       show:
-        example: 5+2
+        example: "5+2"
         type: string
     additionalProperties: false
   - type: object

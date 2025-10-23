@@ -1,4 +1,5 @@
 type: object
+
 properties:
   id:
     type: string
@@ -32,6 +33,9 @@ properties:
         type: string
       name:
         type: string
+    required:
+      - icon
+      - name
   direction:
     type: string
     enum:
@@ -39,6 +43,9 @@ properties:
       - out
   initialFen:
     type: string
+  rematchOf:
+    type: string
+
 required:
   - id
   - url
@@ -51,6 +58,7 @@ required:
   - timeControl
   - color
   - perf
+
 example:
   {
     "id": "H9fIRZUk",

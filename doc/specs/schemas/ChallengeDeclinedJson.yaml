@@ -1,25 +1,25 @@
 allOf:
   - $ref: "./ChallengeJson.yaml"
-properties:
-  declineReason:
-    type: string
-    description: Human readable, possibly translated reason why the challenge was declined.
-  declineReasonKey:
-    type: string
-    description: Untranslated, computer-matchable reason why the challenge was declined.
-    enum:
-      - generic
-      - later
-      - toofast
-      - tooslow
-      - timecontrol
-      - rated
-      - casual
-      - standard
-      - variant
-      - nobot
-      - onlybot
-
-required:
-  - declineReason
-  - declineReasonKey
+  - type: object
+    properties:
+      declineReason:
+        type: string
+        description: Human readable, possibly translated reason why the challenge was declined.
+      declineReasonKey:
+        type: string
+        description: Untranslated, computer-matchable reason why the challenge was declined.
+        enum:
+          - generic
+          - later
+          - toofast
+          - tooslow
+          - timecontrol
+          - rated
+          - casual
+          - standard
+          - variant
+          - nobot
+          - onlybot
+    required:
+      - declineReason
+      - declineReasonKey

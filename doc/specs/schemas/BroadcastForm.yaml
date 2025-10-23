@@ -52,7 +52,7 @@ properties:
       Official Standings. External website URL, e.g. chess-results.com, info64.org
   markdown:
     type: string
-    maxLength: 20_000
+    maxLength: 20000
     description: |
       Optional long description of the broadcast. Markdown is supported.
   showScores:
