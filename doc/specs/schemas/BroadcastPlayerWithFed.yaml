@@ -17,3 +17,6 @@ properties:
   fed:
     type: string
     example: CHI
+
+required:
+  - name
