@@ -21,21 +21,17 @@ properties:
       - win
   dtz:
     type: ["null", "integer"]
-    description: DTZ50'' with rounding or null if unknown
   precise_dtz:
     type: ["null", "integer"]
-    description: |
-      DTZ50'' (only if guaranteed to be not rounded) or null if unknown
   dtc:
     type: ["null", "integer"]
-    description: Depth to Conversion (experimental)
   dtm:
     type: ["null", "integer"]
-    description: Depth To Mate (only for Standard positions with not more than 5 pieces)
   dtw:
     type: ["null", "integer"]
-    description: Depth To Win (only for Antichess positions with not more than 4 pieces)
   zeroing:
+    type: boolean
+  conversion:
     type: boolean
   checkmate:
     type: boolean
@@ -47,3 +43,7 @@ properties:
     type: boolean
   insufficient_material:
     type: boolean
+required:
+  - uci
+  - san
+  - category
