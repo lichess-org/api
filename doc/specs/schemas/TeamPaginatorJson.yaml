@@ -1,25 +1,26 @@
 type: object
+
 properties:
   currentPage:
-    type: number
+    type: integer
     example: 4
   maxPerPage:
-    type: number
+    type: integer
     example: 15
   currentPageResults:
     type: array
     items:
       $ref: "./Team.yaml"
   previousPage:
-    type: [number, "null"]
+    type: [integer, "null"]
     example: 3
   nextPage:
-    type: [number, "null"]
+    type: [integer, "null"]
     example: 5
   nbResults:
-    type: number
+    type: integer
   nbPages:
-    type: number
+    type: integer
 
 required:
   - currentPage
