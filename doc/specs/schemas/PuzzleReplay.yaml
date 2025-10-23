@@ -5,11 +5,11 @@ properties:
     type: object
     properties:
       days:
-        type: number
+        type: integer
       theme:
         type: string
       nb:
-        type: number
+        type: integer
       remaining:
         type: array
         items:
