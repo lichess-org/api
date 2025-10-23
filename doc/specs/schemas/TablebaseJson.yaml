@@ -29,18 +29,23 @@ properties:
   dtz:
     type: ["null", "integer"]
     description: |
-      [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) or null
-      if unknown
+      [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) in plies
+      (for Standard chess positions with not more than 7 pieces and variant
+      positions not more than 6 pieces)
   precise_dtz:
     type: ["null", "integer"]
     description: |
-      DTZ50'' (only if guaranteed to be not rounded) or null if unknown
+      DTZ50'' in plies, only if guaranteed to not be rounded, or absent if unknown
   dtc:
     type: ["null", "integer"]
     description: |
-      Depth to Conversion: Moves to next capture or promotion (available
-      only for Standard *op1* positions with 8 pieces, i.e., positions where
-      there is at least one pair of opposing pawns)
+      Experimental Depth to Conversion: Moves to next capture, promotion,
+      or checkmate. Available for:
+      * Standard chess positions with 8 pieces, more than one pawn of material
+        value for each side, and at least one pair of opposing pawns,
+        short *op1*, if query parameter `dtc` is `auxiliary` or `always`.
+      * Some standard chess positions with up to 7 pieces, if query parameter
+        `dtc` is `always`. Work in progress.
   dtm:
     type: ["null", "integer"]
     description: |
@@ -67,7 +72,10 @@ properties:
     type: array
     description: Information about legal moves, best first
     items:
-      $ref: "./Move.yaml"
+      $ref: "./TablebaseMove.yaml"
+required:
+  - category
+  - moves
 example:
   {
     "dtz": 1,
