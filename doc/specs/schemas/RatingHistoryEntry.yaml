@@ -1,0 +1,15 @@
+type: object
+properties:
+  name:
+    type: string
+  points:
+    type: array
+    items:
+      type: array
+      description: "[year, month, day, rating]"
+      items:
+        type: integer
+      minItems: 4
+      maxItems: 4
+
+example: { "name": "Bullet", "points": [[2011, 0, 8, 1472], [2011, 0, 9, 1332], [2011, 8, 12, 1314]] }
