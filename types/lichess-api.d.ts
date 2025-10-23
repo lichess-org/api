@@ -4220,6 +4220,33 @@ export interface components {
        */
       blocking?: boolean;
     };
+    /** @example {
+     *       "name": "Bullet",
+     *       "points": [
+     *         [
+     *           2011,
+     *           0,
+     *           8,
+     *           1472
+     *         ],
+     *         [
+     *           2011,
+     *           0,
+     *           9,
+     *           1332
+     *         ],
+     *         [
+     *           2011,
+     *           8,
+     *           12,
+     *           1314
+     *         ]
+     *       ]
+     *     } */
+    RatingHistoryEntry: {
+      name?: string;
+      points?: number[][];
+    };
     /** @example [
      *       {
      *         "name": "Bullet",
@@ -4256,7 +4283,7 @@ export interface components {
      *         ]
      *       }
      *     ] */
-    RatingHistory: unknown;
+    RatingHistory: components["schemas"]["RatingHistoryEntry"][];
     /** @enum {string} */
     PerfType:
       | "ultraBullet"
@@ -4504,8 +4531,8 @@ export interface components {
       loss: number;
       draw: number;
       rp: {
-        before?: number;
-        after?: number;
+        before: number;
+        after: number;
       };
     };
     /** @enum {string} */
@@ -4529,6 +4556,7 @@ export interface components {
     UserActivityCorrespondenceGame: {
       id: string;
       color: components["schemas"]["GameColor"];
+      /** Format: uri */
       url: string;
       variant?: components["schemas"]["VariantKey"];
       /** @constant */
@@ -4603,8 +4631,12 @@ export interface components {
         in?: components["schemas"]["UserActivityFollowList"];
         out?: components["schemas"]["UserActivityFollowList"];
       };
-      studies?: Record<string, never>;
+      studies?: {
+        id: string;
+        name: string;
+      }[];
       teams?: {
+        /** Format: uri */
         url: string;
         name: string;
         flair?: components["schemas"]["Flair"];
@@ -4632,7 +4664,7 @@ export interface components {
         };
         pgn: string;
         players: {
-          color: string;
+          color: components["schemas"]["GameColor"];
           flair?: components["schemas"]["Flair"];
           id: string;
           name: string;
@@ -5281,7 +5313,7 @@ export interface components {
       patron?: boolean;
       patronColor?: components["schemas"]["PatronColor"];
     };
-    GameUser: {
+    GamePlayerUser: {
       user: components["schemas"]["LightUser"];
       rating: number;
       ratingDiff?: number;
@@ -5297,9 +5329,9 @@ export interface components {
       };
       team?: string;
     };
-    GameUsers: {
-      white: components["schemas"]["GameUser"];
-      black: components["schemas"]["GameUser"];
+    GamePlayers: {
+      white: components["schemas"]["GamePlayerUser"];
+      black: components["schemas"]["GamePlayerUser"];
     };
     GameOpening: {
       eco: string;
@@ -5341,7 +5373,7 @@ export interface components {
       lastMoveAt: number;
       status: components["schemas"]["GameStatusName"];
       source?: string;
-      players: components["schemas"]["GameUsers"];
+      players: components["schemas"]["GamePlayers"];
       initialFen?: string;
       winner?: components["schemas"]["GameColor"];
       opening?: components["schemas"]["GameOpening"];
@@ -6326,7 +6358,7 @@ export interface components {
     };
     BroadcastPlayerWithFed: {
       /** @example Hernandez Riera, Jose */
-      name?: string;
+      name: string;
       /** @example FM */
       title?: components["schemas"]["Title"];
       /** @example 2149 */
@@ -6758,7 +6790,7 @@ export interface components {
       id: string;
       name: string;
       rating?: number;
-      title?: components["schemas"]["Title"] | null;
+      title?: components["schemas"]["Title"];
       flair?: components["schemas"]["Flair"];
       /** @deprecated */
       patron?: boolean;
@@ -6785,6 +6817,8 @@ export interface components {
           /** @constant */
           type?: "unlimited";
         };
+    /** @enum {string} */
+    ChallengeColor: "white" | "black" | "random";
     /** @example {
      *       "id": "H9fIRZUk",
      *       "url": "https://lichess.org/H9fIRZUk",
@@ -6839,8 +6873,7 @@ export interface components {
       rated: boolean;
       speed: components["schemas"]["Speed"];
       timeControl: components["schemas"]["TimeControl"];
-      /** @enum {string} */
-      color: "white" | "black" | "random";
+      color: components["schemas"]["ChallengeColor"];
       finalColor?: components["schemas"]["GameColor"];
       perf: {
         icon?: string;
@@ -7049,8 +7082,8 @@ export interface components {
      *       }
      *     ] */
     GameChat: {
-      text?: string;
-      user?: string;
+      text: string;
+      user: string;
     }[];
     ChallengeOpenJson: {
       id: string;
@@ -7063,15 +7096,16 @@ export interface components {
       rated: boolean;
       speed: components["schemas"]["Speed"];
       timeControl: components["schemas"]["TimeControl"];
-      /** @enum {string} */
-      color: "white" | "black" | "random";
+      color: components["schemas"]["ChallengeColor"];
       finalColor?: components["schemas"]["GameColor"];
       perf: {
         icon?: string;
         name?: string;
       };
       initialFen?: string;
+      /** Format: uri */
       urlWhite: string;
+      /** Format: uri */
       urlBlack: string;
       open: {
         /** @description An optional array of two user ids. If set, only these users will be allowed to join the game. The first username gets the white pieces. */
@@ -13842,8 +13876,7 @@ export interface operations {
               fullId: string;
               gameId: string;
               fen: string;
-              /** @enum {string} */
-              color: "white" | "black";
+              color: components["schemas"]["GameColor"];
               lastMove: string;
               source: components["schemas"]["GameSource"];
               status?: components["schemas"]["GameStatusName"];
@@ -13863,8 +13896,7 @@ export interface operations {
               secondsLeft: number;
               tournamentId?: string;
               swissId?: string;
-              /** @enum {string} */
-              winner?: "white" | "black";
+              winner?: components["schemas"]["GameColor"];
               ratingDiff?: number;
             }[];
           };
@@ -36686,9 +36718,8 @@ export interface operations {
           /**
            * @description Which color you get to play
            * @default random
-           * @enum {string}
            */
-          color?: "random" | "white" | "black";
+          color?: components["schemas"]["ChallengeColor"];
           variant?: components["schemas"]["VariantKey"];
           fen?: components["schemas"]["FromPositionFEN"];
           /** @description If set, the response is streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
@@ -36991,9 +37022,8 @@ export interface operations {
           /**
            * @description Which color you get to play
            * @default random
-           * @enum {string}
            */
-          color?: "random" | "white" | "black";
+          color?: components["schemas"]["ChallengeColor"];
           variant?: components["schemas"]["VariantKey"];
           fen?: components["schemas"]["FromPositionFEN"];
         };
