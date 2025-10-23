@@ -2,10 +2,10 @@ type: object
 
 properties:
   eval:
-    type: number
+    type: integer
     description: Evaluation in centipawns
   mate:
-    type: number
+    type: integer
     description: Number of moves until forced mate
   best:
     type: string

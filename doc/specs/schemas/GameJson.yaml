@@ -21,7 +21,7 @@ properties:
   source:
     type: string
   players:
-    $ref: "./GameUsers.yaml"
+    $ref: "./GamePlayers.yaml"
   initialFen:
     type: string
   winner:

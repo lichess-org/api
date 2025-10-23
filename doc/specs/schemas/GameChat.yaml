@@ -6,6 +6,9 @@ items:
       type: string
     user:
       type: string
+  required:
+    - text
+    - user
 
 example:
   [
