@@ -1,0 +1,49 @@
+oneOf:
+  - type: object
+    properties:
+      id:
+        type: string
+      variant:
+        $ref: "./Variant.yaml"
+      speed:
+        $ref: "./Speed.yaml"
+      perf:
+        $ref: "./PerfType.yaml"
+      rated:
+        type: boolean
+      initialFen:
+        type: string
+      fen:
+        type: string
+      player:
+        $ref: "./GameColor.yaml"
+      turns:
+        type: integer
+      startedAtTurn:
+        type: integer
+      source:
+        $ref: "./GameSource.yaml"
+      status:
+        $ref: "./GameStatus.yaml"
+      createdAt:
+        type: integer
+      lastMove:
+        type: string
+      players:
+        $ref: "./GamePlayers.yaml"
+    required:
+      - id
+  - type: object
+    properties:
+      fen:
+        type: string
+      lm:
+        type: string
+      wc:
+        type: integer
+      bc:
+        type: integer
+    required:
+      - fen
+      - wc
+      - bc
