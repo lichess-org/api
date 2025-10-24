@@ -1,4 +1,5 @@
 type: object
+
 properties:
   fullId:
     type: string
@@ -37,6 +38,8 @@ properties:
   compat:
     $ref: "./GameCompat.yaml"
   id:
+    type: string
+  tournamentId:
     type: string
 
 required:
