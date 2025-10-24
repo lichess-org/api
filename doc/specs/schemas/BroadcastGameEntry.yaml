@@ -1,4 +1,5 @@
 type: object
+
 properties:
   round:
     type: string
@@ -7,7 +8,6 @@ properties:
     type: string
     description: The game ID. Analogous to chapterId.
   opponent:
-    type: object
     $ref: "./BroadcastPlayerWithFed.yaml"
   color:
     $ref: "./GameColor.yaml"
@@ -22,6 +22,7 @@ properties:
   ratingDiff:
     type: integer
     description: The change in rating for the player as a result of this game
+
 required:
   - round
   - id

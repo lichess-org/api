@@ -1,9 +1,12 @@
+type: object
+
 properties:
   users:
     additionalProperties:
       type: number
   nbGames:
     type: integer
+
 required:
   - users
   - nbGames

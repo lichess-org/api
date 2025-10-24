@@ -16,6 +16,7 @@ properties:
       type: integer
       format: int64
     description: "Start and end dates of the tournament, as Unix timestamps in milliseconds"
+    minItems: 1
     maxItems: 2
     example: [1722169800000, 1722666600000]
   info:
