@@ -57,10 +57,10 @@ example(
 example(
   "users",
   "getPerformanceStatisticsOfAUser",
-  await localClient().GET("/api/user/{username}/perf/{perf}", {
+  await prodClient().GET("/api/user/{username}/perf/{perf}", {
     params: {
       path: {
-        username: "jose",
+        username: "thibault",
         perf: "blitz",
       },
     },
