@@ -1,3 +1,7 @@
+type: array
+items:
+  $ref: "./MoveStreamEntry.yaml"
+
 example:
   [
     {
