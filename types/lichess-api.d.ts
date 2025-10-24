@@ -3930,6 +3930,7 @@ export interface paths {
     /**
      * Tablebase lookup
      * @description **Endpoint: <https://tablebase.lichess.ovh>**
+     *
      *     Example: `curl http://tablebase.lichess.ovh/standard?fen=4k3/6KP/8/8/8/8/7p/8_w_-_-_0_1`
      *
      */
@@ -4161,13 +4162,13 @@ export interface components {
     Count: {
       all: number;
       rated: number;
-      ai: number;
+      ai?: number;
       draw: number;
-      drawH: number;
+      drawH?: number;
       loss: number;
-      lossH: number;
+      lossH?: number;
       win: number;
-      winH: number;
+      winH?: number;
       bookmark: number;
       playing: number;
       import: number;
@@ -6359,7 +6360,6 @@ export interface components {
     BroadcastPlayerWithFed: {
       /** @example Hernandez Riera, Jose */
       name: string;
-      /** @example FM */
       title?: components["schemas"]["Title"];
       /** @example 2149 */
       rating?: number;
@@ -6876,12 +6876,13 @@ export interface components {
       color: components["schemas"]["ChallengeColor"];
       finalColor?: components["schemas"]["GameColor"];
       perf: {
-        icon?: string;
-        name?: string;
+        icon: string;
+        name: string;
       };
       /** @enum {string} */
       direction?: "in" | "out";
       initialFen?: string;
+      rematchOf?: string;
     };
     ChallengeEvent: {
       /** @constant */
@@ -6894,7 +6895,7 @@ export interface components {
       type: "challengeCanceled";
       challenge: components["schemas"]["ChallengeJson"];
     };
-    ChallengeDeclinedJson: {
+    ChallengeDeclinedJson: components["schemas"]["ChallengeJson"] & {
       /** @description Human readable, possibly translated reason why the challenge was declined. */
       declineReason: string;
       /**
@@ -6913,7 +6914,7 @@ export interface components {
         | "variant"
         | "nobot"
         | "onlybot";
-    } & components["schemas"]["ChallengeJson"];
+    };
     ChallengeDeclinedEvent: {
       /** @constant */
       type: "challengeDeclined";
@@ -7540,13 +7541,13 @@ export interface components {
         uci: string;
       } & components["schemas"]["OpeningExplorerPlayerGame"])[];
     };
-    Move: {
+    TablebaseMove: {
       /** @example h7h8q */
-      uci?: string;
+      uci: string;
       /** @example h8=Q+ */
-      san?: string;
+      san: string;
       /** @enum {string} */
-      category?:
+      category:
         | "loss"
         | "unknown"
         | "syzygy-loss"
@@ -7557,18 +7558,13 @@ export interface components {
         | "maybe-win"
         | "syzygy-win"
         | "win";
-      /** @description DTZ50'' with rounding or null if unknown */
       dtz?: null | number;
-      /** @description DTZ50'' (only if guaranteed to be not rounded) or null if unknown
-       *      */
       precise_dtz?: null | number;
-      /** @description Depth to Conversion (experimental) */
       dtc?: null | number;
-      /** @description Depth To Mate (only for Standard positions with not more than 5 pieces) */
       dtm?: null | number;
-      /** @description Depth To Win (only for Antichess positions with not more than 4 pieces) */
       dtw?: null | number;
       zeroing?: boolean;
+      conversion?: boolean;
       checkmate?: boolean;
       stalemate?: boolean;
       variant_win?: boolean;
@@ -7623,7 +7619,7 @@ export interface components {
        *
        * @enum {string}
        */
-      category?:
+      category:
         | "win"
         | "unknown"
         | "syzygy-win"
@@ -7634,16 +7630,21 @@ export interface components {
         | "maybe-loss"
         | "syzygy-loss"
         | "loss";
-      /** @description [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) or null
-       *     if unknown
+      /** @description [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) in plies
+       *     (for Standard chess positions with not more than 7 pieces and variant
+       *     positions not more than 6 pieces)
        *      */
       dtz?: null | number;
-      /** @description DTZ50'' (only if guaranteed to be not rounded) or null if unknown
+      /** @description DTZ50'' in plies, only if guaranteed to not be rounded, or absent if unknown
        *      */
       precise_dtz?: null | number;
-      /** @description Depth to Conversion: Moves to next capture or promotion (available
-       *     only for Standard *op1* positions with 8 pieces, i.e., positions where
-       *     there is at least one pair of opposing pawns)
+      /** @description Experimental Depth to Conversion: Moves to next capture, promotion,
+       *     or checkmate. Available for:
+       *     * Standard chess positions with 8 pieces, more than one pawn of material
+       *       value for each side, and at least one pair of opposing pawns,
+       *       short *op1*, if query parameter `dtc` is `auxiliary` or `always`.
+       *     * Some standard chess positions with up to 7 pieces, if query parameter
+       *       `dtc` is `always`. Work in progress.
        *      */
       dtc?: null | number;
       /** @description Depth To Mate: Plies to mate (available only for Standard positions
@@ -7662,7 +7663,7 @@ export interface components {
       variant_loss?: boolean;
       insufficient_material?: boolean;
       /** @description Information about legal moves, best first */
-      moves?: components["schemas"]["Move"][];
+      moves: components["schemas"]["TablebaseMove"][];
     };
   };
   responses: never;
@@ -9300,126 +9301,155 @@ export interface operations {
         };
         content: {
           /** @example {
-           *       "id": "mary",
-           *       "username": "Mary",
+           *       "id": "thibault",
+           *       "username": "thibault",
            *       "perfs": {
+           *         "ultraBullet": {
+           *           "games": 3,
+           *           "rating": 1688,
+           *           "rd": 351,
+           *           "prog": 0,
+           *           "prov": true
+           *         },
            *         "bullet": {
-           *           "games": 19,
-           *           "rating": 1143,
-           *           "rd": 59,
-           *           "prog": 5
+           *           "games": 7475,
+           *           "rating": 1787,
+           *           "rd": 82,
+           *           "prog": -6
            *         },
            *         "blitz": {
-           *           "games": 10,
-           *           "rating": 939,
-           *           "rd": 47,
-           *           "prog": -1
+           *           "games": 11537,
+           *           "rating": 1785,
+           *           "rd": 53,
+           *           "prog": 4
            *         },
            *         "rapid": {
-           *           "games": 27,
-           *           "rating": 1042,
-           *           "rd": 45,
-           *           "prog": 6
+           *           "games": 873,
+           *           "rating": 1746,
+           *           "rd": 134,
+           *           "prog": -71,
+           *           "prov": true
            *         },
            *         "classical": {
-           *           "games": 7,
-           *           "rating": 1059,
-           *           "rd": 45,
-           *           "prog": -42
+           *           "games": 24,
+           *           "rating": 1806,
+           *           "rd": 247,
+           *           "prog": -5,
+           *           "prov": true
            *         },
            *         "correspondence": {
-           *           "games": 29,
-           *           "rating": 1104,
-           *           "rd": 47,
-           *           "prog": -41
+           *           "games": 377,
+           *           "rating": 1942,
+           *           "rd": 150,
+           *           "prog": -12,
+           *           "prov": true
            *         },
            *         "chess960": {
-           *           "games": 109,
-           *           "rating": 1147,
-           *           "rd": 59,
-           *           "prog": 38
+           *           "games": 348,
+           *           "rating": 1551,
+           *           "rd": 255,
+           *           "prog": 61,
+           *           "prov": true
            *         },
            *         "kingOfTheHill": {
-           *           "games": 900,
-           *           "rating": 965,
-           *           "rd": 46,
-           *           "prog": 18
+           *           "games": 94,
+           *           "rating": 1744,
+           *           "rd": 276,
+           *           "prog": 14,
+           *           "prov": true
            *         },
            *         "threeCheck": {
-           *           "games": 76,
-           *           "rating": 999,
-           *           "rd": 94,
-           *           "prog": 11
+           *           "games": 66,
+           *           "rating": 1728,
+           *           "rd": 248,
+           *           "prog": 132,
+           *           "prov": true
            *         },
            *         "antichess": {
-           *           "games": 109,
-           *           "rating": 1100,
-           *           "rd": 63,
-           *           "prog": 9
+           *           "games": 72,
+           *           "rating": 1512,
+           *           "rd": 273,
+           *           "prog": -20,
+           *           "prov": true
            *         },
            *         "atomic": {
-           *           "games": 5,
-           *           "rating": 1030,
-           *           "rd": 111,
-           *           "prog": -8,
+           *           "games": 99,
+           *           "rating": 1633,
+           *           "rd": 289,
+           *           "prog": 18,
            *           "prov": true
            *         },
            *         "horde": {
-           *           "games": 455,
-           *           "rating": 1162,
-           *           "rd": 48,
-           *           "prog": -38
+           *           "games": 46,
+           *           "rating": 1592,
+           *           "rd": 270,
+           *           "prog": -20,
+           *           "prov": true
+           *         },
+           *         "racingKings": {
+           *           "games": 13,
+           *           "rating": 1552,
+           *           "rd": 321,
+           *           "prog": -75,
+           *           "prov": true
            *         },
            *         "crazyhouse": {
-           *           "games": 12,
-           *           "rating": 950,
-           *           "rd": 92,
-           *           "prog": 36
+           *           "games": 50,
+           *           "rating": 1567,
+           *           "rd": 287,
+           *           "prog": -34,
+           *           "prov": true
            *         },
            *         "puzzle": {
-           *           "games": 48,
-           *           "rating": 1139,
-           *           "rd": 45,
-           *           "prog": -27
+           *           "games": 5704,
+           *           "rating": 1915,
+           *           "rd": 74,
+           *           "prog": 0
+           *         },
+           *         "storm": {
+           *           "runs": 44,
+           *           "score": 33
+           *         },
+           *         "racer": {
+           *           "runs": 82,
+           *           "score": 51
+           *         },
+           *         "streak": {
+           *           "runs": 49,
+           *           "score": 33
            *         }
            *       },
-           *       "createdAt": 1757270375141,
+           *       "flair": "nature.seedling",
+           *       "patron": true,
+           *       "patronColor": 10,
+           *       "verified": true,
+           *       "createdAt": 1290415680000,
            *       "profile": {
-           *         "flag": "GI",
-           *         "location": "Mary City",
-           *         "bio": "⁠\"Assai bene è trascorsa",
-           *         "fideRating": 1050,
-           *         "uscfRating": 1027,
-           *         "ecfRating": 925,
-           *         "rcfRating": 901,
-           *         "cfcRating": 862,
-           *         "dsbRating": 1237,
-           *         "links": "https://en.wikipedia.org/wiki/Euler\nhttps://en.wikipedia.org/wiki/Socialism\nhttps://en.wikipedia.org/wiki/Nelson_Mandela"
+           *         "bio": "I turn coffee into bugs.",
+           *         "realName": "Thibault Duplessis",
+           *         "links": "github.com/ornicar\r\nmas.to/@thibault"
            *       },
-           *       "seenAt": 1757340447056,
+           *       "seenAt": 1761232630967,
            *       "playTime": {
-           *         "total": 15213,
-           *         "tv": 0
+           *         "total": 6437101,
+           *         "tv": 17974
            *       },
-           *       "url": "https://lichess.org/@/Mary",
+           *       "url": "https://lichess.org/@/thibault",
+           *       "playing": "https://lichess.org/2hkdzX2e/black",
            *       "count": {
-           *         "all": 2047,
-           *         "rated": 1637,
-           *         "ai": 0,
-           *         "draw": 113,
-           *         "drawH": 113,
-           *         "loss": 976,
-           *         "lossH": 976,
-           *         "win": 958,
-           *         "winH": 958,
-           *         "bookmark": 0,
-           *         "playing": 0,
-           *         "import": 0,
-           *         "me": 1
+           *         "all": 23451,
+           *         "rated": 21088,
+           *         "draw": 1028,
+           *         "loss": 11200,
+           *         "win": 11218,
+           *         "bookmark": 79,
+           *         "playing": 3,
+           *         "import": 73,
+           *         "me": 0
            *       },
            *       "streamer": {
            *         "twitch": {
-           *           "channel": "https://www.twitch.tv/lichessdotorg"
+           *           "channel": "https://www.twitch.tv/ornicar2"
            *         }
            *       },
            *       "followable": true,
@@ -39082,11 +39112,11 @@ export interface operations {
       query: {
         /** @description FEN of the position. Underscores allowed. */
         fen: string;
-        /** @description When to query the op1 tablebase. The current default is *never*.
-         *     It is eventually going to be *auxiliary*, i.e., only when the position
-         *     is not covered by one of the other tablebases.
+        /** @description When to query the tablebase for `dtc` values. The current default
+         *     is `never`. It is eventually going to be `auxiliary`, i.e., only when
+         *     the position is not covered by one of the other tablebases.
          *      */
-        op1?: "never" | "auxiliary" | "always";
+        dtc?: "never" | "auxiliary" | "always";
       };
       header?: never;
       path?: never;
