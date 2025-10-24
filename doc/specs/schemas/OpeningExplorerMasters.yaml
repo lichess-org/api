@@ -1,15 +1,16 @@
 type: object
+
 properties:
   opening:
     oneOf:
       - $ref: "./OpeningExplorerOpening.yaml"
       - type: "null"
   white:
-    type: number
+    type: integer
   draws:
-    type: number
+    type: integer
   black:
-    type: number
+    type: integer
   moves:
     type: array
     items:
@@ -19,13 +20,13 @@ properties:
         san:
           type: string
         averageRating:
-          type: number
+          type: integer
         white:
-          type: number
+          type: integer
         draws:
-          type: number
+          type: integer
         black:
-          type: number
+          type: integer
         game:
           oneOf:
             - $ref: "./OpeningExplorerMastersGame.yaml"
@@ -54,6 +55,7 @@ properties:
           required:
             - uci
         - $ref: "./OpeningExplorerMastersGame.yaml"
+
 required:
   - opening
   - white
