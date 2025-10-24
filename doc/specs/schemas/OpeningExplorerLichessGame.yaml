@@ -1,13 +1,12 @@
 type: object
+
 properties:
   id:
     type: string
   winner:
-    type: [string, "null"]
-    enum:
-      - white
-      - black
-      - null
+    oneOf:
+      - $ref: "./GameColor.yaml"
+      - type: "null"
   speed:
     $ref: "./Speed.yaml"
   white:
@@ -18,6 +17,7 @@ properties:
     type: number
   month:
     type: [string, "null"]
+
 required:
   - id
   - winner
