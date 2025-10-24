@@ -1,3 +1,5 @@
+type: string
+
 example: |
   [Event "All about the Sicilian Defense: Dragon Variation"]
   [Site "https://lichess.org/study/8c8bmUfy/qwnXMwVC"]
