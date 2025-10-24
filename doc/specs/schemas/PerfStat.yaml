@@ -1,3 +1,409 @@
+type: object
+
+properties:
+  user:
+    type: object
+    properties:
+      name:
+        type: string
+    required:
+      - name
+  perf:
+    type: object
+    properties:
+      glicko:
+        type: object
+        properties:
+          rating:
+            type: number
+          deviation:
+            type: number
+          provisional:
+            type: boolean
+      nb:
+        type: integer
+      progress:
+        type: integer
+  rank:
+    type: [integer, "null"]
+  percentile:
+    type: number
+  stat:
+    type: object
+    properties:
+      perfType:
+        type: object
+        properties:
+          key:
+            type: string
+          name:
+            type: string
+        required:
+          - key
+          - name
+      highest:
+        type: object
+        properties:
+          int:
+            type: integer
+          at:
+            type: string
+            format: date-time
+          gameId:
+            type: string
+        required:
+          - int
+          - at
+          - gameId
+      lowest:
+        type: object
+        properties:
+          int:
+            type: integer
+          at:
+            type: string
+            format: date-time
+          gameId:
+            type: string
+        required:
+          - int
+          - at
+          - gameId
+      id:
+        type: string
+      bestWins:
+        type: object
+        properties:
+          results:
+            type: array
+            items:
+              type: object
+              properties:
+                opRating:
+                  type: integer
+                opId:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                  required:
+                    - id
+                    - name
+                at:
+                  type: string
+                  format: date-time
+                gameId:
+                  type: string
+              required:
+                - opRating
+                - opId
+                - at
+                - gameId
+        required:
+          - results
+      worstLosses:
+        type: object
+        properties:
+          results:
+            type: array
+            items:
+              type: object
+              properties:
+                opRating:
+                  type: integer
+                opId:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                  required:
+                    - id
+                    - name
+                at:
+                  type: string
+                  format: date-time
+                gameId:
+                  type: string
+              required:
+                - opRating
+                - opId
+                - at
+                - gameId
+        required:
+          - results
+      count:
+        type: object
+        properties:
+          all:
+            type: integer
+          rated:
+            type: integer
+          win:
+            type: integer
+          loss:
+            type: integer
+          draw:
+            type: integer
+          tour:
+            type: integer
+          berserk:
+            type: integer
+          opAvg:
+            type: number
+          seconds:
+            type: integer
+          disconnects:
+            type: integer
+        required:
+          - all
+          - rated
+          - win
+          - loss
+          - draw
+          - tour
+          - berserk
+          - opAvg
+          - seconds
+          - disconnects
+      resultStreak:
+        type: object
+        properties:
+          win:
+            type: object
+            properties:
+              cur:
+                type: object
+                properties:
+                  v:
+                    type: integer
+                required:
+                  - v
+              max:
+                type: object
+                properties:
+                  v:
+                    type: integer
+                  from:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                  to:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                required:
+                  - v
+            required:
+              - cur
+              - max
+          loss:
+            type: object
+            properties:
+              cur:
+                type: object
+                properties:
+                  v:
+                    type: integer
+                  from:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                  to:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                required:
+                  - v
+              max:
+                type: object
+                properties:
+                  v:
+                    type: integer
+                  from:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                  to:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                required:
+                  - v
+            required:
+              - cur
+              - max
+        required:
+          - win
+          - loss
+      userId:
+        type: object
+        properties:
+          id:
+            type: string
+          name:
+            type: string
+          title:
+            oneOf:
+              - $ref: "./Title.yaml"
+              - type: "null"
+        required:
+          - id
+          - name
+          - title
+      playStreak:
+        type: object
+        properties:
+          nb:
+            type: object
+            properties:
+              cur:
+                type: object
+                properties:
+                  v:
+                    type: integer
+                required:
+                  - v
+              max:
+                type: object
+                properties:
+                  v:
+                    type: integer
+                  from:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                  to:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                required:
+                  - v
+            required:
+              - cur
+              - max
+          time:
+            type: object
+            properties:
+              cur:
+                type: object
+                properties:
+                  v:
+                    type: integer
+                required:
+                  - v
+              max:
+                type: object
+                properties:
+                  v:
+                    type: integer
+                  from:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                  to:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                required:
+                  - v
+            required:
+              - cur
+              - max
+          lastDate:
+            type: string
+            format: date-time
+        required:
+          - nb
+          - time
+    required:
+      - perfType
+      - id
+      - bestWins
+      - worstLosses
+      - count
+      - resultStreak
+      - userId
+      - playStreak
+
+required:
+  - user
+  - perf
+  - rank
+  - percentile
+  - stat
+
 example:
   {
     "user": { "name": "thibault" },
