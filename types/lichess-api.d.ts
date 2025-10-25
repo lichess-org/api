@@ -4291,6 +4291,15 @@ export interface components {
       | "kingOfTheHill"
       | "racingKings"
       | "threeCheck";
+    LightUser: {
+      id: string;
+      name: string;
+      flair?: components["schemas"]["Flair"];
+      title?: components["schemas"]["Title"];
+      /** @deprecated */
+      patron?: boolean;
+      patronColor?: components["schemas"]["PatronColor"];
+    };
     PerfStat: {
       user: {
         name: string;
@@ -4307,10 +4316,6 @@ export interface components {
       rank: number | null;
       percentile: number;
       stat: {
-        perfType: {
-          key: string;
-          name: string;
-        };
         highest?: {
           int: number;
           /** Format: date-time */
@@ -4323,15 +4328,10 @@ export interface components {
           at: string;
           gameId: string;
         };
-        id: string;
         bestWins: {
           results: {
             opRating: number;
-            opId: {
-              id: string;
-              name: string;
-              title: components["schemas"]["Title"] | null;
-            };
+            opId: components["schemas"]["LightUser"];
             /** Format: date-time */
             at: string;
             gameId: string;
@@ -4340,11 +4340,7 @@ export interface components {
         worstLosses: {
           results: {
             opRating: number;
-            opId: {
-              id: string;
-              name: string;
-              title: components["schemas"]["Title"] | null;
-            };
+            opId: components["schemas"]["LightUser"];
             /** Format: date-time */
             at: string;
             gameId: string;
@@ -4417,11 +4413,6 @@ export interface components {
               };
             };
           };
-        };
-        userId: {
-          id: string;
-          name: string;
-          title: components["schemas"]["Title"] | null;
         };
         playStreak: {
           nb: {
@@ -5243,15 +5234,6 @@ export interface components {
       | "unknownFinish"
       | "insufficientMaterialClaim"
       | "variantEnd";
-    LightUser: {
-      id: string;
-      name: string;
-      flair?: components["schemas"]["Flair"];
-      title?: components["schemas"]["Title"];
-      /** @deprecated */
-      patron?: boolean;
-      patronColor?: components["schemas"]["PatronColor"];
-    };
     GamePlayerUser: {
       user: components["schemas"]["LightUser"];
       rating: number;
@@ -9866,16 +9848,6 @@ export interface operations {
            *       "rank": null,
            *       "percentile": 75.1,
            *       "stat": {
-           *         "id": "thibault/2",
-           *         "userId": {
-           *           "id": "thibault",
-           *           "name": "thibault",
-           *           "title": null
-           *         },
-           *         "perfType": {
-           *           "key": "blitz",
-           *           "name": "Blitz"
-           *         },
            *         "highest": {
            *           "int": 1970,
            *           "at": "2022-02-23T13:44:54.633Z",
@@ -9892,8 +9864,7 @@ export interface operations {
            *               "opRating": 2239,
            *               "opId": {
            *                 "id": "aqua21",
-           *                 "name": "aqua21",
-           *                 "title": null
+           *                 "name": "aqua21"
            *               },
            *               "at": "2020-02-15T19:13:05.329Z",
            *               "gameId": "UxNJmMXz"
@@ -9902,8 +9873,7 @@ export interface operations {
            *               "opRating": 2163,
            *               "opId": {
            *                 "id": "staffan67",
-           *                 "name": "Staffan67",
-           *                 "title": null
+           *                 "name": "Staffan67"
            *               },
            *               "at": "2022-12-28T10:54:21.597Z",
            *               "gameId": "9IMlwEv1"
@@ -9912,8 +9882,7 @@ export interface operations {
            *               "opRating": 2120,
            *               "opId": {
            *                 "id": "heissenberger",
-           *                 "name": "Heissenberger",
-           *                 "title": null
+           *                 "name": "Heissenberger"
            *               },
            *               "at": "2021-10-25T08:26:27.155Z",
            *               "gameId": "2buPRuV8"
@@ -9922,8 +9891,7 @@ export interface operations {
            *               "opRating": 2051,
            *               "opId": {
            *                 "id": "stas235",
-           *                 "name": "Stas235",
-           *                 "title": null
+           *                 "name": "Stas235"
            *               },
            *               "at": "2021-11-06T18:55:53.728Z",
            *               "gameId": "VLxCVzDY"
@@ -9932,8 +9900,7 @@ export interface operations {
            *               "opRating": 2040,
            *               "opId": {
            *                 "id": "harryz-77",
-           *                 "name": "Harryz-77",
-           *                 "title": null
+           *                 "name": "Harryz-77"
            *               },
            *               "at": "2021-11-03T17:39:40.181Z",
            *               "gameId": "eCgiYDS7"
@@ -9946,8 +9913,7 @@ export interface operations {
            *               "opRating": 995,
            *               "opId": {
            *                 "id": "dahupetitjoueur",
-           *                 "name": "dahupetitjoueur",
-           *                 "title": null
+           *                 "name": "dahupetitjoueur"
            *               },
            *               "at": "2017-04-12T14:31:58.002Z",
            *               "gameId": "7zyddy2c"
@@ -9956,8 +9922,7 @@ export interface operations {
            *               "opRating": 1121,
            *               "opId": {
            *                 "id": "tinkugupta1011",
-           *                 "name": "Tinkugupta1011",
-           *                 "title": null
+           *                 "name": "Tinkugupta1011"
            *               },
            *               "at": "2022-10-22T03:36:35.447Z",
            *               "gameId": "CCyyGKmD"
@@ -9966,8 +9931,7 @@ export interface operations {
            *               "opRating": 1146,
            *               "opId": {
            *                 "id": "chemkhihabib",
-           *                 "name": "chemkhihabib",
-           *                 "title": null
+           *                 "name": "chemkhihabib"
            *               },
            *               "at": "2016-06-01T09:31:09.694Z",
            *               "gameId": "XatMm3RO"
@@ -9986,8 +9950,7 @@ export interface operations {
            *               "opRating": 1182,
            *               "opId": {
            *                 "id": "skanerterry",
-           *                 "name": "skanerterry",
-           *                 "title": null
+           *                 "name": "skanerterry"
            *               },
            *               "at": "2016-06-09T15:32:10.474Z",
            *               "gameId": "n4ViqGlp"
