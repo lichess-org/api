@@ -13,16 +13,6 @@
   "rank": null,
   "percentile": 75.1,
   "stat": {
-    "id": "thibault/2",
-    "userId": {
-      "id": "thibault",
-      "name": "thibault",
-      "title": null
-    },
-    "perfType": {
-      "key": "blitz",
-      "name": "Blitz"
-    },
     "highest": {
       "int": 1970,
       "at": "2022-02-23T13:44:54.633Z",

@@ -31,16 +31,6 @@ properties:
   stat:
     type: object
     properties:
-      perfType:
-        type: object
-        properties:
-          key:
-            type: string
-          name:
-            type: string
-        required:
-          - key
-          - name
       highest:
         type: object
         properties:
@@ -69,8 +59,6 @@ properties:
           - int
           - at
           - gameId
-      id:
-        type: string
       bestWins:
         type: object
         properties:
@@ -311,21 +299,6 @@ properties:
         required:
           - win
           - loss
-      userId:
-        type: object
-        properties:
-          id:
-            type: string
-          name:
-            type: string
-          title:
-            oneOf:
-              - $ref: "./Title.yaml"
-              - type: "null"
-        required:
-          - id
-          - name
-          - title
       playStreak:
         type: object
         properties:
