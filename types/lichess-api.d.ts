@@ -4202,23 +4202,13 @@ export interface components {
        */
       playing?: string;
       count?: components["schemas"]["Count"];
-      /** @example false */
       streaming?: boolean;
       streamer?: components["schemas"]["UserStreamer"];
-      /**
-       * @description only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication)
-       * @example true
-       */
+      /** @description only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication) */
       followable?: boolean;
-      /**
-       * @description only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication)
-       * @example false
-       */
+      /** @description only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication) */
       following?: boolean;
-      /**
-       * @description only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication)
-       * @example false
-       */
+      /** @description only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication) */
       blocking?: boolean;
     };
     /** @example {
@@ -4301,232 +4291,180 @@ export interface components {
       | "kingOfTheHill"
       | "racingKings"
       | "threeCheck";
-    /** @example {
-     *       "user": {
-     *         "name": "thibault"
-     *       },
-     *       "perf": {
-     *         "glicko": {
-     *           "rating": 1672.42,
-     *           "deviation": 45.13,
-     *           "provisional": false
-     *         },
-     *         "nb": 5692,
-     *         "progress": -27
-     *       },
-     *       "rank": 98121,
-     *       "percentile": 69.7,
-     *       "stat": {
-     *         "perfType": {
-     *           "key": "bullet",
-     *           "name": "Bullet"
-     *         },
-     *         "highest": {
-     *           "int": 1902,
-     *           "at": "2021-05-31T08:58:53.701Z",
-     *           "gameId": "YEDqtwig"
-     *         },
-     *         "lowest": {
-     *           "int": 1417,
-     *           "at": "2016-06-28T13:54:39.656Z",
-     *           "gameId": "rNM4J1GJ"
-     *         },
-     *         "id": "thibault/1",
-     *         "bestWins": {
-     *           "results": [
-     *             {
-     *               "opRating": 2238,
-     *               "opId": {
-     *                 "id": "hyperdragon84",
-     *                 "name": "HyperDragon84"
-     *               },
-     *               "at": "2019-06-19T17:09:05.187Z",
-     *               "gameId": "DGB53z9w"
-     *             },
-     *             {
-     *               "opRating": 2089,
-     *               "opId": {
-     *                 "id": "osipov",
-     *                 "name": "osipov"
-     *               },
-     *               "at": "2017-06-18T09:46:05.016Z",
-     *               "gameId": "gurRhuMi"
-     *             },
-     *             {
-     *               "opRating": 2071,
-     *               "opId": {
-     *                 "id": "spark50",
-     *                 "name": "Spark50"
-     *               },
-     *               "at": "2020-07-04T08:36:12.948Z",
-     *               "gameId": "a93Dk1mv"
-     *             },
-     *             {
-     *               "opRating": 2045,
-     *               "opId": {
-     *                 "id": "yasha43",
-     *                 "name": "Yasha43"
-     *               },
-     *               "at": "2021-05-17T14:01:41.098Z",
-     *               "gameId": "j3jZnGTr"
-     *             },
-     *             {
-     *               "opRating": 2034,
-     *               "opId": {
-     *                 "id": "midedu",
-     *                 "name": "midedu"
-     *               },
-     *               "at": "2020-06-27T17:32:47.001Z",
-     *               "gameId": "OiaMVLQ8"
-     *             }
-     *           ]
-     *         },
-     *         "worstLosses": {
-     *           "results": [
-     *             {
-     *               "opRating": 1186,
-     *               "opId": {
-     *                 "id": "happy0",
-     *                 "name": "Happy0"
-     *               },
-     *               "at": "2016-07-07T19:48:29.077Z",
-     *               "gameId": "Q01bbiN4"
-     *             },
-     *             {
-     *               "opRating": 1197,
-     *               "opId": {
-     *                 "id": "kazmankiller86",
-     *                 "name": "KazmanKiller86"
-     *               },
-     *               "at": "2016-10-16T14:21:37.748Z",
-     *               "gameId": "Aivqh9Sp"
-     *             },
-     *             {
-     *               "opRating": 1201,
-     *               "opId": {
-     *                 "id": "artem555",
-     *                 "name": "artem555"
-     *               },
-     *               "at": "2016-08-28T16:21:30.923Z",
-     *               "gameId": "tiRAbhnX"
-     *             },
-     *             {
-     *               "opRating": 1265,
-     *               "opId": {
-     *                 "id": "arcenuu",
-     *                 "name": "Arcenuu"
-     *               },
-     *               "at": "2016-12-24T14:28:03.866Z",
-     *               "gameId": "A68wUOoh"
-     *             },
-     *             {
-     *               "opRating": 1283,
-     *               "opId": {
-     *                 "id": "amritalib76",
-     *                 "name": "Amritalib76"
-     *               },
-     *               "at": "2018-06-26T09:55:39.354Z",
-     *               "gameId": "sbNVikmo"
-     *             }
-     *           ]
-     *         },
-     *         "count": {
-     *           "all": 5858,
-     *           "rated": 5688,
-     *           "win": 2789,
-     *           "loss": 2806,
-     *           "draw": 263,
-     *           "tour": 654,
-     *           "berserk": 1,
-     *           "opAvg": 1671.44,
-     *           "seconds": 784886,
-     *           "disconnects": 0
-     *         },
-     *         "resultStreak": {
-     *           "win": {
-     *             "cur": {
-     *               "v": 0
-     *             },
-     *             "max": {
-     *               "v": 11,
-     *               "from": {
-     *                 "at": "2021-06-14T15:38:50.681Z",
-     *                 "gameId": "wTX2IExo"
-     *               },
-     *               "to": {
-     *                 "at": "2021-06-15T18:41:46.970Z",
-     *                 "gameId": "1z4rrjgw"
-     *               }
-     *             }
-     *           },
-     *           "loss": {
-     *             "cur": {
-     *               "v": 3,
-     *               "from": {
-     *                 "at": "2021-06-29T17:53:23.642Z",
-     *                 "gameId": "pfcnjgik"
-     *               },
-     *               "to": {
-     *                 "at": "2021-06-29T18:04:48.358Z",
-     *                 "gameId": "6sPaGL8T"
-     *               }
-     *             },
-     *             "max": {
-     *               "v": 14,
-     *               "from": {
-     *                 "at": "2018-06-11T14:43:39.296Z",
-     *                 "gameId": "1fc9dqun"
-     *               },
-     *               "to": {
-     *                 "at": "2018-06-11T15:10:30.908Z",
-     *                 "gameId": "Nzy6UgwY"
-     *               }
-     *             }
-     *           }
-     *         },
-     *         "userId": {
-     *           "id": "thibault",
-     *           "name": "thibault",
-     *           "title": null
-     *         },
-     *         "playStreak": {
-     *           "nb": {
-     *             "cur": {
-     *               "v": 0
-     *             },
-     *             "max": {
-     *               "v": 118,
-     *               "from": {
-     *                 "at": "2018-06-11T10:32:21.248Z",
-     *                 "gameId": "UAsNnJbN"
-     *               },
-     *               "to": {
-     *                 "at": "2018-06-11T15:13:01.193Z",
-     *                 "gameId": "T7fHRaFG"
-     *               }
-     *             }
-     *           },
-     *           "time": {
-     *             "cur": {
-     *               "v": 0
-     *             },
-     *             "max": {
-     *               "v": 12683,
-     *               "from": {
-     *                 "at": "2018-06-12T14:11:14.021Z",
-     *                 "gameId": "IrZCAW58"
-     *               },
-     *               "to": {
-     *                 "at": "2018-06-12T18:02:57.010Z",
-     *                 "gameId": "RNF1mQ68"
-     *               }
-     *             }
-     *           },
-     *           "lastDate": "2021-06-29T18:04:48.358Z"
-     *         }
-     *       }
-     *     } */
-    PerfStat: unknown;
+    PerfStat: {
+      user: {
+        name: string;
+      };
+      perf: {
+        glicko?: {
+          rating?: number;
+          deviation?: number;
+          provisional?: boolean;
+        };
+        nb?: number;
+        progress?: number;
+      };
+      rank: number | null;
+      percentile: number;
+      stat: {
+        perfType: {
+          key: string;
+          name: string;
+        };
+        highest?: {
+          int: number;
+          /** Format: date-time */
+          at: string;
+          gameId: string;
+        };
+        lowest?: {
+          int: number;
+          /** Format: date-time */
+          at: string;
+          gameId: string;
+        };
+        id: string;
+        bestWins: {
+          results: {
+            opRating: number;
+            opId: {
+              id: string;
+              name: string;
+              title: components["schemas"]["Title"] | null;
+            };
+            /** Format: date-time */
+            at: string;
+            gameId: string;
+          }[];
+        };
+        worstLosses: {
+          results: {
+            opRating: number;
+            opId: {
+              id: string;
+              name: string;
+              title: components["schemas"]["Title"] | null;
+            };
+            /** Format: date-time */
+            at: string;
+            gameId: string;
+          }[];
+        };
+        count: {
+          all: number;
+          rated: number;
+          win: number;
+          loss: number;
+          draw: number;
+          tour: number;
+          berserk: number;
+          opAvg: number;
+          seconds: number;
+          disconnects: number;
+        };
+        resultStreak: {
+          win: {
+            cur: {
+              v: number;
+              from?: {
+                /** Format: date-time */
+                at: string;
+                gameId: string;
+              };
+              to?: {
+                /** Format: date-time */
+                at: string;
+                gameId: string;
+              };
+            };
+            max: {
+              v: number;
+              from?: {
+                /** Format: date-time */
+                at: string;
+                gameId: string;
+              };
+              to?: {
+                /** Format: date-time */
+                at: string;
+                gameId: string;
+              };
+            };
+          };
+          loss: {
+            cur: {
+              v: number;
+              from?: {
+                /** Format: date-time */
+                at: string;
+                gameId: string;
+              };
+              to?: {
+                /** Format: date-time */
+                at: string;
+                gameId: string;
+              };
+            };
+            max: {
+              v: number;
+              from?: {
+                at: string;
+                gameId: string;
+              };
+              to?: {
+                at: string;
+                gameId: string;
+              };
+            };
+          };
+        };
+        userId: {
+          id: string;
+          name: string;
+          title: components["schemas"]["Title"] | null;
+        };
+        playStreak: {
+          nb: {
+            cur: {
+              v: number;
+            };
+            max: {
+              v: number;
+              from?: {
+                /** Format: date-time */
+                at: string;
+                gameId: string;
+              };
+              to?: {
+                /** Format: date-time */
+                at: string;
+                gameId: string;
+              };
+            };
+          };
+          time: {
+            cur: {
+              v: number;
+            };
+            max: {
+              v: number;
+              from?: {
+                /** Format: date-time */
+                at: string;
+                gameId: string;
+              };
+              to?: {
+                /** Format: date-time */
+                at: string;
+                gameId: string;
+              };
+            };
+          };
+          /** Format: date-time */
+          lastDate?: string;
+        };
+      };
+    };
     UserActivityScore: {
       win: number;
       loss: number;
@@ -5531,12 +5469,41 @@ export interface components {
       | "simul"
       | "relay"
       | "pool"
+      | "arena"
       | "swiss";
     Variant: {
       key: components["schemas"]["VariantKey"];
       name: string;
       short?: string;
     };
+    GameStatus: {
+      id: components["schemas"]["GameStatusId"];
+      name: components["schemas"]["GameStatusName"];
+    };
+    MoveStreamEntry:
+      | {
+          id: string;
+          variant?: components["schemas"]["Variant"];
+          speed?: components["schemas"]["Speed"];
+          perf?: components["schemas"]["PerfType"];
+          rated?: boolean;
+          initialFen?: string;
+          fen?: string;
+          player?: components["schemas"]["GameColor"];
+          turns?: number;
+          startedAtTurn?: number;
+          source?: components["schemas"]["GameSource"];
+          status?: components["schemas"]["GameStatus"];
+          createdAt?: number;
+          lastMove?: string;
+          players?: components["schemas"]["GamePlayers"];
+        }
+      | {
+          fen: string;
+          lm?: string;
+          wc: number;
+          bc: number;
+        };
     /** @example [
      *       {
      *         "id": "LuGQwhBb",
@@ -5608,7 +5575,7 @@ export interface components {
      *         "bc": 177
      *       }
      *     ] */
-    MoveStream: unknown;
+    MoveStream: components["schemas"]["MoveStreamEntry"][];
     TvGame: {
       user: components["schemas"]["LightUser"];
       rating: number;
@@ -5994,7 +5961,7 @@ export interface components {
      *     { This chapter will go over the Dragon Variation, a very common variation used by Black and it is the most aggressive variation in the Sicilian defense. }
      *     1. e4 c5 2. Nf3 { Simple developing move to control the d4 square } { [%csl Gd4,Gc5][%cal Gf3d4,Gc5d4] } 2... d6 { [%cal Gd6e5] } (2... e6 3. d4 cxd4 4. Nxd4 Nf6 5. e5 (5. Nc3 { [%cal Ge4e5] }) 5... Qa5+) 3. d4 { Whites want the exchange of pawns } { [%cal Gc5d4] } 3... cxd4 { [%cal Gf3d4] } 4. Nxd4 { Whites are now ahead in development but blacks still have the two central pawns whereas whites only one. } { [%csl Ge7,Gd6,Ge4] } 4... Nf6 { Blacks are now developing their knight and threatening the e4 pawn } { [%csl Ge4][%cal Gf6e4] } 5. Nc3 { The e4 pawn is now protected by the c3 knight } { [%csl Ge4,Bc3][%cal Rf6e4,Bc3e4] } 5... g6 { This is the DRAGON VARIATION. g6 allows the dark-squared bishop to develop and move to g7, controlling the long dark-squared diagonal } { [%csl Gd4] } 6. Be3 { [%cal Gd1d2,Gf2f3,Ge1c1,Gg2g4,Gh2h4,Gg4g5] } (6. Be2 Bg7 7. O-O Nc6 8. Be3 { [%cal Ge3d4] } (8. f3 Nxe4 { [%cal Gg7d4,Gc6d4] } 9. Nxc6 Qb6+ { [%cal Gb6c6,Gb6g1] } 10. Kh1 Nxc3 { [%cal Gc3d1,Gc3e2] } 11. bxc3 bxc6 { [%cal Gc8a6] }) 8... O-O 9. Nb3 a6 { [%cal Gb7b5,Gb5b4,Ge2c4] }) 6... Bg7 (6... Ng4 { [%cal Gg4e3] } 7. Bb5+ { [%cal Gb5e8,Gb8d7,Gc8d7,Gd1g4] } 7... Nc6 8. Nxc6 bxc6 9. Bxc6+ { [%cal Gc6a8] }) 7. f3 { The key opening moves for White, who attempt to castle queenside , whereas f3 strengthens the pawn structure, connecting e4 to the h2 and g2, while White also plan pushing to g4 and possibly h4. } { [%csl Bf3,Be3][%cal Rg2g4,Rh2h4,Rg4g5] } 7... O-O (7... h5 { Is operating against g4. }) 8. Qd2 { [%csl Gh6,Gg7][%cal Ge1c1,Ga1d1,Re3h6,Rd2h6] } 8... Nc6 { [%csl Gc6,Gh6][%cal Gb8c6,Ge1c1,Ga7a6,Ge3h6] } 9. g4 (9. Bh6 { [%cal Ge3d4] } 9... Bxh6 10. Qxh6 Nxd4) 9... Be6 10. Nxe6 fxe6 { [%cal Gf8f1] } 11. O-O-O Ne5 12. Be2 { [%csl Gf3][%cal Re5f3,Bd1h1,Bg1d1] } 12... Qc7 { [%csl Gc4][%cal Ge5c4,Gc4e3,Gc4d2,Bf8c8,Yc7c3] } 13. h4 Nc4 *
      *      */
-    StudyPgn: unknown;
+    StudyPgn: string;
     /** @example {
      *       "chapters": [
      *         {
@@ -6725,10 +6692,6 @@ export interface components {
        */
       date?: number;
     };
-    GameStatus: {
-      id: components["schemas"]["GameStatusId"];
-      name: components["schemas"]["GameStatusName"];
-    };
     GameEventOpponent:
       | {
           id: string;
@@ -6768,6 +6731,7 @@ export interface components {
       ratingDiff?: number;
       compat?: components["schemas"]["GameCompat"];
       id?: string;
+      tournamentId?: string;
     };
     GameStartEvent: {
       /** @constant */
@@ -7333,8 +7297,7 @@ export interface components {
     };
     OpeningExplorerMastersGame: {
       id: string;
-      /** @enum {string|null} */
-      winner: "white" | "black" | null;
+      winner: components["schemas"]["GameColor"] | null;
       white: components["schemas"]["OpeningExplorerGamePlayer"];
       black: components["schemas"]["OpeningExplorerGamePlayer"];
       year: number;
@@ -7361,8 +7324,7 @@ export interface components {
     };
     OpeningExplorerLichessGame: {
       id: string;
-      /** @enum {string|null} */
-      winner: "white" | "black" | null;
+      winner: components["schemas"]["GameColor"] | null;
       speed?: components["schemas"]["Speed"];
       white: components["schemas"]["OpeningExplorerGamePlayer"];
       black: components["schemas"]["OpeningExplorerGamePlayer"];
@@ -7399,8 +7361,7 @@ export interface components {
     };
     OpeningExplorerPlayerGame: {
       id: string;
-      /** @enum {string|null} */
-      winner: "white" | "black" | null;
+      winner: components["schemas"]["GameColor"] | null;
       speed: components["schemas"]["Speed"];
       /** @enum {string} */
       mode: "rated" | "casual";
@@ -9892,62 +9853,198 @@ export interface operations {
         content: {
           /** @example {
            *       "user": {
-           *         "name": "Jose"
+           *         "name": "thibault"
            *       },
            *       "perf": {
            *         "glicko": {
-           *           "rating": 980,
-           *           "deviation": 95.23
+           *           "rating": 1785.99,
+           *           "deviation": 53.67
            *         },
-           *         "nb": 158,
-           *         "progress": 10
+           *         "nb": 11537,
+           *         "progress": 4
            *       },
            *       "rank": null,
-           *       "percentile": 20.3,
+           *       "percentile": 75.1,
            *       "stat": {
-           *         "id": "jose/2",
+           *         "id": "thibault/2",
            *         "userId": {
-           *           "id": "jose",
-           *           "name": "Jose",
+           *           "id": "thibault",
+           *           "name": "thibault",
            *           "title": null
            *         },
            *         "perfType": {
            *           "key": "blitz",
            *           "name": "Blitz"
            *         },
+           *         "highest": {
+           *           "int": 1970,
+           *           "at": "2022-02-23T13:44:54.633Z",
+           *           "gameId": "Blpjmhnf"
+           *         },
+           *         "lowest": {
+           *           "int": 1385,
+           *           "at": "2015-08-05T10:13:41.326Z",
+           *           "gameId": "tgbRykg2"
+           *         },
            *         "bestWins": {
-           *           "results": []
+           *           "results": [
+           *             {
+           *               "opRating": 2239,
+           *               "opId": {
+           *                 "id": "aqua21",
+           *                 "name": "aqua21",
+           *                 "title": null
+           *               },
+           *               "at": "2020-02-15T19:13:05.329Z",
+           *               "gameId": "UxNJmMXz"
+           *             },
+           *             {
+           *               "opRating": 2163,
+           *               "opId": {
+           *                 "id": "staffan67",
+           *                 "name": "Staffan67",
+           *                 "title": null
+           *               },
+           *               "at": "2022-12-28T10:54:21.597Z",
+           *               "gameId": "9IMlwEv1"
+           *             },
+           *             {
+           *               "opRating": 2120,
+           *               "opId": {
+           *                 "id": "heissenberger",
+           *                 "name": "Heissenberger",
+           *                 "title": null
+           *               },
+           *               "at": "2021-10-25T08:26:27.155Z",
+           *               "gameId": "2buPRuV8"
+           *             },
+           *             {
+           *               "opRating": 2051,
+           *               "opId": {
+           *                 "id": "stas235",
+           *                 "name": "Stas235",
+           *                 "title": null
+           *               },
+           *               "at": "2021-11-06T18:55:53.728Z",
+           *               "gameId": "VLxCVzDY"
+           *             },
+           *             {
+           *               "opRating": 2040,
+           *               "opId": {
+           *                 "id": "harryz-77",
+           *                 "name": "Harryz-77",
+           *                 "title": null
+           *               },
+           *               "at": "2021-11-03T17:39:40.181Z",
+           *               "gameId": "eCgiYDS7"
+           *             }
+           *           ]
            *         },
            *         "worstLosses": {
-           *           "results": []
+           *           "results": [
+           *             {
+           *               "opRating": 995,
+           *               "opId": {
+           *                 "id": "dahupetitjoueur",
+           *                 "name": "dahupetitjoueur",
+           *                 "title": null
+           *               },
+           *               "at": "2017-04-12T14:31:58.002Z",
+           *               "gameId": "7zyddy2c"
+           *             },
+           *             {
+           *               "opRating": 1121,
+           *               "opId": {
+           *                 "id": "tinkugupta1011",
+           *                 "name": "Tinkugupta1011",
+           *                 "title": null
+           *               },
+           *               "at": "2022-10-22T03:36:35.447Z",
+           *               "gameId": "CCyyGKmD"
+           *             },
+           *             {
+           *               "opRating": 1146,
+           *               "opId": {
+           *                 "id": "chemkhihabib",
+           *                 "name": "chemkhihabib",
+           *                 "title": null
+           *               },
+           *               "at": "2016-06-01T09:31:09.694Z",
+           *               "gameId": "XatMm3RO"
+           *             },
+           *             {
+           *               "opRating": 1166,
+           *               "opId": {
+           *                 "id": "bottios",
+           *                 "name": "Bottios",
+           *                 "title": "BOT"
+           *               },
+           *               "at": "2018-12-14T09:22:52.633Z",
+           *               "gameId": "3fke4MHX"
+           *             },
+           *             {
+           *               "opRating": 1182,
+           *               "opId": {
+           *                 "id": "skanerterry",
+           *                 "name": "skanerterry",
+           *                 "title": null
+           *               },
+           *               "at": "2016-06-09T15:32:10.474Z",
+           *               "gameId": "n4ViqGlp"
+           *             }
+           *           ]
            *         },
            *         "count": {
-           *           "all": 158,
-           *           "rated": 120,
-           *           "win": 69,
-           *           "loss": 77,
-           *           "draw": 12,
-           *           "tour": 85,
-           *           "berserk": 28,
-           *           "opAvg": 0.52,
-           *           "seconds": 47400,
-           *           "disconnects": 8
+           *           "all": 12021,
+           *           "rated": 11415,
+           *           "win": 5689,
+           *           "loss": 5763,
+           *           "draw": 569,
+           *           "tour": 1587,
+           *           "berserk": 49,
+           *           "opAvg": 1706.12,
+           *           "seconds": 3733379,
+           *           "disconnects": 9
            *         },
            *         "resultStreak": {
            *           "win": {
            *             "cur": {
-           *               "v": 0
+           *               "v": 2,
+           *               "from": {
+           *                 "at": "2025-09-18T15:31:58.854Z",
+           *                 "gameId": "gnjoI7dm"
+           *               },
+           *               "to": {
+           *                 "at": "2025-10-13T16:31:59.436Z",
+           *                 "gameId": "7WEM2Hc4"
+           *               }
            *             },
            *             "max": {
-           *               "v": 4
+           *               "v": 11,
+           *               "from": {
+           *                 "at": "2018-10-19T10:02:05.144Z",
+           *                 "gameId": "ycmyqK6e"
+           *               },
+           *               "to": {
+           *                 "at": "2018-10-19T12:25:31.868Z",
+           *                 "gameId": "3PwQXIBN"
+           *               }
            *             }
            *           },
            *           "loss": {
            *             "cur": {
-           *               "v": 1
+           *               "v": 0
            *             },
            *             "max": {
-           *               "v": 3
+           *               "v": 19,
+           *               "from": {
+           *                 "at": "2018-03-09T23:54:54.771Z",
+           *                 "gameId": "iAJe1M8f"
+           *               },
+           *               "to": {
+           *                 "at": "2018-03-16T20:52:03.611Z",
+           *                 "gameId": "7CZ1SEF5"
+           *               }
            *             }
            *           }
            *         },
@@ -9957,17 +10054,34 @@ export interface operations {
            *               "v": 0
            *             },
            *             "max": {
-           *               "v": 1
+           *               "v": 115,
+           *               "from": {
+           *                 "at": "2024-10-18T11:32:12.142Z",
+           *                 "gameId": "l819pRNp"
+           *               },
+           *               "to": {
+           *                 "at": "2024-10-18T20:54:30.256Z",
+           *                 "gameId": "1HeDeGbe"
+           *               }
            *             }
            *           },
            *           "time": {
            *             "cur": {
-           *               "v": 3
+           *               "v": 0
            *             },
            *             "max": {
-           *               "v": 5
+           *               "v": 23231,
+           *               "from": {
+           *                 "at": "2024-10-18T11:32:12.142Z",
+           *                 "gameId": "l819pRNp"
+           *               },
+           *               "to": {
+           *                 "at": "2024-10-18T20:54:30.256Z",
+           *                 "gameId": "1HeDeGbe"
+           *               }
            *             }
-           *           }
+           *           },
+           *           "lastDate": "2025-10-13T16:31:59.436Z"
            *         }
            *       }
            *     } */
