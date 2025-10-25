@@ -70,20 +70,7 @@ properties:
                 opRating:
                   type: integer
                 opId:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    name:
-                      type: string
-                    title:
-                      oneOf:
-                        - $ref: "./Title.yaml"
-                        - type: "null"
-                  required:
-                    - id
-                    - name
-                    - title
+                  $ref: "./LightUser.yaml"
                 at:
                   type: string
                   format: date-time
@@ -107,20 +94,7 @@ properties:
                 opRating:
                   type: integer
                 opId:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    name:
-                      type: string
-                    title:
-                      oneOf:
-                        - $ref: "./Title.yaml"
-                        - type: "null"
-                  required:
-                    - id
-                    - name
-                    - title
+                  $ref: "./LightUser.yaml"
                 at:
                   type: string
                   format: date-time
