@@ -1,61 +1,197 @@
 {
   "user": {
-    "name": "Jose"
+    "name": "thibault"
   },
   "perf": {
     "glicko": {
-      "rating": 980,
-      "deviation": 95.23
+      "rating": 1785.99,
+      "deviation": 53.67
     },
-    "nb": 158,
-    "progress": 10
+    "nb": 11537,
+    "progress": 4
   },
   "rank": null,
-  "percentile": 20.3,
+  "percentile": 75.1,
   "stat": {
-    "id": "jose/2",
+    "id": "thibault/2",
     "userId": {
-      "id": "jose",
-      "name": "Jose",
+      "id": "thibault",
+      "name": "thibault",
       "title": null
     },
     "perfType": {
       "key": "blitz",
       "name": "Blitz"
     },
+    "highest": {
+      "int": 1970,
+      "at": "2022-02-23T13:44:54.633Z",
+      "gameId": "Blpjmhnf"
+    },
+    "lowest": {
+      "int": 1385,
+      "at": "2015-08-05T10:13:41.326Z",
+      "gameId": "tgbRykg2"
+    },
     "bestWins": {
-      "results": []
+      "results": [
+        {
+          "opRating": 2239,
+          "opId": {
+            "id": "aqua21",
+            "name": "aqua21",
+            "title": null
+          },
+          "at": "2020-02-15T19:13:05.329Z",
+          "gameId": "UxNJmMXz"
+        },
+        {
+          "opRating": 2163,
+          "opId": {
+            "id": "staffan67",
+            "name": "Staffan67",
+            "title": null
+          },
+          "at": "2022-12-28T10:54:21.597Z",
+          "gameId": "9IMlwEv1"
+        },
+        {
+          "opRating": 2120,
+          "opId": {
+            "id": "heissenberger",
+            "name": "Heissenberger",
+            "title": null
+          },
+          "at": "2021-10-25T08:26:27.155Z",
+          "gameId": "2buPRuV8"
+        },
+        {
+          "opRating": 2051,
+          "opId": {
+            "id": "stas235",
+            "name": "Stas235",
+            "title": null
+          },
+          "at": "2021-11-06T18:55:53.728Z",
+          "gameId": "VLxCVzDY"
+        },
+        {
+          "opRating": 2040,
+          "opId": {
+            "id": "harryz-77",
+            "name": "Harryz-77",
+            "title": null
+          },
+          "at": "2021-11-03T17:39:40.181Z",
+          "gameId": "eCgiYDS7"
+        }
+      ]
     },
     "worstLosses": {
-      "results": []
+      "results": [
+        {
+          "opRating": 995,
+          "opId": {
+            "id": "dahupetitjoueur",
+            "name": "dahupetitjoueur",
+            "title": null
+          },
+          "at": "2017-04-12T14:31:58.002Z",
+          "gameId": "7zyddy2c"
+        },
+        {
+          "opRating": 1121,
+          "opId": {
+            "id": "tinkugupta1011",
+            "name": "Tinkugupta1011",
+            "title": null
+          },
+          "at": "2022-10-22T03:36:35.447Z",
+          "gameId": "CCyyGKmD"
+        },
+        {
+          "opRating": 1146,
+          "opId": {
+            "id": "chemkhihabib",
+            "name": "chemkhihabib",
+            "title": null
+          },
+          "at": "2016-06-01T09:31:09.694Z",
+          "gameId": "XatMm3RO"
+        },
+        {
+          "opRating": 1166,
+          "opId": {
+            "id": "bottios",
+            "name": "Bottios",
+            "title": "BOT"
+          },
+          "at": "2018-12-14T09:22:52.633Z",
+          "gameId": "3fke4MHX"
+        },
+        {
+          "opRating": 1182,
+          "opId": {
+            "id": "skanerterry",
+            "name": "skanerterry",
+            "title": null
+          },
+          "at": "2016-06-09T15:32:10.474Z",
+          "gameId": "n4ViqGlp"
+        }
+      ]
     },
     "count": {
-      "all": 158,
-      "rated": 120,
-      "win": 69,
-      "loss": 77,
-      "draw": 12,
-      "tour": 85,
-      "berserk": 28,
-      "opAvg": 0.52,
-      "seconds": 47400,
-      "disconnects": 8
+      "all": 12021,
+      "rated": 11415,
+      "win": 5689,
+      "loss": 5763,
+      "draw": 569,
+      "tour": 1587,
+      "berserk": 49,
+      "opAvg": 1706.12,
+      "seconds": 3733379,
+      "disconnects": 9
     },
     "resultStreak": {
       "win": {
         "cur": {
-          "v": 0
+          "v": 2,
+          "from": {
+            "at": "2025-09-18T15:31:58.854Z",
+            "gameId": "gnjoI7dm"
+          },
+          "to": {
+            "at": "2025-10-13T16:31:59.436Z",
+            "gameId": "7WEM2Hc4"
+          }
         },
         "max": {
-          "v": 4
+          "v": 11,
+          "from": {
+            "at": "2018-10-19T10:02:05.144Z",
+            "gameId": "ycmyqK6e"
+          },
+          "to": {
+            "at": "2018-10-19T12:25:31.868Z",
+            "gameId": "3PwQXIBN"
+          }
         }
       },
       "loss": {
         "cur": {
-          "v": 1
+          "v": 0
         },
         "max": {
-          "v": 3
+          "v": 19,
+          "from": {
+            "at": "2018-03-09T23:54:54.771Z",
+            "gameId": "iAJe1M8f"
+          },
+          "to": {
+            "at": "2018-03-16T20:52:03.611Z",
+            "gameId": "7CZ1SEF5"
+          }
         }
       }
     },
@@ -65,17 +201,34 @@
           "v": 0
         },
         "max": {
-          "v": 1
+          "v": 115,
+          "from": {
+            "at": "2024-10-18T11:32:12.142Z",
+            "gameId": "l819pRNp"
+          },
+          "to": {
+            "at": "2024-10-18T20:54:30.256Z",
+            "gameId": "1HeDeGbe"
+          }
         }
       },
       "time": {
         "cur": {
-          "v": 3
+          "v": 0
         },
         "max": {
-          "v": 5
+          "v": 23231,
+          "from": {
+            "at": "2024-10-18T11:32:12.142Z",
+            "gameId": "l819pRNp"
+          },
+          "to": {
+            "at": "2024-10-18T20:54:30.256Z",
+            "gameId": "1HeDeGbe"
+          }
         }
-      }
+      },
+      "lastDate": "2025-10-13T16:31:59.436Z"
     }
   }
 }

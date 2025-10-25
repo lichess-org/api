@@ -1,152 +1,437 @@
-example:
-  {
-    "user": { "name": "thibault" },
-    "perf": { "glicko": { "rating": 1672.42, "deviation": 45.13, "provisional": false }, "nb": 5692, "progress": -27 },
-    "rank": 98121,
-    "percentile": 69.7,
-    "stat":
-      {
-        "perfType": { "key": "bullet", "name": "Bullet" },
-        "highest": { "int": 1902, "at": "2021-05-31T08:58:53.701Z", "gameId": "YEDqtwig" },
-        "lowest": { "int": 1417, "at": "2016-06-28T13:54:39.656Z", "gameId": "rNM4J1GJ" },
-        "id": "thibault/1",
-        "bestWins":
-          {
-            "results":
-              [
-                {
-                  "opRating": 2238,
-                  "opId": { "id": "hyperdragon84", "name": "HyperDragon84" },
-                  "at": "2019-06-19T17:09:05.187Z",
-                  "gameId": "DGB53z9w",
-                },
-                {
-                  "opRating": 2089,
-                  "opId": { "id": "osipov", "name": "osipov" },
-                  "at": "2017-06-18T09:46:05.016Z",
-                  "gameId": "gurRhuMi",
-                },
-                {
-                  "opRating": 2071,
-                  "opId": { "id": "spark50", "name": "Spark50" },
-                  "at": "2020-07-04T08:36:12.948Z",
-                  "gameId": "a93Dk1mv",
-                },
-                {
-                  "opRating": 2045,
-                  "opId": { "id": "yasha43", "name": "Yasha43" },
-                  "at": "2021-05-17T14:01:41.098Z",
-                  "gameId": "j3jZnGTr",
-                },
-                {
-                  "opRating": 2034,
-                  "opId": { "id": "midedu", "name": "midedu" },
-                  "at": "2020-06-27T17:32:47.001Z",
-                  "gameId": "OiaMVLQ8",
-                },
-              ],
-          },
-        "worstLosses":
-          {
-            "results":
-              [
-                {
-                  "opRating": 1186,
-                  "opId": { "id": "happy0", "name": "Happy0" },
-                  "at": "2016-07-07T19:48:29.077Z",
-                  "gameId": "Q01bbiN4",
-                },
-                {
-                  "opRating": 1197,
-                  "opId": { "id": "kazmankiller86", "name": "KazmanKiller86" },
-                  "at": "2016-10-16T14:21:37.748Z",
-                  "gameId": "Aivqh9Sp",
-                },
-                {
-                  "opRating": 1201,
-                  "opId": { "id": "artem555", "name": "artem555" },
-                  "at": "2016-08-28T16:21:30.923Z",
-                  "gameId": "tiRAbhnX",
-                },
-                {
-                  "opRating": 1265,
-                  "opId": { "id": "arcenuu", "name": "Arcenuu" },
-                  "at": "2016-12-24T14:28:03.866Z",
-                  "gameId": "A68wUOoh",
-                },
-                {
-                  "opRating": 1283,
-                  "opId": { "id": "amritalib76", "name": "Amritalib76" },
-                  "at": "2018-06-26T09:55:39.354Z",
-                  "gameId": "sbNVikmo",
-                },
-              ],
-          },
-        "count":
-          {
-            "all": 5858,
-            "rated": 5688,
-            "win": 2789,
-            "loss": 2806,
-            "draw": 263,
-            "tour": 654,
-            "berserk": 1,
-            "opAvg": 1671.44,
-            "seconds": 784886,
-            "disconnects": 0,
-          },
-        "resultStreak":
-          {
-            "win":
-              {
-                "cur": { "v": 0 },
-                "max":
-                  {
-                    "v": 11,
-                    "from": { "at": "2021-06-14T15:38:50.681Z", "gameId": "wTX2IExo" },
-                    "to": { "at": "2021-06-15T18:41:46.970Z", "gameId": "1z4rrjgw" },
-                  },
-              },
-            "loss":
-              {
-                "cur":
-                  {
-                    "v": 3,
-                    "from": { "at": "2021-06-29T17:53:23.642Z", "gameId": "pfcnjgik" },
-                    "to": { "at": "2021-06-29T18:04:48.358Z", "gameId": "6sPaGL8T" },
-                  },
-                "max":
-                  {
-                    "v": 14,
-                    "from": { "at": "2018-06-11T14:43:39.296Z", "gameId": "1fc9dqun" },
-                    "to": { "at": "2018-06-11T15:10:30.908Z", "gameId": "Nzy6UgwY" },
-                  },
-              },
-          },
-        "userId": { "id": "thibault", "name": "thibault", "title": null },
-        "playStreak":
-          {
-            "nb":
-              {
-                "cur": { "v": 0 },
-                "max":
-                  {
-                    "v": 118,
-                    "from": { "at": "2018-06-11T10:32:21.248Z", "gameId": "UAsNnJbN" },
-                    "to": { "at": "2018-06-11T15:13:01.193Z", "gameId": "T7fHRaFG" },
-                  },
-              },
-            "time":
-              {
-                "cur": { "v": 0 },
-                "max":
-                  {
-                    "v": 12683,
-                    "from": { "at": "2018-06-12T14:11:14.021Z", "gameId": "IrZCAW58" },
-                    "to": { "at": "2018-06-12T18:02:57.010Z", "gameId": "RNF1mQ68" },
-                  },
-              },
-            "lastDate": "2021-06-29T18:04:48.358Z",
-          },
-      },
-  }
+type: object
+
+properties:
+  user:
+    type: object
+    properties:
+      name:
+        type: string
+    required:
+      - name
+  perf:
+    type: object
+    properties:
+      glicko:
+        type: object
+        properties:
+          rating:
+            type: number
+          deviation:
+            type: number
+          provisional:
+            type: boolean
+      nb:
+        type: integer
+      progress:
+        type: integer
+  rank:
+    type: [integer, "null"]
+  percentile:
+    type: number
+  stat:
+    type: object
+    properties:
+      perfType:
+        type: object
+        properties:
+          key:
+            type: string
+          name:
+            type: string
+        required:
+          - key
+          - name
+      highest:
+        type: object
+        properties:
+          int:
+            type: integer
+          at:
+            type: string
+            format: date-time
+          gameId:
+            type: string
+        required:
+          - int
+          - at
+          - gameId
+      lowest:
+        type: object
+        properties:
+          int:
+            type: integer
+          at:
+            type: string
+            format: date-time
+          gameId:
+            type: string
+        required:
+          - int
+          - at
+          - gameId
+      id:
+        type: string
+      bestWins:
+        type: object
+        properties:
+          results:
+            type: array
+            items:
+              type: object
+              properties:
+                opRating:
+                  type: integer
+                opId:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    title:
+                      oneOf:
+                        - $ref: "./Title.yaml"
+                        - type: "null"
+                  required:
+                    - id
+                    - name
+                    - title
+                at:
+                  type: string
+                  format: date-time
+                gameId:
+                  type: string
+              required:
+                - opRating
+                - opId
+                - at
+                - gameId
+        required:
+          - results
+      worstLosses:
+        type: object
+        properties:
+          results:
+            type: array
+            items:
+              type: object
+              properties:
+                opRating:
+                  type: integer
+                opId:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    title:
+                      oneOf:
+                        - $ref: "./Title.yaml"
+                        - type: "null"
+                  required:
+                    - id
+                    - name
+                    - title
+                at:
+                  type: string
+                  format: date-time
+                gameId:
+                  type: string
+              required:
+                - opRating
+                - opId
+                - at
+                - gameId
+        required:
+          - results
+      count:
+        type: object
+        properties:
+          all:
+            type: integer
+          rated:
+            type: integer
+          win:
+            type: integer
+          loss:
+            type: integer
+          draw:
+            type: integer
+          tour:
+            type: integer
+          berserk:
+            type: integer
+          opAvg:
+            type: number
+          seconds:
+            type: integer
+          disconnects:
+            type: integer
+        required:
+          - all
+          - rated
+          - win
+          - loss
+          - draw
+          - tour
+          - berserk
+          - opAvg
+          - seconds
+          - disconnects
+      resultStreak:
+        type: object
+        properties:
+          win:
+            type: object
+            properties:
+              cur:
+                type: object
+                properties:
+                  v:
+                    type: integer
+                  from:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                  to:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                required:
+                  - v
+              max:
+                type: object
+                properties:
+                  v:
+                    type: integer
+                  from:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                  to:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                required:
+                  - v
+            required:
+              - cur
+              - max
+          loss:
+            type: object
+            properties:
+              cur:
+                type: object
+                properties:
+                  v:
+                    type: integer
+                  from:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                  to:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                required:
+                  - v
+              max:
+                type: object
+                properties:
+                  v:
+                    type: integer
+                  from:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                  to:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                required:
+                  - v
+            required:
+              - cur
+              - max
+        required:
+          - win
+          - loss
+      userId:
+        type: object
+        properties:
+          id:
+            type: string
+          name:
+            type: string
+          title:
+            oneOf:
+              - $ref: "./Title.yaml"
+              - type: "null"
+        required:
+          - id
+          - name
+          - title
+      playStreak:
+        type: object
+        properties:
+          nb:
+            type: object
+            properties:
+              cur:
+                type: object
+                properties:
+                  v:
+                    type: integer
+                required:
+                  - v
+              max:
+                type: object
+                properties:
+                  v:
+                    type: integer
+                  from:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                  to:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                required:
+                  - v
+            required:
+              - cur
+              - max
+          time:
+            type: object
+            properties:
+              cur:
+                type: object
+                properties:
+                  v:
+                    type: integer
+                required:
+                  - v
+              max:
+                type: object
+                properties:
+                  v:
+                    type: integer
+                  from:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                  to:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                required:
+                  - v
+            required:
+              - cur
+              - max
+          lastDate:
+            type: string
+            format: date-time
+        required:
+          - nb
+          - time
+    required:
+      - perfType
+      - id
+      - bestWins
+      - worstLosses
+      - count
+      - resultStreak
+      - userId
+      - playStreak
+
+required:
+  - user
+  - perf
+  - rank
+  - percentile
+  - stat
