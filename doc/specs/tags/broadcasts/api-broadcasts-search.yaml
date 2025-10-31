@@ -42,9 +42,9 @@ get:
                 items:
                   $ref: "../../schemas/BroadcastWithLastRound.yaml"
               previousPage:
-                type: [number, "null"]
+                type: [integer, "null"]
               nextPage:
-                type: [number, "null"]
+                type: [integer, "null"]
             required:
               - currentPage
               - maxPerPage
