@@ -12,7 +12,7 @@ get:
       required: true
       description: How many days to look back when aggregating puzzle results. 30 is sensible.
       schema:
-        type: number
+        type: integer
     - in: path
       name: theme
       required: true

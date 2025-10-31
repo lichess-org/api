@@ -88,15 +88,15 @@ get:
                         username:
                           type: string
                         rating:
-                          type: number
+                          type: integer
                         ratingDiff:
-                          type: number
+                          type: integer
                         ai:
-                          type: number
+                          type: integer
                     isMyTurn:
                       type: boolean
                     secondsLeft:
-                      type: number
+                      type: integer
                     tournamentId:
                       type: string
                     swissId:
@@ -104,7 +104,7 @@ get:
                     winner:
                       $ref: "../../schemas/GameColor.yaml"
                     ratingDiff:
-                      type: number
+                      type: integer
             example:
               {
                 "nowPlaying":

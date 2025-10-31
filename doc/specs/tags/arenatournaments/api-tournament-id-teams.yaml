@@ -42,11 +42,11 @@ get:
                     - players
                   properties:
                     rank:
-                      type: number
+                      type: integer
                     id:
                       type: string
                     score:
-                      type: number
+                      type: integer
                     players:
                       type: array
                       items:
@@ -57,6 +57,6 @@ get:
                           user:
                             $ref: "../../schemas/LightUser.yaml"
                           score:
-                            type: number
+                            type: integer
           example:
             $ref: "../../examples/arenas-getTeamStandingOfTeamBattle.json"

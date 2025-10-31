@@ -32,24 +32,24 @@ get:
       name: since
       description: Include only games from this year or later
       schema:
-        type: number
+        type: integer
         default: 1952
     - in: query
       name: until
       description: Include only games from this year or earlier
       schema:
-        type: number
+        type: integer
     - in: query
       name: moves
       description: Number of most common moves to display
       schema:
-        type: number
+        type: integer
         default: 12
     - in: query
       name: topGames
       description: Number of top games to display
       schema:
-        type: number
+        type: integer
         default: 15
         maximum: 15
   responses:

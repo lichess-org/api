@@ -32,7 +32,7 @@ post:
                     - "clock.increment"
                   properties:
                     "clock.limit":
-                      type: number
+                      type: integer
                       description: Clock initial time in seconds. If empty, a correspondence game is created. Valid values are 0, 15, 30, 45, 60, 90, and any multiple of 60 up to 10800 (3 hours).
                       example: 300
                       minimum: 0

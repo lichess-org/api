@@ -18,7 +18,7 @@ post:
       name: seconds
       description: How many seconds to give
       schema:
-        type: number
+        type: integer
         minimum: 5
         maximum: 60
       required: true

@@ -16,7 +16,7 @@ get:
     - in: query
       name: page
       schema:
-        type: number
+        type: integer
         example: 1
         default: 1
     - in: query
@@ -39,26 +39,26 @@ get:
             type: object
             properties:
               currentPage:
-                type: number
+                type: integer
                 example: 4
               maxPerPage:
-                type: number
+                type: integer
                 example: 15
               currentPageResults:
                 type: array
                 items:
                   $ref: "../../schemas/BroadcastByUser.yaml"
               nbResults:
-                type: number
+                type: integer
                 example: 205194
               previousPage:
-                type: [number, "null"]
+                type: [integer, "null"]
                 example: 3
               nextPage:
-                type: [number, "null"]
+                type: [integer, "null"]
                 example: 5
               nbPages:
-                type: number
+                type: integer
                 example: 13680
             required:
               - currentPage

@@ -22,7 +22,7 @@ get:
       name: multiPv
       description: Number of variations
       schema:
-        type: number
+        type: integer
         default: 1
     - in: query
       name: variant

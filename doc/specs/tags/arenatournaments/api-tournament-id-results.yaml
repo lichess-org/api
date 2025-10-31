@@ -51,15 +51,15 @@ get:
               - performance
             properties:
               rank:
-                type: number
+                type: integer
               score:
-                type: number
+                type: integer
               rating:
-                type: number
+                type: integer
               username:
                 type: string
               performance:
-                type: number
+                type: integer
               title:
                 $ref: "../../schemas/Title.yaml"
               team:

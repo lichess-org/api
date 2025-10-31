@@ -34,9 +34,9 @@ get:
             type: object
             properties:
               currentPage:
-                type: number
+                type: integer
               maxPerPage:
-                type: number
+                type: integer
               currentPageResults:
                 type: array
                 items:

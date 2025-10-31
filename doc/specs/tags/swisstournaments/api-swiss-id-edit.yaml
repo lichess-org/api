@@ -33,7 +33,7 @@ post:
               minLength: 2
               maxLength: 30
             clock.limit:
-              type: number
+              type: integer
               description: Clock initial time in seconds
               example: 300
               enum:
@@ -139,7 +139,7 @@ post:
                 Present players without a valid pairing will be given a bye, which is worth 1 point.
                 Forfeited players will get 0 points.
             chatFor:
-              type: number
+              type: integer
               description: |
                 Who can read and write in the chat.
                 - 0  = No-one
@@ -147,6 +147,7 @@ post:
                 - 20 = Only team members
                 - 30 = All Lichess players
               default: 20
+              enum: [0, 10, 20, 30]
             conditions.minRating.rating:
               type: integer
               description: Minimum rating to join. Leave empty to let everyone join the tournament.

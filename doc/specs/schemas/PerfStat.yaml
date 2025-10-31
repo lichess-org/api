@@ -367,13 +367,10 @@ properties:
           - nb
           - time
     required:
-      - perfType
-      - id
       - bestWins
       - worstLosses
       - count
       - resultStreak
-      - userId
       - playStreak
 
 required:

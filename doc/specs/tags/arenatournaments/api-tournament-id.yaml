@@ -18,7 +18,7 @@ get:
       name: page
       description: Specify which page of player standings to view.
       schema:
-        type: number
+        type: integer
         example: 1
         default: 1
         minimum: 1
