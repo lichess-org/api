@@ -13,7 +13,7 @@ get:
   parameters:
     - in: query
       name: fen
-      description: FEN of the root position
+      description: X-FEN of the root position
       schema:
         type: string
       example: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
