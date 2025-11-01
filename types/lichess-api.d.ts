@@ -1681,6 +1681,8 @@ export interface paths {
      * @description Get all incoming, ongoing, and finished official broadcasts.
      *     The broadcasts are sorted by created date, most recent first.
      *
+     *     If you are authenticated as the user whose broadcasts you are requesting, you will also see your private and unlisted broadcasts.
+     *
      */
     get: operations["broadcastsByUser"];
     put?: never;
@@ -30716,7 +30718,7 @@ export interface operations {
           /**
            * @description Clock initial time in seconds
            * @example 300
-           * @enum {number}
+           * @enum {integer}
            */
           "clock.limit":
             | 0
@@ -30828,8 +30830,9 @@ export interface operations {
            *     - 30 = All Lichess players
            *
            * @default 20
+           * @enum {integer}
            */
-          chatFor?: number;
+          chatFor?: 0 | 10 | 20 | 30;
           /**
            * @description Minimum rating to join. Leave empty to let everyone join the tournament.
            * @enum {integer}
@@ -30956,7 +30959,7 @@ export interface operations {
           /**
            * @description Clock initial time in seconds
            * @example 300
-           * @enum {number}
+           * @enum {integer}
            */
           "clock.limit":
             | 0
@@ -31061,8 +31064,9 @@ export interface operations {
            *     - 30 = All Lichess players
            *
            * @default 20
+           * @enum {integer}
            */
-          chatFor?: number;
+          chatFor?: 0 | 10 | 20 | 30;
           /**
            * @description Minimum rating to join. Leave empty to let everyone join the tournament.
            * @enum {integer}
@@ -35877,12 +35881,8 @@ export interface operations {
                * @example 15
                */
               increment: number;
-              /**
-               * @description The color to play. Better left empty to automatically get 50% white.
-               * @default random
-               * @enum {string}
-               */
-              color?: "random" | "white" | "black";
+              /** @description The color to play. Better left empty to automatically get 50% white. */
+              color?: components["schemas"]["ChallengeColor"];
             }
           | {
               /**
