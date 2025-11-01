@@ -94,12 +94,12 @@ get:
       name: moves
       description: Number of most common moves to display
       schema:
-        type: number
+        type: integer
     - in: query
       name: recentGames
       description: Number of recent games to display
       schema:
-        type: number
+        type: integer
         default: 8
         maximum: 8
   responses:

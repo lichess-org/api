@@ -46,19 +46,19 @@ get:
               absent:
                 type: boolean
               rank:
-                type: number
+                type: integer
               points:
                 type: number
               tieBreak:
-                type: number
+                type: integer
               rating:
-                type: number
+                type: integer
               username:
                 type: string
               title:
                 $ref: "../../schemas/Title.yaml"
               performance:
-                type: number
+                type: integer
             example:
               {
                 "rank": 4,

@@ -66,13 +66,8 @@ post:
                       minimum: 0
                       maximum: 180
                     color:
-                      type: string
                       description: The color to play. Better left empty to automatically get 50% white.
-                      enum:
-                        - random
-                        - white
-                        - black
-                      default: random
+                      $ref: "../../schemas/ChallengeColor.yaml"
                 - type: object
                   title: correspondence
                   required:

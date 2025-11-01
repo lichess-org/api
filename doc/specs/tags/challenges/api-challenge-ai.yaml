@@ -17,12 +17,12 @@ post:
           type: object
           properties:
             level:
-              type: number
+              type: integer
               description: AI strength
               minimum: 1
               maximum: 8
             "clock.limit":
-              type: number
+              type: integer
               description: Clock initial time in seconds. If empty, a correspondence game is created.
               example: 300
               minimum: 0
@@ -87,7 +87,7 @@ post:
               status:
                 $ref: "../../schemas/GameStatus.yaml"
               createdAt:
-                type: number
+                type: integer
                 format: int64
               player:
                 $ref: "../../schemas/GameColor.yaml"

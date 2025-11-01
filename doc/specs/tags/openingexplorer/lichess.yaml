@@ -53,7 +53,7 @@ get:
       schema:
         type: array
         items:
-          type: number
+          type: integer
           enum:
             - 0
             - 1000
@@ -80,7 +80,7 @@ get:
       name: moves
       description: Number of most common moves to display
       schema:
-        type: number
+        type: integer
         default: 12
     - in: query
       name: topGames
@@ -90,7 +90,7 @@ get:
         Due to the way banned users are handled internally, the response may
         contain fewer games than expected.
       schema:
-        type: number
+        type: integer
         default: 4
         maximum: 4
     - in: query
@@ -101,7 +101,7 @@ get:
         Due to the way banned users are handled internally, the response may
         contain fewer games than expected.
       schema:
-        type: number
+        type: integer
         default: 4
         maximum: 4 # or 8, depending on query
     - in: query

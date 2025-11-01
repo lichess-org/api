@@ -38,7 +38,7 @@ get:
             type: object
             properties:
               joinedTeamAt:
-                type: number
+                type: integer
                 format: int64
                 example: 1716930043067
               id:

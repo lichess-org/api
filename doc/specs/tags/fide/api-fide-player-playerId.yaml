@@ -12,7 +12,7 @@ get:
       description: The FIDE player ID.
       required: true
       schema:
-        type: number
+        type: integer
   responses:
     "200":
       description: The information about the FIDE player.

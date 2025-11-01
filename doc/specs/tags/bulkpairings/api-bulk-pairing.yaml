@@ -67,7 +67,7 @@ post:
                 Each token must be included at most once.
                 Example: `token1:token2,token3:token4,token5:token6`
             "clock.limit":
-              type: number
+              type: integer
               description: |
                 Clock initial time in seconds. Example: `600`
               minimum: 0

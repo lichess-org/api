@@ -34,17 +34,17 @@ get:
             type: object
             properties:
               currentPage:
-                type: number
+                type: integer
               maxPerPage:
-                type: number
+                type: integer
               currentPageResults:
                 type: array
                 items:
                   $ref: "../../schemas/BroadcastWithLastRound.yaml"
               previousPage:
-                type: [number, "null"]
+                type: [integer, "null"]
               nextPage:
-                type: [number, "null"]
+                type: [integer, "null"]
             required:
               - currentPage
               - maxPerPage

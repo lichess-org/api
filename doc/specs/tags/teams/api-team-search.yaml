@@ -15,7 +15,7 @@ get:
     - in: query
       name: page
       schema:
-        type: number
+        type: integer
         example: 1
         default: 1
   responses:
