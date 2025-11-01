@@ -4,9 +4,12 @@ get:
   description: |
     Get all incoming, ongoing, and finished official broadcasts.
     The broadcasts are sorted by created date, most recent first.
+
+    If you are authenticated as the user whose broadcasts you are requesting, you will also see your private and unlisted broadcasts.
   tags:
     - Broadcasts
-  security: []
+  security:
+    - OAuth2: ["study:read"]
   parameters:
     - in: path
       name: username
