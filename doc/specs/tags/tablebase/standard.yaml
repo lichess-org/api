@@ -13,7 +13,7 @@ get:
   parameters:
     - in: query
       name: fen
-      description: FEN of the position. Underscores allowed.
+      description: X-FEN of the position. Underscores allowed.
       schema:
         type: string
       required: true
