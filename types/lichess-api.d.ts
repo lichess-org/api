@@ -4720,7 +4720,7 @@ export interface components {
       puzzles: {
         /** @description Puzzle ID */
         id: string;
-        /** @description FEN position of the puzzle */
+        /** @description X-FEN position of the puzzle */
         fen: string;
         /** @description Solution moves sequence */
         line: string;
@@ -5571,7 +5571,7 @@ export interface components {
       /**
        * @description The type of message.
        *     A summary of the game is sent as the first message and when the featured game changes.
-       *     Subsequent messages are just the FEN, last move, and clocks.
+       *     Subsequent messages are just the X-FEN, last move, and clocks.
        *
        * @constant
        */
@@ -5591,7 +5591,7 @@ export interface components {
           /** @description The player's remaining time in seconds */
           seconds: number;
         }[];
-        /** @description The FEN of the current position */
+        /** @description The X-FEN of the current position */
         fen: string;
       };
     };
@@ -5600,7 +5600,7 @@ export interface components {
       /**
        * @description The type of message.
        *     A summary of the game is sent as the first message and when the featured game changes.
-       *     Subsequent messages are just the FEN, last move, and clocks.
+       *     Subsequent messages are just the X-FEN, last move, and clocks.
        *
        * @constant
        */
@@ -5610,7 +5610,7 @@ export interface components {
        * @description The data of the message
        */
       d: {
-        /** @description The FEN of the current position */
+        /** @description The X-FEN of the current position */
         fen: string;
         /** @description The last move in UCI format (King to rook for Chess960-compatible
          *     castling notation)
@@ -5715,7 +5715,7 @@ export interface components {
       finished: components["schemas"]["ArenaTournament"][];
     };
     /**
-     * @description Custom initial position (in FEN). Variant must be standard, fromPosition, or chess960 (if a valid 960 starting position), and the game cannot be rated.
+     * @description Custom initial position (in X-FEN). Variant must be standard, fromPosition, or chess960 (if a valid 960 starting position), and the game cannot be rated.
      * @default rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
      */
     FromPositionFEN: string;
@@ -5884,7 +5884,7 @@ export interface components {
       player: components["schemas"]["ArenaTournamentPlayer"];
     };
     /**
-     * @description Custom initial position (in FEN). Variant must be standard and the game cannot be rated.
+     * @description Custom initial position (in X-FEN). Variant must be standard and the game cannot be rated.
      * @default rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
      */
     SwissFromPositionFEN: string;
@@ -13380,7 +13380,7 @@ export interface operations {
          *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
          *      */
         literate?: boolean;
-        /** @description Include the FEN notation of the last position of the game.
+        /** @description Include the X-FEN notation of the last position of the game.
          *     The response type must be set to `application/x-ndjson` by the request `Accept` header.
          *      */
         lastFen?: boolean;
@@ -14148,7 +14148,7 @@ export interface operations {
          *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
          *      */
         literate?: boolean;
-        /** @description Include the FEN notation of the last position of the game.
+        /** @description Include the X-FEN notation of the last position of the game.
          *     The response type must be set to `application/x-ndjson` by the request `Accept` header.
          *      */
         lastFen?: boolean;
@@ -37730,7 +37730,7 @@ export interface operations {
     parameters: {
       query: {
         /**
-         * @description FEN of the position
+         * @description X-FEN of the position
          * @example r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3
          */
         fen: string;
@@ -38287,7 +38287,7 @@ export interface operations {
     parameters: {
       query?: {
         /**
-         * @description FEN of the root position
+         * @description X-FEN of the root position
          * @example rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
          */
         fen?: string;
@@ -38607,7 +38607,7 @@ export interface operations {
         /** @description Variant */
         variant?: components["schemas"]["VariantKey"];
         /**
-         * @description FEN or EPD of the root position
+         * @description X-FEN or EPD of the root position
          * @example rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2
          */
         fen?: string;
@@ -38981,7 +38981,7 @@ export interface operations {
         /** @description Variant */
         variant?: components["schemas"]["VariantKey"];
         /**
-         * @description FEN of the root position
+         * @description X-FEN of the root position
          * @example rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
          */
         fen?: string;
@@ -39187,7 +39187,7 @@ export interface operations {
   tablebaseStandard: {
     parameters: {
       query: {
-        /** @description FEN of the position. Underscores allowed. */
+        /** @description X-FEN of the position. Underscores allowed. */
         fen: string;
         /** @description When to query the tablebase for `dtc` values. The current default
          *     is `never`. It is eventually going to be `auxiliary`, i.e., only when
@@ -39375,7 +39375,7 @@ export interface operations {
   tablebaseAtomic: {
     parameters: {
       query: {
-        /** @description FEN of the position. Underscores allowed. */
+        /** @description X-FEN of the position. Underscores allowed. */
         fen: string;
       };
       header?: never;
@@ -40070,7 +40070,7 @@ export interface operations {
   antichessAtomic: {
     parameters: {
       query: {
-        /** @description FEN of the position. Underscores allowed. */
+        /** @description X-FEN of the position. Underscores allowed. */
         fen: string;
       };
       header?: never;

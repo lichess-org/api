@@ -8,7 +8,7 @@ properties:
     description: |
       The type of message.
       A summary of the game is sent as the first message and when the featured game changes.
-      Subsequent messages are just the FEN, last move, and clocks.
+      Subsequent messages are just the X-FEN, last move, and clocks.
     const: "featured"
   d:
     type: object
@@ -43,7 +43,7 @@ properties:
         maxItems: 2
       fen:
         type: string
-        description: The FEN of the current position
+        description: The X-FEN of the current position
     required:
       - id
       - orientation

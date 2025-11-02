@@ -44,7 +44,7 @@ properties:
           description: Puzzle ID
         fen:
           type: string
-          description: FEN position of the puzzle
+          description: X-FEN position of the puzzle
         line:
           type: string
           description: Solution moves sequence
