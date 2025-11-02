@@ -3998,18 +3998,18 @@ export interface components {
      * @enum {string}
      */
     Title:
-    | "GM"
-    | "WGM"
-    | "IM"
-    | "WIM"
-    | "FM"
-    | "WFM"
-    | "NM"
-    | "CM"
-    | "WCM"
-    | "WNM"
-    | "LM"
-    | "BOT";
+      | "GM"
+      | "WGM"
+      | "IM"
+      | "WIM"
+      | "FM"
+      | "WFM"
+      | "NM"
+      | "CM"
+      | "WCM"
+      | "WNM"
+      | "LM"
+      | "BOT";
     /** @description Players can choose a color for their Patron wings.
      *     See [here for the color mappings](https://github.com/lichess-org/lila/blob/master/ui/lib/css/abstract/_patron-colors.scss).
      *      */
@@ -4279,20 +4279,20 @@ export interface components {
     RatingHistory: components["schemas"]["RatingHistoryEntry"][];
     /** @enum {string} */
     PerfType:
-    | "ultraBullet"
-    | "bullet"
-    | "blitz"
-    | "rapid"
-    | "classical"
-    | "correspondence"
-    | "chess960"
-    | "crazyhouse"
-    | "antichess"
-    | "atomic"
-    | "horde"
-    | "kingOfTheHill"
-    | "racingKings"
-    | "threeCheck";
+      | "ultraBullet"
+      | "bullet"
+      | "blitz"
+      | "rapid"
+      | "classical"
+      | "correspondence"
+      | "chess960"
+      | "crazyhouse"
+      | "antichess"
+      | "atomic"
+      | "horde"
+      | "kingOfTheHill"
+      | "racingKings"
+      | "threeCheck";
     LightUser: {
       id: string;
       name: string;
@@ -4475,16 +4475,16 @@ export interface components {
      * @enum {string}
      */
     VariantKey:
-    | "standard"
-    | "chess960"
-    | "crazyhouse"
-    | "antichess"
-    | "atomic"
-    | "horde"
-    | "kingOfTheHill"
-    | "racingKings"
-    | "threeCheck"
-    | "fromPosition";
+      | "standard"
+      | "chess960"
+      | "crazyhouse"
+      | "antichess"
+      | "atomic"
+      | "horde"
+      | "kingOfTheHill"
+      | "racingKings"
+      | "threeCheck"
+      | "fromPosition";
     UserActivityCorrespondenceGame: {
       id: string;
       color: components["schemas"]["GameColor"];
@@ -4746,99 +4746,99 @@ export interface components {
       is3d?: boolean;
       /** @enum {string} */
       theme?:
-      | "blue"
-      | "blue2"
-      | "blue3"
-      | "blue-marble"
-      | "canvas"
-      | "wood"
-      | "wood2"
-      | "wood3"
-      | "wood4"
-      | "maple"
-      | "maple2"
-      | "brown"
-      | "leather"
-      | "green"
-      | "marble"
-      | "green-plastic"
-      | "grey"
-      | "metal"
-      | "olive"
-      | "newspaper"
-      | "purple"
-      | "purple-diag"
-      | "pink"
-      | "ic";
+        | "blue"
+        | "blue2"
+        | "blue3"
+        | "blue-marble"
+        | "canvas"
+        | "wood"
+        | "wood2"
+        | "wood3"
+        | "wood4"
+        | "maple"
+        | "maple2"
+        | "brown"
+        | "leather"
+        | "green"
+        | "marble"
+        | "green-plastic"
+        | "grey"
+        | "metal"
+        | "olive"
+        | "newspaper"
+        | "purple"
+        | "purple-diag"
+        | "pink"
+        | "ic";
       /** @enum {string} */
       pieceSet?:
-      | "cburnett"
-      | "merida"
-      | "alpha"
-      | "pirouetti"
-      | "chessnut"
-      | "chess7"
-      | "reillycraig"
-      | "companion"
-      | "riohacha"
-      | "kosal"
-      | "leipzig"
-      | "fantasy"
-      | "spatial"
-      | "california"
-      | "pixel"
-      | "maestro"
-      | "fresca"
-      | "cardinal"
-      | "gioco"
-      | "tatiana"
-      | "staunty"
-      | "governor"
-      | "dubrovny"
-      | "icpieces"
-      | "shapes"
-      | "letter";
+        | "cburnett"
+        | "merida"
+        | "alpha"
+        | "pirouetti"
+        | "chessnut"
+        | "chess7"
+        | "reillycraig"
+        | "companion"
+        | "riohacha"
+        | "kosal"
+        | "leipzig"
+        | "fantasy"
+        | "spatial"
+        | "california"
+        | "pixel"
+        | "maestro"
+        | "fresca"
+        | "cardinal"
+        | "gioco"
+        | "tatiana"
+        | "staunty"
+        | "governor"
+        | "dubrovny"
+        | "icpieces"
+        | "shapes"
+        | "letter";
       /** @enum {string} */
       theme3d?:
-      | "Black-White-Aluminium"
-      | "Brushed-Aluminium"
-      | "China-Blue"
-      | "China-Green"
-      | "China-Grey"
-      | "China-Scarlet"
-      | "Classic-Blue"
-      | "Gold-Silver"
-      | "Light-Wood"
-      | "Power-Coated"
-      | "Rosewood"
-      | "Marble"
-      | "Wax"
-      | "Jade"
-      | "Woodi";
+        | "Black-White-Aluminium"
+        | "Brushed-Aluminium"
+        | "China-Blue"
+        | "China-Green"
+        | "China-Grey"
+        | "China-Scarlet"
+        | "Classic-Blue"
+        | "Gold-Silver"
+        | "Light-Wood"
+        | "Power-Coated"
+        | "Rosewood"
+        | "Marble"
+        | "Wax"
+        | "Jade"
+        | "Woodi";
       /** @enum {string} */
       pieceSet3d?:
-      | "Basic"
-      | "Wood"
-      | "Metal"
-      | "RedVBlue"
-      | "ModernJade"
-      | "ModernWood"
-      | "Glass"
-      | "Trimmed"
-      | "Experimental"
-      | "Staunton"
-      | "CubesAndPi";
+        | "Basic"
+        | "Wood"
+        | "Metal"
+        | "RedVBlue"
+        | "ModernJade"
+        | "ModernWood"
+        | "Glass"
+        | "Trimmed"
+        | "Experimental"
+        | "Staunton"
+        | "CubesAndPi";
       /** @enum {string} */
       soundSet?:
-      | "silent"
-      | "standard"
-      | "piano"
-      | "nes"
-      | "sfx"
-      | "futuristic"
-      | "robot"
-      | "music"
-      | "speech";
+        | "silent"
+        | "standard"
+        | "piano"
+        | "nes"
+        | "sfx"
+        | "futuristic"
+        | "robot"
+        | "music"
+        | "speech";
       blindfold?: number;
       autoQueen?: number;
       autoThreefold?: number;
@@ -5214,28 +5214,28 @@ export interface components {
     GamePgn: string;
     /** @enum {string} */
     Speed:
-    | "ultraBullet"
-    | "bullet"
-    | "blitz"
-    | "rapid"
-    | "classical"
-    | "correspondence";
+      | "ultraBullet"
+      | "bullet"
+      | "blitz"
+      | "rapid"
+      | "classical"
+      | "correspondence";
     /** @enum {string} */
     GameStatusName:
-    | "created"
-    | "started"
-    | "aborted"
-    | "mate"
-    | "resign"
-    | "stalemate"
-    | "timeout"
-    | "draw"
-    | "outoftime"
-    | "cheat"
-    | "noStart"
-    | "unknownFinish"
-    | "insufficientMaterialClaim"
-    | "variantEnd";
+      | "created"
+      | "started"
+      | "aborted"
+      | "mate"
+      | "resign"
+      | "stalemate"
+      | "timeout"
+      | "draw"
+      | "outoftime"
+      | "cheat"
+      | "noStart"
+      | "unknownFinish"
+      | "insufficientMaterialClaim"
+      | "variantEnd";
     GamePlayerUser: {
       user: components["schemas"]["LightUser"];
       rating: number;
@@ -5321,20 +5321,20 @@ export interface components {
     };
     /** @enum {integer} */
     GameStatusId:
-    | 10
-    | 20
-    | 25
-    | 30
-    | 31
-    | 32
-    | 33
-    | 34
-    | 35
-    | 36
-    | 37
-    | 38
-    | 39
-    | 60;
+      | 10
+      | 20
+      | 25
+      | 30
+      | 31
+      | 32
+      | 33
+      | 34
+      | 35
+      | 36
+      | 37
+      | 38
+      | 39
+      | 60;
     /** @example {
      *       "id": "A5fcMO3k",
      *       "rated": true,
@@ -5442,19 +5442,19 @@ export interface components {
     GameStream: components["schemas"]["GameStreamGame"][];
     /** @enum {string} */
     GameSource:
-    | "lobby"
-    | "friend"
-    | "ai"
-    | "api"
-    | "tournament"
-    | "position"
-    | "import"
-    | "importlive"
-    | "simul"
-    | "relay"
-    | "pool"
-    | "arena"
-    | "swiss";
+      | "lobby"
+      | "friend"
+      | "ai"
+      | "api"
+      | "tournament"
+      | "position"
+      | "import"
+      | "importlive"
+      | "simul"
+      | "relay"
+      | "pool"
+      | "arena"
+      | "swiss";
     Variant: {
       key: components["schemas"]["VariantKey"];
       name: string;
@@ -5465,29 +5465,29 @@ export interface components {
       name: components["schemas"]["GameStatusName"];
     };
     MoveStreamEntry:
-    | {
-      id: string;
-      variant?: components["schemas"]["Variant"];
-      speed?: components["schemas"]["Speed"];
-      perf?: components["schemas"]["PerfType"];
-      rated?: boolean;
-      initialFen?: string;
-      fen?: string;
-      player?: components["schemas"]["GameColor"];
-      turns?: number;
-      startedAtTurn?: number;
-      source?: components["schemas"]["GameSource"];
-      status?: components["schemas"]["GameStatus"];
-      createdAt?: number;
-      lastMove?: string;
-      players?: components["schemas"]["GamePlayers"];
-    }
-    | {
-      fen: string;
-      lm?: string;
-      wc: number;
-      bc: number;
-    };
+      | {
+          id: string;
+          variant?: components["schemas"]["Variant"];
+          speed?: components["schemas"]["Speed"];
+          perf?: components["schemas"]["PerfType"];
+          rated?: boolean;
+          initialFen?: string;
+          fen?: string;
+          player?: components["schemas"]["GameColor"];
+          turns?: number;
+          startedAtTurn?: number;
+          source?: components["schemas"]["GameSource"];
+          status?: components["schemas"]["GameStatus"];
+          createdAt?: number;
+          lastMove?: string;
+          players?: components["schemas"]["GamePlayers"];
+        }
+      | {
+          fen: string;
+          lm?: string;
+          wc: number;
+          bc: number;
+        };
     /** @example [
      *       {
      *         "id": "LuGQwhBb",
@@ -5623,8 +5623,8 @@ export interface components {
       };
     };
     TvFeed:
-    | components["schemas"]["TvFeedFeatured"]
-    | components["schemas"]["TvFeedFen"];
+      | components["schemas"]["TvFeedFeatured"]
+      | components["schemas"]["TvFeedFen"];
     Clock: {
       limit: number;
       increment: number;
@@ -5650,25 +5650,25 @@ export interface components {
       rating: number;
     };
     ArenaPosition:
-    | {
-      /** @example C41 */
-      eco: string;
-      /** @example Philidor Defense */
-      name: string;
-      /** @example rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - */
-      fen: string;
-      /**
-       * Format: uri
-       * @example https://lichess.org/opening/Philidor_Defense
-       */
-      url: string;
-    }
-    | {
-      /** @constant */
-      name: "Custom position";
-      /** @example rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 2 3 */
-      fen: string;
-    };
+      | {
+          /** @example C41 */
+          eco: string;
+          /** @example Philidor Defense */
+          name: string;
+          /** @example rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - */
+          fen: string;
+          /**
+           * Format: uri
+           * @example https://lichess.org/opening/Philidor_Defense
+           */
+          url: string;
+        }
+      | {
+          /** @constant */
+          name: "Custom position";
+          /** @example rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 2 3 */
+          fen: string;
+        };
     ArenaTournament: {
       id: string;
       createdBy: string;
@@ -6137,41 +6137,41 @@ export interface components {
      * @enum {string}
      */
     BroadcastTiebreakExtendedCode:
-    | "AOB"
-    | "APPO"
-    | "APRO"
-    | "ARO"
-    | "ARO-C1"
-    | "ARO-C2"
-    | "ARO-M1"
-    | "ARO-M2"
-    | "BH"
-    | "BH-C1"
-    | "BH-C2"
-    | "BH-M1"
-    | "BH-M2"
-    | "BPG"
-    | "BWG"
-    | "DE"
-    | "FB"
-    | "FB-C1"
-    | "FB-C2"
-    | "FB-M1"
-    | "FB-M2"
-    | "KS"
-    | "PS"
-    | "PS-C1"
-    | "PS-C2"
-    | "PS-M1"
-    | "PS-M2"
-    | "PTP"
-    | "SB"
-    | "SB-C1"
-    | "SB-C2"
-    | "SB-M1"
-    | "SB-M2"
-    | "TPR"
-    | "WON";
+      | "AOB"
+      | "APPO"
+      | "APRO"
+      | "ARO"
+      | "ARO-C1"
+      | "ARO-C2"
+      | "ARO-M1"
+      | "ARO-M2"
+      | "BH"
+      | "BH-C1"
+      | "BH-C2"
+      | "BH-M1"
+      | "BH-M2"
+      | "BPG"
+      | "BWG"
+      | "DE"
+      | "FB"
+      | "FB-C1"
+      | "FB-C2"
+      | "FB-M1"
+      | "FB-M2"
+      | "KS"
+      | "PS"
+      | "PS-C1"
+      | "PS-C2"
+      | "PS-M1"
+      | "PS-M2"
+      | "PTP"
+      | "SB"
+      | "SB-C1"
+      | "SB-C2"
+      | "SB-M1"
+      | "SB-M2"
+      | "TPR"
+      | "WON";
     BroadcastForm: {
       /** @description Name of the broadcast tournament.
        *
@@ -6372,102 +6372,102 @@ export interface components {
     BroadcastRoundFormName: string;
     BroadcastRoundForm: (
       | {
-        name: components["schemas"]["BroadcastRoundFormName"];
-      }
+          name: components["schemas"]["BroadcastRoundFormName"];
+        }
       | {
-        name: components["schemas"]["BroadcastRoundFormName"];
-        /**
-         * Format: uri
-         * @description URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
-         *
-         *     Example:
-         *     ```txt
-         *     https://myserver.org/myevent/round-10/games.pgn
-         *     ```
-         *
-         */
-        syncUrl: string;
-        /** @description Filter games by round number
-         *
-         *     Optional, only keep games from the source that match a round number.
-         *     It uses the PGN **Round** tag. These would match round 3:
-         *     ```txt
-         *     [Round "3"]
-         *     [Round "3.1"]
-         *     ```
-         *     If you set a round number, then games without a **Round** tag are dropped.
-         *
-         *     It only works if you chose `syncUrl` or `syncUrls` as the source.
-         *      */
-        onlyRound?: number;
-        /** @description Select slices of the games
-         *
-         *     Optional. Select games based on their position in the source.
-         *     ```txt
-         *     1           only select the first board
-         *     1-4         only select the first 4 boards
-         *     1,2,3,4     same as above, first 4 boards
-         *     11-15,21-25 boards 11 to 15, and boards 21 to 25
-         *     2,3,7-9     boards 2, 3, 7, 8, and 9
-         *     ```
-         *     Slicing is done after filtering by round number.
-         *
-         *     It only works if you chose `syncUrl` or `syncUrls` as the source.
-         *      */
-        slices?: string;
-      }
+          name: components["schemas"]["BroadcastRoundFormName"];
+          /**
+           * Format: uri
+           * @description URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
+           *
+           *     Example:
+           *     ```txt
+           *     https://myserver.org/myevent/round-10/games.pgn
+           *     ```
+           *
+           */
+          syncUrl: string;
+          /** @description Filter games by round number
+           *
+           *     Optional, only keep games from the source that match a round number.
+           *     It uses the PGN **Round** tag. These would match round 3:
+           *     ```txt
+           *     [Round "3"]
+           *     [Round "3.1"]
+           *     ```
+           *     If you set a round number, then games without a **Round** tag are dropped.
+           *
+           *     It only works if you chose `syncUrl` or `syncUrls` as the source.
+           *      */
+          onlyRound?: number;
+          /** @description Select slices of the games
+           *
+           *     Optional. Select games based on their position in the source.
+           *     ```txt
+           *     1           only select the first board
+           *     1-4         only select the first 4 boards
+           *     1,2,3,4     same as above, first 4 boards
+           *     11-15,21-25 boards 11 to 15, and boards 21 to 25
+           *     2,3,7-9     boards 2, 3, 7, 8, and 9
+           *     ```
+           *     Slicing is done after filtering by round number.
+           *
+           *     It only works if you chose `syncUrl` or `syncUrls` as the source.
+           *      */
+          slices?: string;
+        }
       | {
-        name: components["schemas"]["BroadcastRoundFormName"];
-        /** @description URLs that Lichess will poll to get updates about the games, separated by newlines. They must be publicly accessible from the Internet.
-         *
-         *     Example:
-         *     ```txt
-         *     https://myserver.org/myevent/round-10/game-1.pgn
-         *     https://myserver.org/myevent/round-10/game-2.pgn
-         *     ```
-         *      */
-        syncUrls: string;
-        /** @description Filter games by round number
-         *
-         *     Optional, only keep games from the source that match a round number.
-         *     It uses the PGN **Round** tag. These would match round 3:
-         *     ```txt
-         *     [Round "3"]
-         *     [Round "3.1"]
-         *     ```
-         *     If you set a round number, then games without a **Round** tag are dropped.
-         *
-         *     It only works if you chose `syncUrl` or `syncUrls` as the source.
-         *      */
-        onlyRound?: number;
-        /** @description Select slices of the games
-         *
-         *     Optional. Select games based on their position in the source.
-         *     ```txt
-         *     1           only select the first board
-         *     1-4         only select the first 4 boards
-         *     1,2,3,4     same as above, first 4 boards
-         *     11-15,21-25 boards 11 to 15, and boards 21 to 25
-         *     2,3,7-9     boards 2, 3, 7, 8, and 9
-         *     ```
-         *     Slicing is done after filtering by round number.
-         *
-         *     It only works if you chose `syncUrl` or `syncUrls` as the source.
-         *      */
-        slices?: string;
-      }
+          name: components["schemas"]["BroadcastRoundFormName"];
+          /** @description URLs that Lichess will poll to get updates about the games, separated by newlines. They must be publicly accessible from the Internet.
+           *
+           *     Example:
+           *     ```txt
+           *     https://myserver.org/myevent/round-10/game-1.pgn
+           *     https://myserver.org/myevent/round-10/game-2.pgn
+           *     ```
+           *      */
+          syncUrls: string;
+          /** @description Filter games by round number
+           *
+           *     Optional, only keep games from the source that match a round number.
+           *     It uses the PGN **Round** tag. These would match round 3:
+           *     ```txt
+           *     [Round "3"]
+           *     [Round "3.1"]
+           *     ```
+           *     If you set a round number, then games without a **Round** tag are dropped.
+           *
+           *     It only works if you chose `syncUrl` or `syncUrls` as the source.
+           *      */
+          onlyRound?: number;
+          /** @description Select slices of the games
+           *
+           *     Optional. Select games based on their position in the source.
+           *     ```txt
+           *     1           only select the first board
+           *     1-4         only select the first 4 boards
+           *     1,2,3,4     same as above, first 4 boards
+           *     11-15,21-25 boards 11 to 15, and boards 21 to 25
+           *     2,3,7-9     boards 2, 3, 7, 8, and 9
+           *     ```
+           *     Slicing is done after filtering by round number.
+           *
+           *     It only works if you chose `syncUrl` or `syncUrls` as the source.
+           *      */
+          slices?: string;
+        }
       | {
-        name: components["schemas"]["BroadcastRoundFormName"];
-        /** @description Lichess game IDs - Up to 100 Lichess game IDs, separated by spaces.
-         *      */
-        syncIds: string;
-      }
+          name: components["schemas"]["BroadcastRoundFormName"];
+          /** @description Lichess game IDs - Up to 100 Lichess game IDs, separated by spaces.
+           *      */
+          syncIds: string;
+        }
       | {
-        name: components["schemas"]["BroadcastRoundFormName"];
-        /** @description Up to 100 Lichess usernames, separated by spaces
-         *      */
-        syncUsers: string;
-      }
+          name: components["schemas"]["BroadcastRoundFormName"];
+          /** @description Up to 100 Lichess usernames, separated by spaces
+           *      */
+          syncUsers: string;
+        }
     ) & {
       /**
        * Format: int64
@@ -6677,18 +6677,18 @@ export interface components {
       date?: number;
     };
     GameEventOpponent:
-    | {
-      id: string;
-      username: string;
-      rating: number;
-      ratingDiff?: number;
-    }
-    | {
-      id: null;
-      username: string;
-      /** @description AI level, from 1 to 8, where 1 is the weakest and 8 is the strongest. */
-      ai: number;
-    };
+      | {
+          id: string;
+          username: string;
+          rating: number;
+          ratingDiff?: number;
+        }
+      | {
+          id: null;
+          username: string;
+          /** @description AI level, from 1 to 8, where 1 is the weakest and 8 is the strongest. */
+          ai: number;
+        };
     GameCompat: {
       /** @description Compatible with Bot API */
       bot?: boolean;
@@ -6729,11 +6729,11 @@ export interface components {
     };
     /** @enum {string} */
     ChallengeStatus:
-    | "created"
-    | "offline"
-    | "canceled"
-    | "declined"
-    | "accepted";
+      | "created"
+      | "offline"
+      | "canceled"
+      | "declined"
+      | "accepted";
     ChallengeUser: {
       id: string;
       name: string;
@@ -6748,23 +6748,23 @@ export interface components {
       lag?: number;
     };
     TimeControl:
-    | {
-      /** @constant */
-      type?: "clock";
-      limit?: number;
-      increment?: number;
-      /** @example 5+2 */
-      show?: string;
-    }
-    | {
-      /** @constant */
-      type?: "correspondence";
-      daysPerTurn?: number;
-    }
-    | {
-      /** @constant */
-      type?: "unlimited";
-    };
+      | {
+          /** @constant */
+          type?: "clock";
+          limit?: number;
+          increment?: number;
+          /** @example 5+2 */
+          show?: string;
+        }
+      | {
+          /** @constant */
+          type?: "correspondence";
+          daysPerTurn?: number;
+        }
+      | {
+          /** @constant */
+          type?: "unlimited";
+        };
     /** @enum {string} */
     ChallengeColor: "white" | "black" | "random";
     /** @example {
@@ -6851,17 +6851,17 @@ export interface components {
        * @enum {string}
        */
       declineReasonKey:
-      | "generic"
-      | "later"
-      | "toofast"
-      | "tooslow"
-      | "timecontrol"
-      | "rated"
-      | "casual"
-      | "standard"
-      | "variant"
-      | "nobot"
-      | "onlybot";
+        | "generic"
+        | "later"
+        | "toofast"
+        | "tooslow"
+        | "timecontrol"
+        | "rated"
+        | "casual"
+        | "standard"
+        | "variant"
+        | "nobot"
+        | "onlybot";
     };
     ChallengeDeclinedEvent: {
       /** @constant */
@@ -7131,21 +7131,21 @@ export interface components {
       knodes: number;
       pvs: (
         | {
-          /** @description Evaluation in centi-pawns, from White's point of view */
-          cp: number;
-          /** @description Variation in UCI notation (King to rook for Chess960-compatible
-           *     castling notation)
-           *      */
-          moves: string;
-        }
+            /** @description Evaluation in centi-pawns, from White's point of view */
+            cp: number;
+            /** @description Variation in UCI notation (King to rook for Chess960-compatible
+             *     castling notation)
+             *      */
+            moves: string;
+          }
         | {
-          /** @description Evaluation in moves to mate, from White's point of view */
-          mate: number;
-          /** @description Variation in UCI notation (King to rook for Chess960-compatible
-           *     castling notation)
-           *      */
-          moves: string;
-        }
+            /** @description Evaluation in moves to mate, from White's point of view */
+            mate: number;
+            /** @description Variation in UCI notation (King to rook for Chess960-compatible
+             *     castling notation)
+             *      */
+            moves: string;
+          }
       )[];
     };
     /**
@@ -7154,14 +7154,14 @@ export interface components {
      * @enum {string}
      */
     UciVariant:
-    | "chess"
-    | "crazyhouse"
-    | "antichess"
-    | "atomic"
-    | "horde"
-    | "kingofthehill"
-    | "racingkings"
-    | "3check";
+      | "chess"
+      | "crazyhouse"
+      | "antichess"
+      | "atomic"
+      | "horde"
+      | "kingofthehill"
+      | "racingkings"
+      | "3check";
     ExternalEngine: {
       /** @description Unique engine registration ID. */
       id: string;
@@ -7249,18 +7249,18 @@ export interface components {
       moves: string[];
     };
     ExternalEngineWork:
-    | ({
-      /** @description Amount of time to analyse the position, in milliseconds. */
-      movetime: number;
-    } & components["schemas"]["ExternalEngineWorkCommon"])
-    | ({
-      /** @description Analysis target depth */
-      depth: number;
-    } & components["schemas"]["ExternalEngineWorkCommon"])
-    | ({
-      /** @description Number of nodes to analyse in the position */
-      nodes: number;
-    } & components["schemas"]["ExternalEngineWorkCommon"]);
+      | ({
+          /** @description Amount of time to analyse the position, in milliseconds. */
+          movetime: number;
+        } & components["schemas"]["ExternalEngineWorkCommon"])
+      | ({
+          /** @description Analysis target depth */
+          depth: number;
+        } & components["schemas"]["ExternalEngineWorkCommon"])
+      | ({
+          /** @description Number of nodes to analyse in the position */
+          nodes: number;
+        } & components["schemas"]["ExternalEngineWorkCommon"]);
     /** @example {
      *       "error": "invalid_grant",
      *       "error_description": "hash of code_verifier does not match code_challenge"
@@ -7493,16 +7493,16 @@ export interface components {
       san: string;
       /** @enum {string} */
       category:
-      | "loss"
-      | "unknown"
-      | "syzygy-loss"
-      | "maybe-loss"
-      | "blessed-loss"
-      | "draw"
-      | "cursed-win"
-      | "maybe-win"
-      | "syzygy-win"
-      | "win";
+        | "loss"
+        | "unknown"
+        | "syzygy-loss"
+        | "maybe-loss"
+        | "blessed-loss"
+        | "draw"
+        | "cursed-win"
+        | "maybe-win"
+        | "syzygy-win"
+        | "win";
       dtz?: null | number;
       precise_dtz?: null | number;
       dtc?: null | number;
@@ -7565,16 +7565,16 @@ export interface components {
        * @enum {string}
        */
       category:
-      | "win"
-      | "unknown"
-      | "syzygy-win"
-      | "maybe-win"
-      | "cursed-win"
-      | "draw"
-      | "blessed-loss"
-      | "maybe-loss"
-      | "syzygy-loss"
-      | "loss";
+        | "win"
+        | "unknown"
+        | "syzygy-win"
+        | "maybe-win"
+        | "cursed-win"
+        | "draw"
+        | "blessed-loss"
+        | "maybe-loss"
+        | "syzygy-loss"
+        | "loss";
       /** @description [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) in plies
        *     (for Standard chess positions with not more than 7 pieces and variant
        *     positions not more than 6 pieces)
@@ -9156,19 +9156,19 @@ export interface operations {
         nb: number;
         /** @description The speed or variant */
         perfType:
-        | "ultraBullet"
-        | "bullet"
-        | "blitz"
-        | "rapid"
-        | "classical"
-        | "chess960"
-        | "crazyhouse"
-        | "antichess"
-        | "atomic"
-        | "horde"
-        | "kingOfTheHill"
-        | "racingKings"
-        | "threeCheck";
+          | "ultraBullet"
+          | "bullet"
+          | "blitz"
+          | "rapid"
+          | "classical"
+          | "chess960"
+          | "crazyhouse"
+          | "antichess"
+          | "atomic"
+          | "horde"
+          | "kingOfTheHill"
+          | "racingKings"
+          | "threeCheck";
       };
       cookie?: never;
     };
@@ -18829,83 +18829,83 @@ export interface operations {
            * @enum {number}
            */
           clockTime:
-          | 0
-          | 0.25
-          | 0.5
-          | 0.75
-          | 1
-          | 1.5
-          | 2
-          | 3
-          | 4
-          | 5
-          | 6
-          | 7
-          | 8
-          | 10
-          | 15
-          | 20
-          | 25
-          | 30
-          | 40
-          | 50
-          | 60;
+            | 0
+            | 0.25
+            | 0.5
+            | 0.75
+            | 1
+            | 1.5
+            | 2
+            | 3
+            | 4
+            | 5
+            | 6
+            | 7
+            | 8
+            | 10
+            | 15
+            | 20
+            | 25
+            | 30
+            | 40
+            | 50
+            | 60;
           /**
            * @description Clock increment in seconds
            * @example 1
            * @enum {integer}
            */
           clockIncrement:
-          | 0
-          | 1
-          | 2
-          | 3
-          | 4
-          | 5
-          | 6
-          | 7
-          | 10
-          | 15
-          | 20
-          | 25
-          | 30
-          | 40
-          | 50
-          | 60;
+            | 0
+            | 1
+            | 2
+            | 3
+            | 4
+            | 5
+            | 6
+            | 7
+            | 10
+            | 15
+            | 20
+            | 25
+            | 30
+            | 40
+            | 50
+            | 60;
           /**
            * @description How long the tournament lasts, in minutes
            * @example 60
            * @enum {integer}
            */
           minutes:
-          | 20
-          | 25
-          | 30
-          | 35
-          | 40
-          | 45
-          | 50
-          | 55
-          | 60
-          | 70
-          | 80
-          | 90
-          | 100
-          | 110
-          | 120
-          | 150
-          | 180
-          | 210
-          | 240
-          | 270
-          | 300
-          | 330
-          | 360
-          | 420
-          | 480
-          | 540
-          | 600
-          | 720;
+            | 20
+            | 25
+            | 30
+            | 35
+            | 40
+            | 45
+            | 50
+            | 55
+            | 60
+            | 70
+            | 80
+            | 90
+            | 100
+            | 110
+            | 120
+            | 150
+            | 180
+            | 210
+            | 240
+            | 270
+            | 300
+            | 330
+            | 360
+            | 420
+            | 480
+            | 540
+            | 600
+            | 720;
           /**
            * @description How long to wait before starting the tournament, from now, in minutes
            * @default 5
@@ -18961,60 +18961,60 @@ export interface operations {
            * @enum {integer}
            */
           "conditions.minRating.rating"?:
-          | 1000
-          | 1100
-          | 1200
-          | 1300
-          | 1400
-          | 1500
-          | 1600
-          | 1700
-          | 1800
-          | 1900
-          | 2000
-          | 2100
-          | 2200
-          | 2300
-          | 2400
-          | 2500
-          | 2600;
+            | 1000
+            | 1100
+            | 1200
+            | 1300
+            | 1400
+            | 1500
+            | 1600
+            | 1700
+            | 1800
+            | 1900
+            | 2000
+            | 2100
+            | 2200
+            | 2300
+            | 2400
+            | 2500
+            | 2600;
           /**
            * @description Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
            * @enum {integer}
            */
           "conditions.maxRating.rating"?:
-          | 2200
-          | 2100
-          | 2000
-          | 1900
-          | 1800
-          | 1700
-          | 1600
-          | 1500
-          | 1400
-          | 1300
-          | 1200
-          | 1100
-          | 1000
-          | 900
-          | 800;
+            | 2200
+            | 2100
+            | 2000
+            | 1900
+            | 1800
+            | 1700
+            | 1600
+            | 1500
+            | 1400
+            | 1300
+            | 1200
+            | 1100
+            | 1000
+            | 900
+            | 800;
           /**
            * @description Minimum number of rated games required to join.
            * @enum {integer}
            */
           "conditions.nbRatedGame.nb"?:
-          | 0
-          | 5
-          | 10
-          | 15
-          | 20
-          | 30
-          | 40
-          | 50
-          | 75
-          | 100
-          | 150
-          | 200;
+            | 0
+            | 5
+            | 10
+            | 15
+            | 20
+            | 30
+            | 40
+            | 50
+            | 75
+            | 100
+            | 150
+            | 200;
           /** @description Predefined list of usernames that are allowed to join, separated by commas.
            *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
            *     Adding `%titled` to the list additionally allows any titled player to join.
@@ -19031,17 +19031,17 @@ export interface operations {
            * @enum {integer}
            */
           "conditions.accountAge"?:
-          | 1
-          | 3
-          | 7
-          | 14
-          | 30
-          | 60
-          | 90
-          | 180
-          | 365
-          | 730
-          | 1095;
+            | 1
+            | 3
+            | 7
+            | 14
+            | 30
+            | 60
+            | 90
+            | 180
+            | 365
+            | 730
+            | 1095;
         };
       };
     };
@@ -19374,83 +19374,83 @@ export interface operations {
            * @enum {number}
            */
           clockTime:
-          | 0
-          | 0.25
-          | 0.5
-          | 0.75
-          | 1
-          | 1.5
-          | 2
-          | 3
-          | 4
-          | 5
-          | 6
-          | 7
-          | 8
-          | 10
-          | 15
-          | 20
-          | 25
-          | 30
-          | 40
-          | 50
-          | 60;
+            | 0
+            | 0.25
+            | 0.5
+            | 0.75
+            | 1
+            | 1.5
+            | 2
+            | 3
+            | 4
+            | 5
+            | 6
+            | 7
+            | 8
+            | 10
+            | 15
+            | 20
+            | 25
+            | 30
+            | 40
+            | 50
+            | 60;
           /**
            * @description Clock increment in seconds
            * @example 1
            * @enum {integer}
            */
           clockIncrement:
-          | 0
-          | 1
-          | 2
-          | 3
-          | 4
-          | 5
-          | 6
-          | 7
-          | 10
-          | 15
-          | 20
-          | 25
-          | 30
-          | 40
-          | 50
-          | 60;
+            | 0
+            | 1
+            | 2
+            | 3
+            | 4
+            | 5
+            | 6
+            | 7
+            | 10
+            | 15
+            | 20
+            | 25
+            | 30
+            | 40
+            | 50
+            | 60;
           /**
            * @description How long the tournament lasts, in minutes
            * @example 60
            * @enum {integer}
            */
           minutes:
-          | 20
-          | 25
-          | 30
-          | 35
-          | 40
-          | 45
-          | 50
-          | 55
-          | 60
-          | 70
-          | 80
-          | 90
-          | 100
-          | 110
-          | 120
-          | 150
-          | 180
-          | 210
-          | 240
-          | 270
-          | 300
-          | 330
-          | 360
-          | 420
-          | 480
-          | 540
-          | 600
-          | 720;
+            | 20
+            | 25
+            | 30
+            | 35
+            | 40
+            | 45
+            | 50
+            | 55
+            | 60
+            | 70
+            | 80
+            | 90
+            | 100
+            | 110
+            | 120
+            | 150
+            | 180
+            | 210
+            | 240
+            | 270
+            | 300
+            | 330
+            | 360
+            | 420
+            | 480
+            | 540
+            | 600
+            | 720;
           /**
            * @description How long to wait before starting the tournament, from now, in minutes
            * @default 5
@@ -19493,60 +19493,60 @@ export interface operations {
            * @enum {integer}
            */
           "conditions.minRating.rating"?:
-          | 1000
-          | 1100
-          | 1200
-          | 1300
-          | 1400
-          | 1500
-          | 1600
-          | 1700
-          | 1800
-          | 1900
-          | 2000
-          | 2100
-          | 2200
-          | 2300
-          | 2400
-          | 2500
-          | 2600;
+            | 1000
+            | 1100
+            | 1200
+            | 1300
+            | 1400
+            | 1500
+            | 1600
+            | 1700
+            | 1800
+            | 1900
+            | 2000
+            | 2100
+            | 2200
+            | 2300
+            | 2400
+            | 2500
+            | 2600;
           /**
            * @description Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
            * @enum {integer}
            */
           "conditions.maxRating.rating"?:
-          | 2200
-          | 2100
-          | 2000
-          | 1900
-          | 1800
-          | 1700
-          | 1600
-          | 1500
-          | 1400
-          | 1300
-          | 1200
-          | 1100
-          | 1000
-          | 900
-          | 800;
+            | 2200
+            | 2100
+            | 2000
+            | 1900
+            | 1800
+            | 1700
+            | 1600
+            | 1500
+            | 1400
+            | 1300
+            | 1200
+            | 1100
+            | 1000
+            | 900
+            | 800;
           /**
            * @description Minimum number of rated games required to join.
            * @enum {integer}
            */
           "conditions.nbRatedGame.nb"?:
-          | 0
-          | 5
-          | 10
-          | 15
-          | 20
-          | 30
-          | 40
-          | 50
-          | 75
-          | 100
-          | 150
-          | 200;
+            | 0
+            | 5
+            | 10
+            | 15
+            | 20
+            | 30
+            | 40
+            | 50
+            | 75
+            | 100
+            | 150
+            | 200;
           /** @description Predefined list of usernames that are allowed to join, separated by commas.
            *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
            *     Adding `%titled` to the list additionally allows any titled player to join.
@@ -19563,17 +19563,17 @@ export interface operations {
            * @enum {integer}
            */
           "conditions.accountAge"?:
-          | 1
-          | 3
-          | 7
-          | 14
-          | 30
-          | 60
-          | 90
-          | 180
-          | 365
-          | 730
-          | 1095;
+            | 1
+            | 3
+            | 7
+            | 14
+            | 30
+            | 60
+            | 90
+            | 180
+            | 365
+            | 730
+            | 1095;
         };
       };
     };
@@ -30721,39 +30721,39 @@ export interface operations {
            * @enum {integer}
            */
           "clock.limit":
-          | 0
-          | 15
-          | 30
-          | 45
-          | 60
-          | 90
-          | 120
-          | 180
-          | 240
-          | 300
-          | 360
-          | 420
-          | 480
-          | 600
-          | 900
-          | 1200
-          | 1500
-          | 1800
-          | 2400
-          | 3000
-          | 3600
-          | 4200
-          | 4800
-          | 5400
-          | 6000
-          | 6600
-          | 7200
-          | 7800
-          | 8400
-          | 9000
-          | 9600
-          | 10200
-          | 10800;
+            | 0
+            | 15
+            | 30
+            | 45
+            | 60
+            | 90
+            | 120
+            | 180
+            | 240
+            | 300
+            | 360
+            | 420
+            | 480
+            | 600
+            | 900
+            | 1200
+            | 1500
+            | 1800
+            | 2400
+            | 3000
+            | 3600
+            | 4200
+            | 4800
+            | 5400
+            | 6000
+            | 6600
+            | 7200
+            | 7800
+            | 8400
+            | 9000
+            | 9600
+            | 10200
+            | 10800;
           /**
            * @description Clock increment in seconds
            * @example 1
@@ -30774,26 +30774,26 @@ export interface operations {
            * @enum {integer}
            */
           roundInterval?:
-          | -1
-          | 5
-          | 10
-          | 20
-          | 30
-          | 45
-          | 60
-          | 120
-          | 180
-          | 300
-          | 600
-          | 900
-          | 1200
-          | 1800
-          | 2700
-          | 3600
-          | 86400
-          | 172800
-          | 604800
-          | 99999999;
+            | -1
+            | 5
+            | 10
+            | 20
+            | 30
+            | 45
+            | 60
+            | 120
+            | 180
+            | 300
+            | 600
+            | 900
+            | 1200
+            | 1800
+            | 2700
+            | 3600
+            | 86400
+            | 172800
+            | 604800
+            | 99999999;
           variant?: components["schemas"]["VariantKey"];
           position?: components["schemas"]["SwissFromPositionFEN"];
           /** @description Anything you want to tell players about the tournament */
@@ -30838,43 +30838,43 @@ export interface operations {
            * @enum {integer}
            */
           "conditions.minRating.rating"?:
-          | 1000
-          | 1100
-          | 1200
-          | 1300
-          | 1400
-          | 1500
-          | 1600
-          | 1700
-          | 1800
-          | 1900
-          | 2000
-          | 2100
-          | 2200
-          | 2300
-          | 2400
-          | 2500
-          | 2600;
+            | 1000
+            | 1100
+            | 1200
+            | 1300
+            | 1400
+            | 1500
+            | 1600
+            | 1700
+            | 1800
+            | 1900
+            | 2000
+            | 2100
+            | 2200
+            | 2300
+            | 2400
+            | 2500
+            | 2600;
           /**
            * @description Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
            * @enum {integer}
            */
           "conditions.maxRating.rating"?:
-          | 2200
-          | 2100
-          | 2000
-          | 1900
-          | 1800
-          | 1700
-          | 1600
-          | 1500
-          | 1400
-          | 1300
-          | 1200
-          | 1100
-          | 1000
-          | 900
-          | 800;
+            | 2200
+            | 2100
+            | 2000
+            | 1900
+            | 1800
+            | 1700
+            | 1600
+            | 1500
+            | 1400
+            | 1300
+            | 1200
+            | 1100
+            | 1000
+            | 900
+            | 800;
           /** @description Minimum number of rated games required to join. */
           "conditions.nbRatedGame.nb"?: number;
           /**
@@ -30962,39 +30962,39 @@ export interface operations {
            * @enum {integer}
            */
           "clock.limit":
-          | 0
-          | 15
-          | 30
-          | 45
-          | 60
-          | 90
-          | 120
-          | 180
-          | 240
-          | 300
-          | 360
-          | 420
-          | 480
-          | 600
-          | 900
-          | 1200
-          | 1500
-          | 1800
-          | 2400
-          | 3000
-          | 3600
-          | 4200
-          | 4800
-          | 5400
-          | 6000
-          | 6600
-          | 7200
-          | 7800
-          | 8400
-          | 9000
-          | 9600
-          | 10200
-          | 10800;
+            | 0
+            | 15
+            | 30
+            | 45
+            | 60
+            | 90
+            | 120
+            | 180
+            | 240
+            | 300
+            | 360
+            | 420
+            | 480
+            | 600
+            | 900
+            | 1200
+            | 1500
+            | 1800
+            | 2400
+            | 3000
+            | 3600
+            | 4200
+            | 4800
+            | 5400
+            | 6000
+            | 6600
+            | 7200
+            | 7800
+            | 8400
+            | 9000
+            | 9600
+            | 10200
+            | 10800;
           /**
            * @description Clock increment in seconds
            * @example 1
@@ -31015,26 +31015,26 @@ export interface operations {
            * @enum {integer}
            */
           roundInterval?:
-          | -1
-          | 5
-          | 10
-          | 20
-          | 30
-          | 45
-          | 60
-          | 120
-          | 180
-          | 300
-          | 600
-          | 900
-          | 1200
-          | 1800
-          | 2700
-          | 3600
-          | 86400
-          | 172800
-          | 604800
-          | 99999999;
+            | -1
+            | 5
+            | 10
+            | 20
+            | 30
+            | 45
+            | 60
+            | 120
+            | 180
+            | 300
+            | 600
+            | 900
+            | 1200
+            | 1800
+            | 2700
+            | 3600
+            | 86400
+            | 172800
+            | 604800
+            | 99999999;
           variant?: components["schemas"]["VariantKey"];
           position?: components["schemas"]["SwissFromPositionFEN"];
           /** @description Anything you want to tell players about the tournament */
@@ -31072,43 +31072,43 @@ export interface operations {
            * @enum {integer}
            */
           "conditions.minRating.rating"?:
-          | 1000
-          | 1100
-          | 1200
-          | 1300
-          | 1400
-          | 1500
-          | 1600
-          | 1700
-          | 1800
-          | 1900
-          | 2000
-          | 2100
-          | 2200
-          | 2300
-          | 2400
-          | 2500
-          | 2600;
+            | 1000
+            | 1100
+            | 1200
+            | 1300
+            | 1400
+            | 1500
+            | 1600
+            | 1700
+            | 1800
+            | 1900
+            | 2000
+            | 2100
+            | 2200
+            | 2300
+            | 2400
+            | 2500
+            | 2600;
           /**
            * @description Maximum rating to join. Based on best rating reached in the last 7 days. Leave empty to let everyone join the tournament.
            * @enum {integer}
            */
           "conditions.maxRating.rating"?:
-          | 2200
-          | 2100
-          | 2000
-          | 1900
-          | 1800
-          | 1700
-          | 1600
-          | 1500
-          | 1400
-          | 1300
-          | 1200
-          | 1100
-          | 1000
-          | 900
-          | 800;
+            | 2200
+            | 2100
+            | 2000
+            | 1900
+            | 1800
+            | 1700
+            | 1600
+            | 1500
+            | 1400
+            | 1300
+            | 1200
+            | 1100
+            | 1000
+            | 900
+            | 800;
           /** @description Minimum number of rated games required to join. */
           "conditions.nbRatedGame.nb"?: number;
           /**
@@ -35529,10 +35529,10 @@ export interface operations {
         };
         content: {
           "application/json":
-          | string[]
-          | {
-            result?: components["schemas"]["LightUserOnline"][];
-          };
+            | string[]
+            | {
+                result?: components["schemas"]["LightUserOnline"][];
+              };
         };
       };
     };
@@ -35838,11 +35838,11 @@ export interface operations {
         };
         content: {
           "application/x-ndjson":
-          | components["schemas"]["GameStartEvent"]
-          | components["schemas"]["GameFinishEvent"]
-          | components["schemas"]["ChallengeEvent"]
-          | components["schemas"]["ChallengeCanceledEvent"]
-          | components["schemas"]["ChallengeDeclinedEvent"];
+            | components["schemas"]["GameStartEvent"]
+            | components["schemas"]["GameFinishEvent"]
+            | components["schemas"]["ChallengeEvent"]
+            | components["schemas"]["ChallengeCanceledEvent"]
+            | components["schemas"]["ChallengeDeclinedEvent"];
         };
       };
     };
@@ -35871,26 +35871,26 @@ export interface operations {
           ratingRange?: string;
         } & (
           | {
-            /**
-             * @description Clock initial time in minutes. Required for real-time seeks.
-             * @example 15
-             */
-            time: number;
-            /**
-             * @description Clock increment in seconds. Required for real-time seeks.
-             * @example 15
-             */
-            increment: number;
-            /** @description The color to play. Better left empty to automatically get 50% white. */
-            color?: components["schemas"]["ChallengeColor"];
-          }
+              /**
+               * @description Clock initial time in minutes. Required for real-time seeks.
+               * @example 15
+               */
+              time: number;
+              /**
+               * @description Clock increment in seconds. Required for real-time seeks.
+               * @example 15
+               */
+              increment: number;
+              /** @description The color to play. Better left empty to automatically get 50% white. */
+              color?: components["schemas"]["ChallengeColor"];
+            }
           | {
-            /**
-             * @description Days per turn. Required for correspondence seeks.
-             * @enum {integer}
-             */
-            days: 1 | 2 | 3 | 5 | 7 | 10 | 14;
-          }
+              /**
+               * @description Days per turn. Required for correspondence seeks.
+               * @enum {integer}
+               */
+              days: 1 | 2 | 3 | 5 | 7 | 10 | 14;
+            }
         );
       };
     };
@@ -35938,10 +35938,10 @@ export interface operations {
         };
         content: {
           "application/x-ndjson":
-          | components["schemas"]["GameFullEvent"]
-          | components["schemas"]["GameStateEvent"]
-          | components["schemas"]["ChatLineEvent"]
-          | components["schemas"]["OpponentGoneEvent"];
+            | components["schemas"]["GameFullEvent"]
+            | components["schemas"]["GameStateEvent"]
+            | components["schemas"]["ChatLineEvent"]
+            | components["schemas"]["OpponentGoneEvent"];
         };
       };
       /** @description The game was not found. */
@@ -36406,10 +36406,10 @@ export interface operations {
         };
         content: {
           "application/x-ndjson":
-          | components["schemas"]["GameFullEvent"]
-          | components["schemas"]["GameStateEvent"]
-          | components["schemas"]["ChatLineEvent"]
-          | components["schemas"]["OpponentGoneEvent"];
+            | components["schemas"]["GameFullEvent"]
+            | components["schemas"]["GameStateEvent"]
+            | components["schemas"]["ChatLineEvent"]
+            | components["schemas"]["OpponentGoneEvent"];
         };
       };
       /** @description The bot game was not found. */
@@ -36797,24 +36797,24 @@ export interface operations {
       content: {
         "application/x-www-form-urlencoded": (
           | {
-            /**
-             * @description Clock initial time in seconds. If empty, a correspondence game is created. Valid values are 0, 15, 30, 45, 60, 90, and any multiple of 60 up to 10800 (3 hours).
-             * @example 300
-             */
-            "clock.limit": number;
-            /**
-             * @description Clock increment in seconds. If empty, a correspondence game is created.
-             * @example 1
-             */
-            "clock.increment": number;
-          }
+              /**
+               * @description Clock initial time in seconds. If empty, a correspondence game is created. Valid values are 0, 15, 30, 45, 60, 90, and any multiple of 60 up to 10800 (3 hours).
+               * @example 300
+               */
+              "clock.limit": number;
+              /**
+               * @description Clock increment in seconds. If empty, a correspondence game is created.
+               * @example 1
+               */
+              "clock.increment": number;
+            }
           | {
-            /**
-             * @description Days per move, for correspondence games. Clock settings must be omitted.
-             * @enum {integer}
-             */
-            days: 1 | 2 | 3 | 5 | 7 | 10 | 14;
-          }
+              /**
+               * @description Days per move, for correspondence games. Clock settings must be omitted.
+               * @enum {integer}
+               */
+              days: 1 | 2 | 3 | 5 | 7 | 10 | 14;
+            }
           | Record<string, never>
         ) & {
           /**
@@ -36843,11 +36843,11 @@ export interface operations {
            * @enum {string}
            */
           rules?:
-          | "noAbort"
-          | "noRematch"
-          | "noGiveTime"
-          | "noClaimWin"
-          | "noEarlyDraw";
+            | "noAbort"
+            | "noRematch"
+            | "noGiveTime"
+            | "noClaimWin"
+            | "noEarlyDraw";
         };
       };
     };
@@ -37021,17 +37021,17 @@ export interface operations {
            * @enum {string}
            */
           reason?:
-          | "generic"
-          | "later"
-          | "tooFast"
-          | "tooSlow"
-          | "timeControl"
-          | "rated"
-          | "casual"
-          | "standard"
-          | "variant"
-          | "noBot"
-          | "onlyBot";
+            | "generic"
+            | "later"
+            | "tooFast"
+            | "tooSlow"
+            | "timeControl"
+            | "rated"
+            | "casual"
+            | "standard"
+            | "variant"
+            | "noBot"
+            | "onlyBot";
         };
       };
     };
@@ -37236,11 +37236,11 @@ export interface operations {
            * @enum {string}
            */
           rules?:
-          | "noRematch"
-          | "noGiveTime"
-          | "noClaimWin"
-          | "noEarlyDraw"
-          | "noAbort";
+            | "noRematch"
+            | "noGiveTime"
+            | "noClaimWin"
+            | "noEarlyDraw"
+            | "noAbort";
           /** @description Optional pair of usernames, separated by a comma.
            *     If set, only these users will be allowed to join the game.
            *     The first username gets the white pieces.
@@ -37426,11 +37426,11 @@ export interface operations {
            * @enum {string}
            */
           rules?:
-          | "noAbort"
-          | "noRematch"
-          | "noGiveTime"
-          | "noClaimWin"
-          | "noEarlyDraw";
+            | "noAbort"
+            | "noRematch"
+            | "noGiveTime"
+            | "noClaimWin"
+            | "noEarlyDraw";
         };
       };
     };
