@@ -6116,6 +6116,7 @@ export interface components {
     };
     BroadcastTop: {
       active?: components["schemas"]["BroadcastWithLastRound"][];
+      /** @deprecated */
       upcoming?: components["schemas"]["BroadcastWithLastRound"][];
       past?: {
         /** @example 4 */
