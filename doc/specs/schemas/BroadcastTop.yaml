@@ -9,6 +9,9 @@ properties:
     type: array
     items:
       $ref: "./BroadcastWithLastRound.yaml"
+      minItems: 0
+      maxItems: 0
+    deprecated: true
   past:
     type: object
     properties:
