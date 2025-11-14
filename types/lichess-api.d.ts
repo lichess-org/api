@@ -4012,6 +4012,8 @@ export interface components {
       | "BOT";
     /** @description Players can choose a color for their Patron wings.
      *     See [here for the color mappings](https://github.com/lichess-org/lila/blob/master/ui/lib/css/abstract/_patron-colors.scss).
+     *
+     *     The presence of this field indicates the player is an active Patron.
      *      */
     PatronColor: number;
     TopUser: {
@@ -6470,6 +6472,13 @@ export interface components {
           syncUsers: string;
         }
     ) & {
+      /**
+       * @description Where the games come from.
+       *
+       * @default push
+       * @enum {string}
+       */
+      syncSource?: "push" | "url" | "urls" | "ids" | "users";
       /**
        * Format: int64
        * @description Timestamp in milliseconds of broadcast round start. Leave empty to manually start the broadcast round.

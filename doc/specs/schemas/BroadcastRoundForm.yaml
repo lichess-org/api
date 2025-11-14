@@ -134,6 +134,17 @@ allOf:
 
   - type: object
     properties:
+      syncSource:
+        description: |
+          Where the games come from.
+        type: string
+        enum:
+          - push
+          - url
+          - urls
+          - ids
+          - users
+        default: push
       startsAt:
         type: integer
         format: int64
