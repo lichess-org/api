@@ -106,7 +106,8 @@ post:
         application/x-ndjson:
           schema:
             description: Only happens when doing a real-time seek
-            example: ""
+            type: array
+            example: []
     "400":
       description: The creation of the seek failed.
       content:
