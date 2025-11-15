@@ -7622,7 +7622,13 @@ export interface components {
     };
   };
   responses: never;
-  parameters: never;
+  parameters: {
+    /**
+     * @description Only update the provided fields, leaving others unchanged
+     * @example true
+     */
+    PatchQuery: boolean;
+  };
   requestBodies: never;
   headers: never;
   pathItems: never;
@@ -32497,7 +32503,13 @@ export interface operations {
   };
   broadcastRoundUpdate: {
     parameters: {
-      query?: never;
+      query?: {
+        /**
+         * @description Only update the provided fields, leaving others unchanged
+         * @example true
+         */
+        patch?: components["parameters"]["PatchQuery"];
+      };
       header?: never;
       path: {
         /** @description The broadcast round ID */
@@ -35915,7 +35927,7 @@ export interface operations {
           "application/json": {
             id: string;
           };
-          "application/x-ndjson": unknown;
+          "application/x-ndjson": "";
         };
       };
       /** @description The creation of the seek failed. */
