@@ -19,6 +19,7 @@ post:
         type: string
         minLength: 8
         maxLength: 8
+    - $ref: "../../schemas/PatchQuery.yaml"
   requestBody:
     required: true
     content:

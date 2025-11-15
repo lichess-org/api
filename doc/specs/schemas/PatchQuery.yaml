@@ -1,0 +1,7 @@
+in: query
+name: patch
+description: Only update the provided fields, leaving others unchanged
+required: false
+schema:
+  type: boolean
+example: true
