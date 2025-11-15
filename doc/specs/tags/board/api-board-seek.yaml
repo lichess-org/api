@@ -96,7 +96,7 @@ post:
         application/json:
           schema:
             type: object
-            description: Only happens when doing a correspondence seek
+            description: Only happens when doing a correspondence seek.
             required:
               - id
             properties:
@@ -105,7 +105,13 @@ post:
             example: { id: "gwkzmEBY" }
         application/x-ndjson:
           schema:
-            description: Only happens when doing a real-time seek
+            description: |
+              Only happens when doing a real-time seek.
+
+              A periodic empty line until the seek is accepted by another player,
+              at which point the connection closes and no data is sent.
+            type: string
+            const: ""
             example: ""
     "400":
       description: The creation of the seek failed.
