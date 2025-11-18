@@ -7,12 +7,13 @@
   "devDependencies": {
     "@redocly/cli": "^1.34.3",
     "@scalar/api-reference": "^1.39.3",
+    "@scalar/cli": "^1.3.5",
     "@stoplight/spectral-cli": "^6.15.0",
     "@stoplight/spectral-rulesets": "1.18.1",
     "prettier": "^3.6.2",
     "typescript": "~5.9.3",
-    "vite-plugin-restart": "^2.0.0",
-    "vite": "^7.2.2"
+    "vite": "^7.2.2",
+    "vite-plugin-restart": "^2.0.0"
   },
   "scripts": {
     "dev": "vite",
@@ -20,6 +21,7 @@
     "preview": "vite preview",
     "spectral": "spectral lint --fail-severity=warn specs/*.yaml",
     "lint": "redocly lint specs/lichess-api.yaml",
+    "scalar-lint": "pnpm bundle && scalar document lint public/openapi.yaml",
     "bundle": "redocly bundle specs/lichess-api.yaml --output public/openapi.yaml",
     "format": "prettier . --write",
     "check-format": "prettier . --check"

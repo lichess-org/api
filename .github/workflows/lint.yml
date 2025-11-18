@@ -12,6 +12,7 @@ jobs:
       matrix:
         script:
           - spectral
+          - scalar-lint
           - lint
           - check-format
     defaults:
