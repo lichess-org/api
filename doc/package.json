@@ -5,15 +5,20 @@
   "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac",
   "devDependencies": {
     "@redocly/cli": "^1.34.3",
+    "@scalar/api-reference": "^1.39.3",
     "@stoplight/spectral-cli": "^6.15.0",
     "@stoplight/spectral-rulesets": "1.18.1",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "typescript": "~5.9.3",
+    "vite": "^7.2.2"
   },
   "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
     "spectral": "spectral lint --fail-severity=warn specs/*.yaml",
     "lint": "redocly lint specs/lichess-api.yaml",
     "bundle": "redocly bundle specs/lichess-api.yaml --output public/openapi.yaml",
-    "build": "redocly build-docs specs/lichess-api.yaml --output public/index.html",
     "serve": "redocly preview-docs specs/lichess-api.yaml --port 8089",
     "format": "prettier . --write",
     "check-format": "prettier . --check"
