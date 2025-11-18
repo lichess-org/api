@@ -5,3 +5,5 @@ properties:
     type: array
     items:
       $ref: "./PuzzleAndGame.yaml"
+  glicko:
+    $ref: "./PuzzleGlicko.yaml"
