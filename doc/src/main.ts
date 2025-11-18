@@ -5,4 +5,5 @@ createApiReference("#app", {
   url: "../public/openapi.yaml",
   withDefaultFonts: false,
   hideModels: true,
+  favicon: "/favicon.png",
 });
