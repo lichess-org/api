@@ -18,8 +18,7 @@
     "preview": "vite preview",
     "spectral": "spectral lint --fail-severity=warn specs/*.yaml",
     "lint": "redocly lint specs/lichess-api.yaml",
-    "bundle": "redocly bundle specs/lichess-api.yaml --output public/openapi.yaml",
-    "serve": "redocly preview-docs specs/lichess-api.yaml --port 8089",
+    "bundle": "redocly bundle specs/lichess-api.yaml --output dist/openapi.yaml",
     "format": "prettier . --write",
     "check-format": "prettier . --check"
   }
