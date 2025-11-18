@@ -4619,8 +4619,14 @@ export interface components {
         themes: string[];
       };
     };
+    PuzzleGlicko: {
+      rating?: number;
+      deviation?: number;
+      provisional?: boolean;
+    };
     PuzzleBatchSelect: {
       puzzles?: components["schemas"]["PuzzleAndGame"][];
+      glicko?: components["schemas"]["PuzzleGlicko"];
     };
     PuzzleBatchSolveRequest: {
       solutions?: {
@@ -4631,7 +4637,12 @@ export interface components {
     };
     PuzzleBatchSolveResponse: {
       puzzles?: components["schemas"]["PuzzleAndGame"][];
-      rounds?: unknown[];
+      glicko?: components["schemas"]["PuzzleGlicko"];
+      rounds?: {
+        id?: string;
+        win?: boolean;
+        ratingDiff?: number;
+      }[];
     };
     PuzzleActivity: {
       date: number;
@@ -10625,52 +10636,111 @@ export interface operations {
            *       "puzzles": [
            *         {
            *           "game": {
-           *             "id": "oXmU07Il",
+           *             "id": "nevXElAg",
            *             "perf": {
-           *               "key": "blitz",
-           *               "name": "Blitz"
+           *               "key": "rapid",
+           *               "name": "Rapid"
            *             },
            *             "rated": true,
            *             "players": [
            *               {
-           *                 "name": "paximi",
-           *                 "id": "paximi",
+           *                 "name": "Mary",
+           *                 "flair": "people.person-gesturing-no-medium-skin-tone",
+           *                 "patron": true,
+           *                 "patronColor": 1,
+           *                 "id": "mary",
+           *                 "color": "white",
+           *                 "rating": 1735
+           *               },
+           *               {
+           *                 "name": "Benjamin",
+           *                 "patron": true,
+           *                 "patronColor": 1,
+           *                 "id": "benjamin",
+           *                 "color": "black",
+           *                 "rating": 1913
+           *               }
+           *             ],
+           *             "pgn": "e4 e5 Nf3 Nc6 c4 Bc5 Nc3 d6 h3 Nf6 d3 Be6 Bg5 h6 Be3 Qd7 Bxc5 dxc5 Nb5 O-O Nc3 Rad8 a3 Rfe8 Be2 a6 Bf1 Qd6 Qc2 Nd4 Nxd4 cxd4 Ne2 Nxe4 dxe4 d3 Qd2 dxe2 Qxd6 exf1=Q+ Rxf1 Rxd6 c5 Rd4 f3 Red8 Rf2 Bb3 Ke2 Rd2+ Ke1 Rd1+ Rxd1 Rxd1+ Ke2 Rd4 Ke3 Kf8 f4 Rc4 fxe5 Rxc5 Kd4 Rc6 g4 Rc4+ Kd3 Ke7 Rf3 Rc6 Kd4 f6 exf6+ Rxf6 Rxb3 b6 e5 Rc6 Kd5 Rc5+ Ke4 Ke6 Kd4 Rxe5 Rc3 Rd5+ Ke4 Kd6 Rxc7 Re5+ Kf4",
+           *             "clock": "7+3"
+           *           },
+           *           "puzzle": {
+           *             "id": "EOkIT",
+           *             "rating": 1477,
+           *             "plays": 25406,
+           *             "solution": [
+           *               "g7g5",
+           *               "f4f3",
+           *               "d6c7"
+           *             ],
+           *             "themes": [
+           *               "endgame",
+           *               "short",
+           *               "crushing",
+           *               "rookEndgame"
+           *             ],
+           *             "initialPly": 90
+           *           }
+           *         },
+           *         {
+           *           "game": {
+           *             "id": "2McRXjBF",
+           *             "perf": {
+           *               "key": "rapid",
+           *               "name": "Rapid"
+           *             },
+           *             "rated": true,
+           *             "players": [
+           *               {
+           *                 "name": "Monica",
+           *                 "flair": "people.man-climbing-medium-light-skin-tone",
+           *                 "patron": true,
+           *                 "patronColor": 1,
+           *                 "id": "monica",
            *                 "color": "white",
            *                 "rating": 2009
            *               },
            *               {
-           *                 "name": "Patteblomquist",
-           *                 "id": "patteblomquist",
+           *                 "name": "Adriana",
+           *                 "flair": "objects.control-knobs",
+           *                 "id": "adriana",
            *                 "color": "black",
-           *                 "rating": 2000
+           *                 "rating": 2160
            *               }
            *             ],
-           *             "pgn": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 f3 e5 Nb3 Be6 Be3 Be7 Nd5 Nxd5 exd5 Bf5 Bd3 Bxd3 Qxd3 Nd7 Qd2 h5 O-O Rc8 Na5 Qc7 c4 Nc5 b4 Nd7 Rac1 f5 Rfd1 f4 Bf2 h4 c5 h3 Nc4 dxc5 bxc5 Bxc5 Bxc5 Qxc5+ Kh1 hxg2+ Kxg2 Qe7 d6 Qh4 Kh1 Qh3 Qg2 Qxg2+ Kxg2 Kf7 Re1 Kf6 Nd2 Nc5",
-           *             "clock": "3+2"
+           *             "pgn": "d4 Nf6 Bf4 g6 e3 Bg7 Nf3 d6 Nbd2 Nh5 Bg3 Nxg3 hxg3 Nd7 Bd3 e5 c3 Qe7 Qc2 f5 e4 fxe4 Bxe4 Nf6 dxe5 Nxe4 exd6 Nxd6+ Kf1 Bf5 Qa4+ Qd7 Re1+ Kd8 Qb3 c6 Kg1 Kc7 Nc4 Nxc4 Qxc4 h6 Kh2 Rae8 Rd1 Qe6 Qa4 Kb8 Nd4 Bxd4 Rxd4 Qe5 Rhd1 Qc7 b4 Re7 b5 c5 b6 Qxb6 Rd6 Qc7 Qf4 Bc8 Qf6 Rhh7 Qf8 h5 Qf4 h4 gxh4 Rd7 g3 Rxd6 Rxd6 Rd7 Rxd7 Qxf4 Rxb7+ Kxb7 gxf4 Bf5 Kg3 Kc6 Kf3 Kd5 Ke3 Kc4 Kd2 Bb1 Kc1 Bxa2 Kb2 Bb3 f5 Ba4 fxg6 Be8 g7 Bf7 h5 Kd5 h6 Bg8 Kb3 Ke4+ Ka4 Kf3 Kb5 c4 Kc5 Kxf2 Kd6 Ke3",
+           *             "clock": "10+0"
            *           },
            *           "puzzle": {
-           *             "id": "hFFk9",
-           *             "rating": 1733,
-           *             "plays": 469,
+           *             "id": "4FvlW",
+           *             "rating": 1455,
+           *             "plays": 24948,
            *             "solution": [
-           *               "c1c5",
-           *               "c8c5",
-           *               "d2e4",
-           *               "f6e6",
-           *               "e4c5"
+           *               "d6e7",
+           *               "e3d2",
+           *               "e7f8",
+           *               "g8h7",
+           *               "g7g8q",
+           *               "h7g8",
+           *               "f8g8"
            *             ],
            *             "themes": [
+           *               "veryLong",
            *               "endgame",
-           *               "advantage",
-           *               "attraction",
-           *               "fork",
-           *               "long",
-           *               "sacrifice"
+           *               "advancedPawn",
+           *               "crushing",
+           *               "promotion",
+           *               "bishopEndgame"
            *             ],
-           *             "initialPly": 63
+           *             "initialPly": 113
            *           }
            *         }
-           *       ]
+           *       ],
+           *       "glicko": {
+           *         "rating": 1651,
+           *         "deviation": 117.45,
+           *         "provisional": true
+           *       }
            *     } */
           "application/json": components["schemas"]["PuzzleBatchSelect"];
         };
@@ -10715,50 +10785,104 @@ export interface operations {
            *       "puzzles": [
            *         {
            *           "game": {
-           *             "id": "oXmU07Il",
+           *             "id": "5LAUdzaW",
            *             "perf": {
-           *               "key": "blitz",
-           *               "name": "Blitz"
+           *               "key": "rapid",
+           *               "name": "Rapid"
            *             },
            *             "rated": true,
            *             "players": [
            *               {
-           *                 "name": "paximi",
-           *                 "id": "paximi",
+           *                 "name": "Luis",
+           *                 "flair": "people.woman-office-worker-medium-light-skin-tone",
+           *                 "id": "luis",
            *                 "color": "white",
-           *                 "rating": 2009
+           *                 "rating": 1913
            *               },
            *               {
-           *                 "name": "Patteblomquist",
-           *                 "id": "patteblomquist",
+           *                 "name": "Aleksandr",
+           *                 "id": "aleksandr",
            *                 "color": "black",
-           *                 "rating": 2000
+           *                 "rating": 1916
            *               }
            *             ],
-           *             "pgn": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 f3 e5 Nb3 Be6 Be3 Be7 Nd5 Nxd5 exd5 Bf5 Bd3 Bxd3 Qxd3 Nd7 Qd2 h5 O-O Rc8 Na5 Qc7 c4 Nc5 b4 Nd7 Rac1 f5 Rfd1 f4 Bf2 h4 c5 h3 Nc4 dxc5 bxc5 Bxc5 Bxc5 Qxc5+ Kh1 hxg2+ Kxg2 Qe7 d6 Qh4 Kh1 Qh3 Qg2 Qxg2+ Kxg2 Kf7 Re1 Kf6 Nd2 Nc5",
-           *             "clock": "3+2"
+           *             "pgn": "e4 c5 d4 cxd4 c3 dxc3 Nxc3 e6 Nf3 Ne7 Bf4 Nbc6",
+           *             "clock": "10+0"
            *           },
            *           "puzzle": {
-           *             "id": "hFFk9",
-           *             "rating": 1733,
-           *             "plays": 469,
+           *             "id": "3WB9V",
+           *             "rating": 1726,
+           *             "plays": 11775,
            *             "solution": [
-           *               "c1c5",
-           *               "c8c5",
-           *               "d2e4",
-           *               "f6e6",
-           *               "e4c5"
+           *               "c3b5",
+           *               "e7d5",
+           *               "e4d5"
            *             ],
            *             "themes": [
-           *               "endgame",
+           *               "opening",
            *               "advantage",
-           *               "attraction",
-           *               "fork",
-           *               "long",
-           *               "sacrifice"
+           *               "short"
            *             ],
-           *             "initialPly": 63
+           *             "initialPly": 11
            *           }
+           *         },
+           *         {
+           *           "game": {
+           *             "id": "UdS7n09e",
+           *             "perf": {
+           *               "key": "classical",
+           *               "name": "Classical"
+           *             },
+           *             "rated": true,
+           *             "players": [
+           *               {
+           *                 "name": "Ekaterina",
+           *                 "title": "WGM",
+           *                 "id": "ekaterina",
+           *                 "color": "white",
+           *                 "rating": 1729
+           *               },
+           *               {
+           *                 "name": "Elena",
+           *                 "title": "WGM",
+           *                 "flair": "people.man-with-veil-medium-dark-skin-tone",
+           *                 "id": "elena",
+           *                 "color": "black",
+           *                 "rating": 1708
+           *               }
+           *             ],
+           *             "pgn": "d4 d5 c4 e6 Nc3 f5 Bf4 c6 e3 Nf6 Bd3 Bd6 Bg3 O-O Qc2 h6 Nf3 Bc7 O-O Nbd7 Rac1 Ne4 Bxe4 fxe4 Bxc7 Qxc7 Nd2 Nf6 cxd5 exd5 f3 exf3 Rxf3 Ng4 Rxf8+ Kxf8 Rf1+ Kg8 g3",
+           *             "clock": "30+30"
+           *           },
+           *           "puzzle": {
+           *             "id": "6f8Qu",
+           *             "rating": 1700,
+           *             "plays": 5438,
+           *             "solution": [
+           *               "g4e3",
+           *               "c3d5",
+           *               "e3d5"
+           *             ],
+           *             "themes": [
+           *               "middlegame",
+           *               "fork",
+           *               "short",
+           *               "crushing"
+           *             ],
+           *             "initialPly": 38
+           *           }
+           *         }
+           *       ],
+           *       "glicko": {
+           *         "rating": 1670.49,
+           *         "deviation": 112.71,
+           *         "provisional": true
+           *       },
+           *       "rounds": [
+           *         {
+           *           "id": "EOkIT",
+           *           "win": true,
+           *           "ratingDiff": 19
            *         }
            *       ]
            *     } */
