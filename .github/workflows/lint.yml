@@ -11,7 +11,9 @@ jobs:
       fail-fast: false
       matrix:
         script:
+          - build
           - spectral
+          - scalar-lint
           - lint
           - check-format
     defaults:

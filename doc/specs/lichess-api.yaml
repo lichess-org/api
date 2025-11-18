@@ -95,6 +95,12 @@ info:
     By convention tokens have a recognizable prefix, but do not rely on this.
 servers:
   - url: https://lichess.org
+  - url: https://lichess.dev
+  - url: http://localhost:{port}
+    variables:
+      port:
+        default: "8080"
+  - url: http://l.org
 tags:
   - name: Account
     description: |

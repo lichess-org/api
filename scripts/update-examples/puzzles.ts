@@ -31,6 +31,47 @@ example(
   }),
 );
 
+const puzzleBatch = await localClient().GET("/api/puzzle/batch/{angle}", {
+    params: {
+      path: {
+        angle: "mix",
+      },
+      query: {
+        nb: 2,
+      },
+    },
+  });
+
+example(
+  "puzzles",
+  "getMultiplePuzzlesAtOnce",
+  puzzleBatch,
+);
+
+example(
+  "puzzles",
+  "solveMultiplePuzzlesAtOnce",
+  await localClient().POST("/api/puzzle/batch/{angle}", {
+    params: {
+      path: {
+        angle: "mix",
+      },
+      query: {
+        nb: 2,
+      },
+    },
+    body: {
+      solutions: [
+        {
+          id: puzzleBatch.data?.puzzles![0].puzzle.id,
+          win: true,
+          rated: true,
+        }
+      ]
+    }
+  }),
+);
+
 example(
   "puzzles",
   "getYourPuzzleActivity",

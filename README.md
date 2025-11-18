@@ -9,7 +9,7 @@
 ```shell
 cd doc
 pnpm install
-pnpm serve
+pnpm dev
 ```
 
 Now open <http://localhost:8089/>. You should see the generated API doc.
