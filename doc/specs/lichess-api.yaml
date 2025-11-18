@@ -99,7 +99,7 @@ servers:
   - url: http://localhost:{port}
     variables:
       port:
-        default: '8080'
+        default: "8080"
   - url: http://l.org
 tags:
   - name: Account

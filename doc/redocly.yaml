@@ -16,3 +16,4 @@ rules:
   no-invalid-schema-examples:
     severity: error
     allowAdditionalProperties: false
+  no-server-example.com: off
