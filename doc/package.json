@@ -21,7 +21,7 @@
     "preview": "vite preview",
     "spectral": "spectral lint --fail-severity=warn specs/*.yaml",
     "lint": "redocly lint specs/lichess-api.yaml",
-    "scalar-lint": "pnpm bundle && scalar document lint public/openapi.yaml",
+    "scalar-lint": "pnpm bundle && scalar document lint public/openapi.yaml && scalar document validate public/openapi.yaml",
     "bundle": "redocly bundle specs/lichess-api.yaml --output public/openapi.yaml",
     "format": "prettier . --write",
     "check-format": "prettier . --check"
