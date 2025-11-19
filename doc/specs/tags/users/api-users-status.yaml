@@ -75,8 +75,7 @@ get:
                 streaming:
                   type: boolean
                 patron:
-                  type: boolean
-                  deprecated: true
+                  $ref: "../../schemas/Patron.yaml"
                 patronColor:
                   $ref: "../../schemas/PatronColor.yaml"
               required:

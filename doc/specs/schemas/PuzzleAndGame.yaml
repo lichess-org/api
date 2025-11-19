@@ -34,8 +34,7 @@ properties:
             name:
               type: string
             patron:
-              type: boolean
-              deprecated: true
+              $ref: "./Patron.yaml"
             patronColor:
               $ref: "./PatronColor.yaml"
             rating:

@@ -1,0 +1,6 @@
+type: boolean
+
+deprecated: true
+
+description: |
+  Use patronColor value instead to determine if player is a patron.

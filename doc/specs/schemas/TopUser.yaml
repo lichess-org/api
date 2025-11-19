@@ -20,7 +20,9 @@ properties:
   title:
     $ref: "./Title.yaml"
   patron:
-    type: boolean
+    $ref: "./Patron.yaml"
+  patronColor:
+    $ref: "./PatronColor.yaml"
   online:
     type: boolean
 

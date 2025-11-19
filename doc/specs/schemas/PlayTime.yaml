@@ -4,6 +4,8 @@ properties:
     type: integer
   tv:
     type: integer
+  human:
+    type: integer
 
 required:
   - total

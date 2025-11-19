@@ -66,6 +66,8 @@ get:
                 type: string
               flair:
                 $ref: "../../schemas/Flair.yaml"
+              patronColor:
+                $ref: "../../schemas/PatronColor.yaml"
               sheet:
                 $ref: "../../schemas/ArenaSheet.yaml"
           example:
