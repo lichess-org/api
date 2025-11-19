@@ -4010,6 +4010,12 @@ export interface components {
       | "WNM"
       | "LM"
       | "BOT";
+    /**
+     * @deprecated
+     * @description Use patronColor value instead to determine if player is a patron.
+     *
+     */
+    Patron: boolean;
     /** @description Players can choose a color for their Patron wings.
      *     See [here for the color mappings](https://github.com/lichess-org/lila/blob/master/ui/lib/css/abstract/_patron-colors.scss).
      *
@@ -4026,7 +4032,8 @@ export interface components {
         };
       };
       title?: components["schemas"]["Title"];
-      patron?: boolean;
+      patron?: components["schemas"]["Patron"];
+      patronColor?: components["schemas"]["PatronColor"];
       online?: boolean;
     };
     PerfTop10: components["schemas"]["TopUser"][];
@@ -4126,6 +4133,7 @@ export interface components {
     PlayTime: {
       total: number;
       tv: number;
+      human?: number;
     };
     User: {
       /** @example georges */
@@ -4157,8 +4165,7 @@ export interface components {
        */
       seenAt?: number;
       playTime?: components["schemas"]["PlayTime"];
-      /** @deprecated */
-      patron?: boolean;
+      patron?: components["schemas"]["Patron"];
       patronColor?: components["schemas"]["PatronColor"];
       /** @example true */
       verified?: boolean;
@@ -4300,8 +4307,7 @@ export interface components {
       name: string;
       flair?: components["schemas"]["Flair"];
       title?: components["schemas"]["Title"];
-      /** @deprecated */
-      patron?: boolean;
+      patron?: components["schemas"]["Patron"];
       patronColor?: components["schemas"]["PatronColor"];
     };
     PerfStat: {
@@ -4602,8 +4608,7 @@ export interface components {
           flair?: components["schemas"]["Flair"];
           id: string;
           name: string;
-          /** @deprecated */
-          patron?: boolean;
+          patron?: components["schemas"]["Patron"];
           patronColor?: components["schemas"]["PatronColor"];
           rating: number;
           title?: components["schemas"]["Title"];
@@ -4725,8 +4730,7 @@ export interface components {
         id?: string;
         /** @description User's flair icon */
         flair?: string;
-        /** @deprecated */
-        patron?: boolean;
+        patron?: components["schemas"]["Patron"];
         patronColor?: components["schemas"]["PatronColor"];
       }[];
       /** @description List of puzzles in the race */
@@ -5197,8 +5201,7 @@ export interface components {
           name: string;
           title?: components["schemas"]["Title"];
           flair?: components["schemas"]["Flair"];
-          /** @deprecated */
-          patron?: boolean;
+          patron?: components["schemas"]["Patron"];
           patronColor?: components["schemas"]["PatronColor"];
         };
       };
@@ -5810,8 +5813,7 @@ export interface components {
         players?: {
           name?: string;
           title?: components["schemas"]["Title"];
-          /** @deprecated */
-          patron?: boolean;
+          patron?: components["schemas"]["Patron"];
           patronColor?: components["schemas"]["PatronColor"];
           flair?: components["schemas"]["Flair"];
           rank?: number;
@@ -5848,8 +5850,7 @@ export interface components {
       podium?: {
         name?: string;
         title?: components["schemas"]["Title"];
-        /** @deprecated */
-        patron?: boolean;
+        patron?: components["schemas"]["Patron"];
         patronColor?: components["schemas"]["PatronColor"];
         flair?: components["schemas"]["Flair"];
         rank?: number;
@@ -6761,8 +6762,7 @@ export interface components {
       rating?: number;
       title?: components["schemas"]["Title"];
       flair?: components["schemas"]["Flair"];
-      /** @deprecated */
-      patron?: boolean;
+      patron?: components["schemas"]["Patron"];
       patronColor?: components["schemas"]["PatronColor"];
       provisional?: boolean;
       online?: boolean;
@@ -7710,8 +7710,7 @@ export interface operations {
             online?: boolean;
             playing?: boolean;
             streaming?: boolean;
-            /** @deprecated */
-            patron?: boolean;
+            patron?: components["schemas"]["Patron"];
             patronColor?: components["schemas"]["PatronColor"];
           }[];
         };
@@ -20049,6 +20048,7 @@ export interface operations {
             title?: components["schemas"]["Title"];
             team?: string;
             flair?: components["schemas"]["Flair"];
+            patronColor?: components["schemas"]["PatronColor"];
             sheet?: components["schemas"]["ArenaSheet"];
           };
         };
