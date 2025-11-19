@@ -3,11 +3,6 @@ import { execSync } from "child_process";
 import ViteRestart from "vite-plugin-restart";
 
 export default defineConfig({
-  build: {
-    watch: {
-      include: ["**/*.yaml"],
-    },
-  },
   plugins: [
     {
       name: "lichess-bundle-openapi",
