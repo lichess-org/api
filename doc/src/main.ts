@@ -6,4 +6,5 @@ createApiReference("#app", {
   hideModels: true,
   url: "./openapi.yaml",
   withDefaultFonts: false,
+  expandAllResponses: true,
 });
