@@ -139,8 +139,7 @@ properties:
             title:
               $ref: "./Title.yaml"
             patron:
-              type: boolean
-              deprecated: true
+              $ref: "./Patron.yaml"
             patronColor:
               $ref: "./PatronColor.yaml"
             flair:
@@ -207,8 +206,7 @@ properties:
         title:
           $ref: "./Title.yaml"
         patron:
-          type: boolean
-          deprecated: true
+          $ref: "./Patron.yaml"
         patronColor:
           $ref: "./PatronColor.yaml"
         flair:

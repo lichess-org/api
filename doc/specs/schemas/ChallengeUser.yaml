@@ -11,8 +11,7 @@ properties:
   flair:
     $ref: "./Flair.yaml"
   patron:
-    type: boolean
-    deprecated: true
+    $ref: "./Patron.yaml"
   patronColor:
     $ref: "./PatronColor.yaml"
   provisional:
