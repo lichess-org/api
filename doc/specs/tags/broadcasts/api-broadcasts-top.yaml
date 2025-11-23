@@ -33,5 +33,6 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/BroadcastTop.yaml"
-          example:
-            $ref: "../../examples/broadcasts-getPaginatedToBroadcastPreviews.json"
+          examples:
+            default:
+              $ref: "../../examples/broadcasts-getPaginatedToBroadcastPreviews.json.yaml"

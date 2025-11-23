@@ -25,5 +25,6 @@ get:
         application/x-ndjson:
           schema:
             $ref: "../../schemas/BroadcastMyRound.yaml"
-          example:
-            $ref: "../../examples/broadcasts-getYourBroadcastRounds.json"
+          examples:
+            default:
+              $ref: "../../examples/broadcasts-getYourBroadcastRounds.json.yaml"

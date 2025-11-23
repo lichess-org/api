@@ -1,0 +1,71 @@
+value:
+  {
+    "puzzles":
+      [
+        {
+          "game":
+            {
+              "id": "PKyT8AJB",
+              "perf": { "key": "rapid", "name": "Rapid" },
+              "rated": true,
+              "players":
+                [
+                  {
+                    "name": "Vera",
+                    "flair": "smileys.face-exhaling",
+                    "patron": true,
+                    "patronColor": 1,
+                    "id": "vera",
+                    "color": "white",
+                    "rating": 1822,
+                  },
+                  {
+                    "name": "Aleksandr",
+                    "flair": "people.leftwards-pushing-hand-medium-light-skin-tone",
+                    "patron": true,
+                    "patronColor": 1,
+                    "id": "aleksandr",
+                    "color": "black",
+                    "rating": 1830,
+                  },
+                ],
+              "pgn": "e4 c6 d4 d5 exd5 cxd5 Nf3 Bg4 Be2 e6 a3 Bxf3 Bxf3 Nc6 Be3 Nf6 O-O Bd6 Nc3 Qb6 b4 O-O Na4 Qb5 Nc5 b6",
+              "clock": "10+0",
+            },
+          "puzzle":
+            {
+              "id": "8pqKF",
+              "rating": 1500,
+              "plays": 19406,
+              "solution": ["f3e2", "b5e2", "d1e2"],
+              "themes": ["middlegame", "trappedPiece", "short", "advantage"],
+              "initialPly": 25,
+            },
+        },
+        {
+          "game":
+            {
+              "id": "YuVlqjiS",
+              "perf": { "key": "rapid", "name": "Rapid" },
+              "rated": true,
+              "players":
+                [
+                  { "name": "Luis", "id": "luis", "color": "white", "rating": 1955 },
+                  { "name": "Hans", "patron": true, "patronColor": 1, "id": "hans", "color": "black", "rating": 1971 },
+                ],
+              "pgn": "d4 e6 e3 d5 c4 c5 cxd5 exd5 dxc5 Bxc5 Nf3 Nc6 a3 Nf6 Be2 O-O O-O Re8 Nc3 a6 b4 d4 Na4 Ba7 Nc5 dxe3 Bxe3 Qc7 Rc1 Bb8 g3 Bg4 Qc2 Ba7 Nxa6 bxa6 Qxc6 Qxc6 Rxc6 Bxe3 fxe3 Rxe3 Kf2 Rae8 Bd1 Bh3 Re1",
+              "clock": "10+0",
+            },
+          "puzzle":
+            {
+              "id": "CuCdN",
+              "rating": 1510,
+              "plays": 19025,
+              "solution": ["f6g4", "f2g1", "e3e1", "f3e1", "e8e1"],
+              "themes": ["deflection", "middlegame", "long", "mateIn3"],
+              "initialPly": 46,
+            },
+        },
+      ],
+    "glicko": { "rating": 1701, "deviation": 83.18 },
+  }

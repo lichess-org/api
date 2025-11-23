@@ -36,8 +36,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/BroadcastPgnPush.yaml"
-          example:
-            $ref: "../../examples/broadcasts-pushPgnToBroadcastRound.json"
+          examples:
+            default:
+              $ref: "../../examples/broadcasts-pushPgnToBroadcastRound.json.yaml"
     "400":
       description: There was a problem with the pushed PGN.
       headers:

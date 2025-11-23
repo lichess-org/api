@@ -58,5 +58,6 @@ get:
                             $ref: "../../schemas/LightUser.yaml"
                           score:
                             type: integer
-          example:
-            $ref: "../../examples/arenas-getTeamStandingOfTeamBattle.json"
+          examples:
+            default:
+              $ref: "../../examples/arenas-getTeamStandingOfTeamBattle.json.yaml"

@@ -25,5 +25,6 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/TeamPaginatorJson.yaml"
-          example:
-            $ref: "../../examples/teams-getPopularTeams.json"
+          examples:
+            default:
+              $ref: "../../examples/teams-getPopularTeams.json.yaml"

@@ -3,23 +3,30 @@ value:
     "t": "featured",
     "d":
       {
-        "id": "tL6k89SU",
+        "id": "USloptaz",
         "orientation": "black",
         "players":
           [
             {
               "color": "white",
-              "user": { "name": "Ivan_chess_PRO", "flair": "symbols.red-heart", "id": "ivan_chess_pro" },
-              "rating": 2773,
+              "user": { "name": "JurgenSanchez97", "title": "NM", "id": "jurgensanchez97" },
+              "rating": 2913,
               "seconds": 30,
             },
             {
               "color": "black",
-              "user": { "name": "Sergoy45", "title": "GM", "flair": "nature.wolf", "id": "sergoy45" },
-              "rating": 2955,
+              "user":
+                {
+                  "name": "skilledassassin04",
+                  "title": "CM",
+                  "patron": true,
+                  "patronColor": 3,
+                  "id": "skilledassassin04",
+                },
+              "rating": 3057,
               "seconds": 30,
             },
           ],
-        "fen": "5rk1/ppp2ppp/2b1p3/6r1/3N4/2Pq4/PP4PP/R3QR1K w - - 1 18",
+        "fen": "r1br2k1/pPq2pbp/4p1p1/8/1BQ5/P7/1PP1NPPP/R3K2R b KQ - 0 19",
       },
   }

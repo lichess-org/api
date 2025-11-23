@@ -1,0 +1,86 @@
+value:
+  [
+    {
+      "name": "Dr_Zee",
+      "title": "FM",
+      "flair": "objects.trumpet",
+      "id": "dr_zee",
+      "stream": { "service": "twitch", "status": "Vapid Rapid - lichess.org", "lang": "en" },
+      "streamer":
+        {
+          "name": "Chess Time Machine",
+          "headline": "Playing chess and traveling through time",
+          "twitch": "https://www.twitch.tv/chesstimemachine",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=dr_zee:streamer:dr_zee:3rPitq33.jpg&w=350&sig=e9d604696cfc64e24f1e9cf8abb926ce8c3b1253",
+        },
+    },
+    {
+      "name": "JazaGamming",
+      "flair": "symbols.red-triangle-pointed-down",
+      "patron": true,
+      "patronColor": 8,
+      "id": "jazagamming",
+      "stream": { "service": "youTube", "status": 'عدناااااااااااااااااااا وسهرتناااا"lichess.org"', "lang": "ar" },
+      "streamer":
+        {
+          "name": "Jaza Gaming",
+          "headline": "Daily Championship",
+          "description": "https://www.facebook.com/Salem.n.jaza",
+          "twitch": "https://www.twitch.tv/Jaza_Valo_and_Chess",
+          "youTube": "https://www.youtube.com/channel/UC3sJpNMe4VhWz5BNxpBEtSQ/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=jazagamming:streamer:jazagamming:m6RMilM0.jpg&w=350&sig=9a256b415c73fa2351d64fe610bc15a1a42df685",
+        },
+    },
+    {
+      "name": "TheHeartofChess",
+      "title": "IM",
+      "id": "theheartofchess",
+      "stream": { "service": "twitch", "status": "Evening Chess Stream @ lichess.org!", "lang": "en" },
+      "streamer":
+        {
+          "name": "Emil Stefanov",
+          "headline": "Making one good move at a time and having fun along the way",
+          "twitch": "https://www.twitch.tv/theheartofchess",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:theheartofchess:yIgvksYf.webp&w=350&sig=c41aa6c9cd5bf38b2582bfc7f9d7862893c4100c",
+        },
+    },
+    {
+      "name": "NerDee",
+      "flair": "smileys.face-with-hand-over-mouth",
+      "id": "nerdee",
+      "stream":
+        {
+          "service": "twitch",
+          "status": "Road to Grand Master | Music Production | Photo & Video Development | ANTICHESS on lichess.org",
+          "lang": "en",
+        },
+      "streamer":
+        {
+          "name": "Math Mage",
+          "headline": "Fast agressive and sometimes dubious chess, also lots of arrows",
+          "description": "I stream chess, Dominion, music production, and Rust programming",
+          "twitch": "https://www.twitch.tv/MathMage420",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:nerdee:gHp67dz8.webp&w=350&sig=75d631388cfebf7cb8eb50f28146220c9716321d",
+        },
+    },
+    {
+      "name": "Ryugine",
+      "flair": "smileys.clown-face",
+      "id": "ryugine",
+      "stream":
+        {
+          "service": "twitch",
+          "status": "Puzzles time lichess.org -  ◁ ❚❚ ▷ ↺ Bot ON  - !sr - ▶︎ •၊၊||၊|။|||| |",
+          "lang": "en",
+        },
+      "streamer":
+        {
+          "name": "Ryugine",
+          "headline": "Let's Have Fun",
+          "description": "Hey \r\nu Can Call me Ryu \r\ni love playing Puzzle Racer and making Unrated Arenas.\r\n Come share your chess knowledge with me  so i can get Stronger.\r\n \r\nWelcome In everyone \r\n",
+          "twitch": "https://www.twitch.tv/ryugine",
+          "youTube": "https://www.youtube.com/channel/UCvyv-WLlutqmn2epcjxuqJQ/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=ryugine:streamer:ryugine:DOOBv5wV.jpg&w=350&sig=2b811d7e7fe923a1c61bccc4cf46deb2ee3f9d3c",
+        },
+    },
+  ]

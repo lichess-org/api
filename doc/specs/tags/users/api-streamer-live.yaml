@@ -57,5 +57,6 @@ get:
                         image:
                           type: string
                           format: uri
-          example:
-            $ref: "../../examples/users-getLiveStreamers.json"
+          examples:
+            default:
+              $ref: "../../examples/users-getLiveStreamers.json.yaml"

@@ -26,8 +26,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/BroadcastWithRounds.yaml"
-          example:
-            $ref: "../../examples/broadcasts-createBroadcastTournament.json"
+          examples:
+            default:
+              $ref: "../../examples/broadcasts-createBroadcastTournament.json.yaml"
     "400":
       description: The creation of the broadcast tournament failed.
       content:

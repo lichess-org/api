@@ -28,5 +28,6 @@ get:
             type: array
             items:
               $ref: "../../schemas/FIDEPlayer.yaml"
-          example:
-            $ref: "../../examples/fide-searchFidePlayers.json"
+          examples:
+            default:
+              $ref: "../../examples/fide-searchFidePlayers.json.yaml"

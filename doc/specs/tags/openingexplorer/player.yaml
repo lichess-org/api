@@ -114,5 +114,6 @@ get:
         application/x-ndjson:
           schema:
             $ref: "../../schemas/OpeningExplorerPlayer.yaml"
-          example:
-            $ref: "../../examples/openingExplorer-player.json"
+          examples:
+            default:
+              $ref: "../../examples/openingExplorer-player.json.yaml"

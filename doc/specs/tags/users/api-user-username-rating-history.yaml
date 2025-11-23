@@ -27,5 +27,6 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/RatingHistory.yaml"
-          example:
-            $ref: "../../examples/users-getRatingHistoryOfAUser.json"
+          examples:
+            default:
+              $ref: "../../examples/users-getRatingHistoryOfAUser.json.yaml"

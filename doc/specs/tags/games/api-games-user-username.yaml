@@ -192,5 +192,6 @@ get:
         application/x-ndjson:
           schema:
             $ref: "../../schemas/GameJson.yaml"
-          example:
-            $ref: "../../examples/games-apiGamesUserJson.json"
+          examples:
+            default:
+              $ref: "../../examples/games-apiGamesUserJson.json.yaml"

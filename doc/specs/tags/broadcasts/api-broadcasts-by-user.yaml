@@ -71,5 +71,6 @@ get:
               - previousPage
               - nextPage
               - nbPages
-          example:
-            $ref: "../../examples/broadcasts-getBroadcastsCreatedByUser.json"
+          examples:
+            default:
+              $ref: "../../examples/broadcasts-getBroadcastsCreatedByUser.json.yaml"

@@ -21,5 +21,6 @@ get:
             properties:
               email:
                 type: string
-          example:
-            $ref: "../../examples/account-getMyEmailAddress.json"
+          examples:
+            default:
+              $ref: "../../examples/account-getMyEmailAddress.json.yaml"

@@ -19,8 +19,9 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/ArenaTournaments.yaml"
-          example:
-            $ref: "../../examples/arenas-getCurrentTournaments.json"
+          examples:
+            default:
+              $ref: "../../examples/arenas-getCurrentTournaments.json.yaml"
 post:
   operationId: apiTournamentPost
   summary: Create a new Arena tournament
@@ -214,8 +215,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/ArenaTournamentFull.yaml"
-          example:
-            $ref: "../../examples/arenas-createArena.json"
+          examples:
+            default:
+              $ref: "../../examples/arenas-createArena.json.yaml"
     "400":
       description: The creation of the Arena tournament failed.
       content:

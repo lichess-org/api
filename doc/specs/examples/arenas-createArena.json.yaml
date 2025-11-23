@@ -1,0 +1,26 @@
+value:
+  {
+    "nbPlayers": 0,
+    "duels": [],
+    "secondsToStart": 300,
+    "standing": { "page": 1, "players": [] },
+    "id": "UXyAfoBc",
+    "createdBy": "bobby",
+    "startsAt": "2025-11-22T02:38:28.57373522Z",
+    "system": "arena",
+    "fullName": "Tiviakov Arena",
+    "minutes": 60,
+    "perf": { "key": "blitz", "name": "Blitz", "icon": ")" },
+    "clock": { "limit": 300, "increment": 0 },
+    "variant": "standard",
+    "rated": true,
+    "berserkable": true,
+    "verdicts": { "list": [{ "condition": "Bot players are not allowed", "verdict": "ok" }], "accepted": true },
+    "quote":
+      {
+        "text": "Condemned by theory, the Allgaier, certainly one of the most romantic of gambits, is generally successful in practice (and yet so rarely played). Why does the defender often seem hypnotized, quite demoralized?",
+        "author": "Tony Santasiere",
+      },
+    "greatPlayer": { "name": "Tiviakov", "url": "https://wikipedia.org/wiki/Sergei_Tiviakov" },
+    "myUsername": "Bobby",
+  }

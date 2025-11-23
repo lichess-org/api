@@ -70,5 +70,6 @@ get:
                 $ref: "../../schemas/PatronColor.yaml"
               sheet:
                 $ref: "../../schemas/ArenaSheet.yaml"
-          example:
-            $ref: "../../examples/arenas-getResultsOfArena.json"
+          examples:
+            default:
+              $ref: "../../examples/arenas-getResultsOfArena.json.yaml"

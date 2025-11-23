@@ -1,0 +1,144 @@
+value:
+  {
+    "user": { "name": "thibault" },
+    "perf": { "glicko": { "rating": 1788.46, "deviation": 56.36 }, "nb": 11543, "progress": 22 },
+    "rank": null,
+    "percentile": 77.1,
+    "stat":
+      {
+        "highest": { "int": 1970, "at": "2022-02-23T13:44:54.633Z", "gameId": "Blpjmhnf" },
+        "lowest": { "int": 1385, "at": "2015-08-05T10:13:41.326Z", "gameId": "tgbRykg2" },
+        "bestWins":
+          {
+            "results":
+              [
+                {
+                  "opRating": 2239,
+                  "opId": { "name": "aqua21", "flair": "objects.postal-horn", "id": "aqua21" },
+                  "at": "2020-02-15T19:13:05.329Z",
+                  "gameId": "UxNJmMXz",
+                },
+                {
+                  "opRating": 2163,
+                  "opId": { "name": "Staffan67", "id": "staffan67" },
+                  "at": "2022-12-28T10:54:21.597Z",
+                  "gameId": "9IMlwEv1",
+                },
+                {
+                  "opRating": 2120,
+                  "opId": { "name": "Heissenberger", "id": "heissenberger" },
+                  "at": "2021-10-25T08:26:27.155Z",
+                  "gameId": "2buPRuV8",
+                },
+                {
+                  "opRating": 2051,
+                  "opId": { "name": "Stas235", "id": "stas235" },
+                  "at": "2021-11-06T18:55:53.728Z",
+                  "gameId": "VLxCVzDY",
+                },
+                {
+                  "opRating": 2040,
+                  "opId": { "name": "Harryz-77", "id": "harryz-77" },
+                  "at": "2021-11-03T17:39:40.181Z",
+                  "gameId": "eCgiYDS7",
+                },
+              ],
+          },
+        "worstLosses":
+          {
+            "results":
+              [
+                {
+                  "opRating": 995,
+                  "opId": { "name": "dahupetitjoueur", "id": "dahupetitjoueur" },
+                  "at": "2017-04-12T14:31:58.002Z",
+                  "gameId": "7zyddy2c",
+                },
+                {
+                  "opRating": 1121,
+                  "opId": { "name": "Tinkugupta1011", "id": "tinkugupta1011" },
+                  "at": "2022-10-22T03:36:35.447Z",
+                  "gameId": "CCyyGKmD",
+                },
+                {
+                  "opRating": 1146,
+                  "opId": { "name": "chemkhihabib", "id": "chemkhihabib" },
+                  "at": "2016-06-01T09:31:09.694Z",
+                  "gameId": "XatMm3RO",
+                },
+                {
+                  "opRating": 1166,
+                  "opId": { "name": "Bottios", "title": "BOT", "id": "bottios" },
+                  "at": "2018-12-14T09:22:52.633Z",
+                  "gameId": "3fke4MHX",
+                },
+                {
+                  "opRating": 1182,
+                  "opId": { "name": "skanerterry", "id": "skanerterry" },
+                  "at": "2016-06-09T15:32:10.474Z",
+                  "gameId": "n4ViqGlp",
+                },
+              ],
+          },
+        "count":
+          {
+            "all": 12027,
+            "rated": 11421,
+            "win": 5692,
+            "loss": 5765,
+            "draw": 570,
+            "tour": 1593,
+            "berserk": 49,
+            "opAvg": 1706.13,
+            "seconds": 3734793,
+            "disconnects": 9,
+          },
+        "resultStreak":
+          {
+            "win":
+              {
+                "cur": { "v": 0 },
+                "max":
+                  {
+                    "v": 11,
+                    "from": { "at": "2018-10-19T10:02:05.144Z", "gameId": "ycmyqK6e" },
+                    "to": { "at": "2018-10-19T12:25:31.868Z", "gameId": "3PwQXIBN" },
+                  },
+              },
+            "loss":
+              {
+                "cur": { "v": 0 },
+                "max":
+                  {
+                    "v": 19,
+                    "from": { "at": "2018-03-09T23:54:54.771Z", "gameId": "iAJe1M8f" },
+                    "to": { "at": "2018-03-16T20:52:03.611Z", "gameId": "7CZ1SEF5" },
+                  },
+              },
+          },
+        "playStreak":
+          {
+            "nb":
+              {
+                "cur": { "v": 0 },
+                "max":
+                  {
+                    "v": 115,
+                    "from": { "at": "2024-10-18T11:32:12.142Z", "gameId": "l819pRNp" },
+                    "to": { "at": "2024-10-18T20:54:30.256Z", "gameId": "1HeDeGbe" },
+                  },
+              },
+            "time":
+              {
+                "cur": { "v": 0 },
+                "max":
+                  {
+                    "v": 23231,
+                    "from": { "at": "2024-10-18T11:32:12.142Z", "gameId": "l819pRNp" },
+                    "to": { "at": "2024-10-18T20:54:30.256Z", "gameId": "1HeDeGbe" },
+                  },
+              },
+            "lastDate": "2025-11-03T18:10:21.927Z",
+          },
+      },
+  }

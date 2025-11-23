@@ -1,0 +1,9 @@
+value:
+  [
+    {
+      "from": { "name": "Bobby", "id": "bobby" },
+      "to": { "name": "Mary", "flair": "people.women-with-bunny-ears-partying-medium-skin-tone", "id": "mary" },
+      "text": "this is a private note",
+      "date": 1763866187474,
+    },
+  ]

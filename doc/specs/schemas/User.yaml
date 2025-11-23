@@ -3,10 +3,8 @@ type: object
 properties:
   id:
     type: string
-    example: georges
   username:
     type: string
-    example: Georges
   perfs:
     $ref: "./Perfs.yaml"
   title:
@@ -16,21 +14,17 @@ properties:
   createdAt:
     type: integer
     format: int64
-    example: 1290415680000
   disabled:
     type: boolean
-    example: false
     description: only appears if a user's account is closed
   tosViolation:
     type: boolean
-    example: false
     description: only appears if a user's account is marked for the violation of [Lichess TOS](https://lichess.org/terms-of-service)
   profile:
     $ref: "./Profile.yaml"
   seenAt:
     type: integer
     format: int64
-    example: 1522636452014
   playTime:
     $ref: "./PlayTime.yaml"
   patron:
@@ -39,7 +33,6 @@ properties:
     $ref: "./PatronColor.yaml"
   verified:
     type: boolean
-    example: true
 
 required:
   - id

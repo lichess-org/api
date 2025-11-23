@@ -41,8 +41,9 @@ post:
             type: object
             additionalProperties:
               type: string
-          example:
-            $ref: "../../examples/challenges-adminChallengeTokens.json"
+          examples:
+            default:
+              $ref: "../../examples/challenges-adminChallengeTokens.json.yaml"
     "400":
       description: The creation of the tokens failed.
       content:

@@ -68,8 +68,9 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/PuzzleBatchSelect.yaml"
-          example:
-            $ref: "../../examples/puzzles-getMultiplePuzzlesAtOnce.json"
+          examples:
+            default:
+              $ref: "../../examples/puzzles-getMultiplePuzzlesAtOnce.json.yaml"
 
 post:
   operationId: apiPuzzleBatchSolve
@@ -124,5 +125,6 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/PuzzleBatchSolveResponse.yaml"
-          example:
-            $ref: "../../examples/puzzles-solveMultiplePuzzlesAtOnce.json"
+          examples:
+            default:
+              $ref: "../../examples/puzzles-solveMultiplePuzzlesAtOnce.json.yaml"

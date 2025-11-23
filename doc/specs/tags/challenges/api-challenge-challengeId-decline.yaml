@@ -49,8 +49,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
-          example:
-            $ref: "../../examples/challenges-declineChallenge.json"
+          examples:
+            default:
+              $ref: "../../examples/challenges-declineChallenge.json.yaml"
     "404":
       description: The challenge to decline was not found.
       content:

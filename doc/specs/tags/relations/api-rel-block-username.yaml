@@ -21,5 +21,6 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
-          example:
-            $ref: "../../examples/relations-blockPlayer.json"
+          examples:
+            default:
+              $ref: "../../examples/relations-blockPlayer.json.yaml"

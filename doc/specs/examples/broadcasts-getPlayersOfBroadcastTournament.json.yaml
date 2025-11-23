@@ -1,0 +1,7 @@
+value:
+  [
+    { "name": "Player 1", "fideId": 123, "played": 0 },
+    { "name": "Player 2", "fideId": 456, "played": 0 },
+    { "name": "Player 3", "played": 0 },
+    { "name": "Player 4", "played": 0 },
+  ]

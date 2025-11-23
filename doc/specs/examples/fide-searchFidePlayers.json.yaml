@@ -1,0 +1,14 @@
+value:
+  [
+    {
+      "id": 35009192,
+      "name": "Erigaisi Arjun",
+      "federation": "IND",
+      "year": 2003,
+      "title": "GM",
+      "standard": 2769,
+      "rapid": 2708,
+      "blitz": 2749,
+    },
+    { "id": 35009060, "name": "Erigaisi Keerthana", "federation": "IND", "year": 2002 },
+  ]

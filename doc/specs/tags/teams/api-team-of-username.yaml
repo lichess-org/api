@@ -27,5 +27,6 @@ get:
             type: array
             items:
               $ref: "../../schemas/Team.yaml"
-          example:
-            $ref: "../../examples/teams-teamsOfPlayer.json"
+          examples:
+            default:
+              $ref: "../../examples/teams-teamsOfPlayer.json.yaml"

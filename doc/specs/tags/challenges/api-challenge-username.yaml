@@ -107,8 +107,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/ChallengeJson.yaml"
-          example:
-            $ref: "../../examples/challenges-createChallenge.json"
+          examples:
+            default:
+              $ref: "../../examples/challenges-createChallenge.json.yaml"
     "400":
       description: The creation of the challenge failed.
       content:

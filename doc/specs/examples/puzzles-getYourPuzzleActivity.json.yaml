@@ -1,0 +1,15 @@
+value:
+  {
+    "date": 1763778828867,
+    "win": true,
+    "puzzle":
+      {
+        "id": "8pqKF",
+        "rating": 1492,
+        "plays": 19407,
+        "solution": ["f3e2", "b5e2", "d1e2"],
+        "themes": ["middlegame", "trappedPiece", "short", "advantage"],
+        "fen": "r4rk1/p4ppp/1pnbpn2/1qNp4/1P1P4/P3BB2/2P2PPP/R2Q1RK1 w - - 0 1",
+        "lastMove": "b7b6",
+      },
+  }

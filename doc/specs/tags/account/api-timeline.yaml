@@ -34,5 +34,6 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/Timeline.yaml"
-          example:
-            $ref: "../../examples/account-getMyTimeline.json"
+          examples:
+            default:
+              $ref: "../../examples/account-getMyTimeline.json.yaml"

@@ -24,5 +24,6 @@ get:
             type: array
             items:
               $ref: "../../schemas/BroadcastPlayerEntry.yaml"
-          example:
-            $ref: "../../examples/broadcasts-getPlayersOfBroadcastTournament.json"
+          examples:
+            default:
+              $ref: "../../examples/broadcasts-getPlayersOfBroadcastTournament.json.yaml"

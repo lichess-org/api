@@ -1,0 +1,27 @@
+value:
+  {
+    "id": "ivan",
+    "username": "Ivan",
+    "perfs":
+      {
+        "bullet": { "games": 24, "rating": 2150, "rd": 60, "prog": -16 },
+        "blitz": { "games": 174, "rating": 2220, "rd": 51, "prog": 27 },
+        "rapid": { "games": 78, "rating": 2026, "rd": 45, "prog": 13 },
+        "classical": { "games": 425, "rating": 2110, "rd": 108, "prog": -36 },
+        "correspondence": { "games": 80, "rating": 2079, "rd": 93, "prog": -18 },
+        "chess960": { "games": 399, "rating": 2160, "rd": 82, "prog": -9 },
+        "kingOfTheHill": { "games": 47, "rating": 2002, "rd": 49, "prog": 37 },
+        "threeCheck": { "games": 20, "rating": 2060, "rd": 98, "prog": -2 },
+        "antichess": { "games": 52, "rating": 2231, "rd": 45, "prog": -44 },
+        "atomic": { "games": 12, "rating": 2077, "rd": 47, "prog": -31 },
+        "horde": { "games": 7, "rating": 2133, "rd": 54, "prog": 51 },
+        "crazyhouse": { "games": 449, "rating": 2197, "rd": 64, "prog": -2 },
+        "puzzle": { "games": 385, "rating": 2008, "rd": 57, "prog": 1 },
+      },
+    "title": "WCM",
+    "flair": "smileys.crying-face",
+    "createdAt": 1760764226788,
+    "seenAt": 1761914134394,
+    "playTime": { "total": 18225, "tv": 0 },
+    "url": "https://lichess.org/@/Ivan",
+  }

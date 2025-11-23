@@ -34,5 +34,6 @@ get:
         application/x-ndjson:
           schema:
             $ref: "../../schemas/PuzzleActivity.yaml"
-          example:
-            $ref: "../../examples/puzzles-getYourPuzzleActivity.json"
+          examples:
+            default:
+              $ref: "../../examples/puzzles-getYourPuzzleActivity.json.yaml"

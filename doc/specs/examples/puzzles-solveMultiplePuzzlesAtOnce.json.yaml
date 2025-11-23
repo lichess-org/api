@@ -1,0 +1,85 @@
+value:
+  {
+    "puzzles":
+      [
+        {
+          "game":
+            {
+              "id": "Je8QkXy7",
+              "perf": { "key": "rapid", "name": "Rapid" },
+              "rated": true,
+              "players":
+                [
+                  {
+                    "name": "Aleksandr",
+                    "flair": "people.leftwards-pushing-hand-medium-light-skin-tone",
+                    "patron": true,
+                    "patronColor": 1,
+                    "id": "aleksandr",
+                    "color": "white",
+                    "rating": 1662,
+                  },
+                  {
+                    "name": "Milena",
+                    "title": "NM",
+                    "flair": "objects.crown",
+                    "id": "milena",
+                    "color": "black",
+                    "rating": 1627,
+                  },
+                ],
+              "pgn": "e4 c5 Nf3 d6 Bc4 Nc6 d4 cxd4 Nxd4 g6 Nxc6 bxc6 O-O Nf6 Re1 Bg7 Bb3 Bb7 Nd2 O-O Nf1 c5 Ng3 Qb6 c4 Bc6 f4 Nh5 Nxh5 gxh5 Qxh5 Bd4+ Be3 Bxb2 Rab1 Bg7 e5 dxe5",
+              "clock": "10+5",
+            },
+          "puzzle":
+            {
+              "id": "0rRI9",
+              "rating": 1706,
+              "plays": 7437,
+              "solution": ["b3c2", "e5e4", "b1b6"],
+              "themes": ["middlegame", "advantage", "short", "discoveredAttack"],
+              "initialPly": 37,
+            },
+        },
+        {
+          "game":
+            {
+              "id": "TgAUzVq3",
+              "perf": { "key": "classical", "name": "Classical" },
+              "rated": true,
+              "players":
+                [
+                  {
+                    "name": "Ekaterina",
+                    "title": "WIM",
+                    "patron": true,
+                    "patronColor": 1,
+                    "id": "ekaterina",
+                    "color": "white",
+                    "rating": 1690,
+                  },
+                  {
+                    "name": "Yun",
+                    "flair": "people.man-playing-water-polo-medium-skin-tone",
+                    "id": "yun",
+                    "color": "black",
+                    "rating": 1680,
+                  },
+                ],
+              "pgn": "d4 f5 Nf3 e6 Bg5 Nf6 e3 Be7 Nbd2 O-O Bd3 d6 O-O b6 c4 Bb7 b4 Ne4 Bxe7 Qxe7 Qc2 Nd7 Bxe4 fxe4 Nxe4 Nf6 Nxf6+ Qxf6 Ne1 a5 b5 c6 bxc6 Bxc6 Rb1 Rab8 Nd3 Qg6 Ne1",
+              "clock": "30+0",
+            },
+          "puzzle":
+            {
+              "id": "5EuLz",
+              "rating": 1692,
+              "plays": 4437,
+              "solution": ["c6e4", "c2b2", "e4b1"],
+              "themes": ["middlegame", "short", "skewer", "crushing"],
+              "initialPly": 38,
+            },
+        },
+      ],
+    "glicko": { "rating": 1710.13, "deviation": 81.57 },
+    "rounds": [{ "id": "8pqKF", "win": true, "ratingDiff": 9 }],
+  }

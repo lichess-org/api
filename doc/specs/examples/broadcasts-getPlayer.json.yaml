@@ -1,0 +1,8 @@
+value:
+  {
+    "name": "Player 1",
+    "fideId": 123,
+    "played": 0,
+    "games":
+      [{ "round": "NEJjg1jP", "id": "OkM23t4A", "opponent": { "name": "Player 2", "fideId": 456 }, "color": "white" }],
+  }

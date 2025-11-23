@@ -24,5 +24,6 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/PuzzleAndGame.yaml"
-          example:
-            $ref: "../../examples/puzzles-getPuzzleById.json"
+          examples:
+            default:
+              $ref: "../../examples/puzzles-getPuzzleById.json.yaml"

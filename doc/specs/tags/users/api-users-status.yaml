@@ -81,5 +81,6 @@ get:
               required:
                 - id
                 - name
-          example:
-            $ref: "../../examples/users-getRealTimeUsersStatus.json"
+          examples:
+            default:
+              $ref: "../../examples/users-getRealTimeUsersStatus.json.yaml"

@@ -36,8 +36,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
-          example:
-            $ref: "../../examples/broadcasts-updateBroadcastTournament.json"
+          examples:
+            default:
+              $ref: "../../examples/broadcasts-updateBroadcastTournament.json.yaml"
     "400":
       description: The broadcast tournament update failed.
       content:

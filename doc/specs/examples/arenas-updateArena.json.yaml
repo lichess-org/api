@@ -1,0 +1,25 @@
+value:
+  {
+    "nbPlayers": 0,
+    "duels": [],
+    "secondsToStart": 300,
+    "standing": { "page": 1, "players": [] },
+    "id": "UXyAfoBc",
+    "createdBy": "bobby",
+    "startsAt": "2025-11-22T02:38:28.573Z",
+    "system": "arena",
+    "fullName": "Updated Arena Arena",
+    "minutes": 60,
+    "perf": { "key": "blitz", "name": "Blitz", "icon": ")" },
+    "clock": { "limit": 300, "increment": 0 },
+    "variant": "standard",
+    "rated": true,
+    "berserkable": true,
+    "verdicts": { "list": [{ "condition": "Bot players are not allowed", "verdict": "ok" }], "accepted": true },
+    "quote":
+      {
+        "text": "If you don't know what to do, find your worst piece and look for a better square.",
+        "author": "Gerard Schwarz",
+      },
+    "myUsername": "Bobby",
+  }

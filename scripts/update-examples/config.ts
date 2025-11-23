@@ -12,9 +12,12 @@ export const prodClient = () =>
 export const localClient = (as?: string) =>
   createClient<paths>({
     baseUrl: "http://localhost:8080",
-    headers: {
-      Authorization: `Bearer lip_${as ?? "bobby"}`,
-    },
+    headers:
+      as === "anon"
+        ? {}
+        : {
+            Authorization: `Bearer lip_${as ?? "bobby"}`,
+          },
   });
 
 export const localExternalEngineClient = () =>
@@ -27,9 +30,7 @@ export function example(
   name: string,
   response: any,
   filetype: "json" | "pgn" | "txt" = "json",
-  forceAsYaml: boolean = false,
 ) {
-  const saveAsYaml = forceAsYaml || filetype !== "json";
   const filename = join(
     resolve(
       dirname(fileURLToPath(import.meta.url)),
@@ -39,7 +40,7 @@ export function example(
       "specs",
       "examples",
     ),
-    `${category}-${name}.${filetype}${saveAsYaml ? ".yaml" : ""}`,
+    `${category}-${name}.${filetype}.yaml`,
   );
   console.log(`Writing ${filename}`);
 
@@ -48,9 +49,7 @@ export function example(
       ? JSON.stringify(response.data ?? response, null, 2)
       : (response.data ?? response);
 
-  let contents = saveAsYaml
-    ? convertStringToYaml(data, filetype === "json")
-    : data;
+  let contents = convertStringToYaml(data, filetype === "json");
   contents = contents.replace(
     /http:\/\/localhost:8080/g,
     "https://lichess.org",
