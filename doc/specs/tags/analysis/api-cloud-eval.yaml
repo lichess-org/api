@@ -3,7 +3,7 @@ get:
   summary: Get cloud evaluation of a position.
   description: |
     Get the cached evaluation of a position, if available.
-    Opening positions have more chances of being available. There are about 15 million positions in the database.
+    Opening positions have more chances of being available. There are about 320 million positions in the database.
     Up to 5 variations may be available. Variants are supported.
     Use this endpoint to fetch a few positions here and there.
     If you want to download a lot of positions, [get the full list](https://database.lichess.org/#evals) from our exported database.
