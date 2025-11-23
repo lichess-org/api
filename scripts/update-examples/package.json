@@ -2,9 +2,9 @@
   "type": "module",
   "dependencies": {
     "@lichess-org/types": "link:../../types",
-    "@types/node": "^22.15.2",
-    "openapi-fetch": "^0.13.5",
-    "prettier": "^3.5.3"
+    "@types/node": "^22.19.1",
+    "openapi-fetch": "^0.13.8",
+    "prettier": "^3.6.2"
   },
   "scripts": {
     "format": "prettier --write ."

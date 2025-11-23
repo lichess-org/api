@@ -82,7 +82,7 @@ const analysisRequest = await localExternalEngineClient().POST(
 );
 example("externalEngine", "acquireAnalysisRequest", analysisRequest);
 
-await localExternalEngineClient().POST("/api/external-engine/work/{id}", {
+(await localExternalEngineClient().POST("/api/external-engine/work/{id}", {
   params: {
     path: {
       id: analysisRequest.data!.id,
@@ -104,4 +104,4 @@ await localExternalEngineClient().POST("/api/external-engine/work/{id}", {
         },
       },
     }),
-  );
+  ));
