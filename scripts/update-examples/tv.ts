@@ -13,9 +13,9 @@ example("tv", "getCurrentTvGames", await prodClient().GET("/api/tv/channels"));
     .then((response) =>
       readNdJson(response.response, (line: any) => {
         if (line.t === "featured") {
-          example("tv", "streamCurrentTvGame-newGame", line, "json", true);
+          example("tv", "streamCurrentTvGame-newGame", line, "json");
         } else if (line.t === "fen") {
-          example("tv", "streamCurrentTvGame-move", line, "json", true);
+          example("tv", "streamCurrentTvGame-move", line, "json");
           abortController.abort();
         }
       }),

@@ -47,9 +47,9 @@ await (async () => {
     .then((response) => {
       readNdJson(response.response, (line: any) => {
         if (line.type === "gameStart") {
-          example("stream", "gameStart", line, "json", true);
+          example("stream", "gameStart", line, "json");
         } else if (line.type === "gameFinish") {
-          example("stream", "gameFinish", line, "json", true);
+          example("stream", "gameFinish", line, "json");
           abortController.abort();
         }
       });
@@ -131,9 +131,9 @@ await (async () => {
     .then((response) => {
       readNdJson(response.response, (line: any) => {
         if (line.type === "gameStart") {
-          example("stream", "gameStart-ai", line, "json", true);
+          example("stream", "gameStart-ai", line, "json");
         } else if (line.type === "gameFinish") {
-          example("stream", "gameFinish-ai", line, "json", true);
+          example("stream", "gameFinish-ai", line, "json");
           abortController.abort();
         }
       });
@@ -167,9 +167,9 @@ await (async () => {
     .then((response) => {
       readNdJson(response.response, (line: any) => {
         if (line.type === "challenge") {
-          example("stream", "challenge", line, "json", true);
+          example("stream", "challenge", line, "json");
         } else if (line.type === "challengeDeclined") {
-          example("stream", "challengeDeclined", line, "json", true);
+          example("stream", "challengeDeclined", line, "json");
           abortController.abort();
         }
       });
@@ -217,7 +217,7 @@ await (async () => {
     .then((response) => {
       readNdJson(response.response, (line: any) => {
         if (line.type === "challengeCanceled") {
-          example("stream", "challengeCanceled", line, "json", true);
+          example("stream", "challengeCanceled", line, "json");
           abortController.abort();
         }
       });

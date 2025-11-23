@@ -11,7 +11,6 @@ example(
     },
   }),
   "json",
-  true,
 );
 
 example(
@@ -25,7 +24,6 @@ example(
     },
   }),
   "json",
-  true,
 );
 
 example(
