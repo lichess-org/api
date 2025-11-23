@@ -22,8 +22,9 @@ get:
             properties:
               kid:
                 type: boolean
-          example:
-            $ref: "../../examples/account-getMyKidModeStatus.json"
+          examples:
+            default:
+              $ref: "../../examples/account-getMyKidModeStatus.json.yaml"
 
 post:
   operationId: accountKidPost
@@ -55,5 +56,6 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
-          example:
-            $ref: "../../examples/account-setMyKidModeStatus.json"
+          examples:
+            default:
+              $ref: "../../examples/account-setMyKidModeStatus.json.yaml"

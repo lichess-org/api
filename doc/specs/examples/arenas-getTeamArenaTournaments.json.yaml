@@ -1,0 +1,25 @@
+value:
+  {
+    "id": "LojvlQOo",
+    "createdBy": "natebrady23",
+    "system": "arena",
+    "minutes": 60,
+    "clock": { "limit": 300, "increment": 3 },
+    "rated": false,
+    "fullName": "Return of the BBB No. 140 Arena",
+    "nbPlayers": 12,
+    "variant": { "key": "standard", "short": "Std", "name": "Standard" },
+    "startsAt": 1762914600000,
+    "finishesAt": 1762918200000,
+    "status": 30,
+    "perf": { "key": "blitz", "name": "Blitz", "position": 1, "icon": ")" },
+    "teamMember": "bradys-blunder-buddies",
+    "winner":
+      {
+        "name": "Mennonite",
+        "flair": "symbols.lichess-4545-flag",
+        "patron": true,
+        "patronColor": 1,
+        "id": "mennonite",
+      },
+  }

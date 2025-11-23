@@ -27,5 +27,6 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/TablebaseJson.yaml"
-          example:
-            $ref: "../../examples/tablebase-lookupAntichess.json"
+          examples:
+            default:
+              $ref: "../../examples/tablebase-lookupAntichess.json.yaml"

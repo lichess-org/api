@@ -42,5 +42,6 @@ post:
                         - "null"
                       description: Unix-timestamp in milliseconds or null if the token never expires.
                 - type: "null"
-          example:
-            $ref: "../../examples/oauth-testMultipleOauthTokens.json"
+          examples:
+            default:
+              $ref: "../../examples/oauth-testMultipleOauthTokens.json.yaml"

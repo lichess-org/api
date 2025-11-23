@@ -33,8 +33,9 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/PuzzleRaceResults.yaml"
-          example:
-            $ref: "../../examples/puzzles-getRaceResults.json"
+          examples:
+            default:
+              $ref: "../../examples/puzzles-getRaceResults.json.yaml"
     "404":
       description: The puzzle race was not found, or is no longer available.
       content:

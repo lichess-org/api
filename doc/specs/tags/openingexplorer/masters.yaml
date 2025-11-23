@@ -64,5 +64,6 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/OpeningExplorerMasters.yaml"
-          example:
-            $ref: "../../examples/openingExplorer-masters.json"
+          examples:
+            default:
+              $ref: "../../examples/openingExplorer-masters.json.yaml"

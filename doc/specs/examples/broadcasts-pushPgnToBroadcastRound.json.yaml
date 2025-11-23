@@ -1,0 +1,22 @@
+value:
+  {
+    "games":
+      [
+        {
+          "tags":
+            {
+              "White": "Player 1",
+              "WhiteFideId": "123",
+              "Black": "Player 2",
+              "BlackFideId": "456",
+              "Result": "*",
+              "Event": "Knight Invitational",
+            },
+          "moves": 2,
+        },
+        {
+          "tags": { "White": "Player 3", "Black": "Player 4", "Result": "*", "Event": "Knight Invitational" },
+          "moves": 2,
+        },
+      ],
+  }

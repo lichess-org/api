@@ -51,5 +51,6 @@ get:
               - currentPageResults
               - previousPage
               - nextPage
-          example:
-            $ref: "../../examples/broadcasts-searchBroadcasts.json"
+          examples:
+            default:
+              $ref: "../../examples/broadcasts-searchBroadcasts.json.yaml"

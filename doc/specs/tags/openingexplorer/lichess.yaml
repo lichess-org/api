@@ -122,5 +122,6 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/OpeningExplorerLichess.yaml"
-          example:
-            $ref: "../../examples/openingExplorer-lichess.json"
+          examples:
+            default:
+              $ref: "../../examples/openingExplorer-lichess.json.yaml"

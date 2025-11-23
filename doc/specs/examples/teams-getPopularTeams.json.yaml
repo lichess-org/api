@@ -1,0 +1,277 @@
+value:
+  {
+    "currentPage": 1,
+    "maxPerPage": 15,
+    "currentPageResults":
+      [
+        {
+          "id": "lichess-swiss",
+          "name": "Lichess Swiss",
+          "description": "The official Lichess Swiss team. We organize regular swiss tournaments for all to join.",
+          "open": true,
+          "leader":
+            { "name": "Lichess", "flair": "activity.lichess", "patron": true, "patronColor": 10, "id": "lichess" },
+          "nbMembers": 650635,
+          "flair": "food-drink.cheese-wedge",
+          "leaders":
+            [
+              { "name": "thibault", "flair": "nature.seedling", "patron": true, "patronColor": 10, "id": "thibault" },
+              { "name": "Lichess", "flair": "activity.lichess", "patron": true, "patronColor": 10, "id": "lichess" },
+            ],
+        },
+        {
+          "id": "zhigalko_sergei-fan-club",
+          "name": "Zhigalko_Sergei & Friends",
+          "description": "### Добро пожаловать!\r\n\r\nOfficial Club of the Belarusian International Grandmaster\r\nZhigalko Sergei \r\n\r\nОфициальный клуб белорусского международного гроссмейстера \r\nЖигалко Сергея Александровича \r\n\r\n**YOUTUBE КАНАЛ:**\r\nhttps://www.youtube.com/c/SergeiZhigalkoChess\r\n\r\n**ОФИЦИАЛЬНЫЙ САЙТ:**\r\nhttps://zhigalko-sergei.com/\r\n\r\n**Про наш КЛУБ:**\r\nОдин из сильнейших клубов на Lichess!\r\nМного титульных шахматистов!\r\nНевероятно дружеская атмосфера!\r\nЦеним и уважаем каждого члена клуба!\r\n\r\n**WE ARE CHAMPIONS!!  МЫ - ЧЕМПИОНЫ!!**\r\nStreamers Battle ([1](https://lichess.org/tournament/jvl0QupJ), [2](https://lichess.org/tournament/QBP2rB6P), [3](https://lichess.org/tournament/SrsgOeVU), [4](https://lichess.org/tournament/eLmQqxYp), [5](https://lichess.org/tournament/aug22str), [6](https://lichess.org/tournament/sep22str), [7](https://lichess.org/tournament/nov22str), [8](https://lichess.org/tournament/feb23str), [9](https://lichess.org/tournament/apr23str), [10](https://lichess.org/tournament/may23str), [11](https://lichess.org/tournament/jun23str), [12](https://lichess.org/tournament/jul23str), [13](https://lichess.org/tournament/sep23str), [14](https://lichess.org/tournament/oct23str)) \r\nLichess Mega ([1](https://lichess.org/tournament/323recdF), [2](https://lichess.org/tournament/952cWgJU), [3](https://lichess.org/tournament/QH2iifj5), [4](https://lichess.org/tournament/KCe4znVp), [5](https://lichess.org/tournament/wS1QTjV9), [6](https://lichess.org/tournament/oJ5QU5Jn), [7](https://lichess.org/tournament/IMapVfbK), [8](https://lichess.org/tournament/TJUognMG), [9](https://lichess.org/tournament/q7ylg3Xg), [10](https://lichess.org/tournament/8fPDiXem), [11](https://lichess.org/tournament/wa0hE8zz), [12](https://lichess.org/tournament/O38mTryX), [13](https://lichess.org/tournament/qxTG2W1L), [14](https://lichess.org/tournament/HsuY0nrH), [15](https://lichess.org/tournament/qTT1ZCvr), [16](https://lichess.org/tournament/uz7rBb8W), [17](https://lichess.org/tournament/AhHStbDN), [18](https://lichess.org/tournament/0Wtg1HEM), [19](https://lichess.org/tournament/R9qCNO9y), [20](https://lichess.org/tournament/zajHUySm), [21](https://lichess.org/tournament/3rIv4ZRF), [22](https://lichess.org/tournament/Ajqo8PcO), [23](https://lichess.org/tournament/LHCX7nK2), [24](https://lichess.org/tournament/orKmy9DG), [25](https://lichess.org/tournament/bgEbXjXs), [26](https://lichess.org/tournament/WvLWf69r), [27](https://lichess.org/tournament/BJ3w8DS2)\r\n\r\n**Преимущества для членов клуба \"Zhigalko_Sergei & Friends\":**\r\nУчастие в ТУРНИРАХ клуба.\r\nУчастие в СЕАНСАХ одновременной игры с гроссмейстером Сергеем Жигалко.\r\nУчастие за нашу дружную команду в командных БИТВАХ.\r\nЗдесь публикуются АНОНСЫ будущих СТРИМОВ гроссмейстера Сергея Жигалко.\r\nИ многое другое! \r\n\r\n#### Гроссмейстер Сергей Жигалко - Кто Такой? :)\r\n\r\n**Максимальные рейтинги FIDE Сергея Жигалко за карьеру:**\r\n 2696 - в классику\r\n 2701 - в блиц\r\n 2752 - в рапид\r\n\r\n**Максимальные рейтинги на Lichess:**\r\n3037 - в рапид\r\n2919 - в блиц\r\n3338 - в пулю\r\n\r\n**Достижения Сергея Жигалко:**\r\nЧемпион Европы по блицу (2017)\r\nЧемпион Мира и Европы до 14 лет (2003)\r\nЧемпион Европы до 18 лет (2006)\r\nВице-Чемпион Мира среди юниоров (2009)\r\n\r\n**На данный момент Жигалко Сергей:**\r\nПрофессиональный шахматный тренер.\r\nАктивный шахматный стример на Youtube.\r\nОдин из сильнейших игроков на Lichess.\r\n\r\n**SITE:** https://zhigalko-sergei.com/\r\n**YOUTUBE:** https://www.youtube.com/c/SergeiZhigalkoChess\r\n**TWITCH:** https://www.twitch.tv/chess_zhigalko_sergei\r\n**INSTAGRAM:** https://www.instagram.com/zhigalko_sergei/\r\n**DONATION ALERTS:** https://www.donationalerts.com/r/zhigalko_sergei\r\n**LICHESS:** https://lichess.org/@/Zhigalko_Sergei\r\n**CHESS.COM:** https://www.chess.com/member/zhigalko_sergei\r\n\r\nПочётный основатель клуба:\r\n@SergeyVoronChess \r\n\r\n**50K MEMBERS**\r\n17.01.2023\r\n\r\n**Дорогие Друзья! Вступайте в Наш Клуб! Вместе - Мы большая СИЛА!!**",
+          "open": true,
+          "leader":
+            { "name": "Zhigalko_Sergei", "title": "GM", "patron": true, "patronColor": 10, "id": "zhigalko_sergei" },
+          "nbMembers": 75338,
+          "leaders":
+            [
+              { "name": "Zhigalko_Sergei", "title": "GM", "patron": true, "patronColor": 10, "id": "zhigalko_sergei" },
+              { "name": "Chess_Blondinka", "title": "WFM", "patron": true, "patronColor": 10, "id": "chess_blondinka" },
+              {
+                "name": "SergeyVoronChess",
+                "flair": "nature.phoenix-bird",
+                "patron": true,
+                "patronColor": 6,
+                "id": "sergeyvoronchess",
+              },
+            ],
+        },
+        {
+          "id": "crestbook-chess-club",
+          "name": "Crestbook Chess Club",
+          "description": "Клуб мг Сергея Шипова \"Crestbook\"\r\nCrestbook club by GM Sergei Shipov\r\n\r\nПо всем вопросам пишите/contacts: https://lichess.org/@/Challenger_Spy\r\n\r\nYoutube - https://www.youtube.com/user/crestbook\r\n\r\nСтримеры клуба / Club streamers:\r\nГроссмейстер Сергей Шипов / GM Sergei Shipov https://lichess.org/@/Crest64\r\nКМС Дмитрий Филимонов / CM Dmitry Filimonov https://lichess.org/@/Challenger_Spy",
+          "open": false,
+          "leader": { "name": "Challenger_Spy", "patron": true, "patronColor": 10, "id": "challenger_spy" },
+          "nbMembers": 43914,
+          "leaders":
+            [
+              { "name": "Challenger_Spy", "patron": true, "patronColor": 10, "id": "challenger_spy" },
+              { "name": "Crestbook-club", "id": "crestbook-club" },
+              { "name": "SU-1704", "id": "su-1704" },
+            ],
+        },
+        {
+          "id": "fide-checkmate-coronavirus",
+          "name": "FIDE Checkmate Coronavirus",
+          "description": "FIDE Checkmate Coronavirus tournaments on Lichess ran non-stop for 30 days or 720 hours. \r\n\r\nTournaments were aimed at all chess players, regardless of age, country, or level of play. 1500 special prizes, were distributed among winners of a random draw (raffle). Inspired by the Olympic Creed, we give a winning chance to everyone and reward involvement and participation. The major prize was 64 one-week invitations to the 2021 Chess Olympiad in Moscow!\r\n\r\n To check if you are on the list of winners, have a look here: https://results.checkmatecoronavirus.com/tournaments/prizes\r\n Saw your name among the winners? Don't forget to claim the prize! Please contact us before June 30th 2020 by sending an email to\r\nprizes@checkmatecoronavirus.com with the following data:\r\n• player’s nickname\r\n• player’s real name\r\n• player’s email address\r\n• player’s home address (only for players who won Checkmate Coronavirus Souvenirs)\r\n\r\nAll the details - https://www.checkmatecoronavirus.com",
+          "open": true,
+          "leader": { "name": "FIDE", "id": "fide" },
+          "nbMembers": 38039,
+          "leaders":
+            [
+              { "name": "FIDE", "id": "fide" },
+              { "name": "cinemakro", "flair": "objects.film-projector", "id": "cinemakro" },
+              { "name": "akispara", "flair": "nature.hippopotamus", "id": "akispara" },
+              { "name": "lexydim", "title": "WGM", "flair": "nature.blossom", "id": "lexydim" },
+              { "name": "mprevenios", "id": "mprevenios" },
+              { "name": "leonid_elkin", "id": "leonid_elkin" },
+              { "name": "AnastasisTzoumpas", "title": "FM", "id": "anastasistzoumpas" },
+            ],
+        },
+        {
+          "id": "bengal-tiger",
+          "name": "Bengal tiger",
+          "description": "Dear reader,\r\nOn a daily basis we organize 7 online chess tournaments. Based on Swiss form.\r\nTournaments are further time & types :-\r\n8:00 am IST= 2:30 am GMT (7 min+2 sec) 7 rounds\r\n11:00 am IST = 5:30 am GMT (10min+0 sec) 7 rounds\r\n2:00 pm IST=8:30 am GMT (7 min +2 sec) 7 rounds\r\n5:00 pm IST = 11:30 am GMT (5 min+2 sec) 7 rounds\r\n8:00 pm IST =2:30 pm GMT (3 min +2 sec) 7 rounds\r\n10:30 pm IST =5:00 pm GMT (1 min+1 sec) 11 rounds\r\n11:30 pm IST =6:00pm GMT (15 min+5 sec) 5 rounds\r\nThe participation is and will continue beyond any national or geographical border. This team was established in India on 19/04/2020. You are just a click away from your contribution to the game you love, the chess.\r\n------------x-----------",
+          "open": true,
+          "leader": { "name": "Bipulb", "id": "bipulb" },
+          "nbMembers": 33128,
+          "leaders":
+            [
+              { "name": "Bipulb", "id": "bipulb" },
+              { "name": "Punamb", "id": "punamb" },
+              { "name": "Biruda", "id": "biruda" },
+              { "name": "DAMODARKUMAR", "flair": "activity.chess-pawn", "id": "damodarkumar" },
+            ],
+        },
+        {
+          "id": "masthanaiah-chess-world",
+          "name": "MASTHANAIAH CHESS WORLD",
+          "description": "#https://imgur.com/sFC62gN\r\n\r\n*MASTHANAIAH CHESS WORLD FIDE RATING RAPID OPEN CHESS TMT 2022-July 9 & 10*\r\n\r\n*️ Reg P.Masthan babu+91 9848147889 G pay/ P pay*\r\n\r\n*2022 JULY NELLORE, AP, *\r\nhttps://chess-results.com/tnr653095.aspx?lan=1&flag=30&turdet=YES&zeilen=99999\r\n\r\n*️2022 March NELLORE ,AP*\r\nhttps://chess-results.com/tnr617014.aspx?lan=1&turdet=YES&zeilen=99999\r\n\r\n*️2021 HYDERABAD, TEL*\r\nhttp://chess-results.com/tnr557180.aspx?lan=1&zeilen=99999\r\n\r\n*️ 2020 NELLORE, AP*\r\nhttps://chess-results.com/tnr514572.aspx?lan=1&zeilen=9999\r\n\r\n https://www.chess.com/club/masthanaiah3  April18 \r\n\r\n https://lichess.org/swiss/70Lytw5z   October 2\r\n\r\n  https://lichess.org/swiss/Zb6YA3XO    October 25\r\n\r\n  https://lichess.org/tournament/XivJOMfi Nov14",
+          "open": true,
+          "leader": { "name": "mcw2011", "id": "mcw2011" },
+          "nbMembers": 30282,
+          "leaders": [{ "name": "mcw2011", "id": "mcw2011" }, { "name": "somnadh78", "id": "somnadh78" }],
+        },
+        {
+          "id": "pawn-stars-2",
+          "name": "pawn stars 2",
+          "description": "![Pawnstars2logo](https://i.imgur.com/2EYYg6w.jpg)\r\n\r\nWelcome to the Biggest Indian and the Top-5 Team of lichess! \r\nThis Club was formed on 7th August 2020 and the main leader of this team is [Bhavisha0101](https://lichess.org/@/Bhavisha0101) Contact him for any queries or suggestions regarding the team, we also accept paid promotion and sponsorships for tournaments, contact him for the same.\r\n\r\nWe Are #5 among all **[Lichess Teams](https://lichess.org/team/all)**\r\n\r\nThe team has **150+ Titled members!**\r\n\r\n**Our Major Team battles/Chessathons**\r\n**[Jaysheel's Birthday Swiss](https://lichess.org/swiss/ADKFm9Tw)**\r\n\r\n**Hall Of Fame**\r\n[Best Swiss](https://lichess.org/swiss/OTe9lPik)\r\n[Best Arena](https://lichess.org/tournament/HBcZbxBO)\r\n[Best Team Battle](https://lichess.org/tournament/RRkR5bZ2)\r\n\r\nDo join our Elite Team (only 2100+ allowed)\r\n[https://lichess.org/team/pawn-stars-2-elites-2100](https://lichess.org/team/pawn-stars-2-elites-2100)\r\n\r\nDo join our Friendly Club\r\n[https://lichess.org/team/pawns-hurricane-2]( https://lichess.org/team/pawns-hurricane-2 )\r\n\r\nDescription Maintained by [Bhavisha0101](https://lichess.org/@/Bhavisha0101)\r\n\r\nTeam owners/leaders-\r\n\r\n[Bhavisha0101](https://lichess.org/@/Bhavisha0101)\r\n[Jaysheelchess2009](https://lichess.org/@/Jaysheelchess2009)\r\n\r\nLocation- **India**, But all Nations are Welcome!",
+          "open": true,
+          "leader": { "name": "Unknown_Warrior11", "id": "unknown_warrior11" },
+          "nbMembers": 30113,
+          "leaders":
+            [
+              { "name": "Bhavisha0101", "id": "bhavisha0101" },
+              { "name": "Jaysheelchess2009", "id": "jaysheelchess2009" },
+            ],
+        },
+        {
+          "id": "satranc-dunyam-youtube",
+          "name": "Satranç Dünyam Youtube",
+          "description": "**Lichess Takımlarda Dünya'nın En Büyük 8'inci \r\n& Türkiye'nin En Büyük Satranç Ailesine Hoş Geldiniz!**\r\n\r\n[Satranç Dünyam Youtube](https://www.youtube.com/c/satrancdunyam?sub_confirmation=1)",
+          "open": false,
+          "leader":
+            {
+              "name": "YasinEmrah",
+              "title": "FM",
+              "flair": "symbols.play-button",
+              "patron": true,
+              "patronColor": 8,
+              "id": "yasinemrah",
+            },
+          "nbMembers": 28618,
+          "flair": "symbols.play-button",
+          "leaders":
+            [
+              {
+                "name": "YasinEmrah",
+                "title": "FM",
+                "flair": "symbols.play-button",
+                "patron": true,
+                "patronColor": 8,
+                "id": "yasinemrah",
+              },
+              { "name": "CanliSatranc", "flair": "objects.nazar-amulet", "id": "canlisatranc" },
+            ],
+        },
+        {
+          "id": "im-eric-rosen-fan-club",
+          "name": "IM Eric Rosen Fan Club",
+          "description": "Hey all! By popular request, I've created this fan club in which my friends, followers, and subscribers can engage in chess discussion.",
+          "open": true,
+          "leader":
+            {
+              "name": "EricRosen",
+              "title": "IM",
+              "flair": "travel-places.ambulance",
+              "patron": true,
+              "patronColor": 10,
+              "id": "ericrosen",
+            },
+          "nbMembers": 25772,
+          "leaders":
+            [
+              {
+                "name": "EricRosen",
+                "title": "IM",
+                "flair": "travel-places.ambulance",
+                "patron": true,
+                "patronColor": 10,
+                "id": "ericrosen",
+              },
+            ],
+        },
+        {
+          "id": "the-house-discord-server",
+          "name": "The House Discord Server",
+          "description": "![House logo](https://i.postimg.cc/kGw4rNpb/22-House-Logox5-smaller.png)\r\n\r\n##\r\n\r\nWe are the **House**, a Lichess team for chess and variant players. We’ve won 134 Bundesliga events and five straight season titles since 2020. With 20,000+ members from amateurs to GMs, we value fair play and sportsmanship. Our tournament schedule consists of Bundesliga excitement complemented by multiple variant team battles throughout the week.\r\n\r\nAre you seeking a team that offers both competitive play and a welcoming environment? Look no further than our community. We compete in Lichess Bundesliga tournaments every Thursday and Sunday against top-tier opponents. But the excitement doesn't stop there: our team also engages in variant team tournaments, offering a variety of chess experiences to suit your preferences.\r\n\r\nExplore our unique Puzzle Packs, a collection of puzzles selected from team's Bundesliga games. The latest edition is waiting you [here](https://lichess.org/study/YSwTDVB6) and our full archive is accessible [here](https://lichess.org/study/by/TheHouseDiscord/newest).\r\n\r\n***\r\n\r\n# **Team News & Updates**\r\n- Jan 1: Happy New year! Read about our [journey of 2024 in the forum](https://lichess.org/forum/team-the-house-discord-server/year-of-2024).\r\n\r\n- Sep 22: Things are heating up in the **House Multi-Variant Championship 2025**. Who’s making the Final Four? Follow along on the [forum](https://lichess.org/forum/team-the-house-discord-server/hmvc-2025-pairings-and-results?page=1).\r\n\r\n- Oct 12: Back-to-back **Bundesliga** victories! Props to @satunnainen, @caternion, and @markamp for carrying the team [tonight](https://lichess.org/tournament/vIZ1HsYG).\r\n\r\nCheck out our [upcoming team tournaments](https://lichess.org/team/the-house-discord-server/tournaments).\r\n\r\n***\r\n\r\n# **Lichess Bundesliga**\r\n\r\nThe House joined the [Lichess Bundesliga](https://lichess.org/@/lichess/blog/announcing-the-lichess-bundesliga/X4da-RAA) in [April 2020](https://lichess.org/tournament/oGeaCHx7). After winning the inaugural season, we achieved three consecutive championships by 2022, claimed our fourth title in 2023, and we triumped again in 2024. Five titles in a row! Now we aim for a sixth. Whether you’re a strong player or a newcomer seeking a community with a legacy, The House awaits.\r\n\r\nBundesliga tournaments occur twice weekly, on **Thursdays** and **Sundays**, starting at 18:00 UTC. They offer a valuable opportunity to face formidable opponents and stregthen our team spirit.\r\n\r\nCheck out the results: [all-time scores](https://rochadeeuropa.de/ewige-q-bundesliga-tabelle/), current [season 2025](https://rochadeeuropa.de/lichess-2025/), and relive our victories in [season 2024](https://rochadeeuropa.de/lichess-2024/), [season 2023](https://rochadeeuropa.de/lichess-2023), [season 2022](https://rochadeeuropa.de/lichess-2022), [season 2021](https://rochadeeuropa.de/lichess-2021), and [season 2020](https://rochadeeuropa.de/lichess-2020). The journey isn’t over – join us as we aim for even greater heights!\r\n\r\n***\r\n\r\n# **Discord**\r\n\r\nWe have a Discord server – a chat platform for chess and variants. It's a great place to discuss chess, learn a new variant or deepen your knowledge on your favourite variants! We host group calls during team tournaments, play bughouse on voice chat, explore other games, and more.\r\n\r\nJoin us there! https://discord.gg/RhWgzcC\r\n\r\n***\r\n\r\n# **Contact**\r\n\r\nGot a question? Want to learn more about The House? Reach out to @TheHouseDiscord. Are you a team tournament organizer? While our chess schedule is packed with Lichess Bundesliga commitments, please contact @TheFinnisher for joining your variant team tournaments.",
+          "open": true,
+          "leader": { "name": "TheHouseDiscord", "id": "thehousediscord" },
+          "nbMembers": 25517,
+          "leaders":
+            [
+              { "name": "TheHouseDiscord", "id": "thehousediscord" },
+              { "name": "TheFinnisher", "patron": true, "patronColor": 10, "id": "thefinnisher" },
+              {
+                "name": "gsvc",
+                "title": "GM",
+                "flair": "symbols.question-mark",
+                "patron": true,
+                "patronColor": 7,
+                "id": "gsvc",
+              },
+              { "name": "calcu_later", "title": "FM", "id": "calcu_later" },
+            ],
+        },
+        {
+          "id": "lichess-chess960",
+          "name": "Lichess Chess960",
+          "description": "![](https://i.imgur.com/BH4KzL2.gif)\r\n\r\n**Welcome to the official Lichess Chess960 Team!**\r\n\r\nWe are the home of [Chess960](https://lichess.org/variant/chess960) fans across Lichess. Join the team for tournaments and other community-driven Chess960 events. Everyone is welcome to join!\r\n\r\n[VOTE here](https://forms.gle/iwdeyZwLTzkVar64A) for the time control you would like to see more for Chess960 Tournaments\r\n\r\n#### Weekly Chess960 Team Battle every Saturday, 11:00 UTC\r\n\r\n***\r\n\r\n**Resources:**\r\n\r\n• [Detailed Guide to Chess960](https://lichess.org/@/visualdennis/blog/my-ultimate-guide-to-chess960/de25UOqM) with history, strategy and opening tips as well as further resources. \r\n\r\n• [Table of all 960 starting positions](https://chess960.net/wp-content/uploads/2018/02/chess960-starting-positions.pdf) (PDF)\r\n\r\n• [Chess960 Generator](https://farley-gpt.github.io/Chess960-Generator/)\r\n\r\n• [Castling Rules](https://lichess.org/study/7LaW0hAX)\r\n\r\n***\r\n\r\n**Tournaments Schedule:**\r\n\r\n|**Time**|**Day**|**Event**|**Time Control**|\r\n|---|---|---|---|\r\n|Hourly|Every day|Hourly Chess960|Various|\r\n|19:00 UTC|Tuesdays| Weekly Chess960 Rapid Arena|10+2|\r\n|19:00 UTC|Wednesdays| Weekly Chess960 SuperBlitz Arena|3+0|\r\n|11:00 UTC|Saturdays| Weekly Chess960 SuperBlitz Team Battle|3+0|\r\n\r\n+ The Lichess Chess960 Titled Arenas twice every 6 months. \r\n\r\n+ The Hourly Tournaments\r\n\r\n![](https://i.imgur.com/Z4f5pZx.jpg)\r\n\r\nLinks to these regular tournaments can be found [below](https://lichess.org/team/lichess-chess960/tournaments) , if you scroll down a bit or [here](https://lichess.org/tournament).\r\n\r\nAdditionally, if you are fan of team battles, you can find [Daily Chess960 Team Battles](https://lichess.org/team/fischer-random-chess-center/tournaments) hosted by [Fischer Random Chess Center](https://lichess.org/team/fischer-random-chess-center)\r\n\r\nChess 960 league with 20+20: https://www.lichess4545.com/chess960/\r\n\r\n***\r\n\r\n**Community:**\r\n\r\n• [Share and discuss your games here](https://lichess.org/forum/team-lichess-chess960/share-your-cool-chess960-games-here-for-discussion-or-analysis)\r\n\r\n• [Feel free to create a topic in the forum](https://lichess.org/forum/team-lichess-chess960) if you have questions, want to give feedback, or make suggestion for tournament ideas, events, format or any kind of thing. \r\n\r\n• [Lichess Arena Ranking](https://lichess.thijs.com/rankings/chess960/monthly/list_players_trophies.html)\r\n\r\n• Chess960 versions for other variants, such as Crazyhouse960 and Atomic960 can be played on [Pychess](https://www.pychess.org/tournament/J0JLXYFy). Every 2nd Monday of the month, Crazyhouse960 Shield takes place [here](https://www.pychess.org/tournament/J0JLXYFy) \r\n\r\n***\r\n\r\n**Lichess official variant teams**\r\n\r\n[Lichess Chess960](https://lichess.org/team/lichess-chess960) • [Lichess King of the Hill](https://lichess.org/team/lichess-king-of-the-hill) • [Lichess Three-check](https://lichess.org/team/lichess-three-check) • [Lichess Antichess](https://lichess.org/team/lichess-antichess) • [Lichess Atomic](https://lichess.org/team/lichess-atomic) • [Lichess Horde](https://lichess.org/team/lichess-horde) • [Lichess Racing Kings](https://lichess.org/team/lichess-racing-kings) • [Lichess Crazyhouse](https://lichess.org/team/lichess-crazyhouse)",
+          "open": true,
+          "leader":
+            { "name": "Lichess", "flair": "activity.lichess", "patron": true, "patronColor": 10, "id": "lichess" },
+          "nbMembers": 25172,
+          "flair": "activity.lichess-variant-960",
+          "leaders":
+            [
+              {
+                "name": "visualdennis",
+                "title": "NM",
+                "flair": "activity.lichess-blitz",
+                "patron": true,
+                "patronColor": 6,
+                "id": "visualdennis",
+              },
+              { "name": "TeamChess960", "id": "teamchess960" },
+              { "name": "Lichess", "flair": "activity.lichess", "patron": true, "patronColor": 10, "id": "lichess" },
+            ],
+        },
+        {
+          "id": "online-world-chess-lovers",
+          "name": "Online World Chess Lovers",
+          "description": "**Top 12Th Team In World**\r\n![](https://i.imgur.com/5fHM5fn.jpg)\r\n\r\n**1000 USD Team Battle**\r\nJoin Team- https://lichess.org/team/chess-city-team\r\n\r\nJoin Team Battle- https://lichess.org/tournament/CMQ20Nov\r\n-\r\n**Team Battle With Cash Prizes**\r\nTeam- https://lichess.org/team/berserking_kings\r\n\r\nBattle- https://lichess.org/tournament/ABje5dpp\r\n(Visit Team Page For Prizes)\r\nNote- OWCL Not playing this Battle,We are playing on Berseking_Kings Team\r\n-\r\n**20 USD Mega Final Tournament**\r\n![](https://i.postimg.cc/x8gB2r1r/IMG-20251107-160401.jpg)\r\n\"These much Players have been Arrived\".It will be updated Soon.Join Now!\r\nhttps://lichess.org/swiss/yC0I9VyV (Aprox 1K Players)\r\n**Join Qualifiers For 20 USD Tournament** (Daily)\r\nhttps://lichess.org/team/online-world-chess-lovers/tournaments\r\n**GP's Birthday Party**\r\nhttps://lichess.org/swiss/kQXDEukH\r\n**Join Our Group,For Updates**\r\nhttps://chat.whatsapp.com/KAgX1BPB6b6Ilr1MDbohil?mode=wwc\r\n-\r\n![](https://i.imgur.com/2R1xWvI.jpeg)\r\n**GP Chess Promotion**\r\n@gouravprithyani\r\nhttps://wa.me/918871232674\r\n-\r\nWe frequently Conduct Free Cash Prize Tournaments,Daily So Many Practice Tournaments.\r\n\r\nIf you want to sponsor any cash events on your birthday,Special Events.Inform us.\r\n\r\n**If you want to support us.You can Use below Details.Don't forget to mention the note**\r\nPaypal- https://www.paypal.me/GouravPrithyani\r\nUpi- gouravprithyani@okhdfcbank\r\n-",
+          "open": true,
+          "leader": { "name": "Yogesh02005", "id": "yogesh02005" },
+          "nbMembers": 24120,
+          "flair": "activity.mirror-ball",
+          "leaders":
+            [
+              { "name": "Gouravprithyani", "flair": "smileys.smiling-face-with-sunglasses", "id": "gouravprithyani" },
+              { "name": "Coolplay", "flair": "activity.american-football", "id": "coolplay" },
+              { "name": "stambul65", "id": "stambul65" },
+              { "name": "black_knight22", "title": "IM", "flair": "smileys.alien", "id": "black_knight22" },
+              { "name": "argentum123", "id": "argentum123" },
+              { "name": "Ranveer99", "flair": "symbols.trident-emblem", "id": "ranveer99" },
+              { "name": "AaRaMk", "id": "aaramk" },
+              { "name": "STAR_ARYA", "flair": "nature.star", "patron": true, "patronColor": 3, "id": "star_arya" },
+              { "name": "unrealboy9000", "id": "unrealboy9000" },
+            ],
+        },
+        {
+          "id": "agadmators-team",
+          "name": "agadmator's Team",
+          "description": "Hello everyone! Lets play some chess games!",
+          "open": true,
+          "leader": { "name": "agadmator", "patron": true, "patronColor": 10, "id": "agadmator" },
+          "nbMembers": 23626,
+          "leaders":
+            [
+              { "name": "agadmator", "patron": true, "patronColor": 10, "id": "agadmator" },
+              { "name": "cronaldinho", "id": "cronaldinho" },
+            ],
+        },
+        {
+          "id": "livechess",
+          "name": "LiveChess",
+          "description": "![](https://imgur.com/pCM2YmC.png)",
+          "open": true,
+          "leader": { "name": "Witaj_I_Am_Light", "flair": "nature.high-voltage", "id": "witaj_i_am_light" },
+          "nbMembers": 21498,
+          "flair": "activity.sparkles",
+          "leaders":
+            [
+              { "name": "S7nR153", "flair": "travel-places.desert-island", "id": "s7nr153" },
+              { "name": "RegistraciaProfila", "flair": "objects.telephone", "id": "registraciaprofila" },
+              { "name": "Lyubomir-39", "flair": "travel-places.sunset", "id": "lyubomir-39" },
+            ],
+        },
+        {
+          "id": "csca-open-events",
+          "name": "CSCA Open Events",
+          "description": "![](https://i.imgur.com/LssS5eK.png)\r\nThe Connecticut State Chess Association is a 501(c)7 nonprofit organization, the official U.S. Chess State Affiliate for the state of Connecticut, and a leader in chess competitions, programs and activities for Connecticut and online chess communities.  Visit us on the web at https://www.chessct.org or email us at chess.CSCA@gmail.com. \r\n\r\nMembership in this team is OPEN to all Lichess members, interested in competition play and activities, and regular PRIZE tournaments. Account requirements will be imposed on an event-by-event basis sufficient to accomplish Lichess Fair Play Review and discourage unethical participation. \r\n\r\nDISQUALIFICATION AND EJECTION: The organizer, at the organizer's sole discretion and with or without Lichess confirmation, may disqualify, limit and/or remove any player from any event on suspicion of cheating or other violation of organizer, event or Lichess rules. \r\n\r\nRATING MANIPULATION: Players intentionally lowering their rating to enter a tournament with a rating limit will NOT be eligible for prizes. Please note that such rating manipulation, including playing under another's account or a new account, is considered cheating. \r\n\r\nMEMBERSHIP & REGISTRATION: All players participating in a CSCA tournament are considered \"event members\" of the CSCA without registration. Unless required in the description of the tournament, registration is optional. \r\n\r\nPRIZES: All players winning event prizes will be contacted via Lichess message for their PayPal information. Players winning in excess of $600 in a calendar year, must submit U.S. IRS form W-9 or international equivalent to the CSCA ahead of receiving payment of event prizes. Prizes are paid at least seven (7) days after the conclusion of the event (more if needed), to allow FairPlay Review and processing. Any imposed fees or taxes may reduce the final amount of the received prize. Lichess accounts that are not in good standing are prize ineligible. Prizes not claimed within thirty (30) days after the event are deemed abandoned. \r\n\r\nThank you.\r\n\r\nCSCA Admin\r\n\r\n==============================================================================\r\n\r\n**RESULTS**\r\n\r\n**January 26\r\nOE January Bullet1 Prize Arena**\r\nhttps://lichess.org/tournament/Wpft829X\r\nRESULTS (Posted January 29, 2025)\r\n\r\nFREE Entry winners to Feb 1 Bullet Blizzard, https://lichess.org/tournament/HP6NIt3p: \r\n@Grishp06, @magdanoz, IM @greennight, @dima15975313, @Tictoocchess, \r\n@Thunder_Hurricane, @Annachess2007, @OwenLangston, @Rarelyadraw, @BrianjDGS, \r\n@chaux, @sadisticTushi, @Aryan_Rahimpour_2004, @jonnychesskg, @Chelabzdunchik\r\n\r\n**February 15\r\nLunar Year Prize Team Battle (77 teams, 1,155 players)**\r\nhttps://lichess.org/tournament/uD7kYS90\r\nRESULTS (Posted February 17, 2025)\r\n\r\n1st Team: \"Борьба с читерами\", chief admin: FM @Novozhilov_Semyon ($50)\r\n2nd Team: \"Ronaldo Playing Chess\", chief admin: @jack2212 ($30)\r\n3rd Team: \"Cheesefuel\", chief admin: GM @BlunderPandaZz ($20)\r\n\r\n1st Streamer: @OneHourAccountt, 2.378 ($25)\r\n2nd Streamer: @Groza_strimerov, 2.366 ($15)\r\n3rd Streamer: @chaux, 2.338 ($10)\r\n... @Shirojk1000, 2.238\r\n... IM @Parkour1, 2.114\r\n... @MoonWarrior1, 2.035\r\n... @Chesswarriors12, 1.590\r\n... @BuenosS, 1.587 \r\n... @Alexandra_Kostenchuk, 1.447\r\n... @Chessmaste, w/d\r\n\r\nPast winners: https://www.chessct.org/csca/Uploads/Winners.pdf\r\nTOTAL PRIZES AWARDED since Sept 2023: $11,925",
+          "open": true,
+          "leader": { "name": "AQL547", "id": "aql547" },
+          "nbMembers": 20023,
+          "flair": "objects.money-bag",
+          "leaders": [{ "name": "AQL547", "id": "aql547" }, { "name": "CSCA", "id": "csca" }],
+        },
+      ],
+    "previousPage": null,
+    "nextPage": 2,
+    "nbResults": 378229,
+    "nbPages": 25216,
+  }

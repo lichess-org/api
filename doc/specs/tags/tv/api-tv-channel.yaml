@@ -70,5 +70,6 @@ get:
         application/x-ndjson:
           schema:
             $ref: "../../schemas/GameJson.yaml"
-          example:
-            $ref: "../../examples/tv-getBestOngoingGamesOfTvChannel.json"
+          examples:
+            default:
+              $ref: "../../examples/tv-getBestOngoingGamesOfTvChannel.json.yaml"

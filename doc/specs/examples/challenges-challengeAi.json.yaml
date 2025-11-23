@@ -1,0 +1,15 @@
+value:
+  {
+    "id": "qrtLUGQx",
+    "variant": { "key": "standard", "name": "Standard", "short": "Std" },
+    "speed": "correspondence",
+    "perf": "correspondence",
+    "rated": false,
+    "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "turns": 0,
+    "source": "ai",
+    "status": { "id": 20, "name": "started" },
+    "createdAt": 1763778818825,
+    "player": "white",
+    "fullId": "qrtLUGQxxtxy",
+  }

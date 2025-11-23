@@ -319,14 +319,14 @@ await (async () => {
 
 await (async () => {
   const tokens = await localClient("admin").POST("/api/token/admin-challenge", {
-      body: {
-        users: "bobby,mary,boris",
-        description: "created by admin",
-      },
-    });
+    body: {
+      users: "bobby,mary,boris",
+      description: "created by admin",
+    },
+  });
   const redacted: Record<string, string> = {};
   Object.keys(tokens.data!).forEach((k) => {
     redacted[k] = `lip_${k}_secret`;
   });
-  example("challenges", "adminChallengeTokens", redacted)
+  example("challenges", "adminChallengeTokens", redacted);
 })();

@@ -59,7 +59,9 @@ const pushPgn = await localClient("admin").POST(
     body: `
 [Event "Knight Invitational"]
 [White "Player 1"]
+[WhiteFideId "123"]
 [Black "Player 2"]
+[BlackFideId "456"]
 [Result "*"]
 
 1. e4 e5
@@ -154,6 +156,22 @@ example(
 
 example(
   "broadcasts",
+  "getPlayer",
+  await localClient("anon").GET(
+    "/broadcast/{broadcastTournamentId}/players/{playerId}",
+    {
+      params: {
+        path: {
+          broadcastTournamentId: newOfficialTournament.data!.tour.id,
+          playerId: "123",
+        },
+      },
+    },
+  ),
+);
+
+example(
+  "broadcasts",
   "updateBroadcastTournament",
   await localClient("admin").POST("/broadcast/{broadcastTournamentId}/edit", {
     params: {
@@ -185,7 +203,6 @@ example(
     },
   ),
   "json",
-  true,
 );
 
 example(
@@ -204,7 +221,6 @@ example(
     },
   ),
   "json",
-  true,
 );
 
 example(

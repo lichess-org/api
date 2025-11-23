@@ -1,0 +1,22 @@
+value:
+  {
+    "tournament":
+      {
+        "id": "yc07mCbM",
+        "createdBy": "lichess",
+        "system": "arena",
+        "minutes": 90,
+        "clock": { "limit": 180, "increment": 0 },
+        "rated": true,
+        "fullName": "Daily SuperBlitz Arena",
+        "nbPlayers": 2034,
+        "variant": { "key": "standard", "short": "Std", "name": "Standard" },
+        "startsAt": 1762189200000,
+        "finishesAt": 1762194600000,
+        "status": 30,
+        "perf": { "key": "blitz", "name": "Blitz", "position": 1, "icon": ")" },
+        "minRatedGames": { "nb": 15 },
+        "schedule": { "freq": "daily", "speed": "superBlitz" },
+      },
+    "player": { "games": 1, "score": 1, "rank": 1512 },
+  }

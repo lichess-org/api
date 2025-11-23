@@ -1,0 +1,25 @@
+value:
+  {
+    "game":
+      {
+        "id": "eTsruvkx",
+        "perf": { "key": "rapid", "name": "Rapid" },
+        "rated": true,
+        "players":
+          [
+            { "name": "SEL2525", "id": "sel2525", "color": "white", "rating": 1990 },
+            { "name": "joseRamon68", "id": "joseramon68", "color": "black", "rating": 1967 },
+          ],
+        "pgn": "e4 c5 Nf3 d6 c3 Nf6 Qc2 Nc6 d4 cxd4 cxd4 e6 Nc3 Bd7 a3 Rc8 Qd3 Be7 Be2 O-O b4 Re8 Bb2 a6 O-O h6 d5 exd5 exd5 Ne5 Nxe5 dxe5 d6 Bf8 Ne4 Nxe4 Qxe4 Bc6 Qf5 Qxd6 Rfd1 Qe6 Qh5 g5 Rac1 Bg7 Bg4 f5 Be2 Red8",
+        "clock": "10+0",
+      },
+    "puzzle":
+      {
+        "id": "tDqkO",
+        "rating": 1700,
+        "plays": 62710,
+        "solution": ["e2c4", "c6d5", "c4d5"],
+        "themes": ["middlegame", "short", "crushing", "pin"],
+        "initialPly": 49,
+      },
+  }

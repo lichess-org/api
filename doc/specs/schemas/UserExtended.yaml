@@ -6,11 +6,9 @@ allOf:
       url:
         type: string
         format: uri
-        example: https://lichess.org/@/georges
       playing:
         type: string
         format: uri
-        example: https://lichess.org/yqfLYJ5E/black
       count:
         $ref: "./Count.yaml"
       streaming:

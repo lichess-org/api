@@ -25,5 +25,6 @@ get:
         application/x-ndjson:
           schema:
             $ref: "../../schemas/User.yaml"
-          example:
-            $ref: "../../examples/bot-getOnlineBots.json"
+          examples:
+            default:
+              $ref: "../../examples/bot-getOnlineBots.json.yaml"

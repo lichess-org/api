@@ -55,5 +55,6 @@ get:
         application/x-ndjson:
           schema:
             $ref: "../../schemas/SwissTournament.yaml"
-          example:
-            $ref: "../../examples/teams-getTeamSwissTournaments.json"
+          examples:
+            default:
+              $ref: "../../examples/teams-getTeamSwissTournaments.json.yaml"

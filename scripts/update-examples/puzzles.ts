@@ -32,21 +32,17 @@ example(
 );
 
 const puzzleBatch = await localClient().GET("/api/puzzle/batch/{angle}", {
-    params: {
-      path: {
-        angle: "mix",
-      },
-      query: {
-        nb: 2,
-      },
+  params: {
+    path: {
+      angle: "mix",
     },
-  });
+    query: {
+      nb: 2,
+    },
+  },
+});
 
-example(
-  "puzzles",
-  "getMultiplePuzzlesAtOnce",
-  puzzleBatch,
-);
+example("puzzles", "getMultiplePuzzlesAtOnce", puzzleBatch);
 
 example(
   "puzzles",
@@ -66,9 +62,9 @@ example(
           id: puzzleBatch.data?.puzzles![0].puzzle.id,
           win: true,
           rated: true,
-        }
-      ]
-    }
+        },
+      ],
+    },
   }),
 );
 

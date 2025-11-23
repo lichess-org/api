@@ -1,0 +1,5 @@
+value:
+  [
+    { "name": "Mary", "flair": "people.women-with-bunny-ears-partying-medium-skin-tone", "id": "mary" },
+    { "name": "Ana", "title": "WFM", "flair": "objects.headphone", "id": "ana" },
+  ]

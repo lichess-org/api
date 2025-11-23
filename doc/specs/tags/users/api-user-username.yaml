@@ -33,5 +33,6 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/UserExtended.yaml"
-          example:
-            $ref: "../../examples/users-getUserPublicData.json"
+          examples:
+            default:
+              $ref: "../../examples/users-getUserPublicData.json.yaml"

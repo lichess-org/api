@@ -26,5 +26,6 @@ get:
             type: array
             items:
               $ref: "../../schemas/UserActivity.yaml"
-          example:
-            $ref: "../../examples/users-getUserActivity.json"
+          examples:
+            default:
+              $ref: "../../examples/users-getUserActivity.json.yaml"

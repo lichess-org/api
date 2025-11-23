@@ -26,5 +26,6 @@ get:
               language:
                 type: string
                 example: en-GB
-          example:
-            $ref: "../../examples/account-getMyPreferences.json"
+          examples:
+            default:
+              $ref: "../../examples/account-getMyPreferences.json.yaml"
