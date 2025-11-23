@@ -95,8 +95,9 @@ post:
                 type: string
                 minLength: 12
                 maxLength: 12
-          example:
-            $ref: "../../examples/challenges-challengeAi.json"
+          examples:
+            default:
+              $ref: "../../examples/challenges-challengeAi.json.yaml"
     "400":
       description: The creation of a game with Lichess AI failed.
       content:

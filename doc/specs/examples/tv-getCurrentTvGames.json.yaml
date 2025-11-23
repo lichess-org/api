@@ -1,0 +1,96 @@
+value:
+  {
+    "chess960":
+      { "user": { "name": "Karavaha", "id": "karavaha" }, "rating": 1876, "gameId": "8VXAppO8", "color": "white" },
+    "best":
+      {
+        "user":
+          { "name": "skilledassassin04", "title": "CM", "patron": true, "patronColor": 3, "id": "skilledassassin04" },
+        "rating": 3057,
+        "gameId": "USloptaz",
+        "color": "black",
+      },
+    "antichess":
+      { "user": { "name": "davifl10", "id": "davifl10" }, "rating": 2039, "gameId": "UImHdP8C", "color": "white" },
+    "computer":
+      {
+        "user": { "name": "wifidatalag", "id": "wifidatalag" },
+        "rating": 2392,
+        "gameId": "sez5Hx6t",
+        "color": "white",
+      },
+    "bullet":
+      {
+        "user":
+          { "name": "skilledassassin04", "title": "CM", "patron": true, "patronColor": 3, "id": "skilledassassin04" },
+        "rating": 3057,
+        "gameId": "USloptaz",
+        "color": "black",
+      },
+    "horde":
+      {
+        "user": { "name": "Horus_88", "flair": "symbols.peace-symbol", "id": "horus_88" },
+        "rating": 2759,
+        "gameId": "Hl7zShdZ",
+        "color": "black",
+      },
+    "atomic": { "user": { "name": "chase4", "id": "chase4" }, "rating": 1929, "gameId": "Qe9mWjsl", "color": "white" },
+    "bot":
+      {
+        "user": { "name": "SaxtonEngine", "title": "BOT", "flair": "smileys.robot", "id": "saxtonengine" },
+        "rating": 2698,
+        "gameId": "0B34JBi3",
+        "color": "black",
+      },
+    "racingKings":
+      {
+        "user": { "name": "MONKIELIKECHESS", "flair": "activity.soccer-ball", "id": "monkielikechess" },
+        "rating": 1841,
+        "gameId": "832NysZn",
+        "color": "white",
+      },
+    "ultraBullet":
+      {
+        "user": { "name": "pr0methazine", "flair": "symbols.red-triangle-pointed-up", "id": "pr0methazine" },
+        "rating": 2450,
+        "gameId": "Oj9V5jSL",
+        "color": "white",
+      },
+    "blitz":
+      {
+        "user": { "name": "bazar-wokzal", "title": "IM", "id": "bazar-wokzal" },
+        "rating": 2476,
+        "gameId": "IN7kTDBW",
+        "color": "white",
+      },
+    "kingOfTheHill":
+      { "user": { "name": "w_chess-a", "id": "w_chess-a" }, "rating": 1617, "gameId": "6OFQMFJ9", "color": "black" },
+    "crazyhouse":
+      {
+        "user": { "name": "jeremydurham", "id": "jeremydurham" },
+        "rating": 2473,
+        "gameId": "hZTgxQ6H",
+        "color": "white",
+      },
+    "threeCheck":
+      {
+        "user": { "name": "miamigambit7", "id": "miamigambit7" },
+        "rating": 1020,
+        "gameId": "1gp6M8lt",
+        "color": "black",
+      },
+    "classical":
+      {
+        "user": { "name": "omoruyiosatohanmwen", "id": "omoruyiosatohanmwen" },
+        "rating": 2116,
+        "gameId": "iLuJri4k",
+        "color": "white",
+      },
+    "rapid":
+      {
+        "user": { "name": "bentengpertahanan", "id": "bentengpertahanan" },
+        "rating": 2408,
+        "gameId": "RV64aLvy",
+        "color": "white",
+      },
+  }

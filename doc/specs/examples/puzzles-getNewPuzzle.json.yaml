@@ -1,0 +1,31 @@
+value:
+  {
+    "game":
+      {
+        "id": "EwmejaZS",
+        "perf": { "key": "bullet", "name": "Bullet" },
+        "rated": true,
+        "players":
+          [
+            { "name": "johnny67", "id": "johnny67", "color": "white", "rating": 1729 },
+            {
+              "name": "keepyourcharge",
+              "flair": "objects.bell-with-slash",
+              "id": "keepyourcharge",
+              "color": "black",
+              "rating": 1643,
+            },
+          ],
+        "pgn": "e4 e6 d4 d5 Nc3 c5 Bb5+ Bd7 dxc5 Bxb5 Nxb5 Qa5+ Nc3 Bxc5 exd5 Nf6 dxe6 O-O exf7+ Rxf7 Ne2 Nc6 O-O Rd8 Qe1 Ng4 Ne4 Rxf2 Qxa5",
+        "clock": "¾+3",
+      },
+    "puzzle":
+      {
+        "id": "vnWJX",
+        "rating": 1886,
+        "plays": 697,
+        "solution": ["f2f1", "g1f1", "d8d1", "a5e1", "g4h2"],
+        "themes": ["middlegame", "attraction", "long", "mateIn3", "kingsideAttack", "doubleCheck"],
+        "initialPly": 28,
+      },
+  }

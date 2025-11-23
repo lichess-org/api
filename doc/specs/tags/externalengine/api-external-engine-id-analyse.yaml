@@ -91,5 +91,6 @@ post:
               - depth
               - nodes
               - pvs
-          example:
-            $ref: "../../examples/externalEngine-analyseWithExternalEngine.json"
+          examples:
+            default:
+              $ref: "../../examples/externalEngine-analyseWithExternalEngine.json.yaml"

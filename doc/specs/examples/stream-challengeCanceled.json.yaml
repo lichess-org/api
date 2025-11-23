@@ -3,17 +3,25 @@ value:
     "type": "challengeCanceled",
     "challenge":
       {
-        "id": "6wAsTgU3",
-        "url": "https://lichess.org/6wAsTgU3",
+        "id": "e1Iq789k",
+        "url": "https://lichess.org/e1Iq789k",
         "status": "canceled",
-        "challenger": { "name": "Elena", "title": "WIM", "id": "elena", "rating": 2217 },
-        "destUser": { "name": "Diego", "id": "diego", "rating": 1867, "online": true },
+        "challenger":
+          { "name": "Elena", "title": "FM", "flair": "symbols.keycap-digit-eight", "id": "elena", "rating": 2387 },
+        "destUser":
+          {
+            "name": "Diego",
+            "flair": "people.leftwards-hand-medium-light-skin-tone",
+            "id": "diego",
+            "rating": 1843,
+            "online": true,
+          },
         "variant": { "key": "standard", "name": "Standard", "short": "Std" },
         "rated": false,
         "speed": "correspondence",
         "timeControl": { "type": "unlimited" },
         "color": "random",
-        "finalColor": "black",
+        "finalColor": "white",
         "perf": { "icon": "", "name": "Correspondence" },
       },
   }

@@ -1,0 +1,28 @@
+value:
+  {
+    "high": { "day": 0, "week": 0, "month": 0, "allTime": 33 },
+    "days":
+      [
+        { "_id": "2025/2/8", "score": 1, "moves": 1, "errors": 0, "combo": 1, "time": 180, "highest": 1020, "runs": 1 },
+        {
+          "_id": "2025/1/23",
+          "score": 17,
+          "moves": 35,
+          "errors": 3,
+          "combo": 17,
+          "time": 164,
+          "highest": 1314,
+          "runs": 1,
+        },
+        {
+          "_id": "2024/12/11",
+          "score": 16,
+          "moves": 41,
+          "errors": 6,
+          "combo": 20,
+          "time": 141,
+          "highest": 1315,
+          "runs": 1,
+        },
+      ],
+  }

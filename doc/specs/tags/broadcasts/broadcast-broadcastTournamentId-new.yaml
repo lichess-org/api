@@ -37,8 +37,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/BroadcastRoundNew.yaml"
-          example:
-            $ref: "../../examples/broadcasts-createBroadcastRound.json"
+          examples:
+            default:
+              $ref: "../../examples/broadcasts-createBroadcastRound.json.yaml"
     "400":
       description: The creation of the broadcast failed.
       content:

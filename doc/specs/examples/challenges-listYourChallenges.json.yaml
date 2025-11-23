@@ -1,0 +1,22 @@
+value:
+  {
+    "in":
+      [
+        {
+          "id": "PmUJnRkb",
+          "url": "https://lichess.org/PmUJnRkb",
+          "status": "created",
+          "challenger": { "name": "Bobby", "patron": true, "patronColor": 1, "id": "bobby", "rating": 1804 },
+          "destUser": { "name": "Mary", "patron": true, "patronColor": 1, "id": "mary", "rating": 1075 },
+          "variant": { "key": "standard", "name": "Standard", "short": "Std" },
+          "rated": false,
+          "speed": "correspondence",
+          "timeControl": { "type": "unlimited" },
+          "color": "random",
+          "finalColor": "white",
+          "perf": { "icon": "", "name": "Correspondence" },
+          "direction": "in",
+        },
+      ],
+    "out": [],
+  }

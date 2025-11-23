@@ -33,8 +33,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
-          example:
-            $ref: "../../examples/users-addNoteForUser.json"
+          examples:
+            default:
+              $ref: "../../examples/users-addNoteForUser.json.yaml"
 get:
   operationId: readNote
   summary: Get notes for a user
@@ -65,5 +66,6 @@ get:
             type: array
             items:
               $ref: "../../schemas/UserNote.yaml"
-          example:
-            $ref: "../../examples/users-getNotesForUser.json"
+          examples:
+            default:
+              $ref: "../../examples/users-getNotesForUser.json.yaml"

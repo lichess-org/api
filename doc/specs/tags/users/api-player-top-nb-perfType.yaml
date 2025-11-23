@@ -51,5 +51,6 @@ get:
         application/vnd.lichess.v3+json:
           schema:
             $ref: "../../schemas/Leaderboard.yaml"
-          example:
-            $ref: "../../examples/users-getOneLeaderboard.json"
+          examples:
+            default:
+              $ref: "../../examples/users-getOneLeaderboard.json.yaml"

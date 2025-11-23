@@ -33,8 +33,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
-          example:
-            $ref: "../../examples/challenges-cancelChallenge.json"
+          examples:
+            default:
+              $ref: "../../examples/challenges-cancelChallenge.json.yaml"
     "404":
       description: The challenge to cancel was not found.
       content:

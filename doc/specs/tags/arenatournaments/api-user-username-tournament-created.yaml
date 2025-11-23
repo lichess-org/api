@@ -47,5 +47,6 @@ get:
         application/x-ndjson:
           schema:
             $ref: "../../schemas/ArenaTournament.yaml"
-          example:
-            $ref: "../../examples/arenas-getTournamentsCreatedByUser.json"
+          examples:
+            default:
+              $ref: "../../examples/arenas-getTournamentsCreatedByUser.json.yaml"

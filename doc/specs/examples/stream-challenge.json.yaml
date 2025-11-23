@@ -3,11 +3,11 @@ value:
     "type": "challenge",
     "challenge":
       {
-        "id": "kjGHA2fn",
-        "url": "https://lichess.org/kjGHA2fn",
+        "id": "mdBisUje",
+        "url": "https://lichess.org/mdBisUje",
         "status": "created",
-        "challenger": { "name": "Adriana", "flair": "smileys.unamused-face", "id": "adriana", "rating": 760 },
-        "destUser": { "name": "Gabriela", "id": "gabriela", "rating": 1572, "online": true },
+        "challenger": { "name": "Adriana", "id": "adriana", "rating": 567 },
+        "destUser": { "name": "Gabriela", "id": "gabriela", "rating": 1520, "online": true },
         "variant": { "key": "standard", "name": "Standard", "short": "Std" },
         "rated": false,
         "speed": "correspondence",

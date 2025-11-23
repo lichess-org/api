@@ -41,5 +41,6 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
-          example:
-            $ref: "../../examples/challenges-startClocks.json"
+          examples:
+            default:
+              $ref: "../../examples/challenges-startClocks.json.yaml"

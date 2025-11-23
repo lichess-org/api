@@ -1,0 +1,73 @@
+value:
+  {
+    "days": 30,
+    "global": { "nb": 11, "firstWins": 8, "replayWins": 0, "puzzleRatingAvg": 1593, "performance": 1820 },
+    "themes":
+      {
+        "middlegame":
+          {
+            "theme": "Middlegame",
+            "results": { "nb": 6, "firstWins": 5, "replayWins": 0, "puzzleRatingAvg": 1459, "performance": 1792 },
+          },
+        "opening":
+          {
+            "theme": "Opening",
+            "results": { "nb": 3, "firstWins": 2, "replayWins": 0, "puzzleRatingAvg": 1846, "performance": 2013 },
+          },
+        "endgame":
+          {
+            "theme": "Endgame",
+            "results": { "nb": 2, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1616, "performance": 1616 },
+          },
+        "fork":
+          {
+            "theme": "Fork",
+            "results": { "nb": 2, "firstWins": 2, "replayWins": 0, "puzzleRatingAvg": 1550, "performance": 2050 },
+          },
+        "kingsideAttack":
+          {
+            "theme": "Kingside attack",
+            "results": { "nb": 2, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1578, "performance": 1578 },
+          },
+        "advancedPawn":
+          {
+            "theme": "Advanced pawn",
+            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1821, "performance": 1321 },
+          },
+        "castling":
+          {
+            "theme": "Castling",
+            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1314, "performance": 1814 },
+          },
+        "trappedPiece":
+          {
+            "theme": "Trapped piece",
+            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1492, "performance": 1992 },
+          },
+        "discoveredAttack":
+          {
+            "theme": "Discovered attack",
+            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1657, "performance": 1157 },
+          },
+        "pin":
+          {
+            "theme": "Pin",
+            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1411, "performance": 1911 },
+          },
+        "hangingPiece":
+          {
+            "theme": "Hanging piece",
+            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1904, "performance": 2404 },
+          },
+        "defensiveMove":
+          {
+            "theme": "Defensive move",
+            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1904, "performance": 2404 },
+          },
+        "promotion":
+          {
+            "theme": "Promotion",
+            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1821, "performance": 1321 },
+          },
+      },
+  }

@@ -19,5 +19,6 @@ get:
         application/x-ndjson:
           schema:
             $ref: "../../schemas/UserExtended.yaml"
-          example:
-            $ref: "../../examples/relations-getMyFollowing.json"
+          examples:
+            default:
+              $ref: "../../examples/relations-getMyFollowing.json.yaml"

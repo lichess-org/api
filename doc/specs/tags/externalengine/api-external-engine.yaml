@@ -22,8 +22,9 @@ get:
             type: array
             items:
               $ref: "../../schemas/ExternalEngine.yaml"
-          example:
-            $ref: "../../examples/externalEngine-listExternalEngines.json"
+          examples:
+            default:
+              $ref: "../../examples/externalEngine-listExternalEngines.json.yaml"
 post:
   operationId: apiExternalEngineCreate
   summary: Create external engine
@@ -54,5 +55,6 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/ExternalEngine.yaml"
-          example:
-            $ref: "../../examples/externalEngine-createExternalEngine.json"
+          examples:
+            default:
+              $ref: "../../examples/externalEngine-createExternalEngine.json.yaml"

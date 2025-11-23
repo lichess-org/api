@@ -71,5 +71,6 @@ get:
               best:
                 $ref: "../../schemas/TvGame.yaml"
 
-          example:
-            $ref: "../../examples/tv-getCurrentTvGames.json"
+          examples:
+            default:
+              $ref: "../../examples/tv-getCurrentTvGames.json.yaml"

@@ -1,0 +1,9 @@
+value:
+  {
+    "users":
+      [
+        { "id": "ana", "username": "Ana", "perfs": { "blitz": { "rating": 2508, "progress": 0 } }, "title": "WFM" },
+        { "id": "lola", "username": "Lola", "perfs": { "blitz": { "rating": 2382, "progress": 0 } }, "title": "WNM" },
+        { "id": "angel", "username": "Angel", "perfs": { "blitz": { "rating": 2362, "progress": 0 } }, "title": "WFM" },
+      ],
+  }

@@ -27,8 +27,9 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/ExternalEngine.yaml"
-          example:
-            $ref: "../../examples/externalEngine-getExternalEngine.json"
+          examples:
+            default:
+              $ref: "../../examples/externalEngine-getExternalEngine.json.yaml"
 put:
   operationId: apiExternalEnginePut
   summary: Update external engine
@@ -57,8 +58,9 @@ put:
         application/json:
           schema:
             $ref: "../../schemas/ExternalEngine.yaml"
-          example:
-            $ref: "../../examples/externalEngine-updateExternalEngine.json"
+          examples:
+            default:
+              $ref: "../../examples/externalEngine-updateExternalEngine.json.yaml"
 delete:
   operationId: apiExternalEngineDelete
   summary: Delete external engine
@@ -75,5 +77,6 @@ delete:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
-          example:
-            $ref: "../../examples/externalEngine-deleteExternalEngine.json"
+          examples:
+            default:
+              $ref: "../../examples/externalEngine-deleteExternalEngine.json.yaml"

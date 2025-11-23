@@ -1,0 +1,25 @@
+value:
+  {
+    "id": "tNNCdXVi",
+    "createdBy": "lichess",
+    "startsAt": "2025-11-25T23:30:00Z",
+    "name": "Rapid Increment",
+    "clock": { "limit": 420, "increment": 2 },
+    "variant": "standard",
+    "round": 0,
+    "nbRounds": 7,
+    "nbPlayers": 0,
+    "nbOngoing": 0,
+    "status": "created",
+    "nextRound": { "at": "2025-11-25T23:30:00Z", "in": 334566 },
+    "verdicts":
+      {
+        "list":
+          [
+            { "condition": "≥ 8 Rapid rated games", "verdict": "ok" },
+            { "condition": "Play your games", "verdict": "ok" },
+          ],
+        "accepted": true,
+      },
+    "rated": true,
+  }

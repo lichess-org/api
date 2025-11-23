@@ -1,0 +1,26 @@
+value:
+  {
+    "round":
+      {
+        "id": "NEJjg1jP",
+        "name": "Final Round 2",
+        "slug": "final-round-2",
+        "createdAt": 1763866266769,
+        "rated": false,
+        "ongoing": true,
+        "startsAt": 1763866266769,
+        "url": "https://lichess.org/broadcast/knight-invitational-2/final-round-2/NEJjg1jP",
+      },
+    "tour":
+      {
+        "id": "O5xMk2pU",
+        "name": "Knight Invitational 2",
+        "slug": "knight-invitational-2",
+        "info": {},
+        "createdAt": 1763866266692,
+        "url": "https://lichess.org/broadcast/knight-invitational-2/O5xMk2pU",
+        "dates": [1763866266769],
+        "communityOwner": { "name": "Admin", "patron": true, "patronColor": 1, "id": "admin" },
+      },
+    "study": { "writeable": true, "features": { "chat": true, "computer": true, "explorer": true } },
+  }

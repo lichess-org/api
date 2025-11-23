@@ -1,0 +1,18 @@
+value:
+  {
+    "id": "nQt2bVjH",
+    "url": "https://lichess.org/nQt2bVjH",
+    "status": "created",
+    "challenger": null,
+    "destUser": null,
+    "variant": { "key": "standard", "name": "Standard", "short": "Std" },
+    "rated": false,
+    "speed": "correspondence",
+    "timeControl": { "type": "unlimited" },
+    "color": "random",
+    "finalColor": "black",
+    "perf": { "icon": "", "name": "Correspondence" },
+    "open": {},
+    "urlWhite": "https://lichess.org/nQt2bVjH?color=white",
+    "urlBlack": "https://lichess.org/nQt2bVjH?color=black",
+  }
