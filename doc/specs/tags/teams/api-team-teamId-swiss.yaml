@@ -4,7 +4,7 @@ get:
   description: |
     Get all swiss tournaments of a team.
     Tournaments are sorted by reverse chronological order of start date (last starting first).
-    Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+    Tournaments are streamed as [ndjson](#description/streaming-with-nd-json).
   tags:
     - Teams
     - "Swiss tournaments"

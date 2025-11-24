@@ -2,7 +2,7 @@ get:
   operationId: apiStreamEvent
   summary: Stream incoming events
   description: |
-    Stream the events reaching a lichess user in real time as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+    Stream the events reaching a lichess user in real time as [ndjson](#description/streaming-with-nd-json).
 
     An empty line is sent every 7 seconds for keep alive purposes.
 

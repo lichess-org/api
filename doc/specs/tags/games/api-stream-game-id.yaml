@@ -2,7 +2,7 @@ get:
   operationId: streamGame
   summary: Stream moves of a game
   description: |
-    Stream positions and moves of any ongoing game, in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+    Stream positions and moves of any ongoing game, in [ndjson](#description/streaming-with-nd-json).
     A description of the game is sent as a first message.
     Then a message is sent each time a move is played.
     Finally, a description of the game is sent when it finishes, and the stream is closed.

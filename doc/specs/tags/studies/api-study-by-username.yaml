@@ -5,7 +5,7 @@ get:
     Get metadata (name and dates) of all studies of a user.
     If authenticated, then all public, unlisted, and private studies are included.
     If not, only public (non-unlisted) studies are included.
-    Studies are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+    Studies are streamed as [ndjson](#description/streaming-with-nd-json).
   tags:
     - Studies
   security:

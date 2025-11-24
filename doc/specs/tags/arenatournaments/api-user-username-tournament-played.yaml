@@ -4,10 +4,10 @@ get:
   description: |
     Get all tournaments played by a given user.
     Tournaments are sorted by reverse chronological order of start date (last played first).
-    Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+    Tournaments are streamed as [ndjson](#description/streaming-with-nd-json).
     The stream is throttled, depending on who is making the request:
       - Anonymous request: 20 tournaments per second
-      - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 tournaments per second
+      - [OAuth2 authenticated](/#description/authentication) request: 30 tournaments per second
       - Authenticated, downloading your own tournaments: 50 tournaments per second
   tags:
     - "Arena tournaments"

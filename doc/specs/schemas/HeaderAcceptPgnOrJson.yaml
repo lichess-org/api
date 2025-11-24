@@ -1,0 +1,15 @@
+in: header
+
+name: Accept
+
+description: |
+  Specify the desired response format.
+  Use `application/x-chess-pgn` to get the games in PGN format.
+  Use `application/json` to get the games in JSON format.
+
+schema:
+  type: string
+  enum:
+    - application/x-chess-pgn
+    - application/json
+  default: application/x-chess-pgn

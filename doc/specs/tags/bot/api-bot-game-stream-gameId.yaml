@@ -2,7 +2,7 @@ get:
   operationId: botGameStream
   summary: Stream Bot game state
   description: |
-    Stream the state of a game being played with the Bot API, as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+    Stream the state of a game being played with the Bot API, as [ndjson](#description/streaming-with-nd-json).
     Use this endpoint to get updates about the game in real-time, with a single request.
     Each line is a JSON object containing a `type` field. Possible values are:
     - `gameFull` Full game data. All values are immutable, except for the `state` field.

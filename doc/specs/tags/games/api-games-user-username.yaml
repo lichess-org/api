@@ -2,31 +2,20 @@ get:
   operationId: apiGamesUser
   summary: Export games of a user
   description: |
-    Download all games of any user in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
+    Download all games of any user in PGN or [ndjson](#description/streaming-with-nd-json) format.
     Games are sorted by reverse chronological order (most recent first).
     We recommend streaming the response, for it can be very long.
     <https://lichess.org/@/german11> for instance has more than 500,000 games.
     The game stream is throttled, depending on who is making the request:
       - Anonymous request: 20 games per second
-      - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 games per second
+      - [OAuth2 authenticated](/#description/authentication) request: 30 games per second
       - Authenticated, downloading your own games: 60 games per second
   tags:
     - Games
   security:
     - OAuth2: []
   parameters:
-    - in: header
-      name: Accept
-      description: |
-        Specify the desired response format.
-        Use `application/x-chess-pgn` to get the games in PGN format.
-        Use `application/x-ndjson` to get the games in ndjson format.
-      schema:
-        type: string
-        enum:
-          - application/x-chess-pgn
-          - application/x-ndjson
-        default: application/x-chess-pgn
+    - $ref: "../../schemas/HeaderAcceptPgnOrNdjson.yaml"
     - in: path
       name: username
       description: The user name.
