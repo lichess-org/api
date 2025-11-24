@@ -10,7 +10,7 @@ get:
   security:
     - OAuth2: []
   parameters:
-    - $ref: "../../schemas/HeaderAcceptPgnOrNdjson.yaml"
+    - $ref: "../../schemas/headers/AcceptPgnOrNdjson.yaml"
     - in: query
       name: since
       description: Download games bookmarked since this timestamp. Defaults to account creation date.

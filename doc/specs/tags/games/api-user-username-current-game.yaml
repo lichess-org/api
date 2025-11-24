@@ -9,7 +9,7 @@ get:
     - Games
   security: []
   parameters:
-    - $ref: "../../schemas/HeaderAcceptPgnOrJson.yaml"
+    - $ref: "../../schemas/headers/AcceptPgnOrJson.yaml"
     - in: path
       name: username
       required: true

@@ -15,7 +15,7 @@ get:
   security:
     - OAuth2: []
   parameters:
-    - $ref: "../../schemas/HeaderAcceptPgnOrNdjson.yaml"
+    - $ref: "../../schemas/headers/AcceptPgnOrNdjson.yaml"
     - in: path
       name: username
       description: The user name.

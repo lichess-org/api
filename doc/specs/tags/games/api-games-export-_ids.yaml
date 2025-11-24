@@ -19,7 +19,7 @@ post:
           type: string
         example: "TJxUmbWK,4OtIh2oh,ILwozzRZ"
   parameters:
-    - $ref: "../../schemas/HeaderAcceptPgnOrNdjson.yaml"
+    - $ref: "../../schemas/headers/AcceptPgnOrNdjson.yaml"
     - in: query
       name: moves
       description: Include the PGN moves.

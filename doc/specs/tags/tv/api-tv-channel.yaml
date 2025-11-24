@@ -8,7 +8,7 @@ get:
     - TV
   security: []
   parameters:
-    - $ref: "../../schemas/HeaderAcceptPgnOrNdjson.yaml"
+    - $ref: "../../schemas/headers/AcceptPgnOrNdjson.yaml"
     - in: path
       name: channel
       description: The name of the channel in camel case.
