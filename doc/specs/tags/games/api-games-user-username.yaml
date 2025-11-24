@@ -15,6 +15,18 @@ get:
   security:
     - OAuth2: []
   parameters:
+    - in: header
+      name: Accept
+      description: |
+        Specify the desired response format.
+        Use `application/x-chess-pgn` to get the games in PGN format.
+        Use `application/x-ndjson` to get the games in ndjson format.
+      schema:
+        type: string
+        enum:
+          - application/x-chess-pgn
+          - application/x-ndjson
+        default: application/x-chess-pgn
     - in: path
       name: username
       description: The user name.
