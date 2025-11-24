@@ -8522,7 +8522,13 @@ export interface operations {
         /** @description Sort order of the games. */
         sort?: "dateAsc" | "dateDesc";
       };
-      header?: never;
+      header?: {
+        /** @description Specify the desired response format.
+         *     Use `application/x-chess-pgn` to get the games in PGN format.
+         *     Use `application/x-ndjson` to get the games in ndjson format.
+         *      */
+        Accept?: "application/x-chess-pgn" | "application/x-ndjson";
+      };
       path: {
         /** @description The user name. */
         username: string;
