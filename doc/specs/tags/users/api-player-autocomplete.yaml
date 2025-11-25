@@ -17,6 +17,13 @@ get:
         minLength: 3
       required: true
     - in: query
+      name: exists
+      description: |
+        If `true`, only checks if the user exists.
+      schema:
+        type: boolean
+        default: false
+    - in: query
       name: object
       description: |
         - `false` returns an array of usernames
@@ -59,6 +66,13 @@ get:
         Search within a Swiss tournament.
       schema:
         type: string
+    - in: query
+      name: teacher
+      description: |
+        Only search for players who also have a teacher role.
+      schema:
+        type: boolean
+        default: false
   responses:
     "200":
       description: An array of players which usernames start with the provided term.
