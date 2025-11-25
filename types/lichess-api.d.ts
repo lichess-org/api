@@ -4063,6 +4063,8 @@ export interface components {
       prog: number;
       /** @description only appears if a user's perf rating are [provisional](https://lichess.org/faq#provisional) */
       prov?: boolean;
+      /** @description global lichess ranking, only appears for recently active players */
+      rank?: number;
     };
     PuzzleModePerf: {
       runs: number;
@@ -8167,7 +8169,12 @@ export interface operations {
   };
   apiUsers: {
     parameters: {
-      query?: never;
+      query?: {
+        /** @description Include user profile data */
+        profile?: boolean;
+        /** @description Include global lichess ranking for each perf */
+        rank?: boolean;
+      };
       header?: never;
       path?: never;
       cookie?: never;
