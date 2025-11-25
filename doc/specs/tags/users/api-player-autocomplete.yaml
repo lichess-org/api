@@ -5,7 +5,9 @@ get:
     Provides autocompletion options for an incomplete username.
   tags:
     - Users
-  security: []
+  security:
+    - {}
+    - OAuth2: []
   parameters:
     - in: query
       name: term
