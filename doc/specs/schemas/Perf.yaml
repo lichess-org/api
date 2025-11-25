@@ -12,6 +12,9 @@ properties:
   prov:
     type: boolean
     description: only appears if a user's perf rating are [provisional](https://lichess.org/faq#provisional)
+  rank:
+    type: integer
+    description: global lichess ranking, only appears for recently active players
 
 required:
   - games

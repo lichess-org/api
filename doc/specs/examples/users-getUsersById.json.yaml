@@ -7,7 +7,7 @@ value:
         {
           "ultraBullet": { "games": 3, "rating": 1688, "rd": 352, "prog": 0, "prov": true },
           "bullet": { "games": 7475, "rating": 1787, "rd": 86, "prog": -6 },
-          "blitz": { "games": 11543, "rating": 1788, "rd": 56, "prog": 22 },
+          "blitz": { "games": 11543, "rating": 1788, "rd": 56, "prog": 22, rank: 7890 },
           "rapid": { "games": 873, "rating": 1746, "rd": 136, "prog": -71, "prov": true },
           "classical": { "games": 24, "rating": 1806, "rd": 248, "prog": -5, "prov": true },
           "correspondence": { "games": 377, "rating": 1942, "rd": 153, "prog": -12, "prov": true },

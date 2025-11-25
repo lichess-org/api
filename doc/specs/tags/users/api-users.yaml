@@ -18,6 +18,19 @@ post:
         schema:
           type: string
         example: "thibault,maia1,maia5"
+  parameters:
+    - in: query
+      name: profile
+      description: Include user profile data
+      schema:
+        type: boolean
+        default: true
+    - in: query
+      name: rank
+      description: Include global lichess ranking for each perf
+      schema:
+        type: boolean
+        default: false
   responses:
     "200":
       description: The list of users.
