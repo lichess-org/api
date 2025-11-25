@@ -5,7 +5,7 @@ value:
     "perfs":
       {
         "bullet": { "games": 28, "rating": 1050, "rd": 45, "prog": -19 },
-        "blitz": { "games": 1121, "rating": 1060, "rd": 107, "prog": 25 },
+        "blitz": { "games": 11543, "rating": 1788, "rd": 56, "prog": 22, rank: 7890 },
         "rapid": { "games": 2069, "rating": 1068, "rd": 115, "prog": -47, "prov": true },
         "classical": { "games": 3562, "rating": 1048, "rd": 107, "prog": -22 },
         "correspondence": { "games": 824, "rating": 1076, "rd": 80, "prog": 19 },

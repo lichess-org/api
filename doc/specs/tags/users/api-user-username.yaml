@@ -20,6 +20,18 @@ get:
       schema:
         type: boolean
         default: false
+    - in: query
+      name: profile
+      description: Include user profile data
+      schema:
+        type: boolean
+        default: true
+    - in: query
+      name: rank
+      description: Include global lichess ranking for each perf
+      schema:
+        type: boolean
+        default: false
 
   responses:
     "200":
