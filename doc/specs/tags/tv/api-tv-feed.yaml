@@ -2,7 +2,7 @@ get:
   operationId: tvFeed
   summary: Stream current TV game
   description: |
-    Stream positions and moves of the current [TV game](https://lichess.org/tv) in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+    Stream positions and moves of the current [TV game](https://lichess.org/tv) in [ndjson](#description/streaming-with-nd-json).
     Try it with `curl https://lichess.org/api/tv/feed`.
   tags:
     - TV

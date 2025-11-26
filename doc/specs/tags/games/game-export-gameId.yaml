@@ -8,6 +8,7 @@ get:
     - Games
   security: []
   parameters:
+    - $ref: "../../schemas/headers/AcceptPgnOrJson.yaml"
     - in: path
       name: gameId
       description: The game ID

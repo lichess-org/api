@@ -2,7 +2,7 @@ post:
   operationId: gamesExportIds
   summary: Export games by IDs
   description: |
-    Download games by IDs in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
+    Download games by IDs in PGN or [ndjson](#description/streaming-with-nd-json) format, depending on the request `Accept` header.
     Games are sorted by reverse chronological order (most recent first)
     The method is `POST` so a longer list of IDs can be sent in the request body.
     300 IDs can be submitted.
@@ -19,6 +19,7 @@ post:
           type: string
         example: "TJxUmbWK,4OtIh2oh,ILwozzRZ"
   parameters:
+    - $ref: "../../schemas/headers/AcceptPgnOrNdjson.yaml"
     - in: query
       name: moves
       description: Include the PGN moves.

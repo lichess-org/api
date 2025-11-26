@@ -3,11 +3,12 @@ get:
   summary: Get best ongoing games of a TV channel
   description: |
     Get a list of ongoing games for a given TV channel. Similar to [lichess.org/games](https://lichess.org/games).
-    Available in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
+    Available in PGN or [ndjson](#description/streaming-with-nd-json) format, depending on the request `Accept` header.
   tags:
     - TV
   security: []
   parameters:
+    - $ref: "../../schemas/headers/AcceptPgnOrNdjson.yaml"
     - in: path
       name: channel
       description: The name of the channel in camel case.

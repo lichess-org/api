@@ -4,7 +4,7 @@ get:
   description: |
     Returns ongoing official broadcasts sorted by tier. 
     After that, returns finished broadcasts sorted by most recent sync time.
-    Broadcasts are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+    Broadcasts are streamed as [ndjson](#description/streaming-with-nd-json).
   tags:
     - Broadcasts
   security: []

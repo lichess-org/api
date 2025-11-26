@@ -17,7 +17,7 @@ post:
   description: |
     **Endpoint: `https://engine.lichess.ovh/api/external-engine/{id}/analyse`**
     Request analysis from an external engine.
-    Response content is streamed as [newline delimited JSON](#section/Introduction/Streaming-with-ND-JSON).
+    Response content is streamed as [newline delimited JSON](#description/streaming-with-nd-json).
     The properties are based on the [UCI specification](https://backscattering.de/chess/uci/#engine).
     Analysis stops when the client goes away, the requested limit
     is reached, or the provider goes away.

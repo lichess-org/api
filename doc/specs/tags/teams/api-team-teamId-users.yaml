@@ -4,7 +4,7 @@ get:
   description: |
     Members are sorted by reverse chronological order of joining the team (most recent first).
     OAuth is only required if the list of members is private.
-    Up to 5,000 users are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+    Up to 5,000 users are streamed as [ndjson](#description/streaming-with-nd-json).
   tags:
     - Teams
   security:

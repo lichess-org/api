@@ -2,7 +2,7 @@ get:
   operationId: apiExportBookmarks
   summary: Export your bookmarked games
   description: |
-    Download all games bookmarked by you, in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
+    Download all games bookmarked by you, in PGN or [ndjson](#description/streaming-with-nd-json) format.
     Games are sorted by reverse chronological order (most recent first).
     We recommend streaming the response, for it can be very long.
   tags:
@@ -10,6 +10,7 @@ get:
   security:
     - OAuth2: []
   parameters:
+    - $ref: "../../schemas/headers/AcceptPgnOrNdjson.yaml"
     - in: query
       name: since
       description: Download games bookmarked since this timestamp. Defaults to account creation date.

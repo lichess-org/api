@@ -2,12 +2,13 @@ get:
   operationId: bulkPairingIdGamesGet
   summary: Export games of a bulk pairing
   description: |
-    Download games of a bulk in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
+    Download games of a bulk in PGN or [ndjson](#description/streaming-with-nd-json) format, depending on the request `Accept` header.
   tags:
     - Bulk pairings
   security:
     - OAuth2: ["challenge:bulk"]
   parameters:
+    - $ref: "../../schemas/headers/AcceptPgnOrNdjson.yaml"
     - in: path
       name: id
       schema:

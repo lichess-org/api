@@ -1,0 +1,15 @@
+in: header
+
+name: Accept
+
+description: |
+  Specify the desired response format.
+  Use `application/x-chess-pgn` to get the games in PGN format.
+  Use `application/x-ndjson` to get the games in ndjson format. [Read about ndjson here](#description/streaming-with-nd-json) and how you can parse it in Javascript.
+
+schema:
+  type: string
+  enum:
+    - application/x-chess-pgn
+    - application/x-ndjson
+  default: application/x-chess-pgn

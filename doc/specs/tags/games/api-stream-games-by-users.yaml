@@ -6,7 +6,7 @@ post:
     Only games where **both players** are part of the list are included.
     The stream emits an event each time a game is started or finished.
     To also get all current ongoing games at the beginning of the stream, use the `withCurrentGames` flag.
-    Games are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+    Games are streamed as [ndjson](#description/streaming-with-nd-json).
     Maximum number of users: 300.
     The method is `POST` so a longer list of IDs can be sent in the request body.
   tags:

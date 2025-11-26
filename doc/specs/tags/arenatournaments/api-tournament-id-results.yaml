@@ -3,7 +3,7 @@ get:
   summary: Get results of an Arena tournament
   description: |
     Players of an Arena tournament, with their score and performance, sorted by rank (best first).
-    **Players are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON)**, i.e. one JSON object per line.
+    **Players are streamed as [ndjson](#description/streaming-with-nd-json)**, i.e. one JSON object per line.
     If called on an ongoing tournament, results can be inconsistent
     due to ranking changes while the players are being streamed.
     Use on finished tournaments for guaranteed consistency.

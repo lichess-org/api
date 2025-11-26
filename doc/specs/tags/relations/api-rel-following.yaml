@@ -2,7 +2,7 @@ get:
   operationId: apiUserFollowing
   summary: Get users followed by the logged in user
   description: |
-    Users are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+    Users are streamed as [ndjson](#description/streaming-with-nd-json).
   tags:
     - Relations
   security:

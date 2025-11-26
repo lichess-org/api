@@ -8,7 +8,7 @@ get:
 
     Games of a Lichess player.
 
-    Responds with a stream of [newline delimited JSON](#section/Introduction/Streaming-with-ND-JSON). Will start indexing
+    Responds with a stream of [newline delimited JSON](#description/streaming-with-nd-json). Will start indexing
     on demand, immediately respond with the current results, and stream
     more updates until indexing is complete. The stream is throttled
     and deduplicated. Empty lines may be sent to avoid timeouts.

@@ -2,15 +2,16 @@ get:
   operationId: gamesBySwiss
   summary: Export games of a Swiss tournament
   description: |
-    Download games of a swiss tournament in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
+    Download games of a swiss tournament in PGN or [ndjson](#description/streaming-with-nd-json) format.
     Games are sorted by chronological order.
     The game stream is throttled, depending on who is making the request:
       - Anonymous request: 20 games per second
-      - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 games per second
+      - [OAuth2 authenticated](/#description/authentication) request: 30 games per second
   tags:
     - "Swiss tournaments"
   security: []
   parameters:
+    - $ref: "../../schemas/headers/AcceptPgnOrNdjson.yaml"
     - in: path
       name: id
       description: The tournament ID.
