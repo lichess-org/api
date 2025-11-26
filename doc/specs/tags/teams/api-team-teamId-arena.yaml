@@ -28,9 +28,7 @@ get:
       description: |
         [Filter] Only arena tournaments in this current state.
       schema:
-        allOf:
-          - $ref: "../../schemas/ArenaStatusName.yaml"
-          - default: null
+        $ref: "../../schemas/ArenaStatusName.yaml"
     - in: query
       name: createdBy
       description: |

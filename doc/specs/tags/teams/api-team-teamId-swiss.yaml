@@ -28,9 +28,7 @@ get:
       description: |
         [Filter] Only swiss tournaments in this current state.
       schema:
-        allOf:
-          - $ref: "../../schemas/SwissStatus.yaml"
-          - default: null
+        $ref: "../../schemas/SwissStatus.yaml"
     - in: query
       name: createdBy
       description: |

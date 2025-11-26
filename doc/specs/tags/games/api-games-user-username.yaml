@@ -68,9 +68,7 @@ get:
         Multiple perf types can be specified, separated by a comma.
         Example: blitz,rapid,classical
       schema:
-        allOf:
-          - $ref: "../../schemas/PerfType.yaml"
-          - default: null
+        $ref: "../../schemas/PerfType.yaml"
     - in: query
       name: color
       description: "[Filter] Only games played as this color."
