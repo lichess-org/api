@@ -17,7 +17,6 @@ export interface paths {
      *     This API is very fast and cheap on lichess side.
      *     So you can call it quite often (like once every 5 seconds).
      *     Use it to track players and know when they're connected on lichess and playing games.
-     *
      */
     get: operations["apiUsersStatus"];
     put?: never;
@@ -39,7 +38,6 @@ export interface paths {
      * Get all top 10
      * @description Get the top 10 players for each speed and variant.
      *     See <https://lichess.org/player>.
-     *
      */
     get: operations["player"];
     put?: never;
@@ -62,7 +60,6 @@ export interface paths {
      * @description Get the leaderboard for a single speed or variant (a.k.a. `perfType`).
      *     There is no leaderboard for correspondence or puzzles.
      *     See <https://lichess.org/player/top/200/bullet>.
-     *
      */
     get: operations["playerTopNbPerfType"];
     put?: never;
@@ -83,7 +80,6 @@ export interface paths {
     /**
      * Get user public data
      * @description Read public data of a user.
-     *
      */
     get: operations["apiUser"];
     put?: never;
@@ -107,7 +103,6 @@ export interface paths {
      *     There is at most one entry per day.
      *     Format of an entry is `[year, month, day, rating]`.
      *     `month` starts at zero (January).
-     *
      */
     get: operations["apiUserRatingHistory"];
     put?: never;
@@ -129,7 +124,6 @@ export interface paths {
      * Get performance statistics of a user
      * @description Read performance statistics of a user, for a single performance.
      *     Similar to the [performance pages on the website](https://lichess.org/@/thibault/perf/bullet).
-     *
      */
     get: operations["apiUserPerf"];
     put?: never;
@@ -150,7 +144,6 @@ export interface paths {
     /**
      * Get user activity
      * @description Read data to generate the activity feed of a user.
-     *
      */
     get: operations["apiUserActivity"];
     put?: never;
@@ -172,7 +165,6 @@ export interface paths {
      * Get the daily puzzle
      * @description Get the daily Lichess puzzle in JSON format.
      *     Alternatively, you can [post it in your slack workspace](https://lichess.org/daily-puzzle-slack).
-     *
      */
     get: operations["apiPuzzleDaily"];
     put?: never;
@@ -217,7 +209,6 @@ export interface paths {
      *     If authenticated, only returns puzzles that the user has never seen before.
      *
      *     **DO NOT** use this endpoint to enumerate puzzles for mass download. Instead, download the [full public puzzle database](https://database.lichess.org/#puzzles).
-     *
      */
     get: operations["apiPuzzleNext"];
     put?: never;
@@ -242,14 +233,12 @@ export interface paths {
      *     If authenticated, only returns puzzles that the user has never seen before.
      *
      *     **DO NOT** use this endpoint to enumerate puzzles for mass download. Instead, download the [full public puzzle database](https://database.lichess.org/#puzzles).
-     *
      */
     get: operations["apiPuzzleBatchSelect"];
     put?: never;
     /**
      * Solve multiple puzzles at once
      * @description Set puzzles as solved and update ratings.
-     *
      */
     post: operations["apiPuzzleBatchSolve"];
     delete?: never;
@@ -267,10 +256,9 @@ export interface paths {
     };
     /**
      * Get your puzzle activity
-     * @description Download your puzzle activity in [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
+     * @description Download your puzzle activity in [ndjson](#description/streaming-with-nd-json) format.
      *     Puzzle activity is sorted by reverse chronological order (most recent first)
      *     We recommend streaming the response, for it can be very long.
-     *
      */
     get: operations["apiPuzzleActivity"];
     put?: never;
@@ -313,7 +301,6 @@ export interface paths {
      * @description Download your [puzzle dashboard](https://lichess.org/training/dashboard/30/dashboard) as JSON.
      *     Also includes all puzzle themes played, with aggregated results.
      *     Allows re-creating the [improvement/strengths](https://lichess.org/training/dashboard/30/improvementAreas) interfaces.
-     *
      */
     get: operations["apiPuzzleDashboard"];
     put?: never;
@@ -336,7 +323,6 @@ export interface paths {
      * @description Download the [storm dashboard](https://lichess.org/storm/dashboard/mrbasso) of any player as JSON.
      *     Contains the aggregated highscores, and the history of storm runs aggregated by days.
      *     Use `?days=0` if you only care about the highscores.
-     *
      */
     get: operations["apiStormDashboard"];
     put?: never;
@@ -362,7 +348,6 @@ export interface paths {
      *     The Lichess user who creates the race must join the race page,
      *     and manually start the race when enough players have joined.
      *     - <https://lichess.org/racer>
-     *
      */
     post: operations["racerPost"];
     delete?: never;
@@ -386,7 +371,6 @@ export interface paths {
      *
      *     Note that Lichess puzzle races are not persisted, and are only available
      *     for 30 minutes. After that delay, they are permanently deleted.
-     *
      */
     get: operations["racerGet"];
     put?: never;
@@ -413,7 +397,6 @@ export interface paths {
      *     Please do not try to download all the Lichess users with this endpoint, or any other endpoint.
      *     An API is not a way to fully export a website. We do not provide a full download of the Lichess users.
      *     This endpoint is limited to 8,000 users every 10 minutes, and 120,000 every day.
-     *
      */
     post: operations["apiUsers"];
     delete?: never;
@@ -432,7 +415,6 @@ export interface paths {
     /**
      * Get my profile
      * @description Public information about the logged in user.
-     *
      */
     get: operations["accountMe"];
     put?: never;
@@ -453,7 +435,6 @@ export interface paths {
     /**
      * Get my email address
      * @description Read the email address of the logged in user.
-     *
      */
     get: operations["accountEmail"];
     put?: never;
@@ -476,7 +457,6 @@ export interface paths {
      * @description Read the preferences of the logged in user.
      *     - <https://lichess.org/account/preferences/game-display>
      *     - <https://github.com/ornicar/lila/blob/master/modules/pref/src/main/Pref.scala>
-     *
      */
     get: operations["account"];
     put?: never;
@@ -498,7 +478,6 @@ export interface paths {
      * Get my kid mode status
      * @description Read the kid mode status of the logged in user.
      *     - <https://lichess.org/account/kid>
-     *
      */
     get: operations["accountKid"];
     put?: never;
@@ -506,7 +485,6 @@ export interface paths {
      * Set my kid mode status
      * @description Set the kid mode status of the logged in user.
      *     - <https://lichess.org/account/kid>
-     *
      */
     post: operations["accountKidPost"];
     delete?: never;
@@ -525,7 +503,6 @@ export interface paths {
     /**
      * Get my timeline
      * @description Get the timeline events of the logged in user.
-     *
      */
     get: operations["timeline"];
     put?: never;
@@ -547,7 +524,6 @@ export interface paths {
      * Export one game
      * @description Download one game in either PGN or JSON format.
      *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
-     *
      */
     get: operations["gamePgn"];
     put?: never;
@@ -570,7 +546,6 @@ export interface paths {
      * @description Download the ongoing game, or the last game played, of a user.
      *     Available in either PGN or JSON format.
      *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
-     *
      */
     get: operations["apiUserCurrentGame"];
     put?: never;
@@ -590,15 +565,14 @@ export interface paths {
     };
     /**
      * Export games of a user
-     * @description Download all games of any user in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
+     * @description Download all games of any user in PGN or [ndjson](#description/streaming-with-nd-json) format.
      *     Games are sorted by reverse chronological order (most recent first).
      *     We recommend streaming the response, for it can be very long.
      *     <https://lichess.org/@/german11> for instance has more than 500,000 games.
      *     The game stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 games per second
-     *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 games per second
+     *       - [OAuth2 authenticated](/#description/authentication) request: 30 games per second
      *       - Authenticated, downloading your own games: 60 games per second
-     *
      */
     get: operations["apiGamesUser"];
     put?: never;
@@ -620,12 +594,11 @@ export interface paths {
     put?: never;
     /**
      * Export games by IDs
-     * @description Download games by IDs in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
+     * @description Download games by IDs in PGN or [ndjson](#description/streaming-with-nd-json) format, depending on the request `Accept` header.
      *     Games are sorted by reverse chronological order (most recent first)
      *     The method is `POST` so a longer list of IDs can be sent in the request body.
      *     300 IDs can be submitted.
      *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
-     *
      */
     post: operations["gamesExportIds"];
     delete?: never;
@@ -649,10 +622,9 @@ export interface paths {
      *     Only games where **both players** are part of the list are included.
      *     The stream emits an event each time a game is started or finished.
      *     To also get all current ongoing games at the beginning of the stream, use the `withCurrentGames` flag.
-     *     Games are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *     Games are streamed as [ndjson](#description/streaming-with-nd-json).
      *     Maximum number of users: 300.
      *     The method is `POST` so a longer list of IDs can be sent in the request body.
-     *
      */
     post: operations["gamesByUsers"];
     delete?: never;
@@ -674,10 +646,9 @@ export interface paths {
      * Stream games by IDs
      * @description Creates a stream of games from an arbitrary streamId, and a list of game IDs.
      *     The stream first outputs the games that already exists, then emits an event each time a game is started or finished.
-     *     Games are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-     *     Maximum number of games: 500 for anonymous requests, or 1000 for [OAuth2 authenticated](#section/Introduction/Authentication) requests.
+     *     Games are streamed as [ndjson](#description/streaming-with-nd-json).
+     *     Maximum number of games: 500 for anonymous requests, or 1000 for [OAuth2 authenticated](/#description/authentication) requests.
      *     While the stream is open, it is possible to [add new game IDs to watch](#operation/gamesByIdsAdd).
-     *
      */
     post: operations["gamesByIds"];
     delete?: never;
@@ -699,7 +670,6 @@ export interface paths {
      * Add game IDs to stream
      * @description Add new game IDs for [an existing stream](#operation/gamesByIds) to watch.
      *     The stream will immediately outputs the games that already exists, then emit an event each time a game is started or finished.
-     *
      */
     post: operations["gamesByIdsAdd"];
     delete?: never;
@@ -720,7 +690,6 @@ export interface paths {
      * @description Get the ongoing games of the current user.
      *     Real-time and correspondence games are included.
      *     The most urgent games are listed first.
-     *
      */
     get: operations["apiAccountPlaying"];
     put?: never;
@@ -740,13 +709,12 @@ export interface paths {
     };
     /**
      * Stream moves of a game
-     * @description Stream positions and moves of any ongoing game, in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     * @description Stream positions and moves of any ongoing game, in [ndjson](#description/streaming-with-nd-json).
      *     A description of the game is sent as a first message.
      *     Then a message is sent each time a move is played.
      *     Finally, a description of the game is sent when it finishes, and the stream is closed.
      *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
      *     No more than 8 game streams can be opened at the same time from the same IP address.
-     *
      */
     get: operations["streamGame"];
     put?: never;
@@ -773,7 +741,6 @@ export interface paths {
      *     To broadcast ongoing games, consider [pushing to a broadcast instead](#operation/broadcastPush).
      *     To analyse a position or a line, just construct an analysis board URL (most standard tags supported if URL-encoded):
      *     [https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bc4_Bc5_Bxf7+](https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bc4_Bc5_Bxf7+)
-     *
      */
     post: operations["gameImport"];
     delete?: never;
@@ -811,10 +778,9 @@ export interface paths {
     };
     /**
      * Export your bookmarked games
-     * @description Download all games bookmarked by you, in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
+     * @description Download all games bookmarked by you, in PGN or [ndjson](#description/streaming-with-nd-json) format.
      *     Games are sorted by reverse chronological order (most recent first).
      *     We recommend streaming the response, for it can be very long.
-     *
      */
     get: operations["apiExportBookmarks"];
     put?: never;
@@ -837,7 +803,6 @@ export interface paths {
      * @description Get basic info about the best games being played for each speed and variant,
      *     but also computer games and bot games.
      *     See [lichess.org/tv](https://lichess.org/tv).
-     *
      */
     get: operations["tvChannels"];
     put?: never;
@@ -857,9 +822,8 @@ export interface paths {
     };
     /**
      * Stream current TV game
-     * @description Stream positions and moves of the current [TV game](https://lichess.org/tv) in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     * @description Stream positions and moves of the current [TV game](https://lichess.org/tv) in [ndjson](#description/streaming-with-nd-json).
      *     Try it with `curl https://lichess.org/api/tv/feed`.
-     *
      */
     get: operations["tvFeed"];
     put?: never;
@@ -879,9 +843,8 @@ export interface paths {
     };
     /**
      * Stream current TV game of a TV channel
-     * @description Stream positions and moves of a current [TV channel's game](https://lichess.org/tv/rapid) in [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     * @description Stream positions and moves of a current [TV channel's game](https://lichess.org/tv/rapid) in [ndjson](#description/streaming-with-nd-json).
      *     Try it with `curl https://lichess.org/api/tv/rapid/feed`.
-     *
      */
     get: operations["tvChannelFeed"];
     put?: never;
@@ -902,8 +865,7 @@ export interface paths {
     /**
      * Get best ongoing games of a TV channel
      * @description Get a list of ongoing games for a given TV channel. Similar to [lichess.org/games](https://lichess.org/games).
-     *     Available in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
-     *
+     *     Available in PGN or [ndjson](#description/streaming-with-nd-json) format, depending on the request `Accept` header.
      */
     get: operations["tvChannelGames"];
     put?: never;
@@ -925,7 +887,6 @@ export interface paths {
      * Get current tournaments
      * @description Get recently active and finished tournaments.
      *     This API is used to display the [Lichess tournament schedule](https://lichess.org/tournament).
-     *
      */
     get: operations["apiTournament"];
     put?: never;
@@ -939,7 +900,6 @@ export interface paths {
      *       - clockTime + clockIncrement > 0
      *       - 15s and 0+1 variant tournaments cannot be rated
      *       - Clock time in comparison to tournament length must be reasonable: 3 <= (minutes * 60) / (96 * clockTime + 48 * clockIncrement + 15) <= 150
-     *
      */
     post: operations["apiTournamentPost"];
     delete?: never;
@@ -961,7 +921,6 @@ export interface paths {
     /**
      * Get info about an Arena tournament
      * @description Get detailed info about recently finished, current, or upcoming tournament's duels, player standings, and other info.
-     *
      */
     get: operations["tournament"];
     put?: never;
@@ -974,7 +933,6 @@ export interface paths {
      *       - clockTime + clockIncrement > 0
      *       - 15s and 0+1 variant tournaments cannot be rated
      *       - Clock time in comparison to tournament length must be reasonable: 3 <= (minutes * 60) / (96 * clockTime + 48 * clockIncrement + 15) <= 150
-     *
      */
     post: operations["apiTournamentUpdate"];
     delete?: never;
@@ -996,7 +954,6 @@ export interface paths {
      * Join an Arena tournament
      * @description Join an Arena tournament, possibly with a password and/or a team.
      *     Also unpauses if you had previously [paused](#operation/apiTournamentWithdraw) the tournament.
-     *
      */
     post: operations["apiTournamentJoin"];
     delete?: never;
@@ -1018,7 +975,6 @@ export interface paths {
      * Pause or leave an Arena tournament
      * @description Leave a future Arena tournament, or take a break on an ongoing Arena tournament.
      *     It's possible to join again later. Points and streaks are preserved.
-     *
      */
     post: operations["apiTournamentWithdraw"];
     delete?: never;
@@ -1039,7 +995,6 @@ export interface paths {
     /**
      * Terminate an Arena tournament
      * @description Terminate an Arena tournament
-     *
      */
     post: operations["apiTournamentTerminate"];
     delete?: never;
@@ -1061,7 +1016,6 @@ export interface paths {
      * Update a team battle
      * @description Set the teams and number of leaders of a team battle.
      *     To update the other attributes of a team battle, use the [tournament update endpoint](#operation/apiTournamentUpdate).
-     *
      */
     post: operations["apiTournamentTeamBattlePost"];
     delete?: never;
@@ -1079,12 +1033,11 @@ export interface paths {
     };
     /**
      * Export games of an Arena tournament
-     * @description Download games of a tournament in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
+     * @description Download games of a tournament in PGN or [ndjson](#description/streaming-with-nd-json) format.
      *     Games are sorted by reverse chronological order (most recent first).
      *     The game stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 games per second
-     *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 games per second
-     *
+     *       - [OAuth2 authenticated](/#description/authentication) request: 30 games per second
      */
     get: operations["gamesByTournament"];
     put?: never;
@@ -1105,11 +1058,10 @@ export interface paths {
     /**
      * Get results of an Arena tournament
      * @description Players of an Arena tournament, with their score and performance, sorted by rank (best first).
-     *     **Players are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON)**, i.e. one JSON object per line.
+     *     **Players are streamed as [ndjson](#description/streaming-with-nd-json)**, i.e. one JSON object per line.
      *     If called on an ongoing tournament, results can be inconsistent
      *     due to ranking changes while the players are being streamed.
      *     Use on finished tournaments for guaranteed consistency.
-     *
      */
     get: operations["resultsByTournament"];
     put?: never;
@@ -1130,7 +1082,6 @@ export interface paths {
     /**
      * Get team standing of a team battle
      * @description Teams of a team battle tournament, with top players, sorted by rank (best first).
-     *
      */
     get: operations["teamsByTournament"];
     put?: never;
@@ -1152,12 +1103,11 @@ export interface paths {
      * Get tournaments created by a user
      * @description Get all tournaments created by a given user.
      *     Tournaments are sorted by reverse chronological order of start date (last starting first).
-     *     Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *     Tournaments are streamed as [ndjson](#description/streaming-with-nd-json).
      *     The stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 tournaments per second
-     *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 tournaments per second
+     *       - [OAuth2 authenticated](/#description/authentication) request: 30 tournaments per second
      *       - Authenticated, downloading your own tournaments: 50 tournaments per second
-     *
      */
     get: operations["apiUserNameTournamentCreated"];
     put?: never;
@@ -1179,12 +1129,11 @@ export interface paths {
      * Get tournaments played by a user
      * @description Get all tournaments played by a given user.
      *     Tournaments are sorted by reverse chronological order of start date (last played first).
-     *     Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *     Tournaments are streamed as [ndjson](#description/streaming-with-nd-json).
      *     The stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 tournaments per second
-     *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 tournaments per second
+     *       - [OAuth2 authenticated](/#description/authentication) request: 30 tournaments per second
      *       - Authenticated, downloading your own tournaments: 50 tournaments per second
-     *
      */
     get: operations["apiUserNameTournamentPlayed"];
     put?: never;
@@ -1212,7 +1161,6 @@ export interface paths {
      *     Additional restrictions:
      *       - clock.limit + clock.increment > 0
      *       - 15s and 0+1 variant tournaments cannot be rated
-     *
      */
     post: operations["apiSwissNew"];
     delete?: never;
@@ -1234,7 +1182,6 @@ export interface paths {
     /**
      * Get info about a Swiss tournament
      * @description Get detailed info about a Swiss tournament.
-     *
      */
     get: operations["swiss"];
     put?: never;
@@ -1261,7 +1208,6 @@ export interface paths {
      *     Additional restrictions:
      *       - clock.limit + clock.increment > 0
      *       - 15s and 0+1 variant tournaments cannot be rated
-     *
      */
     post: operations["apiSwissUpdate"];
     delete?: never;
@@ -1284,7 +1230,6 @@ export interface paths {
      * @description Manually schedule the next round date and time of a Swiss tournament.
      *     This sets the `roundInterval` field to `99999999`, i.e. manual scheduling.
      *     All further rounds will need to be manually scheduled, unless the `roundInterval` field is changed back to automatic scheduling.
-     *
      */
     post: operations["apiSwissScheduleNextRound"];
     delete?: never;
@@ -1305,7 +1250,6 @@ export interface paths {
     /**
      * Join a Swiss tournament
      * @description Join a Swiss tournament, possibly with a password.
-     *
      */
     post: operations["apiSwissJoin"];
     delete?: never;
@@ -1327,7 +1271,6 @@ export interface paths {
      * Pause or leave a swiss tournament
      * @description Leave a future Swiss tournament, or take a break on an ongoing Swiss tournament.
      *     It's possible to join again later. Points are preserved.
-     *
      */
     post: operations["apiSwissWithdraw"];
     delete?: never;
@@ -1348,7 +1291,6 @@ export interface paths {
     /**
      * Terminate a Swiss tournament
      * @description Terminate a Swiss tournament
-     *
      */
     post: operations["apiSwissTerminate"];
     delete?: never;
@@ -1369,7 +1311,6 @@ export interface paths {
      * @description Download a tournament in the Tournament Report File format, the FIDE standard.
      *     Documentation: <https://www.fide.com/FIDE/handbook/C04Annex2_TRF16.pdf>
      *     Example: <https://lichess.org/swiss/j8rtJ5GL.trf>
-     *
      */
     get: operations["swissTrf"];
     put?: never;
@@ -1389,12 +1330,11 @@ export interface paths {
     };
     /**
      * Export games of a Swiss tournament
-     * @description Download games of a swiss tournament in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format.
+     * @description Download games of a swiss tournament in PGN or [ndjson](#description/streaming-with-nd-json) format.
      *     Games are sorted by chronological order.
      *     The game stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 games per second
-     *       - [OAuth2 authenticated](#section/Introduction/Authentication) request: 30 games per second
-     *
+     *       - [OAuth2 authenticated](/#description/authentication) request: 30 games per second
      */
     get: operations["gamesBySwiss"];
     put?: never;
@@ -1415,11 +1355,10 @@ export interface paths {
     /**
      * Get results of a swiss tournament
      * @description Players of a swiss tournament, with their score and performance, sorted by rank (best first).
-     *     Players are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     *     Players are streamed as [ndjson](#description/streaming-with-nd-json).
      *     If called on an ongoing tournament, results can be inconsistent
      *     due to ranking changes while the players are being streamed.
      *     Use on finished tournaments for guaranteed consistency.
-     *
      */
     get: operations["resultsBySwiss"];
     put?: never;
@@ -1441,8 +1380,7 @@ export interface paths {
      * Get team swiss tournaments
      * @description Get all swiss tournaments of a team.
      *     Tournaments are sorted by reverse chronological order of start date (last starting first).
-     *     Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-     *
+     *     Tournaments are streamed as [ndjson](#description/streaming-with-nd-json).
      */
     get: operations["apiTeamSwiss"];
     put?: never;
@@ -1465,7 +1403,6 @@ export interface paths {
      * @description Download one study chapter in PGN format.
      *     If authenticated, then all public, unlisted, and private study chapters are read.
      *     If not, only public (non-unlisted) study chapters are read.
-     *
      */
     get: operations["studyChapterPgn"];
     put?: never;
@@ -1488,7 +1425,6 @@ export interface paths {
      * @description Download all chapters of a study in PGN format.
      *     If authenticated, then all public, unlisted, and private study chapters are read.
      *     If not, only public (non-unlisted) study chapters are read.
-     *
      */
     get: operations["studyAllChaptersPgn"];
     put?: never;
@@ -1498,7 +1434,6 @@ export interface paths {
     /**
      * Study metadata
      * @description Only get the study headers, including `Last-Modified`.
-     *
      */
     head: operations["studyAllChaptersHead"];
     patch?: never;
@@ -1519,7 +1454,6 @@ export interface paths {
      *     If the PGN contains multiple games (separated by 2 or more newlines)
      *     then multiple chapters will be created within the study.
      *     Note that a study can contain at most 64 chapters.
-     *
      */
     post: operations["apiStudyImportPGN"];
     delete?: never;
@@ -1546,7 +1480,6 @@ export interface paths {
      *     - Delete existing chapter tags, by providing a tag with an empty value.
      *
      *     The chapter keeps the tags that you don't provide.
-     *
      */
     post: operations["apiStudyChapterTags"];
     delete?: never;
@@ -1567,7 +1500,6 @@ export interface paths {
      * @description Download all chapters of all studies of a user in PGN format.
      *     If authenticated, then all public, unlisted, and private studies are included.
      *     If not, only public (non-unlisted) studies are included.
-     *
      */
     get: operations["studyExportAllPgn"];
     put?: never;
@@ -1590,8 +1522,7 @@ export interface paths {
      * @description Get metadata (name and dates) of all studies of a user.
      *     If authenticated, then all public, unlisted, and private studies are included.
      *     If not, only public (non-unlisted) studies are included.
-     *     Studies are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-     *
+     *     Studies are streamed as [ndjson](#description/streaming-with-nd-json).
      */
     get: operations["studyListMetadata"];
     put?: never;
@@ -1617,7 +1548,6 @@ export interface paths {
      * @description Delete a chapter of a study you own. This is definitive.
      *     A study must have at least one chapter; so if you delete the last chapter,
      *     an empty one will be automatically created to replace it.
-     *
      */
     delete: operations["apiStudyStudyIdChapterIdDelete"];
     options?: never;
@@ -1636,8 +1566,7 @@ export interface paths {
      * Get official broadcasts
      * @description Returns ongoing official broadcasts sorted by tier.
      *     After that, returns finished broadcasts sorted by most recent sync time.
-     *     Broadcasts are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-     *
+     *     Broadcasts are streamed as [ndjson](#description/streaming-with-nd-json).
      */
     get: operations["broadcastsOfficial"];
     put?: never;
@@ -1658,7 +1587,6 @@ export interface paths {
     /**
      * Get paginated top broadcast previews
      * @description The same data, in the same order, as can be seen on [https://lichess.org/broadcast](/broadcast).
-     *
      */
     get: operations["broadcastsTop"];
     put?: never;
@@ -1682,7 +1610,6 @@ export interface paths {
      *     The broadcasts are sorted by created date, most recent first.
      *
      *     If you are authenticated as the user whose broadcasts you are requesting, you will also see your private and unlisted broadcasts.
-     *
      */
     get: operations["broadcastsByUser"];
     put?: never;
@@ -1703,7 +1630,6 @@ export interface paths {
     /**
      * Search broadcasts
      * @description Search across recent official broadcasts.
-     *
      */
     get: operations["broadcastsSearch"];
     put?: never;
@@ -1727,7 +1653,6 @@ export interface paths {
      * Create a broadcast tournament
      * @description Create a new broadcast tournament to relay external games.
      *     This endpoint accepts the same form data as the [web form](https://lichess.org/broadcast/new).
-     *
      */
     post: operations["broadcastTourCreate"];
     delete?: never;
@@ -1746,7 +1671,6 @@ export interface paths {
     /**
      * Get a broadcast tournament
      * @description Get information about a broadcast tournament.
-     *
      */
     get: operations["broadcastTourGet"];
     put?: never;
@@ -1767,7 +1691,6 @@ export interface paths {
     /**
      * Get players of a broadcast
      * @description Get the list of players of a broadcast tournament, if available.
-     *
      */
     get: operations["broadcastPlayersGet"];
     put?: never;
@@ -1788,7 +1711,6 @@ export interface paths {
     /**
      * Get a player from a broadcast
      * @description Get the details of a specific player and their games from a broadcast tournament.
-     *
      */
     get: operations["broadcastPlayerGet"];
     put?: never;
@@ -1813,7 +1735,6 @@ export interface paths {
      * @description Update information about a broadcast tournament that you created.
      *     This endpoint accepts the same form data as the web form.
      *     All fields must be populated with data. Missing fields will override the broadcast with empty data.
-     *
      */
     post: operations["broadcastTourUpdate"];
     delete?: never;
@@ -1837,7 +1758,6 @@ export interface paths {
      *     This endpoint accepts the same form data as the web form.
      *
      *     Choose one between `syncUrl`, `syncUrls`, `syncIds` and `syncUsers`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush)
-     *
      */
     post: operations["broadcastRoundCreate"];
     delete?: never;
@@ -1856,7 +1776,6 @@ export interface paths {
     /**
      * Get a broadcast round
      * @description Get information about a broadcast round.
-     *
      */
     get: operations["broadcastRoundGet"];
     put?: never;
@@ -1882,7 +1801,6 @@ export interface paths {
      *     This endpoint accepts the same form data as the web form.
      *     All fields must be populated with data. Missing fields will override the broadcast with empty data.
      *     For instance, if you omit `startDate`, then any pre-existing start date will be removed.
-     *
      */
     post: operations["broadcastRoundUpdate"];
     delete?: never;
@@ -1903,7 +1821,6 @@ export interface paths {
     /**
      * Reset a broadcast round
      * @description Remove any games from the broadcast round and reset it to its initial state.
-     *
      */
     post: operations["broadcastRoundReset"];
     delete?: never;
@@ -1925,7 +1842,6 @@ export interface paths {
      * Push PGN to a broadcast round
      * @description Update a broadcast with new PGN.
      *     Only for broadcasts without a source URL.
-     *
      */
     post: operations["broadcastPush"];
     delete?: never;
@@ -1948,7 +1864,6 @@ export interface paths {
      *     The stream will also send PGNs when games are added to the round.
      *     This is the best way to get updates about an ongoing round. Streaming means no polling,
      *     and no pollings means no latency, and minimum impact on the server.
-     *
      */
     get: operations["broadcastStreamRoundPgn"];
     put?: never;
@@ -1973,7 +1888,6 @@ export interface paths {
      *     and very inefficient.
      *     Instead, consider [streaming the tournament](#operation/broadcastStreamRoundPgn) to get
      *     a new PGN every time a game is updated, in real-time.
-     *
      */
     get: operations["broadcastRoundPgn"];
     put?: never;
@@ -1997,7 +1911,6 @@ export interface paths {
      *     If a `study:read` [OAuth token](#tag/OAuth) is provided,
      *     the private rounds where the user is a contributor will be available.
      *     You may want to [download only the games of a single round](#operation/broadcastRoundPgn) instead.
-     *
      */
     get: operations["broadcastAllRoundsPgn"];
     put?: never;
@@ -2021,7 +1934,6 @@ export interface paths {
      *     Also includes broadcasts rounds you did not create, but were invited to.
      *     Also includes broadcasts rounds where you're a non-writing member. See the `writeable` flag in the response.
      *     Rounds are ordered by rank, which is roughly chronological, most recent first, slightly pondered with popularity.
-     *
      */
     get: operations["broadcastMyRoundsGet"];
     put?: never;
@@ -2042,7 +1954,6 @@ export interface paths {
     /**
      * Get a FIDE player
      * @description Get information about a FIDE player.
-     *
      */
     get: operations["fidePlayerGet"];
     put?: never;
@@ -2063,7 +1974,6 @@ export interface paths {
     /**
      * Search FIDE players
      * @description List of FIDE players search results for a query.
-     *
      */
     get: operations["fidePlayerSearch"];
     put?: never;
@@ -2086,8 +1996,7 @@ export interface paths {
      * @description Get recently created, started, finished, simuls.
      *     Created and finished simul lists are not exhaustives, only those with
      *     strong enough host will be listed, the same filter is used to display simuls on https://lichess.org/simul.
-     *     When [authenticated with OAuth2](#section/Introduction/Authentication), the pending list will be populated with your created, but unstarted simuls.
-     *
+     *     When [authenticated with OAuth2](/#description/authentication), the pending list will be populated with your created, but unstarted simuls.
      */
     get: operations["apiSimul"];
     put?: never;
@@ -2128,7 +2037,6 @@ export interface paths {
     /**
      * Get popular teams
      * @description Paginator of the most popular teams.
-     *
      */
     get: operations["teamAll"];
     put?: never;
@@ -2149,7 +2057,6 @@ export interface paths {
     /**
      * Teams of a player
      * @description All the teams a player is a member of.
-     *
      */
     get: operations["teamOfUsername"];
     put?: never;
@@ -2170,7 +2077,6 @@ export interface paths {
     /**
      * Search teams
      * @description Paginator of team search results for a keyword.
-     *
      */
     get: operations["teamSearch"];
     put?: never;
@@ -2192,8 +2098,7 @@ export interface paths {
      * Get members of a team
      * @description Members are sorted by reverse chronological order of joining the team (most recent first).
      *     OAuth is only required if the list of members is private.
-     *     Up to 5,000 users are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-     *
+     *     Up to 5,000 users are streamed as [ndjson](#description/streaming-with-nd-json).
      */
     get: operations["teamIdUsers"];
     put?: never;
@@ -2215,8 +2120,7 @@ export interface paths {
      * Get team Arena tournaments
      * @description Get all Arena tournaments relevant to a team.
      *     Tournaments are sorted by reverse chronological order of start date (last starting first).
-     *     Tournaments are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-     *
+     *     Tournaments are streamed as [ndjson](#description/streaming-with-nd-json).
      */
     get: operations["apiTeamArena"];
     put?: never;
@@ -2244,7 +2148,6 @@ export interface paths {
      *     Similarly, if the team join policy requires a confirmation but the
      *     `message` parameter is not given, then the call fails with
      *     `403 Forbidden`.
-     *
      */
     post: operations["teamIdJoin"];
     delete?: never;
@@ -2266,7 +2169,6 @@ export interface paths {
      * Leave a team
      * @description Leave a team.
      *     - <https://lichess.org/team>
-     *
      */
     post: operations["teamIdQuit"];
     delete?: never;
@@ -2348,7 +2250,6 @@ export interface paths {
      * Kick a user from your team
      * @description Kick a member out of one of your teams.
      *     - <https://lichess.org/team>
-     *
      */
     post: operations["teamIdKickUserId"];
     delete?: never;
@@ -2370,7 +2271,6 @@ export interface paths {
      * Message all members
      * @description Send a private message to all members of a team.
      *     You must be a team leader with the "Messages" permission.
-     *
      */
     post: operations["teamIdPmAll"];
     delete?: never;
@@ -2391,7 +2291,6 @@ export interface paths {
      * @description Get basic info about currently streaming users.
      *     This API is very fast and cheap on lichess side.
      *     So you can call it quite often (like once every 5 seconds).
-     *
      */
     get: operations["streamerLive"];
     put?: never;
@@ -2413,7 +2312,6 @@ export interface paths {
      * Get crosstable
      * @description Get total number of games, and current score, of any two users.
      *     If the `matchup` flag is provided, and the users are currently playing, also gets the current match game number and scores.
-     *
      */
     get: operations["apiCrosstable"];
     put?: never;
@@ -2434,7 +2332,6 @@ export interface paths {
     /**
      * Autocomplete usernames
      * @description Provides autocompletion options for an incomplete username.
-     *
      */
     get: operations["apiPlayerAutocomplete"];
     put?: never;
@@ -2455,14 +2352,12 @@ export interface paths {
     /**
      * Get notes for a user
      * @description Get the private notes that you have added for a user.
-     *
      */
     get: operations["readNote"];
     put?: never;
     /**
      * Add a note for a user
      * @description Add a private note available only to you about this account.
-     *
      */
     post: operations["writeNote"];
     delete?: never;
@@ -2480,8 +2375,7 @@ export interface paths {
     };
     /**
      * Get users followed by the logged in user
-     * @description Users are streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
-     *
+     * @description Users are streamed as [ndjson](#description/streaming-with-nd-json).
      */
     get: operations["apiUserFollowing"];
     put?: never;
@@ -2504,7 +2398,6 @@ export interface paths {
     /**
      * Follow a player
      * @description Follow a player, adding them to your list of Lichess friends.
-     *
      */
     post: operations["followUser"];
     delete?: never;
@@ -2525,7 +2418,6 @@ export interface paths {
     /**
      * Unfollow a player
      * @description Unfollow a player, removing them from your list of Lichess friends.
-     *
      */
     post: operations["unfollowUser"];
     delete?: never;
@@ -2546,7 +2438,6 @@ export interface paths {
     /**
      * Block a player
      * @description Block a player, adding them to your list of blocked Lichess users.
-     *
      */
     post: operations["blockUser"];
     delete?: never;
@@ -2567,7 +2458,6 @@ export interface paths {
     /**
      * Unblock a player
      * @description Unblock a player, removing them from your list of blocked Lichess users.
-     *
      */
     post: operations["unblockUser"];
     delete?: never;
@@ -2585,7 +2475,7 @@ export interface paths {
     };
     /**
      * Stream incoming events
-     * @description Stream the events reaching a lichess user in real time as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     * @description Stream the events reaching a lichess user in real time as [ndjson](#description/streaming-with-nd-json).
      *
      *     An empty line is sent every 7 seconds for keep alive purposes.
      *
@@ -2599,7 +2489,6 @@ export interface paths {
      *     When the stream opens, all current challenges and games are sent.
      *
      *     Only one global event stream can be active at a time. When the stream opens, the previous one with the same access token is closed.
-     *
      */
     get: operations["apiStreamEvent"];
     put?: never;
@@ -2641,7 +2530,6 @@ export interface paths {
      *
      *     Specify the `days` per turn value.
      *     The response is not streamed, it immediately completes with the seek ID. The seek remains active on the server until it is joined by someone.
-     *
      */
     post: operations["apiBoardSeek"];
     delete?: never;
@@ -2659,7 +2547,7 @@ export interface paths {
     };
     /**
      * Stream Board game state
-     * @description Stream the state of a game being played with the Board API, as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     * @description Stream the state of a game being played with the Board API, as [ndjson](#description/streaming-with-nd-json).
      *
      *     Use this endpoint to get updates about the game in real-time, with a single request.
      *
@@ -2672,7 +2560,6 @@ export interface paths {
      *     The first line is always of type `gameFull`.
      *
      *     The server closes the stream when the game ends, or if the game has already ended.
-     *
      */
     get: operations["boardGameStream"];
     put?: never;
@@ -2696,7 +2583,6 @@ export interface paths {
      * Make a Board move
      * @description Make a move in a game being played with the Board API.
      *     The move can also contain a draw offer/agreement.
-     *
      */
     post: operations["boardGameMove"];
     delete?: never;
@@ -2717,14 +2603,12 @@ export interface paths {
     /**
      * Fetch the game chat
      * @description Get the messages posted in the game chat
-     *
      */
     get: operations["boardGameChatGet"];
     put?: never;
     /**
      * Write in the chat
      * @description Post a message to the player or spectator chat, in a game being played with the Board API.
-     *
      */
     post: operations["boardGameChatPost"];
     delete?: never;
@@ -2745,7 +2629,6 @@ export interface paths {
     /**
      * Abort a game
      * @description Abort a game being played with the Board API.
-     *
      */
     post: operations["boardGameAbort"];
     delete?: never;
@@ -2766,7 +2649,6 @@ export interface paths {
     /**
      * Resign a game
      * @description Resign a game being played with the Board API.
-     *
      */
     post: operations["boardGameResign"];
     delete?: never;
@@ -2789,7 +2671,6 @@ export interface paths {
      * @description Create/accept/decline draw offers.
      *     - `yes`: Offer a draw, or accept the opponent's draw offer.
      *     - `no`: Decline a draw offer from the opponent.
-     *
      */
     post: operations["boardGameDraw"];
     delete?: never;
@@ -2812,7 +2693,6 @@ export interface paths {
      * @description Create/accept/decline takebacks.
      *     - `yes`: Propose a takeback, or accept the opponent's takeback offer.
      *     - `no`: Decline a takeback offer from the opponent.
-     *
      */
     post: operations["boardGameTakeback"];
     delete?: never;
@@ -2833,7 +2713,6 @@ export interface paths {
     /**
      * Claim victory of a game
      * @description Claim victory when the opponent has left the game for a while.
-     *
      */
     post: operations["boardGameClaimVictory"];
     delete?: never;
@@ -2854,7 +2733,6 @@ export interface paths {
     /**
      * Claim draw of a game
      * @description Claim draw when the opponent has left the game for a while.
-     *
      */
     post: operations["boardGameClaimDraw"];
     delete?: never;
@@ -2876,7 +2754,6 @@ export interface paths {
      * Berserk a tournament game
      * @description Go berserk on an arena tournament game. Halves the clock time, grants an extra point upon winning.
      *     Only available in arena tournaments that allow berserk, and before each player has made a move.
-     *
      */
     post: operations["boardGameBerserk"];
     delete?: never;
@@ -2894,7 +2771,7 @@ export interface paths {
     };
     /**
      * Get online bots
-     * @description Stream the [online bot users](https://lichess.org/player/bots), as [ndjson](#section/Introduction/Streaming-with-ND-JSON). Throttled to 50 bot users per second.
+     * @description Stream the [online bot users](https://lichess.org/player/bots), as [ndjson](#description/streaming-with-nd-json). Throttled to 50 bot users per second.
      */
     get: operations["apiBotOnline"];
     put?: never;
@@ -2923,7 +2800,6 @@ export interface paths {
      *     - `curl -d '' https://lichess.org/api/bot/account/upgrade -H "Authorization: Bearer <yourTokenHere>"`
      *     To know if an account has already been upgraded, use the [Get my profile API](#operation/accountMe):
      *     the `title` field should be set to `BOT`.
-     *
      */
     post: operations["botAccountUpgrade"];
     delete?: never;
@@ -2941,7 +2817,7 @@ export interface paths {
     };
     /**
      * Stream Bot game state
-     * @description Stream the state of a game being played with the Bot API, as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+     * @description Stream the state of a game being played with the Bot API, as [ndjson](#description/streaming-with-nd-json).
      *     Use this endpoint to get updates about the game in real-time, with a single request.
      *     Each line is a JSON object containing a `type` field. Possible values are:
      *     - `gameFull` Full game data. All values are immutable, except for the `state` field.
@@ -2949,7 +2825,6 @@ export interface paths {
      *     - `chatLine` Chat message sent by a user (or the bot itself) in the `room` "player" or "spectator".
      *     - `opponentGone` Whether the opponent has left the game, and how long before you can claim a win or draw.
      *     The first line is always of type `gameFull`.
-     *
      */
     get: operations["botGameStream"];
     put?: never;
@@ -2973,7 +2848,6 @@ export interface paths {
      * Make a Bot move
      * @description Make a move in a game being played with the Bot API.
      *     The move can also contain a draw offer/agreement.
-     *
      */
     post: operations["botGameMove"];
     delete?: never;
@@ -2992,14 +2866,12 @@ export interface paths {
     /**
      * Fetch the game chat
      * @description Get the messages posted in the game chat
-     *
      */
     get: operations["botGameChatGet"];
     put?: never;
     /**
      * Write in the chat
      * @description Post a message to the player or spectator chat, in a game being played with the Bot API.
-     *
      */
     post: operations["botGameChat"];
     delete?: never;
@@ -3020,7 +2892,6 @@ export interface paths {
     /**
      * Abort a game
      * @description Abort a game being played with the Bot API.
-     *
      */
     post: operations["botGameAbort"];
     delete?: never;
@@ -3041,7 +2912,6 @@ export interface paths {
     /**
      * Resign a game
      * @description Resign a game being played with the Bot API.
-     *
      */
     post: operations["botGameResign"];
     delete?: never;
@@ -3064,7 +2934,6 @@ export interface paths {
      * @description Create/accept/decline draw offers with the Bot API.
      *     - `yes`: Offer a draw, or accept the opponent's draw offer.
      *     - `no`: Decline a draw offer from the opponent.
-     *
      */
     post: operations["botGameDraw"];
     delete?: never;
@@ -3087,7 +2956,6 @@ export interface paths {
      * @description Create/accept/decline takebacks with the Bot API.
      *     - `yes`: Propose a takeback, or accept the opponent's takeback offer.
      *     - `no`: Decline a takeback offer from the opponent.
-     *
      */
     post: operations["botGameTakeback"];
     delete?: never;
@@ -3108,7 +2976,6 @@ export interface paths {
     /**
      * Claim victory of a game
      * @description Claim victory when the opponent has left the game for a while.
-     *
      */
     post: operations["botGameClaimVictory"];
     delete?: never;
@@ -3129,7 +2996,6 @@ export interface paths {
     /**
      * Claim draw of a game
      * @description Claim draw when the opponent has left the game for a while.
-     *
      */
     post: operations["botGameClaimDraw"];
     delete?: never;
@@ -3148,7 +3014,6 @@ export interface paths {
     /**
      * List your challenges
      * @description Get a list of challenges created by or targeted at you.
-     *
      */
     get: operations["challengeList"];
     put?: never;
@@ -3175,7 +3040,6 @@ export interface paths {
      *     that a new game has started. The game ID will be the same as the challenge ID.
      *     Challenges for realtime games (not correspondence) expire after 20s if not accepted.
      *     To prevent that, use the `keepAliveStream` flag described below.
-     *
      */
     post: operations["challengeCreate"];
     delete?: never;
@@ -3194,7 +3058,6 @@ export interface paths {
     /**
      * Show one challenge
      * @description Get details about a challenge, even if it has been recently accepted, canceled or declined.
-     *
      */
     get: operations["challengeShow"];
     put?: never;
@@ -3218,7 +3081,6 @@ export interface paths {
      * Accept a challenge
      * @description Accept an incoming challenge.
      *     You should receive a `gameStart` event on the [incoming events stream](#operation/apiStreamEvent).
-     *
      */
     post: operations["challengeAccept"];
     delete?: never;
@@ -3239,7 +3101,6 @@ export interface paths {
     /**
      * Decline a challenge
      * @description Decline an incoming challenge.
-     *
      */
     post: operations["challengeDecline"];
     delete?: never;
@@ -3262,7 +3123,6 @@ export interface paths {
      * @description Cancel a challenge you sent, or aborts the game if the challenge was accepted, but the game was not yet played.
      *     Note that the ID of a game is the same as the ID of the challenge that created it.
      *     Works for user challenges and open challenges alike.
-     *
      */
     post: operations["challengeCancel"];
     delete?: never;
@@ -3284,7 +3144,6 @@ export interface paths {
      * Challenge the AI
      * @description Start a game with Lichess AI.
      *     You will be notified on the [event stream](#operation/apiStreamEvent) that a new game has started.
-     *
      */
     post: operations["challengeAi"];
     delete?: never;
@@ -3310,10 +3169,9 @@ export interface paths {
      *     You can control which color each player gets by giving them these URLs,
      *     instead of the main challenge URL.
      *     Open challenges expire after 24h.
-     *     If the challenge creation is [authenticated with OAuth2](#section/Introduction/Authentication),
+     *     If the challenge creation is [authenticated with OAuth2](/#description/authentication),
      *     then you can use the [challenge cancel endpoint](#operation/challengeCancel) to cancel it.
      *     To directly pair 2 known players, use [this endpoint](#operation/bulkPairingList) instead.
-     *
      */
     post: operations["challengeOpen"];
     delete?: never;
@@ -3338,7 +3196,6 @@ export interface paths {
      *     If the clocks have already started, the call will have no effect.
      *
      *     For AI games with only one player, omit the `token2` parameter.
-     *
      */
     post: operations["challengeStartClocks"];
     delete?: never;
@@ -3357,7 +3214,6 @@ export interface paths {
     /**
      * View your bulk pairings
      * @description Get a list of bulk pairings you created.
-     *
      */
     get: operations["bulkPairingList"];
     put?: never;
@@ -3384,7 +3240,6 @@ export interface paths {
      *     Failed bulks are not counted in the rate limiting, they are free.
      *     Fix the issues, manually or programmatically, then retry to schedule the bulk.
      *     A successful bulk creation returns a JSON bulk document. Its ID can be used for further operations.
-     *
      */
     post: operations["bulkPairingCreate"];
     delete?: never;
@@ -3408,7 +3263,6 @@ export interface paths {
      *     This overrides the `startClocksAt` value of an existing bulk pairing.
      *     If the games have not yet been created (`bulk.pairAt` is in the future), then this does nothing.
      *     If the clocks have already started (`bulk.startClocksAt` is in the past), then this does nothing.
-     *
      */
     post: operations["bulkPairingStartClocks"];
     delete?: never;
@@ -3427,7 +3281,6 @@ export interface paths {
     /**
      * Show a bulk pairing
      * @description Get a single bulk pairing by its ID.
-     *
      */
     get: operations["bulkPairingGet"];
     put?: never;
@@ -3437,7 +3290,6 @@ export interface paths {
      * @description Cancel and delete a bulk pairing that is scheduled in the future.
      *     If the games have already been created, then this does nothing.
      *     Canceling a bulk pairing does not refund the rate limit cost of that bulk pairing.
-     *
      */
     delete: operations["bulkPairingDelete"];
     options?: never;
@@ -3454,8 +3306,7 @@ export interface paths {
     };
     /**
      * Export games of a bulk pairing
-     * @description Download games of a bulk in PGN or [ndjson](#section/Introduction/Streaming-with-ND-JSON) format, depending on the request `Accept` header.
-     *
+     * @description Download games of a bulk in PGN or [ndjson](#description/streaming-with-nd-json) format, depending on the request `Accept` header.
      */
     get: operations["bulkPairingIdGamesGet"];
     put?: never;
@@ -3478,7 +3329,6 @@ export interface paths {
     /**
      * Add time to the opponent clock
      * @description Add seconds to the opponent's clock. Can be used to create games with time odds.
-     *
      */
     post: operations["roundAddTime"];
     delete?: never;
@@ -3501,7 +3351,6 @@ export interface paths {
      * @description **This endpoint can only be used by Lichess administrators. It will not work if you do not have the appropriate permissions.** Tournament organizers should instead use [OAuth](#tag/OAuth) to obtain `challenge:write` tokens from users in order to perform bulk pairing.*
      *     Create and obtain `challenge:write` tokens for multiple users.
      *     If a similar token already exists for a user, it is reused. This endpoint is idempotent.
-     *
      */
     post: operations["adminChallengeTokens"];
     delete?: never;
@@ -3522,7 +3371,6 @@ export interface paths {
     /**
      * Send a private message
      * @description Send a private message to another player.
-     *
      */
     post: operations["inboxUsername"];
     delete?: never;
@@ -3545,7 +3393,6 @@ export interface paths {
      *     Up to 5 variations may be available. Variants are supported.
      *     Use this endpoint to fetch a few positions here and there.
      *     If you want to download a lot of positions, [get the full list](https://database.lichess.org/#evals) from our exported database.
-     *
      */
     get: operations["apiCloudEval"];
     put?: never;
@@ -3567,7 +3414,6 @@ export interface paths {
      * List external engines
      * @description Lists all external engines that have been registered for the user,
      *     and the credentials required to use them.
-     *
      */
     get: operations["apiExternalEngineList"];
     put?: never;
@@ -3576,7 +3422,6 @@ export interface paths {
      * @description Registers a new external engine for the user. It can then be selected
      *     and used on the analysis board.
      *     After registering, the provider should start waiting for analyis requests.
-     *
      */
     post: operations["apiExternalEngineCreate"];
     delete?: never;
@@ -3601,20 +3446,17 @@ export interface paths {
     /**
      * Get external engine
      * @description Get properties and credentials of an external engine.
-     *
      */
     get: operations["apiExternalEngineGet"];
     /**
      * Update external engine
      * @description Updates the properties of an external engine.
-     *
      */
     put: operations["apiExternalEnginePut"];
     post?: never;
     /**
      * Delete external engine
      * @description Unregisters an external engine.
-     *
      */
     delete: operations["apiExternalEngineDelete"];
     options?: never;
@@ -3641,11 +3483,10 @@ export interface paths {
      * Analyse with external engine
      * @description **Endpoint: `https://engine.lichess.ovh/api/external-engine/{id}/analyse`**
      *     Request analysis from an external engine.
-     *     Response content is streamed as [newline delimited JSON](#section/Introduction/Streaming-with-ND-JSON).
+     *     Response content is streamed as [newline delimited JSON](#description/streaming-with-nd-json).
      *     The properties are based on the [UCI specification](https://backscattering.de/chess/uci/#engine).
      *     Analysis stops when the client goes away, the requested limit
      *     is reached, or the provider goes away.
-     *
      */
     post: operations["apiExternalEngineAnalyse"];
     delete?: never;
@@ -3671,7 +3512,6 @@ export interface paths {
      *     Uses long polling.
      *     After acquiring a request, the provider should immediately
      *     [start streaming the results](#tag/External-engine/operation/apiExternalEngineSubmit).
-     *
      */
     post: operations["apiExternalEngineAcquire"];
     delete?: never;
@@ -3706,7 +3546,6 @@ export interface paths {
      *       - `pv`
      *     The server may close the connection at any time, indicating that
      *     the requester has gone away and analysis should be stopped.
-     *
      */
     post: operations["apiExternalEngineSubmit"];
     delete?: never;
@@ -3758,7 +3597,6 @@ export interface paths {
      *
      *     Finally, continue by using the authorization code to
      *     [obtain an access token](#operation/apiToken).
-     *
      */
     get: operations["oauth"];
     put?: never;
@@ -3781,7 +3619,6 @@ export interface paths {
     /**
      * Obtain access token
      * @description OAuth2 token endpoint. Exchanges an authorization code for an access token.
-     *
      */
     post: operations["apiToken"];
     /**
@@ -3809,7 +3646,6 @@ export interface paths {
      *     returns their associated user ID and scopes,
      *     or `null` if the token is invalid.
      *     The method is `POST` so a longer list of tokens can be sent in the request body.
-     *
      */
     post: operations["tokenTest"];
     delete?: never;
@@ -3830,7 +3666,6 @@ export interface paths {
      * @description **Endpoint: <https://explorer.lichess.ovh/masters>**
      *
      *     Example: `curl https://explorer.lichess.ovh/masters?play=d2d4,d7d5,c2c4,c7c6,c4d5`
-     *
      */
     get: operations["openingExplorerMaster"];
     put?: never;
@@ -3855,7 +3690,6 @@ export interface paths {
      *     Games sampled from all Lichess players.
      *
      *     Example: `curl https://explorer.lichess.ovh/lichess?variant=standard&speeds=blitz,rapid,classical&ratings=2200,2500&fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
-     *
      */
     get: operations["openingExplorerLichess"];
     put?: never;
@@ -3879,7 +3713,7 @@ export interface paths {
      *
      *     Games of a Lichess player.
      *
-     *     Responds with a stream of [newline delimited JSON](#section/Introduction/Streaming-with-ND-JSON). Will start indexing
+     *     Responds with a stream of [newline delimited JSON](#description/streaming-with-nd-json). Will start indexing
      *     on demand, immediately respond with the current results, and stream
      *     more updates until indexing is complete. The stream is throttled
      *     and deduplicated. Empty lines may be sent to avoid timeouts.
@@ -3888,7 +3722,6 @@ export interface paths {
      *     ongoing games at most once every day.
      *
      *     Example: `curl https://explorer.lichess.ovh/player?player=revoof&color=white&play=d2d4,d7d5&recentGames=1`
-     *
      */
     get: operations["openingExplorerPlayer"];
     put?: never;
@@ -3911,7 +3744,6 @@ export interface paths {
      * @description **Endpoint: `https://explorer.lichess.ovh/masters/pgn/{gameId}`**
      *
      *     Example: `curl https://explorer.lichess.ovh/masters/pgn/aAbqI4ey`
-     *
      */
     get: operations["openingExplorerMasterGame"];
     put?: never;
@@ -3934,7 +3766,6 @@ export interface paths {
      * @description **Endpoint: <https://tablebase.lichess.ovh>**
      *
      *     Example: `curl http://tablebase.lichess.ovh/standard?fen=4k3/6KP/8/8/8/8/7p/8_w_-_-_0_1`
-     *
      */
     get: operations["tablebaseStandard"];
     put?: never;
@@ -3955,7 +3786,6 @@ export interface paths {
     /**
      * Tablebase lookup for Atomic chess
      * @description **Endpoint: <https://tablebase.lichess.ovh>**
-     *
      */
     get: operations["tablebaseAtomic"];
     put?: never;
@@ -3976,7 +3806,6 @@ export interface paths {
     /**
      * Tablebase lookup for Antichess
      * @description **Endpoint: <https://tablebase.lichess.ovh>**
-     *
      */
     get: operations["antichessAtomic"];
     put?: never;
@@ -4013,14 +3842,14 @@ export interface components {
     /**
      * @deprecated
      * @description Use patronColor value instead to determine if player is a patron.
-     *
      */
     Patron: boolean;
-    /** @description Players can choose a color for their Patron wings.
+    /**
+     * @description Players can choose a color for their Patron wings.
      *     See [here for the color mappings](https://github.com/lichess-org/lila/blob/master/ui/lib/css/abstract/_patron-colors.scss).
      *
      *     The presence of this field indicates the player is an active Patron.
-     *      */
+     */
     PatronColor: number;
     TopUser: {
       id: string;
@@ -4128,8 +3957,10 @@ export interface components {
        * @example 1500
        */
       dsbRating?: number;
-      /** @example github.com/ornicar
-       *     mas.to/@thibault */
+      /**
+       * @example github.com/ornicar
+       *     mas.to/@thibault
+       */
       links?: string;
     };
     PlayTime: {
@@ -4196,14 +4027,15 @@ export interface components {
       count?: components["schemas"]["Count"];
       streaming?: boolean;
       streamer?: components["schemas"]["UserStreamer"];
-      /** @description only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication) */
+      /** @description only appears if the request is [authenticated with OAuth2](/#description/authentication) */
       followable?: boolean;
-      /** @description only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication) */
+      /** @description only appears if the request is [authenticated with OAuth2](/#description/authentication) */
       following?: boolean;
-      /** @description only appears if the request is [authenticated with OAuth2](#section/Introduction/Authentication) */
+      /** @description only appears if the request is [authenticated with OAuth2](/#description/authentication) */
       blocking?: boolean;
     };
-    /** @example {
+    /**
+     * @example {
      *       "name": "Bullet",
      *       "points": [
      *         [
@@ -4225,12 +4057,14 @@ export interface components {
      *           1314
      *         ]
      *       ]
-     *     } */
+     *     }
+     */
     RatingHistoryEntry: {
       name?: string;
       points?: number[][];
     };
-    /** @example [
+    /**
+     * @example [
      *       {
      *         "name": "Bullet",
      *         "points": [
@@ -4265,7 +4099,8 @@ export interface components {
      *           ]
      *         ]
      *       }
-     *     ] */
+     *     ]
+     */
     RatingHistory: components["schemas"]["RatingHistoryEntry"][];
     /** @enum {string} */
     PerfType:
@@ -4734,9 +4569,11 @@ export interface components {
       /** @description Timestamp in milliseconds when the race started */
       startsAt: number;
     };
-    /** @example {
+    /**
+     * @example {
      *       "error": "Not found."
-     *     } */
+     *     }
+     */
     NotFound: {
       error: string;
     };
@@ -5015,7 +4852,8 @@ export interface components {
         title?: string;
       };
     };
-    /** @example {
+    /**
+     * @example {
      *       "entries": [
      *         {
      *           "type": "follow",
@@ -5162,7 +5000,8 @@ export interface components {
      *           "patron": true
      *         }
      *       }
-     *     } */
+     *     }
+     */
     Timeline: {
       entries: (
         | components["schemas"]["TimelineEntryFollow"]
@@ -5191,7 +5030,8 @@ export interface components {
         };
       };
     };
-    /** @example [Event "Rated Blitz game"]
+    /**
+     * @example [Event "Rated Blitz game"]
      *     [Site "https://lichess.org/fY44h4OY"]
      *     [Date "2018.03.29"]
      *     [Round "-"]
@@ -5211,7 +5051,7 @@ export interface components {
      *     [Termination "Normal"]
      *
      *     1. e4 { [%clk 0:03:00] } e5 { [%clk 0:03:00] } 2. Nf3 { [%clk 0:02:59] } Nc6 { [%clk 0:02:58] } 3. Bb5 { [%clk 0:02:57] } d6 { [%clk 0:02:55] } 4. h3 { [%clk 0:02:54] } Nf6 { [%clk 0:02:52] } 5. Bxc6+ { [%clk 0:02:52] } bxc6 { [%clk 0:02:49] } 6. d3 { [%clk 0:02:51] } Be7 { [%clk 0:02:46] } 7. O-O { [%clk 0:02:47] } O-O { [%clk 0:02:45] } 8. b3 { [%clk 0:02:45] } d5 { [%clk 0:02:45] } 9. exd5 { [%clk 0:02:33] } cxd5 { [%clk 0:02:40] } 10. Nxe5 { [%clk 0:02:31] } Qd6 { [%clk 0:02:38] } 1-0
-     *      */
+     */
     GamePgn: string;
     /** @enum {string} */
     Speed:
@@ -5336,7 +5176,8 @@ export interface components {
       | 38
       | 39
       | 60;
-    /** @example {
+    /**
+     * @example {
      *       "id": "A5fcMO3k",
      *       "rated": true,
      *       "variant": "standard",
@@ -5360,7 +5201,8 @@ export interface components {
      *           "rating": 2288
      *         }
      *       }
-     *     } */
+     *     }
+     */
     GameStreamGame: {
       id: string;
       rated?: boolean;
@@ -5387,7 +5229,8 @@ export interface components {
       };
       winner?: components["schemas"]["GameColor"];
     };
-    /** @example [
+    /**
+     * @example [
      *       {
      *         "id": "A5fcMO3k",
      *         "rated": true,
@@ -5439,7 +5282,8 @@ export interface components {
      *         },
      *         "winner": "white"
      *       }
-     *     ] */
+     *     ]
+     */
     GameStream: components["schemas"]["GameStreamGame"][];
     /** @enum {string} */
     GameSource:
@@ -5489,7 +5333,8 @@ export interface components {
           wc: number;
           bc: number;
         };
-    /** @example [
+    /**
+     * @example [
      *       {
      *         "id": "LuGQwhBb",
      *         "variant": {
@@ -5559,7 +5404,8 @@ export interface components {
      *         "wc": 177,
      *         "bc": 177
      *       }
-     *     ] */
+     *     ]
+     */
     MoveStream: components["schemas"]["MoveStreamEntry"][];
     TvGame: {
       user: components["schemas"]["LightUser"];
@@ -5573,7 +5419,6 @@ export interface components {
        * @description The type of message.
        *     A summary of the game is sent as the first message and when the featured game changes.
        *     Subsequent messages are just the X-FEN, last move, and clocks.
-       *
        * @constant
        */
       t: "featured";
@@ -5602,7 +5447,6 @@ export interface components {
        * @description The type of message.
        *     A summary of the game is sent as the first message and when the featured game changes.
        *     Subsequent messages are just the X-FEN, last move, and clocks.
-       *
        * @constant
        */
       t: "fen";
@@ -5613,9 +5457,10 @@ export interface components {
       d: {
         /** @description The X-FEN of the current position */
         fen: string;
-        /** @description The last move in UCI format (King to rook for Chess960-compatible
+        /**
+         * @description The last move in UCI format (King to rook for Chess960-compatible
          *     castling notation)
-         *      */
+         */
         lm: string;
         /** @description White's clock in seconds */
         wc: number;
@@ -5632,7 +5477,6 @@ export interface components {
     };
     /**
      * @description 10: created, 20: started, 30: finished
-     *
      * @enum {integer}
      */
     ArenaStatus: 10 | 20 | 30;
@@ -5859,19 +5703,23 @@ export interface components {
       };
       myUsername?: string;
     };
-    /** @example {
+    /**
+     * @example {
      *       "error": "This request is invalid because [...]"
-     *     } */
+     *     }
+     */
     Error: {
       /** @description The cause of the error. */
       error: string;
     };
-    /** @example {
+    /**
+     * @example {
      *       "games": 10,
      *       "score": 14,
      *       "rank": 30,
      *       "performance": 1935
-     *     } */
+     *     }
+     */
     ArenaTournamentPlayer: {
       games: number;
       score: number;
@@ -5925,13 +5773,16 @@ export interface components {
         in?: number;
       };
     };
-    /** @example {
+    /**
+     * @example {
      *       "error": "This user cannot edit this swiss"
-     *     } */
+     *     }
+     */
     SwissUnauthorisedEdit: {
       error?: string;
     };
-    /** @example [Event "All about the Sicilian Defense: Dragon Variation"]
+    /**
+     * @example [Event "All about the Sicilian Defense: Dragon Variation"]
      *     [Site "https://lichess.org/study/8c8bmUfy/qwnXMwVC"]
      *     [Result "*"]
      *     [UTCDate "2017.06.25"]
@@ -5943,9 +5794,10 @@ export interface components {
      *
      *     { This chapter will go over the Dragon Variation, a very common variation used by Black and it is the most aggressive variation in the Sicilian defense. }
      *     1. e4 c5 2. Nf3 { Simple developing move to control the d4 square } { [%csl Gd4,Gc5][%cal Gf3d4,Gc5d4] } 2... d6 { [%cal Gd6e5] } (2... e6 3. d4 cxd4 4. Nxd4 Nf6 5. e5 (5. Nc3 { [%cal Ge4e5] }) 5... Qa5+) 3. d4 { Whites want the exchange of pawns } { [%cal Gc5d4] } 3... cxd4 { [%cal Gf3d4] } 4. Nxd4 { Whites are now ahead in development but blacks still have the two central pawns whereas whites only one. } { [%csl Ge7,Gd6,Ge4] } 4... Nf6 { Blacks are now developing their knight and threatening the e4 pawn } { [%csl Ge4][%cal Gf6e4] } 5. Nc3 { The e4 pawn is now protected by the c3 knight } { [%csl Ge4,Bc3][%cal Rf6e4,Bc3e4] } 5... g6 { This is the DRAGON VARIATION. g6 allows the dark-squared bishop to develop and move to g7, controlling the long dark-squared diagonal } { [%csl Gd4] } 6. Be3 { [%cal Gd1d2,Gf2f3,Ge1c1,Gg2g4,Gh2h4,Gg4g5] } (6. Be2 Bg7 7. O-O Nc6 8. Be3 { [%cal Ge3d4] } (8. f3 Nxe4 { [%cal Gg7d4,Gc6d4] } 9. Nxc6 Qb6+ { [%cal Gb6c6,Gb6g1] } 10. Kh1 Nxc3 { [%cal Gc3d1,Gc3e2] } 11. bxc3 bxc6 { [%cal Gc8a6] }) 8... O-O 9. Nb3 a6 { [%cal Gb7b5,Gb5b4,Ge2c4] }) 6... Bg7 (6... Ng4 { [%cal Gg4e3] } 7. Bb5+ { [%cal Gb5e8,Gb8d7,Gc8d7,Gd1g4] } 7... Nc6 8. Nxc6 bxc6 9. Bxc6+ { [%cal Gc6a8] }) 7. f3 { The key opening moves for White, who attempt to castle queenside , whereas f3 strengthens the pawn structure, connecting e4 to the h2 and g2, while White also plan pushing to g4 and possibly h4. } { [%csl Bf3,Be3][%cal Rg2g4,Rh2h4,Rg4g5] } 7... O-O (7... h5 { Is operating against g4. }) 8. Qd2 { [%csl Gh6,Gg7][%cal Ge1c1,Ga1d1,Re3h6,Rd2h6] } 8... Nc6 { [%csl Gc6,Gh6][%cal Gb8c6,Ge1c1,Ga7a6,Ge3h6] } 9. g4 (9. Bh6 { [%cal Ge3d4] } 9... Bxh6 10. Qxh6 Nxd4) 9... Be6 10. Nxe6 fxe6 { [%cal Gf8f1] } 11. O-O-O Ne5 12. Be2 { [%csl Gf3][%cal Re5f3,Bd1h1,Bg1d1] } 12... Qc7 { [%csl Gc4][%cal Ge5c4,Gc4e3,Gc4d2,Bf8c8,Yc7c3] } 13. h4 Nc4 *
-     *      */
+     */
     StudyPgn: string;
-    /** @example {
+    /**
+     * @example {
      *       "chapters": [
      *         {
      *           "id": "iBjmYBya",
@@ -5963,7 +5815,8 @@ export interface components {
      *           "status": "1-0"
      *         }
      *       ]
-     *     } */
+     *     }
+     */
     StudyImportPgnChapters: {
       chapters?: {
         /** @description The chapter ID */
@@ -5980,12 +5833,14 @@ export interface components {
         status?: string;
       }[];
     };
-    /** @example {
+    /**
+     * @example {
      *       "id": "WTvnkWAL",
      *       "name": "Guess the move",
      *       "createdAt": 1463756350225,
      *       "updatedAt": 1469965025205
-     *     } */
+     *     }
+     */
     StudyMetadata: {
       /** @description The study ID */
       id: string;
@@ -6034,9 +5889,10 @@ export interface components {
          * @enum {string}
          */
         fideTc?: "standard" | "rapid" | "blitz";
-        /** @description Timezone of the tournament. Example: `America/New_York`.
+        /**
+         * @description Timezone of the tournament. Example: `America/New_York`.
          *     See [list of possible timezone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more.
-         *      */
+         */
         timeZone?: string;
         /**
          * Format: uri
@@ -6173,65 +6029,60 @@ export interface components {
       | "TPR"
       | "WON";
     BroadcastForm: {
-      /** @description Name of the broadcast tournament.
+      /**
+       * @description Name of the broadcast tournament.
        *
        *     Example: `Sinquefield Cup`
-       *      */
+       */
       name: string;
-      /** @description Tournament format.
+      /**
+       * @description Tournament format.
        *     Example: `"8-player round-robin" or "5-round Swiss"`
-       *      */
+       */
       "info.format"?: string;
-      /** @description Tournament Location
-       *      */
+      /** @description Tournament Location */
       "info.location"?: string;
-      /** @description Time control.
+      /**
+       * @description Time control.
        *     Example: `"Classical" or "Rapid" or "Rapid & Blitz"`
-       *      */
+       */
       "info.tc"?: string;
       /**
        * @description FIDE rating category. Which FIDE ratings to use
-       *
        * @enum {string}
        */
       "info.fideTc"?: "standard" | "rapid" | "blitz";
-      /** @description Timezone of the tournament. Example: `America/New_York`.
+      /**
+       * @description Timezone of the tournament. Example: `America/New_York`.
        *     See [list of possible timezone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more.
-       *      */
+       */
       "info.timeZone"?: string;
-      /** @description Mention up to 4 of the best players participating.
-       *      */
+      /** @description Mention up to 4 of the best players participating. */
       "info.players"?: string;
       /**
        * Format: uri
        * @description Official website. External website URL
-       *
        */
       "info.website"?: string;
       /**
        * Format: uri
        * @description Official Standings. External website URL, e.g. chess-results.com, info64.org
-       *
        */
       "info.standings"?: string;
-      /** @description Optional long description of the broadcast. Markdown is supported.
-       *      */
+      /** @description Optional long description of the broadcast. Markdown is supported. */
       markdown?: string;
       /**
        * @description Show players scores based on game results
-       *
        * @default true
        */
       showScores?: boolean;
       /**
        * @description Show player's rating diffs
-       *
        * @default true
        */
       showRatingDiffs?: boolean;
       /**
        * @description Show a team leaderboard. Requires WhiteTeam and BlackTeam PGN tags.
-       *
        * @default false
        */
       teamTable?: boolean;
@@ -6240,12 +6091,12 @@ export interface components {
        *     * `public`: Default. Anyone can view the broadcast
        *     * `unlisted`: Only people with the link can view the broadcast
        *     * `private`: Only the broadcast owner(s) can view the broadcast
-       *
        * @default public
        * @enum {string}
        */
       visibility?: "public" | "unlisted" | "private";
-      /** @description Optional replace player names, ratings and titles.
+      /**
+       * @description Optional replace player names, ratings and titles.
        *
        *     One line per player, formatted as such:
        *
@@ -6278,9 +6129,10 @@ export interface components {
        *     Magnus Carlsen / 2863 / GM
        *     YouGotLittUp / 1890 / / Louis Litt
        *     ```
-       *      */
+       */
       players?: string;
-      /** @description Optional: assign players to teams
+      /**
+       * @description Optional: assign players to teams
        *
        *     One line per player, formatted as such:
        *     ```txt
@@ -6294,7 +6146,7 @@ export interface components {
        *     ```
        *
        *     By default the PGN tags WhiteTeam and BlackTeam are used.
-       *      */
+       */
       teams?: string;
       /**
        * @description Optional, for Lichess admins only, used to feature on /broadcast.
@@ -6302,7 +6154,6 @@ export interface components {
        *     * `3` for Official: normal tier
        *     * `4` for Official: high tier
        *     * `5` for Official: best tier
-       *
        * @enum {integer}
        */
       tier?: 3 | 4 | 5;
@@ -6366,9 +6217,10 @@ export interface components {
       /** @description List of games played by the player in the broadcast tournament */
       games?: components["schemas"]["BroadcastGameEntry"][];
     };
-    /** @description Name of the broadcast round.
+    /**
+     * @description Name of the broadcast round.
      *     Example: `Round 1`
-     *      */
+     */
     BroadcastRoundFormName: string;
     BroadcastRoundForm: (
       | {
@@ -6384,10 +6236,10 @@ export interface components {
            *     ```txt
            *     https://myserver.org/myevent/round-10/games.pgn
            *     ```
-           *
            */
           syncUrl: string;
-          /** @description Filter games by round number
+          /**
+           * @description Filter games by round number
            *
            *     Optional, only keep games from the source that match a round number.
            *     It uses the PGN **Round** tag. These would match round 3:
@@ -6398,9 +6250,10 @@ export interface components {
            *     If you set a round number, then games without a **Round** tag are dropped.
            *
            *     It only works if you chose `syncUrl` or `syncUrls` as the source.
-           *      */
+           */
           onlyRound?: number;
-          /** @description Select slices of the games
+          /**
+           * @description Select slices of the games
            *
            *     Optional. Select games based on their position in the source.
            *     ```txt
@@ -6413,21 +6266,23 @@ export interface components {
            *     Slicing is done after filtering by round number.
            *
            *     It only works if you chose `syncUrl` or `syncUrls` as the source.
-           *      */
+           */
           slices?: string;
         }
       | {
           name: components["schemas"]["BroadcastRoundFormName"];
-          /** @description URLs that Lichess will poll to get updates about the games, separated by newlines. They must be publicly accessible from the Internet.
+          /**
+           * @description URLs that Lichess will poll to get updates about the games, separated by newlines. They must be publicly accessible from the Internet.
            *
            *     Example:
            *     ```txt
            *     https://myserver.org/myevent/round-10/game-1.pgn
            *     https://myserver.org/myevent/round-10/game-2.pgn
            *     ```
-           *      */
+           */
           syncUrls: string;
-          /** @description Filter games by round number
+          /**
+           * @description Filter games by round number
            *
            *     Optional, only keep games from the source that match a round number.
            *     It uses the PGN **Round** tag. These would match round 3:
@@ -6438,9 +6293,10 @@ export interface components {
            *     If you set a round number, then games without a **Round** tag are dropped.
            *
            *     It only works if you chose `syncUrl` or `syncUrls` as the source.
-           *      */
+           */
           onlyRound?: number;
-          /** @description Select slices of the games
+          /**
+           * @description Select slices of the games
            *
            *     Optional. Select games based on their position in the source.
            *     ```txt
@@ -6453,25 +6309,22 @@ export interface components {
            *     Slicing is done after filtering by round number.
            *
            *     It only works if you chose `syncUrl` or `syncUrls` as the source.
-           *      */
+           */
           slices?: string;
         }
       | {
           name: components["schemas"]["BroadcastRoundFormName"];
-          /** @description Lichess game IDs - Up to 100 Lichess game IDs, separated by spaces.
-           *      */
+          /** @description Lichess game IDs - Up to 100 Lichess game IDs, separated by spaces. */
           syncIds: string;
         }
       | {
           name: components["schemas"]["BroadcastRoundFormName"];
-          /** @description Up to 100 Lichess usernames, separated by spaces
-           *      */
+          /** @description Up to 100 Lichess usernames, separated by spaces */
           syncUsers: string;
         }
     ) & {
       /**
        * @description Where the games come from.
-       *
        * @default push
        * @enum {string}
        */
@@ -6480,22 +6333,20 @@ export interface components {
        * Format: int64
        * @description Timestamp in milliseconds of broadcast round start. Leave empty to manually start the broadcast round.
        *     Example: `1356998400070`
-       *
        */
       startsAt?: number;
       /**
        * @description The start date is unknown, and the round will start automatically when the previous round completes.
-       *
        * @default false
        */
       startsAfterPrevious?: boolean;
-      /** @description Delay in seconds for movements to appear on the broadcast. Leave it empty if you don't need it.
+      /**
+       * @description Delay in seconds for movements to appear on the broadcast. Leave it empty if you don't need it.
        *     Example: `900` (15 min)
-       *      */
+       */
       delay?: number;
       /**
        * @description Lichess can usually detect the round status, but you can also set it manually if needed.
-       *
        * @default new
        * @enum {string}
        */
@@ -6509,8 +6360,7 @@ export interface components {
       "customScoring.white.draw"?: components["schemas"]["BroadcastCustomPoints"];
       "customScoring.black.win"?: components["schemas"]["BroadcastCustomPoints"];
       "customScoring.black.draw"?: components["schemas"]["BroadcastCustomPoints"];
-      /** @description (Only for Admins) Waiting time for each poll.
-       *      */
+      /** @description (Only for Admins) Waiting time for each poll. */
       period?: number;
     };
     BroadcastRoundStudyInfo: {
@@ -6656,13 +6506,15 @@ export interface components {
       request: components["schemas"]["TeamRequest"];
       user: components["schemas"]["User"];
     };
-    /** @example {
+    /**
+     * @example {
      *       "users": {
      *         "neio": 201.5,
      *         "thibault": 144.5
      *       },
      *       "nbGames": 346
-     *     } */
+     *     }
+     */
     Crosstable: {
       users: {
         [key: string]: number;
@@ -6773,7 +6625,8 @@ export interface components {
         };
     /** @enum {string} */
     ChallengeColor: "white" | "black" | "random";
-    /** @example {
+    /**
+     * @example {
      *       "id": "H9fIRZUk",
      *       "url": "https://lichess.org/H9fIRZUk",
      *       "status": "created",
@@ -6815,7 +6668,8 @@ export interface components {
      *         "name": "Rapid"
      *       },
      *       "direction": "out"
-     *     } */
+     *     }
+     */
     ChallengeJson: {
       id: string;
       /** Format: uri */
@@ -6882,7 +6736,8 @@ export interface components {
       rating?: number;
       provisional?: boolean;
     };
-    /** @example {
+    /**
+     * @example {
      *       "type": "gameState",
      *       "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
      *       "wtime": 7598040,
@@ -6894,13 +6749,15 @@ export interface components {
      *       "wtakeback": false,
      *       "btakeback": false,
      *       "status": "started"
-     *     } */
+     *     }
+     */
     GameStateEvent: {
       /** @constant */
       type: "gameState";
-      /** @description Current moves in UCI format (King to rook for Chess690-compatible castling
+      /**
+       * @description Current moves in UCI format (King to rook for Chess690-compatible castling
        *     notation)
-       *      */
+       */
       moves: string;
       /** @description Integer of milliseconds White has left on the clock */
       wtime: number;
@@ -6922,7 +6779,8 @@ export interface components {
       /** @description true if black is proposing takeback, else omitted */
       btakeback?: boolean;
     };
-    /** @example {
+    /**
+     * @example {
      *       "id": "BEOucQJo",
      *       "variant": {
      *         "key": "standard",
@@ -6962,7 +6820,8 @@ export interface components {
      *         "binc": 0,
      *         "status": "started"
      *       }
-     *     } */
+     *     }
+     */
     GameFullEvent: {
       /** @constant */
       type: "gameFull";
@@ -6997,12 +6856,14 @@ export interface components {
       daysPerTurn?: number;
       tournamentId?: string;
     };
-    /** @example {
+    /**
+     * @example {
      *       "type": "chatLine",
      *       "username": "thibault",
      *       "text": "Good luck, have fun",
      *       "room": "player"
-     *     } */
+     *     }
+     */
     ChatLineEvent: {
       /** @constant */
       type: "chatLine";
@@ -7011,18 +6872,21 @@ export interface components {
       username: string;
       text: string;
     };
-    /** @example {
+    /**
+     * @example {
      *       "type": "opponentGone",
      *       "gone": true,
      *       "claimWinInSeconds": 8
-     *     } */
+     *     }
+     */
     OpponentGoneEvent: {
       /** @constant */
       type: "opponentGone";
       gone: boolean;
       claimWinInSeconds?: number;
     };
-    /** @example [
+    /**
+     * @example [
      *       {
      *         "text": "Takeback sent",
      *         "user": "lichess"
@@ -7035,7 +6899,8 @@ export interface components {
      *         "text": "Good game, well played",
      *         "user": "thibault"
      *       }
-     *     ] */
+     *     ]
+     */
     GameChat: {
       text: string;
       user: string;
@@ -7067,7 +6932,8 @@ export interface components {
         userIds?: string[];
       };
     };
-    /** @example {
+    /**
+     * @example {
      *       "id": "RVAcwgg7",
      *       "games": [
      *         {
@@ -7096,7 +6962,8 @@ export interface components {
      *       "rated": false,
      *       "startClocksAt": 1612200422971,
      *       "scheduledAt": 1612203514628
-     *     } */
+     *     }
+     */
     BulkPairing: {
       id: string;
       games: {
@@ -7112,7 +6979,8 @@ export interface components {
       startClocksAt: number;
       scheduledAt: number;
     };
-    /** @example {
+    /**
+     * @example {
      *       "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R",
      *       "knodes": 106325,
      *       "depth": 29,
@@ -7130,7 +6998,8 @@ export interface components {
      *           "cp": 37
      *         }
      *       ]
-     *     } */
+     *     }
+     */
     CloudEval: {
       depth: number;
       fen: string;
@@ -7139,17 +7008,19 @@ export interface components {
         | {
             /** @description Evaluation in centi-pawns, from White's point of view */
             cp: number;
-            /** @description Variation in UCI notation (King to rook for Chess960-compatible
+            /**
+             * @description Variation in UCI notation (King to rook for Chess960-compatible
              *     castling notation)
-             *      */
+             */
             moves: string;
           }
         | {
             /** @description Evaluation in moves to mate, from White's point of view */
             mate: number;
-            /** @description Variation in UCI notation (King to rook for Chess960-compatible
+            /**
+             * @description Variation in UCI notation (King to rook for Chess960-compatible
              *     castling notation)
-             *      */
+             */
             moves: string;
           }
       )[];
@@ -7173,10 +7044,11 @@ export interface components {
       id: string;
       /** @description Display name of the engine. */
       name: string;
-      /** @description A secret token that can be used to
+      /**
+       * @description A secret token that can be used to
        *     [*request* analysis](#tag/External-engine/operation/apiExternalEngineAnalyse)
        *     from this external engine.
-       *      */
+       */
       clientSecret: string;
       /** @description The user this engine has been registered for. */
       userId: string;
@@ -7186,12 +7058,13 @@ export interface components {
       maxHash: number;
       /** @description List of supported chess variants. */
       variants: components["schemas"]["UciVariant"][];
-      /** @description Arbitrary data that the engine provider can use for identification
+      /**
+       * @description Arbitrary data that the engine provider can use for identification
        *     or bookkeeping.
        *
        *     Users can read this information, but updating it requires knowing
        *     or changing the `providerSecret`.
-       *      */
+       */
       providerData?: string | null;
     };
     ExternalEngineRegistration: {
@@ -7225,22 +7098,23 @@ export interface components {
        *     token, even for different users, and wait for analysis requests
        *     from any of them. In this case, the request must not be made via
        *     CORS, so that the token is not revealed to any of the users.
-       *
        * @example Dee3uwieZei9ahpaici9bee2yahsai0K
        */
       providerSecret: string;
-      /** @description Arbitrary data that the engine provider can use for identification
+      /**
+       * @description Arbitrary data that the engine provider can use for identification
        *     or bookkeeping.
        *
        *     Users can read this information, but updating it requires knowing
        *     or changing the `providerSecret`.
-       *      */
+       */
       providerData?: string;
     };
     ExternalEngineWorkCommon: {
-      /** @description Arbitary string that identifies the analysis session.
+      /**
+       * @description Arbitary string that identifies the analysis session.
        *     Providers may wish to clear the hash table between sessions.
-       *      */
+       */
       sessionId: string;
       /** @description Number of threads to use for analysis. */
       threads: number;
@@ -7267,10 +7141,12 @@ export interface components {
           /** @description Number of nodes to analyse in the position */
           nodes: number;
         } & components["schemas"]["ExternalEngineWorkCommon"]);
-    /** @example {
+    /**
+     * @example {
      *       "error": "invalid_grant",
      *       "error_description": "hash of code_verifier does not match code_challenge"
-     *     } */
+     *     }
+     */
     OAuthError: {
       /** @description The cause of the error. */
       error: string;
@@ -7360,7 +7236,8 @@ export interface components {
       year: number;
       month: string;
     };
-    /** @example {
+    /**
+     * @example {
      *       "opening": {
      *         "eco": "D00",
      *         "name": "Queen's Pawn Game"
@@ -7469,7 +7346,8 @@ export interface components {
      *           "month": "2024-11"
      *         }
      *       ]
-     *     } */
+     *     }
+     */
     OpeningExplorerPlayer: {
       opening: components["schemas"]["OpeningExplorerOpening"] | null;
       /** @description Waiting for other players to be indexed first */
@@ -7522,7 +7400,8 @@ export interface components {
       variant_loss?: boolean;
       insufficient_material?: boolean;
     };
-    /** @example {
+    /**
+     * @example {
      *       "dtz": 1,
      *       "precise_dtz": 1,
      *       "dtc": null,
@@ -7552,7 +7431,8 @@ export interface components {
      *           "category": "loss"
      *         }
      *       ]
-     *     } */
+     *     }
+     */
     TablebaseJson: {
       /**
        * @description `cursed-win` and `blessed-loss` means the 50-move rule prevents
@@ -7567,7 +7447,6 @@ export interface components {
        *     `maybe-win` and `maybe-loss` means the result with regard to the
        *     50-move rule is unknown, because DTZ is unknown and the DTC tablebase
        *     does not guarantee to reach a zeroing move as soon as possible.
-       *
        * @enum {string}
        */
       category:
@@ -7581,30 +7460,33 @@ export interface components {
         | "maybe-loss"
         | "syzygy-loss"
         | "loss";
-      /** @description [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) in plies
+      /**
+       * @description [DTZ50'' with rounding](https://syzygy-tables.info/metrics#dtz) in plies
        *     (for Standard chess positions with not more than 7 pieces and variant
        *     positions not more than 6 pieces)
-       *      */
+       */
       dtz?: null | number;
-      /** @description DTZ50'' in plies, only if guaranteed to not be rounded, or absent if unknown
-       *      */
+      /** @description DTZ50'' in plies, only if guaranteed to not be rounded, or absent if unknown */
       precise_dtz?: null | number;
-      /** @description Experimental Depth to Conversion: Moves to next capture, promotion,
+      /**
+       * @description Experimental Depth to Conversion: Moves to next capture, promotion,
        *     or checkmate. Available for:
        *     * Standard chess positions with 8 pieces, more than one pawn of material
        *       value for each side, and at least one pair of opposing pawns,
        *       short *op1*, if query parameter `dtc` is `auxiliary` or `always`.
        *     * Some standard chess positions with up to 7 pieces, if query parameter
        *       `dtc` is `always`. Work in progress.
-       *      */
+       */
       dtc?: null | number;
-      /** @description Depth To Mate: Plies to mate (available only for Standard positions
+      /**
+       * @description Depth To Mate: Plies to mate (available only for Standard positions
        *     with not more than 5 pieces)
-       *      */
+       */
       dtm?: null | number;
-      /** @description Depth To Win: Plies to win (available only for Antichess positions
+      /**
+       * @description Depth To Win: Plies to win (available only for Antichess positions
        *     with not more than 4 pieces)
-       *      */
+       */
       dtw?: null | number;
       checkmate?: boolean;
       stalemate?: boolean;
@@ -7619,6 +7501,18 @@ export interface components {
   };
   responses: never;
   parameters: {
+    /**
+     * @description Specify the desired response format.
+     *     Use `application/x-chess-pgn` to get the games in PGN format.
+     *     Use `application/json` to get the games in JSON format.
+     */
+    AcceptPgnOrJson: "application/x-chess-pgn" | "application/json";
+    /**
+     * @description Specify the desired response format.
+     *     Use `application/x-chess-pgn` to get the games in PGN format.
+     *     Use `application/x-ndjson` to get the games in ndjson format. [Read about ndjson here](#description/streaming-with-nd-json) and how you can parse it in Javascript.
+     */
+    AcceptPgnOrNdjson: "application/x-chess-pgn" | "application/x-ndjson";
     /**
      * @description Only update the provided fields, leaving others unchanged
      * @example true
@@ -7643,21 +7537,18 @@ export interface operations {
          * @description Also return the network signal of the player, when available.
          *     It ranges from 1 (poor connection, lag > 500ms) to 4 (great connection, lag < 150ms)
          *     Defaults to `false` to preserve server resources.
-         *
          * @example true
          */
         withSignal?: boolean;
         /**
          * @description Also return the ID of the game being played, if any, for each player, in a `playingId` field.
          *     Defaults to `false` to preserve server resources.
-         *
          * @example true
          */
         withGameIds?: boolean;
         /**
          * @description Also return the id, time control and variant of the game being played, if any, for each player, in a `playing` field.
          *     Defaults to `false` to preserve server resources. Disables `withGameIds`.
-         *
          * @example true
          */
         withGameMetas?: boolean;
@@ -7898,10 +7789,11 @@ export interface operations {
   apiPuzzleNext: {
     parameters: {
       query?: {
-        /** @description The theme or opening to filter puzzles with.
+        /**
+         * @description The theme or opening to filter puzzles with.
          *
          *     Available themes are listed in [the lichess source code](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml) and [the lichess training themes hyperlinks](https://lichess.org/training/themes).
-         *      */
+         */
         angle?: string;
         /** @description The desired puzzle difficulty, relative to the authenticated user puzzle rating, or 1500 if anonymous. */
         difficulty?: "easiest" | "easier" | "normal" | "harder" | "hardest";
@@ -7931,20 +7823,21 @@ export interface operations {
       query?: {
         /** @description The desired puzzle difficulty, relative to the authenticated user puzzle rating, or 1500 if anonymous. */
         difficulty?: "easiest" | "easier" | "normal" | "harder" | "hardest";
-        /** @description How many puzzles to fetch. Just set it to `1` if you only need one puzzle.
-         *      */
+        /** @description How many puzzles to fetch. Just set it to `1` if you only need one puzzle. */
         nb?: number;
-        /** @description The color to play. Better left empty to automatically get 50% white.
+        /**
+         * @description The color to play. Better left empty to automatically get 50% white.
          *     Currently only works when `nb=1`.
-         *      */
+         */
         color?: "white" | "black";
       };
       header?: never;
       path: {
-        /** @description The theme or opening to filter puzzles with. Recommended: `mix`.
+        /**
+         * @description The theme or opening to filter puzzles with. Recommended: `mix`.
          *
          *     Available themes are listed in [the lichess source code](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml) and [the lichess training themes hyperlinks](https://lichess.org/training/themes).
-         *      */
+         */
         angle: string;
       };
       cookie?: never;
@@ -7966,19 +7859,21 @@ export interface operations {
   apiPuzzleBatchSolve: {
     parameters: {
       query?: {
-        /** @description When > 0, the response includes a new puzzle batch with that many puzzles.
+        /**
+         * @description When > 0, the response includes a new puzzle batch with that many puzzles.
          *
          *     This is equivalent to calling [/api/puzzle/batch/{angle}](#tag/Puzzles/operation/apiPuzzleBatchSelect),
          *     and can sometimes save a request.
-         *      */
+         */
         nb?: number;
       };
       header?: never;
       path: {
-        /** @description The theme or opening of the solved puzzles.
+        /**
+         * @description The theme or opening of the solved puzzles.
          *
          *     Available themes are listed in [the lichess source code](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml) and [the lichess training themes hyperlinks](https://lichess.org/training/themes).
-         *      */
+         */
         angle: string;
       };
       cookie?: never;
@@ -8357,37 +8252,49 @@ export interface operations {
         pgnInJson?: boolean;
         /** @description Include the PGN tags. */
         tags?: boolean;
-        /** @description Include clock status when available.
+        /**
+         * @description Include clock status when available.
          *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
          *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-         *      */
+         */
         clocks?: boolean;
-        /** @description Include analysis evaluations and comments, when available.
+        /**
+         * @description Include analysis evaluations and comments, when available.
          *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
          *     Or in an `analysis` JSON field, depending on the response type.
-         *      */
+         */
         evals?: boolean;
-        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
-         *      */
+        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON. */
         accuracy?: boolean;
-        /** @description Include the opening name.
+        /**
+         * @description Include the opening name.
          *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-         *      */
+         */
         opening?: boolean;
-        /** @description Plies which mark the beginning of the middlegame and endgame.
+        /**
+         * @description Plies which mark the beginning of the middlegame and endgame.
          *     Only available in JSON
-         *      */
+         */
         division?: boolean;
-        /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
+        /**
+         * @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
          *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
-         *      */
+         */
         literate?: boolean;
-        /** @description Add a `bookmarked: true` JSON field when the logged in user has bookmarked the game.
+        /**
+         * @description Add a `bookmarked: true` JSON field when the logged in user has bookmarked the game.
          *     The response type must be set to `application/x-ndjson` by the request `Accept` header.
-         *      */
+         */
         withBookmarked?: boolean;
       };
-      header?: never;
+      header?: {
+        /**
+         * @description Specify the desired response format.
+         *     Use `application/x-chess-pgn` to get the games in PGN format.
+         *     Use `application/json` to get the games in JSON format.
+         */
+        Accept?: components["parameters"]["AcceptPgnOrJson"];
+      };
       path: {
         /** @description The game ID */
         gameId: string;
@@ -8418,33 +8325,44 @@ export interface operations {
         pgnInJson?: boolean;
         /** @description Include the PGN tags. */
         tags?: boolean;
-        /** @description Include clock status when available.
+        /**
+         * @description Include clock status when available.
          *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
          *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-         *      */
+         */
         clocks?: boolean;
-        /** @description Include analysis evaluations and comments, when available.
+        /**
+         * @description Include analysis evaluations and comments, when available.
          *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
          *     Or in an `analysis` JSON field, depending on the response type.
-         *      */
+         */
         evals?: boolean;
-        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
-         *      */
+        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON. */
         accuracy?: boolean;
-        /** @description Include the opening name.
+        /**
+         * @description Include the opening name.
          *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-         *      */
+         */
         opening?: boolean;
-        /** @description Plies which mark the beginning of the middlegame and endgame.
+        /**
+         * @description Plies which mark the beginning of the middlegame and endgame.
          *     Only available in JSON
-         *      */
+         */
         division?: boolean;
-        /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
+        /**
+         * @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
          *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
-         *      */
+         */
         literate?: boolean;
       };
-      header?: never;
+      header?: {
+        /**
+         * @description Specify the desired response format.
+         *     Use `application/x-chess-pgn` to get the games in PGN format.
+         *     Use `application/json` to get the games in JSON format.
+         */
+        Accept?: components["parameters"]["AcceptPgnOrJson"];
+      };
       path: {
         username: string;
       };
@@ -8478,11 +8396,12 @@ export interface operations {
         vs?: string;
         /** @description [Filter] Only rated (`true`) or casual (`false`) games */
         rated?: boolean;
-        /** @description [Filter] Only games in these speeds or variants.
+        /**
+         * @description [Filter] Only games in these speeds or variants.
          *     Multiple perf types can be specified, separated by a comma.
          *     Example: blitz,rapid,classical
-         *      */
-        perfType?: components["schemas"]["PerfType"] & unknown;
+         */
+        perfType?: components["schemas"]["PerfType"];
         /** @description [Filter] Only games played as this color. */
         color?: "white" | "black";
         /** @description [Filter] Only games with or without a computer analysis available */
@@ -8493,52 +8412,59 @@ export interface operations {
         pgnInJson?: boolean;
         /** @description Include the PGN tags. */
         tags?: boolean;
-        /** @description Include clock status when available.
+        /**
+         * @description Include clock status when available.
          *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
          *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-         *      */
+         */
         clocks?: boolean;
-        /** @description Include analysis evaluations and comments, when available.
+        /**
+         * @description Include analysis evaluations and comments, when available.
          *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
          *     Or in an `analysis` JSON field, depending on the response type.
-         *      */
+         */
         evals?: boolean;
-        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
-         *      */
+        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON. */
         accuracy?: boolean;
-        /** @description Include the opening name.
+        /**
+         * @description Include the opening name.
          *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-         *      */
+         */
         opening?: boolean;
-        /** @description Plies which mark the beginning of the middlegame and endgame.
+        /**
+         * @description Plies which mark the beginning of the middlegame and endgame.
          *     Only available in JSON
-         *      */
+         */
         division?: boolean;
         /** @description Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API. */
         ongoing?: boolean;
         /** @description Include finished games. Set to `false` to only get ongoing games. */
         finished?: boolean;
-        /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
+        /**
+         * @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
          *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
-         *      */
+         */
         literate?: boolean;
-        /** @description Include the X-FEN notation of the last position of the game.
+        /**
+         * @description Include the X-FEN notation of the last position of the game.
          *     The response type must be set to `application/x-ndjson` by the request `Accept` header.
-         *      */
+         */
         lastFen?: boolean;
-        /** @description Add a `bookmarked: true` JSON field when the logged in user has bookmarked the game.
+        /**
+         * @description Add a `bookmarked: true` JSON field when the logged in user has bookmarked the game.
          *     The response type must be set to `application/x-ndjson` by the request `Accept` header.
-         *      */
+         */
         withBookmarked?: boolean;
         /** @description Sort order of the games. */
         sort?: "dateAsc" | "dateDesc";
       };
       header?: {
-        /** @description Specify the desired response format.
+        /**
+         * @description Specify the desired response format.
          *     Use `application/x-chess-pgn` to get the games in PGN format.
-         *     Use `application/x-ndjson` to get the games in ndjson format.
-         *      */
-        Accept?: "application/x-chess-pgn" | "application/x-ndjson";
+         *     Use `application/x-ndjson` to get the games in ndjson format. [Read about ndjson here](#description/streaming-with-nd-json) and how you can parse it in Javascript.
+         */
+        Accept?: components["parameters"]["AcceptPgnOrNdjson"];
       };
       path: {
         /** @description The user name. */
@@ -8570,33 +8496,44 @@ export interface operations {
         pgnInJson?: boolean;
         /** @description Include the PGN tags. */
         tags?: boolean;
-        /** @description Include clock status when available.
+        /**
+         * @description Include clock status when available.
          *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
          *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-         *      */
+         */
         clocks?: boolean;
-        /** @description Include analysis evaluations and comments, when available.
+        /**
+         * @description Include analysis evaluations and comments, when available.
          *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
          *     Or in an `analysis` JSON field, depending on the response type.
-         *      */
+         */
         evals?: boolean;
-        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
-         *      */
+        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON. */
         accuracy?: boolean;
-        /** @description Include the opening name.
+        /**
+         * @description Include the opening name.
          *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-         *      */
+         */
         opening?: boolean;
-        /** @description Plies which mark the beginning of the middlegame and endgame.
+        /**
+         * @description Plies which mark the beginning of the middlegame and endgame.
          *     Only available in JSON
-         *      */
+         */
         division?: boolean;
-        /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
+        /**
+         * @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
          *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
-         *      */
+         */
         literate?: boolean;
       };
-      header?: never;
+      header?: {
+        /**
+         * @description Specify the desired response format.
+         *     Use `application/x-chess-pgn` to get the games in PGN format.
+         *     Use `application/x-ndjson` to get the games in ndjson format. [Read about ndjson here](#description/streaming-with-nd-json) and how you can parse it in Javascript.
+         */
+        Accept?: components["parameters"]["AcceptPgnOrNdjson"];
+      };
       path?: never;
       cookie?: never;
     };
@@ -8631,9 +8568,10 @@ export interface operations {
       path?: never;
       cookie?: never;
     };
-    /** @description Up to 300 user IDs separated by commas.
+    /**
+     * @description Up to 300 user IDs separated by commas.
      *     Example: `thibault,maia1,maia5`
-     *      */
+     */
     requestBody: {
       content: {
         "text/plain": string;
@@ -8661,9 +8599,10 @@ export interface operations {
       };
       cookie?: never;
     };
-    /** @description Up to 500 or 1000 game IDs separated by commas.
+    /**
+     * @description Up to 500 or 1000 game IDs separated by commas.
      *     Example: `gameId01,gameId02,gameId03`
-     *      */
+     */
     requestBody: {
       content: {
         "text/plain": string;
@@ -8691,9 +8630,10 @@ export interface operations {
       };
       cookie?: never;
     };
-    /** @description Up to 500 or 1000 game IDs separated by commas.
+    /**
+     * @description Up to 500 or 1000 game IDs separated by commas.
      *     Example: `gameId04,gameId05,gameId06`
-     *      */
+     */
     requestBody: {
       content: {
         "text/plain": string;
@@ -8874,39 +8814,51 @@ export interface operations {
         pgnInJson?: boolean;
         /** @description Include the PGN tags. */
         tags?: boolean;
-        /** @description Include clock status when available.
+        /**
+         * @description Include clock status when available.
          *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
          *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-         *      */
+         */
         clocks?: boolean;
-        /** @description Include analysis evaluations and comments, when available.
+        /**
+         * @description Include analysis evaluations and comments, when available.
          *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
          *     Or in an `analysis` JSON field, depending on the response type.
-         *      */
+         */
         evals?: boolean;
-        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
-         *      */
+        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON. */
         accuracy?: boolean;
-        /** @description Include the opening name.
+        /**
+         * @description Include the opening name.
          *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-         *      */
+         */
         opening?: boolean;
-        /** @description Plies which mark the beginning of the middlegame and endgame.
+        /**
+         * @description Plies which mark the beginning of the middlegame and endgame.
          *     Only available in JSON
-         *      */
+         */
         division?: boolean;
-        /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
+        /**
+         * @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
          *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
-         *      */
+         */
         literate?: boolean;
-        /** @description Include the X-FEN notation of the last position of the game.
+        /**
+         * @description Include the X-FEN notation of the last position of the game.
          *     The response type must be set to `application/x-ndjson` by the request `Accept` header.
-         *      */
+         */
         lastFen?: boolean;
         /** @description Sort order of the bookmarks. */
         sort?: "dateAsc" | "dateDesc";
       };
-      header?: never;
+      header?: {
+        /**
+         * @description Specify the desired response format.
+         *     Use `application/x-chess-pgn` to get the games in PGN format.
+         *     Use `application/x-ndjson` to get the games in ndjson format. [Read about ndjson here](#description/streaming-with-nd-json) and how you can parse it in Javascript.
+         */
+        Accept?: components["parameters"]["AcceptPgnOrNdjson"];
+      };
       path?: never;
       cookie?: never;
     };
@@ -9017,17 +8969,26 @@ export interface operations {
         pgnInJson?: boolean;
         /** @description Include the PGN tags. */
         tags?: boolean;
-        /** @description Include clock status when available.
+        /**
+         * @description Include clock status when available.
          *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
          *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-         *      */
+         */
         clocks?: boolean;
-        /** @description Include the opening name.
+        /**
+         * @description Include the opening name.
          *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-         *      */
+         */
         opening?: boolean;
       };
-      header?: never;
+      header?: {
+        /**
+         * @description Specify the desired response format.
+         *     Use `application/x-chess-pgn` to get the games in PGN format.
+         *     Use `application/x-ndjson` to get the games in ndjson format. [Read about ndjson here](#description/streaming-with-nd-json) and how you can parse it in Javascript.
+         */
+        Accept?: components["parameters"]["AcceptPgnOrNdjson"];
+      };
       path: {
         /** @description The name of the channel in camel case. */
         channel: string;
@@ -9200,20 +9161,23 @@ export interface operations {
           hasChat?: boolean;
           /** @description Anything you want to tell players about the tournament */
           description?: string;
-          /** @description Make the tournament private, and restrict access with a password.
+          /**
+           * @description Make the tournament private, and restrict access with a password.
            *     You can also [generate user-specific entry codes](https://github.com/lichess-org/api/tree/master/example/tournament-entry-code)
            *     based on this password.
-           *      */
+           */
           password?: string;
-          /** @description Set the ID of a team you lead to create a team battle.
+          /**
+           * @description Set the ID of a team you lead to create a team battle.
            *     The other teams can be added using the [team battle edit endpoint](#operation/apiTournamentTeamBattlePost).
-           *      */
+           */
           teamBattleByTeam?: string;
-          /** @description Restrict entry to members of a team.
+          /**
+           * @description Restrict entry to members of a team.
            *     The teamId is the last part of a team URL, e.g. `https://lichess.org/team/coders` has teamId = `coders`.
            *     Leave empty to let everyone join the tournament.
            *     Do not use this to create team battles, use `teamBattleByTeam` instead.
-           *      */
+           */
           "conditions.teamMember.teamId"?: string;
           /**
            * @description Minimum rating to join. Leave empty to let everyone join the tournament.
@@ -9274,11 +9238,12 @@ export interface operations {
             | 100
             | 150
             | 200;
-          /** @description Predefined list of usernames that are allowed to join, separated by commas.
+          /**
+           * @description Predefined list of usernames that are allowed to join, separated by commas.
            *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
            *     Adding `%titled` to the list additionally allows any titled player to join.
            *     Example: `thibault,german11,%titled`
-           *      */
+           */
           "conditions.allowList"?: string;
           /**
            * @description Whether bots are allowed to join the tournament.
@@ -9548,11 +9513,12 @@ export interface operations {
             | 100
             | 150
             | 200;
-          /** @description Predefined list of usernames that are allowed to join, separated by commas.
+          /**
+           * @description Predefined list of usernames that are allowed to join, separated by commas.
            *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
            *     Adding `%titled` to the list additionally allows any titled player to join.
            *     Example: `thibault,german11,%titled`
-           *      */
+           */
           "conditions.allowList"?: string;
           /**
            * @description Whether bots are allowed to join the tournament.
@@ -9614,10 +9580,11 @@ export interface operations {
     requestBody?: {
       content: {
         "application/x-www-form-urlencoded": {
-          /** @description The tournament password, if one is required.
+          /**
+           * @description The tournament password, if one is required.
            *     Can also be a [user-specific entry code](https://github.com/lichess-org/api/tree/master/example/tournament-entry-code)
            *     generated and shared by the organizer.
-           *      */
+           */
           password?: string;
           /** @description The team to join the tournament with, for team battle tournaments */
           team?: string;
@@ -9626,7 +9593,6 @@ export interface operations {
            *     even if they are not connected to the tournament page.
            *     This expires after one minute, to avoid pairing a user who is long gone.
            *     You may call "join" again to extend the waiting.
-           *
            * @default false
            */
           pairMeAsap?: boolean;
@@ -9734,11 +9700,12 @@ export interface operations {
     requestBody: {
       content: {
         "application/x-www-form-urlencoded": {
-          /** @description All team IDs of the team battle, separated by commas.
+          /**
+           * @description All team IDs of the team battle, separated by commas.
            *     Make sure to always send the full list.
            *     Teams that are not in the list will be removed from the team battle.
            *     Example: `coders,zhigalko_sergei-fan-club,hhSwTKZv`
-           *      */
+           */
           teams: string;
           /** @description Number team leaders per team. */
           nbLeaders: number;
@@ -9778,29 +9745,39 @@ export interface operations {
         pgnInJson?: boolean;
         /** @description Include the PGN tags. */
         tags?: boolean;
-        /** @description Include clock status when available.
+        /**
+         * @description Include clock status when available.
          *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
          *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-         *      */
+         */
         clocks?: boolean;
-        /** @description Include analysis evaluations and comments, when available.
+        /**
+         * @description Include analysis evaluations and comments, when available.
          *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
          *     Or in an `analysis` JSON field, depending on the response type.
-         *      */
+         */
         evals?: boolean;
-        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
-         *      */
+        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON. */
         accuracy?: boolean;
-        /** @description Include the opening name.
+        /**
+         * @description Include the opening name.
          *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-         *      */
+         */
         opening?: boolean;
-        /** @description Plies which mark the beginning of the middlegame and endgame.
+        /**
+         * @description Plies which mark the beginning of the middlegame and endgame.
          *     Only available in JSON
-         *      */
+         */
         division?: boolean;
       };
-      header?: never;
+      header?: {
+        /**
+         * @description Specify the desired response format.
+         *     Use `application/x-chess-pgn` to get the games in PGN format.
+         *     Use `application/x-ndjson` to get the games in ndjson format. [Read about ndjson here](#description/streaming-with-nd-json) and how you can parse it in Javascript.
+         */
+        Accept?: components["parameters"]["AcceptPgnOrNdjson"];
+      };
       path: {
         /** @description The tournament ID. */
         id: string;
@@ -9827,9 +9804,10 @@ export interface operations {
       query?: {
         /** @description Max number of players to fetch */
         nb?: number;
-        /** @description Add a `sheet` field to the player document.
+        /**
+         * @description Add a `sheet` field to the player document.
          *     It's an expensive server computation that slows down the stream.
-         *      */
+         */
         sheet?: boolean;
       };
       header?: never;
@@ -9904,10 +9882,11 @@ export interface operations {
       query?: {
         /** @description Max number of tournaments to fetch */
         nb?: number;
-        /** @description Include tournaments in the given status: "Created" (10), "Started" (20), "Finished" (30)
+        /**
+         * @description Include tournaments in the given status: "Created" (10), "Started" (20), "Finished" (30)
          *     You can add this parameter more than once to include tournaments in different statuses.
          *     Example: `?status=10&status=20`
-         *      */
+         */
         status?: 10 | 20 | 30;
       };
       header?: never;
@@ -9936,8 +9915,7 @@ export interface operations {
       query?: {
         /** @description Max number of tournaments to fetch */
         nb?: number;
-        /** @description Include the player performance rating in the response, at some cost for the server.
-         *      */
+        /** @description Include the player performance rating in the response, at some cost for the server. */
         performance?: boolean;
       };
       header?: never;
@@ -10032,7 +10010,6 @@ export interface operations {
            * @description How long to wait between each round, in seconds.
            *     Set to 99999999 to manually schedule each round from the tournament UI.
            *     If empty or -1, a sensible value is picked automatically.
-           *
            * @enum {integer}
            */
           roundInterval?:
@@ -10067,11 +10044,13 @@ export interface operations {
           rated?: boolean;
           /** @description Make the tournament private and restrict access with a password. */
           password?: string;
-          /** @description Usernames of players that must not play together.
+          /**
+           * @description Usernames of players that must not play together.
            *     Two usernames per line, separated by a space.
-           *      */
+           */
           forbiddenPairings?: string;
-          /** @description Manual pairings for the next round.
+          /**
+           * @description Manual pairings for the next round.
            *     Two usernames per line, separated by a space. Example:
            *     ```
            *     PlayerA PlayerB
@@ -10082,7 +10061,7 @@ export interface operations {
            *     PlayerE 1
            *     ```
            *     Missing players will be considered absent and get zero points.
-           *      */
+           */
           manualPairings?: string;
           /**
            * @description Who can read and write in the chat.
@@ -10090,7 +10069,6 @@ export interface operations {
            *     - 10 = Only team leaders
            *     - 20 = Only team members
            *     - 30 = All Lichess players
-           *
            * @default 20
            * @enum {integer}
            */
@@ -10143,15 +10121,15 @@ export interface operations {
            * @description Only let players join if they have played their last swiss game.
            *     If they failed to show up in a recent swiss event, they won't be able to enter yours.
            *     This results in a better swiss experience for the players who actually show up.
-           *
            * @default false
            */
           "conditions.playYourGames"?: boolean;
-          /** @description Predefined list of usernames that are allowed to join, separated by commas.
+          /**
+           * @description Predefined list of usernames that are allowed to join, separated by commas.
            *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
            *     Adding `%titled` to the list additionally allows any titled player to join.
            *     Example: `thibault,german11,%titled`
-           *      */
+           */
           "conditions.allowList"?: string;
         };
       };
@@ -10273,7 +10251,6 @@ export interface operations {
            * @description How long to wait between each round, in seconds.
            *     Set to 99999999 to manually schedule each round from the tournament UI, or [with the API](#tag/Swiss-tournaments/operation/apiSwissScheduleNextRound).
            *     If empty or -1, a sensible value is picked automatically.
-           *
            * @enum {integer}
            */
           roundInterval?:
@@ -10308,15 +10285,17 @@ export interface operations {
           rated?: boolean;
           /** @description Make the tournament private and restrict access with a password. */
           password?: string;
-          /** @description Usernames of players that must not play together.
+          /**
+           * @description Usernames of players that must not play together.
            *     Two usernames per line, separated by a space.
-           *      */
+           */
           forbiddenPairings?: string;
-          /** @description Manual pairings for the next round.
+          /**
+           * @description Manual pairings for the next round.
            *     Two usernames per line, separated by a space.
            *     Present players without a valid pairing will be given a bye, which is worth 1 point.
            *     Forfeited players will get 0 points.
-           *      */
+           */
           manualPairings?: string;
           /**
            * @description Who can read and write in the chat.
@@ -10324,7 +10303,6 @@ export interface operations {
            *     - 10 = Only team leaders
            *     - 20 = Only team members
            *     - 30 = All Lichess players
-           *
            * @default 20
            * @enum {integer}
            */
@@ -10377,15 +10355,15 @@ export interface operations {
            * @description Only let players join if they have played their last swiss game.
            *     If they failed to show up in a recent swiss event, they won't be able to enter yours.
            *     This results in a better swiss experience for the players who actually show up.
-           *
            * @default false
            */
           "conditions.playYourGames"?: boolean;
-          /** @description Predefined list of usernames that are allowed to join, separated by commas.
+          /**
+           * @description Predefined list of usernames that are allowed to join, separated by commas.
            *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
            *     Adding `%titled` to the list additionally allows any titled player to join.
            *     Example: `thibault,german11,%titled`
-           *      */
+           */
           "conditions.allowList"?: string;
         };
       };
@@ -10605,29 +10583,39 @@ export interface operations {
         pgnInJson?: boolean;
         /** @description Include the PGN tags. */
         tags?: boolean;
-        /** @description Include clock status when available.
+        /**
+         * @description Include clock status when available.
          *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
          *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-         *      */
+         */
         clocks?: boolean;
-        /** @description Include analysis evaluations and comments, when available.
+        /**
+         * @description Include analysis evaluations and comments, when available.
          *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
          *     Or in an `analysis` JSON field, depending on the response type.
-         *      */
+         */
         evals?: boolean;
-        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
-         *      */
+        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON. */
         accuracy?: boolean;
-        /** @description Include the opening name.
+        /**
+         * @description Include the opening name.
          *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-         *      */
+         */
         opening?: boolean;
-        /** @description Plies which mark the beginning of the middlegame and endgame.
+        /**
+         * @description Plies which mark the beginning of the middlegame and endgame.
          *     Only available in JSON
-         *      */
+         */
         division?: boolean;
       };
-      header?: never;
+      header?: {
+        /**
+         * @description Specify the desired response format.
+         *     Use `application/x-chess-pgn` to get the games in PGN format.
+         *     Use `application/x-ndjson` to get the games in ndjson format. [Read about ndjson here](#description/streaming-with-nd-json) and how you can parse it in Javascript.
+         */
+        Accept?: components["parameters"]["AcceptPgnOrNdjson"];
+      };
       path: {
         /** @description The tournament ID. */
         id: string;
@@ -10690,14 +10678,11 @@ export interface operations {
       query?: {
         /** @description How many tournaments to download. */
         max?: number;
-        /** @description [Filter] Only swiss tournaments in this current state.
-         *      */
-        status?: components["schemas"]["SwissStatus"] & unknown;
-        /** @description [Filter] Only swiss tournaments created by a given user.
-         *      */
+        /** @description [Filter] Only swiss tournaments in this current state. */
+        status?: components["schemas"]["SwissStatus"];
+        /** @description [Filter] Only swiss tournaments created by a given user. */
         createdBy?: string;
-        /** @description [Filter] Only swiss tournaments with a given name.
-         *      */
+        /** @description [Filter] Only swiss tournaments with a given name. */
         name?: string;
       };
       header?: never;
@@ -10724,21 +10709,25 @@ export interface operations {
   studyChapterPgn: {
     parameters: {
       query?: {
-        /** @description Include clock comments in the PGN moves, when available.
+        /**
+         * @description Include clock comments in the PGN moves, when available.
          *     Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
-         *      */
+         */
         clocks?: boolean;
-        /** @description Include analysis and annotator comments in the PGN moves, when available.
+        /**
+         * @description Include analysis and annotator comments in the PGN moves, when available.
          *     Example: `12. Bxf6 { [%eval 0.23] } a3 { White is in a pickle. }`
-         *      */
+         */
         comments?: boolean;
-        /** @description Include non-mainline moves, when available.
+        /**
+         * @description Include non-mainline moves, when available.
          *     Example: `4. d4 Bb4+ (4... Nc6 5. Nf3 Bb4+ 6. Bd2 (6. Nbd2 O-O 7. O-O) 6... Bd6) 5. Nd2`
-         *      */
+         */
         variations?: boolean;
-        /** @description Add a `Orientation` PGN tag with the chapter predefined orientation.
+        /**
+         * @description Add a `Orientation` PGN tag with the chapter predefined orientation.
          *     Example: `[Orientation "white"]`
-         *      */
+         */
         orientation?: boolean;
       };
       header?: never;
@@ -10766,21 +10755,25 @@ export interface operations {
   studyAllChaptersPgn: {
     parameters: {
       query?: {
-        /** @description Include clock comments in the PGN moves, when available.
+        /**
+         * @description Include clock comments in the PGN moves, when available.
          *     Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
-         *      */
+         */
         clocks?: boolean;
-        /** @description Include analysis and annotator comments in the PGN moves, when available.
+        /**
+         * @description Include analysis and annotator comments in the PGN moves, when available.
          *     Example: `12. Bxf6 { [%eval 0.23] } a3 { White is in a pickle. }`
-         *      */
+         */
         comments?: boolean;
-        /** @description Include non-mainline moves, when available.
+        /**
+         * @description Include non-mainline moves, when available.
          *     Example: `4. d4 Bb4+ (4... Nc6 5. Nf3 Bb4+ 6. Bd2 (6. Nbd2 O-O 7. O-O) 6... Bd6) 5. Nd2`
-         *      */
+         */
         variations?: boolean;
-        /** @description Add a `Orientation` PGN tag with the chapter predefined orientation.
+        /**
+         * @description Add a `Orientation` PGN tag with the chapter predefined orientation.
          *     Example: `[Orientation "white"]`
-         *      */
+         */
         orientation?: boolean;
       };
       header?: never;
@@ -10842,12 +10835,12 @@ export interface operations {
     requestBody: {
       content: {
         "application/x-www-form-urlencoded": {
-          /** @description PGN to import. Can contain multiple games separated by 2 or more newlines.
-           *      */
+          /** @description PGN to import. Can contain multiple games separated by 2 or more newlines. */
           pgn: string;
-          /** @description Name of the new chapter.
+          /**
+           * @description Name of the new chapter.
            *     If not specified, or if multiple chapters are created, the names will be inferred from the PGN tags.
-           *      */
+           */
           name?: string;
           /**
            * @description Default board orientation.
@@ -10896,8 +10889,7 @@ export interface operations {
     requestBody: {
       content: {
         "application/x-www-form-urlencoded": {
-          /** @description PGN text containing the tags. Only the tags are used. Moves are just ignored.
-           *      */
+          /** @description PGN text containing the tags. Only the tags are used. Moves are just ignored. */
           pgn: string;
         };
       };
@@ -10925,21 +10917,25 @@ export interface operations {
   studyExportAllPgn: {
     parameters: {
       query?: {
-        /** @description Include clock comments in the PGN moves, when available.
+        /**
+         * @description Include clock comments in the PGN moves, when available.
          *     Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
-         *      */
+         */
         clocks?: boolean;
-        /** @description Include analysis and annotator comments in the PGN moves, when available.
+        /**
+         * @description Include analysis and annotator comments in the PGN moves, when available.
          *     Example: `12. Bxf6 { [%eval 0.23] } a3 { White is in a pickle. }`
-         *      */
+         */
         comments?: boolean;
-        /** @description Include non-mainline moves, when available.
+        /**
+         * @description Include non-mainline moves, when available.
          *     Example: `4. d4 Bb4+ (4... Nc6 5. Nf3 Bb4+ 6. Bd2 (6. Nbd2 O-O 7. O-O) 6... Bd6) 5. Nd2`
-         *      */
+         */
         variations?: boolean;
-        /** @description Add a `Orientation` PGN tag with the chapter predefined orientation.
+        /**
+         * @description Add a `Orientation` PGN tag with the chapter predefined orientation.
          *     Example: `[Orientation "white"]`
-         *      */
+         */
         orientation?: boolean;
       };
       header?: never;
@@ -11231,9 +11227,10 @@ export interface operations {
       path: {
         /** @description The broadcast tournament ID */
         broadcastTournamentId: string;
-        /** @description The unique player ID within the broadcast. This is usually their fideId.
+        /**
+         * @description The unique player ID within the broadcast. This is usually their fideId.
          *     If the player does not have a fideId, it is their name. Consult the [list of players for the broadcast](#tag/Broadcasts/operation/broadcastPlayersGet) for which ID to use.
-         *      */
+         */
         playerId: string;
       };
       cookie?: never;
@@ -11733,9 +11730,10 @@ export interface operations {
   teamIdUsers: {
     parameters: {
       query?: {
-        /** @description Full user documents with performance ratings.
+        /**
+         * @description Full user documents with performance ratings.
          *     This limits the response to 1,000 users.
-         *      */
+         */
         full?: boolean;
       };
       header?: never;
@@ -11775,14 +11773,11 @@ export interface operations {
       query?: {
         /** @description How many tournaments to download. */
         max?: number;
-        /** @description [Filter] Only arena tournaments in this current state.
-         *      */
-        status?: components["schemas"]["ArenaStatusName"] & unknown;
-        /** @description [Filter] Only arena tournaments created by a given user.
-         *      */
+        /** @description [Filter] Only arena tournaments in this current state. */
+        status?: components["schemas"]["ArenaStatusName"];
+        /** @description [Filter] Only arena tournaments created by a given user. */
         createdBy?: string;
-        /** @description [Filter] Only arena tournaments with a given name.
-         *      */
+        /** @description [Filter] Only arena tournaments with a given name. */
         name?: string;
       };
       header?: never;
@@ -12064,29 +12059,37 @@ export interface operations {
       query: {
         /** @description The beginning of a username */
         term: string;
-        /** @description - `false` returns an array of usernames
+        /** @description If `true`, only checks if the user exists. */
+        exists?: boolean;
+        /**
+         * @description - `false` returns an array of usernames
          *     - `true` returns an object with matching users
-         *      */
+         */
         object?: boolean;
-        /** @description - `false` returns an array of usernames
+        /**
+         * @description - `false` returns an array of usernames
          *     - `true` returns an array of usernames with preferred casing
-         *      */
+         */
         names?: boolean;
-        /** @description Returns followed players matching `term` if any, else returns other players.
+        /**
+         * @description Returns followed players matching `term` if any, else returns other players.
          *     Requires [OAuth](#tag/OAuth).
-         *      */
+         */
         friend?: boolean;
-        /** @description Search within a team.
+        /**
+         * @description Search within a team.
          *     Use team ID/slug.
-         *      */
+         */
         team?: string;
-        /** @description Search within a arena tournament.
+        /**
+         * @description Search within a arena tournament.
          *     Use tournament ID.
-         *      */
+         */
         tour?: string;
-        /** @description Search within a Swiss tournament.
-         *      */
+        /** @description Search within a Swiss tournament. */
         swiss?: string;
+        /** @description Only search for players who also have a teacher role. */
+        teacher?: boolean;
       };
       header?: never;
       path?: never;
@@ -12315,9 +12318,10 @@ export interface operations {
            */
           rated?: boolean;
           variant?: components["schemas"]["VariantKey"];
-          /** @description The rating range of potential opponents. Better left empty.
+          /**
+           * @description The rating range of potential opponents. Better left empty.
            *     Example: 1500-1800
-           *      */
+           */
           ratingRange?: string;
         } & (
           | {
@@ -13189,17 +13193,17 @@ export interface operations {
           color?: components["schemas"]["ChallengeColor"];
           variant?: components["schemas"]["VariantKey"];
           fen?: components["schemas"]["FromPositionFEN"];
-          /** @description If set, the response is streamed as [ndjson](#section/Introduction/Streaming-with-ND-JSON).
+          /**
+           * @description If set, the response is streamed as [ndjson](#description/streaming-with-nd-json).
            *     The challenge is kept alive until the connection is closed by the client.
            *     When the challenge is accepted, declined or canceled, a message of the form `{"done":"accepted"}` is sent,
            *     then the connection is closed by the server.
            *     If not set, the response is not streamed, and the challenge expires after 20s if not accepted.
-           *      */
+           */
           keepAliveStream?: boolean;
           /**
            * @description Extra game rules separated by commas.
            *     Example: `noAbort,noRematch`
-           *
            * @enum {string}
            */
           rules?:
@@ -13494,7 +13498,6 @@ export interface operations {
            * @description Extra game rules separated by commas.
            *     Example: `noRematch,noGiveTime`
            *     The `noAbort` rule is available for Lichess admins only
-           *
            * @enum {string}
            */
           rules?:
@@ -13503,11 +13506,12 @@ export interface operations {
             | "noClaimWin"
             | "noEarlyDraw"
             | "noAbort";
-          /** @description Optional pair of usernames, separated by a comma.
+          /**
+           * @description Optional pair of usernames, separated by a comma.
            *     If set, only these users will be allowed to join the game.
            *     The first username gets the white pieces.
            *     Example: `Username1,Username2`
-           *      */
+           */
           users?: string;
           /**
            * Format: int64
@@ -13599,18 +13603,17 @@ export interface operations {
     requestBody: {
       content: {
         "application/x-www-form-urlencoded": {
-          /** @description OAuth tokens of all the players to pair, with the syntax `tokenOfWhitePlayerInGame1:tokenOfBlackPlayerInGame1,tokenOfWhitePlayerInGame2:tokenOfBlackPlayerInGame2,...`.
+          /**
+           * @description OAuth tokens of all the players to pair, with the syntax `tokenOfWhitePlayerInGame1:tokenOfBlackPlayerInGame1,tokenOfWhitePlayerInGame2:tokenOfBlackPlayerInGame2,...`.
            *     The 2 tokens of the players of a game are separated with `:`. The first token gets the white pieces. Games are separated with `,`.
            *     Up to 1000 tokens can be sent, for a max of 500 games.
            *     Each token must be included at most once.
            *     Example: `token1:token2,token3:token4,token5:token6`
-           *      */
+           */
           players?: string;
-          /** @description Clock initial time in seconds. Example: `600`
-           *      */
+          /** @description Clock initial time in seconds. Example: `600` */
           "clock.limit"?: number;
-          /** @description Clock increment in seconds. Example: `2`
-           *      */
+          /** @description Clock increment in seconds. Example: `2` */
           "clock.increment"?: number;
           /**
            * @description Days per turn. For correspondence games only.
@@ -13623,7 +13626,6 @@ export interface operations {
            *     Up to 7 days in the future.
            *     Omit, or set to current date and time, to start the games immediately.
            *     Example: `1612289869919`
-           *
            */
           pairAt?: number;
           /**
@@ -13633,7 +13635,6 @@ export interface operations {
            *     Note that the clocks can start earlier than specified, if players start making moves in the game.
            *     If omitted, the clocks will not start automatically.
            *     Example: `1612289869919`
-           *
            */
           startClocksAt?: number;
           /**
@@ -13648,14 +13649,12 @@ export interface operations {
            *     `{opponent}` and `{game}` are placeholders that will be replaced with the opponent and the game URLs.
            *     You can omit this field to send the default message,
            *     but if you set your own message, it must at least contain the `{game}` placeholder.
-           *
            * @default Your game with {opponent} is ready: {game}.
            */
           message?: string;
           /**
            * @description Extra game rules separated by commas.
            *     Example: `noAbort,noRematch`
-           *
            * @enum {string}
            */
           rules?:
@@ -13794,33 +13793,44 @@ export interface operations {
         pgnInJson?: boolean;
         /** @description Include the PGN tags. */
         tags?: boolean;
-        /** @description Include clock status when available.
+        /**
+         * @description Include clock status when available.
          *     Either as PGN comments: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
          *     Or in a `clocks` JSON field, as centisecond integers, depending on the response type.
-         *      */
+         */
         clocks?: boolean;
-        /** @description Include analysis evaluations and comments, when available.
+        /**
+         * @description Include analysis evaluations and comments, when available.
          *     Either as PGN comments: `12. Bxf6 { [%eval 0.23] } a3 { [%eval -1.09] }`
          *     Or in an `analysis` JSON field, depending on the response type.
-         *      */
+         */
         evals?: boolean;
-        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON.
-         *      */
+        /** @description Include [accuracy percent](https://lichess.org/page/accuracy) of each player, when available. Only available in JSON. */
         accuracy?: boolean;
-        /** @description Include the opening name.
+        /**
+         * @description Include the opening name.
          *     Example: `[Opening "King's Gambit Accepted, King's Knight Gambit"]`
-         *      */
+         */
         opening?: boolean;
-        /** @description Plies which mark the beginning of the middlegame and endgame.
+        /**
+         * @description Plies which mark the beginning of the middlegame and endgame.
          *     Only available in JSON
-         *      */
+         */
         division?: boolean;
-        /** @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
+        /**
+         * @description Insert textual annotations in the PGN about the opening, analysis variations, mistakes, and game termination.
          *     Example: `5... g4? { (-0.98 → 0.60) Mistake. Best move was h6. } (5... h6 6. d4 Ne7 7. g3 d5 8. exd5 fxg3 9. hxg3 c6 10. dxc6)`
-         *      */
+         */
         literate?: boolean;
       };
-      header?: never;
+      header?: {
+        /**
+         * @description Specify the desired response format.
+         *     Use `application/x-chess-pgn` to get the games in PGN format.
+         *     Use `application/x-ndjson` to get the games in ndjson format. [Read about ndjson here](#description/streaming-with-nd-json) and how you can parse it in Javascript.
+         */
+        Accept?: components["parameters"]["AcceptPgnOrNdjson"];
+      };
       path: {
         id: string;
       };
@@ -14420,7 +14430,6 @@ export interface operations {
          *     Play additional moves starting from `fen`.
          *     Required to find an opening name, if `fen` is not an exact match
          *     for a named position.
-         *
          * @example d2d4,d7d5,c2c4,c7c6,c4d5
          */
         play?: string;
@@ -14466,17 +14475,17 @@ export interface operations {
          *     Play additional moves starting from `fen`.
          *     Required to find an opening name, if `fen` is not an exact match
          *     for a named position.
-         *
          * @example d2d4,d7d5,c2c4,c7c6,c4d5
          */
         play?: string;
         /** @description Comma separated list of game speeds to filter by */
         speeds?: components["schemas"]["Speed"][];
-        /** @description Comma separated list of ratings groups to filter by.
+        /**
+         * @description Comma separated list of ratings groups to filter by.
          *     Each group ranges from its value to the next higher
          *     group in the enum (`0` from 0 to 999, `1000` from 1000 to 1199,
          *     ..., `2500` from 2500 to any rating above).
-         *      */
+         */
         ratings?: (0 | 1000 | 1200 | 1400 | 1600 | 1800 | 2000 | 2200 | 2500)[];
         /** @description Include only games from this month or later */
         since?: string;
@@ -14484,17 +14493,19 @@ export interface operations {
         until?: string;
         /** @description Number of most common moves to display */
         moves?: number;
-        /** @description Maximum number of top games to display.
+        /**
+         * @description Maximum number of top games to display.
          *
          *     Due to the way banned users are handled internally, the response may
          *     contain fewer games than expected.
-         *      */
+         */
         topGames?: number;
-        /** @description Maximum number of recent games to display.
+        /**
+         * @description Maximum number of recent games to display.
          *
          *     Due to the way banned users are handled internally, the response may
          *     contain fewer games than expected.
-         *      */
+         */
         recentGames?: number;
         /** @description Optionally retrieve history */
         history?: boolean;
@@ -14542,7 +14553,6 @@ export interface operations {
          *     Play additional moves starting from `fen`.
          *     Required to find an opening name, if `fen` is not an exact match
          *     for a named position.
-         *
          * @example d2d4,d7d5
          */
         play?: string;
@@ -14605,10 +14615,11 @@ export interface operations {
       query: {
         /** @description X-FEN of the position. Underscores allowed. */
         fen: string;
-        /** @description When to query the tablebase for `dtc` values. The current default
+        /**
+         * @description When to query the tablebase for `dtc` values. The current default
          *     is `never`. It is eventually going to be `auxiliary`, i.e., only when
          *     the position is not covered by one of the other tablebases.
-         *      */
+         */
         dtc?: "never" | "auxiliary" | "always";
       };
       header?: never;
