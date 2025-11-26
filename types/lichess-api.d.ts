@@ -7755,6 +7755,10 @@ export interface operations {
       query?: {
         /** @description Include user trophies */
         trophies?: boolean;
+        /** @description Include user profile data */
+        profile?: boolean;
+        /** @description Include global lichess ranking for each perf */
+        rank?: boolean;
       };
       header?: never;
       path: {
