@@ -14,9 +14,9 @@
     "gen": "openapi-typescript  ../doc/specs/lichess-api.yaml -o lichess-api.d.ts --default-non-nullable=false"
   },
   "devDependencies": {
-    "openapi-typescript": "^7.8.0",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.3"
+    "openapi-typescript": "^7.10.1",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3"
   },
-  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac"
+  "packageManager": "pnpm@10.23.0+sha512.21c4e5698002ade97e4efe8b8b4a89a8de3c85a37919f957e7a0f30f38fbc5bbdd05980ffe29179b2fb6e6e691242e098d945d1601772cad0fef5fb6411e2a4b"
 }
