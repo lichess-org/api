@@ -16,7 +16,7 @@
     "vite-plugin-restart": "^2.0.0"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "pnpm bundle && vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "spectral": "spectral lint --fail-severity=warn specs/*.yaml",
