@@ -5,7 +5,7 @@ post:
     Create a new broadcast round to relay external games.
     This endpoint accepts the same form data as the web form.
 
-    Choose one between `syncUrl`, `syncUrls`, `syncIds` and `syncUsers`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#operation/broadcastPush)
+    Choose one between `syncUrl`, `syncUrls`, `syncIds` and `syncUsers`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#tag/broadcasts/post/apibroadcastroundbroadcastroundidpush)
   tags:
     - Broadcasts
   security:

@@ -77,7 +77,7 @@ value:
     {
       "id": "lichess-bots",
       "name": "Lichess Bots",
-      "description": "All bot makers welcome.\r\n\r\n\r\nJOINING THIS TEAM DOES **NOT** GRANT THE BOT STATUS.\r\nInstead, see https://lichess.org/api#operation/botAccountUpgrade\r\n\r\n- [How to create a Lichess bot](https://lichess.org/@/thibault/blog/how-to-create-a-lichess-bot/FuKyvDuB)\r\n- [Watch Bot TV](https://lichess.org/tv/bot)",
+      "description": "All bot makers welcome.\r\n\r\n\r\nJOINING THIS TEAM DOES **NOT** GRANT THE BOT STATUS.\r\nInstead, see https://lichess.org/api#tag/bot/post/apibotaccountupgrade\r\n\r\n- [How to create a Lichess bot](https://lichess.org/@/thibault/blog/how-to-create-a-lichess-bot/FuKyvDuB)\r\n- [Watch Bot TV](https://lichess.org/tv/bot)",
       "open": true,
       "leader": { "name": "thibot", "title": "BOT", "id": "thibot" },
       "nbMembers": 6957,

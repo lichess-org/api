@@ -2,7 +2,7 @@ post:
   operationId: gamesByIdsAdd
   summary: Add game IDs to stream
   description: |
-    Add new game IDs for [an existing stream](#operation/gamesByIds) to watch.
+    Add new game IDs for [an existing stream](#tag/games/post/apistreamgamesstreamid) to watch.
     The stream will immediately outputs the games that already exists, then emit an event each time a game is started or finished.
   tags:
     - Games
@@ -12,7 +12,7 @@ post:
       name: streamId
       schema:
         type: string
-        description: The stream ID you used to [create the stream](#operation/gamesByIds).
+        description: The stream ID you used to [create the stream](#tag/games/post/apistreamgamesstreamid).
         example: "myAppName-someRandomId"
       required: true
   requestBody:

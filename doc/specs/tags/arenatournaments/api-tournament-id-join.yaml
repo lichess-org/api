@@ -3,7 +3,7 @@ post:
   summary: Join an Arena tournament
   description: |
     Join an Arena tournament, possibly with a password and/or a team.
-    Also unpauses if you had previously [paused](#operation/apiTournamentWithdraw) the tournament.
+    Also unpauses if you had previously [paused](#tag/arena-tournaments/post/apitournamentidwithdraw) the tournament.
   tags:
     - "Arena tournaments"
   security:
