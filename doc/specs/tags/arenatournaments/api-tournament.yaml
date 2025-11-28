@@ -163,7 +163,7 @@ post:
               type: string
               description: |
                 Set the ID of a team you lead to create a team battle.
-                The other teams can be added using the [team battle edit endpoint](#operation/apiTournamentTeamBattlePost).
+                The other teams can be added using the [team battle edit endpoint](#tag/arena-tournaments/post/apitournamentteam-battleid).
             conditions.teamMember.teamId:
               type: string
               description: |

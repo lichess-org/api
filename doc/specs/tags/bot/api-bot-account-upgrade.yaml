@@ -7,7 +7,7 @@ post:
     To upgrade an account to Bot, use the [official lichess-bot client](https://github.com/lichess-bot-devs/lichess-bot), or follow these steps:
     - Create an [API access token](https://lichess.org/account/oauth/token/create?scopes[]=bot:play) with "Play bot moves" permission.
     - `curl -d '' https://lichess.org/api/bot/account/upgrade -H "Authorization: Bearer <yourTokenHere>"`
-    To know if an account has already been upgraded, use the [Get my profile API](#operation/accountMe):
+    To know if an account has already been upgraded, use the [Get my profile API](#tag/account/get/apiaccount):
     the `title` field should be set to `BOT`.
   tags:
     - Bot
