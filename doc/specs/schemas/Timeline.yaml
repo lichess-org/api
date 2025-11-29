@@ -36,6 +36,8 @@ properties:
           plan-renew: "./TimelineEntryPlanRenew.yaml"
           ublog-post-like: "./TimelineEntryUblogPostLike.yaml"
           stream-start: "./TimelineEntryStreamStart.yaml"
+      required:
+        - type
   users:
     type: object
     additionalProperties:
