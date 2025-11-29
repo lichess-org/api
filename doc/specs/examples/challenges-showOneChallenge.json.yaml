@@ -1,10 +1,26 @@
 value:
   {
-    "id": "PmUJnRkb",
-    "url": "https://lichess.org/PmUJnRkb",
+    "id": "3FezBlkt",
+    "url": "https://lichess.org/3FezBlkt",
     "status": "created",
-    "challenger": { "name": "Bobby", "patron": true, "patronColor": 1, "id": "bobby", "rating": 1804 },
-    "destUser": { "name": "Mary", "patron": true, "patronColor": 1, "id": "mary", "rating": 1075 },
+    "challenger":
+      {
+        "name": "Bobby",
+        "flair": "people.artist-medium-light-skin-tone",
+        "patron": true,
+        "patronColor": 1,
+        "id": "bobby",
+        "rating": 1627,
+      },
+    "destUser":
+      {
+        "name": "Mary",
+        "flair": "people.folded-hands-light-skin-tone",
+        "patron": true,
+        "patronColor": 1,
+        "id": "mary",
+        "rating": 1156,
+      },
     "variant": { "key": "standard", "name": "Standard", "short": "Std" },
     "rated": false,
     "speed": "correspondence",

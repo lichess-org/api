@@ -1,1 +1,13 @@
-value: { "result": [{ "name": "Bobby", "id": "bobby" }] }
+value:
+  {
+    "result":
+      [
+        {
+          "name": "Bobby",
+          "flair": "people.artist-medium-light-skin-tone",
+          "patron": true,
+          "patronColor": 1,
+          "id": "bobby",
+        },
+      ],
+  }

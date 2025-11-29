@@ -1,15 +1,15 @@
 value:
   {
-    "date": 1763778828867,
+    "date": 1764375040769,
     "win": true,
     "puzzle":
       {
-        "id": "8pqKF",
-        "rating": 1492,
-        "plays": 19407,
-        "solution": ["f3e2", "b5e2", "d1e2"],
-        "themes": ["middlegame", "trappedPiece", "short", "advantage"],
-        "fen": "r4rk1/p4ppp/1pnbpn2/1qNp4/1P1P4/P3BB2/2P2PPP/R2Q1RK1 w - - 0 1",
-        "lastMove": "b7b6",
+        "id": "AOszy",
+        "rating": 1585,
+        "plays": 8294,
+        "solution": ["b7h1", "e1d2", "h1b1", "b3b1", "b8b1"],
+        "themes": ["endgame", "xRayAttack", "long", "crushing"],
+        "fen": "1r5k/1qp3pp/p7/8/3P2p1/1Q2P3/P1P2P1P/1R2K3 b - - 1 1",
+        "lastMove": "c1b1",
       },
   }

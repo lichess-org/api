@@ -2,30 +2,24 @@ value:
   {
     "game":
       {
-        "id": "EwmejaZS",
-        "perf": { "key": "bullet", "name": "Bullet" },
+        "id": "QtZgfBb2",
+        "perf": { "key": "blitz", "name": "Blitz" },
         "rated": true,
         "players":
           [
-            { "name": "johnny67", "id": "johnny67", "color": "white", "rating": 1729 },
-            {
-              "name": "keepyourcharge",
-              "flair": "objects.bell-with-slash",
-              "id": "keepyourcharge",
-              "color": "black",
-              "rating": 1643,
-            },
+            { "name": "Nenaddusan", "id": "nenaddusan", "color": "white", "rating": 2189 },
+            { "name": "obi2knobi", "id": "obi2knobi", "color": "black", "rating": 2223 },
           ],
-        "pgn": "e4 e6 d4 d5 Nc3 c5 Bb5+ Bd7 dxc5 Bxb5 Nxb5 Qa5+ Nc3 Bxc5 exd5 Nf6 dxe6 O-O exf7+ Rxf7 Ne2 Nc6 O-O Rd8 Qe1 Ng4 Ne4 Rxf2 Qxa5",
-        "clock": "¾+3",
+        "pgn": "e4 c5 c3 Nf6 e5 Nd5 d4 cxd4 cxd4 e6 Nc3 Nxc3 bxc3 Qc7 Bd2 g5 Rc1 h6 h4 gxh4 f4 d6 Bd3 Nc6 Nf3 Be7 Qe2 dxe5 fxe5 Bd7 Nxh4 O-O-O O-O Bg5 Nf3 Rhg8 Nxg5 hxg5 Rxf7 Qb6 Be3 Qa5 c4 g4 Rf4 g3 Rf3 Rg7 Qb2 Rh8 Be4 Qd8 d5 Rh4 dxc6 Bxc6 Bxc6 Qh8 Kf1 Rh1+ Bg1",
+        "clock": "3+0",
       },
     "puzzle":
       {
-        "id": "vnWJX",
-        "rating": 1886,
-        "plays": 697,
-        "solution": ["f2f1", "g1f1", "d8d1", "a5e1", "g4h2"],
-        "themes": ["middlegame", "attraction", "long", "mateIn3", "kingsideAttack", "doubleCheck"],
-        "initialPly": 28,
+        "id": "E8HNT",
+        "rating": 1707,
+        "plays": 173,
+        "solution": ["h1g1", "f1g1", "h8h2", "g1f1", "h2h1", "f1e2", "h1g2", "e2d3", "g2b2"],
+        "themes": ["middlegame", "crushing", "sacrifice", "deflection", "veryLong", "skewer", "attraction"],
+        "initialPly": 60,
       },
   }

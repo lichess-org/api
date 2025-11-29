@@ -4,11 +4,11 @@ value:
     "duels": [],
     "secondsToStart": 300,
     "standing": { "page": 1, "players": [] },
-    "id": "UXyAfoBc",
+    "id": "6PvdYSkq",
     "createdBy": "bobby",
-    "startsAt": "2025-11-22T02:38:28.57373522Z",
+    "startsAt": "2025-11-29T00:15:21.068009241Z",
     "system": "arena",
-    "fullName": "Tiviakov Arena",
+    "fullName": "Osnos Arena",
     "minutes": 60,
     "perf": { "key": "blitz", "name": "Blitz", "icon": ")" },
     "clock": { "limit": 300, "increment": 0 },
@@ -16,11 +16,7 @@ value:
     "rated": true,
     "berserkable": true,
     "verdicts": { "list": [{ "condition": "Bot players are not allowed", "verdict": "ok" }], "accepted": true },
-    "quote":
-      {
-        "text": "Condemned by theory, the Allgaier, certainly one of the most romantic of gambits, is generally successful in practice (and yet so rarely played). Why does the defender often seem hypnotized, quite demoralized?",
-        "author": "Tony Santasiere",
-      },
-    "greatPlayer": { "name": "Tiviakov", "url": "https://wikipedia.org/wiki/Sergei_Tiviakov" },
+    "quote": { "text": "There just isn't enough televised chess.", "author": "David Letterman" },
+    "greatPlayer": { "name": "Osnos", "url": "https://wikipedia.org/wiki/Vyacheslav_Osnos" },
     "myUsername": "Bobby",
   }

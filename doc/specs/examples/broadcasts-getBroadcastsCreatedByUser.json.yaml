@@ -7,54 +7,25 @@ value:
         {
           "tour":
             {
-              "id": "wUGho5y7",
+              "id": "TNDy1dnY",
               "name": "Bobby's Tournament",
               "slug": "bobbys-tournament",
               "info": { "format": "5-round Swiss", "location": "Chess Club" },
-              "createdAt": 1763866266820,
-              "url": "https://lichess.org/broadcast/bobbys-tournament/wUGho5y7",
-              "communityOwner": { "name": "Bobby", "id": "bobby" },
-            },
-        },
-        {
-          "tour":
-            {
-              "id": "qXjSOqY7",
-              "name": "Bobby's Tournament",
-              "slug": "bobbys-tournament",
-              "info": { "format": "5-round Swiss", "location": "Chess Club" },
-              "createdAt": 1763864023184,
-              "url": "https://lichess.org/broadcast/bobbys-tournament/qXjSOqY7",
-              "communityOwner": { "name": "Bobby", "id": "bobby" },
-            },
-        },
-        {
-          "tour":
-            {
-              "id": "AnRSoDWK",
-              "name": "Bobby's Tournament",
-              "slug": "bobbys-tournament",
-              "info": { "format": "5-round Swiss", "location": "Chess Club" },
-              "createdAt": 1763863946773,
-              "url": "https://lichess.org/broadcast/bobbys-tournament/AnRSoDWK",
-              "communityOwner": { "name": "Bobby", "id": "bobby" },
-            },
-        },
-        {
-          "tour":
-            {
-              "id": "bXSeXexO",
-              "name": "Bobby's Tournament",
-              "slug": "bobbys-tournament",
-              "info": { "format": "5-round Swiss", "location": "Chess Club" },
-              "createdAt": 1763863718996,
-              "url": "https://lichess.org/broadcast/bobbys-tournament/bXSeXexO",
-              "communityOwner": { "name": "Bobby", "id": "bobby" },
+              "createdAt": 1764375025578,
+              "url": "https://lichess.org/broadcast/bobbys-tournament/TNDy1dnY",
+              "communityOwner":
+                {
+                  "name": "Bobby",
+                  "flair": "people.artist-medium-light-skin-tone",
+                  "patron": true,
+                  "patronColor": 1,
+                  "id": "bobby",
+                },
             },
         },
       ],
     "previousPage": null,
     "nextPage": null,
-    "nbResults": 4,
+    "nbResults": 1,
     "nbPages": 1,
   }

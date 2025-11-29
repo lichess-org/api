@@ -3,30 +3,24 @@ value:
     "t": "featured",
     "d":
       {
-        "id": "USloptaz",
-        "orientation": "black",
+        "id": "gKGZxLC5",
+        "orientation": "white",
         "players":
           [
-            {
-              "color": "white",
-              "user": { "name": "JurgenSanchez97", "title": "NM", "id": "jurgensanchez97" },
-              "rating": 2913,
-              "seconds": 30,
-            },
+            { "color": "white", "user": { "name": "Bllitzer11", "id": "bllitzer11" }, "rating": 3179, "seconds": 51 },
             {
               "color": "black",
               "user":
                 {
-                  "name": "skilledassassin04",
-                  "title": "CM",
-                  "patron": true,
-                  "patronColor": 3,
-                  "id": "skilledassassin04",
+                  "name": "Rsmon54Terrible",
+                  "title": "FM",
+                  "flair": "objects.graduation-cap",
+                  "id": "rsmon54terrible",
                 },
-              "rating": 3057,
-              "seconds": 30,
+              "rating": 2946,
+              "seconds": 51,
             },
           ],
-        "fen": "r1br2k1/pPq2pbp/4p1p1/8/1BQ5/P7/1PP1NPPP/R3K2R b KQ - 0 19",
+        "fen": "r2q1rk1/pb1nbppp/1p2pn2/3P4/3pP3/2N3P1/PP1N1PBP/R1BQR1K1 w - - 0 12",
       },
   }

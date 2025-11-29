@@ -1,17 +1,55 @@
 value:
   [
     {
-      "name": "Dr_Zee",
+      "name": "lefonghua",
       "title": "FM",
-      "flair": "objects.trumpet",
-      "id": "dr_zee",
-      "stream": { "service": "twitch", "status": "Vapid Rapid - lichess.org", "lang": "en" },
+      "id": "lefonghua",
+      "stream":
+        {
+          "service": "twitch",
+          "status": "$200 Match: Phil vs Vic! | !match !discount !tier3 !gameanalysis !grouplessons !plusprogram | lichess.org",
+          "lang": "en",
+        },
       "streamer":
         {
-          "name": "Chess Time Machine",
-          "headline": "Playing chess and traveling through time",
-          "twitch": "https://www.twitch.tv/chesstimemachine",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=dr_zee:streamer:dr_zee:3rPitq33.jpg&w=350&sig=e9d604696cfc64e24f1e9cf8abb926ce8c3b1253",
+          "name": "Lefong Hua",
+          "headline": "FM Lefong Hua. Professional chess coach from Montreal, Canada.",
+          "twitch": "https://www.twitch.tv/lefonghua",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=lefonghua:streamer:lefonghua:Vr5ViPnv.jpg&w=350&sig=4dec7bb87631c83eb93b427fc24e4726582e6af0",
+        },
+    },
+    {
+      "name": "GurevskoiDV",
+      "id": "gurevskoidv",
+      "stream":
+        { "service": "twitch", "status": "«lichess.org»  [Ru] Играем ежемесячную арену по классике", "lang": "ru" },
+      "streamer":
+        {
+          "name": "GurevskoiDV",
+          "headline": "«lichess.org»  [Ru] Играем ежегодную арену по классике",
+          "description": "Всем ку!\r\nЗвать меня Денис.\r\nНа стримах играем в шахматы, решаем задачи, изучаем шахматную литературу. Знакомимся с шахматной композицией. Шахматы куда больше, чем можно представить. Попробуем разобраться.",
+          "twitch": "https://www.twitch.tv/yumovd",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:gurevskoidv:HQBCRwC5.webp&w=350&sig=fc5eb3513e61c88f72ca498180a7e16874387004",
+        },
+    },
+    {
+      "name": "Romaleili",
+      "flair": "smileys.beaming-face-with-smiling-eyes",
+      "id": "romaleili",
+      "stream":
+        {
+          "service": "youTube",
+          "status": "Шахматы Блиц!100 лайков и игра с подписчиками на lichess.org",
+          "lang": "en-US",
+        },
+      "streamer":
+        {
+          "name": "Romaleili",
+          "headline": "Катаем на чиле!",
+          "description": "И на расслабоне)",
+          "twitch": "https://www.twitch.tv/romaleili",
+          "youTube": "https://www.youtube.com/channel/UCdgGqfge1ZDYwkcMbelztww/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:romaleili:rX0ufPFd.webp&w=350&sig=f525017ba883d07ab2c9d69aafe171b7dfd69413",
         },
     },
     {
@@ -20,7 +58,7 @@ value:
       "patron": true,
       "patronColor": 8,
       "id": "jazagamming",
-      "stream": { "service": "youTube", "status": 'عدناااااااااااااااااااا وسهرتناااا"lichess.org"', "lang": "ar" },
+      "stream": { "service": "youTube", "status": 'سهرتكم سهرة صباحي"lichess.org"', "lang": "ar" },
       "streamer":
         {
           "name": "Jaza Gaming",
@@ -32,16 +70,36 @@ value:
         },
     },
     {
-      "name": "TheHeartofChess",
-      "title": "IM",
-      "id": "theheartofchess",
-      "stream": { "service": "twitch", "status": "Evening Chess Stream @ lichess.org!", "lang": "en" },
+      "name": "Metztlixictlico",
+      "flair": "nature.mouse-face",
+      "id": "metztlixictlico",
+      "stream":
+        {
+          "service": "twitch",
+          "status": "🔍 Analizando Partidas de Seguidores 5 ♟️| !discord !club !redes | lichess.org",
+          "lang": "es",
+        },
       "streamer":
         {
-          "name": "Emil Stefanov",
-          "headline": "Making one good move at a time and having fun along the way",
-          "twitch": "https://www.twitch.tv/theheartofchess",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:theheartofchess:yIgvksYf.webp&w=350&sig=c41aa6c9cd5bf38b2582bfc7f9d7862893c4100c",
+          "name": "Xokut",
+          "headline": "Entrenamiento y torneos de ajedrez ",
+          "description": "Mi idea es transmitir torneos de ajedrez con mi comunidad y contra otras comunidades. También usar los estudios de Lichess para analizar partidas y explicar conceptos.",
+          "twitch": "https://www.twitch.tv/XokutVT",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:metztlixictlico:gd1V0M7O.webp&w=350&sig=6bfc9b2434f87f6751257226ccbc7a4704c451ec",
+        },
+    },
+    {
+      "name": "Ruth29",
+      "flair": "people.waving-hand",
+      "id": "ruth29",
+      "stream": { "service": "twitch", "status": "Rapide Lichess.org", "lang": "fr" },
+      "streamer":
+        {
+          "name": "Ruth2929",
+          "headline": "Stream échecs Francophone joueur echec amateur",
+          "description": "Stream joueur amateur d'échecs, on essaie de progresser en parties rapides, parties contre les viewers, arena entre les viewers, participation aux compétiitions d'équipes telle la Liga. J'apprécie l'engagement communautaire et non lucratif de Lichess .Bonne humeur et simplicité, ",
+          "twitch": "https://www.twitch.tv/Ruth2929",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=ruth29:streamer:ruth29:PTyX0OGV.webp&w=350&sig=9581898305bea1da725b61254bf724b49a53606a",
         },
     },
     {
@@ -51,7 +109,7 @@ value:
       "stream":
         {
           "service": "twitch",
-          "status": "Road to Grand Master | Music Production | Photo & Video Development | ANTICHESS on lichess.org",
+          "status": "Road to AGM | Music Production | Film Development | Programming | ANTICHESS on lichess.org",
           "lang": "en",
         },
       "streamer":
@@ -64,23 +122,17 @@ value:
         },
     },
     {
-      "name": "Ryugine",
-      "flair": "smileys.clown-face",
-      "id": "ryugine",
-      "stream":
-        {
-          "service": "twitch",
-          "status": "Puzzles time lichess.org -  ◁ ❚❚ ▷ ↺ Bot ON  - !sr - ▶︎ •၊၊||၊|။|||| |",
-          "lang": "en",
-        },
+      "name": "KeyanChessCoach",
+      "flair": "objects.film-projector",
+      "id": "keyanchesscoach",
+      "stream": { "service": "twitch", "status": "Hourly Bullet Arena on Lichess.org!", "lang": "en" },
       "streamer":
         {
-          "name": "Ryugine",
-          "headline": "Let's Have Fun",
-          "description": "Hey \r\nu Can Call me Ryu \r\ni love playing Puzzle Racer and making Unrated Arenas.\r\n Come share your chess knowledge with me  so i can get Stronger.\r\n \r\nWelcome In everyone \r\n",
-          "twitch": "https://www.twitch.tv/ryugine",
-          "youTube": "https://www.youtube.com/channel/UCvyv-WLlutqmn2epcjxuqJQ/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=ryugine:streamer:ryugine:DOOBv5wV.jpg&w=350&sig=2b811d7e7fe923a1c61bccc4cf46deb2ee3f9d3c",
+          "name": "Keyan Chess Coach",
+          "headline": "Keyan Chess Coach",
+          "description": "Keyan Chess Coach.... motivating you to get off your ass and win.",
+          "twitch": "https://www.twitch.tv/keyansaxophonechess",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=keyanchesscoach:streamer:keyanchesscoach:56pBZz3W.jpg&w=350&sig=c9480aab711993839fb38e0588066afa11034e86",
         },
     },
   ]

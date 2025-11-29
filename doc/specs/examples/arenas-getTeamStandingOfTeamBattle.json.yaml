@@ -1274,10 +1274,7 @@ value:
                 "user": { "name": "Gekab", "flair": "smileys.smiling-face-with-sunglasses", "id": "gekab" },
                 "score": 10,
               },
-              {
-                "user": { "name": "Platon-3112", "flair": "activity.1st-place-medal", "id": "platon-3112" },
-                "score": 8,
-              },
+              { "user": { "name": "Platon-3112", "flair": "smileys.ghost", "id": "platon-3112" }, "score": 8 },
               { "user": { "name": "Nedomaster715", "id": "nedomaster715" }, "score": 5 },
               { "user": { "name": "FangBowen", "flair": "smileys.saluting-face", "id": "fangbowen" }, "score": 4 },
               {
@@ -1608,7 +1605,7 @@ value:
               { "user": { "name": "Chessplayer_77", "id": "chessplayer_77" }, "score": 3 },
               { "user": { "name": "MooNArtik", "flair": "activity.chess", "id": "moonartik" }, "score": 2 },
               {
-                "user": { "name": "Borisov_ignat", "flair": "activity.lichess-berserk", "id": "borisov_ignat" },
+                "user": { "name": "Borisov_ignat", "flair": "symbols.passport-control", "id": "borisov_ignat" },
                 "score": 2,
               },
               { "user": { "name": "MIster204", "flair": "objects.memo", "id": "mister204" }, "score": 2 },
@@ -2208,7 +2205,11 @@ value:
               { "user": { "name": "marcaf", "flair": "nature.mouse-face", "id": "marcaf" }, "score": 18 },
               { "user": { "name": "SashaAvet", "id": "sashaavet" }, "score": 16 },
               { "user": { "name": "moslem70", "id": "moslem70" }, "score": 14 },
-              { "user": { "name": "ChessMasterOneline12", "id": "chessmasteroneline12" }, "score": 10 },
+              {
+                "user":
+                  { "name": "ChessMasterOneline12", "flair": "symbols.anger-symbol", "id": "chessmasteroneline12" },
+                "score": 10,
+              },
               { "user": { "name": "Nebojsa1985", "id": "nebojsa1985" }, "score": 4 },
             ],
         },
@@ -2323,7 +2324,7 @@ value:
                   },
                 "score": 8,
               },
-              { "user": { "name": "BigDog2008", "flair": "nature.owl", "id": "bigdog2008" }, "score": 5 },
+              { "user": { "name": "BigDog2008", "flair": "people.troll", "id": "bigdog2008" }, "score": 5 },
               { "user": { "name": "Akashrathi", "flair": "smileys.alien-monster", "id": "akashrathi" }, "score": 4 },
             ],
         },
@@ -2337,10 +2338,7 @@ value:
               { "user": { "name": "Mohsen_Dj", "id": "mohsen_dj" }, "score": 17 },
               { "user": { "name": "khfdshkk", "flair": "activity.chess-pawn", "id": "khfdshkk" }, "score": 0 },
               { "user": { "name": "EliteV", "id": "elitev" }, "score": 0 },
-              {
-                "user": { "name": "josecervantes747", "flair": "nature.cockroach", "id": "josecervantes747" },
-                "score": 0,
-              },
+              { "user": { "name": "josecervantes747", "id": "josecervantes747" }, "score": 0 },
             ],
         },
         {
@@ -2403,7 +2401,10 @@ value:
                 "user": { "name": "VNA290908", "flair": "smileys.slightly-smiling-face", "id": "vna290908" },
                 "score": 0,
               },
-              { "user": { "name": "VoroninNikita", "flair": "smileys.ghost", "id": "voroninnikita" }, "score": 0 },
+              {
+                "user": { "name": "VoroninNikita", "flair": "nature.evergreen-tree", "id": "voroninnikita" },
+                "score": 0,
+              },
               { "user": { "name": "Kostya20111102", "flair": "nature.fire", "id": "kostya20111102" }, "score": 0 },
               { "user": { "name": "EsiriToneh", "id": "esiritoneh" }, "score": 0 },
             ],
@@ -2415,14 +2416,15 @@ value:
           "players":
             [
               {
-                "user": { "name": "Nerubatskiy_Kirill", "flair": "symbols.move-good", "id": "nerubatskiy_kirill" },
+                "user":
+                  { "name": "Nerubatskiy_Kirill", "flair": "symbols.move-interesting", "id": "nerubatskiy_kirill" },
                 "score": 23,
               },
               {
                 "user":
                   {
                     "name": "Daniil1007",
-                    "flair": "activity.chess-pawn",
+                    "flair": "activity.xmas-lichess-horsey",
                     "patron": true,
                     "patronColor": 2,
                     "id": "daniil1007",
@@ -2473,7 +2475,7 @@ value:
                     "name": "Witcher_Gerald_Rivia",
                     "flair": "nature.wolf",
                     "patron": true,
-                    "patronColor": 1,
+                    "patronColor": 2,
                     "id": "witcher_gerald_rivia",
                   },
                 "score": 16,
@@ -2625,7 +2627,10 @@ value:
           "players":
             [
               { "user": { "name": "taoufikbeatsyou", "id": "taoufikbeatsyou" }, "score": 27 },
-              { "user": { "name": "D_A_N_I_Y_A_R", "flair": "objects.xmas-hat", "id": "d_a_n_i_y_a_r" }, "score": 4 },
+              {
+                "user": { "name": "D_A_N_I_Y_A_R", "flair": "activity.xmas-lichess-horsey", "id": "d_a_n_i_y_a_r" },
+                "score": 4,
+              },
               { "user": { "name": "Flagorubik228", "flair": "nature.dolphin", "id": "flagorubik228" }, "score": 0 },
             ],
         },
@@ -2643,7 +2648,10 @@ value:
                 "score": 0,
               },
               { "user": { "name": "PraketPandit", "flair": "nature.comet", "id": "praketpandit" }, "score": 0 },
-              { "user": { "name": "cagan2018", "flair": "objects.crown", "id": "cagan2018" }, "score": 0 },
+              {
+                "user": { "name": "cagan2018", "flair": "people.mx-claus-light-skin-tone", "id": "cagan2018" },
+                "score": 0,
+              },
             ],
         },
         {
@@ -3011,7 +3019,8 @@ value:
           "rank": 127,
           "id": "djS4IDqL",
           "score": 6,
-          "players": [{ "user": { "name": "Alex1965111", "id": "alex1965111" }, "score": 6 }],
+          "players":
+            [{ "user": { "name": "Alex1965111", "patron": true, "patronColor": 2, "id": "alex1965111" }, "score": 6 }],
         },
         {
           "rank": 128,
@@ -3041,7 +3050,7 @@ value:
                 "user":
                   {
                     "name": "ChessClassic_555",
-                    "flair": "smileys.yawning-face",
+                    "flair": "smileys.angry-face-with-horns",
                     "patron": true,
                     "patronColor": 3,
                     "id": "chessclassic_555",
@@ -3056,10 +3065,7 @@ value:
                 "score": 0,
               },
               { "user": { "name": "So_Amazing", "flair": "activity.lichess-berserk", "id": "so_amazing" }, "score": 0 },
-              {
-                "user": { "name": "Stamatis3", "flair": "people.deaf-man-light-skin-tone", "id": "stamatis3" },
-                "score": 0,
-              },
+              { "user": { "name": "Stamatis3", "flair": "activity.lichess-berserk", "id": "stamatis3" }, "score": 0 },
               { "user": { "name": "LaKmindi", "flair": "objects.headphone", "id": "lakmindi" }, "score": 0 },
               { "user": { "name": "whaleTee", "flair": "nature.honeybee", "id": "whaletee" }, "score": 0 },
               { "user": { "name": "mrkn2011", "flair": "activity.lichess-blitz", "id": "mrkn2011" }, "score": 0 },
@@ -3198,7 +3204,7 @@ value:
             [
               { "user": { "name": "Andraska", "flair": "travel-places.world-map", "id": "andraska" }, "score": 2 },
               {
-                "user": { "name": "kombinator02", "flair": "activity.lichess-berserk", "id": "kombinator02" },
+                "user": { "name": "kombinator02", "flair": "activity.lichess-horsey", "id": "kombinator02" },
                 "score": 0,
               },
               { "user": { "name": "Shach_i_mat17", "flair": "activity.chess", "id": "shach_i_mat17" }, "score": 0 },
@@ -3211,7 +3217,7 @@ value:
           "score": 2,
           "players":
             [
-              { "user": { "name": "Kobe71", "flair": "people.call-me-hand", "id": "kobe71" }, "score": 2 },
+              { "user": { "name": "Kobe71", "flair": "objects.bar-chart", "id": "kobe71" }, "score": 2 },
               { "user": { "name": "Ogro11", "flair": "activity.lichess-berserk", "id": "ogro11" }, "score": 0 },
             ],
         },
@@ -3256,7 +3262,12 @@ value:
           "players":
             [
               {
-                "user": { "name": "LittleChessFriend", "flair": "smileys.cold-face", "id": "littlechessfriend" },
+                "user":
+                  {
+                    "name": "LittleChessFriend",
+                    "flair": "smileys.smiling-face-with-horns-blob",
+                    "id": "littlechessfriend",
+                  },
                 "score": 2,
               },
             ],
@@ -3575,7 +3586,8 @@ value:
           "rank": 172,
           "id": "gkr_gabriel--friends",
           "score": 0,
-          "players": [{ "user": { "name": "GKR_gabriel", "id": "gkr_gabriel" }, "score": 0 }],
+          "players":
+            [{ "user": { "name": "GKR_gabriel", "flair": "smileys.cold-face", "id": "gkr_gabriel" }, "score": 0 }],
         },
         {
           "rank": 173,

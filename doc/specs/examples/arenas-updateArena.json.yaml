@@ -4,9 +4,9 @@ value:
     "duels": [],
     "secondsToStart": 300,
     "standing": { "page": 1, "players": [] },
-    "id": "UXyAfoBc",
+    "id": "6PvdYSkq",
     "createdBy": "bobby",
-    "startsAt": "2025-11-22T02:38:28.573Z",
+    "startsAt": "2025-11-29T00:15:21.068Z",
     "system": "arena",
     "fullName": "Updated Arena Arena",
     "minutes": 60,
@@ -18,8 +18,8 @@ value:
     "verdicts": { "list": [{ "condition": "Bot players are not allowed", "verdict": "ok" }], "accepted": true },
     "quote":
       {
-        "text": "If you don't know what to do, find your worst piece and look for a better square.",
-        "author": "Gerard Schwarz",
+        "text": "Chess holds its master in its own bonds, shackling the mind and brain so that the inner freedom of the very strongest must suffer.",
+        "author": "Albert Einstein",
       },
     "myUsername": "Bobby",
   }

@@ -3,17 +3,26 @@ value:
     "type": "challengeCanceled",
     "challenge":
       {
-        "id": "e1Iq789k",
-        "url": "https://lichess.org/e1Iq789k",
+        "id": "aGJeIsnj",
+        "url": "https://lichess.org/aGJeIsnj",
         "status": "canceled",
         "challenger":
-          { "name": "Elena", "title": "FM", "flair": "symbols.keycap-digit-eight", "id": "elena", "rating": 2387 },
+          {
+            "name": "Elena",
+            "title": "WNM",
+            "flair": "travel-places.ferry",
+            "id": "elena",
+            "rating": 2385,
+            "provisional": true,
+          },
         "destUser":
           {
             "name": "Diego",
-            "flair": "people.leftwards-hand-medium-light-skin-tone",
+            "flair": "food-drink.bubble-tea",
+            "patron": true,
+            "patronColor": 1,
             "id": "diego",
-            "rating": 1843,
+            "rating": 1880,
             "online": true,
           },
         "variant": { "key": "standard", "name": "Standard", "short": "Std" },
@@ -21,7 +30,7 @@ value:
         "speed": "correspondence",
         "timeControl": { "type": "unlimited" },
         "color": "random",
-        "finalColor": "white",
+        "finalColor": "black",
         "perf": { "icon": "", "name": "Correspondence" },
       },
   }

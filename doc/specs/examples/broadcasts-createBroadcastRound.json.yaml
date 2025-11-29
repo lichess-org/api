@@ -2,25 +2,25 @@ value:
   {
     "round":
       {
-        "id": "NEJjg1jP",
+        "id": "w8i8Iynp",
         "name": "Final Round",
         "slug": "final-round",
-        "createdAt": 1763866266769,
+        "createdAt": 1764375025152,
         "rated": false,
         "ongoing": true,
-        "startsAt": 1763866266769,
-        "url": "https://lichess.org/broadcast/knight-invitational/final-round/NEJjg1jP",
+        "startsAt": 1764375025152,
+        "url": "https://lichess.org/broadcast/knight-invitational/final-round/w8i8Iynp",
       },
     "tour":
       {
-        "id": "O5xMk2pU",
+        "id": "nceYXagc",
         "name": "Knight Invitational",
         "slug": "knight-invitational",
         "info": {},
-        "createdAt": 1763866266692,
-        "url": "https://lichess.org/broadcast/knight-invitational/O5xMk2pU",
+        "createdAt": 1764375024906,
+        "url": "https://lichess.org/broadcast/knight-invitational/nceYXagc",
         "tier": 5,
-        "dates": [1763869866698],
+        "dates": [1764378624929],
       },
     "study": { "writeable": true, "features": { "chat": true, "computer": true, "explorer": true } },
   }

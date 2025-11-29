@@ -3,11 +3,26 @@ value:
     "type": "challengeDeclined",
     "challenge":
       {
-        "id": "mdBisUje",
-        "url": "https://lichess.org/mdBisUje",
+        "id": "WIMzxEj2",
+        "url": "https://lichess.org/WIMzxEj2",
         "status": "declined",
-        "challenger": { "name": "Adriana", "id": "adriana", "rating": 567 },
-        "destUser": { "name": "Gabriela", "id": "gabriela", "rating": 1520, "online": true },
+        "challenger":
+          {
+            "name": "Adriana",
+            "flair": "people.clapping-hands-dark-skin-tone",
+            "patron": true,
+            "patronColor": 1,
+            "id": "adriana",
+            "rating": 711,
+          },
+        "destUser":
+          {
+            "name": "Gabriela",
+            "flair": "people.woman-cartwheeling-light-skin-tone",
+            "id": "gabriela",
+            "rating": 1512,
+            "online": true,
+          },
         "variant": { "key": "standard", "name": "Standard", "short": "Std" },
         "rated": false,
         "speed": "correspondence",

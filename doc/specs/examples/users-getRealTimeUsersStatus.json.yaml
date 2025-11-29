@@ -1,5 +1,5 @@
 value:
   [
-    { "name": "Mary", "flair": "people.women-with-bunny-ears-partying-medium-skin-tone", "id": "mary" },
-    { "name": "Ana", "title": "WFM", "flair": "objects.headphone", "id": "ana" },
+    { "name": "Mary", "flair": "people.folded-hands-light-skin-tone", "patron": true, "patronColor": 1, "id": "mary" },
+    { "name": "Ana", "title": "IM", "flair": "people.men-holding-hands-light-skin-tone", "id": "ana" },
   ]

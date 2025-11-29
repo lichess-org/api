@@ -4,10 +4,10 @@ value:
     "username": "sargon-2ply",
     "perfs":
       {
-        "bullet": { "games": 9195, "rating": 1378, "rd": 45, "prog": -11 },
-        "blitz": { "games": 12033, "rating": 1306, "rd": 45, "prog": 5 },
-        "rapid": { "games": 13587, "rating": 1452, "rd": 45, "prog": -7 },
-        "classical": { "games": 5460, "rating": 1490, "rd": 45, "prog": -14 },
+        "bullet": { "games": 9322, "rating": 1374, "rd": 45, "prog": -12 },
+        "blitz": { "games": 12191, "rating": 1300, "rd": 45, "prog": -10 },
+        "rapid": { "games": 13901, "rating": 1485, "rd": 45, "prog": 6 },
+        "classical": { "games": 5556, "rating": 1501, "rd": 45, "prog": -5 },
         "correspondence": { "games": 0, "rating": 1500, "rd": 500, "prog": 0, "prov": true },
       },
     "title": "BOT",
@@ -18,6 +18,6 @@ value:
         "bio": 'Sargon-2ply is a re-implementation of Dan and Kathe Spracklen''s 1978 SARGON commercial chess engine. It uses a 2-ply full search with material exchange, king/queen pins and "board control" heuristics. Too hard? Try @sargon-1ply or @bernstein-2ply. Too easy? Try @sargon-3ply or @turochamp-2ply. Author: @herohde',
         "links": "https://github.com/herohde/morlock\r\nhttps://en.wikipedia.org/wiki/Sargon_(chess)",
       },
-    "seenAt": 1763778338332,
-    "playTime": { "total": 19990832, "tv": 9529, "human": 16296802 },
+    "seenAt": 1764374476489,
+    "playTime": { "total": 20276461, "tv": 9529, "human": 16500450 },
   }

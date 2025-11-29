@@ -1,9 +1,23 @@
 value:
   [
     {
-      "from": { "name": "Bobby", "id": "bobby" },
-      "to": { "name": "Mary", "flair": "people.women-with-bunny-ears-partying-medium-skin-tone", "id": "mary" },
+      "from":
+        {
+          "name": "Bobby",
+          "flair": "people.artist-medium-light-skin-tone",
+          "patron": true,
+          "patronColor": 1,
+          "id": "bobby",
+        },
+      "to":
+        {
+          "name": "Mary",
+          "flair": "people.folded-hands-light-skin-tone",
+          "patron": true,
+          "patronColor": 1,
+          "id": "mary",
+        },
       "text": "this is a private note",
-      "date": 1763866187474,
+      "date": 1764375050487,
     },
   ]

@@ -1,8 +1,8 @@
 value:
   {
-    "id": "tNNCdXVi",
+    "id": "OWNspKdt",
     "createdBy": "lichess",
-    "startsAt": "2025-11-25T23:30:00Z",
+    "startsAt": "2025-12-01T23:30:00Z",
     "name": "Rapid Increment",
     "clock": { "limit": 420, "increment": 2 },
     "variant": "standard",
@@ -11,7 +11,7 @@ value:
     "nbPlayers": 0,
     "nbOngoing": 0,
     "status": "created",
-    "nextRound": { "at": "2025-11-25T23:30:00Z", "in": 334566 },
+    "nextRound": { "at": "2025-12-01T23:30:00Z", "in": 256755 },
     "verdicts":
       {
         "list":

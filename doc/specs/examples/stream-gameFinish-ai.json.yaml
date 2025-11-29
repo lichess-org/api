@@ -3,10 +3,10 @@ value:
     "type": "gameFinish",
     "game":
       {
-        "fullId": "YmSH1tN0NAFJ",
-        "gameId": "YmSH1tN0",
+        "fullId": "GwDEonHXqJlk",
+        "gameId": "GwDEonHX",
         "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-        "color": "white",
+        "color": "black",
         "lastMove": "",
         "source": "ai",
         "status": { "id": 25, "name": "aborted" },
@@ -18,6 +18,6 @@ value:
         "opponent": { "id": null, "username": "Stockfish level 1", "ai": 1 },
         "isMyTurn": false,
         "compat": { "bot": false, "board": true },
-        "id": "YmSH1tN0",
+        "id": "GwDEonHX",
       },
   }

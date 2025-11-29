@@ -1,96 +1,125 @@
 value:
   {
     "chess960":
-      { "user": { "name": "Karavaha", "id": "karavaha" }, "rating": 1876, "gameId": "8VXAppO8", "color": "white" },
+      {
+        "user": { "name": "SillySillyman", "id": "sillysillyman" },
+        "rating": 1935,
+        "gameId": "1i05pjkM",
+        "color": "black",
+      },
     "best":
       {
         "user":
-          { "name": "skilledassassin04", "title": "CM", "patron": true, "patronColor": 3, "id": "skilledassassin04" },
-        "rating": 3057,
-        "gameId": "USloptaz",
-        "color": "black",
+          { "name": "Rsmon54Terrible", "title": "FM", "flair": "objects.graduation-cap", "id": "rsmon54terrible" },
+        "rating": 2946,
+        "gameId": "gKGZxLC5",
+        "color": "white",
       },
     "antichess":
-      { "user": { "name": "davifl10", "id": "davifl10" }, "rating": 2039, "gameId": "UImHdP8C", "color": "white" },
+      {
+        "user": { "name": "Hodobox", "flair": "smileys.melting-face", "id": "hodobox" },
+        "rating": 2155,
+        "gameId": "mwe0lm6q",
+        "color": "white",
+      },
     "computer":
       {
-        "user": { "name": "wifidatalag", "id": "wifidatalag" },
-        "rating": 2392,
-        "gameId": "sez5Hx6t",
+        "user": { "name": "wongmk63", "title": "GM", "id": "wongmk63" },
+        "rating": 2388,
+        "gameId": "svpmXmpi",
         "color": "white",
       },
     "bullet":
       {
         "user":
-          { "name": "skilledassassin04", "title": "CM", "patron": true, "patronColor": 3, "id": "skilledassassin04" },
-        "rating": 3057,
-        "gameId": "USloptaz",
-        "color": "black",
+          { "name": "Rsmon54Terrible", "title": "FM", "flair": "objects.graduation-cap", "id": "rsmon54terrible" },
+        "rating": 2946,
+        "gameId": "gKGZxLC5",
+        "color": "white",
       },
     "horde":
       {
-        "user": { "name": "Horus_88", "flair": "symbols.peace-symbol", "id": "horus_88" },
-        "rating": 2759,
-        "gameId": "Hl7zShdZ",
+        "user": { "name": "Junior072001", "flair": "smileys.pensive-face", "id": "junior072001" },
+        "rating": 2156,
+        "gameId": "z2hNR6HZ",
         "color": "black",
       },
-    "atomic": { "user": { "name": "chase4", "id": "chase4" }, "rating": 1929, "gameId": "Qe9mWjsl", "color": "white" },
+    "atomic":
+      {
+        "user": { "name": "BoldyNeutral", "flair": "people.mx-claus-light-skin-tone", "id": "boldyneutral" },
+        "rating": 1968,
+        "gameId": "7SFReQ3w",
+        "color": "black",
+      },
     "bot":
       {
-        "user": { "name": "SaxtonEngine", "title": "BOT", "flair": "smileys.robot", "id": "saxtonengine" },
-        "rating": 2698,
-        "gameId": "0B34JBi3",
+        "user":
+          {
+            "name": "blackEventhorizon",
+            "title": "BOT",
+            "flair": "symbols.registered",
+            "patron": true,
+            "patronColor": 1,
+            "id": "blackeventhorizon",
+          },
+        "rating": 3227,
+        "gameId": "yUjwuOLN",
         "color": "black",
       },
     "racingKings":
       {
-        "user": { "name": "MONKIELIKECHESS", "flair": "activity.soccer-ball", "id": "monkielikechess" },
-        "rating": 1841,
-        "gameId": "832NysZn",
+        "user": { "name": "chen-rcc", "flair": "symbols.large-purple-circle", "id": "chen-rcc" },
+        "rating": 1837,
+        "gameId": "i7pwdGXc",
         "color": "white",
       },
     "ultraBullet":
       {
-        "user": { "name": "pr0methazine", "flair": "symbols.red-triangle-pointed-up", "id": "pr0methazine" },
-        "rating": 2450,
-        "gameId": "Oj9V5jSL",
+        "user": { "name": "hisovn", "flair": "smileys.smirking-face", "id": "hisovn" },
+        "rating": 1898,
+        "gameId": "0CjyzRXQ",
         "color": "white",
       },
     "blitz":
       {
-        "user": { "name": "bazar-wokzal", "title": "IM", "id": "bazar-wokzal" },
-        "rating": 2476,
-        "gameId": "IN7kTDBW",
+        "user": { "name": "novik70", "title": "GM", "id": "novik70" },
+        "rating": 2513,
+        "gameId": "UpSKG41C",
         "color": "white",
       },
     "kingOfTheHill":
-      { "user": { "name": "w_chess-a", "id": "w_chess-a" }, "rating": 1617, "gameId": "6OFQMFJ9", "color": "black" },
+      {
+        "user": { "name": "MagnusFischer4", "flair": "nature.fire", "id": "magnusfischer4" },
+        "rating": 2280,
+        "gameId": "7s38t6je",
+        "color": "white",
+      },
     "crazyhouse":
       {
-        "user": { "name": "jeremydurham", "id": "jeremydurham" },
-        "rating": 2473,
-        "gameId": "hZTgxQ6H",
+        "user": { "name": "duesseldorfer13", "id": "duesseldorfer13" },
+        "rating": 2081,
+        "gameId": "uy1CbnmE",
         "color": "white",
       },
     "threeCheck":
       {
-        "user": { "name": "miamigambit7", "id": "miamigambit7" },
-        "rating": 1020,
-        "gameId": "1gp6M8lt",
+        "user": { "name": "stinkypotato", "id": "stinkypotato" },
+        "rating": 2010,
+        "gameId": "fQ8tnMiw",
         "color": "black",
       },
     "classical":
       {
-        "user": { "name": "omoruyiosatohanmwen", "id": "omoruyiosatohanmwen" },
-        "rating": 2116,
-        "gameId": "iLuJri4k",
-        "color": "white",
+        "user": { "name": "HooCee", "title": "FM", "id": "hoocee" },
+        "rating": 2360,
+        "gameId": "TA2WmH3m",
+        "color": "black",
       },
     "rapid":
       {
-        "user": { "name": "bentengpertahanan", "id": "bentengpertahanan" },
-        "rating": 2408,
-        "gameId": "RV64aLvy",
-        "color": "white",
+        "user": { "name": "Art-Vega", "title": "CM", "patron": true, "patronColor": 10, "id": "art-vega" },
+        "rating": 2478,
+        "gameId": "Rb0PYu70",
+        "color": "black",
       },
   }
