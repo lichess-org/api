@@ -22,22 +22,14 @@ value:
         "dates": [1764375025152],
         "communityOwner": { "name": "Admin", "id": "admin" },
       },
-    "study":
-      {
-        "writeable": false,
-        "features": { "chat": true, "computer": true, "explorer": true },
-      },
+    "study": { "writeable": false, "features": { "chat": true, "computer": true, "explorer": true } },
     "games":
       [
         {
           "id": "JUUfvXEu",
           "name": "Player 1 - Player 2",
           "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
-          "players":
-            [
-              { "name": "Player 1", "fideId": 123 },
-              { "name": "Player 2", "fideId": 456 },
-            ],
+          "players": [{ "name": "Player 1", "fideId": 123 }, { "name": "Player 2", "fideId": 456 }],
           "lastMove": "e7e5",
           "thinkTime": 0,
           "status": "*",

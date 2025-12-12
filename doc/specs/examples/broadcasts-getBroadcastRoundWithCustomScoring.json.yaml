@@ -10,11 +10,7 @@ value:
         "finishedAt": 1749146624615,
         "finished": true,
         "startsAt": 1749142800000,
-        "customScoring":
-          {
-            "white": { "win": 0.5, "draw": 0 },
-            "black": { "win": 0.5, "draw": 0.5 },
-          },
+        "customScoring": { "white": { "win": 0.5, "draw": 0 }, "black": { "win": 0.5, "draw": 0.5 } },
         "url": "https://lichess.org/broadcast/norway-chess-2025--open/round-9--armageddon/ZpRw34eP",
       },
     "tour":
@@ -40,11 +36,7 @@ value:
         "image": "https://image.lichess1.org/display?fmt=webp&h=400&op=thumbnail&path=relay:PcsMbQ9J:QeUfDaHh.webp&w=800&sig=4d7317641091543a721d77baafff804fb15bf107",
         "description": "**Points**\r\n\r\n- Win in the classical game: 3 points\r\n- Loss in the classical game: 0 points\r\n- Draw in the classical game & win Armageddon: 1½ points\r\n- Draw in the classical game & loss Armageddon: 1 point\r\n\r\n\r\n**Armageddon**\r\n\r\n- Time control: White has 10 minutes, Black has 7 minutes\r\n- Colors: The player with white will continue with white in Armageddon",
       },
-    "study":
-      {
-        "writeable": false,
-        "features": { "chat": true, "computer": true, "explorer": true },
-      },
+    "study": { "writeable": false, "features": { "chat": true, "computer": true, "explorer": true } },
     "games":
       [
         {
@@ -81,18 +73,8 @@ value:
         "name": "Norway Chess 2025",
         "tours":
           [
-            {
-              "id": "PcsMbQ9J",
-              "name": "Open",
-              "active": false,
-              "live": false,
-            },
-            {
-              "id": "lrKI0bSz",
-              "name": "Women",
-              "active": false,
-              "live": false,
-            },
+            { "id": "PcsMbQ9J", "name": "Open", "active": false, "live": false },
+            { "id": "lrKI0bSz", "name": "Women", "active": false, "live": false },
           ],
       },
     "photos":

@@ -16,10 +16,5 @@ value:
       "standard": 2775,
       "year": 2003,
     },
-    {
-      "id": 35009060,
-      "name": "Erigaisi Keerthana",
-      "federation": "IND",
-      "year": 2002,
-    },
+    { "id": 35009060, "name": "Erigaisi Keerthana", "federation": "IND", "year": 2002 },
   ]
