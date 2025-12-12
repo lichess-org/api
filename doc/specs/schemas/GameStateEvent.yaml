@@ -37,6 +37,20 @@ properties:
   btakeback:
     type: boolean
     description: true if black is proposing takeback, else omitted
+  expiration:
+    type: object
+    description: A game may be aborted if a player doesn't make their first move in time
+    properties:
+      idleMillis:
+        type: integer
+        description: Milliseconds since the last move was played, or since the game started
+      millisToMove:
+        type: integer
+        description: Time each player has to make their first move, before the game is aborted
+    required:
+      - idleMillis
+      - millisToMove
+
 required:
   - type
   - moves
