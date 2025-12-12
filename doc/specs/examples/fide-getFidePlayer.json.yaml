@@ -1,11 +1,17 @@
 value:
   {
-    "id": 35009192,
-    "name": "Erigaisi Arjun",
-    "federation": "IND",
-    "year": 2003,
+    "id": 1503014,
+    "name": "Carlsen, Magnus",
     "title": "GM",
-    "standard": 2769,
-    "rapid": 2708,
-    "blitz": 2749,
+    "federation": "NOR",
+    "blitz": 2881,
+    "rapid": 2824,
+    "standard": 2840,
+    "year": 1990,
+    "photo":
+      {
+        "credit": "Brigham Aldrich",
+        "medium": "https://image.lichess1.org/display?fmt=webp&h=300&op=thumbnail&path=vdRMi9MG3yON.webp&w=300&sig=10442675bcd47dcd9e39a57a96b90b2fb3ecbaa1",
+        "small": "https://image.lichess1.org/display?fmt=webp&h=100&op=thumbnail&path=vdRMi9MG3yON.webp&w=100&sig=1833440f08dff0b83d2b12b381c82e0d549f979b",
+      },
   }

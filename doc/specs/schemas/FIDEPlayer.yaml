@@ -19,6 +19,8 @@ properties:
     type: integer
   blitz:
     type: integer
+  photo:
+    $ref: "./FIDEPlayerPhoto.yaml"
 
 required:
   - id

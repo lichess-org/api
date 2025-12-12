@@ -1,0 +1,16 @@
+type: object
+
+properties:
+  small:
+    description: URL of a small (100x100) thumbnail of the photo
+    type: string
+  medium:
+    description: URL of a medium (500x500) version of the photo
+    type: string
+  credit:
+    description: If set, then you should make it appear next to the photo
+    type: string
+
+required:
+  - small
+  - medium
