@@ -15,9 +15,12 @@ properties:
   isSubscribed:
     type: boolean
     description: Indicates if the user making the request is subscribed to the broadcast
+  photos:
+    $ref: "./BroadcastPhotos.yaml"
 
 required:
   - round
   - tour
   - study
   - games
+  - photos

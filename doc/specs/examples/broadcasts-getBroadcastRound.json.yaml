@@ -22,14 +22,22 @@ value:
         "dates": [1764375025152],
         "communityOwner": { "name": "Admin", "id": "admin" },
       },
-    "study": { "writeable": false, "features": { "chat": true, "computer": true, "explorer": true } },
+    "study":
+      {
+        "writeable": false,
+        "features": { "chat": true, "computer": true, "explorer": true },
+      },
     "games":
       [
         {
           "id": "JUUfvXEu",
           "name": "Player 1 - Player 2",
           "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
-          "players": [{ "name": "Player 1", "fideId": 123 }, { "name": "Player 2", "fideId": 456 }],
+          "players":
+            [
+              { "name": "Player 1", "fideId": 123 },
+              { "name": "Player 2", "fideId": 456 },
+            ],
           "lastMove": "e7e5",
           "thinkTime": 0,
           "status": "*",
@@ -45,4 +53,13 @@ value:
         },
       ],
     "isSubscribed": false,
+    "photos":
+      {
+        "12940690":
+          {
+            "medium": "https://image.lichess1.org/display?fmt=webp&h=300&op=thumbnail&path=PTj-NTrXL6zx.webp&w=300&sig=8ee32f39870f10727147560961cab746a79490c8",
+            "small": "https://image.lichess1.org/display?fmt=webp&h=100&op=thumbnail&path=PTj-NTrXL6zx.webp&w=100&sig=1fa42bba3c9bd7a7e4b50c83383b310d53f315a0",
+            "credit": "Brigham Aldrich",
+          },
+      },
   }

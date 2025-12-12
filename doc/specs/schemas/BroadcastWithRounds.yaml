@@ -11,7 +11,10 @@ properties:
       $ref: "./BroadcastRoundInfo.yaml"
   defaultRoundId:
     type: string
+  photos:
+    $ref: "./BroadcastPhotos.yaml"
 
 required:
   - tour
   - rounds
+  - photos

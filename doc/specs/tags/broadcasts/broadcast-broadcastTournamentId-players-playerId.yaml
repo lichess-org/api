@@ -1,6 +1,6 @@
 get:
   operationId: broadcastPlayerGet
-  summary: Get a player from a broadcast
+  summary: Get a player of a broadcast
   description: |
     Get the details of a specific player and their games from a broadcast tournament.
   tags:
