@@ -6778,6 +6778,13 @@ export interface components {
       wtakeback?: boolean;
       /** @description true if black is proposing takeback, else omitted */
       btakeback?: boolean;
+      /** @description A game may be aborted if a player doesn't make their first move in time */
+      expiration?: {
+        /** @description Milliseconds since the last move was played, or since the game started */
+        idleMillis: number;
+        /** @description Time each player has to make their first move, before the game is aborted */
+        millisToMove: number;
+      };
     };
     /**
      * @example {
