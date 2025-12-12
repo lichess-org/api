@@ -1709,7 +1709,7 @@ export interface paths {
       cookie?: never;
     };
     /**
-     * Get a player from a broadcast
+     * Get a player of a broadcast
      * @description Get the details of a specific player and their games from a broadcast tournament.
      */
     get: operations["broadcastPlayerGet"];
@@ -5958,11 +5958,23 @@ export interface components {
       delay?: number;
       customScoring?: components["schemas"]["BroadcastCustomScoring"];
     };
+    /** @description Photos of players, when available. The object keys are FIDE IDs */
+    BroadcastPhotos: {
+      [key: string]: {
+        /** @description URL of a small (100x100) thumbnail of the photo */
+        small: string;
+        /** @description URL of a medium (500x500) version of the photo */
+        medium: string;
+        /** @description If set, then you should make it appear next to the photo */
+        credit?: string;
+      };
+    };
     BroadcastWithRounds: {
       tour: components["schemas"]["BroadcastTour"];
       group?: components["schemas"]["BroadcastGroup"];
       rounds: components["schemas"]["BroadcastRoundInfo"][];
       defaultRoundId?: string;
+      photos: components["schemas"]["BroadcastPhotos"];
     };
     BroadcastWithLastRound: {
       group?: string;
@@ -6410,6 +6422,7 @@ export interface components {
       group?: components["schemas"]["BroadcastGroup"];
       /** @description Indicates if the user making the request is subscribed to the broadcast */
       isSubscribed?: boolean;
+      photos: components["schemas"]["BroadcastPhotos"];
     };
     BroadcastPgnPushTags: {
       [key: string]: string;
@@ -6426,6 +6439,14 @@ export interface components {
       tour: components["schemas"]["BroadcastTour"];
       study: components["schemas"]["BroadcastRoundStudyInfo"];
     };
+    FIDEPlayerPhoto: {
+      /** @description URL of a small (100x100) thumbnail of the photo */
+      small: string;
+      /** @description URL of a medium (500x500) version of the photo */
+      medium: string;
+      /** @description If set, then you should make it appear next to the photo */
+      credit?: string;
+    };
     FIDEPlayer: {
       id: number;
       name: string;
@@ -6436,6 +6457,7 @@ export interface components {
       standard?: number;
       rapid?: number;
       blitz?: number;
+      photo?: components["schemas"]["FIDEPlayerPhoto"];
     };
     Simul: {
       id: string;
