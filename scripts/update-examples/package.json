@@ -2,12 +2,12 @@
   "type": "module",
   "dependencies": {
     "@lichess-org/types": "link:../../types",
-    "@types/node": "^22.19.1",
+    "@types/node": "^22.19.2",
     "openapi-fetch": "^0.13.8",
-    "prettier": "^3.6.2"
+    "prettier": "^3.7.4"
   },
   "scripts": {
     "format": "prettier --write ."
   },
-  "packageManager": "pnpm@10.9.0+sha512.0486e394640d3c1fb3c9d43d49cf92879ff74f8516959c235308f5a8f62e2e19528a65cdc2a3058f587cde71eba3d5b56327c8c33a97e4c4051ca48a10ca2d5f"
+  "packageManager": "pnpm@10.25.0+sha512.5e82639027af37cf832061bcc6d639c219634488e0f2baebe785028a793de7b525ffcd3f7ff574f5e9860654e098fe852ba8ac5dd5cefe1767d23a020a92f501"
 }
