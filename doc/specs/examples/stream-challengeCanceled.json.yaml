@@ -3,24 +3,21 @@ value:
     "type": "challengeCanceled",
     "challenge":
       {
-        "id": "aGJeIsnj",
-        "url": "https://lichess.org/aGJeIsnj",
+        "id": "eSb8Y7bX",
+        "url": "https://lichess.org/eSb8Y7bX",
         "status": "canceled",
         "challenger":
           {
             "name": "Elena",
-            "title": "WNM",
-            "flair": "travel-places.ferry",
+            "title": "CM",
+            "flair": "objects.closed-mailbox-with-raised-flag",
             "id": "elena",
-            "rating": 2385,
-            "provisional": true,
+            "rating": 2220,
           },
         "destUser":
           {
             "name": "Diego",
-            "flair": "food-drink.bubble-tea",
-            "patron": true,
-            "patronColor": 1,
+            "flair": "people.couple-with-heart-woman-man",
             "id": "diego",
             "rating": 1880,
             "online": true,

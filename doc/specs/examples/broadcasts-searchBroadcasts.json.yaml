@@ -7,25 +7,25 @@ value:
         {
           "tour":
             {
-              "id": "nceYXagc",
+              "id": "HoDVA7II",
               "name": "Knight Invitational",
               "slug": "knight-invitational",
               "info": {},
-              "createdAt": 1764375024906,
-              "url": "https://lichess.org/broadcast/knight-invitational/nceYXagc",
+              "createdAt": 1765651851993,
+              "url": "https://lichess.org/broadcast/knight-invitational/HoDVA7II",
               "tier": 5,
-              "dates": [1764375025152],
+              "dates": [1765651852080],
             },
           "round":
             {
-              "id": "w8i8Iynp",
+              "id": "aUOpnxDF",
               "name": "Final Round",
               "slug": "final-round",
-              "createdAt": 1764375025152,
+              "createdAt": 1765651852080,
               "rated": false,
               "ongoing": true,
-              "startsAt": 1764375025152,
-              "url": "https://lichess.org/broadcast/knight-invitational/final-round/w8i8Iynp",
+              "startsAt": 1765651852080,
+              "url": "https://lichess.org/broadcast/knight-invitational/final-round/aUOpnxDF",
             },
         },
       ],

@@ -3,18 +3,18 @@ value:
     {
       "id": 35009192,
       "name": "Erigaisi Arjun",
-      "title": "GM",
       "federation": "IND",
+      "year": 2003,
+      "title": "GM",
+      "standard": 2775,
+      "rapid": 2714,
+      "blitz": 2749,
       "photo":
         {
-          "credit": "Brigham Aldrich",
-          "medium": "https://image.lichess1.org/display?fmt=webp&h=300&op=thumbnail&path=ZtNkAl1_0MHT.webp&w=300&sig=fa667003f932958c4b9095b6e9067e2ebb3d29d2",
           "small": "https://image.lichess1.org/display?fmt=webp&h=100&op=thumbnail&path=ZtNkAl1_0MHT.webp&w=100&sig=8a2122f91eab6c3f0528bce8ea5854fd561bbcde",
+          "medium": "https://image.lichess1.org/display?fmt=webp&h=500&op=thumbnail&path=ZtNkAl1_0MHT.webp&w=500&sig=f2faf575e19147ee8b1d2b573f1fd2e18fab88e7",
+          "credit": "Brigham Aldrich",
         },
-      "blitz": 2749,
-      "rapid": 2714,
-      "standard": 2775,
-      "year": 2003,
     },
     { "id": 35009060, "name": "Erigaisi Keerthana", "federation": "IND", "year": 2002 },
   ]

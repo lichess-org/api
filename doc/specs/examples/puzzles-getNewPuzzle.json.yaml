@@ -2,24 +2,24 @@ value:
   {
     "game":
       {
-        "id": "QtZgfBb2",
+        "id": "AE2fv1Oi",
         "perf": { "key": "blitz", "name": "Blitz" },
         "rated": true,
         "players":
           [
-            { "name": "Nenaddusan", "id": "nenaddusan", "color": "white", "rating": 2189 },
-            { "name": "obi2knobi", "id": "obi2knobi", "color": "black", "rating": 2223 },
+            { "name": "Ksa9000", "id": "ksa9000", "color": "white", "rating": 1862 },
+            { "name": "Afiffudin", "id": "afiffudin", "color": "black", "rating": 1874 },
           ],
-        "pgn": "e4 c5 c3 Nf6 e5 Nd5 d4 cxd4 cxd4 e6 Nc3 Nxc3 bxc3 Qc7 Bd2 g5 Rc1 h6 h4 gxh4 f4 d6 Bd3 Nc6 Nf3 Be7 Qe2 dxe5 fxe5 Bd7 Nxh4 O-O-O O-O Bg5 Nf3 Rhg8 Nxg5 hxg5 Rxf7 Qb6 Be3 Qa5 c4 g4 Rf4 g3 Rf3 Rg7 Qb2 Rh8 Be4 Qd8 d5 Rh4 dxc6 Bxc6 Bxc6 Qh8 Kf1 Rh1+ Bg1",
-        "clock": "3+0",
+        "pgn": "d4 Nf6 Bf4 g6 Nf3 Bg7 e3 O-O Bd3 d6 Nbd2 Re8 Bg3 Nbd7 c3 Nh5 Bc2 Nxg3 hxg3 e5 Rxh7 Kxh7 Nh4 Nf6 Qe2 Bg4 f3 Be6 O-O-O exd4 exd4 c6 Qd3 Qa5 Nxg6 fxg6 Rh1+ Kg8 Qxg6 Qxa2 Ne4 Nxe4 Bxe4 Bb3",
+        "clock": "5+0",
       },
     "puzzle":
       {
-        "id": "E8HNT",
-        "rating": 1707,
-        "plays": 173,
-        "solution": ["h1g1", "f1g1", "h8h2", "g1f1", "h2h1", "f1e2", "h1g2", "e2d3", "g2b2"],
-        "themes": ["middlegame", "crushing", "sacrifice", "deflection", "veryLong", "skewer", "attraction"],
-        "initialPly": 60,
+        "id": "cCHzz",
+        "rating": 1676,
+        "plays": 2804,
+        "solution": ["h1h8", "g8h8", "g6h7"],
+        "themes": ["mateIn2", "middlegame", "short", "attraction", "sacrifice", "kingsideAttack", "pin"],
+        "initialPly": 43,
       },
   }

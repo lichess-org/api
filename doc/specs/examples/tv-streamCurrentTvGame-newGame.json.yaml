@@ -3,24 +3,29 @@ value:
     "t": "featured",
     "d":
       {
-        "id": "gKGZxLC5",
+        "id": "PzKosuld",
         "orientation": "white",
         "players":
           [
-            { "color": "white", "user": { "name": "Bllitzer11", "id": "bllitzer11" }, "rating": 3179, "seconds": 51 },
+            {
+              "color": "white",
+              "user": { "name": "cutemouse83", "title": "GM", "patron": true, "patronColor": 3, "id": "cutemouse83" },
+              "rating": 2952,
+              "seconds": 180,
+            },
             {
               "color": "black",
               "user":
                 {
-                  "name": "Rsmon54Terrible",
-                  "title": "FM",
-                  "flair": "objects.graduation-cap",
-                  "id": "rsmon54terrible",
+                  "name": "chess-art-us",
+                  "title": "GM",
+                  "flair": "people.deaf-man-light-skin-tone",
+                  "id": "chess-art-us",
                 },
-              "rating": 2946,
-              "seconds": 51,
+              "rating": 2845,
+              "seconds": 180,
             },
           ],
-        "fen": "r2q1rk1/pb1nbppp/1p2pn2/3P4/3pP3/2N3P1/PP1N1PBP/R1BQR1K1 w - - 0 12",
+        "fen": "1n1r3r/pB2k1pp/4bp2/N3p3/2P5/6P1/PP5P/3R1RK1 w - - 1 18",
       },
   }

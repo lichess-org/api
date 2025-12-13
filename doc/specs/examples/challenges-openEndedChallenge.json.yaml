@@ -1,7 +1,7 @@
 value:
   {
-    "id": "mWPRI6R6",
-    "url": "https://lichess.org/mWPRI6R6",
+    "id": "yEIL3M25",
+    "url": "https://lichess.org/yEIL3M25",
     "status": "created",
     "challenger": null,
     "destUser": null,
@@ -13,6 +13,6 @@ value:
     "finalColor": "black",
     "perf": { "icon": "", "name": "Correspondence" },
     "open": {},
-    "urlWhite": "https://lichess.org/mWPRI6R6?color=white",
-    "urlBlack": "https://lichess.org/mWPRI6R6?color=black",
+    "urlWhite": "https://lichess.org/yEIL3M25?color=white",
+    "urlBlack": "https://lichess.org/yEIL3M25?color=black",
   }

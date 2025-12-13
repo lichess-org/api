@@ -1,43 +1,48 @@
 value:
   {
     "days": 30,
-    "global": { "nb": 11, "firstWins": 5, "replayWins": 0, "puzzleRatingAvg": 1598, "performance": 1553 },
+    "global": { "nb": 11, "firstWins": 6, "replayWins": 0, "puzzleRatingAvg": 1592, "performance": 1637 },
     "themes":
       {
         "middlegame":
           {
             "theme": "Middlegame",
-            "results": { "nb": 7, "firstWins": 2, "replayWins": 0, "puzzleRatingAvg": 1409, "performance": 1195 },
+            "results": { "nb": 5, "firstWins": 5, "replayWins": 0, "puzzleRatingAvg": 1655, "performance": 2155 },
           },
         "endgame":
           {
             "theme": "Endgame",
-            "results": { "nb": 4, "firstWins": 3, "replayWins": 0, "puzzleRatingAvg": 1930, "performance": 2180 },
-          },
-        "discoveredAttack":
-          {
-            "theme": "Discovered attack",
-            "results": { "nb": 2, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1455, "performance": 955 },
-          },
-        "pin":
-          {
-            "theme": "Pin",
-            "results": { "nb": 2, "firstWins": 2, "replayWins": 0, "puzzleRatingAvg": 1557, "performance": 2057 },
-          },
-        "xRayAttack":
-          {
-            "theme": "X-Ray attack",
-            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1585, "performance": 2085 },
+            "results": { "nb": 4, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1679, "performance": 1179 },
           },
         "fork":
           {
             "theme": "Fork",
-            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1285, "performance": 785 },
+            "results": { "nb": 4, "firstWins": 2, "replayWins": 0, "puzzleRatingAvg": 1248, "performance": 1248 },
+          },
+        "opening":
+          {
+            "theme": "Opening",
+            "results": { "nb": 2, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1259, "performance": 1259 },
+          },
+        "hangingPiece":
+          {
+            "theme": "Hanging piece",
+            "results": { "nb": 2, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1526, "performance": 1526 },
+          },
+        "skewer":
+          {
+            "theme": "Skewer",
+            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 2056, "performance": 2556 },
           },
         "sacrifice":
           {
             "theme": "Sacrifice",
-            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 2021, "performance": 2521 },
+            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 2477, "performance": 1977 },
+          },
+        "quietMove":
+          {
+            "theme": "Quiet move",
+            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 2499, "performance": 1999 },
           },
       },
   }

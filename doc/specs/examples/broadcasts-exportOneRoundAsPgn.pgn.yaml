@@ -1,7 +1,7 @@
 value: |
   [Event "Knight Invitational"]
-  [Site "https://lichess.org/broadcast/knight-invitational-2/final-round-2/w8i8Iynp/JUUfvXEu"]
-  [Date "2025.11.29"]
+  [Site "https://lichess.org/broadcast/knight-invitational-2/final-round-2/aUOpnxDF/iMUN1Wcn"]
+  [Date "2025.12.13"]
   [White "Player 1"]
   [Black "Player 2"]
   [Result "*"]
@@ -10,28 +10,28 @@ value: |
   [Variant "Standard"]
   [ECO "C20"]
   [Opening "King's Pawn Game"]
-  [UTCDate "2025.11.29"]
-  [UTCTime "00:10:25"]
+  [UTCDate "2025.12.13"]
+  [UTCTime "18:50:52"]
   [BroadcastName "Knight Invitational 2"]
-  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/w8i8Iynp"]
-  [GameURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/w8i8Iynp/JUUfvXEu"]
+  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/aUOpnxDF"]
+  [GameURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/aUOpnxDF/iMUN1Wcn"]
 
   1. e4 e5 *
 
 
   [Event "Knight Invitational"]
-  [Site "https://lichess.org/broadcast/knight-invitational-2/final-round-2/w8i8Iynp/b2laeYxb"]
-  [Date "2025.11.29"]
+  [Site "https://lichess.org/broadcast/knight-invitational-2/final-round-2/aUOpnxDF/7SEa4ckQ"]
+  [Date "2025.12.13"]
   [White "Player 3"]
   [Black "Player 4"]
   [Result "*"]
   [Variant "Standard"]
   [ECO "D00"]
   [Opening "Queen's Pawn Game"]
-  [UTCDate "2025.11.29"]
-  [UTCTime "00:10:25"]
+  [UTCDate "2025.12.13"]
+  [UTCTime "18:50:52"]
   [BroadcastName "Knight Invitational 2"]
-  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/w8i8Iynp"]
-  [GameURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/w8i8Iynp/b2laeYxb"]
+  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/aUOpnxDF"]
+  [GameURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/aUOpnxDF/7SEa4ckQ"]
 
   1. d4 d5 *

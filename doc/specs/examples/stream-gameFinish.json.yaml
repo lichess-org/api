@@ -3,8 +3,8 @@ value:
     "type": "gameFinish",
     "game":
       {
-        "fullId": "stYMULsCgfGD",
-        "gameId": "stYMULsC",
+        "fullId": "MoWs8TanjdQO",
+        "gameId": "MoWs8Tan",
         "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
         "color": "white",
         "lastMove": "e7e5",
@@ -15,12 +15,12 @@ value:
         "perf": "blitz",
         "rated": true,
         "hasMoved": true,
-        "opponent": { "id": "aaron", "username": "Aaron", "rating": 734, "ratingDiff": 7 },
+        "opponent": { "id": "aaron", "username": "Aaron", "rating": 740, "ratingDiff": 45 },
         "isMyTurn": false,
         "secondsLeft": 300,
         "winner": "black",
-        "ratingDiff": -12,
+        "ratingDiff": -33,
         "compat": { "bot": false, "board": true },
-        "id": "stYMULsC",
+        "id": "MoWs8Tan",
       },
   }

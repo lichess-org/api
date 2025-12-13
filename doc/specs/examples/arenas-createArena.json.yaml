@@ -4,11 +4,11 @@ value:
     "duels": [],
     "secondsToStart": 300,
     "standing": { "page": 1, "players": [] },
-    "id": "6PvdYSkq",
+    "id": "mRp9HwbP",
     "createdBy": "bobby",
-    "startsAt": "2025-11-29T00:15:21.068009241Z",
+    "startsAt": "2025-12-13T18:50:57.275281935Z",
     "system": "arena",
-    "fullName": "Osnos Arena",
+    "fullName": "Reshevsky Arena",
     "minutes": 60,
     "perf": { "key": "blitz", "name": "Blitz", "icon": ")" },
     "clock": { "limit": 300, "increment": 0 },
@@ -16,7 +16,11 @@ value:
     "rated": true,
     "berserkable": true,
     "verdicts": { "list": [{ "condition": "Bot players are not allowed", "verdict": "ok" }], "accepted": true },
-    "quote": { "text": "There just isn't enough televised chess.", "author": "David Letterman" },
-    "greatPlayer": { "name": "Osnos", "url": "https://wikipedia.org/wiki/Vyacheslav_Osnos" },
+    "quote":
+      {
+        "text": "Success in chess requires many factors such as environment, hard practice, coach, talent... When we are children, we should not set the goal of becoming a super grandmaster. Do not play chess because of pressure, let chess become your joy and success will come naturally.",
+        "author": "Lê Quang Liêm",
+      },
+    "greatPlayer": { "name": "Reshevsky", "url": "https://wikipedia.org/wiki/Samuel_Reshevsky" },
     "myUsername": "Bobby",
   }

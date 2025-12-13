@@ -1,207 +1,182 @@
 value:
   [
     {
-      "interval": { "start": 1764288000000, "end": 1764374400000 },
-      "correspondenceEnds":
-        {
-          "correspondence":
-            {
-              "score": { "win": 1, "loss": 1, "draw": 0, "rp": { "before": 1942, "after": 1942 } },
-              "games":
-                [
-                  {
-                    "id": "t5grQX7t",
-                    "color": "black",
-                    "url": "https://lichess.org/t5grQX7t/black",
-                    "opponent": { "user": "neio", "rating": 1500 },
-                  },
-                  {
-                    "id": "o7vEsE3N",
-                    "color": "black",
-                    "url": "https://lichess.org/o7vEsE3N/black",
-                    "opponent": { "user": "neio", "rating": 1500 },
-                  },
-                ],
-            },
-        },
+      "interval": { "start": 1765584000000, "end": 1765670400000 },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "guerlain",
-                  "tygvx",
-                  "a3353446",
-                  "gaelkenzo",
-                  "dima_ikaunieks",
-                  "chinbha",
-                  "vishy__96",
-                  "fide-macter",
-                  "vladimir_2017ms",
-                  "kronosz-2",
-                  "baophong-2015",
-                  "fmarcosh",
-                  "milchvo",
-                  "racingmen",
-                  "sidharthnairccs",
+                  "likechess1234",
+                  "the_great_knight_13",
+                  "gencayguven",
+                  "joao_julio",
+                  "apurv_2017",
+                  "oleh_valerievich",
+                  "lpasam",
                 ],
-              "nb": 16,
             },
         },
+      "studies": [{ "id": "8rTFQ9UE", "name": "thibault's Study" }, { "id": "fRVcvGwH", "name": "thibault's Study" }],
+      "stream": true,
     },
     {
-      "interval": { "start": 1764201600000, "end": 1764288000000 },
+      "interval": { "start": 1765497600000, "end": 1765584000000 },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "fangcobra",
-                  "believer54",
-                  "alexeykhu",
-                  "mukund_vardadagan",
-                  "sathvik_the_king-7",
-                  "klinkerklunk",
-                  "olive7764",
-                  "skirik14",
-                  "sancristobal2",
-                  "drobtics",
-                  "vivaanbsm",
-                  "chess_duke",
-                  "sotantar_s_k",
-                  "sivadineshk",
-                  "sandyman96",
+                  "maksolunov",
+                  "yagizenhos88",
+                  "wolfknight05",
+                  "s9075895",
+                  "harvin1201",
+                  "i_bochenkov",
+                  "jayhindkisena",
+                  "eggroll26",
+                  "tehan2015",
+                  "brainwizard_om",
                 ],
             },
         },
     },
     {
-      "interval": { "start": 1764115200000, "end": 1764201600000 },
+      "interval": { "start": 1765411200000, "end": 1765497600000 },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "pawnstar_sam",
-                  "dmb007",
-                  "neeraj1000",
-                  "devaamsh2015",
-                  "aaron_james_walker",
-                  "v16warrier",
-                  "karimschach",
-                  "ivan_kravtsov16",
-                  "natedz",
+                  "prancethecat",
+                  "piggy-is-the-best",
+                  "nguyencaptures",
+                  "samuelgordon",
+                  "cagakan",
+                  "mauro1183",
+                  "l_4lfiere",
+                  "vedloveschess",
+                  "thematrix_121",
+                  "gokbey01",
+                  "liam-alexander",
+                  "albanaco",
+                  "siddharthsinghgm567",
+                  "snithik_s_das2409",
+                  "aleksandr_korobkin",
+                ],
+              "nb": 17,
+            },
+        },
+      "posts":
+        [
+          {
+            "topicUrl": "https://lichess.org/forum/team-lichess-beta-testers/fide-players-pictures",
+            "topicName": "FIDE players pictures",
+            "posts":
+              [
+                {
+                  "url": "https://lichess.org/forum/redirect/post/yHkZf8hn",
+                  "text": "We'll have photos of FIDE players soon:\n\n![image.png](https://image.lichess1.org/display?fmt=png&h=0&op=resize&path=ca32xV1Oi8LE.png&w=864&sig=a49944e33ee283e1146d0d2d9780f37d6d33a93c)\n\n![image.png](https://image.lichess1.org/display?fmt=png&h=0&op=resize&path=EbXiBvUK3twI.png&w=864&sig=a637280acd57fe38c33dcc4c18ea0d89c99bff01)",
+                },
+              ],
+          },
+        ],
+    },
+    {
+      "interval": { "start": 1765324800000, "end": 1765411200000 },
+      "follows":
+        {
+          "in":
+            {
+              "ids":
+                [
+                  "epicslovak22",
+                  "starwars161",
+                  "apurv_2017",
+                  "dhirennath",
+                  "narutoking1",
+                  "klavsberzins",
+                  "seankyng",
+                  "dragondany",
+                  "s_rishinandhan",
+                  "josechessm4",
+                  "samcel93",
                 ],
             },
         },
     },
     {
-      "interval": { "start": 1764028800000, "end": 1764115200000 },
-      "puzzles": { "score": { "win": 1, "loss": 0, "draw": 0, "rp": { "before": 1868, "after": 1868 } } },
+      "interval": { "start": 1765238400000, "end": 1765324800000 },
+      "puzzles": { "score": { "win": 1, "loss": 0, "draw": 0, "rp": { "before": 1893, "after": 1910 } } },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "speedyjacob",
-                  "megaboss7587",
-                  "zagortenay",
-                  "amarillin",
-                  "cinar2015fb",
-                  "mcdzonika019",
-                  "anakin_skywalker_02",
-                  "shreyaskh",
-                  "chaitu21",
-                  "plant_daylight",
-                  "axenofearwood",
-                  "fraxtop",
-                  "danielnj2016",
+                  "coeus0224",
+                  "justarandompanther",
+                  "sohang3112",
+                  "adddestroyer",
+                  "sairaam",
+                  "ssachive",
+                  "damsanappp",
+                  "ashvathgilla",
+                  "negative_infinity",
+                  "humanstockfish16",
                 ],
             },
         },
+      "stream": true,
     },
     {
-      "interval": { "start": 1763942400000, "end": 1764028800000 },
-      "games": { "blitz": { "win": 1, "loss": 1, "draw": 0, "rp": { "before": 1788, "after": 1790 } } },
-      "puzzles": { "score": { "win": 1, "loss": 0, "draw": 0, "rp": { "before": 1855, "after": 1868 } } },
+      "interval": { "start": 1765152000000, "end": 1765238400000 },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "emmapizza",
-                  "rotsov",
-                  "marbe59",
-                  "maroskolaho",
-                  "yashgawas",
-                  "kaganakca16",
-                  "ayyaan-uccc",
-                  "forzathelegend",
-                  "yuri334",
-                  "alexander160819",
-                  "mjamu",
-                  "baidurja_samanta",
-                  "nithish2007",
-                  "stoneingrass",
-                  "stravik",
+                  "bitstiven15",
+                  "george_kirkel",
+                  "saidevsgambit",
+                  "sergix_pro_max",
+                  "shinoubukocho",
+                  "thebadbishops",
+                  "theodored_258clch",
+                  "fasmote",
+                  "karaturna",
+                  "samuell_g8",
+                  "kapil_1",
+                  "skuf2289776",
+                  "imansu123",
+                  "player2016chess",
+                  "legeniechampion",
                 ],
-              "nb": 18,
             },
         },
+      "stream": true,
     },
     {
-      "interval": { "start": 1763856000000, "end": 1763942400000 },
-      "puzzles": { "score": { "win": 0, "loss": 1, "draw": 0, "rp": { "before": 1868, "after": 1855 } } },
+      "interval": { "start": 1765065600000, "end": 1765152000000 },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "ajimenezb48",
-                  "bauerle",
-                  "m-zz",
-                  "sicilianfox7",
-                  "romanovs1",
-                  "rv_kandy",
-                  "evanodepiano",
-                  "elioxuni",
-                  "chekagain",
-                  "kotym_doomer",
-                  "thegodfaser",
-                  "tikhon_mitus",
-                  "m2y",
-                  "lenaya",
-                  "harishseventh",
-                ],
-              "nb": 20,
-            },
-        },
-    },
-    {
-      "interval": { "start": 1763769600000, "end": 1763856000000 },
-      "follows":
-        {
-          "in":
-            {
-              "ids":
-                [
-                  "jlqr",
-                  "robotathand",
-                  "srihaasd",
-                  "malcruz",
-                  "u-ras-a",
-                  "ts_gbolahan",
-                  "the-wittyalien",
-                  "dshreyansh",
-                  "oxnull",
-                  "the-glentman_san78",
-                  "mozart_martins",
+                  "prepshotchess",
+                  "paulsleeks",
+                  "hiprantthegambit",
+                  "sdchessss",
+                  "aliarlan",
+                  "ladyidi",
+                  "justiceisall",
+                  "star_chess_world",
+                  "coeus0224",
                 ],
             },
         },

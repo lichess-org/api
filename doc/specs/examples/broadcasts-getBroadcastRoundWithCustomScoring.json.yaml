@@ -66,6 +66,45 @@ value:
           "status": "1-0",
         },
       ],
+    "photos":
+      {
+        "1503014":
+          {
+            "small": "https://image.lichess1.org/display?fmt=webp&h=100&op=thumbnail&path=vdRMi9MG3yON.webp&w=100&sig=1833440f08dff0b83d2b12b381c82e0d549f979b",
+            "medium": "https://image.lichess1.org/display?fmt=webp&h=500&op=thumbnail&path=vdRMi9MG3yON.webp&w=500&sig=65d41aa1c2f5f11bc612bbda1e1e365c3abea2b5",
+            "credit": "Brigham Aldrich",
+          },
+        "2016192":
+          {
+            "small": "https://image.lichess1.org/display?fmt=webp&h=100&op=thumbnail&path=DKk7D4U9ivZb.webp&w=100&sig=44d30eb428b70d1058ceec0333fa227c1da60581",
+            "medium": "https://image.lichess1.org/display?fmt=webp&h=500&op=thumbnail&path=DKk7D4U9ivZb.webp&w=500&sig=5e2c2edb1347cfa053951ea481886c21e0c4f676",
+            "credit": "Andreas Kontokanis, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons",
+          },
+        "2020009":
+          {
+            "small": "https://image.lichess1.org/display?fmt=webp&h=100&op=thumbnail&path=Hif5ohoGiHPZ.webp&w=100&sig=13ea5db011e7e45a97ec1a4164a355ef6b1db8f9",
+            "medium": "https://image.lichess1.org/display?fmt=webp&h=500&op=thumbnail&path=Hif5ohoGiHPZ.webp&w=500&sig=fa71f0594833a61290626f11ab67459349a29f3c",
+            "credit": "Brigham Aldrich",
+          },
+        "8603405":
+          {
+            "small": "https://image.lichess1.org/display?fmt=webp&h=100&op=thumbnail&path=rDGOWW82iYK9.webp&w=100&sig=7c8ece3893b331835185347a890831ee07a1489e",
+            "medium": "https://image.lichess1.org/display?fmt=webp&h=500&op=thumbnail&path=rDGOWW82iYK9.webp&w=500&sig=dbae7080a8bd3ce8b153a2c7a24429f107dabf1c",
+            "credit": "Frans Peeters, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons",
+          },
+        "35009192":
+          {
+            "small": "https://image.lichess1.org/display?fmt=webp&h=100&op=thumbnail&path=ZtNkAl1_0MHT.webp&w=100&sig=8a2122f91eab6c3f0528bce8ea5854fd561bbcde",
+            "medium": "https://image.lichess1.org/display?fmt=webp&h=500&op=thumbnail&path=ZtNkAl1_0MHT.webp&w=500&sig=f2faf575e19147ee8b1d2b573f1fd2e18fab88e7",
+            "credit": "Brigham Aldrich",
+          },
+        "46616543":
+          {
+            "small": "https://image.lichess1.org/display?fmt=webp&h=100&op=thumbnail&path=km_a_02cL0cP.webp&w=100&sig=6427d1a5397f5396ab5246125aae60a672ac5e4a",
+            "medium": "https://image.lichess1.org/display?fmt=webp&h=500&op=thumbnail&path=km_a_02cL0cP.webp&w=500&sig=a12e9409dfb43c0e6e2eb40f29908a55ee455770",
+            "credit": "Frans Peeters, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons",
+          },
+      },
     "group":
       {
         "id": "I7IIijJO",
@@ -76,14 +115,5 @@ value:
             { "id": "PcsMbQ9J", "name": "Open", "active": false, "live": false },
             { "id": "lrKI0bSz", "name": "Women", "active": false, "live": false },
           ],
-      },
-    "photos":
-      {
-        "12940690":
-          {
-            "medium": "https://image.lichess1.org/display?fmt=webp&h=300&op=thumbnail&path=PTj-NTrXL6zx.webp&w=300&sig=8ee32f39870f10727147560961cab746a79490c8",
-            "small": "https://image.lichess1.org/display?fmt=webp&h=100&op=thumbnail&path=PTj-NTrXL6zx.webp&w=100&sig=1fa42bba3c9bd7a7e4b50c83383b310d53f315a0",
-            "credit": "Brigham Aldrich",
-          },
       },
   }

@@ -5,7 +5,7 @@ value:
     "description": "The official Lichess Swiss team. We organize regular swiss tournaments for all to join.",
     "open": true,
     "leader": { "name": "Lichess", "flair": "activity.lichess", "patron": true, "patronColor": 10, "id": "lichess" },
-    "nbMembers": 652777,
+    "nbMembers": 657824,
     "flair": "food-drink.cheese-wedge",
     "leaders":
       [

@@ -1,6 +1,6 @@
 value:
   {
-    "id": "YAfmaGWv",
+    "id": "XbrJd2xO",
     "variant": { "key": "standard", "name": "Standard", "short": "Std" },
     "speed": "correspondence",
     "perf": "correspondence",
@@ -9,7 +9,7 @@ value:
     "turns": 0,
     "source": "ai",
     "status": { "id": 20, "name": "started" },
-    "createdAt": 1764375032275,
+    "createdAt": 1765651611249,
     "player": "white",
-    "fullId": "YAfmaGWvFaBZ",
+    "fullId": "XbrJd2xOlEci",
   }

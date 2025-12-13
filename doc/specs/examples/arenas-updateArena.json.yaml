@@ -4,9 +4,9 @@ value:
     "duels": [],
     "secondsToStart": 300,
     "standing": { "page": 1, "players": [] },
-    "id": "6PvdYSkq",
+    "id": "mRp9HwbP",
     "createdBy": "bobby",
-    "startsAt": "2025-11-29T00:15:21.068Z",
+    "startsAt": "2025-12-13T18:50:57.275Z",
     "system": "arena",
     "fullName": "Updated Arena Arena",
     "minutes": 60,
@@ -18,8 +18,8 @@ value:
     "verdicts": { "list": [{ "condition": "Bot players are not allowed", "verdict": "ok" }], "accepted": true },
     "quote":
       {
-        "text": "Chess holds its master in its own bonds, shackling the mind and brain so that the inner freedom of the very strongest must suffer.",
-        "author": "Albert Einstein",
+        "text": "When you trade, the key concern is not always the value of the pieces being exchanged, but what's left on the board.",
+        "author": "Dan Heisman",
       },
     "myUsername": "Bobby",
   }

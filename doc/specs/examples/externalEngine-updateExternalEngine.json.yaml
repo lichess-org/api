@@ -1,11 +1,11 @@
 value:
   {
-    "id": "eei_8e3lo4jkOzau",
+    "id": "eei_av8uLcTbZfMO",
     "name": "Stockfish 17.1",
     "userId": "bobby",
     "maxThreads": 8,
     "maxHash": 2048,
     "variants": ["chess"],
     "providerData": null,
-    "clientSecret": "ees_pMxe3SPRHDpbaw8J",
+    "clientSecret": "ees_Gonuvy0jUDf8Ywg4",
   }

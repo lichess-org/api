@@ -26,7 +26,7 @@ value:
       {
         "id": "PSjmf",
         "rating": 2763,
-        "plays": 733,
+        "plays": 734,
         "solution": ["g8g7", "d5e5", "f6e5"],
         "themes": ["endgame", "master", "short", "masterVsMaster", "crushing"],
         "initialPly": 52,

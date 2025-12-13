@@ -2,24 +2,24 @@ value:
   {
     "game":
       {
-        "id": "jWjInszN",
+        "id": "LMXI7KPi",
         "perf": { "key": "rapid", "name": "Rapid" },
         "rated": true,
         "players":
           [
-            { "name": "bathop1", "id": "bathop1", "color": "white", "rating": 1906 },
-            { "name": "isidorotegi", "id": "isidorotegi", "color": "black", "rating": 2023 },
+            { "name": "vahid96", "id": "vahid96", "color": "white", "rating": 1850 },
+            { "name": "radmehr1358", "id": "radmehr1358", "color": "black", "rating": 1833 },
           ],
-        "pgn": "Nf3 d5 e3 c6 c4 e6 b3 Nf6 Nc3 Be7 Bb2 O-O Be2 Nbd7 h3 b6 g4 Bb7 g5 Ne4 h4 Qc7 Qc2 f5 d3 Nec5 b4 Na6 a3 dxc4 dxc4 c5 b5 Nab8 O-O-O Ne5 Rh3 Nbd7 Nxe5 Nxe5 f4 Ng4 Bxg4 fxg4 Rg3 Bf3 Ne2 Rfd8 Rxd8+ Rxd8 Qc3 Bf8 Qc2 Qd6 Be5 Qd3 Qxd3 Rxd3 Ng1 Rxe3 Nxf3",
-        "clock": "5+8",
+        "pgn": "Nf3 d5 g3 c5 Bg2 Nc6 d3 e5 O-O Nf6 e4 d4 a4 b6 Bd2 Bg4 a5 Bd6 h3 Bh5 Na3 bxa5 Nc4 Rb8 Bxa5 Nxa5 Rxa5 Bxf3 Bxf3 Rb7 Qa1 Bb8 Rxc5 Nd7 Ra5 O-O Qa2 Kh8 Bg4 f6 Bxd7 Qxd7 Kg2 f5 Nxe5 Bxe5 Rxe5 fxe4 Rxe4 Qc6 b3 Rc7 Rc1 Qf6 Rf4 Qc6+ Kf1",
+        "clock": "5+10",
       },
     "puzzle":
       {
-        "id": "5JAJ1",
-        "rating": 1939,
-        "plays": 52843,
-        "solution": ["g4f3", "c1d2", "f3f2", "g3e3", "f2f1q"],
-        "themes": ["endgame", "advancedPawn", "crushing", "long", "promotion"],
-        "initialPly": 60,
+        "id": "BLbOg",
+        "rating": 1953,
+        "plays": 18844,
+        "solution": ["f8f4", "g3f4", "c6h1"],
+        "themes": ["endgame", "short", "crushing"],
+        "initialPly": 56,
       },
   }

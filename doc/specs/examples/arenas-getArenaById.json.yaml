@@ -120,8 +120,6 @@ value:
             {
               "name": "ARM-777777",
               "title": "GM",
-              "patron": true,
-              "patronColor": 1,
               "rank": 8,
               "rating": 3154,
               "score": 119,

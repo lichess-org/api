@@ -14,12 +14,5 @@ value:
     "status": 30,
     "perf": { "key": "blitz", "name": "Blitz", "position": 1, "icon": ")" },
     "teamMember": "bradys-blunder-buddies",
-    "winner":
-      {
-        "name": "Mennonite",
-        "flair": "symbols.lichess-4545-flag",
-        "patron": true,
-        "patronColor": 1,
-        "id": "mennonite",
-      },
+    "winner": { "name": "Mennonite", "flair": "symbols.lichess-4545-flag", "id": "mennonite" },
   }
