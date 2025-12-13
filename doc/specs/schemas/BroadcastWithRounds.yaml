@@ -17,4 +17,3 @@ properties:
 required:
   - tour
   - rounds
-  - photos
