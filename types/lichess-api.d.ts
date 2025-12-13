@@ -4011,7 +4011,7 @@ export interface components {
          */
         channel?: string;
       };
-      youTube?: {
+      youtube?: {
         /**
          * Format: uri
          * @example https://www.youtube.com/c/LichessDotOrg
@@ -5974,7 +5974,7 @@ export interface components {
       group?: components["schemas"]["BroadcastGroup"];
       rounds: components["schemas"]["BroadcastRoundInfo"][];
       defaultRoundId?: string;
-      photos: components["schemas"]["BroadcastPhotos"];
+      photos?: components["schemas"]["BroadcastPhotos"];
     };
     BroadcastWithLastRound: {
       group?: string;
@@ -12035,7 +12035,7 @@ export interface operations {
           "application/json": (components["schemas"]["LightUser"] & {
             stream?: {
               /** @enum {string} */
-              service?: "twitch" | "youTube";
+              service?: "twitch" | "youtube";
               /** @description The stream title */
               status?: string;
               lang?: string;
@@ -12047,7 +12047,7 @@ export interface operations {
               /** Format: uri */
               twitch?: string;
               /** Format: uri */
-              youTube?: string;
+              youtube?: string;
               /** Format: uri */
               image?: string;
             };
