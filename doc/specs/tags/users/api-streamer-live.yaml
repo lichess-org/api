@@ -33,7 +33,7 @@ get:
                           type: string
                           enum:
                             - twitch
-                            - youTube
+                            - youtube
                         status:
                           type: string
                           description: The stream title
@@ -51,7 +51,7 @@ get:
                         twitch:
                           type: string
                           format: uri
-                        youTube:
+                        youtube:
                           type: string
                           format: uri
                         image:

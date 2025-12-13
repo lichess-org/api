@@ -7,7 +7,7 @@ properties:
         type: string
         format: uri
         example: https://www.twitch.tv/lichessdotorg
-  youTube:
+  youtube:
     type: object
     properties:
       channel:
