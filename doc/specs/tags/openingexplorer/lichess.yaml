@@ -6,7 +6,7 @@ get:
   description: |
     **Endpoint: <https://explorer.lichess.ovh/lichess>**
 
-    Games sampled from all Lichess players.
+    Aggregated rated games from all Lichess players.
 
     Example: `curl https://explorer.lichess.ovh/lichess?variant=standard&speeds=blitz,rapid,classical&ratings=2200,2500&fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
   tags:

@@ -21,13 +21,11 @@ example(
 example(
   "openingExplorer",
   "lichess",
-  await client.GET("/masters", {
+  await client.GET("/lichess", {
     params: {
       query: {
         variant: "standard",
-        speeds: "blitz,rapid,classical",
-        ratings: "2200,2500",
-        fen: "rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2",
+        play: "d2d4,d7d5,c2c4,c7c6,c4d5",
       },
     },
   }),
