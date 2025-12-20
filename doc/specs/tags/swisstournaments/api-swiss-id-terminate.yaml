@@ -4,7 +4,7 @@ post:
   description: |
     Terminate a Swiss tournament
   tags:
-    - "Swiss tournaments"
+    - "Tournaments (Swiss)"
   security:
     - OAuth2: ["tournament:write"]
   parameters:

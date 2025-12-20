@@ -5,7 +5,7 @@ post:
     Join an Arena tournament, possibly with a password and/or a team.
     Also unpauses if you had previously [paused](#tag/arena-tournaments/post/apitournamentidwithdraw) the tournament.
   tags:
-    - "Arena tournaments"
+    - "Tournaments (Arena)"
   security:
     - OAuth2: ["tournament:write"]
   parameters:

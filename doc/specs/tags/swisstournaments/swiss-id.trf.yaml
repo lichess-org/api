@@ -6,7 +6,7 @@ get:
     Documentation: <https://www.fide.com/FIDE/handbook/C04Annex2_TRF16.pdf>
     Example: <https://lichess.org/swiss/j8rtJ5GL.trf>
   tags:
-    - "Swiss tournaments"
+    - "Tournaments (Swiss)"
   security: []
   parameters:
     - in: path

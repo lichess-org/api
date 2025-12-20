@@ -10,7 +10,7 @@ get:
       - [OAuth2 authenticated](/#description/authentication) request: 30 tournaments per second
       - Authenticated, downloading your own tournaments: 50 tournaments per second
   tags:
-    - "Arena tournaments"
+    - "Tournaments (Arena)"
   security:
     - OAuth2: []
   parameters:

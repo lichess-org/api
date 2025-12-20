@@ -5,7 +5,7 @@ get:
     Get recently active and finished tournaments.
     This API is used to display the [Lichess tournament schedule](https://lichess.org/tournament).
   tags:
-    - "Arena tournaments"
+    - "Tournaments (Arena)"
   security: []
   responses:
     "200":
@@ -35,7 +35,7 @@ post:
       - 15s and 0+1 variant tournaments cannot be rated
       - Clock time in comparison to tournament length must be reasonable: 3 <= (minutes * 60) / (96 * clockTime + 48 * clockIncrement + 15) <= 150
   tags:
-    - "Arena tournaments"
+    - "Tournaments (Arena)"
   security:
     - OAuth2: ["tournament:write"]
   requestBody:

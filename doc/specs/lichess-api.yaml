@@ -106,37 +106,10 @@ tags:
     description: |
       Read and write account information and preferences.
       <https://lichess.org/account/preferences/game-display>
-  - name: Users
+  - name: Analysis
     description: |
-      Access registered users on Lichess.
-      <https://lichess.org/player>
-
-      - Each user blog exposes an atom (RSS) feed, like <https://lichess.org/@/thibault/blog.atom>
-      - User blogs mashup feed: https://lichess.org/blog/community.atom
-      - User blogs mashup feed for a language: https://lichess.org/blog/community/fr.atom
-
-  - name: Relations
-    description: |
-      Access relations between users.
-  - name: Games
-    description: |
-      Access games played on Lichess.
-      <https://lichess.org/games>
-  - name: TV
-    description: |
-      Access Lichess TV channels and games.
-      <https://lichess.org/tv> & <https://lichess.org/games>
-  - name: Puzzles
-    description: |
-      Access Lichess [puzzle history and dashboard](https://lichess.org/training).
-
-      Our collection of puzzles is in the public domain, you can [download it here](https://database.lichess.org/#puzzles).
-      For a list of our puzzle themes with their description, check out the [theme translation file](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
-      The daily puzzle can be [posted in your slack workspace](https://lichess.org/daily-puzzle-slack).
-  - name: Teams
-    description: |
-      Access and manage Lichess teams and their members.
-      <https://lichess.org/team>
+      Access Lichess cloud evaluations database.
+      <https://lichess.org/analysis>
   - name: Board
     description: |
       Play on Lichess with physical boards and third-party clients.
@@ -193,37 +166,6 @@ tags:
       - Join the [Lichess Bots team](https://lichess.org/team/lichess-bots) with your bot account
       - [Get help in the discord channel](https://discord.gg/quwueFd)
       - Watch [Lichess Bot TV](https://lichess.org/tv/bot)
-  - name: Challenges
-    description: |
-      Send and receive challenges to play.
-
-      To create a lot of challenges, consider [bulk pairing](#tag/bulk-pairings/post/apibulk-pairing) instead.
-  - name: Bulk pairings
-    description: |
-      Create many games for other players.
-
-      These endpoints are intended for tournament organisers.
-  - name: Arena tournaments
-    description: |
-      Access Arena tournaments played on Lichess.
-      [Official Arena tournaments](https://lichess.org/tournament) are maintained by Lichess,
-      but you can [create your own Arena tournaments](https://lichess.org/tournament/new) as well.
-  - name: Swiss tournaments
-    description: |
-      Access Swiss tournaments played on Lichess.
-      [Read more about Swiss tournaments.](https://lichess.org/swiss).
-  - name: Simuls
-    description: |
-      Access simuls played on Lichess.
-      <https://lichess.org/simul>
-  - name: Studies
-    description: |
-      Access Lichess studies.
-      <https://lichess.org/study>
-  - name: Messaging
-    description: |
-      Private messages with other players.
-      <https://lichess.org/inbox>
   - name: Broadcasts
     description: |
       Relay chess events on Lichess.
@@ -234,15 +176,16 @@ tags:
 
       Broadcasts are organized in tournaments, which have several rounds, which have several games.
       You must first create a tournament, then you can add rounds to them.
-  - name: FIDE
+  - name: Bulk pairings
     description: |
-      FIDE players and federations from [their public download](https://ratings.fide.com/download_lists.phtml).
+      Create many games for other players.
 
-      <https://lichess.org/fide>
-  - name: Analysis
+      These endpoints are intended for tournament organisers.
+  - name: Challenges
     description: |
-      Access Lichess cloud evaluations database.
-      <https://lichess.org/analysis>
+      Send and receive challenges to play.
+
+      To create a lot of challenges, consider [bulk pairing](#tag/bulk-pairings/post/apibulk-pairing) instead.
   - name: External engine
     description: |
       **This API is in alpha and subject to change.**
@@ -252,6 +195,19 @@ tags:
       External engines can provide analysis on pages like the
       [analysis board](https://lichess.org/analysis), running as a service
       outside of the browser, or even on a different machine.
+  - name: FIDE
+    description: |
+      FIDE players and federations from [their public download](https://ratings.fide.com/download_lists.phtml).
+
+      <https://lichess.org/fide>
+  - name: Games
+    description: |
+      Access games played on Lichess.
+      <https://lichess.org/games>
+  - name: Messaging
+    description: |
+      Private messages with other players.
+      <https://lichess.org/inbox>
   - name: Opening Explorer
     description: |
       Lookup positions from the [Lichess opening explorer](https://lichess.org/analysis#explorer).
@@ -259,11 +215,54 @@ tags:
       Runs <https://github.com/lichess-org/lila-openingexplorer>.
 
       **The endpoint hostname is not lichess.org but explorer.lichess.ovh.**
+  - name: Puzzles
+    description: |
+      Access Lichess [puzzle history and dashboard](https://lichess.org/training).
+
+      Our collection of puzzles is in the public domain, you can [download it here](https://database.lichess.org/#puzzles).
+      For a list of our puzzle themes with their description, check out the [theme translation file](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
+      The daily puzzle can be [posted in your slack workspace](https://lichess.org/daily-puzzle-slack).
+  - name: Relations
+    description: |
+      Access relations between users.
+  - name: Simuls
+    description: |
+      Access simuls played on Lichess.
+      <https://lichess.org/simul>
+  - name: Studies
+    description: |
+      Access Lichess studies.
+      <https://lichess.org/study>
   - name: Tablebase
     description: |
       Lookup positions from the [Lichess tablebase server](https://lichess.org/blog/W3WeMyQAACQAdfAL/7-piece-syzygy-tablebases-are-complete).
 
       **The endpoint hostname is not lichess.org but tablebase.lichess.ovh.**
+  - name: Teams
+    description: |
+      Access and manage Lichess teams and their members.
+      <https://lichess.org/team>
+  - name: Tournaments (Arena)
+    description: |
+      Access Arena tournaments played on Lichess.
+      [Official Arena tournaments](https://lichess.org/tournament) are maintained by Lichess,
+      but you can [create your own Arena tournaments](https://lichess.org/tournament/new) as well.
+  - name: Tournaments (Swiss)
+    description: |
+      Access Swiss tournaments played on Lichess.
+      [Read more about Swiss tournaments.](https://lichess.org/swiss).
+  - name: TV
+    description: |
+      Access Lichess TV channels and games.
+      <https://lichess.org/tv> & <https://lichess.org/games>
+  - name: Users
+    description: |
+      Access registered users on Lichess.
+      <https://lichess.org/player>
+
+      - Each user blog exposes an atom (RSS) feed, like <https://lichess.org/@/thibault/blog.atom>
+      - User blogs mashup feed: https://lichess.org/blog/community.atom
+      - User blogs mashup feed for a language: https://lichess.org/blog/community/fr.atom
   - name: OAuth
     description: |
       Obtaining and revoking OAuth tokens.

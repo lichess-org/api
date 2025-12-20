@@ -6,7 +6,7 @@ post:
     This sets the `roundInterval` field to `99999999`, i.e. manual scheduling.
     All further rounds will need to be manually scheduled, unless the `roundInterval` field is changed back to automatic scheduling.
   tags:
-    - "Swiss tournaments"
+    - "Tournaments (Swiss)"
   security:
     - OAuth2: ["tournament:write"]
   parameters:
