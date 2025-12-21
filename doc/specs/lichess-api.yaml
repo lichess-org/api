@@ -36,6 +36,7 @@ info:
     - [Java general API](https://github.com/tors42/chariot)
     - [JavaScript & TypeScript general API](https://github.com/devjiwonchoi/equine)
     - [LichessNET - C# API Wrapper](https://github.com/Rabergsel/LichessNET)
+    - [.NET general API](https://github.com/Dblike/LichessSharp)
 
     ## Rate limiting
     All requests are rate limited using various strategies,
