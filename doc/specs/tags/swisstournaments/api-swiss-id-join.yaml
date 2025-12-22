@@ -4,7 +4,7 @@ post:
   description: |
     Join a Swiss tournament, possibly with a password.
   tags:
-    - "Swiss tournaments"
+    - "Tournaments (Swiss)"
   security:
     - OAuth2: ["tournament:write"]
   parameters:

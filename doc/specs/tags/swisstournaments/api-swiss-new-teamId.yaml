@@ -9,7 +9,7 @@ post:
       - clock.limit + clock.increment > 0
       - 15s and 0+1 variant tournaments cannot be rated
   tags:
-    - "Swiss tournaments"
+    - "Tournaments (Swiss)"
   security:
     - OAuth2: ["tournament:write"]
   parameters:

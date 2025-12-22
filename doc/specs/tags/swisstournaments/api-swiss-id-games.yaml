@@ -8,7 +8,7 @@ get:
       - Anonymous request: 20 games per second
       - [OAuth2 authenticated](/#description/authentication) request: 30 games per second
   tags:
-    - "Swiss tournaments"
+    - "Tournaments (Swiss)"
   security: []
   parameters:
     - $ref: "../../schemas/headers/AcceptPgnOrNdjson.yaml"

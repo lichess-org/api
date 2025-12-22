@@ -5,7 +5,7 @@ post:
     Leave a future Arena tournament, or take a break on an ongoing Arena tournament.
     It's possible to join again later. Points and streaks are preserved.
   tags:
-    - "Arena tournaments"
+    - "Tournaments (Arena)"
   security:
     - OAuth2: ["tournament:write"]
   parameters:

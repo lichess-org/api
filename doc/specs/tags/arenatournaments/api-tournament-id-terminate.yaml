@@ -4,7 +4,7 @@ post:
   description: |
     Terminate an Arena tournament
   tags:
-    - "Arena tournaments"
+    - "Tournaments (Arena)"
   security:
     - OAuth2: ["tournament:write"]
   parameters:

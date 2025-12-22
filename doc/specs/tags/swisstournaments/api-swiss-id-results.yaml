@@ -8,7 +8,7 @@ get:
     due to ranking changes while the players are being streamed.
     Use on finished tournaments for guaranteed consistency.
   tags:
-    - "Swiss tournaments"
+    - "Tournaments (Swiss)"
   security: []
   parameters:
     - in: path

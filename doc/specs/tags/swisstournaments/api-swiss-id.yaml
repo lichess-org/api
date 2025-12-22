@@ -11,7 +11,7 @@ get:
   description: |
     Get detailed info about a Swiss tournament.
   tags:
-    - "Swiss tournaments"
+    - "Tournaments (Swiss)"
   security: []
   responses:
     "200":

@@ -8,7 +8,7 @@ get:
     due to ranking changes while the players are being streamed.
     Use on finished tournaments for guaranteed consistency.
   tags:
-    - "Arena tournaments"
+    - "Tournaments (Arena)"
   security: []
   parameters:
     - in: path

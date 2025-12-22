@@ -4,7 +4,7 @@ get:
   description: |
     Teams of a team battle tournament, with top players, sorted by rank (best first).
   tags:
-    - "Arena tournaments"
+    - "Tournaments (Arena)"
   security: []
   parameters:
     - in: path

@@ -5,7 +5,7 @@ post:
     Leave a future Swiss tournament, or take a break on an ongoing Swiss tournament.
     It's possible to join again later. Points are preserved.
   tags:
-    - "Swiss tournaments"
+    - "Tournaments (Swiss)"
   security:
     - OAuth2: ["tournament:write"]
   parameters:

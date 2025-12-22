@@ -7,7 +7,7 @@ get:
     Tournaments are streamed as [ndjson](#description/streaming-with-nd-json).
   tags:
     - Teams
-    - "Swiss tournaments"
+    - "Tournaments (Swiss)"
   security: []
   parameters:
     - in: path
