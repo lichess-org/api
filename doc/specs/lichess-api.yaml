@@ -218,10 +218,10 @@ tags:
       **The endpoint hostname is not lichess.org but explorer.lichess.ovh.**
   - name: Puzzles
     description: |
-      Access Lichess [puzzle history and dashboard](https://lichess.org/training).
+      Fetch and solve [puzzles](https://lichess.org/training), view your puzzle history and dashboard.
 
       Our collection of puzzles is in the public domain, you can [download it here](https://database.lichess.org/#puzzles).
-      For a list of our puzzle themes with their description, check out the [theme translation file](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
+      For a list of our [puzzle themes](https://lichess.org/training/themes) with their description, check out the [theme translation file](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
       The daily puzzle can be [posted in your slack workspace](https://lichess.org/daily-puzzle-slack).
   - name: Relations
     description: |
