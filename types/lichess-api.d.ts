@@ -6085,12 +6085,12 @@ export interface components {
       markdown?: string;
       /**
        * @description Show players scores based on game results
-       * @default true
+       * @default false
        */
       showScores?: boolean;
       /**
        * @description Show player's rating diffs
-       * @default true
+       * @default false
        */
       showRatingDiffs?: boolean;
       /**
