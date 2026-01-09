@@ -57,12 +57,12 @@ properties:
       Optional long description of the broadcast. Markdown is supported.
   showScores:
     type: boolean
-    default: true
+    default: false
     description: |
       Show players scores based on game results
   showRatingDiffs:
     type: boolean
-    default: true
+    default: false
     description: |
       Show player's rating diffs
   teamTable:
