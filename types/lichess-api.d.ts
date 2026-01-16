@@ -1488,7 +1488,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/study/by/{username}/export.pgn": {
+  "/api/study/by/{username}/export.pgn": {
     parameters: {
       query?: never;
       header?: never;

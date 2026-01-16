@@ -465,8 +465,8 @@ paths:
   /api/study/{studyId}/{chapterId}/tags:
     $ref: "./tags/studies/api-study-studyId-chapterId-tags.yaml"
 
-  /study/by/{username}/export.pgn:
-    $ref: "./tags/studies/study-by-username-export.pgn.yaml"
+  /api/study/by/{username}/export.pgn:
+    $ref: "./tags/studies/api-study-by-username-export.pgn.yaml"
 
   /api/study/by/{username}:
     $ref: "./tags/studies/api-study-by-username.yaml"
