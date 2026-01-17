@@ -4,7 +4,7 @@ get:
   description: |
     Download the ongoing game, or the last game played, of a user.
     Available in either PGN or JSON format.
-    Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
+    Ongoing games are delayed by 3 moves, as to prevent cheat bots from using this API.
   tags:
     - Games
   security: []
