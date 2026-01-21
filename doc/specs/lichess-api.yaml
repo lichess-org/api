@@ -117,11 +117,11 @@ tags:
       Works with normal Lichess accounts. Engine play or assistance is [forbidden](https://lichess.org/page/fair-play).
 
       ### Features
-      - [Stream incoming chess moves](#tag/board/get/apiboardgamestreamgameid)
-      - [Play chess moves](#tag/board/post/apiboardgamegameidmovemove)
-      - [Read](#tag/board/get/apiboardgamestreamgameid) and [write](#tag/board/post/apiboardgamegameidchat) in the player and spectator chats
-      - [Receive](#tag/board/get/apistreamevent), [create](#tag/challenges/post/apichallengeusername) and [accept](#tag/challenges/post/apichallengechallengeidaccept) (or [decline](#tag/challenges/post/apichallengechallengeiddecline)) challenges
-      - [Abort](#tag/board/post/apiboardgamegameidabort) and [resign](#tag/board/post/apiboardgamegameidresign) games
+      - [Stream incoming chess moves](#tag/board/GET/api/board/game/stream/{gameId})
+      - [Play chess moves](#tag/board/POST/api/board/game/{gameId}/move/{move})
+      - [Read](#tag/board/GET/api/board/game/stream/{gameId}) and [write](#tag/board/POST/api/board/game/{gameId}/chat) in the player and spectator chats
+      - [Receive](#tag/board/GET/api/stream/event), [create](#tag/challenges/POST/api/challenge/{username}) and [accept](#tag/challenges/POST/api/challenge/{challengeId}/accept) (or [decline](#tag/challenges/POST/api/challenge/{challengeId}/decline)) challenges
+      - [Abort](#tag/board/POST/api/board/game/{gameId}/abort) and [resign](#tag/board/POST/api/board/game/{gameId}/resign) games
       - Compatible with normal Lichess accounts
 
       ### Restrictions
@@ -141,14 +141,14 @@ tags:
       Play on Lichess as a bot. Allows engine play.
       Read the [blog post announcement of lichess bots](https://lichess.org/blog/WvDNticAAMu_mHKP/welcome-lichess-bots).
 
-      Only works with [Bot accounts](#tag/bot/post/apibotaccountupgrade).
+      Only works with [Bot accounts](#tag/bot/POST/api/bot/account/upgrade).
 
       ### Features
-      - [Stream incoming chess moves](#tag/bot/get/apibotgamestreamgameid)
-      - [Play chess moves](#tag/bot/post/apibotgamegameidmovemove)
-      - [Read](#tag/bot/get/apibotgamestreamgameid) and [write](#tag/bot/post/apibotgamegameidchat) in the player and spectator chats
-      - [Receive](#tag/bot/get/apistreamevent), [create](#tag/challenges/post/apichallengeusername) and [accept](#tag/challenges/post/apichallengechallengeidaccept) (or [decline](#tag/challenges/post/apichallengechallengeiddecline)) challenges
-      - [Abort](#tag/bot/post/apibotgamegameidabort) and [resign](#tag/bot/post/apibotgamegameidresign) games
+      - [Stream incoming chess moves](#tag/bot/GET/api/bot/game/stream/{gameId})
+      - [Play chess moves](#tag/bot/POST/api/bot/game/{gameId}/move/{move})
+      - [Read](#tag/bot/GET/api/bot/game/stream/{gameId}) and [write](#tag/bot/POST/api/bot/game/{gameId}/chat) in the player and spectator chats
+      - [Receive](#tag/bot/GET/api/stream/event), [create](#tag/challenges/POST/api/challenge/{username}) and [accept](#tag/challenges/POST/api/challenge/{challengeId}/accept) (or [decline](#tag/challenges/POST/api/challenge/{challengeId}/decline)) challenges
+      - [Abort](#tag/bot/POST/api/bot/game/{gameId}/abort) and [resign](#tag/bot/POST/api/bot/game/{gameId}/resign) games
       - Engine assistance is [allowed](https://lichess.org/page/fair-play)
       ### Restrictions
       - Bots can only play challenge games:  pools and tournaments are off-limits
@@ -173,7 +173,7 @@ tags:
       [Official broadcasts](https://lichess.org/broadcast) are maintained by Lichess,
       but you can [create your own broadcasts](https://lichess.org/broadcast/new) to cover any live game or chess event.
       You will need to publish PGN on a public URL so that Lichess can pull updates from it.
-      Alternatively, you can push PGN updates to Lichess using [this API endpoint](#tag/Broadcasts/operation/broadcastPush).
+      Alternatively, you can push PGN updates to Lichess using [this API endpoint](#tag/broadcasts/POST/api/broadcast/round/{broadcastRoundId}/push).
 
       Broadcasts are organized in tournaments, which have several rounds, which have several games.
       You must first create a tournament, then you can add rounds to them.
@@ -186,7 +186,7 @@ tags:
     description: |
       Send and receive challenges to play.
 
-      To create a lot of challenges, consider [bulk pairing](#tag/bulk-pairings/post/apibulk-pairing) instead.
+      To create a lot of challenges, consider [bulk pairing](#tag/bulk-pairings/POST/api/bulk-pairing) instead.
   - name: External engine
     description: |
       **This API is in alpha and subject to change.**
@@ -802,5 +802,5 @@ components:
             "follow:write": Follow and unfollow other players
             "msg:write": Send private messages to other players
             "board:play": Play with the Board API
-            "bot:play": Play with the Bot API. Only for [Bot accounts](#tag/bot/post/apibotaccountupgrade)
+            "bot:play": Play with the Bot API. Only for [Bot accounts](#tag/bot/POST/api/bot/account/upgrade)
             "web:mod": Use moderator tools (within the bounds of your permissions)

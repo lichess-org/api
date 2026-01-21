@@ -3,7 +3,7 @@ post:
   summary: Accept a challenge
   description: |
     Accept an incoming challenge.
-    You should receive a `gameStart` event on the [incoming events stream](#tag/board/get/apiboardgamestreamgameid).
+    You should receive a `gameStart` event on the [incoming events stream](#tag/board/GET/api/board/game/stream/{gameId}).
   tags:
     - Challenges
   security:
