@@ -38,8 +38,6 @@ jobs:
           echo "changed_files=$(git status --porcelain)" >> "$GITHUB_OUTPUT"
       - name: Publish to npm
         if: steps.check_changes.outputs.changed_files != ''
-        env:
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           git add .
           npm version patch --no-git-tag-version
