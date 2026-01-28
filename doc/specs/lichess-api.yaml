@@ -136,6 +136,8 @@ tags:
       - [Lichs (play from command-line)](https://github.com/Cqsi/lichs)
       - [Lichess discord bot](https://top.gg/bot/707287095911120968)
       - [cli-chess](https://github.com/trevorbayless/cli-chess/)
+      - [Blunderly 3D board](https://github.com/maurimo/blunderly)
+      - Yours? Please make [an issue or pull request](https://github.com/lichess-org/api).
   - name: Bot
     description: |
       Play on Lichess as a bot. Allows engine play.
