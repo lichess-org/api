@@ -523,7 +523,7 @@ export interface paths {
     /**
      * Export one game
      * @description Download one game in either PGN or JSON format.
-     *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
+     *     Ongoing games are delayed by 3 moves, as to prevent cheat bots from using this API.
      */
     get: operations["gamePgn"];
     put?: never;
@@ -545,7 +545,7 @@ export interface paths {
      * Export ongoing game of a user
      * @description Download the ongoing game, or the last game played, of a user.
      *     Available in either PGN or JSON format.
-     *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
+     *     Ongoing games are delayed by 3 moves, as to prevent cheat bots from using this API.
      */
     get: operations["apiUserCurrentGame"];
     put?: never;
@@ -598,7 +598,7 @@ export interface paths {
      *     Games are sorted by reverse chronological order (most recent first)
      *     The method is `POST` so a longer list of IDs can be sent in the request body.
      *     300 IDs can be submitted.
-     *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
+     *     Ongoing games are delayed by 3 moves, as to prevent cheat bots from using this API.
      */
     post: operations["gamesExportIds"];
     delete?: never;
@@ -713,7 +713,7 @@ export interface paths {
      *     A description of the game is sent as a first message.
      *     Then a message is sent each time a move is played.
      *     Finally, a description of the game is sent when it finishes, and the stream is closed.
-     *     Ongoing games are delayed by a few seconds ranging from 3 to 60 depending on the time control, as to prevent cheat bots from using this API.
+     *     Ongoing games are delayed by 3 moves, as to prevent cheat bots from using this API.
      *     No more than 8 game streams can be opened at the same time from the same IP address.
      */
     get: operations["streamGame"];
