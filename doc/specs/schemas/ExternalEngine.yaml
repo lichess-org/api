@@ -12,7 +12,7 @@ properties:
     type: string
     description: |
       A secret token that can be used to
-      [*request* analysis](#tag/External-engine/operation/apiExternalEngineAnalyse)
+      [*request* analysis](#tag/external-engine/POST/api/external-engine/{id}/analyse)
       from this external engine.
   userId:
     type: string

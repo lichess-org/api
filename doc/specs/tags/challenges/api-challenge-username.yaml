@@ -3,7 +3,7 @@ post:
   summary: Create a challenge
   description: |
     Challenge someone to play. The targeted player can choose to accept or decline.
-    If the challenge is accepted, you will be notified on the [event stream](#tag/board/get/apiboardgamestreamgameid)
+    If the challenge is accepted, you will be notified on the [event stream](#tag/board/GET/api/board/game/stream/{gameId})
     that a new game has started. The game ID will be the same as the challenge ID.
     Challenges for realtime games (not correspondence) expire after 20s if not accepted.
     To prevent that, use the `keepAliveStream` flag described below.

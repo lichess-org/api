@@ -89,7 +89,7 @@ post:
               type: integer
               description: |
                 How long to wait between each round, in seconds.
-                Set to 99999999 to manually schedule each round from the tournament UI, or [with the API](#tag/Swiss-tournaments/operation/apiSwissScheduleNextRound).
+                Set to 99999999 to manually schedule each round from the tournament UI, or [with the API](#tag/tournaments-swiss/POST/api/swiss/{id}/schedule-next-round).
                 If empty or -1, a sensible value is picked automatically.
               enum:
                 - -1
