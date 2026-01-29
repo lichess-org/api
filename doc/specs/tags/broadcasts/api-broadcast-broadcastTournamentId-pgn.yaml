@@ -5,7 +5,7 @@ get:
     Download all games of all rounds of a broadcast in PGN format.
     If a `study:read` [OAuth token](#tag/OAuth) is provided,
     the private rounds where the user is a contributor will be available.
-    You may want to [download only the games of a single round](#tag/broadcasts/get/apibroadcastroundbroadcastroundidpgn) instead.
+    You may want to [download only the games of a single round](#tag/broadcasts/GET/api/broadcast/round/{broadcastRoundId}.pgn) instead.
   tags:
     - Broadcasts
   security:

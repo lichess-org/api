@@ -3,7 +3,7 @@ post:
   summary: Challenge the AI
   description: |
     Start a game with Lichess AI.
-    You will be notified on the [event stream](#tag/board/get/apiboardgamestreamgameid) that a new game has started.
+    You will be notified on the [event stream](#tag/board/GET/api/board/game/stream/{gameId}) that a new game has started.
   tags:
     - Challenges
   security:
