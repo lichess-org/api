@@ -571,7 +571,7 @@ export interface paths {
      *     <https://lichess.org/@/german11> for instance has more than 500,000 games.
      *     The game stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 games per second
-     *       - [OAuth2 authenticated](/#description/authentication) request: 30 games per second
+     *       - [OAuth2 authenticated](#description/authentication) request: 30 games per second
      *       - Authenticated, downloading your own games: 60 games per second
      */
     get: operations["apiGamesUser"];
@@ -647,7 +647,7 @@ export interface paths {
      * @description Creates a stream of games from an arbitrary streamId, and a list of game IDs.
      *     The stream first outputs the games that already exists, then emits an event each time a game is started or finished.
      *     Games are streamed as [ndjson](#description/streaming-with-nd-json).
-     *     Maximum number of games: 500 for anonymous requests, or 1000 for [OAuth2 authenticated](/#description/authentication) requests.
+     *     Maximum number of games: 500 for anonymous requests, or 1000 for [OAuth2 authenticated](#description/authentication) requests.
      *     While the stream is open, it is possible to [add new game IDs to watch](#tag/games/POST/api/stream/games/{streamId}/add).
      */
     post: operations["gamesByIds"];
@@ -1037,7 +1037,7 @@ export interface paths {
      *     Games are sorted by reverse chronological order (most recent first).
      *     The game stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 games per second
-     *       - [OAuth2 authenticated](/#description/authentication) request: 30 games per second
+     *       - [OAuth2 authenticated](#description/authentication) request: 30 games per second
      */
     get: operations["gamesByTournament"];
     put?: never;
@@ -1106,7 +1106,7 @@ export interface paths {
      *     Tournaments are streamed as [ndjson](#description/streaming-with-nd-json).
      *     The stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 tournaments per second
-     *       - [OAuth2 authenticated](/#description/authentication) request: 30 tournaments per second
+     *       - [OAuth2 authenticated](#description/authentication) request: 30 tournaments per second
      *       - Authenticated, downloading your own tournaments: 50 tournaments per second
      */
     get: operations["apiUserNameTournamentCreated"];
@@ -1132,7 +1132,7 @@ export interface paths {
      *     Tournaments are streamed as [ndjson](#description/streaming-with-nd-json).
      *     The stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 tournaments per second
-     *       - [OAuth2 authenticated](/#description/authentication) request: 30 tournaments per second
+     *       - [OAuth2 authenticated](#description/authentication) request: 30 tournaments per second
      *       - Authenticated, downloading your own tournaments: 50 tournaments per second
      */
     get: operations["apiUserNameTournamentPlayed"];
@@ -1334,7 +1334,7 @@ export interface paths {
      *     Games are sorted by chronological order.
      *     The game stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 games per second
-     *       - [OAuth2 authenticated](/#description/authentication) request: 30 games per second
+     *       - [OAuth2 authenticated](#description/authentication) request: 30 games per second
      */
     get: operations["gamesBySwiss"];
     put?: never;
@@ -1996,7 +1996,7 @@ export interface paths {
      * @description Get recently created, started, finished, simuls.
      *     Created and finished simul lists are not exhaustives, only those with
      *     strong enough host will be listed, the same filter is used to display simuls on https://lichess.org/simul.
-     *     When [authenticated with OAuth2](/#description/authentication), the pending list will be populated with your created, but unstarted simuls.
+     *     When [authenticated with OAuth2](#description/authentication), the pending list will be populated with your created, but unstarted simuls.
      */
     get: operations["apiSimul"];
     put?: never;
@@ -3169,7 +3169,7 @@ export interface paths {
      *     You can control which color each player gets by giving them these URLs,
      *     instead of the main challenge URL.
      *     Open challenges expire after 24h.
-     *     If the challenge creation is [authenticated with OAuth2](/#description/authentication),
+     *     If the challenge creation is [authenticated with OAuth2](#description/authentication),
      *     then you can use the [challenge cancel endpoint](#tag/challenges/POST/api/challenge/{challengeId}/cancel) to cancel it.
      *     To directly pair 2 known players, use [this endpoint](#tag/bulk-pairings/GET/api/bulk-pairing) instead.
      */
@@ -4027,11 +4027,11 @@ export interface components {
       count?: components["schemas"]["Count"];
       streaming?: boolean;
       streamer?: components["schemas"]["UserStreamer"];
-      /** @description only appears if the request is [authenticated with OAuth2](/#description/authentication) */
+      /** @description only appears if the request is [authenticated with OAuth2](#description/authentication) */
       followable?: boolean;
-      /** @description only appears if the request is [authenticated with OAuth2](/#description/authentication) */
+      /** @description only appears if the request is [authenticated with OAuth2](#description/authentication) */
       following?: boolean;
-      /** @description only appears if the request is [authenticated with OAuth2](/#description/authentication) */
+      /** @description only appears if the request is [authenticated with OAuth2](#description/authentication) */
       blocking?: boolean;
     };
     /**

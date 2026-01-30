@@ -6,7 +6,7 @@ get:
     Games are sorted by reverse chronological order (most recent first).
     The game stream is throttled, depending on who is making the request:
       - Anonymous request: 20 games per second
-      - [OAuth2 authenticated](/#description/authentication) request: 30 games per second
+      - [OAuth2 authenticated](#description/authentication) request: 30 games per second
   tags:
     - "Tournaments (Arena)"
   security: []

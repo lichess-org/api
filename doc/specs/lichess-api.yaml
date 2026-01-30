@@ -777,7 +777,7 @@ components:
     OAuth2:
       type: oauth2
       description: |
-        Read [the introduction for how to make authenticated requests](/#description/authentication).
+        Read [the introduction for how to make authenticated requests](#description/authentication).
       flows:
         authorizationCode:
           authorizationUrl: https://lichess.org/oauth

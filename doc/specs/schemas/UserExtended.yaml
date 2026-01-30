@@ -17,12 +17,12 @@ allOf:
         $ref: "./UserStreamer.yaml"
       followable:
         type: boolean
-        description: only appears if the request is [authenticated with OAuth2](/#description/authentication)
+        description: only appears if the request is [authenticated with OAuth2](#description/authentication)
       following:
         type: boolean
-        description: only appears if the request is [authenticated with OAuth2](/#description/authentication)
+        description: only appears if the request is [authenticated with OAuth2](#description/authentication)
       blocking:
         type: boolean
-        description: only appears if the request is [authenticated with OAuth2](/#description/authentication)
+        description: only appears if the request is [authenticated with OAuth2](#description/authentication)
     required:
       - url

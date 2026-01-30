@@ -5,7 +5,7 @@ get:
     Get recently created, started, finished, simuls.
     Created and finished simul lists are not exhaustives, only those with
     strong enough host will be listed, the same filter is used to display simuls on https://lichess.org/simul.
-    When [authenticated with OAuth2](/#description/authentication), the pending list will be populated with your created, but unstarted simuls.
+    When [authenticated with OAuth2](#description/authentication), the pending list will be populated with your created, but unstarted simuls.
   tags:
     - Simuls
   security: []
