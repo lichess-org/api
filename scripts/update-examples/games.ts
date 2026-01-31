@@ -63,6 +63,29 @@ example(
   }),
 );
 
+example(
+  "games",
+  "apiUserCurrentGamePgn",
+  await prodClient().GET("/api/user/{username}/current-game", {
+    params: {
+      path: {
+        username: "lance5500",
+      },
+      query: {
+        clocks: false,
+        accuracy: true,
+        division: true,
+        literate: true,
+      },
+    },
+    headers: {
+      Accept: "application/x-chess-pgn",
+    },
+    parseAs: "text",
+  }),
+  "pgn",
+);
+
 await prodClient()
   .GET("/api/games/user/{username}", {
     params: {
