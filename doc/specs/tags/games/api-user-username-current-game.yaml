@@ -84,19 +84,22 @@ get:
         default: false
   responses:
     "200":
-      description: The ongoing (or last) game of a user.
+      description: |
+        The ongoing (or last) game of a user.
+        This may be in either PGN or JSON format, depending on the `Accept` header of your request.
       headers:
         Access-Control-Allow-Origin:
           schema:
             type: string
             default: "'*'"
       content:
-        application/x-chess-pgn:
-          schema:
-            $ref: "../../schemas/GamePgn.yaml"
         application/json:
           schema:
-            $ref: "../../schemas/GameJson.yaml"
+            oneOf:
+              - $ref: "../../schemas/GamePgn.yaml"
+              - $ref: "../../schemas/GameJson.yaml"
           examples:
-            default:
+            application/x-chess-pgn:
+              $ref: "../../examples/games-apiUserCurrentGamePgn.pgn.yaml"
+            application/json:
               $ref: "../../examples/games-apiUserCurrentGameJson.json.yaml"
