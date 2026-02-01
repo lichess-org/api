@@ -4033,6 +4033,7 @@ export interface components {
       following?: boolean;
       /** @description only appears if the request is [authenticated with OAuth2](#description/authentication) */
       blocking?: boolean;
+      fideId?: number;
     };
     /**
      * @example {
@@ -7679,6 +7680,8 @@ export interface operations {
         profile?: boolean;
         /** @description Include global lichess ranking for each perf */
         rank?: boolean;
+        /** @description Include public FIDE ID if any */
+        fideId?: boolean;
       };
       header?: never;
       path: {
@@ -8399,15 +8402,19 @@ export interface operations {
     };
     requestBody?: never;
     responses: {
-      /** @description The ongoing (or last) game of a user. */
+      /**
+       * @description The ongoing (or last) game of a user.
+       *     This may be in either PGN or JSON format, depending on the `Accept` header of your request.
+       */
       200: {
         headers: {
           "Access-Control-Allow-Origin"?: string;
           [name: string]: unknown;
         };
         content: {
-          "application/x-chess-pgn": components["schemas"]["GamePgn"];
-          "application/json": components["schemas"]["GameJson"];
+          "application/json":
+            | components["schemas"]["GamePgn"]
+            | components["schemas"]["GameJson"];
         };
       };
     };
