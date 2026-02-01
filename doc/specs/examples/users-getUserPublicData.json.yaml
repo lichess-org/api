@@ -8,7 +8,8 @@ value:
         "blitz": { "games": 568, "rating": 996, "rd": 59, "prog": -59 },
         "rapid": { "games": 829, "rating": 1138, "rd": 48, "prog": 5 },
         "classical": { "games": 221, "rating": 1125, "rd": 53, "prog": -34 },
-        "correspondence": { "games": 153, "rating": 1117, "rd": 113, "prog": -4, "prov": true },
+        "correspondence":
+          { "games": 153, "rating": 1117, "rd": 113, "prog": -4, "prov": true },
         "chess960": { "games": 100, "rating": 952, "rd": 77, "prog": 11 },
         "kingOfTheHill": { "games": 296, "rating": 1144, "rd": 77, "prog": 7 },
         "threeCheck": { "games": 156, "rating": 969, "rd": 45, "prog": 31 },
@@ -53,4 +54,5 @@ value:
     "followable": true,
     "following": false,
     "blocking": false,
+    "fideId": 12345,
   }

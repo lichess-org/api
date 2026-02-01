@@ -24,5 +24,7 @@ allOf:
       blocking:
         type: boolean
         description: only appears if the request is [authenticated with OAuth2](#description/authentication)
+      fideId:
+        type: number
     required:
       - url
