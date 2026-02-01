@@ -101,15 +101,13 @@ get:
             type: string
             default: "'*'"
       content:
-        application/x-chess-pgn:
-          schema:
-            $ref: "../../schemas/GamePgn.yaml"
-          examples:
-            pgn:
-              $ref: "../../examples/games-exportOneGame.pgn.yaml"
         application/json:
           schema:
-            $ref: "../../schemas/GameJson.yaml"
+            oneOf:
+              - $ref: "../../schemas/GamePgn.yaml"
+              - $ref: "../../schemas/GameJson.yaml"
           examples:
-            default:
+            application/x-chess-pgn:
+              $ref: "../../examples/games-exportOneGame.pgn.yaml"
+            application/json:
               $ref: "../../examples/games-exportOneGame.json.yaml"
