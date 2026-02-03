@@ -16,6 +16,8 @@ properties:
   gp:
     type: number
     description: "Game points scored in this match"
+  points:
+    $ref: "./BroadcastPointStr.yaml"
 required:
   - roundId
   - opponent

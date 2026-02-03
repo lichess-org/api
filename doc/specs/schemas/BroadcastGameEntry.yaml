@@ -12,11 +12,7 @@ properties:
   color:
     $ref: "./GameColor.yaml"
   points:
-    type: string
-    enum:
-      - "1"
-      - "1/2"
-      - "0"
+    $ref: "./BroadcastPointStr.yaml"
   customPoints:
     $ref: "./BroadcastCustomPoints.yaml"
   ratingDiff:
