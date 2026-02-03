@@ -1,0 +1,20 @@
+value: |
+  [Event "Coach LM Lance5500 simul"]
+  [Site "https://lichess.org/kmVDKlen"]
+  [Date "2026.01.31"]
+  [Round "-"]
+  [White "aliefe235"]
+  [Black "Lance5500"]
+  [Result "0-1"]
+  [GameId "kmVDKlen"]
+  [UTCDate "2026.01.31"]
+  [UTCTime "19:34:21"]
+  [WhiteElo "1304"]
+  [BlackElo "2711"]
+  [BlackTitle "LM"]
+  [Variant "Standard"]
+  [TimeControl "300+3"]
+  [ECO "B56"]
+  [Termination "Normal"]
+
+  1. e4 c5 2. Nf3 d6 3. d4 Nf6 4. Nc3 cxd4 5. Nxd4 Nc6 6. Be3 Ng4 7. Bb5 Nxe3 8. Nxc6 Nxd1 9. Nxd8+ Kxd8 10. Rxd1 e6 11. O-O Ke7 12. Rfe1 g6 13. Rd2 a6 14. Bc4 b5 15. Bb3 Bb7 16. Red1 Rd8 17. f3 Bg7 18. Rd3 Rd7 19. Kf2 g5 20. h3 h5 21. Rh1 Bf6 22. Rg1 Rc7 23. g4 hxg4 24. hxg4 Be5 25. Rg2 Rhc8 26. Ke3 Bxc3 27. bxc3 Rxc3 28. Rxc3 Rxc3+ 29. Kd2 Rxf3 30. Re2 Rf4 31. e5 Rxg4 32. exd6+ Kxd6 33. Re3 Rd4+ 34. Rd3 Rxd3+ 35. Kxd3 f5 36. Ke3 e5 37. Bg8 f4+ 38. Kf2 g4 39. Bh7 g3+ 40. Kg1 f3 0-1

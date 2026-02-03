@@ -13,7 +13,7 @@ value:
       {
         "white":
           {
-            "user": { "name": "Lance5500", "title": "LM", "patron": true, "patronColor": 9, "id": "lance5500" },
+            "user": { "name": "Lance5500", "title": "LM", "id": "lance5500" },
             "rating": 2389,
             "ratingDiff": 4,
             "analysis": { "inaccuracy": 5, "mistake": 2, "blunder": 1, "acpl": 26, "accuracy": 90 },
