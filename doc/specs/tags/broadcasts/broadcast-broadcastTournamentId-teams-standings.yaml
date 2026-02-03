@@ -1,0 +1,28 @@
+get:
+  operationId: broadcastTeamLeaderboardGet
+  summary: Get the team leaderboard of a broadcast
+  description: |
+    Get the team leaderboard of a broadcast tournament, if available.
+  tags:
+    - Broadcasts
+  security: []
+  parameters:
+    - in: path
+      name: broadcastTournamentId
+      description: The broadcast tournament ID
+      required: true
+      schema:
+        type: string
+        minLength: 8
+        maxLength: 8
+  responses:
+    "200":
+      description: The team leaderboard
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../../schemas/BroadcastTeamLeaderboardEntry.yaml"
+    "404":
+      description: Broadcast tournament not found

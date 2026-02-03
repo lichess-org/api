@@ -1,0 +1,22 @@
+type: object
+properties:
+  roundId:
+    type: string
+  opponent:
+    type: string
+    description: "The name of the opposing team"
+  players:
+    type: array
+    description: "Players who played for the team in this match"
+    items:
+      $ref: "./BroadcastPlayerEntry.yaml"
+  mp:
+    type: number
+    description: "Match points scored in this match"
+  gp:
+    type: number
+    description: "Game points scored in this match"
+required:
+  - roundId
+  - opponent
+  - players
