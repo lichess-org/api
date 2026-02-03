@@ -53,4 +53,5 @@ value:
     "followable": true,
     "following": false,
     "blocking": false,
+    "fideId": 12345,
   }

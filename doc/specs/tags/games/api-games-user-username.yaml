@@ -8,7 +8,7 @@ get:
     <https://lichess.org/@/german11> for instance has more than 500,000 games.
     The game stream is throttled, depending on who is making the request:
       - Anonymous request: 20 games per second
-      - [OAuth2 authenticated](/#description/authentication) request: 30 games per second
+      - [OAuth2 authenticated](#description/authentication) request: 30 games per second
       - Authenticated, downloading your own games: 60 games per second
   tags:
     - Games

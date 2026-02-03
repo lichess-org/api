@@ -19,7 +19,7 @@ get:
       name: playerId
       description: |
         The unique player ID within the broadcast. This is usually their fideId. 
-        If the player does not have a fideId, it is their name. Consult the [list of players for the broadcast](#tag/Broadcasts/operation/broadcastPlayersGet) for which ID to use.
+        If the player does not have a fideId, it is their name. Consult the [list of players for the broadcast](#tag/broadcasts/GET/broadcast/{broadcastTournamentId}/players) for which ID to use.
       required: true
       schema:
         type: string

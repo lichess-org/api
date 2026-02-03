@@ -571,7 +571,7 @@ export interface paths {
      *     <https://lichess.org/@/german11> for instance has more than 500,000 games.
      *     The game stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 games per second
-     *       - [OAuth2 authenticated](/#description/authentication) request: 30 games per second
+     *       - [OAuth2 authenticated](#description/authentication) request: 30 games per second
      *       - Authenticated, downloading your own games: 60 games per second
      */
     get: operations["apiGamesUser"];
@@ -647,8 +647,8 @@ export interface paths {
      * @description Creates a stream of games from an arbitrary streamId, and a list of game IDs.
      *     The stream first outputs the games that already exists, then emits an event each time a game is started or finished.
      *     Games are streamed as [ndjson](#description/streaming-with-nd-json).
-     *     Maximum number of games: 500 for anonymous requests, or 1000 for [OAuth2 authenticated](/#description/authentication) requests.
-     *     While the stream is open, it is possible to [add new game IDs to watch](#tag/games/post/apistreamgamesstreamidAdd).
+     *     Maximum number of games: 500 for anonymous requests, or 1000 for [OAuth2 authenticated](#description/authentication) requests.
+     *     While the stream is open, it is possible to [add new game IDs to watch](#tag/games/POST/api/stream/games/{streamId}/add).
      */
     post: operations["gamesByIds"];
     delete?: never;
@@ -668,7 +668,7 @@ export interface paths {
     put?: never;
     /**
      * Add game IDs to stream
-     * @description Add new game IDs for [an existing stream](#tag/games/post/apistreamgamesstreamid) to watch.
+     * @description Add new game IDs for [an existing stream](#tag/games/POST/api/stream/games/{streamId}) to watch.
      *     The stream will immediately outputs the games that already exists, then emit an event each time a game is started or finished.
      */
     post: operations["gamesByIdsAdd"];
@@ -738,7 +738,7 @@ export interface paths {
      * Import one game
      * @description Import a game from PGN. See <https://lichess.org/paste>.
      *     Rate limiting: 200 games per hour for OAuth requests, 100 games per hour for anonymous requests.
-     *     To broadcast ongoing games, consider [pushing to a broadcast instead](#tag/broadcasts/post/apibroadcastroundbroadcastroundidpush).
+     *     To broadcast ongoing games, consider [pushing to a broadcast instead](#tag/broadcasts/POST/api/broadcast/round/{broadcastRoundId}/push).
      *     To analyse a position or a line, just construct an analysis board URL (most standard tags supported if URL-encoded):
      *     [https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bc4_Bc5_Bxf7+](https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bc4_Bc5_Bxf7+)
      */
@@ -953,7 +953,7 @@ export interface paths {
     /**
      * Join an Arena tournament
      * @description Join an Arena tournament, possibly with a password and/or a team.
-     *     Also unpauses if you had previously [paused](#tag/arena-tournaments/post/apitournamentidwithdraw) the tournament.
+     *     Also unpauses if you had previously [paused](#tag/arena-tournaments/POST/api/tournament/{id}/withdraw) the tournament.
      */
     post: operations["apiTournamentJoin"];
     delete?: never;
@@ -1015,7 +1015,7 @@ export interface paths {
     /**
      * Update a team battle
      * @description Set the teams and number of leaders of a team battle.
-     *     To update the other attributes of a team battle, use the [tournament update endpoint](#tag/arena-tournaments/post/apitournamentid).
+     *     To update the other attributes of a team battle, use the [tournament update endpoint](#tag/arena-tournaments/POST/api/tournament/{id}).
      */
     post: operations["apiTournamentTeamBattlePost"];
     delete?: never;
@@ -1037,7 +1037,7 @@ export interface paths {
      *     Games are sorted by reverse chronological order (most recent first).
      *     The game stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 games per second
-     *       - [OAuth2 authenticated](/#description/authentication) request: 30 games per second
+     *       - [OAuth2 authenticated](#description/authentication) request: 30 games per second
      */
     get: operations["gamesByTournament"];
     put?: never;
@@ -1106,7 +1106,7 @@ export interface paths {
      *     Tournaments are streamed as [ndjson](#description/streaming-with-nd-json).
      *     The stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 tournaments per second
-     *       - [OAuth2 authenticated](/#description/authentication) request: 30 tournaments per second
+     *       - [OAuth2 authenticated](#description/authentication) request: 30 tournaments per second
      *       - Authenticated, downloading your own tournaments: 50 tournaments per second
      */
     get: operations["apiUserNameTournamentCreated"];
@@ -1132,7 +1132,7 @@ export interface paths {
      *     Tournaments are streamed as [ndjson](#description/streaming-with-nd-json).
      *     The stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 tournaments per second
-     *       - [OAuth2 authenticated](/#description/authentication) request: 30 tournaments per second
+     *       - [OAuth2 authenticated](#description/authentication) request: 30 tournaments per second
      *       - Authenticated, downloading your own tournaments: 50 tournaments per second
      */
     get: operations["apiUserNameTournamentPlayed"];
@@ -1334,7 +1334,7 @@ export interface paths {
      *     Games are sorted by chronological order.
      *     The game stream is throttled, depending on who is making the request:
      *       - Anonymous request: 20 games per second
-     *       - [OAuth2 authenticated](/#description/authentication) request: 30 games per second
+     *       - [OAuth2 authenticated](#description/authentication) request: 30 games per second
      */
     get: operations["gamesBySwiss"];
     put?: never;
@@ -1757,7 +1757,7 @@ export interface paths {
      * @description Create a new broadcast round to relay external games.
      *     This endpoint accepts the same form data as the web form.
      *
-     *     Choose one between `syncUrl`, `syncUrls`, `syncIds` and `syncUsers`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#tag/broadcasts/post/apibroadcastroundbroadcastroundidpush)
+     *     Choose one between `syncUrl`, `syncUrls`, `syncIds` and `syncUsers`, if it is missing, the broadcast needs to be fed by [pushing PGN to it](#tag/broadcasts/POST/api/broadcast/round/{broadcastRoundId}/push)
      */
     post: operations["broadcastRoundCreate"];
     delete?: never;
@@ -1886,7 +1886,7 @@ export interface paths {
      * @description Download all games of a single round of a broadcast tournament in PGN format.
      *     You *could* poll this endpoint to get updates about a tournament, but it would be slow,
      *     and very inefficient.
-     *     Instead, consider [streaming the tournament](#tag/broadcasts/get/apistreambroadcastroundbroadcastroundidpgn) to get
+     *     Instead, consider [streaming the tournament](#tag/broadcasts/GET/api/stream/broadcast/round/{broadcastRoundId}.pgn) to get
      *     a new PGN every time a game is updated, in real-time.
      */
     get: operations["broadcastRoundPgn"];
@@ -1910,7 +1910,7 @@ export interface paths {
      * @description Download all games of all rounds of a broadcast in PGN format.
      *     If a `study:read` [OAuth token](#tag/OAuth) is provided,
      *     the private rounds where the user is a contributor will be available.
-     *     You may want to [download only the games of a single round](#tag/broadcasts/get/apibroadcastroundbroadcastroundidpgn) instead.
+     *     You may want to [download only the games of a single round](#tag/broadcasts/GET/api/broadcast/round/{broadcastRoundId}.pgn) instead.
      */
     get: operations["broadcastAllRoundsPgn"];
     put?: never;
@@ -1996,7 +1996,7 @@ export interface paths {
      * @description Get recently created, started, finished, simuls.
      *     Created and finished simul lists are not exhaustives, only those with
      *     strong enough host will be listed, the same filter is used to display simuls on https://lichess.org/simul.
-     *     When [authenticated with OAuth2](/#description/authentication), the pending list will be populated with your created, but unstarted simuls.
+     *     When [authenticated with OAuth2](#description/authentication), the pending list will be populated with your created, but unstarted simuls.
      */
     get: operations["apiSimul"];
     put?: never;
@@ -2522,8 +2522,8 @@ export interface paths {
      *     If the client closes the connection, the seek is canceled. This way, if the client terminates, the user won't be paired in a game they wouldn't play.
      *     When the seek is accepted, or expires, the server closes the connection.
      *
-     *     **Make sure to also have an [Event stream](#tag/board/get/apiboardgamestreamgameid) open**, to be notified when a game starts.
-     *     We recommend opening the [Event stream](#tag/board/get/apiboardgamestreamgameid) first, then the seek stream. This way,
+     *     **Make sure to also have an [Event stream](#tag/board/GET/api/board/game/stream/{gameId}) open**, to be notified when a game starts.
+     *     We recommend opening the [Event stream](#tag/board/GET/api/board/game/stream/{gameId}) first, then the seek stream. This way,
      *     you won't miss the game event if the seek is accepted immediately.
      *
      *     ### Correspondence seek
@@ -2798,7 +2798,7 @@ export interface paths {
      *     To upgrade an account to Bot, use the [official lichess-bot client](https://github.com/lichess-bot-devs/lichess-bot), or follow these steps:
      *     - Create an [API access token](https://lichess.org/account/oauth/token/create?scopes[]=bot:play) with "Play bot moves" permission.
      *     - `curl -d '' https://lichess.org/api/bot/account/upgrade -H "Authorization: Bearer <yourTokenHere>"`
-     *     To know if an account has already been upgraded, use the [Get my profile API](#tag/account/get/apiaccount):
+     *     To know if an account has already been upgraded, use the [Get my profile API](#tag/account/GET/api/account):
      *     the `title` field should be set to `BOT`.
      */
     post: operations["botAccountUpgrade"];
@@ -3036,7 +3036,7 @@ export interface paths {
     /**
      * Create a challenge
      * @description Challenge someone to play. The targeted player can choose to accept or decline.
-     *     If the challenge is accepted, you will be notified on the [event stream](#tag/board/get/apiboardgamestreamgameid)
+     *     If the challenge is accepted, you will be notified on the [event stream](#tag/board/GET/api/board/game/stream/{gameId})
      *     that a new game has started. The game ID will be the same as the challenge ID.
      *     Challenges for realtime games (not correspondence) expire after 20s if not accepted.
      *     To prevent that, use the `keepAliveStream` flag described below.
@@ -3080,7 +3080,7 @@ export interface paths {
     /**
      * Accept a challenge
      * @description Accept an incoming challenge.
-     *     You should receive a `gameStart` event on the [incoming events stream](#tag/board/get/apiboardgamestreamgameid).
+     *     You should receive a `gameStart` event on the [incoming events stream](#tag/board/GET/api/board/game/stream/{gameId}).
      */
     post: operations["challengeAccept"];
     delete?: never;
@@ -3143,7 +3143,7 @@ export interface paths {
     /**
      * Challenge the AI
      * @description Start a game with Lichess AI.
-     *     You will be notified on the [event stream](#tag/board/get/apiboardgamestreamgameid) that a new game has started.
+     *     You will be notified on the [event stream](#tag/board/GET/api/board/game/stream/{gameId}) that a new game has started.
      */
     post: operations["challengeAi"];
     delete?: never;
@@ -3169,9 +3169,9 @@ export interface paths {
      *     You can control which color each player gets by giving them these URLs,
      *     instead of the main challenge URL.
      *     Open challenges expire after 24h.
-     *     If the challenge creation is [authenticated with OAuth2](/#description/authentication),
-     *     then you can use the [challenge cancel endpoint](#tag/challenges/post/apichallengechallengeidcancel) to cancel it.
-     *     To directly pair 2 known players, use [this endpoint](#tag/bulk-pairings/get/apibulk-pairing) instead.
+     *     If the challenge creation is [authenticated with OAuth2](#description/authentication),
+     *     then you can use the [challenge cancel endpoint](#tag/challenges/POST/api/challenge/{challengeId}/cancel) to cancel it.
+     *     To directly pair 2 known players, use [this endpoint](#tag/bulk-pairings/GET/api/bulk-pairing) instead.
      */
     post: operations["challengeOpen"];
     delete?: never;
@@ -3511,7 +3511,7 @@ export interface paths {
      *     have been registered with the given `secret`.
      *     Uses long polling.
      *     After acquiring a request, the provider should immediately
-     *     [start streaming the results](#tag/External-engine/operation/apiExternalEngineSubmit).
+     *     [start streaming the results](#tag/external-engine/POST/api/external-engine/workid).
      */
     post: operations["apiExternalEngineAcquire"];
     delete?: never;
@@ -3596,7 +3596,7 @@ export interface paths {
      *     returned `state` matches the `state` you originally generated.
      *
      *     Finally, continue by using the authorization code to
-     *     [obtain an access token](#tag/oauth/post/apitoken).
+     *     [obtain an access token](#tag/oauth/POST/api/token).
      */
     get: operations["oauth"];
     put?: never;
@@ -4027,12 +4027,13 @@ export interface components {
       count?: components["schemas"]["Count"];
       streaming?: boolean;
       streamer?: components["schemas"]["UserStreamer"];
-      /** @description only appears if the request is [authenticated with OAuth2](/#description/authentication) */
+      /** @description only appears if the request is [authenticated with OAuth2](#description/authentication) */
       followable?: boolean;
-      /** @description only appears if the request is [authenticated with OAuth2](/#description/authentication) */
+      /** @description only appears if the request is [authenticated with OAuth2](#description/authentication) */
       following?: boolean;
-      /** @description only appears if the request is [authenticated with OAuth2](/#description/authentication) */
+      /** @description only appears if the request is [authenticated with OAuth2](#description/authentication) */
       blocking?: boolean;
+      fideId?: number;
     };
     /**
      * @example {
@@ -7075,7 +7076,7 @@ export interface components {
       name: string;
       /**
        * @description A secret token that can be used to
-       *     [*request* analysis](#tag/External-engine/operation/apiExternalEngineAnalyse)
+       *     [*request* analysis](#tag/external-engine/POST/api/external-engine/{id}/analyse)
        *     from this external engine.
        */
       clientSecret: string;
@@ -7116,7 +7117,7 @@ export interface components {
       variants?: components["schemas"]["UciVariant"][];
       /**
        * @description A random token that can be used to
-       *     [wait for analysis requests](#tag/External-engine/operation/apiExternalEngineAcquire)
+       *     [wait for analysis requests](#tag/external-engine/POST/api/external-engine/work)
        *     and provide analysis.
        *
        *     The engine provider should securely generate a random string.
@@ -7679,6 +7680,8 @@ export interface operations {
         profile?: boolean;
         /** @description Include global lichess ranking for each perf */
         rank?: boolean;
+        /** @description Include public FIDE ID if any */
+        fideId?: boolean;
       };
       header?: never;
       path: {
@@ -7891,7 +7894,7 @@ export interface operations {
         /**
          * @description When > 0, the response includes a new puzzle batch with that many puzzles.
          *
-         *     This is equivalent to calling [/api/puzzle/batch/{angle}](#tag/Puzzles/operation/apiPuzzleBatchSelect),
+         *     This is equivalent to calling [/api/puzzle/batch/{angle}](#tag/puzzles/GET/api/puzzle/batch/{angle}),
          *     and can sometimes save a request.
          */
         nb?: number;
@@ -8399,15 +8402,19 @@ export interface operations {
     };
     requestBody?: never;
     responses: {
-      /** @description The ongoing (or last) game of a user. */
+      /**
+       * @description The ongoing (or last) game of a user.
+       *     This may be in either PGN or JSON format, depending on the `Accept` header of your request.
+       */
       200: {
         headers: {
           "Access-Control-Allow-Origin"?: string;
           [name: string]: unknown;
         };
         content: {
-          "application/x-chess-pgn": components["schemas"]["GamePgn"];
-          "application/json": components["schemas"]["GameJson"];
+          "application/json":
+            | components["schemas"]["GamePgn"]
+            | components["schemas"]["GameJson"];
         };
       };
     };
@@ -9198,7 +9205,7 @@ export interface operations {
           password?: string;
           /**
            * @description Set the ID of a team you lead to create a team battle.
-           *     The other teams can be added using the [team battle edit endpoint](#tag/arena-tournaments/post/apitournamentteam-battleid).
+           *     The other teams can be added using the [team battle edit endpoint](#tag/arena-tournaments/POST/api/tournament/team-battle/{id}).
            */
           teamBattleByTeam?: string;
           /**
@@ -10278,7 +10285,7 @@ export interface operations {
           startsAt?: number;
           /**
            * @description How long to wait between each round, in seconds.
-           *     Set to 99999999 to manually schedule each round from the tournament UI, or [with the API](#tag/Swiss-tournaments/operation/apiSwissScheduleNextRound).
+           *     Set to 99999999 to manually schedule each round from the tournament UI, or [with the API](#tag/tournaments-swiss/POST/api/swiss/{id}/schedule-next-round).
            *     If empty or -1, a sensible value is picked automatically.
            * @enum {integer}
            */
@@ -11258,7 +11265,7 @@ export interface operations {
         broadcastTournamentId: string;
         /**
          * @description The unique player ID within the broadcast. This is usually their fideId.
-         *     If the player does not have a fideId, it is their name. Consult the [list of players for the broadcast](#tag/Broadcasts/operation/broadcastPlayersGet) for which ID to use.
+         *     If the player does not have a fideId, it is their name. Consult the [list of players for the broadcast](#tag/broadcasts/GET/broadcast/{broadcastTournamentId}/players) for which ID to use.
          */
         playerId: string;
       };

@@ -32,6 +32,12 @@ get:
       schema:
         type: boolean
         default: false
+    - in: query
+      name: fideId
+      description: Include public FIDE ID if any
+      schema:
+        type: boolean
+        default: false
 
   responses:
     "200":

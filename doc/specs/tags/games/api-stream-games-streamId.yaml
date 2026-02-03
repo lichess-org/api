@@ -5,8 +5,8 @@ post:
     Creates a stream of games from an arbitrary streamId, and a list of game IDs.
     The stream first outputs the games that already exists, then emits an event each time a game is started or finished.
     Games are streamed as [ndjson](#description/streaming-with-nd-json).
-    Maximum number of games: 500 for anonymous requests, or 1000 for [OAuth2 authenticated](/#description/authentication) requests.
-    While the stream is open, it is possible to [add new game IDs to watch](#tag/games/post/apistreamgamesstreamidAdd).
+    Maximum number of games: 500 for anonymous requests, or 1000 for [OAuth2 authenticated](#description/authentication) requests.
+    While the stream is open, it is possible to [add new game IDs to watch](#tag/games/POST/api/stream/games/{streamId}/add).
   tags:
     - Games
   security: []

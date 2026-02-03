@@ -97,7 +97,7 @@ post:
       description: |
         When > 0, the response includes a new puzzle batch with that many puzzles.
 
-        This is equivalent to calling [/api/puzzle/batch/{angle}](#tag/Puzzles/operation/apiPuzzleBatchSelect),
+        This is equivalent to calling [/api/puzzle/batch/{angle}](#tag/puzzles/GET/api/puzzle/batch/{angle}),
         and can sometimes save a request.
       schema:
         type: integer

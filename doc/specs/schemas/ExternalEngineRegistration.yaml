@@ -33,7 +33,7 @@ properties:
     type: string
     description: |
       A random token that can be used to
-      [wait for analysis requests](#tag/External-engine/operation/apiExternalEngineAcquire)
+      [wait for analysis requests](#tag/external-engine/POST/api/external-engine/work)
       and provide analysis.
 
       The engine provider should securely generate a random string.

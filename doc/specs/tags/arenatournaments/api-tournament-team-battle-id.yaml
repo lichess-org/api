@@ -3,7 +3,7 @@ post:
   summary: Update a team battle
   description: |
     Set the teams and number of leaders of a team battle.
-    To update the other attributes of a team battle, use the [tournament update endpoint](#tag/arena-tournaments/post/apitournamentid).
+    To update the other attributes of a team battle, use the [tournament update endpoint](#tag/arena-tournaments/POST/api/tournament/{id}).
   tags:
     - "Tournaments (Arena)"
   security:

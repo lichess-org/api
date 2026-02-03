@@ -8,9 +8,9 @@ post:
     You can control which color each player gets by giving them these URLs,
     instead of the main challenge URL.
     Open challenges expire after 24h.
-    If the challenge creation is [authenticated with OAuth2](/#description/authentication),
-    then you can use the [challenge cancel endpoint](#tag/challenges/post/apichallengechallengeidcancel) to cancel it.
-    To directly pair 2 known players, use [this endpoint](#tag/bulk-pairings/get/apibulk-pairing) instead.
+    If the challenge creation is [authenticated with OAuth2](#description/authentication),
+    then you can use the [challenge cancel endpoint](#tag/challenges/POST/api/challenge/{challengeId}/cancel) to cancel it.
+    To directly pair 2 known players, use [this endpoint](#tag/bulk-pairings/GET/api/bulk-pairing) instead.
   tags:
     - Challenges
   security: []

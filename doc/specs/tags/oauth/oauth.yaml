@@ -38,7 +38,7 @@ get:
     returned `state` matches the `state` you originally generated.
 
     Finally, continue by using the authorization code to
-    [obtain an access token](#tag/oauth/post/apitoken).
+    [obtain an access token](#tag/oauth/POST/api/token).
   parameters:
     - in: query
       name: response_type

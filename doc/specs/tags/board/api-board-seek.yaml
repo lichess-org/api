@@ -14,8 +14,8 @@ post:
     If the client closes the connection, the seek is canceled. This way, if the client terminates, the user won't be paired in a game they wouldn't play.
     When the seek is accepted, or expires, the server closes the connection.
 
-    **Make sure to also have an [Event stream](#tag/board/get/apiboardgamestreamgameid) open**, to be notified when a game starts.
-    We recommend opening the [Event stream](#tag/board/get/apiboardgamestreamgameid) first, then the seek stream. This way,
+    **Make sure to also have an [Event stream](#tag/board/GET/api/board/game/stream/{gameId}) open**, to be notified when a game starts.
+    We recommend opening the [Event stream](#tag/board/GET/api/board/game/stream/{gameId}) first, then the seek stream. This way,
     you won't miss the game event if the seek is accepted immediately.
 
     ### Correspondence seek
