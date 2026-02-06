@@ -3,9 +3,11 @@ get:
   summary: Teams of a player
   description: |
     All the teams a player is a member of.
+    Teams that hide their player list are only included if you also belong to the team.
   tags:
     - Teams
-  security: []
+  security:
+    - OAuth2: []
   parameters:
     - in: path
       name: username
@@ -15,7 +17,7 @@ get:
       required: true
   responses:
     "200":
-      description: The list of teams the user is a member of.
+      description: The list of teams the player is a member of.
       headers:
         Access-Control-Allow-Origin:
           schema:
