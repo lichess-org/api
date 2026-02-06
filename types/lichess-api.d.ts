@@ -2057,6 +2057,7 @@ export interface paths {
     /**
      * Teams of a player
      * @description All the teams a player is a member of.
+     *     Teams that hide their player list are only included if you also belong to the team.
      */
     get: operations["teamOfUsername"];
     put?: never;
@@ -11727,7 +11728,7 @@ export interface operations {
     };
     requestBody?: never;
     responses: {
-      /** @description The list of teams the user is a member of. */
+      /** @description The list of teams the player is a member of. */
       200: {
         headers: {
           "Access-Control-Allow-Origin"?: string;
