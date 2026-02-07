@@ -1,0 +1,28 @@
+properties:
+  name:
+    type: string
+    description: "The name of the team"
+  mp:
+    type: number
+    description: "Total match points scored"
+  gp:
+    type: number
+    description: "Total game points scored"
+  averageRating:
+    type: integer
+    description: "The average rating of the team's players"
+  matches:
+    type: array
+    items:
+      $ref: "./BroadcastTeamPOVMatchEntry.yaml"
+  players:
+    type: array
+    description: "Players who have played for the team and their overall score"
+    items:
+      $ref: "./BroadcastPlayerEntry.yaml"
+required:
+  - name
+  - mp
+  - gp
+  - matches
+  - players
