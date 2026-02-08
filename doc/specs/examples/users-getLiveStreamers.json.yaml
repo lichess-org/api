@@ -1,72 +1,238 @@
 value:
   [
     {
-      "name": "MassterofMayhem",
-      "title": "IM",
+      "name": "ZugAddict",
+      "title": "NM",
+      "flair": "symbols.zzz",
       "patron": true,
       "patronColor": 10,
-      "id": "massterofmayhem",
-      "stream": { "service": "twitch", "status": "Late Night Fancy Chess...lichess.org", "lang": "en" },
+      "id": "zugaddict",
+      "stream": { "service": "twitch", "status": "Zug plays chess for about an hour on lichess.org", "lang": "en" },
       "streamer":
         {
-          "name": "Marc Esserman",
-          "headline": "Mocked Chess",
-          "twitch": "https://www.twitch.tv/whyyyyyyysoserious",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=massterofmayhem:streamer:massterofmayhem:AT9IXHmy.jpg&w=350&sig=54846408453b901617cdec0475d6d5aba9341148",
+          "name": "ZugAddict",
+          "headline": "Chess is Hard (tm)",
+          "description": "I'd call myself a Coffeehouse Chess Player but that would probably be an unfair to coffee.  Or houses.  Will often take piano requests such as \"stop\" or \"please don't play any Andrew Lloyd Webber\"\r\n",
+          "twitch": "https://www.twitch.tv/zugaddict",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=zugaddict:streamer:zugaddict:ozUGOKKJ.jpg&w=350&sig=a3e7fcc310d43cb6c78ea2b5fbd55ea35e134117",
         },
     },
     {
-      "name": "Kantanna",
-      "title": "WIM",
-      "flair": "nature.turtle",
-      "id": "kantanna",
-      "stream": { "service": "twitch", "status": "PLAYING VIEWERS :) !challenge | !insta | lichess.org", "lang": "en" },
+      "name": "wgraif",
+      "title": "FM",
+      "flair": "objects.sunglasses",
+      "patron": true,
+      "patronColor": 8,
+      "id": "wgraif",
+      "stream": { "service": "youtube", "status": "Gambit Man vs Big Arenas on Lichess.org !!", "lang": "en" },
       "streamer":
         {
-          "name": "Kantanna",
-          "headline": "Hope you enjoy the stream :)",
-          "description": 'hey hey :) I''m Anna, I used to be a pro chess player (peak rank 2333), but failed haha. Streaming to be able to call playing bullet "work" :) (and trick my son into thinking I''m cool)',
-          "twitch": "https://www.twitch.tv/kantannachess",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=kantanna:streamer:kantanna:GL4kJaVn.jpg&w=350&sig=28023a1477a5d9cc8fd9937addab38c4360f14a3",
+          "name": "William Graif: Gambit Man",
+          "headline": "Gambits, hyper-aggressive, and instructive. Guaranteed.",
+          "description": "All of my thoughts come out of my mouth. Most of them have to do with checkmating. Most of them.",
+          "twitch": "https://www.twitch.tv/wgraif",
+          "youtube": "https://www.youtube.com/channel/UCVsZMQjkmPHR8x39eW-NOMA/live",
+          "image": "https://image.lichess1.org/display?fmt=png&h=350&op=thumbnail&path=wgraif:streamer:wgraif:ZUgrupIw.png&w=350&sig=df6c34d65f5b5c9363718e1b021c22a700c53dc1",
         },
     },
     {
-      "name": "Satranc_Ilkeleri",
-      "title": "NM",
-      "flair": "smileys.hear-no-evil-monkey",
-      "id": "satranc_ilkeleri",
+      "name": "caissa12",
+      "title": "WFM",
+      "flair": "activity.chess-pawn",
+      "id": "caissa12",
       "stream":
         {
           "service": "youtube",
-          "status": "MerCumartesi Blitz Turnuvası - Ardından Bullet Arena  lichess.org",
-          "lang": "tr",
+          "status": "Leyendo a Aagaard en vivo con la comunidad ♟️ 9na entrega / lichess.org (CAP. IV /PARTE 1)",
+          "lang": "es",
         },
       "streamer":
         {
-          "name": "Emre Mecit",
-          "headline": "Satranç İlkeleri",
-          "youtube": "https://www.youtube.com/channel/UCESbipRI7KEIlcLza-tK8Yg/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:satranc_ilkeleri:Y4nXvVZ5.webp&w=350&sig=5849fc22fee1be604191b2027e1b28dbcd82e1c3",
+          "name": "Gamblers del Tablero",
+          "headline": "Ajedrez en vivo con Gamblers del Tablero ♟️",
+          "description": "Transmisiones en vivo de ajedrez con la WFM Anahí Meza. Partidas, retos tácticos, lectura de libros, análisis y mucho más. Unite para aprender y divertirte con la comunidad Gamblers.",
+          "youtube": "https://www.youtube.com/channel/UCxF0uQqWAdNrd5RZDueLIvg/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=caissa12:streamer:caissa12:EydmrFjJ.jpg&w=350&sig=b4e95a221d5b55f9d15692d36f24724949e69b49",
         },
     },
     {
-      "name": "TruthAlwaysWins",
-      "flair": "activity.basketball",
-      "id": "truthalwayswins",
+      "name": "Sparklehorse",
+      "title": "IM",
+      "flair": "nature.panda",
+      "id": "sparklehorse",
       "stream":
         {
           "service": "twitch",
-          "status": "lichess.org...Writing Titles is Exercise For Your Brain...Basically a RADIO STATION with Chess in the Background...lichess.org... ❤",
+          "status": "IM Legendary Classical Simul !! Join us /  !lessons !donate on lichess.org",
           "lang": "en",
         },
       "streamer":
         {
-          "name": "HamForFree",
-          "headline": "BULLET CHESS IS LIKE MICROWAVING A STEAK",
-          "description": "Bullet chess is like microwaving a steak. ",
-          "twitch": "https://www.twitch.tv/hamforfree",
-          "youtube": "https://www.youtube.com/channel/UCAAbqwYN5hu898TtOM1txug/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=_fIeFed6pHou.webp&w=350&sig=12fe44733b2b7b1b5eab82afd0986101fa11ca86",
+          "name": "Sladgie",
+          "headline": "Strong , experienced , magnetic !  ? Seriously :)  Great content from a strong player and pro commentator. ",
+          "description": "International Master William Paschall  has vast experience teaching and playing chess , as well as live commentary and video training. The live stream on lichess is fun and interactive. There are different themes including blitz and rapid against viewers and subscribers , viewer tournaments , a subscribers' stream, and weekly simuls. Will's stream is considered one of the best around for learning strategy from an experienced master. ",
+          "twitch": "https://www.twitch.tv/sladgie",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=sparklehorse:streamer:sparklehorse:ZbRMtvUx.jpg&w=350&sig=8fd31f2dbc25ab1060dcb3e33d0710b7e10afab4",
+        },
+    },
+    {
+      "name": "Respectful_Dave",
+      "title": "FM",
+      "id": "respectful_dave",
+      "stream": { "service": "youtube", "status": "Chess Puzzle Solving (2900+) | lichess.org", "lang": "en" },
+      "streamer":
+        {
+          "name": "David Maycock",
+          "headline": "Play/teach chess",
+          "twitch": "https://www.twitch.tv/respectfuldave",
+          "youtube": "https://www.youtube.com/channel/UCUfj73qxWjcRT0fJCqLUKgg/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:respectful_dave:z4IjgL3F.webp&w=350&sig=42e64045bb9bfc4ae1fb351530b676d04696eb36",
+        },
+    },
+    {
+      "name": "El_Fish_En_Twitch",
+      "title": "CM",
+      "id": "el_fish_en_twitch",
+      "stream": { "service": "twitch", "status": "Lichess Liga 6C Team Battle @lichess.org", "lang": "en" },
+      "streamer":
+        {
+          "name": "Izuzquiza",
+          "headline": "Trying to get 2400!",
+          "description": "Hey! I'm just a regular club player who really loves to play chess and after a 5 year hiatus from the game, I finally have some time to pick it up again. I hope you all join me on my adventure to achieve 2400 on Lichess, and who knows, maybe even a title down the road!",
+          "twitch": "https://www.twitch.tv/cm_javichuela2789",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=el_fish_en_twitch:streamer:el_fish_en_twitch:fuVEvxBp.jpg&w=350&sig=ea412c493eaeca1f4ecac97ae18192666d66f627",
+        },
+    },
+    {
+      "name": "claudiu_youtube",
+      "flair": "nature.eagle",
+      "id": "claudiu_youtube",
+      "stream":
+        {
+          "service": "youtube",
+          "status": 'HAI SA RUPEM CATIVA JUCATORI DIN LIGA 4!!!!---SAH LIVE---"lichess.org"',
+          "lang": "ro",
+        },
+      "streamer":
+        {
+          "name": "Claudiu Vaduva",
+          "headline": "chess",
+          "youtube": "https://www.youtube.com/channel/UCHKFJKqOb-rX9PqOX6gk0bw/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=claudiu_youtube:streamer:claudiu_youtube:xEJ1ijLP.jpg&w=350&sig=02828efc5884cdc4e784954c638a85570c5bfe63",
+        },
+    },
+    {
+      "name": "DobrognevRus",
+      "id": "dobrognevrus",
+      "stream":
+        { "service": "twitch", "status": "!позор !tg Сын Чокобоя. Крепкие мужские шахматы lichess.org", "lang": "ru" },
+      "streamer":
+        {
+          "name": "DobrognevRus",
+          "headline": "Шахматные битвы с крепкими бойцами на Lichess.org",
+          "description": "Слушай, в принципе, я играю неплохо, мне только нужно немножко поработать над дебютом, миттельшпилем, эндшпилем, тактикой и стратегией, пониманием шахмат, видением доски, рокировкой, двойными ударами, связками, атакой, защитой, ловушками, маневрами, оценкой позиции и наличием плана. А так я молодец!",
+          "twitch": "https://www.twitch.tv/well_chess",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=dobrognevrus:streamer:dobrognevrus:g3mcgZ1s.webp&w=350&sig=b466b4dd01c1ea22e9aa0156bd839b153eea217d",
+        },
+    },
+    {
+      "name": "Andrew-Po",
+      "patron": true,
+      "patronColor": 3,
+      "id": "andrew-po",
+      "stream": { "service": "youtube", "status": "Andrew Po в прямом эфире! Шахматы на lichess.org", "lang": "ru" },
+      "streamer":
+        {
+          "name": "Andrew-Po",
+          "headline": "Шахматы с Andrew-Po  на lichess.org",
+          "description": "Играю в шахматы. Рандом, турниры, игры по вызовам. Решаю задачи. Обозреваю новости. ",
+          "youtube": "https://www.youtube.com/channel/UC8nHsn8O52Z_7IAWTJblFXw/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:andrew-po:t1ot9oWm.webp&w=350&sig=13a18a6878c5f6d7aa5a731eb2cb09924b51b917",
+        },
+    },
+    {
+      "name": "DaBassie",
+      "patron": true,
+      "patronColor": 3,
+      "id": "dabassie",
+      "stream":
+        {
+          "service": "twitch",
+          "status": "Team Ray making history on lichess.org. Possibly not in a good way.",
+          "lang": "en",
+        },
+      "streamer":
+        {
+          "name": "RayOfHopeChess",
+          "headline": "Relaxing, somewhat joyfull and mildly educational chess in all posible forms, with a slight emphasis on longer time controls and analysis.",
+          "description": "To be completely honest, I have no idea whether I'm going to like streaming, but I'll just give it a go and see what happens. I'll opt for a relaxing, mildly educational and family friendly atmosphere. Vague plans might include games with longer time controls, tournament games, analysis of ongoing grandmaster games, and puzzles. I was about to include 'viewer games' in this list, but that requires actual viewers, of which I currently have none, so that's a bummer.",
+          "twitch": "https://www.twitch.tv/rayofhopechess",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:dabassie:KlNW4nP7.webp&w=350&sig=9ef918b9d9f47ffaa953339eaf7e2225e851e171",
+        },
+    },
+    {
+      "name": "MasterChessDojo",
+      "title": "NM",
+      "flair": "activity.martial-arts-uniform",
+      "patron": true,
+      "patronColor": 10,
+      "id": "masterchessdojo",
+      "stream":
+        {
+          "service": "youtube",
+          "status": "2026 Killer Chess Training Club Championship #1 Feb 8th, 2026 Lichess.org",
+          "lang": "en-US",
+        },
+      "streamer":
+        {
+          "name": "FIDE Trainer NM John MacArthur",
+          "headline": "Dojo interactive Q&A learning and study!",
+          "description": "The Dojo concept is to practice learned skills and increase understanding hands on while adding knowledge and learning on a regular, daily basis.\r\nI've trained students to achieve a dozen National Championship titles, Masters, IMs and one Grandmaster.\r\nI have experience training and coaching on four continents for National & World Championship levels for all ages.\r\nLessons, coaching and training sessions are NEVER limited to an hour!",
+          "twitch": "https://www.twitch.tv/masterchessdojo",
+          "youtube": "https://www.youtube.com/channel/UC_kLDzb4R1o0UWYJ3OQ8oZg/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=masterchessdojo:streamer:masterchessdojo:JVpHUcVY.jpg&w=350&sig=a2d553f6f3edc9c54cc7db20efb2a3473cd0ee6d",
+        },
+    },
+    {
+      "name": "Level_Up_Chess",
+      "flair": "activity.lichess-blitz",
+      "id": "level_up_chess",
+      "stream": { "service": "youtube", "status": "A Savage Blitz Chess ELO Climb at  lichess.org", "lang": "en-US" },
+      "streamer":
+        {
+          "name": "Level_Up_Chess",
+          "headline": "Hello Good People and Welcome Back!",
+          "description": "Chess is the game of kings! Let's play, improve and connect on this awesome game of 64 squares. Tactical puzzles and positional patterns are the name of the game, with weekly streaming and classical master and grandmaster analysis! \r\n\r\nWitty commentary and random ideas may be included. Cheers! \r\n\r\nPlease do checkout my Youtube channel: https://www.youtube.com/channel/UCEpyyZnOOosX_3tgbqJMHaQ ",
+          "youtube": "https://www.youtube.com/channel/UCEpyyZnOOosX_3tgbqJMHaQ/live",
+          "image": "https://image.lichess1.org/display?fmt=png&h=350&op=thumbnail&path=level_up_chess:streamer:level_up_chess:ASiPOQPr.png&w=350&sig=dbed0fd0b9dc805902d61e0b3e8422fdc950ba98",
+        },
+    },
+    {
+      "name": "KingKondor",
+      "flair": "nature.penguin",
+      "id": "kingkondor",
+      "stream": { "service": "twitch", "status": "ШАХМАТЫ на lichess.org[RU] - в 22ч бундесЛИГА", "lang": "ru" },
+      "streamer":
+        {
+          "name": "KingKondor",
+          "headline": "Играем в шахматы",
+          "description": "для доната\r\nhttps://www.donationalerts.com/r/kondorstar \r\n\r\nchess club = https://lichess.org/team/goodgameru\r\nВступайте в клуб для участия в наших турнирах и сеансах / Join to participate our tournaments and simul\r\n\r\nПо всем вопросам пишите/contacts: https://lichess.org/@/KingKondor\r\n\r\nhttps://www.twitch.tv/kondorstar\r\nhttps://www.youtube.com/@KondorStar\r\n",
+          "twitch": "https://www.twitch.tv/kondorstar",
+          "youtube": "https://www.youtube.com/channel/UCUUQsPFp9gUOMPnN0rEHlUA/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=kingkondor:streamer:kingkondor:lJoa7n48.jpg&w=350&sig=e4412a4bdf02aacfecb9265d3a4e03ebf0c4a58a",
+        },
+    },
+    {
+      "name": "EVILisHERE",
+      "flair": "smileys.angry-face-with-horns",
+      "id": "evilishere",
+      "stream": { "service": "twitch", "status": "{srb}ZLOTVOR Chess on lichess.org", "lang": "en" },
+      "streamer":
+        {
+          "name": "EVILisHERE",
+          "headline": "Amateur chess player!",
+          "twitch": "https://www.twitch.tv/markopetrovic666",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=evilishere:streamer:evilishere:8H6enh9t.jpg&w=350&sig=c1cebee678eeffe24dac9a05e9c528afabf430d2",
         },
     },
     {
@@ -77,7 +243,7 @@ value:
       "stream":
         {
           "service": "youtube",
-          "status": "Играем Lichess.org [RU] : Шахматы! Ежедневная блиц арена! Контроль 5+0!",
+          "status": "Играем Lichess.org [RU] : Шахматы! Д-1 бундеслиги! Контроль 5+0!",
           "lang": "en",
         },
       "streamer":
@@ -90,266 +256,170 @@ value:
         },
     },
     {
-      "name": "BBisplaying",
-      "flair": "people.troll",
-      "patron": true,
-      "patronColor": 7,
-      "id": "bbisplaying",
-      "stream": { "service": "twitch", "status": "Bouclier Hyperbullet sur lichess.org", "lang": "fr" },
-      "streamer":
-        {
-          "name": "BBisplaying",
-          "headline": "Hey You !",
-          "description": "fast chess often, some slow sometimes ",
-          "twitch": "https://www.twitch.tv/chess_punk",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:bbisplaying:Wd1dSACt.webp&w=350&sig=fa9deb36d9448b95ebcee85221000cbd6d2dd3fe",
-        },
-    },
-    {
-      "name": "between_the_moves",
-      "id": "between_the_moves",
+      "name": "NerDee",
+      "flair": "nature.waxing-crescent-moon",
+      "id": "nerdee",
       "stream":
         {
           "service": "twitch",
-          "status": "Road to 2400 Bullet and Blitz on lichess.org || Challenge me !",
+          "status": "Learning is Fun | ANTICHESS on lichess.org | Music Production | Programming",
           "lang": "en",
         },
       "streamer":
         {
-          "name": "between_the_moves",
-          "headline": "Road to 2400 Bullet and Blitz on lichess.org || Challenge me !",
-          "description": "\"The quiet moves make the loudest noise\"- Akiba Rubinstein\"I play in the space\"- between_the_movesYour support is highly appreciated!\r\n\r\nCurrently making my way to reach 2400 Bullet and Blitz on lichess.org . You can also challenge me to a game!\r\n\r\nYour support is highly appreciated! https://www.paypal.com/paypalme/betweenthemoves",
-          "twitch": "https://www.twitch.tv/between_the_moves",
-          "youtube": "https://www.youtube.com/channel/UCYQHXpYs1zeO9hph7ZUpvVA/live",
+          "name": "Math Mage",
+          "headline": "Fast agressive and sometimes dubious chess, also lots of arrows",
+          "description": "I stream chess, Dominion, music production, and Rust programming",
+          "twitch": "https://www.twitch.tv/mathmage420",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:nerdee:gHp67dz8.webp&w=350&sig=75d631388cfebf7cb8eb50f28146220c9716321d",
         },
     },
     {
-      "name": "Ishgor",
-      "id": "ishgor",
-      "stream":
-        { "service": "youtube", "status": "Uzun Bir Aradan Sonra! @satrancilkeleri   lichess.org", "lang": "und" },
-      "streamer":
-        {
-          "name": "Ishgor",
-          "headline": "Mr Ishgor ile DÜMENDEN",
-          "description": "keyfine yayın açıyorum..",
-          "youtube": "https://www.youtube.com/channel/UCCqjAZlg9o0CAPDrbpDka8g/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:ishgor:31hN50gn.webp&w=350&sig=37321cbde55afe42767cc0c82d2e7a444f77d1a1",
-        },
-    },
-    {
-      "name": "Shuvalov",
-      "id": "shuvalov",
-      "stream": { "service": "twitch", "status": "[RU] Шахматы. Играю в турнире на lichess.org", "lang": "ru" },
-      "streamer":
-        {
-          "name": "Evgenij Shuvalov",
-          "headline": "Сhess is my drug",
-          "description": "Разбираю интересные партии, делюсь находками в дебюте, провожу трансляции крупнейших турниров, играю в блиц с подписчиками и многое другое. \r\nЕвгений Шувалов -  практикующий игрок, кандидат в мастера спорта по шахматам, автор видеокурсов \"Французская защита. Вариант отравленных пешек\" и \"Основы ладейного эндшпиля\". Максимальный рейтинг ФИДЕ 2393.",
-          "twitch": "https://www.twitch.tv/shuvalov_e",
-          "youtube": "https://www.youtube.com/channel/UC0YCMuQORX4mnj81TaN0ubg/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=shuvalov:streamer:shuvalov:nCYK0NVs.jpg&w=350&sig=d3a0bb5db22a5945f178244010dabb0feb44bbf8",
-        },
-    },
-    {
-      "name": "detective_378",
-      "flair": "objects.magnifying-glass-tilted-right",
-      "patron": true,
-      "patronColor": 1,
-      "id": "detective_378",
-      "stream": { "service": "twitch", "status": "Граю призові турніри на lichess.org", "lang": "uk" },
-      "streamer":
-        {
-          "name": "detective_378",
-          "twitch": "https://www.twitch.tv/chess_detective28",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:detective_378:6sL6qTY0.webp&w=350&sig=1574c6c9dacc434b275743c058b03e7c77105f30",
-        },
-    },
-    {
-      "name": "Alekseytver",
-      "id": "alekseytver",
+      "name": "wra1th125",
+      "flair": "nature.crescent-moon",
+      "id": "wra1th125",
       "stream":
         {
           "service": "twitch",
-          "status": "Играем chess на lichess.org, общаемся о шахматах и психологии",
-          "lang": "ru",
+          "status": "♟️🌙Tägliche Rapid-Arena und Viewergames!🌙♟️!dc !elo !acm || lichess.org",
+          "lang": "de",
         },
       "streamer":
         {
-          "name": "AlexeyPsy",
-          "headline": "Играем на lichess.org,  пьем кофе. Беседуем о шахматах и психологии. ",
-          "description": "Психолог, который иногда играет в шахматы.",
-          "twitch": "https://www.twitch.tv/alexeypsy",
+          "name": "ACM Hanabi",
+          "headline": "Live-Schachkommentare mit einer Mischung aus lehrreicher Analyse, spannenden Partien und einer freundlichen Community-Atmosphäre.",
+          "description": " Ich streame auf lichess und konzentriere mich auf lehrreiche Kommentare, Echtzeitanalysen und Verbesserungstipps während des Spielens. Mein Hauptcontent umfasst Live-Partien mit Wertung, Turnierteilnahmen und interaktive Herausforderungsrunden mit Zuschauern. Mein Ziel ist es, eine positive, respektvolle und einladende Atmosphäre zu schaffen, in der sowohl Freizeitspieler als auch ernsthafte Wettkampfspieler Spaß haben und lernen können.",
+          "twitch": "https://www.twitch.tv/hanabinoyoru",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=I8rn7srUqwfP.webp&w=350&sig=06cf9302afd1b1d7dfa63163e4465d1e8d34d812",
         },
     },
     {
-      "name": "ElonMuskTesluPadaryu",
-      "id": "elonmuskteslupadaryu",
-      "stream":
-        {
-          "service": "twitch",
-          "status": "НИКОГДА НЕ СДАВАЙСЯ - ПОЗОРЬСЯ ДО КОНЦА / ВОЗВРАЩАЮ С ПОТОМ,КРОВЬЮ И БЕСКОНЕЧНЫМИ НЕРВАМИ СВОИ ЗАСЛУЖЕННЫЕ 2300 НА lichess.org",
-          "lang": "ru",
-        },
+      "name": "sahmatiya",
+      "flair": "people.fingerprint",
+      "id": "sahmatiya",
+      "stream": { "service": "twitch", "status": "playing on lichess.org !", "lang": "en" },
       "streamer":
         {
-          "name": "ElonMuskTesluPadaryu",
-          "headline": "My chess games speaks for themselves",
-          "description": "Streaming in sarcastic tone with some educational stuff",
-          "twitch": "https://www.twitch.tv/simplythegoatofchess",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:elonmuskteslupadaryu:8YgXVALG.webp&w=350&sig=dc55bf7074ae1b4ddf297bb4a719715a739d2dd1",
+          "name": "sahmatiya",
+          "headline": "Here to share my chess with others!",
+          "description": "I would love to share my chess experience with others, have interesting interactions, have wholesome space for all sorts of players!",
+          "twitch": "https://www.twitch.tv/sahmatiya",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=yawcRPIHSMlk.webp&w=350&sig=69f01a379087f0201bd0d997bdf6289d611dab40",
         },
     },
     {
-      "name": "Hoheit_online",
-      "flair": "nature.cat-face",
-      "id": "hoheit_online",
-      "stream": { "service": "twitch", "status": "ich schach dich weg lichess.org #aldigönnt", "lang": "de" },
-      "streamer":
-        {
-          "name": "Hoheit_online",
-          "headline": "Deutsche amateur Spielerin mit temperament ",
-          "twitch": "https://www.twitch.tv/hoheit_online",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:hoheit_online:A5fPHrmj.webp&w=350&sig=9f46197f5144f453c3b60961a96d9444d20b0bfc",
-        },
-    },
-    {
-      "name": "RESET-101",
-      "id": "reset-101",
-      "stream": { "service": "twitch", "status": "200 + Operation ELO Recovery on lichess.org", "lang": "en" },
-      "streamer":
-        {
-          "name": "RESET-101",
-          "headline": "I stream because I would like to meet similar minded people who share the same enthusiasm for chess",
-          "twitch": "https://www.twitch.tv/chess_dexter",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=reset-101:streamer:reset-101:KjGH8CPF.jpg&w=350&sig=a24efd256d7f5feeac638ebd5954ce2902326b2a",
-        },
-    },
-    {
-      "name": "InnocentButDeadly",
-      "flair": "activity.chess",
-      "id": "innocentbutdeadly",
-      "stream": { "service": "twitch", "status": "Live with lichess.org", "lang": "en" },
-      "streamer":
-        {
-          "name": "InnocentButDeadly",
-          "headline": "Learning, blundering, improving. Step by step to 1500 Elo.",
-          "description": "Hi! I’m an enthusiastic chess player on a quiet but stubborn journey to 1500 Elo.\r\nSometimes I play solid moves, sometimes I create artistic mistakes, but I always try to learn something new.\r\nMy streams are a mix of relaxed atmosphere, honest reactions, and the mystery of never knowing what the next move will bring.\r\nIf you enjoy improvement, strategy, and a bit of humor, you’re welcome to join me on the board.",
-          "twitch": "https://www.twitch.tv/amberqueen9",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=9n6vIawkUtBT.webp&w=350&sig=50bf37384b01bb984ceb64f93a3db378e1b68cde",
-        },
-    },
-    {
-      "name": "SoundXChess",
-      "flair": "objects.musical-note",
-      "id": "soundxchess",
-      "stream": { "service": "twitch", "status": "Пуля 1+0  lichess.org", "lang": "ru" },
-      "streamer":
-        {
-          "name": "Sound Chess ",
-          "headline": "Шахматный саундтрек",
-          "description": "https://vk.com/sound_chess \r\nhttps://twitch.tv/sound_chess",
-          "twitch": "https://www.twitch.tv/sound_chess",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:soundxchess:6MKCqnOU.webp&w=350&sig=c3bc4aa388c8caab8ae3cb85422966acc1ab7402",
-        },
-    },
-    {
-      "name": "jesuisfevrier",
-      "flair": "nature.snowflake",
-      "id": "jesuisfevrier",
-      "stream": { "service": "twitch", "status": "you lose, you laugh I lichess.org", "lang": "en" },
-      "streamer":
-        {
-          "name": "jesuisfevrier",
-          "headline": "mediocre chess and hurt feelings",
-          "twitch": "https://www.twitch.tv/jesuisfevrier",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:jesuisfevrier:0DrIbjiE.webp&w=350&sig=c388bdeb5adb01607b357a9d88d5bb8f45d04569",
-        },
-    },
-    {
-      "name": "ElyneLee",
+      "name": "Padurean_Daniel",
+      "title": "CM",
+      "flair": "nature.crocodile",
       "patron": true,
-      "patronColor": 10,
-      "id": "elynelee",
-      "stream": { "service": "twitch", "status": "𝐭𝐲𝐩𝐞 !𝐣𝐨𝐢𝐧 𝐭𝐨 𝐛𝐞𝐚𝐭 𝐞𝐥𝐥𝐲 𝐢𝐧 𝐛𝐮𝐥𝐥𝐞𝐭 😈|   lichess.org", "lang": "en" },
+      "patronColor": 6,
+      "id": "padurean_daniel",
+      "stream":
+        { "service": "youtube", "status": 'BUNDESLIGA 4A, then Playing with viewers "lichess.org"', "lang": "en-US" },
       "streamer":
         {
-          "name": "ElyneLee",
-          "headline": "CHESS + MUSIC STREAM EVERYDAY ",
-          "description": "hi there! i do chess + music(metal) stream everyday on Twitch. Come hangout with me in chat and have fun together ",
-          "twitch": "https://www.twitch.tv/elynelee",
-          "youtube": "https://www.youtube.com/channel/UCxigACw3ehZU2UTrfK-FYtA/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=elynelee:streamer:elynelee:2aAvyqcR.jpg&w=350&sig=5b90229c9f61d8bcb2f2f35648314d94618d33be",
+          "name": "Daniel Padurean",
+          "headline": "Endgame master at work",
+          "description": "Soon to become titled player, only if I knew opening theory =)) I make up for the lack of talent in the middlegame with my endgame skills.\r\nJoin our team of chess gators - Lichess Bundesliga Team - https://lichess.org/team/sezonierii",
+          "youtube": "https://www.youtube.com/channel/UCLme9d7XtOazXZcJzIeX7Eg/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=padurean_daniel:streamer:padurean_daniel:tos0hYCW.jpg&w=350&sig=5b69724b9d33f2b22abdeeaca2d58bd0ca7dd361",
         },
     },
     {
-      "name": "tacticsforever2800",
-      "id": "tacticsforever2800",
+      "name": "Cyber_Attacks",
+      "flair": "nature.fire",
+      "id": "cyber_attacks",
+      "stream": { "service": "youtube", "status": "Im Back on  lichess.org", "lang": "en-US" },
+      "streamer":
+        {
+          "name": "Cyber_Attacks",
+          "headline": "Learning Chess through streaming",
+          "description": "Im very passionate with Chess and would like to help others to become good in chess",
+          "youtube": "https://www.youtube.com/channel/UCyVkcbkw8JsDxmx-EWALqlA/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=9iox7zgTs0f4.webp&w=350&sig=d1d19bdbb22f422b4300c0cfe89fbed69b1e4a40",
+        },
+    },
+    {
+      "name": "tinygrimes",
+      "id": "tinygrimes",
+      "stream": { "service": "twitch", "status": "Chess Journeys Arena - Lichess.org", "lang": "en" },
+      "streamer":
+        {
+          "name": "tinygrimes",
+          "headline": "Streaming Analysis of Karpov Games",
+          "twitch": "https://www.twitch.tv/chessjourneys",
+          "image": "https://image.lichess1.org/display?fmt=png&h=350&op=thumbnail&path=tinygrimes:streamer:tinygrimes:u6FPUN6r.png&w=350&sig=72930653406398011e509176f7429558914ed3c2",
+        },
+    },
+    {
+      "name": "Hikaruana49",
+      "id": "hikaruana49",
       "stream":
         {
           "service": "youtube",
-          "status": "Playing Titled Arena Warm-up December '25 On Lichess.org || The Dark Horse || Chess Live Stream",
+          "status": "ياله نطير ونلعب شطرنج 🚀 | سهرة أساطير فوق الرقعة ❤️♟️ Lichess.org",
           "lang": "en-US",
         },
       "streamer":
         {
-          "name": "tacticsforever2800",
-          "headline": "playing chess on lichess.org",
-          "description": "Hello Everyone i am a passionate chess player , My FIDE rating is 1640 and my sole purpose to start this channel is to show that lower rated players can defeat much higher rated players in the game of chess And Rating does'nt always define the quality of a chess player.",
-          "twitch": "https://www.twitch.tv/thedarkhorse1640",
-          "youtube": "https://www.youtube.com/channel/UCyb3KveNXqJGI5QO1Q86Npg/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=tacticsforever2800:streamer:tacticsforever2800:9ceKwEwa.jpg&w=350&sig=21bd25a2a479ee5344fe9db2d2111306d50558e2",
+          "name": "Hikaruana49",
+          "youtube": "https://www.youtube.com/channel/UCog1ZqELCSulPlDChDMgB_w/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=hikaruana49:streamer:hikaruana49:QuTi2t3w.jpg&w=350&sig=6ee220e88e614654451b0f30852ba806bf1feb8e",
         },
     },
     {
-      "name": "caissa12",
-      "title": "WFM",
-      "flair": "activity.chess-pawn",
-      "id": "caissa12",
+      "name": "SLOM",
+      "title": "NM",
+      "flair": "nature.phoenix-bird",
+      "id": "slom",
       "stream":
         {
           "service": "youtube",
-          "status": "Faustino Oro vs Sandro Mareco | Ronda 6 del Magistral Szmetan-Giardelli EN VIVO/ lichess.org",
-          "lang": "es",
+          "status": "Chess Master (2200+ ELO) Simul with Q & A Volume 133 | lichess.org",
+          "lang": "en-US",
         },
       "streamer":
         {
-          "name": "Caissa",
-          "headline": "Ajedrez en vivo con Gamblers del Tablero ♟️",
-          "description": "Transmisiones en vivo de ajedrez con la WFM Anahí Meza. Partidas, retos tácticos, lectura de libros, análisis y mucho más. Unite para aprender y divertirte con la comunidad Gamblers.",
-          "youtube": "https://www.youtube.com/channel/UCxF0uQqWAdNrd5RZDueLIvg/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=caissa12:streamer:caissa12:EydmrFjJ.jpg&w=350&sig=b4e95a221d5b55f9d15692d36f24724949e69b49",
-        },
-    },
-    {
-      "name": "CoachTimur",
-      "title": "CM",
-      "flair": "people.raised-fist",
-      "id": "coachtimur",
-      "stream": { "service": "twitch", "status": "Призовой турнир на Lichess.org", "lang": "ru" },
-      "streamer":
-        {
-          "name": "Timur Safin",
-          "headline": "Играем, играем, играем",
-          "description": "Развлекаюсь как могу!",
-          "twitch": "https://www.twitch.tv/timurchessss",
-          "youtube": "https://www.youtube.com/channel/UCdMbzNMRpA7CY_q8gLHEGTQ/live",
-          "image": "https://image.lichess1.org/display?fmt=png&h=350&op=thumbnail&path=streamer:coachtimur:SgmzHuBF.png&w=350&sig=9d203be3c49d5162cb2f9c462804312bc76ed1f4",
+          "name": "SLOM",
+          "headline": "I stream every week for simuls and do Q & A at the same time for learning players!",
+          "description": "I stream every week for simuls and do Q & A at the same time for learning players!\r\n\r\n",
+          "twitch": "https://www.twitch.tv/metal_eagle",
+          "youtube": "https://www.youtube.com/channel/UC9QXxZ7d3kLQ4A11uCp6eyg/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=slom:streamer:slom:kE1X2wib.jpg&w=350&sig=4d26846839ca593723c33c37f0eb1b8f4448e58b",
         },
     },
     {
-      "name": "K0tleta_s_pi0reshkoy",
-      "flair": "travel-places.moai",
-      "id": "k0tleta_s_pi0reshkoy",
-      "stream": { "service": "twitch", "status": "Прокачиваем силушку богатырскую lichess.org", "lang": "ru" },
+      "name": "Chessman_ua",
+      "flair": "activity.trophy",
+      "id": "chessman_ua",
+      "stream":
+        { "service": "youtube", "status": "Шахи на лічес. Шахи українською на lichess.org 08.02.2026", "lang": "uk" },
       "streamer":
         {
-          "name": "K0tleta_s_pi0reshkoy",
-          "headline": "It's My Life",
-          "description": "Педагог - психолог, детский тренер по шахматам.  Использую шахматы как психокоррекционный предмет и просто для души.",
-          "twitch": "https://www.twitch.tv/chessl1fe",
-          "youtube": "https://www.youtube.com/channel/UC165RAcDqPNr6MKkv2lh17Q/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:k0tleta_s_pi0reshkoy:cNgEWeXK.webp&w=350&sig=6f325cd40a2576524f44ecbaf94b40c3fc2a59c6",
+          "name": "Chessman_ua",
+          "headline": "Шахи українською на lichess.org",
+          "twitch": "https://www.twitch.tv/chessman_ua",
+          "youtube": "https://www.youtube.com/channel/UCpp4JraFemwfKcBSNi2CfIg/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:chessman_ua:9zTrIr6v.webp&w=350&sig=825963ea8170d0988cdb740c2f79505f784e713d",
+        },
+    },
+    {
+      "name": "PetitPapillon",
+      "flair": "nature.butterfly",
+      "id": "petitpapillon",
+      "stream":
+        {
+          "service": "twitch",
+          "status": "lichess.org      💕20:00 Uhr Lichess Liga.  Abstieg ist keine Option!",
+          "lang": "de",
+        },
+      "streamer":
+        {
+          "name": "PetitPapillon",
+          "headline": "lichess.org      💕🦋 20:00 Uhr Lichess Liga.  Abstieg ist keine Option!",
+          "description": "Blunder_Queen on Twtich spielt auf Lichess  als PetitPapillon jeden Donnerstag und Sonntag 20:00 Uhr mit dem Rottaler Schachclub in Kooperation mit dem Team Neckartenzlingen in der Lichess Liga. Aufstieg, Abstieg oder Klassenerhalt.\r\n\r\nBlunder_Queen on Twtich plays on Lichess as PetitPapillon every Thursday and Sunday at 8 pm with the Rottaler Schachclub in cooperation with the Neckartenzlingen team in the Lichess League. Promotion, relegation or relegation.🦋🦋🦋🦋",
+          "twitch": "https://www.twitch.tv/blunder_queen",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=petitpapillon:streamer:petitpapillon:r1E7f0B1.jpg&w=350&sig=f62f04dec96b148ce05ae60a0d686a5b636f1781",
         },
     },
   ]

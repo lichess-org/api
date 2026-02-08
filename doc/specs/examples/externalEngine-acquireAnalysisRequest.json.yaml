@@ -1,6 +1,6 @@
 value:
   {
-    "id": "U2i9ZtidDhdFAsZ2",
+    "id": "ygxzCoNU0wUXodLm",
     "work":
       {
         "sessionId": "1",
@@ -14,9 +14,9 @@ value:
       },
     "engine":
       {
-        "id": "eei_av8uLcTbZfMO",
+        "id": "eei_dw2szwYp76C9",
         "name": "Stockfish 17.1",
-        "clientSecret": "ees_Gonuvy0jUDf8Ywg4",
+        "clientSecret": "ees_EjQe0iSY6TGhsvCW",
         "userId": "bobby",
         "maxThreads": 8,
         "maxHash": 2048,

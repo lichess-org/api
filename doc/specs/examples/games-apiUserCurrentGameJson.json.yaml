@@ -1,21 +1,66 @@
 value:
   {
-    "id": "IlekPICj",
+    "id": "SzBydaBZ",
     "rated": false,
     "variant": "standard",
     "speed": "blitz",
     "perf": "blitz",
-    "createdAt": 1769888061630,
-    "lastMoveAt": 1769888061630,
-    "status": "outoftime",
+    "createdAt": 1770526038635,
+    "lastMoveAt": 1770526107868,
+    "status": "mate",
     "source": "simul",
     "players":
       {
-        "white": { "user": { "name": "chesslooksprof", "id": "chesslooksprof" }, "rating": 1262 },
-        "black": { "user": { "name": "Lance5500", "title": "LM", "id": "lance5500" }, "rating": 2711 },
+        "white":
+          {
+            "user": { "name": "Lance5500", "title": "LM", "id": "lance5500" },
+            "rating": 2657,
+            "analysis": { "inaccuracy": 0, "mistake": 0, "blunder": 0, "acpl": 10, "accuracy": 95 },
+          },
+        "black":
+          {
+            "user": { "name": "Laksh2019", "id": "laksh2019" },
+            "rating": 1114,
+            "analysis": { "inaccuracy": 2, "mistake": 0, "blunder": 1, "acpl": 133, "accuracy": 55 },
+          },
       },
-    "winner": "black",
-    "moves": "",
-    "clock": { "initial": 300, "increment": 3, "totalTime": 420 },
+    "winner": "white",
+    "opening": { "eco": "D20", "name": "Queen's Gambit Accepted: Old Variation", "ply": 5 },
+    "moves": "d4 d5 c4 dxc4 e3 b5 a4 bxa4 Bxc4 Bd7 Qf3 Bc6 Bxf7+ Kd7 Qf5+ Kd6 Qe6#",
+    "analysis":
+      [
+        { "eval": 15 },
+        { "eval": 27 },
+        { "eval": 16 },
+        { "eval": 28 },
+        { "eval": 15 },
+        {
+          "eval": 71,
+          "best": "e7e5",
+          "variation": "e5 Bxc4 exd4 exd4 Bd6 Nf3 Nf6 O-O O-O Bg5",
+          "judgment": { "name": "Inaccuracy", "comment": "Inaccuracy. e5 was best." },
+        },
+        { "eval": 71 },
+        { "eval": 107 },
+        { "eval": 65 },
+        {
+          "eval": 143,
+          "best": "e7e6",
+          "variation": "e6 Nf3 Nd7 Qxa4 Bd6 e4 a5 d5 e5 Bd2",
+          "judgment": { "name": "Inaccuracy", "comment": "Inaccuracy. e6 was best." },
+        },
+        { "eval": 130 },
+        {
+          "mate": 3,
+          "best": "e7e6",
+          "variation": "e6 Qxa8 Bc6 Qxa7 Bxg2 Nc3 Bxh1 e4 Bd6 e5",
+          "judgment": { "name": "Blunder", "comment": "Checkmate is now unavoidable. e6 was best." },
+        },
+        { "mate": 2 },
+        { "mate": 2 },
+        { "mate": 1 },
+        { "mate": 1 },
+      ],
+    "clock": { "initial": 300, "increment": 0, "totalTime": 300 },
     "division": {},
   }

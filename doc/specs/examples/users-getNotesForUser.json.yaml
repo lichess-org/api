@@ -1,16 +1,9 @@
 value:
   [
     {
-      "from": { "name": "Bobby", "flair": "symbols.white-flag", "patron": true, "patronColor": 1, "id": "bobby" },
-      "to":
-        {
-          "name": "Mary",
-          "flair": "people.couple-with-heart-person-person-medium-skin-tone-medium-dark-skin-tone",
-          "patron": true,
-          "patronColor": 1,
-          "id": "mary",
-        },
+      "from": { "name": "Bobby", "flair": "people.man-vampire-medium-skin-tone", "id": "bobby" },
+      "to": { "name": "Mary", "flair": "objects.chart-increasing", "id": "mary" },
       "text": "this is a private note",
-      "date": 1765651638829,
+      "date": 1770578964468,
     },
   ]

@@ -4,9 +4,9 @@ value:
     "duels": [],
     "secondsToStart": 300,
     "standing": { "page": 1, "players": [] },
-    "id": "mRp9HwbP",
+    "id": "sIKqCAX3",
     "createdBy": "bobby",
-    "startsAt": "2025-12-13T18:50:57.275Z",
+    "startsAt": "2026-02-08T19:33:45.378Z",
     "system": "arena",
     "fullName": "Updated Arena Arena",
     "minutes": 60,
@@ -16,10 +16,6 @@ value:
     "rated": true,
     "berserkable": true,
     "verdicts": { "list": [{ "condition": "Bot players are not allowed", "verdict": "ok" }], "accepted": true },
-    "quote":
-      {
-        "text": "When you trade, the key concern is not always the value of the pieces being exchanged, but what's left on the board.",
-        "author": "Dan Heisman",
-      },
+    "quote": { "text": "Chess is my life.", "author": "Viktor Korchnoi" },
     "myUsername": "Bobby",
   }

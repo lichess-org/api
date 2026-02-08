@@ -1,2 +1,1 @@
-value:
-  { "result": [{ "name": "Bobby", "flair": "symbols.white-flag", "patron": true, "patronColor": 1, "id": "bobby" }] }
+value: { "result": [{ "name": "Bobby", "flair": "people.man-vampire-medium-skin-tone", "id": "bobby" }] }

@@ -3,15 +3,15 @@ value:
     "t": "featured",
     "d":
       {
-        "id": "PzKosuld",
+        "id": "huFaKQNi",
         "orientation": "white",
         "players":
           [
             {
               "color": "white",
-              "user": { "name": "cutemouse83", "title": "GM", "patron": true, "patronColor": 3, "id": "cutemouse83" },
-              "rating": 2952,
-              "seconds": 180,
+              "user": { "name": "Arkadiy_Khromaev", "patron": true, "patronColor": 1, "id": "arkadiy_khromaev" },
+              "rating": 3402,
+              "seconds": 30,
             },
             {
               "color": "black",
@@ -22,10 +22,10 @@ value:
                   "flair": "people.deaf-man-light-skin-tone",
                   "id": "chess-art-us",
                 },
-              "rating": 2845,
-              "seconds": 180,
+              "rating": 3322,
+              "seconds": 30,
             },
           ],
-        "fen": "1n1r3r/pB2k1pp/4bp2/N3p3/2P5/6P1/PP5P/3R1RK1 w - - 1 18",
+        "fen": "8/1p6/p7/6P1/8/P4k1p/8/2q1RK2 b - - 3 55",
       },
   }

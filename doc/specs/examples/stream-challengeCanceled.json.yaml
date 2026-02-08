@@ -3,25 +3,12 @@ value:
     "type": "challengeCanceled",
     "challenge":
       {
-        "id": "eSb8Y7bX",
-        "url": "https://lichess.org/eSb8Y7bX",
+        "id": "HGnKXPZY",
+        "url": "https://lichess.org/HGnKXPZY",
         "status": "canceled",
-        "challenger":
-          {
-            "name": "Elena",
-            "title": "CM",
-            "flair": "objects.closed-mailbox-with-raised-flag",
-            "id": "elena",
-            "rating": 2220,
-          },
+        "challenger": { "name": "Elena", "title": "GM", "id": "elena", "rating": 2252 },
         "destUser":
-          {
-            "name": "Diego",
-            "flair": "people.couple-with-heart-woman-man",
-            "id": "diego",
-            "rating": 1880,
-            "online": true,
-          },
+          { "name": "Diego", "flair": "people.person-cartwheeling", "id": "diego", "rating": 1894, "online": true },
         "variant": { "key": "standard", "name": "Standard", "short": "Std" },
         "rated": false,
         "speed": "correspondence",
