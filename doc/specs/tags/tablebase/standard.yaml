@@ -20,9 +20,9 @@ get:
     - in: query
       name: dtc
       description: |
-        When to query the tablebase for `dtc` values. The current default
-        is `never`. It is eventually going to be `auxiliary`, i.e., only when
-        the position is not covered by one of the other tablebases.
+        When to query the tablebase for `dtc` values. The default is
+        `auxiliary`, i.e., only when the position is not covered by one of the
+        other tablebases.
       schema:
         type: string
         enum:
