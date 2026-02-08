@@ -39,7 +39,7 @@ properties:
   dtc:
     type: ["null", "integer"]
     description: |
-      Experimental Depth to Conversion: Moves to next capture, promotion,
+      Depth to Conversion: Moves to next capture, promotion,
       or checkmate. Available for:
       * Standard chess positions with 8 pieces, more than one pawn of material
         value for each side, and at least one pair of opposing pawns,
