@@ -11,7 +11,7 @@ value:
           "open": false,
           "leader":
             { "name": "thibault", "flair": "nature.seedling", "patron": true, "patronColor": 10, "id": "thibault" },
-          "nbMembers": 465,
+          "nbMembers": 474,
           "flair": "objects.hammer-and-wrench",
           "leaders":
             [{ "name": "thibault", "flair": "nature.seedling", "patron": true, "patronColor": 10, "id": "thibault" }],

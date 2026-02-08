@@ -2,24 +2,24 @@ value:
   {
     "game":
       {
-        "id": "AE2fv1Oi",
+        "id": "Had79NbX",
         "perf": { "key": "blitz", "name": "Blitz" },
         "rated": true,
         "players":
           [
-            { "name": "Ksa9000", "id": "ksa9000", "color": "white", "rating": 1862 },
-            { "name": "Afiffudin", "id": "afiffudin", "color": "black", "rating": 1874 },
+            { "name": "vit2014", "id": "vit2014", "color": "white", "rating": 2395 },
+            { "name": "Yoda-wins", "id": "yoda-wins", "color": "black", "rating": 2511 },
           ],
-        "pgn": "d4 Nf6 Bf4 g6 Nf3 Bg7 e3 O-O Bd3 d6 Nbd2 Re8 Bg3 Nbd7 c3 Nh5 Bc2 Nxg3 hxg3 e5 Rxh7 Kxh7 Nh4 Nf6 Qe2 Bg4 f3 Be6 O-O-O exd4 exd4 c6 Qd3 Qa5 Nxg6 fxg6 Rh1+ Kg8 Qxg6 Qxa2 Ne4 Nxe4 Bxe4 Bb3",
-        "clock": "5+0",
+        "pgn": "e4 e6 d4 d5 Nd2 c5 Ngf3 cxd4 Nxd4 Nf6 exd5 Nxd5 c3 Be7 Bb5+ Bd7 Bxd7+ Qxd7 O-O O-O N2f3 Nc6 Nxc6 Qxc6 Bg5 Bxg5 Nxg5 h6 Nf3 Rfd8 Nd4 Qb6 Qb3 Qc7 g3 e5 Nf5 e4 Rad1 Qe5",
+        "clock": "3+2",
       },
     "puzzle":
       {
-        "id": "cCHzz",
-        "rating": 1676,
-        "plays": 2804,
-        "solution": ["h1h8", "g8h8", "g6h7"],
-        "themes": ["mateIn2", "middlegame", "short", "attraction", "sacrifice", "kingsideAttack", "pin"],
-        "initialPly": 43,
+        "id": "hACdu",
+        "rating": 1567,
+        "plays": 6508,
+        "solution": ["d1d5", "d8d5", "b3d5", "e5d5", "f5e7", "g8f8", "e7d5"],
+        "themes": ["veryLong", "middlegame", "advantage", "attraction", "fork", "sacrifice"],
+        "initialPly": 39,
       },
   }

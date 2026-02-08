@@ -1,48 +1,73 @@
 value:
   {
     "days": 30,
-    "global": { "nb": 11, "firstWins": 6, "replayWins": 0, "puzzleRatingAvg": 1592, "performance": 1637 },
+    "global": { "nb": 11, "firstWins": 5, "replayWins": 0, "puzzleRatingAvg": 1495, "performance": 1450 },
     "themes":
       {
         "middlegame":
           {
             "theme": "Middlegame",
-            "results": { "nb": 5, "firstWins": 5, "replayWins": 0, "puzzleRatingAvg": 1655, "performance": 2155 },
-          },
-        "endgame":
-          {
-            "theme": "Endgame",
-            "results": { "nb": 4, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1679, "performance": 1179 },
+            "results": { "nb": 7, "firstWins": 3, "replayWins": 0, "puzzleRatingAvg": 1638, "performance": 1567 },
           },
         "fork":
           {
             "theme": "Fork",
-            "results": { "nb": 4, "firstWins": 2, "replayWins": 0, "puzzleRatingAvg": 1248, "performance": 1248 },
+            "results": { "nb": 4, "firstWins": 2, "replayWins": 0, "puzzleRatingAvg": 1133, "performance": 1133 },
+          },
+        "kingsideAttack":
+          {
+            "theme": "Kingside attack",
+            "results": { "nb": 3, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1757, "performance": 1590 },
+          },
+        "endgame":
+          {
+            "theme": "Endgame",
+            "results": { "nb": 2, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1028, "performance": 1028 },
           },
         "opening":
           {
             "theme": "Opening",
-            "results": { "nb": 2, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1259, "performance": 1259 },
+            "results": { "nb": 2, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1462, "performance": 1462 },
           },
-        "hangingPiece":
+        "advancedPawn":
           {
-            "theme": "Hanging piece",
-            "results": { "nb": 2, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1526, "performance": 1526 },
+            "theme": "Advanced pawn",
+            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1051, "performance": 551 },
           },
-        "skewer":
+        "underPromotion":
           {
-            "theme": "Skewer",
-            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 2056, "performance": 2556 },
+            "theme": "Underpromotion",
+            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1051, "performance": 551 },
+          },
+        "attraction":
+          {
+            "theme": "Attraction",
+            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1938, "performance": 2438 },
+          },
+        "trappedPiece":
+          {
+            "theme": "Trapped piece",
+            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 2240, "performance": 1740 },
           },
         "sacrifice":
           {
             "theme": "Sacrifice",
-            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 2477, "performance": 1977 },
+            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1938, "performance": 2438 },
           },
-        "quietMove":
+        "mate":
           {
-            "theme": "Quiet move",
-            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 2499, "performance": 1999 },
+            "theme": "Checkmate",
+            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1938, "performance": 2438 },
+          },
+        "defensiveMove":
+          {
+            "theme": "Defensive move",
+            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 2240, "performance": 1740 },
+          },
+        "promotion":
+          {
+            "theme": "Promotion",
+            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1051, "performance": 551 },
           },
       },
   }

@@ -4,11 +4,11 @@ value:
     "duels": [],
     "secondsToStart": 300,
     "standing": { "page": 1, "players": [] },
-    "id": "mRp9HwbP",
+    "id": "sIKqCAX3",
     "createdBy": "bobby",
-    "startsAt": "2025-12-13T18:50:57.275281935Z",
+    "startsAt": "2026-02-08T19:33:45.378515848Z",
     "system": "arena",
-    "fullName": "Reshevsky Arena",
+    "fullName": "Lolli Arena",
     "minutes": 60,
     "perf": { "key": "blitz", "name": "Blitz", "icon": ")" },
     "clock": { "limit": 300, "increment": 0 },
@@ -16,11 +16,7 @@ value:
     "rated": true,
     "berserkable": true,
     "verdicts": { "list": [{ "condition": "Bot players are not allowed", "verdict": "ok" }], "accepted": true },
-    "quote":
-      {
-        "text": "Success in chess requires many factors such as environment, hard practice, coach, talent... When we are children, we should not set the goal of becoming a super grandmaster. Do not play chess because of pressure, let chess become your joy and success will come naturally.",
-        "author": "Lê Quang Liêm",
-      },
-    "greatPlayer": { "name": "Reshevsky", "url": "https://wikipedia.org/wiki/Samuel_Reshevsky" },
+    "quote": { "text": "Chess is not relaxing; it's stressful even if you win.", "author": "Jennifer Shahade" },
+    "greatPlayer": { "name": "Lolli", "url": "https://wikipedia.org/wiki/Giambattista_Lolli" },
     "myUsername": "Bobby",
   }

@@ -1,4 +1,4 @@
-import { example, prodClient } from "./config";
+import { example, localClient, prodClient } from "./config";
 
 example(
   "teams",
@@ -32,10 +32,10 @@ example("teams", "getPopularTeams", await prodClient().GET("/api/team/all"));
 example(
   "teams",
   "teamsOfPlayer",
-  await prodClient().GET("/api/team/of/{username}", {
+  await localClient().GET("/api/team/of/{username}", {
     params: {
       path: {
-        username: "thibault",
+        username: "bobby",
       },
     },
   }),

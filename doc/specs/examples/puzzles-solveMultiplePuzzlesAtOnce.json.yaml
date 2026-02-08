@@ -5,58 +5,72 @@ value:
         {
           "game":
             {
-              "id": "AkQeHLj8",
+              "id": "NIi7FQnb",
               "perf": { "key": "rapid", "name": "Rapid" },
               "rated": true,
               "players":
                 [
-                  { "name": "Yun", "id": "yun", "color": "white", "rating": 1634 },
                   {
-                    "name": "Patricia",
-                    "flair": "people.woman-light-skin-tone-blond-hair",
-                    "id": "patricia",
+                    "name": "Yulia",
+                    "title": "WNM",
+                    "flair": "smileys.squinting-face-with-tongue",
+                    "id": "yulia",
+                    "color": "white",
+                    "rating": 1601,
+                  },
+                  {
+                    "name": "Ramesh",
+                    "flair": "people.handshake-medium-dark-skin-tone",
+                    "id": "ramesh",
                     "color": "black",
-                    "rating": 1711,
+                    "rating": 1605,
                   },
                 ],
-              "pgn": "e4 c6 Nc3 d5 exd5 cxd5 d4 Nf6 Bg5 e6 Nf3 h6 Be3 Bd6 Bb5+ Bd7 O-O a6 Bd3 O-O a3 Nc6 b3 Qe7 Qc1 Rac8 Nb1 Ng4 Bd2 e5 dxe5 Ngxe5 Nxe5 Bxe5 Bc3 Bxc3 Nxc3 d4 Re1 Qd6 Ne4 Qc7 c4 dxc3 Qxc3 Ne5 Qxc7 Rxc7 Rac1",
-              "clock": "5+8",
+              "pgn": "c4 e5 d3 d6 Nf3 Bg4 h3 Bxf3 gxf3 Nc6 f4 exf4 Bxf4 Qf6 Qd2 Nd4 Nc3 Nc2+ Qxc2 Qxf4 e3 Qf3 Nd5 O-O-O Rg1 g6 Bg2 Qf5 Qb3 c6 Nc3 Be7 a4 Qxd3",
+              "clock": "10+5",
             },
           "puzzle":
             {
-              "id": "70diZ",
-              "rating": 1610,
-              "plays": 29234,
-              "solution": ["c7c1", "e1c1", "e5d3"],
-              "themes": ["middlegame", "short", "advantage"],
-              "initialPly": 48,
+              "id": "B9E4N",
+              "rating": 1762,
+              "plays": 6835,
+              "solution": ["g2e4", "d3e4", "c3e4"],
+              "themes": ["middlegame", "crushing", "trappedPiece", "short"],
+              "initialPly": 33,
             },
         },
         {
           "game":
             {
-              "id": "HjsOGb5w",
+              "id": "ClJTYL4O",
               "perf": { "key": "rapid", "name": "Rapid" },
               "rated": true,
               "players":
                 [
-                  { "name": "Elizabeth", "id": "elizabeth", "color": "white", "rating": 1675 },
-                  { "name": "Monica", "id": "monica", "color": "black", "rating": 1667 },
+                  { "name": "Yaroslava", "title": "IM", "id": "yaroslava", "color": "white", "rating": 2097 },
+                  {
+                    "name": "Milena",
+                    "title": "WFM",
+                    "flair": "people.farmer",
+                    "id": "milena",
+                    "color": "black",
+                    "rating": 2016,
+                  },
                 ],
-              "pgn": "d4 e6 c4 Nf6 Nc3 d5 Bg5 Be7 e3 O-O Nf3 Nbd7 Bd3 dxc4 Bxc4 b6 Rc1 Bb7 Bd3 h6 Bh4 Re8 Qc2 Nf8 Nb5 c6 Nc3 Nd5 Bxe7 Rxe7 e4 Nf4 Ne2 Nxd3+ Qxd3 c5 O-O cxd4 Nexd4",
+              "pgn": "d4 c6 c4 d5 Nf3 Nf6 Nc3 Bf5 cxd5 cxd5 Qb3 Bc8 Bg5 e6 e3 a6 Bd3 Nc6 O-O Be7 Rfd1 O-O a3 Rb8 Qc2 h6 Bf4 Bd6 Bxd6 Qxd6 e4 dxe4 Nxe4 Qf4 Nxf6+ Qxf6 Bh7+ Kh8 Be4 Ne7 Qc7 Ra8 Bxb7 Bxb7 Qxb7 Rab8 Qxa6 Rxb2 Qd3 Nd5 g3 Rfb8 Rdc1 R2b3 Rc8+ Rxc8 Qxb3 Rc3 Qb8+ Kh7 Qb1+ g6 Ne5 h5 Qe1 Kg7 Rb1 Rxa3 Rb7 Ne7 Qb4 Ra2 Qe1 h4 g4 g5 h3 Ra8 Kg2 Rf8 Qe3 Nd5 Qe4 Qf4 Qxf4 Nxf4+ Kh2 Ne2 Nf3 Kf6 Rb5 Rd8 Rxg5",
               "clock": "10+0",
             },
           "puzzle":
             {
-              "id": "3MVWi",
-              "rating": 1588,
-              "plays": 29374,
-              "solution": ["e6e5", "f3e5", "e7e5"],
-              "themes": ["middlegame", "short", "advantage"],
-              "initialPly": 38,
+              "id": "DgKLy",
+              "rating": 1768,
+              "plays": 24872,
+              "solution": ["e2d4", "f3d4", "f6g5", "d4f3", "g5f4"],
+              "themes": ["endgame", "long", "advantage", "deflection"],
+              "initialPly": 92,
             },
         },
       ],
-    "glicko": { "rating": 1695.25, "deviation": 48.73 },
-    "rounds": [{ "id": "5ESJO", "win": true, "ratingDiff": 0 }],
+    "glicko": { "rating": 1828.98, "deviation": 84.39 },
+    "rounds": [{ "id": "B5NPC", "win": true, "ratingDiff": 2 }],
   }

@@ -1,15 +1,15 @@
 value:
   {
-    "id": "XbrJd2xO",
+    "id": "1luLpOIU",
     "variant": { "key": "standard", "name": "Standard", "short": "Std" },
     "speed": "correspondence",
     "perf": "correspondence",
     "rated": false,
+    "source": "ai",
+    "createdAt": 1770578937714,
     "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
     "turns": 0,
-    "source": "ai",
     "status": { "id": 20, "name": "started" },
-    "createdAt": 1765651611249,
     "player": "white",
-    "fullId": "XbrJd2xOlEci",
+    "fullId": "1luLpOIUQWg0",
   }

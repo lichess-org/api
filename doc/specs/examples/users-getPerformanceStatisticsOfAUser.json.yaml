@@ -1,9 +1,9 @@
 value:
   {
     "user": { "name": "thibault" },
-    "perf": { "glicko": { "rating": 1790.66, "deviation": 58.76 }, "nb": 11545, "progress": 13 },
+    "perf": { "glicko": { "rating": 1795.41, "deviation": 63.82 }, "nb": 11551, "progress": 22 },
     "rank": null,
-    "percentile": 77.2,
+    "percentile": 77.6,
     "stat":
       {
         "highest": { "int": 1970, "at": "2022-02-23T13:44:54.633Z", "gameId": "Blpjmhnf" },
@@ -82,27 +82,22 @@ value:
           },
         "count":
           {
-            "all": 12029,
-            "rated": 11423,
-            "win": 5693,
-            "loss": 5766,
-            "draw": 570,
-            "tour": 1593,
-            "berserk": 49,
-            "opAvg": 1706.15,
-            "seconds": 3736114,
+            "all": 12037,
+            "rated": 11429,
+            "win": 5696,
+            "loss": 5770,
+            "draw": 571,
+            "tour": 1597,
+            "berserk": 51,
+            "opAvg": 1706.16,
+            "seconds": 3738035,
             "disconnects": 9,
           },
         "resultStreak":
           {
             "win":
               {
-                "cur":
-                  {
-                    "v": 1,
-                    "from": { "at": "2025-11-24T19:50:29.862Z", "gameId": "Ej1KKsbu" },
-                    "to": { "at": "2025-11-24T19:59:09.538Z", "gameId": "Ej1KKsbu" },
-                  },
+                "cur": { "v": 0 },
                 "max":
                   {
                     "v": 11,
@@ -112,7 +107,12 @@ value:
               },
             "loss":
               {
-                "cur": { "v": 0 },
+                "cur":
+                  {
+                    "v": 1,
+                    "from": { "at": "2026-02-02T08:17:17.099Z", "gameId": "1FByjtZK" },
+                    "to": { "at": "2026-02-02T08:20:59.324Z", "gameId": "1FByjtZK" },
+                  },
                 "max":
                   {
                     "v": 19,
@@ -143,7 +143,7 @@ value:
                     "to": { "at": "2024-10-18T20:54:30.256Z", "gameId": "1HeDeGbe" },
                   },
               },
-            "lastDate": "2025-11-24T19:59:09.538Z",
+            "lastDate": "2026-02-02T08:20:59.324Z",
           },
       },
   }

@@ -1,0 +1,9 @@
+type: string
+
+enum:
+  - standard
+  - rapid
+  - blitz
+
+description: |
+  FIDE rating category

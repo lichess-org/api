@@ -4,5 +4,13 @@ value:
     "fideId": 123,
     "played": 0,
     "games":
-      [{ "round": "aUOpnxDF", "id": "iMUN1Wcn", "opponent": { "name": "Player 2", "fideId": 456 }, "color": "white" }],
+      [
+        {
+          "round": "9PSd6Vxw",
+          "id": "YLhuyHjJ",
+          "opponent": { "name": "Player 2", "fideId": 456 },
+          "color": "white",
+          "fideTC": "standard",
+        },
+      ],
   }

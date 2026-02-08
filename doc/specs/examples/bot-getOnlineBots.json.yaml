@@ -1,23 +1,24 @@
 value:
   {
-    "id": "sargon-2ply",
-    "username": "sargon-2ply",
+    "id": "simpleeval",
+    "username": "simpleEval",
     "perfs":
       {
-        "bullet": { "games": 9496, "rating": 1419, "rd": 45, "prog": 11 },
-        "blitz": { "games": 12795, "rating": 1291, "rd": 45, "prog": -11 },
-        "rapid": { "games": 14576, "rating": 1367, "rd": 45, "prog": -20 },
-        "classical": { "games": 5698, "rating": 1484, "rd": 45, "prog": -3 },
+        "bullet": { "games": 45941, "rating": 2192, "rd": 45, "prog": 1 },
+        "blitz": { "games": 34869, "rating": 2230, "rd": 45, "prog": -4 },
+        "rapid": { "games": 17813, "rating": 2257, "rd": 45, "prog": -12 },
+        "classical": { "games": 5046, "rating": 2177, "rd": 45, "prog": -6 },
         "correspondence": { "games": 0, "rating": 1500, "rd": 500, "prog": 0, "prov": true },
       },
     "title": "BOT",
-    "createdAt": 1621918997035,
+    "patron": true,
+    "patronColor": 9,
+    "createdAt": 1588881302144,
     "profile":
       {
-        "flag": "US",
-        "bio": 'Sargon-2ply is a re-implementation of Dan and Kathe Spracklen''s 1978 SARGON commercial chess engine. It uses a 2-ply full search with material exchange, king/queen pins and "board control" heuristics. Too hard? Try @sargon-1ply or @bernstein-2ply. Too easy? Try @sargon-3ply or @turochamp-2ply. Author: @herohde',
-        "links": "https://github.com/herohde/morlock\r\nhttps://en.wikipedia.org/wiki/Sargon_(chess)",
+        "bio": "simpleEval uses only material counting (1, 3, 3, 5, 9) as evaluation. 'Easy' to get a good position, very hard to convert. A GM shows how\r\n: https://lichess.org/554runt0k0Nd . Accepts rated & casual, bullet to classical.",
+        "links": "https://github.com/vondele/Stockfish/tree/simpleEval",
       },
-    "seenAt": 1765651218982,
-    "playTime": { "total": 20910715, "tv": 9529, "human": 16911921 },
+    "seenAt": 1770578533113,
+    "playTime": { "total": 76786530, "tv": 3678115, "human": 14489543 },
   }

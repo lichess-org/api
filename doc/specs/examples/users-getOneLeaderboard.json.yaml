@@ -2,15 +2,8 @@ value:
   {
     "users":
       [
-        { "id": "yulia", "username": "Yulia", "perfs": { "blitz": { "rating": 2409, "progress": 0 } }, "title": "WIM" },
-        {
-          "id": "ana",
-          "username": "Ana",
-          "perfs": { "blitz": { "rating": 2401, "progress": 0 } },
-          "title": "IM",
-          "patron": true,
-          "patronColor": 1,
-        },
-        { "id": "mei", "username": "Mei", "perfs": { "blitz": { "rating": 2374, "progress": 0 } }, "title": "WNM" },
+        { "id": "yulia", "username": "Yulia", "perfs": { "blitz": { "rating": 2425, "progress": 0 } }, "title": "WNM" },
+        { "id": "elena", "username": "Elena", "perfs": { "blitz": { "rating": 2404, "progress": 0 } }, "title": "GM" },
+        { "id": "ana", "username": "Ana", "perfs": { "blitz": { "rating": 2391, "progress": 0 } }, "title": "WNM" },
       ],
   }
