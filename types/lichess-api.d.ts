@@ -7500,7 +7500,7 @@ export interface components {
       /** @description DTZ50'' in plies, only if guaranteed to not be rounded, or absent if unknown */
       precise_dtz?: null | number;
       /**
-       * @description Experimental Depth to Conversion: Moves to next capture, promotion,
+       * @description Depth to Conversion: Moves to next capture, promotion,
        *     or checkmate. Available for:
        *     * Standard chess positions with 8 pieces, more than one pawn of material
        *       value for each side, and at least one pair of opposing pawns,
@@ -14653,9 +14653,9 @@ export interface operations {
         /** @description X-FEN of the position. Underscores allowed. */
         fen: string;
         /**
-         * @description When to query the tablebase for `dtc` values. The current default
-         *     is `never`. It is eventually going to be `auxiliary`, i.e., only when
-         *     the position is not covered by one of the other tablebases.
+         * @description When to query the tablebase for `dtc` values. The default is
+         *     `auxiliary`, i.e., only when the position is not covered by one of the
+         *     other tablebases.
          */
         dtc?: "never" | "auxiliary" | "always";
       };
