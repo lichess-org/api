@@ -1,0 +1,23 @@
+value: |
+  [Event "Daily Rapid Arena"]
+  [Site "https://lichess.org/TJxUmbWK"]
+  [Date "2017.08.30"]
+  [Round "-"]
+  [White "arex"]
+  [Black "JERC-12Jesus"]
+  [Result "1-0"]
+  [GameId "TJxUmbWK"]
+  [UTCDate "2017.08.30"]
+  [UTCTime "20:40:27"]
+  [WhiteElo "1627"]
+  [BlackElo "1740"]
+  [WhiteRatingDiff "+15"]
+  [BlackRatingDiff "-15"]
+  [Variant "Standard"]
+  [TimeControl "600+0"]
+  [ECO "B07"]
+  [Opening "Pirc Defense"]
+  [Termination "Normal"]
+  [Annotator "lichess.org"]
+
+  1. e4 d6 2. d4 Nf6 3. Nc3 g6 { B07 Pirc Defense } 4. Bd3 Bg7 5. Be3 O-O 6. Qd2 Ng4 7. O-O-O Nxe3 8. Qxe3 Nd7 9. f4 Nf6 10. h3 c6 11. g4 Qb6 12. Nf3 c5 13. dxc5 Qxc5 14. Qxc5 dxc5 15. e5 Nd7 16. Nd5 e6 17. Ne7+ Kh8 18. Bb5 a6 19. Bxd7 Bxd7 20. Rxd7 Rfe8 21. Rxb7 { Black resigns. } 1-0

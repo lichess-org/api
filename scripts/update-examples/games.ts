@@ -112,6 +112,23 @@ await prodClient()
       example("games", "apiGamesUserJson", line);
     }),
   );
+  
+  example(
+    "games",
+    "apiGamesUserPgn",
+    await prodClient().GET("/api/games/user/{username}", {
+      params: {
+        path: {
+          username: "lance5500",
+        },
+        query: {
+          max: 1,
+        }
+      },
+      parseAs: "text",
+    }),
+    "pgn",
+  );
 
 example(
   "games",
@@ -134,4 +151,29 @@ example(
     },
     bodySerializer: (body) => body,
   }),
+);
+
+example(
+  "games",
+  "gamesExportIds",
+  await prodClient().POST("/api/games/export/_ids", {
+    body: "TJxUmbWK",
+    params: {
+      query: {
+        clocks: false,
+        evals: true,
+        accuracy: true,
+        opening: true,
+        division: true,
+        literate: true,
+      },
+    },
+    headers: {
+      "Content-Type": "text/plain",
+      Accept: "application/x-chess-pgn",
+    },
+    parseAs: "text",
+    bodySerializer: (body) => body,
+  }),
+  "pgn",
 );
