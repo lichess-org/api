@@ -22,6 +22,8 @@ properties:
   ratingDiff:
     type: integer
     description: The change in rating for the player as a result of this game
+  fideTC:
+    $ref: "./FideTimeControl.yaml"
 
 required:
   - round
