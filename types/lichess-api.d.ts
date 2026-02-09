@@ -6003,6 +6003,11 @@ export interface components {
       tour: components["schemas"]["BroadcastTour"];
     };
     /**
+     * @description FIDE rating category
+     * @enum {string}
+     */
+    FideTimeControl: "standard" | "rapid" | "blitz";
+    /**
      * @description Extended tiebreak code
      * @enum {string}
      */
@@ -6061,11 +6066,7 @@ export interface components {
        *     Example: `"Classical" or "Rapid" or "Rapid & Blitz"`
        */
       "info.tc"?: string;
-      /**
-       * @description FIDE rating category. Which FIDE ratings to use
-       * @enum {string}
-       */
-      "info.fideTc"?: "standard" | "rapid" | "blitz";
+      "info.fideTc"?: components["schemas"]["FideTimeControl"];
       /**
        * @description Timezone of the tournament. Example: `America/New_York`.
        *     See [list of possible timezone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more.
@@ -6217,6 +6218,7 @@ export interface components {
       customPoints?: components["schemas"]["BroadcastCustomPoints"];
       /** @description The change in rating for the player as a result of this game */
       ratingDiff?: number;
+      fideTC?: components["schemas"]["FideTimeControl"];
     };
     BroadcastPlayerEntryWithFideAndGames: components["schemas"]["BroadcastPlayerEntry"] & {
       fide?: {
@@ -8343,8 +8345,9 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/x-chess-pgn": components["schemas"]["GamePgn"];
-          "application/json": components["schemas"]["GameJson"];
+          "application/json":
+            | components["schemas"]["GamePgn"]
+            | components["schemas"]["GameJson"];
         };
       };
     };
@@ -8518,8 +8521,9 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/x-chess-pgn": components["schemas"]["GamePgn"];
-          "application/x-ndjson": components["schemas"]["GameJson"];
+          "application/json":
+            | components["schemas"]["GamePgn"]
+            | components["schemas"]["GameJson"];
         };
       };
     };
@@ -8589,8 +8593,9 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/x-chess-pgn": components["schemas"]["GamePgn"];
-          "application/x-ndjson": components["schemas"]["GameJson"];
+          "application/json":
+            | components["schemas"]["GamePgn"]
+            | components["schemas"]["GameJson"];
         };
       };
     };
@@ -8908,8 +8913,9 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/x-chess-pgn": components["schemas"]["GamePgn"];
-          "application/x-ndjson": components["schemas"]["GameJson"];
+          "application/json":
+            | components["schemas"]["GamePgn"]
+            | components["schemas"]["GameJson"];
         };
       };
     };
