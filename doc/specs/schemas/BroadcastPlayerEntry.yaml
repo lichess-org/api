@@ -11,9 +11,11 @@ allOf:
       ratingDiff:
         type: integer
         example: -5
+        deprecated: true
       performance:
         type: integer
         example: 2138
+        deprecated: true
       tiebreaks:
         type: array
         maxItems: 5
