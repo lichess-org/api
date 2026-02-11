@@ -22,9 +22,7 @@ allOf:
           blitz: 10
       ratingsMap:
         description: |
-          Player's ratings by FIDE time control.
-          Note: This is different from the `fide.ratings` property.
-          This property contains the player's ratings at the time of the tournament.
+          Player's ratings at the time of the tournament.
         allOf:
           - $ref: "./StatByFideTC.yaml"
         example:
