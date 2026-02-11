@@ -50,7 +50,7 @@ properties:
     type: ["null", "integer"]
     description: |
       Depth To Mate: Plies to mate (available only for Standard positions
-      with not more than 5 pieces)
+      with not more than 6 pieces)
   dtw:
     type: ["null", "integer"]
     description: |
