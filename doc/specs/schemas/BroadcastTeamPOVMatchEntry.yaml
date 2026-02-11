@@ -1,0 +1,18 @@
+type: object
+properties:
+  roundId:
+    type: string
+  opponent:
+    type: string
+    description: "The name of the opposing team"
+  mp:
+    type: number
+    description: "Match points scored in this match"
+  gp:
+    type: number
+    description: "Game points scored in this match"
+  points:
+    $ref: "./BroadcastPointStr.yaml"
+required:
+  - roundId
+  - opponent

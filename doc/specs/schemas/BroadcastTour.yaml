@@ -60,8 +60,6 @@ properties:
   description:
     type: string
     description: "Full tournament description in markdown format, or in HTML if the html=1 query parameter is set."
-  leaderboard:
-    type: boolean
   teamTable:
     type: boolean
   url:
