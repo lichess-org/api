@@ -1,0 +1,8 @@
+type: object
+properties:
+  standard:
+    type: integer
+  rapid:
+    type: integer
+  blitz:
+    type: integer

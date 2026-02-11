@@ -36,10 +36,9 @@ properties:
       tc:
         type: string
         description: "Time control"
-      fideTc:
-        type: string
-        enum: [standard, rapid, blitz]
+      fideTC:
         description: "FIDE rating category"
+        $ref: "./FideTimeControl.yaml"
       timeZone:
         type: string
         description: |

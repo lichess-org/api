@@ -22,7 +22,7 @@ value:
           {
             "format": "6-player double round-robin",
             "tc": "120 min + 10 sec / move starting 41",
-            "fideTc": "standard",
+            "fideTC": "standard",
             "location": "Stavanger, Norway",
             "timeZone": "Europe/Oslo",
             "players": "Carlsen, Gukesh, Caruana, Nakamura",

@@ -25,7 +25,7 @@ properties:
     description: |
       Time control.
       Example: `"Classical" or "Rapid" or "Rapid & Blitz"`
-  info.fideTc:
+  info.fideTC:
     $ref: "./FideTimeControl.yaml"
   info.timeZone:
     type: string

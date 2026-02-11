@@ -11,9 +11,34 @@ allOf:
       ratingDiff:
         type: integer
         example: -5
+        deprecated: true
+      ratingDiffs:
+        description: |
+          Rating differences by FIDE time control.
+        allOf:
+          - $ref: "./StatByFideTC.yaml"
+        example:
+          rapid: -5
+          blitz: 10
+      ratingsMap:
+        description: |
+          Player's ratings at the time of the tournament.
+        allOf:
+          - $ref: "./StatByFideTC.yaml"
+        example:
+          rapid: 2500
+          blitz: 2450
       performance:
         type: integer
         example: 2138
+        deprecated: true
+      performances:
+        description: |
+          Performance ratings by FIDE time control.
+        allOf:
+          - $ref: "./StatByFideTC.yaml"
+        example:
+          standard: 2138
       tiebreaks:
         type: array
         maxItems: 5
