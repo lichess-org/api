@@ -1721,6 +1721,26 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/broadcast/{broadcastTournamentId}/teams/standings": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get the team leaderboard of a broadcast
+     * @description Get the team leaderboard of a broadcast tournament, if available.
+     */
+    get: operations["broadcastTeamLeaderboardGet"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/broadcast/{broadcastTournamentId}/edit": {
     parameters: {
       query?: never;
@@ -5859,6 +5879,11 @@ export interface components {
        */
       updatedAt: number;
     };
+    /**
+     * @description FIDE rating category
+     * @enum {string}
+     */
+    FideTimeControl: "standard" | "rapid" | "blitz";
     BroadcastTour: {
       id: string;
       name: string;
@@ -5886,11 +5911,8 @@ export interface components {
         location?: string;
         /** @description Time control */
         tc?: string;
-        /**
-         * @description FIDE rating category
-         * @enum {string}
-         */
-        fideTc?: "standard" | "rapid" | "blitz";
+        /** @description FIDE rating category */
+        fideTC?: components["schemas"]["FideTimeControl"];
         /**
          * @description Timezone of the tournament. Example: `America/New_York`.
          *     See [list of possible timezone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more.
@@ -5910,7 +5932,6 @@ export interface components {
       image?: string;
       /** @description Full tournament description in markdown format, or in HTML if the html=1 query parameter is set. */
       description?: string;
-      leaderboard?: boolean;
       teamTable?: boolean;
       /** Format: uri */
       url: string;
@@ -6003,11 +6024,6 @@ export interface components {
       tour: components["schemas"]["BroadcastTour"];
     };
     /**
-     * @description FIDE rating category
-     * @enum {string}
-     */
-    FideTimeControl: "standard" | "rapid" | "blitz";
-    /**
      * @description Extended tiebreak code
      * @enum {string}
      */
@@ -6066,7 +6082,7 @@ export interface components {
        *     Example: `"Classical" or "Rapid" or "Rapid & Blitz"`
        */
       "info.tc"?: string;
-      "info.fideTc"?: components["schemas"]["FideTimeControl"];
+      "info.fideTC"?: components["schemas"]["FideTimeControl"];
       /**
        * @description Timezone of the tournament. Example: `America/New_York`.
        *     See [list of possible timezone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more.
@@ -6186,6 +6202,11 @@ export interface components {
       /** @example CHI */
       fed?: string;
     };
+    StatByFideTC: {
+      standard?: number;
+      rapid?: number;
+      blitz?: number;
+    };
     BroadcastPlayerTiebreak: {
       extendedCode: components["schemas"]["BroadcastTiebreakExtendedCode"];
       /** @example Buchholz Cut 1 */
@@ -6198,14 +6219,45 @@ export interface components {
       score?: number;
       /** @example 7 */
       played?: number;
-      /** @example -5 */
+      /**
+       * @deprecated
+       * @example -5
+       */
       ratingDiff?: number;
-      /** @example 2138 */
+      /**
+       * @description Rating differences by FIDE time control.
+       * @example {
+       *       "rapid": -5,
+       *       "blitz": 10
+       *     }
+       */
+      ratingDiffs?: components["schemas"]["StatByFideTC"];
+      /**
+       * @description Player's ratings at the time of the tournament.
+       * @example {
+       *       "rapid": 2500,
+       *       "blitz": 2450
+       *     }
+       */
+      ratingsMap?: components["schemas"]["StatByFideTC"];
+      /**
+       * @deprecated
+       * @example 2138
+       */
       performance?: number;
+      /**
+       * @description Performance ratings by FIDE time control.
+       * @example {
+       *       "standard": 2138
+       *     }
+       */
+      performances?: components["schemas"]["StatByFideTC"];
       tiebreaks?: components["schemas"]["BroadcastPlayerTiebreak"][];
       /** @example 1 */
       rank?: number;
     };
+    /** @enum {string} */
+    BroadcastPointStr: "1" | "1/2" | "0";
     BroadcastGameEntry: {
       /** @description ID of the round */
       round: string;
@@ -6213,8 +6265,7 @@ export interface components {
       id: string;
       opponent: components["schemas"]["BroadcastPlayerWithFed"];
       color: components["schemas"]["GameColor"];
-      /** @enum {string} */
-      points?: "1" | "1/2" | "0";
+      points?: components["schemas"]["BroadcastPointStr"];
       customPoints?: components["schemas"]["BroadcastCustomPoints"];
       /** @description The change in rating for the player as a result of this game */
       ratingDiff?: number;
@@ -6224,14 +6275,34 @@ export interface components {
       fide?: {
         /** @description Year of birth */
         year?: number;
-        ratings?: {
-          standard?: number;
-          rapid?: number;
-          blitz?: number;
-        };
+        /** @description Player's current ratings from the latest FIDE rating list. */
+        ratings?: components["schemas"]["StatByFideTC"];
       };
       /** @description List of games played by the player in the broadcast tournament */
       games?: components["schemas"]["BroadcastGameEntry"][];
+    };
+    BroadcastTeamPOVMatchEntry: {
+      roundId: string;
+      /** @description The name of the opposing team */
+      opponent: string;
+      /** @description Match points scored in this match */
+      mp?: number;
+      /** @description Game points scored in this match */
+      gp?: number;
+      points?: components["schemas"]["BroadcastPointStr"];
+    };
+    BroadcastTeamLeaderboardEntry: {
+      /** @description The name of the team */
+      name: string;
+      /** @description Total match points scored */
+      mp: number;
+      /** @description Total game points scored */
+      gp: number;
+      /** @description The average rating of the team's players */
+      averageRating?: number;
+      matches: components["schemas"]["BroadcastTeamPOVMatchEntry"][];
+      /** @description Players who have played for the team and their overall score */
+      players: components["schemas"]["BroadcastPlayerEntry"][];
     };
     /**
      * @description Name of the broadcast round.
@@ -11297,6 +11368,36 @@ export interface operations {
         content: {
           "application/json": components["schemas"]["NotFound"];
         };
+      };
+    };
+  };
+  broadcastTeamLeaderboardGet: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The broadcast tournament ID */
+        broadcastTournamentId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The team leaderboard */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BroadcastTeamLeaderboardEntry"][];
+        };
+      };
+      /** @description Broadcast tournament not found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
       };
     };
   };
