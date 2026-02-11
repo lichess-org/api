@@ -9,14 +9,9 @@ allOf:
             type: integer
             description: Year of birth
           ratings:
-            type: object
-            properties:
-              standard:
-                type: integer
-              rapid:
-                type: integer
-              blitz:
-                type: integer
+            description: Player's current ratings from the latest FIDE rating list.
+            allOf:
+              - $ref: "./StatByFideTC.yaml"
       games:
         type: array
         description: List of games played by the player in the broadcast tournament
