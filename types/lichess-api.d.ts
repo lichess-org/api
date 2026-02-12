@@ -7584,7 +7584,7 @@ export interface components {
       dtc?: null | number;
       /**
        * @description Depth To Mate: Plies to mate (available only for Standard positions
-       *     with not more than 5 pieces)
+       *     with not more than 6 pieces)
        */
       dtm?: null | number;
       /**
