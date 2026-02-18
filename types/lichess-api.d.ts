@@ -4701,33 +4701,47 @@ export interface components {
         | "music"
         | "speech";
       blindfold?: number;
+      /** @description 1 = Never, 2 = When premoving, 3 = Always */
       autoQueen?: number;
+      /** @description 0 = Never, 2 = When time remaining < 30 seconds,  3 = Always */
       autoThreefold?: number;
+      /** @description 1 = Never, 2 = In casual games only, 3 = Always */
       takeback?: number;
+      /** @description 1 = Never, 2 = In casual games only, 3 = Always */
       moretime?: number;
+      /** @description 0 = Never, 1 = When remaining time less than 10 seconds, 2 = Always */
       clockTenths?: number;
       clockBar?: boolean;
       clockSound?: boolean;
       premove?: boolean;
+      /** @description 0 = None, 1 = Fast, 2 = Normal, 3 = Slow */
       animation?: number;
+      /** @description 0 = Chess piece symbol, 1 = KQRBN Letter */
       pieceNotation?: number;
       captured?: boolean;
       follow?: boolean;
       highlight?: boolean;
       destination?: boolean;
+      /** @description 0 = No, 1 = Inside the board, 2 = Outside the board, 3 = All squares */
       coords?: number;
       replay?: number;
       challenge?: number;
       message?: number;
       submitMove?: number;
+      /** @description 1 = Confirm resignation and draw offers, 0 = Do not confirm */
       confirmResign?: number;
       insightShare?: number;
+      /** @description 1 = input moves with the keyboard */
       keyboardMove?: number;
       voiceMove?: boolean;
+      /** @description 0 = No, 1 = yes, 2 = in-game only */
       zen?: number;
+      /** @description 0 = Hide ratings, 1 = Show ratings, 2 = Show ratings except in-game */
       ratings?: number;
       moveEvent?: number;
+      /** @description 0 = Move king two squares, 1 = Move king onto rook */
       rookCastle?: number;
+      /** @description Show player flairs */
       flairs?: boolean;
       /**
        * @description 0 = No, 1 = When losing, 2 = When losing or drawing
