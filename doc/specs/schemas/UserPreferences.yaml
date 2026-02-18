@@ -113,14 +113,19 @@ properties:
     type: integer
   autoQueen:
     type: integer
+    description: 1 = Never, 2 = When premoving, 3 = Always
   autoThreefold:
     type: integer
+    description: 0 = Never, 2 = When time remaining < 30 seconds,  3 = Always
   takeback:
     type: integer
+    description: 1 = Never, 2 = In casual games only, 3 = Always
   moretime:
     type: integer
+    description: 1 = Never, 2 = In casual games only, 3 = Always
   clockTenths:
     type: integer
+    description: 0 = Never, 1 = When remaining time less than 10 seconds, 2 = Always
   clockBar:
     type: boolean
   clockSound:
@@ -129,8 +134,10 @@ properties:
     type: boolean
   animation:
     type: integer
+    description: 0 = None, 1 = Fast, 2 = Normal, 3 = Slow
   pieceNotation:
     type: integer
+    description: 0 = Chess piece symbol, 1 = KQRBN Letter
   captured:
     type: boolean
   follow:
@@ -141,6 +148,7 @@ properties:
     type: boolean
   coords:
     type: integer
+    description: 0 = No, 1 = Inside the board, 2 = Outside the board, 3 = All squares
   replay:
     type: integer
   challenge:
@@ -151,22 +159,28 @@ properties:
     type: integer
   confirmResign:
     type: integer
+    description: 1 = Confirm resignation and draw offers, 0 = Do not confirm
   insightShare:
     type: integer
   keyboardMove:
     type: integer
+    description: 1 = input moves with the keyboard
   voiceMove:
     type: boolean
   zen:
     type: integer
+    description: 0 = No, 1 = yes, 2 = in-game only
   ratings:
     type: integer
+    description: 0 = Hide ratings, 1 = Show ratings, 2 = Show ratings except in-game
   moveEvent:
     type: integer
   rookCastle:
     type: integer
+    description: 0 = Move king two squares, 1 = Move king onto rook
   flairs:
     type: boolean
+    description: Show player flairs
   sayGG:
     type: integer
     enum:
