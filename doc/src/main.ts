@@ -7,4 +7,7 @@ createApiReference("#app", {
   url: "./openapi.yaml",
   withDefaultFonts: false,
   expandAllResponses: true,
+  agent: {
+    disabled: true,
+  },
 });
