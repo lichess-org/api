@@ -43,7 +43,9 @@ info:
     to ensure the API remains responsive for everyone.
     Only make one request at a time.
     If you receive an HTTP response with a [429 status](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#429),
-    please wait a full minute before resuming API usage.
+    you have exceded one of the rate limits.
+    In most cases, waiting one minute before retrying will be sufficient, but some limits may require longer.
+    Reduce your request frequency before retrying.
 
     ## Streaming with ND-JSON
     Some API endpoints stream their responses as [Newline Delimited JSON a.k.a. **nd-json**](https://github.com/ndjson/ndjson-spec), with one JSON object per line.
