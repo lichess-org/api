@@ -15,7 +15,7 @@ get:
       schema:
         type: integer
         minimum: 1
-        maximum: 200
+        maximum: 100
         example: 100
       required: true
     - in: path
