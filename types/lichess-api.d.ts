@@ -1984,6 +1984,26 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/api/fide/player/{playerId}/ratings": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get ratings history of a FIDE player
+     * @description Historical standard, rapid and blitz ratings of a FIDE player
+     */
+    get: operations["fidePlayerRatings"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/api/fide/player": {
     parameters: {
       query?: never;
@@ -6547,6 +6567,30 @@ export interface components {
       rapid?: number;
       blitz?: number;
       photo?: components["schemas"]["FIDEPlayerPhoto"];
+    };
+    /**
+     * @description Data points are encoded. Each number contains a year, a month, and an ELO rating.
+     *
+     *     `2015081568` -> `August 2015: 1568`
+     *
+     *     Here's an example decoding implementation in JS:
+     *
+     *     ```js
+     *       const decodePoint = point => {
+     *         const elo = point % 10000;
+     *         const dateNum = Math.floor(point / 10000);
+     *         const year = Math.floor(dateNum / 100);
+     *         const month = dateNum % 100;
+     *         return [year, month, elo];
+     *       };
+     *     ```
+     *
+     *     Consecutive months with same ELO are omitted. For a given ELO, only the first and last month are provided.
+     */
+    FIDEPlayerRatings: {
+      standard: number[];
+      rapid: number[];
+      blitz: number[];
     };
     Simul: {
       id: string;
@@ -11738,6 +11782,29 @@ export interface operations {
         };
         content: {
           "application/json": components["schemas"]["FIDEPlayer"];
+        };
+      };
+    };
+  };
+  fidePlayerRatings: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The FIDE player ID. */
+        playerId: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The rating histories */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["FIDEPlayerRatings"];
         };
       };
     };
