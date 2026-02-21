@@ -538,6 +538,9 @@ paths:
   /api/fide/player/{playerId}:
     $ref: "./tags/fide/api-fide-player-playerId.yaml"
 
+  /api/fide/player/{playerId}/ratings:
+    $ref: "./tags/fide/api-fide-player-playerId-ratings.yaml"
+
   /api/fide/player:
     $ref: "./tags/fide/api-fide-player-search.yaml"
 

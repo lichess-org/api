@@ -1,0 +1,38 @@
+type: object
+description: |
+  Data points are encoded. Each number contains a year, a month, and an ELO rating.
+
+  `2015081568` -> `August 2015: 1568`
+
+  Here's an example decoding implementation in JS:
+
+  ```js
+    const decodePoint = point => {
+      const elo = point % 10000;
+      const dateNum = Math.floor(point / 10000);
+      const year = Math.floor(dateNum / 100);
+      const month = dateNum % 100;
+      return [year, month, elo];
+    };
+  ```
+
+  Consecutive months with same ELO are omitted. For a given ELO, only the first and last month are provided.
+
+properties:
+  standard:
+    type: array
+    items:
+      type: number
+  rapid:
+    type: array
+    items:
+      type: number
+  blitz:
+    type: array
+    items:
+      type: number
+
+required:
+  - standard
+  - rapid
+  - blitz

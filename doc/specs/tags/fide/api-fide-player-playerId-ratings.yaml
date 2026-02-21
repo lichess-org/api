@@ -1,0 +1,25 @@
+get:
+  operationId: fidePlayerRatings
+  summary: Get ratings history of a FIDE player
+  description: |
+    Historical standard, rapid and blitz ratings of a FIDE player
+  tags:
+    - FIDE
+  security: []
+  parameters:
+    - in: path
+      name: playerId
+      description: The FIDE player ID.
+      required: true
+      schema:
+        type: integer
+  responses:
+    "200":
+      description: The rating histories
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/FIDEPlayerRatings.yaml"
+          examples:
+            example player:
+              $ref: "../../examples/fide-getFidePlayerRatings.json.yaml"
