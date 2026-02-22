@@ -11679,9 +11679,8 @@ export interface operations {
         /**
          * @description Include analysis comments in the PGN moves, when available.
          *     Example: `12. Bxf6 { [%eval 0.23] }`
-         * @default true
          */
-        comments?: string;
+        comments?: boolean;
       };
       header?: never;
       path: {
@@ -11715,9 +11714,8 @@ export interface operations {
         /**
          * @description Include analysis comments in the PGN moves, when available.
          *     Example: `12. Bxf6 { [%eval 0.23] }`
-         * @default true
          */
-        comments?: string;
+        comments?: boolean;
       };
       header?: never;
       path: {
@@ -11751,9 +11749,8 @@ export interface operations {
         /**
          * @description Include analysis comments in the PGN moves, when available.
          *     Example: `12. Bxf6 { [%eval 0.23] }`
-         * @default true
          */
-        comments?: string;
+        comments?: boolean;
       };
       header?: never;
       path: {
