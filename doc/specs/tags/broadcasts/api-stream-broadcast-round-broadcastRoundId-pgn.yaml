@@ -32,7 +32,9 @@ get:
       description: |
         Include analysis comments in the PGN moves, when available.
         Example: `12. Bxf6 { [%eval 0.23] }`
-      default: true
+      schema:
+        type: boolean
+        default: true
   responses:
     "200":
       description: The PGN representation of the round games, then the PGNs of games as they are updated.
