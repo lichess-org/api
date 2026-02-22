@@ -19,6 +19,20 @@ get:
         type: string
         minLength: 8
         maxLength: 8
+    - in: query
+      name: clocks
+      description: |
+        Include clock comments in the PGN moves, when available.
+        Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+      schema:
+        type: boolean
+        default: true
+    - in: query
+      name: comments
+      description: |
+        Include analysis comments in the PGN moves, when available.
+        Example: `12. Bxf6 { [%eval 0.23] }`
+      default: true
   responses:
     "200":
       description: The PGN representation of the broadcast.
