@@ -11670,7 +11670,19 @@ export interface operations {
   };
   broadcastStreamRoundPgn: {
     parameters: {
-      query?: never;
+      query?: {
+        /**
+         * @description Include clock comments in the PGN moves, when available.
+         *     Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         */
+        clocks?: boolean;
+        /**
+         * @description Include analysis comments in the PGN moves, when available.
+         *     Example: `12. Bxf6 { [%eval 0.23] }`
+         * @default true
+         */
+        comments?: string;
+      };
       header?: never;
       path: {
         /** @description The broadcast round ID */
@@ -11694,7 +11706,19 @@ export interface operations {
   };
   broadcastRoundPgn: {
     parameters: {
-      query?: never;
+      query?: {
+        /**
+         * @description Include clock comments in the PGN moves, when available.
+         *     Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         */
+        clocks?: boolean;
+        /**
+         * @description Include analysis comments in the PGN moves, when available.
+         *     Example: `12. Bxf6 { [%eval 0.23] }`
+         * @default true
+         */
+        comments?: string;
+      };
       header?: never;
       path: {
         /** @description The round ID */
@@ -11718,7 +11742,19 @@ export interface operations {
   };
   broadcastAllRoundsPgn: {
     parameters: {
-      query?: never;
+      query?: {
+        /**
+         * @description Include clock comments in the PGN moves, when available.
+         *     Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         */
+        clocks?: boolean;
+        /**
+         * @description Include analysis comments in the PGN moves, when available.
+         *     Example: `12. Bxf6 { [%eval 0.23] }`
+         * @default true
+         */
+        comments?: string;
+      };
       header?: never;
       path: {
         /** @description The broadcast tournament ID */
