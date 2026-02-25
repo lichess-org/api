@@ -22,6 +22,12 @@ get:
       schema:
         type: integer
         minimum: 1356998400070
+    - in: query
+      name: since
+      description: Download entries since this timestamp. Defaults to account creation date.
+      schema:
+        type: integer
+        minimum: 1356998400070
   responses:
     "200":
       description: The puzzle activity of the logged in user.
