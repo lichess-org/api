@@ -8068,6 +8068,8 @@ export interface operations {
         max?: number;
         /** @description Download entries before this timestamp. Defaults to now. Use `before` and `max` for pagination. */
         before?: number;
+        /** @description Download entries since this timestamp. Defaults to account creation date. */
+        since?: number;
       };
       header?: never;
       path?: never;
