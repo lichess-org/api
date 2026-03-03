@@ -1,12 +1,12 @@
 servers:
-  - url: https://tablebase.lichess.ovh
+  - url: https://tablebase.lichess.org
 get:
   operationId: tablebaseStandard
   summary: Tablebase lookup
   description: |
-    **Endpoint: <https://tablebase.lichess.ovh>**
+    **Endpoint: <https://tablebase.lichess.org>**
 
-    Example: `curl http://tablebase.lichess.ovh/standard?fen=4k3/6KP/8/8/8/8/7p/8_w_-_-_0_1`
+    Example: `curl http://tablebase.lichess.org/standard?fen=4k3/6KP/8/8/8/8/7p/8_w_-_-_0_1`
   tags:
     - Tablebase
   security: []

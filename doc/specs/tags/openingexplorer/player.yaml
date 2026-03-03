@@ -1,10 +1,10 @@
 servers:
-  - url: https://explorer.lichess.ovh
+  - url: https://explorer.lichess.org
 get:
   operationId: openingExplorerPlayer
   summary: Player games
   description: |
-    **Endpoint: <https://explorer.lichess.ovh/player>**
+    **Endpoint: <https://explorer.lichess.org/player>**
 
     Games of a Lichess player.
 
@@ -16,10 +16,11 @@ get:
     Will index new games at most once per minute, and revisit previously
     ongoing games at most once every day.
 
-    Example: `curl https://explorer.lichess.ovh/player?player=revoof&color=white&play=d2d4,d7d5&recentGames=1`
+    Example: `curl https://explorer.lichess.org/player?player=revoof&color=white&play=d2d4,d7d5&recentGames=1`
   tags:
     - Opening Explorer
-  security: []
+  security:
+    - OAuth2: []
   parameters:
     - in: query
       name: player

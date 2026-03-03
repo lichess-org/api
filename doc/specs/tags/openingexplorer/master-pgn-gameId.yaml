@@ -1,15 +1,16 @@
 servers:
-  - url: https://explorer.lichess.ovh
+  - url: https://explorer.lichess.org
 get:
   operationId: openingExplorerMasterGame
   summary: OTB master game
   description: |
-    **Endpoint: `https://explorer.lichess.ovh/masters/pgn/{gameId}`**
+    **Endpoint: `https://explorer.lichess.org/masters/pgn/{gameId}`**
 
-    Example: `curl https://explorer.lichess.ovh/masters/pgn/aAbqI4ey`
+    Example: `curl https://explorer.lichess.org/masters/pgn/aAbqI4ey`
   tags:
     - Opening Explorer
-  security: []
+  security:
+    - OAuth2: []
   parameters:
     - in: path
       name: gameId

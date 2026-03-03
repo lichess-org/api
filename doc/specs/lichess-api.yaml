@@ -219,7 +219,7 @@ tags:
 
       Runs <https://github.com/lichess-org/lila-openingexplorer>.
 
-      **The endpoint hostname is not lichess.org but explorer.lichess.ovh.**
+      **The endpoint hostname is not lichess.org but explorer.lichess.org.**
   - name: Puzzles
     description: |
       Fetch and solve [puzzles](https://lichess.org/training), view your puzzle history and dashboard.
@@ -242,7 +242,7 @@ tags:
     description: |
       Lookup positions from the [Lichess tablebase server](https://lichess.org/blog/W3WeMyQAACQAdfAL/7-piece-syzygy-tablebases-are-complete).
 
-      **The endpoint hostname is not lichess.org but tablebase.lichess.ovh.**
+      **The endpoint hostname is not lichess.org but tablebase.lichess.org.**
   - name: Teams
     description: |
       Access and manage Lichess teams and their members.

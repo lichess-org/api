@@ -1,15 +1,16 @@
 servers:
-  - url: https://explorer.lichess.ovh
+  - url: https://explorer.lichess.org
 get:
   operationId: openingExplorerMaster
   summary: Masters database
   description: |
-    **Endpoint: <https://explorer.lichess.ovh/masters>**
+    **Endpoint: <https://explorer.lichess.org/masters>**
 
-    Example: `curl https://explorer.lichess.ovh/masters?play=d2d4,d7d5,c2c4,c7c6,c4d5`
+    Example: `curl https://explorer.lichess.org/masters?play=d2d4,d7d5,c2c4,c7c6,c4d5`
   tags:
     - Opening Explorer
-  security: []
+  security:
+    - OAuth2: []
   parameters:
     - in: query
       name: fen
