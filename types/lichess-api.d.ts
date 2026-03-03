@@ -3704,9 +3704,9 @@ export interface paths {
     };
     /**
      * Masters database
-     * @description **Endpoint: <https://explorer.lichess.ovh/masters>**
+     * @description **Endpoint: <https://explorer.lichess.org/masters>**
      *
-     *     Example: `curl https://explorer.lichess.ovh/masters?play=d2d4,d7d5,c2c4,c7c6,c4d5`
+     *     Example: `curl https://explorer.lichess.org/masters?play=d2d4,d7d5,c2c4,c7c6,c4d5`
      */
     get: operations["openingExplorerMaster"];
     put?: never;
@@ -3726,11 +3726,11 @@ export interface paths {
     };
     /**
      * Lichess games
-     * @description **Endpoint: <https://explorer.lichess.ovh/lichess>**
+     * @description **Endpoint: <https://explorer.lichess.org/lichess>**
      *
      *     Aggregated rated games from all Lichess players.
      *
-     *     Example: `curl https://explorer.lichess.ovh/lichess?variant=standard&speeds=blitz,rapid,classical&ratings=2200,2500&fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
+     *     Example: `curl https://explorer.lichess.org/lichess?variant=standard&speeds=blitz,rapid,classical&ratings=2200,2500&fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
      */
     get: operations["openingExplorerLichess"];
     put?: never;
@@ -3750,7 +3750,7 @@ export interface paths {
     };
     /**
      * Player games
-     * @description **Endpoint: <https://explorer.lichess.ovh/player>**
+     * @description **Endpoint: <https://explorer.lichess.org/player>**
      *
      *     Games of a Lichess player.
      *
@@ -3762,7 +3762,7 @@ export interface paths {
      *     Will index new games at most once per minute, and revisit previously
      *     ongoing games at most once every day.
      *
-     *     Example: `curl https://explorer.lichess.ovh/player?player=revoof&color=white&play=d2d4,d7d5&recentGames=1`
+     *     Example: `curl https://explorer.lichess.org/player?player=revoof&color=white&play=d2d4,d7d5&recentGames=1`
      */
     get: operations["openingExplorerPlayer"];
     put?: never;
@@ -3782,9 +3782,9 @@ export interface paths {
     };
     /**
      * OTB master game
-     * @description **Endpoint: `https://explorer.lichess.ovh/masters/pgn/{gameId}`**
+     * @description **Endpoint: `https://explorer.lichess.org/masters/pgn/{gameId}`**
      *
-     *     Example: `curl https://explorer.lichess.ovh/masters/pgn/aAbqI4ey`
+     *     Example: `curl https://explorer.lichess.org/masters/pgn/aAbqI4ey`
      */
     get: operations["openingExplorerMasterGame"];
     put?: never;
@@ -3804,9 +3804,9 @@ export interface paths {
     };
     /**
      * Tablebase lookup
-     * @description **Endpoint: <https://tablebase.lichess.ovh>**
+     * @description **Endpoint: <https://tablebase.lichess.org>**
      *
-     *     Example: `curl http://tablebase.lichess.ovh/standard?fen=4k3/6KP/8/8/8/8/7p/8_w_-_-_0_1`
+     *     Example: `curl http://tablebase.lichess.org/standard?fen=4k3/6KP/8/8/8/8/7p/8_w_-_-_0_1`
      */
     get: operations["tablebaseStandard"];
     put?: never;
@@ -3826,7 +3826,7 @@ export interface paths {
     };
     /**
      * Tablebase lookup for Atomic chess
-     * @description **Endpoint: <https://tablebase.lichess.ovh>**
+     * @description **Endpoint: <https://tablebase.lichess.org>**
      */
     get: operations["tablebaseAtomic"];
     put?: never;
@@ -3846,7 +3846,7 @@ export interface paths {
     };
     /**
      * Tablebase lookup for Antichess
-     * @description **Endpoint: <https://tablebase.lichess.ovh>**
+     * @description **Endpoint: <https://tablebase.lichess.org>**
      */
     get: operations["antichessAtomic"];
     put?: never;
