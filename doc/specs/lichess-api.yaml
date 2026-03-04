@@ -766,8 +766,8 @@ paths:
   /player:
     $ref: "./tags/openingexplorer/player.yaml"
 
-  /master/pgn/{gameId}:
-    $ref: "./tags/openingexplorer/master-pgn-gameId.yaml"
+  /masters/pgn/{gameId}:
+    $ref: "./tags/openingexplorer/masters-pgn-gameId.yaml"
 
   /standard:
     $ref: "./tags/tablebase/standard.yaml"
