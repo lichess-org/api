@@ -3773,7 +3773,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/master/pgn/{gameId}": {
+  "/masters/pgn/{gameId}": {
     parameters: {
       query?: never;
       header?: never;
