@@ -1451,6 +1451,7 @@ export interface paths {
     /**
      * Create a new Study
      * @description Create a [study](https://lichess.org/study), and a new empty chapter within it.
+     *     You can make up to 30 new studies per day.
      */
     post: operations["apiStudyPost"];
     delete?: never;
