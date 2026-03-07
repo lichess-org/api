@@ -6303,7 +6303,7 @@ export interface components {
       customPoints?: components["schemas"]["BroadcastCustomPoints"];
       /** @description The change in rating for the player as a result of this game */
       ratingDiff?: number;
-      fideTC?: components["schemas"]["FideTimeControl"];
+      fideTC: components["schemas"]["FideTimeControl"];
     };
     BroadcastPlayerEntryWithFideAndGames: components["schemas"]["BroadcastPlayerEntry"] & {
       fide?: {
