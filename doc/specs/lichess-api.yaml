@@ -463,6 +463,9 @@ paths:
   /api/study/{studyId}.pgn:
     $ref: "./tags/studies/api-study-studyId.pgn.yaml"
 
+  /api/study:
+    $ref: "./tags/studies/api-study.yaml"
+
   /api/study/{studyId}/import-pgn:
     $ref: "./tags/studies/api-study-studyId-import-pgn.yaml"
 

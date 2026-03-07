@@ -1,0 +1,78 @@
+post:
+  operationId: apiStudyPost
+  summary: Create a new Study
+  description: |
+    Create a [study](https://lichess.org/study), and a new empty chapter within it.
+  tags:
+    - Studies
+  security:
+    - OAuth2: ["study:write"]
+  requestBody:
+    description: Parameters of the study
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              description: The study name.
+              minLength: 2
+              maxLength: 100
+            visibility:
+              type: string
+              enum: [public, unlisted, private]
+              default: unlisted
+              description: |
+                Who can view the study.
+                * `public`: Default. Anyone can view the study, it appears on public listings
+                * `unlisted`: Only people with the link can view the study, it doesn't appear on public listings
+                * `private`: Only the study members can view the study
+            computer:
+              $ref: "../../schemas/StudyUserSelection.yaml"
+            explorer:
+              $ref: "../../schemas/StudyUserSelection.yaml"
+            cloneable:
+              $ref: "../../schemas/StudyUserSelection.yaml"
+            shareable:
+              $ref: "../../schemas/StudyUserSelection.yaml"
+            chat:
+              $ref: "../../schemas/StudyUserSelection.yaml"
+            sticky:
+              type: string
+              enum: ["true", "false"]
+              default: "true"
+              description: Keep everyone on the same chapter and position
+          required:
+            - name
+            - visibility
+            - computer
+            - explorer
+            - cloneable
+            - shareable
+            - chat
+  responses:
+    "200":
+      description: The Study has been successfully created.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+          examples:
+            default:
+              value: { "id": "9kze56XR" }
+    "400":
+      description: The creation of the Study failed.
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/Error.yaml"
