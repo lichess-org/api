@@ -29,6 +29,12 @@ pnpm lint
 pnpm scalar-lint
 ```
 
+or with `devenv`
+
+```bash
+devenv tasks run api:check
+```
+
 ### Format the yaml files
 
 ```shell

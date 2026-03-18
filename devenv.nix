@@ -24,4 +24,16 @@
     cd $DEVENV_ROOT/doc
     pnpm install
   '';
+
+  tasks = {
+    "api:check" = {
+      exec = ''
+        pnpm run spectral
+        pnpm run lint
+        pnpm run scalar-lint
+        pnpm run check-format
+      '';
+      cwd = "doc";
+    };
+  };
 }
