@@ -11,6 +11,12 @@ pnpm install
 pnpm dev
 ```
 
+or with `devenv`
+
+```shell
+devenv up
+```
+
 Then open the URL printed in the terminal (usually `http://localhost:5173`).
 
 Make modifications to any of the schema yaml files, and the page will rebuild and reload automatically.
