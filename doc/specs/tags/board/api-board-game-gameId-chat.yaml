@@ -52,9 +52,11 @@ post:
             $ref: "../../schemas/Error.yaml"
 get:
   operationId: boardGameChatGet
-  summary: Fetch the game chat
+  summary: Fetch the player chat
   description: |
-    Get the messages posted in the game chat
+    Get the messages posted in the private game chat, i.e. the chat between the 2 players of the game.
+
+    Games can also have a public spectator chat.
   tags:
     - Board
   security:
@@ -70,4 +72,4 @@ get:
       content:
         application/x-ndjson:
           schema:
-            $ref: "../../schemas/GameChat.yaml"
+            $ref: "../../schemas/PlayerGameChat.yaml"

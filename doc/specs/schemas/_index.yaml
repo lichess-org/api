@@ -112,8 +112,11 @@ UserExtended:
 Crosstable:
   $ref: "./Crosstable.yaml"
 
-GameChat:
-  $ref: "./GameChat.yaml"
+PlayerGameChat:
+  $ref: "./PlayerGameChat.yaml"
+
+SpectatorGameChat:
+  $ref: "./SpectatorGameChat.yaml"
 
 PuzzleAndGame:
   $ref: "./PuzzleAndGame.yaml"

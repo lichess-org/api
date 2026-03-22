@@ -1,0 +1,29 @@
+parameters:
+  - in: path
+    name: gameId
+    schema:
+      type: string
+      example: "5IrD6Gzz"
+    required: true
+get:
+  operationId: gameChatGet
+  summary: Fetch the spectator game chat
+  description: |
+    Get the messages posted in the public spectator chat of a game.
+
+    Games also have a private players chat, which only the 2 players can see.
+  tags:
+    - Games
+  security: []
+  responses:
+    "200":
+      description: The messages posted in the chat.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            $ref: "../../schemas/SpectatorGameChat.yaml"

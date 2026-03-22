@@ -77,4 +77,4 @@ get:
       content:
         application/x-ndjson:
           schema:
-            $ref: "../../schemas/GameChat.yaml"
+            $ref: "../../schemas/PlayerGameChat.yaml"

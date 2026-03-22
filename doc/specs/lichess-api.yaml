@@ -346,6 +346,9 @@ paths:
   /game/export/{gameId}:
     $ref: "./tags/games/game-export-gameId.yaml"
 
+  /game/{gameId}/chat:
+    $ref: "./tags/games/api-game-gameId-chat.yaml"
+
   /api/user/{username}/current-game:
     $ref: "./tags/games/api-user-username-current-game.yaml"
 

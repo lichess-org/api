@@ -1,0 +1,17 @@
+type: array
+items:
+  type: object
+  properties:
+    text:
+      type: string
+    user:
+      type: string
+  required:
+    - text
+    - user
+
+example:
+  [
+    { "text": "e4 here we go", "user": "Toby" },
+    { "text": "Woof!", "user": "AnnoyingDog" },
+  ]
