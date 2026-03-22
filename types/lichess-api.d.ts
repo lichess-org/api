@@ -534,6 +534,30 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/game/{gameId}/chat": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch the spectator game chat
+     * @description Get the messages posted in the public spectator chat of a game.
+     *
+     *     Games also have a private players chat, which only the 2 players can see.
+     */
+    get: operations["gameChatGet"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/api/user/{username}/current-game": {
     parameters: {
       query?: never;
@@ -2663,8 +2687,10 @@ export interface paths {
       cookie?: never;
     };
     /**
-     * Fetch the game chat
-     * @description Get the messages posted in the game chat
+     * Fetch the player chat
+     * @description Get the messages posted in the private game chat, i.e. the chat between the 2 players of the game.
+     *
+     *     Games can also have a public spectator chat.
      */
     get: operations["boardGameChatGet"];
     put?: never;
@@ -5237,6 +5263,22 @@ export interface components {
         end?: number;
       };
     };
+    /**
+     * @example [
+     *       {
+     *         "text": "e4 here we go",
+     *         "user": "Toby"
+     *       },
+     *       {
+     *         "text": "Woof!",
+     *         "user": "AnnoyingDog"
+     *       }
+     *     ]
+     */
+    SpectatorGameChat: {
+      text: string;
+      user: string;
+    }[];
     /** @enum {integer} */
     GameStatusId:
       | 10
@@ -7091,7 +7133,7 @@ export interface components {
      *       }
      *     ]
      */
-    GameChat: {
+    PlayerGameChat: {
       text: string;
       user: string;
     }[];
@@ -8507,6 +8549,29 @@ export interface operations {
           "application/json":
             | components["schemas"]["GamePgn"]
             | components["schemas"]["GameJson"];
+        };
+      };
+    };
+  };
+  gameChatGet: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        gameId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The messages posted in the chat. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-ndjson": components["schemas"]["SpectatorGameChat"];
         };
       };
     };
@@ -12812,7 +12877,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/x-ndjson": components["schemas"]["GameChat"];
+          "application/x-ndjson": components["schemas"]["PlayerGameChat"];
         };
       };
     };
@@ -13229,7 +13294,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/x-ndjson": components["schemas"]["GameChat"];
+          "application/x-ndjson": components["schemas"]["PlayerGameChat"];
         };
       };
     };
