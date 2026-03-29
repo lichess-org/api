@@ -52,7 +52,7 @@ post:
             type: string
             default: "'*'"
     "400":
-      description: The creation of the chapter(s) failed.
+      description: The request body was invalid, such as missing or malformed PGN tag data.
       content:
         application/json:
           schema:
