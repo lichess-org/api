@@ -36,19 +36,20 @@ post:
               type: string
               description: |
                 PGN text containing the moves that will replace the chapter's existing moves.
+                PGN validation for move correctness is not performed.
                 Any provided tags are ignored.
           required:
             - pgn
   responses:
     "204":
-      description: Moves updated, as the chapter exists and you are authorized to edit it.
+      description: Moves updated, as the chapter exists and you are allowed to edit it.
       headers:
         Access-Control-Allow-Origin:
           schema:
             type: string
             default: "'*'"
-    "404":
-      description: The provided study or chapter either doesn't exist, or you aren't allowed to edit it.
+    "400":
+      description: Bad request - might be the provided study/chapter doesn't exist, or you aren't allowed to edit it.
       content:
         application/json:
           schema:
