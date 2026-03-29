@@ -51,9 +51,3 @@ post:
           schema:
             type: string
             default: "'*'"
-    "400":
-      description: The creation of the chapter(s) failed.
-      content:
-        application/json:
-          schema:
-            $ref: "../../schemas/Error.yaml"
