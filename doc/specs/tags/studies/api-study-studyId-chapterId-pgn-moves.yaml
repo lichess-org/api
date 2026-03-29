@@ -1,0 +1,55 @@
+post:
+  operationId: apiStudyChapterPgnMoves
+  summary: Update the moves of a study chapter
+  description: |
+    Updates the moves of a chapter's pgn.
+    No tags will be modified.
+  tags:
+    - Studies
+  security:
+    - OAuth2: ["study:write"]
+  parameters:
+    - in: path
+      name: studyId
+      description: The study ID
+      required: true
+      schema:
+        type: string
+        minLength: 8
+        maxLength: 8
+    - in: path
+      name: chapterId
+      description: The chapter ID
+      required: true
+      schema:
+        type: string
+        minLength: 8
+        maxLength: 8
+  requestBody:
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            pgn:
+              type: string
+              description: |
+                PGN text containing the moves that will replace the chapter's existing moves.
+                Any provided tags are ignored.
+          required:
+            - pgn
+  responses:
+    "204":
+      description: Moves updated, as the chapter exists and you are authorized to edit it.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+    "404":
+      description: The provided study or chapter either doesn't exist, or you aren't allowed to edit it.
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/Error.yaml"
