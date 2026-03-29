@@ -36,7 +36,6 @@ post:
               type: string
               description: |
                 PGN text containing the moves that will replace the chapter's existing moves.
-                PGN validation for move correctness is not performed.
                 Any provided tags are ignored.
           required:
             - pgn
