@@ -1533,6 +1533,27 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/api/study/{studyId}/{chapterId}/moves": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Update the moves of a study chapter
+     * @description Replaces the moves tree of a study chapter.
+     *     No tags will be modified.
+     */
+    post: operations["apiStudyChapterMoves"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/api/study/by/{username}/export.pgn": {
     parameters: {
       query?: never;
@@ -11230,7 +11251,50 @@ export interface operations {
         };
         content?: never;
       };
-      /** @description The creation of the chapter(s) failed. */
+      /** @description The request body was invalid, such as missing or malformed PGN tag data. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Error"];
+        };
+      };
+    };
+  };
+  apiStudyChapterMoves: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The study ID */
+        studyId: string;
+        /** @description The chapter ID */
+        chapterId: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": {
+          /**
+           * @description PGN text containing the moves that will replace the chapter's existing moves.
+           *     Any provided tags are ignored.
+           */
+          pgn: string;
+        };
+      };
+    };
+    responses: {
+      /** @description Moves updated, as the chapter exists and you are allowed to edit it. */
+      204: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Bad request - might be the provided study/chapter doesn't exist, or you aren't allowed to edit it, or the PGN is invalid. */
       400: {
         headers: {
           [name: string]: unknown;
