@@ -1,14 +1,9 @@
 post:
-  operationId: apiStudyChapterTags
-  summary: Update PGN tags of a study chapter
+  operationId: apiStudyChapterMoves
+  summary: Update the moves of a study chapter
   description: |
-    Add, update and delete the PGN tags of a study.
-    By providing a list of PGN tags in the usual PGN format, you can:
-    - Add new tags if the chapter doesn't have them yet
-    - Update existing chapter tags
-    - Delete existing chapter tags, by providing a tag with an empty value.
-
-    The chapter keeps the tags that you don't provide.
+    Replaces the moves tree of a study chapter.
+    No tags will be modified.
   tags:
     - Studies
   security:
@@ -40,19 +35,20 @@ post:
             pgn:
               type: string
               description: |
-                PGN text containing the tags. Only the tags are used. Moves are just ignored.
+                PGN text containing the moves that will replace the chapter's existing moves.
+                Any provided tags are ignored.
           required:
             - pgn
   responses:
     "204":
-      description: Tags updated successfully, if the chapter exists and you are authorized the update the study.
+      description: Moves updated, as the chapter exists and you are allowed to edit it.
       headers:
         Access-Control-Allow-Origin:
           schema:
             type: string
             default: "'*'"
     "400":
-      description: The request body was invalid, such as missing or malformed PGN tag data.
+      description: Bad request - might be the provided study/chapter doesn't exist, or you aren't allowed to edit it, or the PGN is invalid.
       content:
         application/json:
           schema:
