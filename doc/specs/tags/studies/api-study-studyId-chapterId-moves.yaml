@@ -1,8 +1,8 @@
 post:
-  operationId: apiStudyChapterPgnMoves
+  operationId: apiStudyChapterMoves
   summary: Update the moves of a study chapter
   description: |
-    Updates the moves of a chapter's pgn.
+    Replaces the moves tree of a study chapter.
     No tags will be modified.
   tags:
     - Studies
@@ -48,7 +48,7 @@ post:
             type: string
             default: "'*'"
     "400":
-      description: Bad request - might be the provided study/chapter doesn't exist, or you aren't allowed to edit it.
+      description: Bad request - might be the provided study/chapter doesn't exist, or you aren't allowed to edit it, or the PGN is invalid.
       content:
         application/json:
           schema:
