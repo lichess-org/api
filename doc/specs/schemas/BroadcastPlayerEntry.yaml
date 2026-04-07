@@ -8,10 +8,6 @@ allOf:
       played:
         type: integer
         example: 7
-      ratingDiff:
-        type: integer
-        example: -5
-        deprecated: true
       ratingDiffs:
         description: |
           Rating differences by FIDE time control.
@@ -28,10 +24,6 @@ allOf:
         example:
           rapid: 2500
           blitz: 2450
-      performance:
-        type: integer
-        example: 2138
-        deprecated: true
       performances:
         description: |
           Performance ratings by FIDE time control.
