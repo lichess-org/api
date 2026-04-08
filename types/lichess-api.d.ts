@@ -6345,11 +6345,6 @@ export interface components {
       /** @example 7 */
       played?: number;
       /**
-       * @deprecated
-       * @example -5
-       */
-      ratingDiff?: number;
-      /**
        * @description Rating differences by FIDE time control.
        * @example {
        *       "rapid": -5,
@@ -6365,11 +6360,6 @@ export interface components {
        *     }
        */
       ratingsMap?: components["schemas"]["StatByFideTC"];
-      /**
-       * @deprecated
-       * @example 2138
-       */
-      performance?: number;
       /**
        * @description Performance ratings by FIDE time control.
        * @example {
