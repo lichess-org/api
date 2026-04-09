@@ -6801,6 +6801,7 @@ export interface components {
       variant?: components["schemas"]["Variant"];
       speed?: components["schemas"]["Speed"];
       perf?: string;
+      rating?: number;
       rated?: boolean;
       hasMoved?: boolean;
       opponent?: components["schemas"]["GameEventOpponent"];
