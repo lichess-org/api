@@ -21,6 +21,8 @@ properties:
     $ref: "./Speed.yaml"
   perf:
     type: string
+  rating:
+    type: integer
   rated:
     type: boolean
   hasMoved:
