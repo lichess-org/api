@@ -15,13 +15,7 @@ value:
         "perf": "blitz",
         "rated": true,
         "hasMoved": true,
-        "opponent":
-          {
-            "id": "aaron",
-            "username": "Aaron",
-            "rating": 1726,
-            "ratingDiff": 7,
-          },
+        "opponent": { "id": "aaron", "username": "Aaron", "rating": 1726, "ratingDiff": 7 },
         "isMyTurn": false,
         "secondsLeft": 300,
         "winner": "black",
