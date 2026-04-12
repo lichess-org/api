@@ -4550,6 +4550,7 @@ export interface components {
         initialPly: number;
         plays: number;
         rating: number;
+        fen?: string;
         solution: string[];
         themes: string[];
       };
