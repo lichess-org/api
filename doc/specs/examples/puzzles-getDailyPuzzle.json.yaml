@@ -18,6 +18,7 @@ value:
         "id": "VAfZj",
         "rating": 1821,
         "plays": 120267,
+        "fen": "r2qk2r/3b1pp1/1pQ1pB1p/p2p4/2nPP3/2N2N2/PP3PPP/R3KB1R b KQkq - 0 1",
         "solution": ["f3g3", "f2g3", "f8f1"],
         "themes": ["clearance", "mateIn2", "middlegame", "short", "sacrifice", "kingsideAttack", "killBoxMate"],
         "initialPly": 52,

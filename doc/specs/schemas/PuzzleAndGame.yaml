@@ -69,6 +69,8 @@ properties:
         type: integer
       rating:
         type: integer
+      fen:
+        type: string
       solution:
         type: array
         items:
