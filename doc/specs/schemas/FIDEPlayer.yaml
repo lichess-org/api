@@ -19,6 +19,12 @@ properties:
     type: integer
   blitz:
     type: integer
+  gender:
+    type: string
+    description: FIDE uses mandatory binary gender.
+    enum:
+      - M
+      - F
   photo:
     $ref: "./FIDEPlayerPhoto.yaml"
 

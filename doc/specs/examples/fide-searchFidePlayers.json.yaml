@@ -9,6 +9,7 @@ value:
       "standard": 2775,
       "rapid": 2741,
       "blitz": 2776,
+      "gender": "M",
       "photo":
         {
           "small": "https://image.lichess1.org/display?fmt=webp&h=100&op=thumbnail&path=ZtNkAl1_0MHT.webp&w=100&sig=8a2122f91eab6c3f0528bce8ea5854fd561bbcde",
@@ -16,5 +17,10 @@ value:
           "credit": "Brigham Aldrich",
         },
     },
-    { "id": 35009060, "name": "Erigaisi Keerthana", "federation": "IND", "year": 2002 },
+    {
+      "id": 35009060,
+      "name": "Erigaisi Keerthana",
+      "federation": "IND",
+      "year": 2002,
+    },
   ]
