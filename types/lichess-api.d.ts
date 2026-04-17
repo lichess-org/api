@@ -6648,6 +6648,11 @@ export interface components {
       standard?: number;
       rapid?: number;
       blitz?: number;
+      /**
+       * @description FIDE uses mandatory binary gender.
+       * @enum {string}
+       */
+      gender?: "M" | "F";
       photo?: components["schemas"]["FIDEPlayerPhoto"];
     };
     /**
