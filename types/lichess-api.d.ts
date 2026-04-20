@@ -11194,6 +11194,15 @@ export interface operations {
            */
           orientation?: "white" | "black";
           variant?: components["schemas"]["VariantKey"];
+          /**
+           * @description Analysis mode.
+           *    If not specified, Normal analysis.
+           *    practise - Practise with Computer
+           *    conceal - Hide next moves
+           *    gamebook - Interactive lesson
+           * @enum {string}
+           */
+          mode?: "practice" | "conceal" | "gamebook";
         };
       };
     };
