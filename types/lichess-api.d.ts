@@ -11196,10 +11196,10 @@ export interface operations {
           variant?: components["schemas"]["VariantKey"];
           /**
            * @description Analysis mode.
-           *    If not specified, Normal analysis.
-           *    practise - Practise with Computer
-           *    conceal - Hide next moves
-           *    gamebook - Interactive lesson
+           *     If not specified, Normal analysis.
+           *     * practice - Practise with Computer
+           *     * conceal - Hide next moves
+           *     * gamebook - Interactive lesson
            * @enum {string}
            */
           mode?: "practice" | "conceal" | "gamebook";
