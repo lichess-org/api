@@ -226,7 +226,6 @@ tags:
 
       Our collection of puzzles is in the public domain, you can [download it here](https://database.lichess.org/#puzzles).
       For a list of our [puzzle themes](https://lichess.org/training/themes) with their description, check out the [theme translation file](https://github.com/ornicar/lila/blob/master/translation/source/puzzleTheme.xml).
-      The daily puzzle can be [posted in your slack workspace](https://lichess.org/daily-puzzle-slack).
   - name: Relations
     description: |
       Access relations between users.
