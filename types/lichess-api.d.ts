@@ -164,7 +164,6 @@ export interface paths {
     /**
      * Get the daily puzzle
      * @description Get the daily Lichess puzzle in JSON format.
-     *     Alternatively, you can [post it in your slack workspace](https://lichess.org/daily-puzzle-slack).
      */
     get: operations["apiPuzzleDaily"];
     put?: never;
