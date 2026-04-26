@@ -59,7 +59,7 @@ export interface paths {
      * Get one leaderboard
      * @description Get the leaderboard for a single speed or variant (a.k.a. `perfType`).
      *     There is no leaderboard for correspondence or puzzles.
-     *     See <https://lichess.org/player/top/200/bullet>.
+     *     See <https://lichess.org/player/top/100/bullet>.
      */
     get: operations["playerTopNbPerfType"];
     put?: never;
