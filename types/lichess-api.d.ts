@@ -2879,7 +2879,7 @@ export interface paths {
     };
     /**
      * Get online bots
-     * @description Stream the [online bot users](https://lichess.org/player/bots), as [ndjson](#description/streaming-with-nd-json). Throttled to 50 bot users per second.
+     * @description Stream the [online bot users](https://lichess.org/player/bots), as [ndjson](#description/streaming-with-nd-json).
      */
     get: operations["apiBotOnline"];
     put?: never;
