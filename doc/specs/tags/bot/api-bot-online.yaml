@@ -4,7 +4,8 @@ get:
   tags:
     - Bot
   security: []
-  description: Stream the [online bot users](https://lichess.org/player/bots), as [ndjson](#description/streaming-with-nd-json). Throttled to 50 bot users per second.
+  description: Stream the [online bot users](https://lichess.org/player/bots), as
+    [ndjson](#description/streaming-with-nd-json).
   parameters:
     - in: query
       name: nb
@@ -12,6 +13,8 @@ get:
       schema:
         type: integer
         minimum: 1
+        maximum: 512
+        default: 100
         example: 20
   responses:
     "200":
