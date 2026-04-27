@@ -39,6 +39,16 @@ get:
           - racingKings
           - threeCheck
       required: true
+    - in: query
+      name: page
+      description: Leaderboard page number
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 20
+        default: 1
+        example: 1
+      required: false
   responses:
     "200":
       description: The list of top players for the variant.

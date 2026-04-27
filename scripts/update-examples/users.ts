@@ -26,6 +26,9 @@ example(
         nb: 3,
         perfType: "blitz",
       },
+      query: {
+        page: 1,
+      },
     },
   }),
 );
