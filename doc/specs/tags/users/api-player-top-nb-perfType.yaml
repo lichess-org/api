@@ -11,7 +11,7 @@ get:
   parameters:
     - in: path
       name: nb
-      description: How many users to fetch
+      description: How many users to fetch on the page of interest
       schema:
         type: integer
         minimum: 1
