@@ -11,7 +11,7 @@ get:
   parameters:
     - in: path
       name: nb
-      description: How many users to fetch on the page of interest
+      description: The number of users to get, from the 100 users on the leaderboard page of interest (see the `page` query param)
       schema:
         type: integer
         minimum: 1
@@ -41,7 +41,7 @@ get:
       required: true
     - in: query
       name: page
-      description: Leaderboard page number
+      description: The leaderboard page of interest (e.g., page 2 contains the top 101-200 players)
       schema:
         type: integer
         minimum: 1
