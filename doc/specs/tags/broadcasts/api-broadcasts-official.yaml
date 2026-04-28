@@ -2,7 +2,7 @@ get:
   operationId: broadcastsOfficial
   summary: Get official broadcasts
   description: |
-    Returns ongoing official broadcasts sorted by tier. 
+    Returns active (a round is scheduled or ongoing) official broadcasts sorted by tier. 
     After that, returns finished broadcasts sorted by most recent sync time.
     Broadcasts are streamed as [ndjson](#description/streaming-with-nd-json).
   tags:
@@ -20,6 +20,13 @@ get:
     - in: query
       name: html
       description: Convert the "description" field from markdown to HTML
+      schema:
+        type: boolean
+      example: true
+    - in: query
+      name: live
+      description: "[Filter] only broadcasts where a round is ongoing, i.e. started
+        and not finished"
       schema:
         type: boolean
       example: true
