@@ -11,7 +11,7 @@ get:
   parameters:
     - in: path
       name: nb
-      description: The number of users to get, from the 100 users on the leaderboard page of interest (see the `page` query param)
+      description: How many users to fetch
       schema:
         type: integer
         minimum: 1
@@ -40,14 +40,14 @@ get:
           - threeCheck
       required: true
     - in: query
-      name: page
-      description: The leaderboard page of interest (e.g., page 2 contains the top 101-200 players)
+      name: offset
+      description: How many of the top players to optionally skip before getting `nb` users. Must be divisible by 100.
       schema:
         type: integer
-        minimum: 1
-        maximum: 20
-        default: 1
-        example: 1
+        minimum: 0
+        maximum: 1900
+        default: 0
+        example: 0
       required: false
   responses:
     "200":

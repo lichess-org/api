@@ -27,7 +27,7 @@ example(
         perfType: "blitz",
       },
       query: {
-        page: 1,
+        offset: 0,
       },
     },
   }),
