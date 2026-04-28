@@ -1629,7 +1629,7 @@ export interface paths {
     };
     /**
      * Get official broadcasts
-     * @description Returns ongoing official broadcasts sorted by tier.
+     * @description Returns active (a round is scheduled or ongoing) official broadcasts sorted by tier.
      *     After that, returns finished broadcasts sorted by most recent sync time.
      *     Broadcasts are streamed as [ndjson](#description/streaming-with-nd-json).
      */
@@ -11412,6 +11412,11 @@ export interface operations {
          * @example true
          */
         html?: boolean;
+        /**
+         * @description [Filter] only broadcasts where a round is ongoing, i.e. started and not finished
+         * @example true
+         */
+        live?: boolean;
       };
       header?: never;
       path?: never;
