@@ -39,6 +39,16 @@ get:
           - racingKings
           - threeCheck
       required: true
+    - in: query
+      name: offset
+      description: How many of the top players to optionally skip before getting `nb` users. Must be divisible by 100.
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 1900
+        default: 0
+        example: 0
+      required: false
   responses:
     "200":
       description: The list of top players for the variant.
