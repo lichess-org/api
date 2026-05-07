@@ -3619,7 +3619,7 @@ export interface paths {
      *     have been registered with the given `secret`.
      *     Uses long polling.
      *     After acquiring a request, the provider should immediately
-     *     [start streaming the results](#tag/external-engine/POST/api/external-engine/workid).
+     *     [start streaming the results](#tag/external-engine/POST/api/external-engine/work/{id}).
      */
     post: operations["apiExternalEngineAcquire"];
     delete?: never;
