@@ -1,5 +1,3 @@
-servers:
-  - url: https://tablebase.lichess.org
 get:
   operationId: tablebaseStandard
   summary: Tablebase lookup
@@ -9,6 +7,12 @@ get:
     Example: `curl http://tablebase.lichess.org/standard?fen=4k3/6KP/8/8/8/8/7p/8_w_-_-_0_1`
   tags:
     - Tablebase
+  servers:
+    - url: https://tablebase.lichess.org
+    - url: http://localhost:{port}
+      variables:
+        port:
+          default: "9000"
   security: []
   parameters:
     - in: query

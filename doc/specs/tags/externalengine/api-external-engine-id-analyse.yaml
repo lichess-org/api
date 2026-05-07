@@ -1,5 +1,3 @@
-servers:
-  - url: https://engine.lichess.ovh
 parameters:
   - in: path
     name: id
@@ -13,6 +11,12 @@ post:
   summary: Analyse with external engine
   tags:
     - External engine
+  servers:
+    - url: https://engine.lichess.ovh
+    - url: http://localhost:{port}
+      variables:
+        port:
+          default: "9666"
   security: []
   description: |
     **Endpoint: `https://engine.lichess.ovh/api/external-engine/{id}/analyse`**
