@@ -1,5 +1,3 @@
-servers:
-  - url: https://explorer.lichess.org
 get:
   operationId: openingExplorerMasterGame
   summary: OTB master game
@@ -9,6 +7,12 @@ get:
     Example: `curl https://explorer.lichess.org/masters/pgn/aAbqI4ey`
   tags:
     - Opening Explorer
+  servers:
+    - url: https://explorer.lichess.org
+    - url: http://localhost:{port}
+      variables:
+        port:
+          default: "9002"
   security:
     - OAuth2: []
   parameters:

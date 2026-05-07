@@ -219,7 +219,8 @@ tags:
 
       Runs <https://github.com/lichess-org/lila-openingexplorer>.
 
-      **The endpoint hostname is not lichess.org but explorer.lichess.org.**
+      > [!important]
+      > The hostname for these endpoints is `explorer.lichess.org` and not `lichess.org`.
   - name: Puzzles
     description: |
       Fetch and solve [puzzles](https://lichess.org/training), view your puzzle history and dashboard.

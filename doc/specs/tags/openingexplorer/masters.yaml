@@ -1,5 +1,3 @@
-servers:
-  - url: https://explorer.lichess.org
 get:
   operationId: openingExplorerMaster
   summary: Masters database
@@ -9,6 +7,12 @@ get:
     Example: `curl https://explorer.lichess.org/masters?play=d2d4,d7d5,c2c4,c7c6,c4d5`
   tags:
     - Opening Explorer
+  servers:
+    - url: https://explorer.lichess.org
+    - url: http://localhost:{port}
+      variables:
+        port:
+          default: "9002"
   security:
     - OAuth2: []
   parameters:
