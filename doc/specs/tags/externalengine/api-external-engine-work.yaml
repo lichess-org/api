@@ -1,10 +1,14 @@
-servers:
-  - url: https://engine.lichess.ovh
 post:
   operationId: apiExternalEngineAcquire
   summary: Acquire analysis request
   tags:
     - External engine
+  servers:
+    - url: https://engine.lichess.ovh
+    - url: http://localhost:{port}
+      variables:
+        port:
+          default: "9666"
   security: []
   description: |
     **Endpoint: `https://engine.lichess.ovh/api/external-engine/work`**
@@ -12,7 +16,7 @@ post:
     have been registered with the given `secret`.
     Uses long polling.
     After acquiring a request, the provider should immediately
-    [start streaming the results](#tag/external-engine/POST/api/external-engine/workid).
+    [start streaming the results](#tag/external-engine/POST/api/external-engine/work/{id}).
   requestBody:
     description: Provider credentials.
     required: true
