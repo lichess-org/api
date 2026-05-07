@@ -242,7 +242,8 @@ tags:
     description: |
       Lookup positions from the [Lichess tablebase server](https://lichess.org/blog/W3WeMyQAACQAdfAL/7-piece-syzygy-tablebases-are-complete).
 
-      **The endpoint hostname is not lichess.org but tablebase.lichess.org.**
+      > [!important]
+      > The hostname for these endpoints is `tablebase.lichess.org` and not `lichess.org`.
   - name: Teams
     description: |
       Access and manage Lichess teams and their members.

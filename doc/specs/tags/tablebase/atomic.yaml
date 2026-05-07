@@ -1,5 +1,3 @@
-servers:
-  - url: https://tablebase.lichess.org
 get:
   operationId: tablebaseAtomic
   summary: Tablebase lookup for Atomic chess
@@ -7,6 +5,12 @@ get:
     **Endpoint: <https://tablebase.lichess.org>**
   tags:
     - Tablebase
+  servers:
+    - url: https://tablebase.lichess.org
+    - url: http://localhost:{port}
+      variables:
+        port:
+          default: "9000"
   security: []
   parameters:
     - in: query
