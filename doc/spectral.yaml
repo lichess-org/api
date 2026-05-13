@@ -6,3 +6,7 @@ overrides:
       - "specs/lichess-api.yaml#/components/examples"
     rules:
       oas3-unused-component: "off"
+  - files:
+      - "specs/lichess-api.yaml"
+    rules:
+      oas3-schema: "off"
