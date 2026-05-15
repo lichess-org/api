@@ -71,6 +71,9 @@ properties:
         type: integer
       fen:
         type: string
+      lastMove:
+        type: string
+        description: In UCI format, e.g. "e2e4"
       solution:
         type: array
         items:
