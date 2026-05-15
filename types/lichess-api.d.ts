@@ -6058,6 +6058,7 @@ export interface components {
       /** @description Full tournament description in markdown format, or in HTML if the html=1 query parameter is set. */
       description?: string;
       teamTable?: boolean;
+      showTeamScores?: boolean;
       /** Format: uri */
       url: string;
       communityOwner?: components["schemas"]["LightUser"];
