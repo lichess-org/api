@@ -20,6 +20,8 @@ properties:
     description: The change in rating for the player as a result of this game
   fideTC:
     $ref: "./FideTimeControl.yaml"
+  ongoing:
+    type: boolean
 
 required:
   - round
