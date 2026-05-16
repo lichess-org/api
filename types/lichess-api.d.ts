@@ -4550,6 +4550,8 @@ export interface components {
         plays: number;
         rating: number;
         fen?: string;
+        /** @description In UCI format, e.g. "e2e4" */
+        lastMove?: string;
         solution: string[];
         themes: string[];
       };
@@ -6386,6 +6388,7 @@ export interface components {
       /** @description The change in rating for the player as a result of this game */
       ratingDiff?: number;
       fideTC: components["schemas"]["FideTimeControl"];
+      ongoing?: boolean;
     };
     BroadcastPlayerEntryWithFideAndGames: components["schemas"]["BroadcastPlayerEntry"] & {
       fide?: {
