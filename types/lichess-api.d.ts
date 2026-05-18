@@ -8766,7 +8766,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json":
+          "application/x-ndjson":
             | components["schemas"]["GamePgn"]
             | components["schemas"]["GameJson"];
         };
