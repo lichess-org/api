@@ -1,8 +1,8 @@
 value:
   {
     "user": { "name": "thibault" },
-    "perf": { "glicko": { "rating": 1795.41, "deviation": 63.82 }, "nb": 11551, "progress": 22 },
-    "rank": null,
+    "perf": { "glicko": { "rating": 1791.48, "deviation": 47.84 }, "nb": 11614, "progress": -1 },
+    "rank": 147171,
     "percentile": 77.6,
     "stat":
       {
@@ -82,15 +82,15 @@ value:
           },
         "count":
           {
-            "all": 12037,
-            "rated": 11429,
-            "win": 5696,
-            "loss": 5770,
-            "draw": 571,
-            "tour": 1597,
-            "berserk": 51,
-            "opAvg": 1706.16,
-            "seconds": 3738035,
+            "all": 12101,
+            "rated": 11492,
+            "win": 5726,
+            "loss": 5802,
+            "draw": 573,
+            "tour": 1601,
+            "berserk": 52,
+            "opAvg": 1706.62,
+            "seconds": 3767400,
             "disconnects": 9,
           },
         "resultStreak":
@@ -109,9 +109,9 @@ value:
               {
                 "cur":
                   {
-                    "v": 1,
-                    "from": { "at": "2026-02-02T08:17:17.099Z", "gameId": "1FByjtZK" },
-                    "to": { "at": "2026-02-02T08:20:59.324Z", "gameId": "1FByjtZK" },
+                    "v": 2,
+                    "from": { "at": "2026-05-13T08:23:38.653Z", "gameId": "nrO6iTZ3" },
+                    "to": { "at": "2026-05-13T08:32:58.61Z", "gameId": "fSJcMeCL" },
                   },
                 "max":
                   {
@@ -143,7 +143,7 @@ value:
                     "to": { "at": "2024-10-18T20:54:30.256Z", "gameId": "1HeDeGbe" },
                   },
               },
-            "lastDate": "2026-02-02T08:20:59.324Z",
+            "lastDate": "2026-05-13T08:32:58.61Z",
           },
       },
   }

@@ -3,29 +3,23 @@ value:
     "t": "featured",
     "d":
       {
-        "id": "huFaKQNi",
-        "orientation": "white",
+        "id": "2i3nCKuq",
+        "orientation": "black",
         "players":
           [
             {
               "color": "white",
-              "user": { "name": "Arkadiy_Khromaev", "patron": true, "patronColor": 1, "id": "arkadiy_khromaev" },
-              "rating": 3402,
-              "seconds": 30,
+              "user": { "name": "DrawMerchant", "title": "IM", "id": "drawmerchant" },
+              "rating": 2787,
+              "seconds": 60,
             },
             {
               "color": "black",
-              "user":
-                {
-                  "name": "chess-art-us",
-                  "title": "GM",
-                  "flair": "people.deaf-man-light-skin-tone",
-                  "id": "chess-art-us",
-                },
-              "rating": 3322,
-              "seconds": 30,
+              "user": { "name": "Empathy666", "flair": "symbols.black-heart", "id": "empathy666" },
+              "rating": 2876,
+              "seconds": 60,
             },
           ],
-        "fen": "8/1p6/p7/6P1/8/P4k1p/8/2q1RK2 b - - 3 55",
+        "fen": "2n1rrk1/1p3ppp/3p4/pP1P2qn/2PB4/5Q2/P1N2PPP/R4RK1 w - - 5 21",
       },
   }

@@ -1,190 +1,153 @@
 value:
   [
+    { "interval": { "start": 1778803200000, "end": 1778889600000 }, "follows": { "in": { "ids": ["chrisc5mb"] } } },
     {
-      "interval": { "start": 1770508800000, "end": 1770595200000 },
+      "interval": { "start": 1778716800000, "end": 1778803200000 },
+      "puzzles": { "score": { "win": 1, "loss": 0, "draw": 0, "rp": { "before": 1999, "after": 2009 } } },
+      "follows":
+        {
+          "in":
+            {
+              "ids": ["lisanthm", "pureaperionsq", "arda_kslc21", "teso22", "ww0ut", "vidhathathreya", "shirakuchess"],
+            },
+        },
+    },
+    {
+      "interval": { "start": 1778630400000, "end": 1778716800000 },
+      "games": { "blitz": { "win": 0, "loss": 2, "draw": 0, "rp": { "before": 1805, "after": 1791 } } },
+      "puzzles": { "score": { "win": 1, "loss": 0, "draw": 0, "rp": { "before": 1986, "after": 1999 } } },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "reyminion",
-                  "mip014",
-                  "bennyqj",
-                  "gundogdumertulger",
-                  "vintagekitten",
-                  "tkachenko3007",
-                  "galaxy142",
-                  "keshav318",
-                  "navjay-abhiijay",
-                  "tanjiro2013",
-                  "peha50",
-                  "lisa1411",
+                  "sathvik_nannuri",
+                  "raphael_171123",
+                  "l3azwa",
+                  "orion_banerjee",
+                  "leftfreezingdoor",
+                  "shapovalov1",
+                  "tolbrandir",
+                  "jhansirani",
+                  "mailtoadvik",
+                  "battledudes606dbdb",
+                  "hdjjkf",
+                  "advit_bhat",
+                  "j_harshiv",
+                  "bobybot",
+                  "jackhlay",
+                ],
+              "nb": 18,
+            },
+        },
+    },
+    {
+      "interval": { "start": 1778544000000, "end": 1778630400000 },
+      "puzzles": { "score": { "win": 1, "loss": 0, "draw": 0, "rp": { "before": 1978, "after": 1986 } } },
+      "follows":
+        {
+          "in":
+            {
+              "ids":
+                [
+                  "xinyilovechess",
+                  "kushnorris",
+                  "enrigo93",
+                  "zanycolourfulwindow",
+                  "pet_your_enemy",
+                  "advikrnair",
+                  "rom1_chess",
+                  "gleb1234567899",
+                  "masterr_67",
+                  "gknuchamp",
+                  "mr_checkmate007",
+                  "karpov005",
+                  "pragyanreddy",
                 ],
             },
         },
       "stream": true,
     },
     {
-      "interval": { "start": 1770422400000, "end": 1770508800000 },
+      "interval": { "start": 1778457600000, "end": 1778544000000 },
+      "games": { "blitz": { "win": 1, "loss": 0, "draw": 0, "rp": { "before": 1799, "after": 1805 } } },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "jason_tag_k",
-                  "albinius",
-                  "sidd2016",
-                  "atomic1200",
-                  "youssef1704",
-                  "marcebn",
-                  "nrv773",
-                  "atodochess",
-                  "mavikurt_09",
-                  "ngechugitau",
-                  "arseni59",
-                  "lifantov",
-                  "iustin_zz",
-                  "tomrixpet",
-                  "aleksanderdvoretsky",
+                  "kolya228322",
+                  "uluthrek",
+                  "sixtyseven_67",
+                  "jilbo1234",
+                  "onemorekiwi",
+                  "laskeristhebomb",
+                  "vihariuppalapati",
+                  "alexhuerta",
+                  "fjcruiser",
+                  "thenameisstan",
+                  "bhoomin",
+                  "zeus555",
+                  "ramrachit_2204",
+                  "kishalay_m",
+                  "dayronf1",
                 ],
-              "nb": 17,
             },
         },
     },
     {
-      "interval": { "start": 1770336000000, "end": 1770422400000 },
-      "games": { "bullet": { "win": 0, "loss": 1, "draw": 0, "rp": { "before": 1767, "after": 1742 } } },
+      "interval": { "start": 1778371200000, "end": 1778457600000 },
+      "puzzles": { "score": { "win": 13, "loss": 2, "draw": 0, "rp": { "before": 1886, "after": 1978 } } },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "extcooljoe8onyt",
-                  "gokulsai182",
-                  "sugreev771",
-                  "vivu06",
-                  "avadacadabra_1",
-                  "iliya6kuchino",
-                  "rooks-rest",
+                  "coolcoldice3",
+                  "johndoe5743",
+                  "kemalbaitemir",
+                  "emmanuelrv1",
+                  "qlibet",
+                  "jay63",
+                  "rchess14102013",
+                  "r-a1h8h1a8",
+                  "tidahy",
+                  "tikhon_loud",
+                  "danielgg14",
+                  "chessking20122026",
+                  "h4zuop",
+                  "schiffskoch",
+                  "nilusha1984",
                 ],
             },
         },
-      "stream": true,
     },
     {
-      "interval": { "start": 1770249600000, "end": 1770336000000 },
-      "puzzles": { "score": { "win": 0, "loss": 2, "draw": 0, "rp": { "before": 1771, "after": 1753 } } },
+      "interval": { "start": 1778284800000, "end": 1778371200000 },
+      "puzzles": { "score": { "win": 1, "loss": 0, "draw": 0, "rp": { "before": 1872, "after": 1886 } } },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "lukasbacar",
-                  "ivanchopov",
-                  "lucasz05",
-                  "wider_321",
-                  "michalv",
-                  "voidtyrant",
-                  "rarinar",
-                  "honzin_b1",
-                  "brian999999",
-                  "mindfulpawn2017",
-                  "macboy734",
-                  "hekis4",
-                  "kalyansrinidhi",
-                  "introverted_guy",
-                  "ronqle",
+                  "h4zuop",
+                  "thebeguiler",
+                  "rawlyfearful",
+                  "brilliant-siesta",
+                  "r01-f2f7",
+                  "iamsubhajitroy",
+                  "akshayksingh",
+                  "nel_2000",
+                  "feshom",
+                  "remotecon_troller",
+                  "yonilavo",
+                  "basitbc02",
                 ],
             },
         },
-      "stream": true,
-    },
-    {
-      "interval": { "start": 1770163200000, "end": 1770249600000 },
-      "puzzles": { "score": { "win": 0, "loss": 2, "draw": 0, "rp": { "before": 1788, "after": 1771 } } },
-      "follows":
-        {
-          "in":
-            {
-              "ids":
-                [
-                  "arianaguadalupe09",
-                  "zharkayadaria",
-                  "vladimir_grekhov",
-                  "anastasia_2014_nek",
-                  "md-abrar",
-                  "ray_peat_bioenergy",
-                  "wjs11111",
-                  "damian3300",
-                ],
-            },
-        },
-      "stream": true,
-    },
-    {
-      "interval": { "start": 1770076800000, "end": 1770163200000 },
-      "follows":
-        {
-          "in":
-            {
-              "ids":
-                [
-                  "cafosa25",
-                  "tee_khay",
-                  "alexander_chess_2017",
-                  "abduljahangirov",
-                  "piszczala",
-                  "erayy21",
-                  "divitavi",
-                  "hellenas_theos",
-                  "eldar_t",
-                  "jssotoh",
-                  "gayathrisk-goat",
-                  "srithan2",
-                  "jaeyoon8290",
-                ],
-            },
-        },
-      "studies": [{ "id": "1UmQwWtW", "name": "position bookmarks" }],
-      "stream": true,
-    },
-    {
-      "interval": { "start": 1769990400000, "end": 1770076800000 },
-      "games": { "blitz": { "win": 0, "loss": 1, "draw": 0, "rp": { "before": 1795, "after": 1795 } } },
-      "puzzles": { "score": { "win": 0, "loss": 2, "draw": 0, "rp": { "before": 1807, "after": 1788 } } },
-      "follows":
-        {
-          "in":
-            {
-              "ids":
-                [
-                  "simoron27",
-                  "sonicboom",
-                  "littleangrybird2000",
-                  "tahamelihpro",
-                  "glutie_maximum",
-                  "only1anant",
-                  "jacat10",
-                  "specify",
-                  "madhav_s2016",
-                  "eekrosita",
-                  "tetrahymena",
-                  "pbbodal",
-                ],
-            },
-        },
-      "posts":
-        [
-          {
-            "topicUrl": "https://lichess.org/forum/lichess-feedback/all-community-bots-except-maia1-are-offline",
-            "topicName": "All community bots except Maia1 are offline.",
-            "posts": [{ "url": "https://lichess.org/forum/redirect/post/jCt8S1XI", "text": "Fix on the way!" }],
-          },
-        ],
-      "stream": true,
     },
   ]

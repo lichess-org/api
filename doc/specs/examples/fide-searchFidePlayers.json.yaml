@@ -6,7 +6,7 @@ value:
       "federation": "IND",
       "year": 2003,
       "title": "GM",
-      "standard": 2775,
+      "standard": 2751,
       "rapid": 2741,
       "blitz": 2776,
       "gender": "M",
@@ -17,5 +17,5 @@ value:
           "credit": "Brigham Aldrich",
         },
     },
-    { "id": 35009060, "name": "Erigaisi Keerthana", "federation": "IND", "year": 2002 },
+    { "id": 35009060, "name": "Erigaisi Keerthana", "federation": "IND", "year": 2002, "gender": "F" },
   ]

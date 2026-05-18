@@ -1,7 +1,7 @@
 value:
   {
-    "id": "KCpkmQGx",
-    "url": "https://lichess.org/KCpkmQGx",
+    "id": "aiq0evtm",
+    "url": "https://lichess.org/aiq0evtm",
     "status": "created",
     "challenger": null,
     "destUser": null,
@@ -13,6 +13,6 @@ value:
     "finalColor": "white",
     "perf": { "icon": "", "name": "Correspondence" },
     "open": {},
-    "urlWhite": "https://lichess.org/KCpkmQGx?color=white",
-    "urlBlack": "https://lichess.org/KCpkmQGx?color=black",
+    "urlWhite": "https://lichess.org/aiq0evtm?color=white",
+    "urlBlack": "https://lichess.org/aiq0evtm?color=black",
   }

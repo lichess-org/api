@@ -3,8 +3,8 @@ value:
     "type": "gameStart",
     "game":
       {
-        "fullId": "4I9bsTOR5ieB",
-        "gameId": "4I9bsTOR",
+        "fullId": "xAVd6eJykuzM",
+        "gameId": "xAVd6eJy",
         "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
         "color": "white",
         "lastMove": "",
@@ -13,13 +13,13 @@ value:
         "variant": { "key": "standard", "name": "Standard" },
         "speed": "blitz",
         "perf": "blitz",
-        "rating": 1741,
         "rated": true,
         "hasMoved": false,
-        "opponent": { "id": "aaron", "username": "Aaron", "rating": 1726 },
+        "opponent": { "id": "aaron", "username": "Aaron", "rating": 797 },
         "isMyTurn": true,
         "secondsLeft": 300,
+        "rating": 692,
         "compat": { "bot": false, "board": true },
-        "id": "4I9bsTOR",
+        "id": "xAVd6eJy",
       },
   }

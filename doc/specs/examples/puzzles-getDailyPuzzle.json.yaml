@@ -2,25 +2,26 @@ value:
   {
     "game":
       {
-        "id": "kQsFfCy4",
-        "perf": { "key": "blitz", "name": "Blitz" },
+        "id": "MmhaEJoJ",
+        "perf": { "key": "classical", "name": "Classical" },
         "rated": true,
         "players":
           [
-            { "name": "mustanco", "id": "mustanco", "color": "white", "rating": 1807 },
-            { "name": "Ilnasogonfiabile", "id": "ilnasogonfiabile", "color": "black", "rating": 1834 },
+            { "name": "MuhCiri", "id": "muhciri", "color": "white", "rating": 1915 },
+            { "name": "saadatinia", "id": "saadatinia", "color": "black", "rating": 1798 },
           ],
-        "pgn": "d4 e5 c3 exd4 cxd4 d5 Bf4 Nc6 Nc3 Be6 Nf3 Bb4 e3 Nge7 a3 Ba5 b4 Bb6 Bb5 O-O Bxc6 Nxc6 O-O Bg4 a4 a6 b5 Na5 h3 Bh5 g4 Bg6 Ne5 Qh4 Nxg6 fxg6 Kh2 Nc4 Nxd5 Rad8 Nxb6 Nxb6 Bxc7 Rd7 Bxb6 Rdf7 Qb3 Kh8 Ra2 Rf3 Rh1 Qxh3+ Kg1",
-        "clock": "5+0",
+        "pgn": "e4 e5 Nf3 Nc6 Bc4 h6 c3 f5 d3 fxe4",
+        "clock": "15+15",
       },
     "puzzle":
       {
-        "id": "VAfZj",
-        "rating": 1821,
-        "plays": 120267,
-        "fen": "r2qk2r/3b1pp1/1pQ1pB1p/p2p4/2nPP3/2N2N2/PP3PPP/R3KB1R b KQkq - 0 1",
-        "solution": ["f3g3", "f2g3", "f8f1"],
-        "themes": ["clearance", "mateIn2", "middlegame", "short", "sacrifice", "kingsideAttack", "killBoxMate"],
-        "initialPly": 52,
+        "id": "u3GaW",
+        "rating": 1938,
+        "plays": 127146,
+        "solution": ["f3e5", "g8f6", "e5f7", "d8e7", "f7h8"],
+        "themes": ["opening", "long", "fork", "advantage"],
+        "fen": "r1bqkbnr/pppp2p1/2n4p/4p3/2B1p3/2PP1N2/PP3PPP/RNBQK2R w KQkq - 0 1",
+        "lastMove": "f5e4",
+        "initialPly": 9,
       },
   }

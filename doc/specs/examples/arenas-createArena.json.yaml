@@ -4,11 +4,11 @@ value:
     "duels": [],
     "secondsToStart": 300,
     "standing": { "page": 1, "players": [] },
-    "id": "sIKqCAX3",
+    "id": "M0uoSoAf",
     "createdBy": "bobby",
-    "startsAt": "2026-02-08T19:33:45.378515848Z",
+    "startsAt": "2026-05-15T02:41:38.914694155Z",
     "system": "arena",
-    "fullName": "Lolli Arena",
+    "fullName": "Pogonina Arena",
     "minutes": 60,
     "perf": { "key": "blitz", "name": "Blitz", "icon": ")" },
     "clock": { "limit": 300, "increment": 0 },
@@ -16,7 +16,11 @@ value:
     "rated": true,
     "berserkable": true,
     "verdicts": { "list": [{ "condition": "Bot players are not allowed", "verdict": "ok" }], "accepted": true },
-    "quote": { "text": "Chess is not relaxing; it's stressful even if you win.", "author": "Jennifer Shahade" },
-    "greatPlayer": { "name": "Lolli", "url": "https://wikipedia.org/wiki/Giambattista_Lolli" },
+    "quote":
+      {
+        "text": "You know you're going to lose. Even when I was ahead I knew I was going to lose --on playing against Fischer.",
+        "author": "Andrew Soltis",
+      },
+    "greatPlayer": { "name": "Pogonina", "url": "https://wikipedia.org/wiki/Natalia_Pogonina" },
     "myUsername": "Bobby",
   }

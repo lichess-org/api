@@ -112,23 +112,23 @@ await prodClient()
       example("games", "apiGamesUserJson", line);
     }),
   );
-  
-  example(
-    "games",
-    "apiGamesUserPgn",
-    await prodClient().GET("/api/games/user/{username}", {
-      params: {
-        path: {
-          username: "lance5500",
-        },
-        query: {
-          max: 1,
-        }
+
+example(
+  "games",
+  "apiGamesUserPgn",
+  await prodClient().GET("/api/games/user/{username}", {
+    params: {
+      path: {
+        username: "lance5500",
       },
-      parseAs: "text",
-    }),
-    "pgn",
-  );
+      query: {
+        max: 1,
+      },
+    },
+    parseAs: "text",
+  }),
+  "pgn",
+);
 
 example(
   "games",

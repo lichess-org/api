@@ -2,24 +2,24 @@ value:
   {
     "game":
       {
-        "id": "Had79NbX",
+        "id": "mAe3fKx5",
         "perf": { "key": "blitz", "name": "Blitz" },
         "rated": true,
         "players":
           [
-            { "name": "vit2014", "id": "vit2014", "color": "white", "rating": 2395 },
-            { "name": "Yoda-wins", "id": "yoda-wins", "color": "black", "rating": 2511 },
+            { "name": "Lenshrr", "id": "lenshrr", "color": "white", "rating": 1948 },
+            { "name": "Wmendes", "id": "wmendes", "color": "black", "rating": 1938 },
           ],
-        "pgn": "e4 e6 d4 d5 Nd2 c5 Ngf3 cxd4 Nxd4 Nf6 exd5 Nxd5 c3 Be7 Bb5+ Bd7 Bxd7+ Qxd7 O-O O-O N2f3 Nc6 Nxc6 Qxc6 Bg5 Bxg5 Nxg5 h6 Nf3 Rfd8 Nd4 Qb6 Qb3 Qc7 g3 e5 Nf5 e4 Rad1 Qe5",
-        "clock": "3+2",
+        "pgn": "e4 c5 c3 Nc6 d4 cxd4 cxd4 e6 Nc3 Nf6 e5 Nd5 Nxd5 exd5 Nf3 d6 Be2 dxe5 dxe5 Be7 O-O O-O Bf4 Be6 Qb3 Rb8 Rad1 Qa5 Nd4 Nxd4 Rxd4 Rfc8 Qg3 Rc2 Bh6 Bf8 Bg4 Rxb2 Bxe6 fxe6 Rg4 g6 Bc1 Rxa2 h4 Rc8 h5 Rc3 f3 Qc5+ Kh2 Rxc1 hxg6 h6 g7 Be7 Qf4 Rxf1",
+        "clock": "5+0",
       },
     "puzzle":
       {
-        "id": "hACdu",
-        "rating": 1567,
-        "plays": 6508,
-        "solution": ["d1d5", "d8d5", "b3d5", "e5d5", "f5e7", "g8f8", "e7d5"],
-        "themes": ["veryLong", "middlegame", "advantage", "attraction", "fork", "sacrifice"],
-        "initialPly": 39,
+        "id": "SLR3a",
+        "rating": 1894,
+        "plays": 13601,
+        "solution": ["f4f7", "g8f7", "g7g8q"],
+        "themes": ["advancedPawn", "short", "attraction", "promotion", "endgame", "mateIn2"],
+        "initialPly": 57,
       },
   }

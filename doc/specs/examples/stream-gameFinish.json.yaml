@@ -3,8 +3,8 @@ value:
     "type": "gameFinish",
     "game":
       {
-        "fullId": "4I9bsTOR5ieB",
-        "gameId": "4I9bsTOR",
+        "fullId": "xAVd6eJykuzM",
+        "gameId": "xAVd6eJy",
         "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
         "color": "white",
         "lastMove": "e7e5",
@@ -15,13 +15,13 @@ value:
         "perf": "blitz",
         "rated": true,
         "hasMoved": true,
-        "opponent": { "id": "aaron", "username": "Aaron", "rating": 1726, "ratingDiff": 7 },
+        "opponent": { "id": "aaron", "username": "Aaron", "rating": 797, "ratingDiff": 6 },
         "isMyTurn": false,
         "secondsLeft": 300,
         "winner": "black",
-        "rating": 1741,
-        "ratingDiff": -6,
+        "rating": 692,
+        "ratingDiff": -9,
         "compat": { "bot": false, "board": true },
-        "id": "4I9bsTOR",
+        "id": "xAVd6eJy",
       },
   }

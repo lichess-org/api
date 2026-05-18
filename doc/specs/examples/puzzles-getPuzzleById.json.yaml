@@ -25,11 +25,12 @@ value:
     "puzzle":
       {
         "id": "PSjmf",
-        "rating": 2773,
-        "plays": 742,
-        "fen": "r2qk2r/3b1pp1/1pQ1pB1p/p2p4/2nPP3/2N2N2/PP3PPP/R3KB1R b KQkq - 0 1",
+        "rating": 2652,
+        "plays": 806,
         "solution": ["g8g7", "d5e5", "f6e5"],
         "themes": ["endgame", "master", "short", "masterVsMaster", "crushing"],
+        "fen": "5rk1/p4p2/5qpR/1R1Q4/3PK3/4P1P1/P1r2PP1/8 b - - 1 1",
+        "lastMove": "f3e4",
         "initialPly": 52,
       },
   }

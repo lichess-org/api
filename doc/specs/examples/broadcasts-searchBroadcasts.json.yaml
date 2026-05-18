@@ -7,25 +7,25 @@ value:
         {
           "tour":
             {
-              "id": "hf3tc93A",
+              "id": "gJm0i5k1",
               "name": "Knight Invitational",
               "slug": "knight-invitational",
               "info": {},
-              "createdAt": 1770578929349,
-              "url": "https://lichess.org/broadcast/knight-invitational/hf3tc93A",
+              "createdAt": 1778812602837,
+              "url": "https://lichess.org/broadcast/knight-invitational/gJm0i5k1",
               "tier": 5,
-              "dates": [1770578929726],
+              "dates": [1778812603116],
             },
           "round":
             {
-              "id": "9PSd6Vxw",
+              "id": "0JjIup0K",
               "name": "Final Round",
               "slug": "final-round",
-              "createdAt": 1770578929725,
+              "createdAt": 1778812603116,
               "rated": false,
               "ongoing": true,
-              "startsAt": 1770578929726,
-              "url": "https://lichess.org/broadcast/knight-invitational/final-round/9PSd6Vxw",
+              "startsAt": 1778812603116,
+              "url": "https://lichess.org/broadcast/knight-invitational/final-round/0JjIup0K",
             },
         },
       ],

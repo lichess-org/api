@@ -86,7 +86,7 @@ value:
                 "score": 42,
               },
               {
-                "user": { "name": "ChessKing201423", "flair": "smileys.pouting-cat", "id": "chessking201423" },
+                "user": { "name": "ChessKing201423", "flair": "smileys.alien-monster", "id": "chessking201423" },
                 "score": 42,
               },
               { "user": { "name": "ILYAVES-2012", "id": "ilyaves-2012" }, "score": 42 },
@@ -94,15 +94,7 @@ value:
               { "user": { "name": "wAsAd_09", "id": "wasad_09" }, "score": 39 },
               { "user": { "name": "Kogalymskiy_KMC", "flair": "smileys.ogre", "id": "kogalymskiy_kmc" }, "score": 37 },
               { "user": { "name": "Zurab3200", "id": "zurab3200" }, "score": 37 },
-              {
-                "user":
-                  {
-                    "name": "nneptune",
-                    "flair": "people.hand-with-index-finger-and-thumb-crossed-medium-light-skin-tone",
-                    "id": "nneptune",
-                  },
-                "score": 34,
-              },
+              { "user": { "name": "nneptune", "flair": "smileys.alien", "id": "nneptune" }, "score": 34 },
               { "user": { "name": "GReenTEA11", "flair": "smileys.clown-face", "id": "greentea11" }, "score": 32 },
               { "user": { "name": "KengurOFF_Yarik", "id": "kenguroff_yarik" }, "score": 31 },
               {
@@ -296,7 +288,11 @@ value:
               { "user": { "name": "Ryskal", "id": "ryskal" }, "score": 34 },
               { "user": { "name": "Talchessmaster27", "id": "talchessmaster27" }, "score": 33 },
               { "user": { "name": "tomi74", "id": "tomi74" }, "score": 32 },
-              { "user": { "name": "emandr", "flair": "smileys.cold-face", "id": "emandr" }, "score": 31 },
+              {
+                "user":
+                  { "name": "emandr", "flair": "smileys.cold-face", "patron": true, "patronColor": 2, "id": "emandr" },
+                "score": 31,
+              },
               {
                 "user": { "name": "Vovan-number_1", "flair": "symbols.heart-on-fire", "id": "vovan-number_1" },
                 "score": 29,
@@ -346,7 +342,7 @@ value:
               { "user": { "name": "KINGSIZE-1", "flair": "people.anatomical-heart", "id": "kingsize-1" }, "score": 30 },
               {
                 "user":
-                  { "name": "ks3sa1", "flair": "food-drink.pear", "patron": true, "patronColor": 3, "id": "ks3sa1" },
+                  { "name": "ks3sa1", "flair": "food-drink.pear", "patron": true, "patronColor": 4, "id": "ks3sa1" },
                 "score": 29,
               },
               { "user": { "name": "Kriss92", "flair": "people.anatomical-heart", "id": "kriss92" }, "score": 26 },
@@ -364,10 +360,7 @@ value:
             [
               { "user": { "name": "Annabelle_JDS", "id": "annabelle_jds" }, "score": 70 },
               { "user": { "name": "Subang_KCI", "flair": "objects.crossed-swords", "id": "subang_kci" }, "score": 50 },
-              {
-                "user": { "name": "Pedang_pusaka", "flair": "objects.crossed-swords", "id": "pedang_pusaka" },
-                "score": 49,
-              },
+              { "user": { "name": "Pedang_pusaka", "id": "pedang_pusaka" }, "score": 49 },
               { "user": { "name": "JEeTLii_SLI", "id": "jeetlii_sli" }, "score": 44 },
               { "user": { "name": "Nurdin_Sasambo", "id": "nurdin_sasambo" }, "score": 44 },
               {
@@ -436,9 +429,12 @@ value:
                 "user": { "name": "KongChess2011P", "flair": "travel-places.moai", "id": "kongchess2011p" },
                 "score": 27,
               },
-              { "user": { "name": "magnuschess1982", "id": "magnuschess1982" }, "score": 22 },
+              {
+                "user": { "name": "magnuschess1982", "flair": "smileys.alien-monster", "id": "magnuschess1982" },
+                "score": 22,
+              },
               { "user": { "name": "chesshans1", "id": "chesshans1" }, "score": 22 },
-              { "user": { "name": "Aryan_Krish", "flair": "smileys.alien", "id": "aryan_krish" }, "score": 20 },
+              { "user": { "name": "Aryan_Krish", "flair": "people.man-mage", "id": "aryan_krish" }, "score": 20 },
               { "user": { "name": "afoodb", "flair": "smileys.clown-face", "id": "afoodb" }, "score": 20 },
               { "user": { "name": "Gee_2006", "flair": "smileys.alien", "id": "gee_2006" }, "score": 20 },
               {
@@ -478,8 +474,11 @@ value:
               { "user": { "name": "Fast_chess_player", "id": "fast_chess_player" }, "score": 25 },
               { "user": { "name": "HartMan54", "id": "hartman54" }, "score": 24 },
               { "user": { "name": "Gravitsapa_1", "id": "gravitsapa_1" }, "score": 24 },
-              { "user": { "name": "terzic64", "patron": true, "patronColor": 1, "id": "terzic64" }, "score": 23 },
-              { "user": { "name": "magnus202025", "id": "magnus202025" }, "score": 23 },
+              { "user": { "name": "terzic64", "id": "terzic64" }, "score": 23 },
+              {
+                "user": { "name": "magnus202025", "flair": "smileys.confused-face", "id": "magnus202025" },
+                "score": 23,
+              },
               { "user": { "name": "Bobluh", "id": "bobluh" }, "score": 21 },
               { "user": { "name": "Time-to-Win20", "flair": "objects.test-tube", "id": "time-to-win20" }, "score": 21 },
               { "user": { "name": "Seba2202", "id": "seba2202" }, "score": 20 },
@@ -534,11 +533,19 @@ value:
           "players":
             [
               {
-                "user": { "name": "DJ_Haubi", "title": "GM", "flair": "nature.crocodile", "id": "dj_haubi" },
+                "user":
+                  {
+                    "name": "DJ_Haubi",
+                    "title": "GM",
+                    "flair": "nature.crocodile",
+                    "patron": true,
+                    "patronColor": 6,
+                    "id": "dj_haubi",
+                  },
                 "score": 55,
               },
               { "user": { "name": "A-HF", "flair": "symbols.double-curly-loop", "id": "a-hf" }, "score": 46 },
-              { "user": { "name": "Steff_LE", "id": "steff_le" }, "score": 43 },
+              { "user": { "name": "Steff_LE", "patron": true, "patronColor": 4, "id": "steff_le" }, "score": 43 },
               { "user": { "name": "Masterchessgod1", "flair": "smileys.alien", "id": "masterchessgod1" }, "score": 42 },
               {
                 "user":
@@ -563,11 +570,11 @@ value:
               },
               { "user": { "name": "Tipp-Kick", "flair": "activity.soccer-ball", "id": "tipp-kick" }, "score": 18 },
               {
-                "user": { "name": "Knightinthenight123", "flair": "symbols.rainbow-flag", "id": "knightinthenight123" },
+                "user": { "name": "Knightinthenight123", "flair": "objects.drum", "id": "knightinthenight123" },
                 "score": 15,
               },
               { "user": { "name": "Gambitgourmand", "id": "gambitgourmand" }, "score": 9 },
-              { "user": { "name": "Boulou88", "flair": "people.mechanical-leg", "id": "boulou88" }, "score": 8 },
+              { "user": { "name": "Boulou88", "id": "boulou88" }, "score": 8 },
               { "user": { "name": "Tigerauge", "id": "tigerauge" }, "score": 6 },
               { "user": { "name": "noniplus3", "flair": "objects.nazar-amulet", "id": "noniplus3" }, "score": 6 },
               {
@@ -576,7 +583,17 @@ value:
                 "score": 5,
               },
               { "user": { "name": "phenix3-4", "id": "phenix3-4" }, "score": 4 },
-              { "user": { "name": "Renoir1718", "flair": "objects.hiking-boot", "id": "renoir1718" }, "score": 2 },
+              {
+                "user":
+                  {
+                    "name": "Renoir1718",
+                    "flair": "objects.hiking-boot",
+                    "patron": true,
+                    "patronColor": 6,
+                    "id": "renoir1718",
+                  },
+                "score": 2,
+              },
             ],
         },
         {
@@ -600,7 +617,7 @@ value:
                 "score": 28,
               },
               { "user": { "name": "Rvova", "flair": "smileys.crying-face", "id": "rvova" }, "score": 26 },
-              { "user": { "name": "LEOMUR", "flair": "food-drink.cooking", "id": "leomur" }, "score": 26 },
+              { "user": { "name": "LEOMUR", "flair": "activity.lichess-berserk", "id": "leomur" }, "score": 26 },
               { "user": { "name": "nike_460", "id": "nike_460" }, "score": 24 },
               {
                 "user":
@@ -695,8 +712,8 @@ value:
               { "user": { "name": "Sibiryik_Viktor78", "id": "sibiryik_viktor78" }, "score": 42 },
               { "user": { "name": "Kyzja_Lakomkin", "id": "kyzja_lakomkin" }, "score": 34 },
               { "user": { "name": "Fortu72", "id": "fortu72" }, "score": 31 },
-              { "user": { "name": "Alex_Muezersky", "flair": "nature.fire", "id": "alex_muezersky" }, "score": 28 },
-              { "user": { "name": "fair18", "flair": "activity.lichess-blitz", "id": "fair18" }, "score": 27 },
+              { "user": { "name": "Alex_Muezersky", "flair": "nature.rose", "id": "alex_muezersky" }, "score": 28 },
+              { "user": { "name": "fair18", "flair": "people.deaf-man-light-skin-tone", "id": "fair18" }, "score": 27 },
               { "user": { "name": "Bisern", "id": "bisern" }, "score": 27 },
               { "user": { "name": "aso14643", "id": "aso14643" }, "score": 26 },
               { "user": { "name": "lutsenko2020", "id": "lutsenko2020" }, "score": 21 },
@@ -720,7 +737,7 @@ value:
               { "user": { "name": "hi_nick_OK", "flair": "activity.lichess-blitz", "id": "hi_nick_ok" }, "score": 34 },
               { "user": { "name": "DualKings", "flair": "people.prince", "id": "dualkings" }, "score": 29 },
               {
-                "user": { "name": "KiKiKiRA", "title": "IM", "flair": "smileys.angry-face", "id": "kikikira" },
+                "user": { "name": "KiKiKiRA", "title": "IM", "flair": "smileys.cold-face", "id": "kikikira" },
                 "score": 26,
               },
               {
@@ -729,7 +746,7 @@ value:
               },
               { "user": { "name": "mgpro1", "flair": "symbols.move-brilliant", "id": "mgpro1" }, "score": 16 },
               {
-                "user": { "name": "Jaqueconapellido", "flair": "nature.gorilla", "id": "jaqueconapellido" },
+                "user": { "name": "Jaqueconapellido", "flair": "objects.top-hat", "id": "jaqueconapellido" },
                 "score": 14,
               },
               { "user": { "name": "Karlo0300", "flair": "smileys.grinning-cat", "id": "karlo0300" }, "score": 12 },
@@ -861,7 +878,7 @@ value:
               },
               { "user": { "name": "d_a_matist", "flair": "nature.phoenix-bird", "id": "d_a_matist" }, "score": 18 },
               { "user": { "name": "REDi43", "flair": "symbols.white-star", "id": "redi43" }, "score": 16 },
-              { "user": { "name": "ArmanSardaryan", "flair": "smileys.goblin", "id": "armansardaryan" }, "score": 16 },
+              { "user": { "name": "ArmanSardaryan", "flair": "activity.trophy", "id": "armansardaryan" }, "score": 16 },
               {
                 "user": { "name": "Babapro456", "flair": "smileys.smiling-face-with-tear", "id": "babapro456" },
                 "score": 15,
@@ -882,14 +899,7 @@ value:
               { "user": { "name": "azhardoesthings", "id": "azhardoesthings" }, "score": 2 },
               { "user": { "name": "KnightVision8", "flair": "symbols.gnu-logo", "id": "knightvision8" }, "score": 2 },
               {
-                "user":
-                  {
-                    "name": "SluchaynazPOBEDA",
-                    "flair": "symbols.no-entry",
-                    "patron": true,
-                    "patronColor": 3,
-                    "id": "sluchaynazpobeda",
-                  },
+                "user": { "name": "SluchaynazPOBEDA", "flair": "symbols.no-entry", "id": "sluchaynazpobeda" },
                 "score": 0,
               },
             ],
@@ -902,7 +912,7 @@ value:
             [
               { "user": { "name": "sergeyzharkov", "id": "sergeyzharkov" }, "score": 45 },
               {
-                "user": { "name": "mimimishka2507", "flair": "food-drink.shaved-ice", "id": "mimimishka2507" },
+                "user": { "name": "mimimishka2507", "flair": "nature.polar-bear", "id": "mimimishka2507" },
                 "score": 39,
               },
               { "user": { "name": "NemchikSersh", "flair": "objects.pill", "id": "nemchiksersh" }, "score": 31 },
@@ -937,7 +947,10 @@ value:
               },
               { "user": { "name": "sandbagger07", "id": "sandbagger07" }, "score": 38 },
               { "user": { "name": "nISHANthGDSouza10", "id": "nishanthgdsouza10" }, "score": 33 },
-              { "user": { "name": "adityayadav2706", "flair": "smileys.ghost", "id": "adityayadav2706" }, "score": 29 },
+              {
+                "user": { "name": "adityayadav2706", "flair": "smileys.alien-monster", "id": "adityayadav2706" },
+                "score": 29,
+              },
               { "user": { "name": "Vivek405", "id": "vivek405" }, "score": 28 },
               { "user": { "name": "Chess_combest", "id": "chess_combest" }, "score": 28 },
               { "user": { "name": "ayush9488", "id": "ayush9488" }, "score": 19 },
@@ -1069,7 +1082,10 @@ value:
             [
               { "user": { "name": "STAR_ARYA", "flair": "nature.star", "id": "star_arya" }, "score": 34 },
               { "user": { "name": "javid_khanahmadi", "id": "javid_khanahmadi" }, "score": 28 },
-              { "user": { "name": "WilhelmSteinitz1990", "id": "wilhelmsteinitz1990" }, "score": 25 },
+              {
+                "user": { "name": "WilhelmSteinitz1990", "flair": "activity.sparkles", "id": "wilhelmsteinitz1990" },
+                "score": 25,
+              },
               {
                 "user": { "name": "komeilghorbani93", "flair": "objects.crown", "id": "komeilghorbani93" },
                 "score": 20,
@@ -1119,7 +1135,10 @@ value:
                   { "name": "Rajabov_Akram_R", "flair": "smileys.face-with-tears-of-joy", "id": "rajabov_akram_r" },
                 "score": 0,
               },
-              { "user": { "name": "PaukovKirill", "flair": "people.fingerprint", "id": "paukovkirill" }, "score": 0 },
+              {
+                "user": { "name": "PaukovKirill", "flair": "smileys.face-screaming-in-fear", "id": "paukovkirill" },
+                "score": 0,
+              },
             ],
         },
         {
@@ -1164,7 +1183,10 @@ value:
                 "user": { "name": "Idrisova_Roza", "title": "WFM", "flair": "nature.rose", "id": "idrisova_roza" },
                 "score": 41,
               },
-              { "user": { "name": "SafNik", "id": "safnik" }, "score": 27 },
+              {
+                "user": { "name": "SafNik", "flair": "travel-places.globe-showing-asia-australia", "id": "safnik" },
+                "score": 27,
+              },
               { "user": { "name": "Kotfedot", "flair": "smileys.cat-with-wry-smile", "id": "kotfedot" }, "score": 23 },
               { "user": { "name": "Skipper-11", "flair": "nature.penguin", "id": "skipper-11" }, "score": 23 },
               {
@@ -1256,17 +1278,14 @@ value:
                 "user": { "name": "Gekab", "flair": "smileys.smiling-face-with-sunglasses", "id": "gekab" },
                 "score": 10,
               },
-              {
-                "user": { "name": "Platon-3112", "flair": "activity.lichess-horsey-yin-yang", "id": "platon-3112" },
-                "score": 8,
-              },
+              { "user": { "name": "PLaToN-3112", "flair": "nature.cactus", "id": "platon-3112" }, "score": 8 },
               { "user": { "name": "Nedomaster715", "id": "nedomaster715" }, "score": 5 },
               { "user": { "name": "FangBowen", "flair": "smileys.saluting-face", "id": "fangbowen" }, "score": 4 },
               {
                 "user": { "name": "Markot29432", "flair": "people.guard-light-skin-tone", "id": "markot29432" },
                 "score": 3,
               },
-              { "user": { "name": "Alex_Lavri", "flair": "smileys.cold-face", "id": "alex_lavri" }, "score": 0 },
+              { "user": { "name": "Alex_Lavri", "id": "alex_lavri" }, "score": 0 },
               { "user": { "name": "Moorthattil", "flair": "symbols.move-mistake", "id": "moorthattil" }, "score": 0 },
               { "user": { "name": "Rodion2020", "id": "rodion2020" }, "score": 0 },
             ],
@@ -1343,13 +1362,7 @@ value:
             [
               {
                 "user":
-                  {
-                    "name": "ALEXSADERISPUSHKINO",
-                    "flair": "travel-places.satellite",
-                    "patron": true,
-                    "patronColor": 2,
-                    "id": "alexsaderispushkino",
-                  },
+                  { "name": "ALEXSADERISPUSHKINO", "flair": "travel-places.satellite", "id": "alexsaderispushkino" },
                 "score": 42,
               },
               { "user": { "name": "Robin_Good_chess", "id": "robin_good_chess" }, "score": 39 },
@@ -1428,7 +1441,7 @@ value:
               { "user": { "name": "awrus", "id": "awrus" }, "score": 11 },
               { "user": { "name": "Kolamdewa", "id": "kolamdewa" }, "score": 7 },
               {
-                "user": { "name": "BombaLeila", "title": "WCM", "flair": "nature.fire", "id": "bombaleila" },
+                "user": { "name": "BombaLeila", "title": "WFM", "flair": "nature.fire", "id": "bombaleila" },
                 "score": 4,
               },
               { "user": { "name": "enics35", "flair": "travel-places.airplane", "id": "enics35" }, "score": 0 },
@@ -1479,7 +1492,14 @@ value:
                 "score": 24,
               },
               {
-                "user": { "name": "Rodion2203", "flair": "people.call-me-hand-light-skin-tone", "id": "rodion2203" },
+                "user":
+                  {
+                    "name": "Rodion2203",
+                    "flair": "people.call-me-hand-light-skin-tone",
+                    "patron": true,
+                    "patronColor": 1,
+                    "id": "rodion2203",
+                  },
                 "score": 20,
               },
               {
@@ -1528,7 +1548,7 @@ value:
               },
               { "user": { "name": "HowToMovePieces", "id": "howtomovepieces" }, "score": 16 },
               { "user": { "name": "PawLew", "flair": "activity.trophy", "id": "pawlew" }, "score": 14 },
-              { "user": { "name": "Artur_O", "flair": "nature.lizard", "id": "artur_o" }, "score": 9 },
+              { "user": { "name": "Artur_O", "flair": "nature.herb", "id": "artur_o" }, "score": 9 },
               { "user": { "name": "Leonidsam", "flair": "travel-places.kick-scooter", "id": "leonidsam" }, "score": 8 },
               { "user": { "name": "kubak5", "id": "kubak5" }, "score": 2 },
               {
@@ -1578,22 +1598,36 @@ value:
                 "user": { "name": "Mark-2013ru", "flair": "smileys.smiling-face-with-horns-blob", "id": "mark-2013ru" },
                 "score": 16,
               },
-              { "user": { "name": "SergiusX", "flair": "activity.soccer-ball", "id": "sergiusx" }, "score": 10 },
-              { "user": { "name": "jhjkjjkjjhjhhG", "id": "jhjkjjkjjhjhhg" }, "score": 10 },
+              {
+                "user": { "name": "SergiusX", "flair": "smileys.smiling-face-with-sunglasses", "id": "sergiusx" },
+                "score": 10,
+              },
+              {
+                "user":
+                  { "name": "jhjkjjkjjhjhhG", "flair": "smileys.grinning-squinting-face-blob", "id": "jhjkjjkjjhjhhg" },
+                "score": 10,
+              },
               {
                 "user": { "name": "NiCOlAy_KuZMin-2013", "flair": "nature.herb", "id": "nicolay_kuzmin-2013" },
                 "score": 8,
               },
               {
-                "user": { "name": "KarimVagapov", "flair": "activity.lichess-mohawk", "id": "karimvagapov" },
+                "user":
+                  {
+                    "name": "KarimVagapov",
+                    "flair": "activity.lichess-horsey",
+                    "patron": true,
+                    "patronColor": 2,
+                    "id": "karimvagapov",
+                  },
                 "score": 6,
               },
               { "user": { "name": "PerfectMove_007", "flair": "nature.herb", "id": "perfectmove_007" }, "score": 5 },
-              { "user": { "name": "Anna_Sid", "flair": "nature.bouquet", "id": "anna_sid" }, "score": 4 },
+              { "user": { "name": "Anna_Sid", "flair": "symbols.heart-on-fire", "id": "anna_sid" }, "score": 4 },
               { "user": { "name": "Chessplayer_77", "id": "chessplayer_77" }, "score": 3 },
               { "user": { "name": "MooNArtik", "flair": "activity.chess", "id": "moonartik" }, "score": 2 },
               { "user": { "name": "Borisov_ignat", "flair": "symbols.customs", "id": "borisov_ignat" }, "score": 2 },
-              { "user": { "name": "MIster204", "flair": "objects.memo", "id": "mister204" }, "score": 2 },
+              { "user": { "name": "MIster204", "flair": "nature.frog", "id": "mister204" }, "score": 2 },
               {
                 "user":
                   {
@@ -1615,7 +1649,7 @@ value:
                 "score": 0,
               },
               {
-                "user": { "name": "DanForever", "flair": "nature.waxing-crescent-moon", "id": "danforever" },
+                "user": { "name": "DanForeveR", "flair": "nature.waxing-crescent-moon", "id": "danforever" },
                 "score": 0,
               },
               { "user": { "name": "RaimondM", "flair": "activity.crystal-ball", "id": "raimondm" }, "score": 0 },
@@ -1623,7 +1657,7 @@ value:
                 "user": { "name": "Alexandr_59", "flair": "activity.lichess-ultrabullet", "id": "alexandr_59" },
                 "score": 0,
               },
-              { "user": { "name": "Matuxa2011", "flair": "people.anatomical-heart", "id": "matuxa2011" }, "score": 0 },
+              { "user": { "name": "Matuxa2011", "flair": "nature.sheaf-of-rice", "id": "matuxa2011" }, "score": 0 },
               { "user": { "name": "Chess2398", "flair": "people.troll", "id": "chess2398" }, "score": 0 },
             ],
         },
@@ -1687,7 +1721,7 @@ value:
                     "name": "DarkOnCrack",
                     "flair": "nature.glowing-star",
                     "patron": true,
-                    "patronColor": 5,
+                    "patronColor": 6,
                     "id": "darkoncrack",
                   },
                 "score": 0,
@@ -1810,11 +1844,7 @@ value:
               { "user": { "name": "vovan_2501", "id": "vovan_2501" }, "score": 2 },
               {
                 "user":
-                  {
-                    "name": "mathiasfranco173",
-                    "flair": "symbols.japanese-symbol-for-beginner",
-                    "id": "mathiasfranco173",
-                  },
+                  { "name": "mathiasfranco173", "flair": "smileys.cat-with-tears-of-joy", "id": "mathiasfranco173" },
                 "score": 0,
               },
               { "user": { "name": "Nicarao3", "id": "nicarao3" }, "score": 0 },
@@ -1861,7 +1891,7 @@ value:
               { "user": { "name": "AnrilFurin", "flair": "activity.chess-pawn", "id": "anrilfurin" }, "score": 31 },
               { "user": { "name": "Leejunyik0204", "id": "leejunyik0204" }, "score": 15 },
               { "user": { "name": "MystikosLogariasmos", "id": "mystikoslogariasmos" }, "score": 13 },
-              { "user": { "name": "ShivenVij", "id": "shivenvij" }, "score": 11 },
+              { "user": { "name": "ShivenVij", "flair": "smileys.cold-face", "id": "shivenvij" }, "score": 11 },
               { "user": { "name": "der-die-das-wieso-w", "id": "der-die-das-wieso-w" }, "score": 6 },
               { "user": { "name": "marbart", "id": "marbart" }, "score": 4 },
               { "user": { "name": "ajzuorif_azerila", "id": "ajzuorif_azerila" }, "score": 3 },
@@ -1976,13 +2006,10 @@ value:
               { "user": { "name": "pik-pok", "flair": "nature.duck", "id": "pik-pok" }, "score": 3 },
               { "user": { "name": "E-Sannikov", "flair": "travel-places.moai", "id": "e-sannikov" }, "score": 2 },
               {
-                "user": { "name": "IvanDmitrievich", "flair": "symbols.move-brilliant", "id": "ivandmitrievich" },
+                "user": { "name": "IvanDmitrievich", "flair": "food-drink.lime", "id": "ivandmitrievich" },
                 "score": 2,
               },
-              {
-                "user": { "name": "chess-is-a-live", "flair": "activity.lichess-berserk", "id": "chess-is-a-live" },
-                "score": 0,
-              },
+              { "user": { "name": "chess-is-a-live", "id": "chess-is-a-live" }, "score": 0 },
               {
                 "user":
                   { "name": "Sergei-Rodchenkov", "title": "IM", "flair": "nature.turtle", "id": "sergei-rodchenkov" },
@@ -2037,7 +2064,7 @@ value:
               { "user": { "name": "Ramoneti2264", "id": "ramoneti2264" }, "score": 8 },
               { "user": { "name": "ZB_Sali", "id": "zb_sali" }, "score": 6 },
               {
-                "user": { "name": "MercantileCircle", "flair": "food-drink.mango", "id": "mercantilecircle" },
+                "user": { "name": "MercantileCircle", "flair": "nature.milky-way", "id": "mercantilecircle" },
                 "score": 3,
               },
               { "user": { "name": "ZB_G", "flair": "symbols.linux-tux-penguin", "id": "zb_g" }, "score": 2 },
@@ -2127,7 +2154,17 @@ value:
                 "user": { "name": "Nikolay_Tupitsyn", "flair": "activity.chess", "id": "nikolay_tupitsyn" },
                 "score": 25,
               },
-              { "user": { "name": "bikych", "flair": "smileys.disguised-face", "id": "bikych" }, "score": 22 },
+              {
+                "user":
+                  {
+                    "name": "bikych",
+                    "flair": "smileys.disguised-face",
+                    "patron": true,
+                    "patronColor": 1,
+                    "id": "bikych",
+                  },
+                "score": 22,
+              },
               { "user": { "name": "Marat1310", "id": "marat1310" }, "score": 17 },
               { "user": { "name": "Mandarin-2014", "id": "mandarin-2014" }, "score": 3 },
               { "user": { "name": "LevTolmachev", "id": "levtolmachev" }, "score": 2 },
@@ -2170,7 +2207,7 @@ value:
           "players":
             [
               { "user": { "name": "marcaf", "flair": "nature.mouse-face", "id": "marcaf" }, "score": 18 },
-              { "user": { "name": "SashaAvet", "id": "sashaavet" }, "score": 16 },
+              { "user": { "name": "SashaAvet", "flair": "travel-places.automobile", "id": "sashaavet" }, "score": 16 },
               { "user": { "name": "moslem70", "id": "moslem70" }, "score": 14 },
               {
                 "user":
@@ -2219,7 +2256,7 @@ value:
                   },
                 "score": 0,
               },
-              { "user": { "name": "BobbySer", "flair": "activity.american-football", "id": "bobbyser" }, "score": 0 },
+              { "user": { "name": "BobbySer", "flair": "nature.shark", "id": "bobbyser" }, "score": 0 },
             ],
         },
         {
@@ -2256,7 +2293,7 @@ value:
                     "name": "Rossolimo65",
                     "flair": "activity.chess-pawn",
                     "patron": true,
-                    "patronColor": 2,
+                    "patronColor": 3,
                     "id": "rossolimo65",
                   },
                 "score": 33,
@@ -2309,7 +2346,7 @@ value:
                   },
                 "score": 8,
               },
-              { "user": { "name": "BigDog2008", "flair": "activity.confetti-ball", "id": "bigdog2008" }, "score": 5 },
+              { "user": { "name": "BigDog2008", "flair": "smileys.distorted-face", "id": "bigdog2008" }, "score": 5 },
               { "user": { "name": "Akashrathi", "flair": "smileys.alien-monster", "id": "akashrathi" }, "score": 4 },
             ],
         },
@@ -2394,7 +2431,10 @@ value:
                 "user": { "name": "VoroninNikita", "flair": "nature.evergreen-tree", "id": "voroninnikita" },
                 "score": 0,
               },
-              { "user": { "name": "Kostya20111102", "flair": "nature.fire", "id": "kostya20111102" }, "score": 0 },
+              {
+                "user": { "name": "Kostya20111102", "flair": "nature.crescent-moon", "id": "kostya20111102" },
+                "score": 0,
+              },
               { "user": { "name": "EsiriToneh", "id": "esiritoneh" }, "score": 0 },
             ],
         },
@@ -2406,19 +2446,13 @@ value:
             [
               {
                 "user":
-                  {
-                    "name": "Nerubatskiy_Kirill",
-                    "flair": "nature.bird",
-                    "patron": true,
-                    "patronColor": 1,
-                    "id": "nerubatskiy_kirill",
-                  },
+                  { "name": "Nerubatskiy_Kirill", "flair": "travel-places.bullet-train", "id": "nerubatskiy_kirill" },
                 "score": 23,
               },
-              { "user": { "name": "Daniil1007", "flair": "nature.ringed-planet", "id": "daniil1007" }, "score": 16 },
+              { "user": { "name": "Daniil1007", "flair": "travel-places.bicycle", "id": "daniil1007" }, "score": 16 },
               { "user": { "name": "bsm16", "flair": "symbols.cross-mark", "id": "bsm16" }, "score": 2 },
               { "user": { "name": "Platonstein", "flair": "people.brain", "id": "platonstein" }, "score": 0 },
-              { "user": { "name": "Ivazina", "id": "ivazina" }, "score": 0 },
+              { "user": { "name": "Ivazina", "flair": "smileys.alien", "id": "ivazina" }, "score": 0 },
               {
                 "user": { "name": "David_Chess2014", "flair": "symbols.move-brilliant", "id": "david_chess2014" },
                 "score": 0,
@@ -2444,7 +2478,7 @@ value:
               { "user": { "name": "amgad777", "id": "amgad777" }, "score": 6 },
               { "user": { "name": "Spitfire_hunter", "id": "spitfire_hunter" }, "score": 4 },
               { "user": { "name": "AbdoAhmedSh", "id": "abdoahmedsh" }, "score": 2 },
-              { "user": { "name": "MqRmI", "flair": "symbols.white-star", "id": "mqrmi" }, "score": 0 },
+              { "user": { "name": "MqRmI", "flair": "symbols.puzzle-storm", "id": "mqrmi" }, "score": 0 },
               { "user": { "name": "mehdizadeh1337", "id": "mehdizadeh1337" }, "score": 0 },
             ],
         },
@@ -2460,7 +2494,7 @@ value:
                     "name": "Witcher_Gerald_Rivia",
                     "flair": "nature.wolf",
                     "patron": true,
-                    "patronColor": 3,
+                    "patronColor": 4,
                     "id": "witcher_gerald_rivia",
                   },
                 "score": 16,
@@ -2538,9 +2572,9 @@ value:
               },
               { "user": { "name": "NUSKNVP1992", "id": "nusknvp1992" }, "score": 2 },
               { "user": { "name": "Szymoneeek13", "id": "szymoneeek13" }, "score": 0 },
-              { "user": { "name": "Syeda_Faiza", "flair": "activity.sparkles", "id": "syeda_faiza" }, "score": 0 },
+              { "user": { "name": "Syeda_Faiza", "flair": "nature.maple-leaf", "id": "syeda_faiza" }, "score": 0 },
               { "user": { "name": "RGNair", "id": "rgnair" }, "score": 0 },
-              { "user": { "name": "SDawud", "flair": "smileys.winking-face-with-tongue", "id": "sdawud" }, "score": 0 },
+              { "user": { "name": "SDawud", "flair": "nature.gorilla", "id": "sdawud" }, "score": 0 },
               { "user": { "name": "rohammoa", "flair": "smileys.skull-and-crossbones", "id": "rohammoa" }, "score": 0 },
               {
                 "user": { "name": "canege_bayrakci", "flair": "activity.lichess-blitz", "id": "canege_bayrakci" },
@@ -2555,7 +2589,10 @@ value:
           "players":
             [
               { "user": { "name": "Semson1", "id": "semson1" }, "score": 18 },
-              { "user": { "name": "igorcool", "flair": "people.person-fencing", "id": "igorcool" }, "score": 11 },
+              {
+                "user": { "name": "igorcool", "flair": "activity.lichess-variant-atomic", "id": "igorcool" },
+                "score": 11,
+              },
               { "user": { "name": "Old_General", "id": "old_general" }, "score": 5 },
               { "user": { "name": "AlvarDev", "id": "alvardev" }, "score": 0 },
             ],
@@ -2573,7 +2610,7 @@ value:
               { "user": { "name": "Rambo_Ramsey", "id": "rambo_ramsey" }, "score": 6 },
               { "user": { "name": "jennson", "id": "jennson" }, "score": 4 },
               { "user": { "name": "DavidWilson1980", "id": "davidwilson1980" }, "score": 2 },
-              { "user": { "name": "STM10", "flair": "smileys.thinking-face", "id": "stm10" }, "score": 0 },
+              { "user": { "name": "STM10", "id": "stm10" }, "score": 0 },
               { "user": { "name": "khswampy", "id": "khswampy" }, "score": 0 },
               {
                 "user": { "name": "English_Chess", "patron": true, "patronColor": 7, "id": "english_chess" },
@@ -2609,7 +2646,7 @@ value:
           "players":
             [
               { "user": { "name": "taoufikbeatsyou", "id": "taoufikbeatsyou" }, "score": 27 },
-              { "user": { "name": "D_A_N_I_Y_A_R", "flair": "nature.honeybee", "id": "d_a_n_i_y_a_r" }, "score": 4 },
+              { "user": { "name": "D_A_N_I_Y_A_R", "flair": "nature.rubber-duck", "id": "d_a_n_i_y_a_r" }, "score": 4 },
               { "user": { "name": "Flagorubik228", "flair": "nature.dolphin", "id": "flagorubik228" }, "score": 0 },
             ],
         },
@@ -2627,7 +2664,7 @@ value:
                 "score": 0,
               },
               { "user": { "name": "PraketPandit", "flair": "nature.comet", "id": "praketpandit" }, "score": 0 },
-              { "user": { "name": "cagan2018", "flair": "symbols.heavy-dollar-sign", "id": "cagan2018" }, "score": 0 },
+              { "user": { "name": "cagan2018", "flair": "objects.crown", "id": "cagan2018" }, "score": 0 },
             ],
         },
         {
@@ -2637,7 +2674,7 @@ value:
           "players":
             [
               {
-                "user": { "name": "abhigyan_a_b", "flair": "smileys.face-with-head-bandage", "id": "abhigyan_a_b" },
+                "user": { "name": "abhigyan_a_b", "flair": "symbols.mending-heart", "id": "abhigyan_a_b" },
                 "score": 24,
               },
               { "user": { "name": "AIM_chessplayer", "id": "aim_chessplayer" }, "score": 6 },
@@ -2656,19 +2693,14 @@ value:
               { "user": { "name": "NimzoIndian55", "id": "nimzoindian55" }, "score": 12 },
               { "user": { "name": "Matermind4216", "id": "matermind4216" }, "score": 8 },
               { "user": { "name": "PrasadVanjale", "id": "prasadvanjale" }, "score": 4 },
-              {
-                "user":
-                  {
-                    "name": "BandariAbhijith13",
-                    "flair": "people.ninja-medium-light-skin-tone",
-                    "id": "bandariabhijith13",
-                  },
-                "score": 2,
-              },
-              { "user": { "name": "Luca661", "flair": "nature.eagle", "id": "luca661" }, "score": 2 },
+              { "user": { "name": "BandariAbhijith13", "id": "bandariabhijith13" }, "score": 2 },
+              { "user": { "name": "Luca661", "flair": "nature.horse", "id": "luca661" }, "score": 2 },
               { "user": { "name": "yuvrajmagnusgoats", "id": "yuvrajmagnusgoats" }, "score": 0 },
-              { "user": { "name": "jenish1609", "flair": "nature.lobster", "id": "jenish1609" }, "score": 0 },
-              { "user": { "name": "mikayilux", "id": "mikayilux" }, "score": 0 },
+              { "user": { "name": "jenish1609", "flair": "objects.crown", "id": "jenish1609" }, "score": 0 },
+              {
+                "user": { "name": "Mikayilux", "flair": "smileys.winking-face-with-tongue", "id": "mikayilux" },
+                "score": 0,
+              },
               { "user": { "name": "finchrulez", "flair": "smileys.partying-face", "id": "finchrulez" }, "score": 0 },
               { "user": { "name": "SAkhadijahHH", "id": "sakhadijahhh" }, "score": 0 },
             ],
@@ -2723,7 +2755,7 @@ value:
           "rank": 105,
           "id": "gorinko_fan_team",
           "score": 22,
-          "players": [{ "user": { "name": "MAMAAA", "flair": "people.call-me-hand", "id": "mamaaa" }, "score": 22 }],
+          "players": [{ "user": { "name": "MAMAAA", "flair": "smileys.sneezing-face", "id": "mamaaa" }, "score": 22 }],
         },
         {
           "rank": 106,
@@ -2817,7 +2849,7 @@ value:
               { "user": { "name": "Tklormat7", "id": "tklormat7" }, "score": 15 },
               { "user": { "name": "SMiik2", "flair": "activity.lichess-rapid", "id": "smiik2" }, "score": 2 },
               {
-                "user": { "name": "Checkmate_Drifters", "flair": "objects.muted-speaker", "id": "checkmate_drifters" },
+                "user": { "name": "Checkmate_Drifters", "flair": "objects.computer-mouse", "id": "checkmate_drifters" },
                 "score": 0,
               },
               {
@@ -2895,7 +2927,7 @@ value:
                 "score": 12,
               },
               { "user": { "name": "CHESSBOY2025", "flair": "nature.new-moon", "id": "chessboy2025" }, "score": 0 },
-              { "user": { "name": "aZime003", "flair": "smileys.ghost", "id": "azime003" }, "score": 0 },
+              { "user": { "name": "aZime003", "id": "azime003" }, "score": 0 },
             ],
         },
         {
@@ -2914,7 +2946,7 @@ value:
           "rank": 120,
           "id": "magic-champions",
           "score": 11,
-          "players": [{ "user": { "name": "Sasha0", "flair": "objects.watch", "id": "sasha0" }, "score": 11 }],
+          "players": [{ "user": { "name": "Sasha0", "flair": "symbols.gnu-logo", "id": "sasha0" }, "score": 11 }],
         },
         {
           "rank": 121,
@@ -2928,7 +2960,7 @@ value:
                   { "name": "antiMAGNUSS", "flair": "people.index-pointing-up-light-skin-tone", "id": "antimagnuss" },
                 "score": 0,
               },
-              { "user": { "name": "BlAcKcAt888", "flair": "nature.cloud-with-snow", "id": "blackcat888" }, "score": 0 },
+              { "user": { "name": "BlAcKcAt888", "flair": "smileys.smirking-face", "id": "blackcat888" }, "score": 0 },
             ],
         },
         {
@@ -2976,7 +3008,7 @@ value:
                     "name": "astroy-jo",
                     "flair": "activity.lichess-blitz",
                     "patron": true,
-                    "patronColor": 6,
+                    "patronColor": 1,
                     "id": "astroy-jo",
                   },
                 "score": 0,
@@ -2995,7 +3027,12 @@ value:
             [
               { "user": { "name": "Z919", "id": "z919" }, "score": 6 },
               {
-                "user": { "name": "End_Game_Flame", "flair": "travel-places.wooden-ship", "id": "end_game_flame" },
+                "user":
+                  {
+                    "name": "End_Game_Flame",
+                    "flair": "smileys.face-with-crossed-out-eyes-blob",
+                    "id": "end_game_flame",
+                  },
                 "score": 0,
               },
             ],
@@ -3021,10 +3058,7 @@ value:
             [
               { "user": { "name": "Gojo11", "flair": "activity.chess-pawn", "id": "gojo11" }, "score": 2 },
               { "user": { "name": "EmaniJoshua", "id": "emanijoshua" }, "score": 2 },
-              {
-                "user": { "name": "StMichael1", "flair": "people.ninja-medium-dark-skin-tone", "id": "stmichael1" },
-                "score": 0,
-              },
+              { "user": { "name": "StMichael1", "id": "stmichael1" }, "score": 0 },
               { "user": { "name": "GokuIsBest1", "flair": "nature.high-voltage", "id": "gokuisbest1" }, "score": 0 },
               {
                 "user": { "name": "CHESS_LEGEND_PRO", "flair": "travel-places.automobile", "id": "chess_legend_pro" },
@@ -3034,9 +3068,9 @@ value:
                 "user":
                   {
                     "name": "ChessClassic_555",
-                    "flair": "symbols.python-logo",
+                    "flair": "activity.lichess-berserk",
                     "patron": true,
-                    "patronColor": 4,
+                    "patronColor": 5,
                     "id": "chessclassic_555",
                   },
                 "score": 0,
@@ -3045,14 +3079,34 @@ value:
               { "user": { "name": "IWILLZERK", "flair": "activity.lichess-berserk", "id": "iwillzerk" }, "score": 0 },
               { "user": { "name": "didiWilliam", "flair": "nature.whale", "id": "didiwilliam" }, "score": 0 },
               {
-                "user": { "name": "Nikitosik1708", "flair": "smileys.disguised-face", "id": "nikitosik1708" },
+                "user":
+                  {
+                    "name": "Nikitosik1708",
+                    "flair": "activity.shogi-bigsby",
+                    "patron": true,
+                    "patronColor": 3,
+                    "id": "nikitosik1708",
+                  },
                 "score": 0,
               },
               { "user": { "name": "So_Amazing", "flair": "activity.lichess-berserk", "id": "so_amazing" }, "score": 0 },
-              { "user": { "name": "Stamatis3", "flair": "symbols.multiply", "id": "stamatis3" }, "score": 0 },
+              {
+                "user": { "name": "Stamatis3", "flair": "people.ninja-medium-skin-tone", "id": "stamatis3" },
+                "score": 0,
+              },
               { "user": { "name": "LaKmindi", "flair": "objects.headphone", "id": "lakmindi" }, "score": 0 },
               { "user": { "name": "whaleTee", "flair": "activity.lichess-berserk", "id": "whaletee" }, "score": 0 },
-              { "user": { "name": "mrkn2011", "flair": "activity.lichess-berserk", "id": "mrkn2011" }, "score": 0 },
+              {
+                "user":
+                  {
+                    "name": "mrkn2011",
+                    "flair": "activity.lichess-blitz",
+                    "patron": true,
+                    "patronColor": 3,
+                    "id": "mrkn2011",
+                  },
+                "score": 0,
+              },
               { "user": { "name": "rabia-a", "flair": "nature.butterfly", "id": "rabia-a" }, "score": 0 },
             ],
         },
@@ -3154,7 +3208,7 @@ value:
                 "user": { "name": "Danilka_2016", "flair": "smileys.angry-face-with-horns", "id": "danilka_2016" },
                 "score": 3,
               },
-              { "user": { "name": "Valera2025", "flair": "nature.xmas-tree", "id": "valera2025" }, "score": 0 },
+              { "user": { "name": "Valera2025", "flair": "symbols.python-logo", "id": "valera2025" }, "score": 0 },
             ],
         },
         {
@@ -3186,8 +3240,8 @@ value:
           "score": 2,
           "players":
             [
-              { "user": { "name": "Andraska", "flair": "activity.lichess-rapid", "id": "andraska" }, "score": 2 },
-              { "user": { "name": "kombinator02", "flair": "symbols.zzz", "id": "kombinator02" }, "score": 0 },
+              { "user": { "name": "Andraska", "flair": "activity.lichess-ultrabullet", "id": "andraska" }, "score": 2 },
+              { "user": { "name": "kombinator02", "flair": "people.flexed-biceps", "id": "kombinator02" }, "score": 0 },
               { "user": { "name": "Shach_i_mat17", "flair": "activity.chess", "id": "shach_i_mat17" }, "score": 0 },
               { "user": { "name": "Dimatarasov22012014", "id": "dimatarasov22012014" }, "score": 0 },
             ],
@@ -3227,7 +3281,13 @@ value:
             [
               {
                 "user":
-                  { "name": "WildWizard", "flair": "nature.fox", "patron": true, "patronColor": 2, "id": "wildwizard" },
+                  {
+                    "name": "WildWizard",
+                    "flair": "nature.baby-chick",
+                    "patron": true,
+                    "patronColor": 4,
+                    "id": "wildwizard",
+                  },
                 "score": 2,
               },
               { "user": { "name": "srinikamathur", "id": "srinikamathur" }, "score": 0 },
@@ -3248,11 +3308,7 @@ value:
             [
               {
                 "user":
-                  {
-                    "name": "LittleChessFriend",
-                    "flair": "smileys.face-with-diagonal-mouth",
-                    "id": "littlechessfriend",
-                  },
+                  { "name": "LittleChessFriend", "flair": "people.ninja-dark-skin-tone", "id": "littlechessfriend" },
                 "score": 2,
               },
             ],
@@ -3302,7 +3358,7 @@ value:
                 "user": { "name": "i_Am_An_Unknown_Play", "flair": "nature.shark", "id": "i_am_an_unknown_play" },
                 "score": 0,
               },
-              { "user": { "name": "kkaleks", "flair": "objects.xmas-hat", "id": "kkaleks" }, "score": 0 },
+              { "user": { "name": "kkaleks", "flair": "objects.hammer", "id": "kkaleks" }, "score": 0 },
               { "user": { "name": "akguru", "flair": "objects.crown", "id": "akguru" }, "score": 0 },
             ],
         },
@@ -3328,9 +3384,9 @@ value:
                 "user":
                   {
                     "name": "vjc06",
-                    "flair": "symbols.heart-on-fire",
+                    "flair": "activity.crystal-ball",
                     "patron": true,
-                    "patronColor": 4,
+                    "patronColor": 5,
                     "id": "vjc06",
                   },
                 "score": 0,
@@ -3371,7 +3427,17 @@ value:
                 "user": { "name": "Mystery_chessgame", "flair": "activity.lichess-blitz", "id": "mystery_chessgame" },
                 "score": 0,
               },
-              { "user": { "name": "PumucklGerman", "flair": "nature.wing", "id": "pumucklgerman" }, "score": 0 },
+              {
+                "user":
+                  {
+                    "name": "PumucklGerman",
+                    "flair": "activity.trophy",
+                    "patron": true,
+                    "patronColor": 1,
+                    "id": "pumucklgerman",
+                  },
+                "score": 0,
+              },
             ],
         },
         {
@@ -3381,7 +3447,10 @@ value:
           "players":
             [
               { "user": { "name": "EnormousZebra", "id": "enormouszebra" }, "score": 0 },
-              { "user": { "name": "TraveledKnight", "flair": "symbols.wireless", "id": "traveledknight" }, "score": 0 },
+              {
+                "user": { "name": "TraveledKnight", "flair": "symbols.linux-tux-penguin", "id": "traveledknight" },
+                "score": 0,
+              },
             ],
         },
         {
@@ -3431,7 +3500,7 @@ value:
           "players":
             [
               {
-                "user": { "name": "Adithyaedayillam", "flair": "symbols.heart-on-fire", "id": "adithyaedayillam" },
+                "user": { "name": "Adithyaedayillam", "flair": "nature.glowing-star", "id": "adithyaedayillam" },
                 "score": 0,
               },
               { "user": { "name": "writersblock19", "id": "writersblock19" }, "score": 0 },
@@ -3462,7 +3531,7 @@ value:
                     "name": "falconf7",
                     "flair": "objects.crossed-swords",
                     "patron": true,
-                    "patronColor": 4,
+                    "patronColor": 5,
                     "id": "falconf7",
                   },
                 "score": 0,
@@ -3551,7 +3620,7 @@ value:
           "id": "------chess-is-for-those-who-love-it",
           "score": 0,
           "players":
-            [{ "user": { "name": "Mr_Gri17", "flair": "activity.soccer-ball", "id": "mr_gri17" }, "score": 0 }],
+            [{ "user": { "name": "Mr_Gri17", "flair": "smileys.distorted-face", "id": "mr_gri17" }, "score": 0 }],
         },
         {
           "rank": 170,

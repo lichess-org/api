@@ -1,5 +1,5 @@
 value:
   [
-    { "name": "Mary", "flair": "objects.chart-increasing", "id": "mary" },
-    { "name": "Ana", "title": "WNM", "flair": "symbols.customs", "id": "ana" },
+    { "name": "Mary", "flair": "people.open-hands-medium-light-skin-tone", "id": "mary" },
+    { "name": "Ana", "title": "WCM", "flair": "smileys.downcast-face-with-sweat", "id": "ana" },
   ]

@@ -6,11 +6,12 @@ value:
     "games":
       [
         {
-          "round": "9PSd6Vxw",
-          "id": "YLhuyHjJ",
+          "round": "0JjIup0K",
+          "id": "uHRiHXFM",
           "opponent": { "name": "Player 2", "fideId": 456 },
           "color": "white",
           "fideTC": "standard",
+          "ongoing": true,
         },
       ],
   }

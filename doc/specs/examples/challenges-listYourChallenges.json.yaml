@@ -3,18 +3,18 @@ value:
     "in":
       [
         {
-          "id": "AotqW5NB",
-          "url": "https://lichess.org/AotqW5NB",
+          "id": "0y3rsNn7",
+          "url": "https://lichess.org/0y3rsNn7",
           "status": "created",
-          "challenger":
-            { "name": "Bobby", "flair": "people.man-vampire-medium-skin-tone", "id": "bobby", "rating": 1814 },
-          "destUser": { "name": "Mary", "flair": "objects.chart-increasing", "id": "mary", "rating": 944 },
+          "challenger": { "name": "Bobby", "id": "bobby", "rating": 1804 },
+          "destUser":
+            { "name": "Mary", "flair": "people.open-hands-medium-light-skin-tone", "id": "mary", "rating": 1083 },
           "variant": { "key": "standard", "name": "Standard", "short": "Std" },
           "rated": false,
           "speed": "correspondence",
           "timeControl": { "type": "unlimited" },
           "color": "random",
-          "finalColor": "white",
+          "finalColor": "black",
           "perf": { "icon": "", "name": "Correspondence" },
           "direction": "in",
         },

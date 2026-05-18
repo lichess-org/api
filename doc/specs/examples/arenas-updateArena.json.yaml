@@ -2,11 +2,11 @@ value:
   {
     "nbPlayers": 0,
     "duels": [],
-    "secondsToStart": 300,
+    "secondsToStart": 299,
     "standing": { "page": 1, "players": [] },
-    "id": "sIKqCAX3",
+    "id": "M0uoSoAf",
     "createdBy": "bobby",
-    "startsAt": "2026-02-08T19:33:45.378Z",
+    "startsAt": "2026-05-15T02:41:38.914Z",
     "system": "arena",
     "fullName": "Updated Arena Arena",
     "minutes": 60,
@@ -16,6 +16,10 @@ value:
     "rated": true,
     "berserkable": true,
     "verdicts": { "list": [{ "condition": "Bot players are not allowed", "verdict": "ok" }], "accepted": true },
-    "quote": { "text": "Chess is my life.", "author": "Viktor Korchnoi" },
+    "quote":
+      {
+        "text": "For me right now I think being the world number one is a bigger deal than being the world champion because I think it shows better who plays the best chess. That sounds self-serving but I think it's also right. (2012)",
+        "author": "Magnus Carlsen",
+      },
     "myUsername": "Bobby",
   }
