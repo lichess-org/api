@@ -185,7 +185,7 @@ get:
             type: string
             default: "'*'"
       content:
-        application/json:
+        application/x-ndjson:
           schema:
             oneOf:
               - $ref: "../../schemas/GamePgn.yaml"
@@ -193,5 +193,5 @@ get:
           examples:
             application/x-chess-pgn:
               $ref: "../../examples/games-apiGamesUserPgn.pgn.yaml"
-            application/json:
+            application/x-ndjson:
               $ref: "../../examples/games-apiGamesUserJson.json.yaml"
