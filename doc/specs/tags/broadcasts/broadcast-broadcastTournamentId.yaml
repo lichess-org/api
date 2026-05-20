@@ -23,7 +23,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../../schemas/BroadcastWithRounds.yaml"
+            $ref: "../../schemas/BroadcastWithRoundsAndFullGroup.yaml"
           examples:
             default:
               $ref: "../../examples/broadcasts-getBroadcastTournament.json.yaml"

@@ -4,7 +4,7 @@ properties:
   tour:
     $ref: "./BroadcastTour.yaml"
   group:
-    type: string
+    $ref: "./BroadcastGroup.yaml"
   rounds:
     type: array
     items:
