@@ -6065,18 +6065,6 @@ export interface components {
       url: string;
       communityOwner?: components["schemas"]["LightUser"];
     };
-    BroadcastGroupTour: {
-      id: string;
-      name: string;
-      active: boolean;
-      live: boolean;
-    };
-    BroadcastGroup: {
-      id: string;
-      slug: string;
-      name: string;
-      tours: components["schemas"]["BroadcastGroupTour"][];
-    };
     BroadcastCustomPoints: number;
     BroadcastCustomPointsPerColor: {
       win: components["schemas"]["BroadcastCustomPoints"];
@@ -6122,7 +6110,7 @@ export interface components {
     };
     BroadcastWithRounds: {
       tour: components["schemas"]["BroadcastTour"];
-      group?: components["schemas"]["BroadcastGroup"];
+      group?: string;
       rounds: components["schemas"]["BroadcastRoundInfo"][];
       defaultRoundId?: string;
       photos?: components["schemas"]["BroadcastPhotos"];
@@ -6317,6 +6305,25 @@ export interface components {
        */
       tier?: 3 | 4 | 5;
       "tiebreaks[]"?: components["schemas"]["BroadcastTiebreakExtendedCode"][];
+    };
+    BroadcastGroupTour: {
+      id: string;
+      name: string;
+      active: boolean;
+      live: boolean;
+    };
+    BroadcastGroup: {
+      id: string;
+      slug: string;
+      name: string;
+      tours: components["schemas"]["BroadcastGroupTour"][];
+    };
+    BroadcastWithRoundsAndFullGroup: {
+      tour: components["schemas"]["BroadcastTour"];
+      group?: components["schemas"]["BroadcastGroup"];
+      rounds: components["schemas"]["BroadcastRoundInfo"][];
+      defaultRoundId?: string;
+      photos?: components["schemas"]["BroadcastPhotos"];
     };
     BroadcastPlayerWithFed: {
       /** @example Hernandez Riera, Jose */
@@ -11597,7 +11604,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["BroadcastWithRounds"];
+          "application/json": components["schemas"]["BroadcastWithRoundsAndFullGroup"];
         };
       };
     };
