@@ -20,37 +20,7 @@ properties:
     maxItems: 2
     example: [1722169800000, 1722666600000]
   info:
-    type: object
-    description: "Additional display information about the tournament"
-    properties:
-      website:
-        type: string
-        format: uri
-        description: "Official website. External website URL"
-      players:
-        type: string
-        description: "Featured players"
-      location:
-        type: string
-        description: "Tournament location"
-      tc:
-        type: string
-        description: "Time control"
-      fideTC:
-        description: "FIDE rating category"
-        $ref: "./FideTimeControl.yaml"
-      timeZone:
-        type: string
-        description: |
-          Timezone of the tournament. Example: `America/New_York`.
-          See [list of possible timezone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more.
-      standings:
-        type: string
-        format: uri
-        description: "Official standings website. External website URL"
-      format:
-        type: string
-        description: "Tournament format"
+    $ref: "./BroadcastTourInfo.yaml"
   tier:
     type: integer
     description: "Used to designate featured tournaments on Lichess"

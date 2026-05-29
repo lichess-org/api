@@ -1,0 +1,39 @@
+type: object
+description: "Additional display information about the tournament"
+properties:
+  format:
+    type: string
+    maxLength: 80
+    description: |
+      Tournament format.
+      Example: `"8-player round-robin" or "5-round Swiss"`
+  tc:
+    type: string
+    description: |
+      Time control.
+      Example: `"Classical" or "Rapid" or "Rapid & Blitz"`
+  fideTC:
+    $ref: "./FideTimeControl.yaml"
+  timeZone:
+    type: string
+    description: |
+      Timezone of the tournament. Example: `America/New_York`.
+      See [list of possible timezone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more.
+  location:
+    type: string
+    maxLength: 80
+    description: "Tournament location"
+  players:
+    type: string
+    maxLength: 120
+    description: |
+      Mentioning up to 4 of the best players participating.
+  website:
+    type: string
+    format: uri
+    description: Official website. External website URL
+  standings:
+    type: string
+    format: uri
+    description: |
+      Official standings website. External website URL, e.g. chess-results.com, info64.org

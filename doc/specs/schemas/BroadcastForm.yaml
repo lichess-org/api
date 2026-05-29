@@ -8,45 +8,8 @@ properties:
       Name of the broadcast tournament.
 
       Example: `Sinquefield Cup`
-  info.format:
-    type: string
-    maxLength: 80
-    description: |
-      Tournament format.
-      Example: `"8-player round-robin" or "5-round Swiss"`
-  info.location:
-    type: string
-    maxLength: 80
-    description: |
-      Tournament Location
-  info.tc:
-    type: string
-    maxLength: 80
-    description: |
-      Time control.
-      Example: `"Classical" or "Rapid" or "Rapid & Blitz"`
-  info.fideTC:
-    $ref: "./FideTimeControl.yaml"
-  info.timeZone:
-    type: string
-    description: |
-      Timezone of the tournament. Example: `America/New_York`.
-      See [list of possible timezone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more.
-  info.players:
-    type: string
-    maxLength: 120
-    description: |
-      Mention up to 4 of the best players participating.
-  info.website:
-    type: string
-    format: uri
-    description: |
-      Official website. External website URL
-  info.standings:
-    type: string
-    format: uri
-    description: |
-      Official Standings. External website URL, e.g. chess-results.com, info64.org
+  info:
+    $ref: "./BroadcastTourInfo.yaml"
   markdown:
     type: string
     maxLength: 20000
