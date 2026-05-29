@@ -101,11 +101,38 @@ properties:
       * `3` for Official: normal tier
       * `4` for Official: high tier
       * `5` for Official: best tier
-  tiebreaks[]:
+  tiebreaks:
     type: array
     maxItems: 5
     items:
       $ref: "./BroadcastTiebreakExtendedCode.yaml"
+  grouping:
+    type: object
+    description: |
+      Group this broadcast along with others
+    properties:
+      info:
+        type: object
+        properties:
+          name:
+            type: string
+            description: Name of the group
+            example: "Chess Olympiad | Open"
+          tours:
+            type: string
+            description: |
+              A comma separated list of tournament IDs to group together.
+            example: wYigbpXq,M5YHvpOX,q6ezoCXP
+      scoreGroups:
+        type: array
+        maxItems: 10
+        items:
+          type: string
+          description: |
+            A comma separated list of tournament IDs to group together for scoring purposes
+            Cannot overlap with other score groups.
+            Can only use groups mentioned in `info.tours`.
+          example: wYigbpXq,M5YHvpOX
 
 required:
   - name
