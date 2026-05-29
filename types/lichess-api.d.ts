@@ -6011,6 +6011,44 @@ export interface components {
      * @enum {string}
      */
     FideTimeControl: "standard" | "rapid" | "blitz";
+    /** @description Additional display information about the tournament */
+    BroadcastTourInfo: {
+      /**
+       * @description Tournament format.
+       *     Example: `"8-player round-robin" or "5-round Swiss"`
+       */
+      format?: string;
+      /**
+       * @description Time control.
+       *     Example: `"Classical" or "Rapid" or "Rapid & Blitz"`
+       */
+      tc?: string;
+      fideTC?: components["schemas"]["FideTimeControl"];
+      /**
+       * @description Timezone of the tournament. Example: `America/New_York`.
+       *     See [list of possible timezone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more.
+       */
+      timeZone?: string;
+      /** @description Tournament location */
+      location?: string;
+      /** @description Mentioning up to 4 of the best players participating. */
+      players?: string;
+      /**
+       * Format: uri
+       * @description Official website. External website URL
+       */
+      website?: string;
+      /**
+       * Format: uri
+       * @description Official standings website. External website URL, e.g. chess-results.com, info64.org
+       */
+      standings?: string;
+      /**
+       * Format: uri
+       * @description External URL to the official tournament regulations.
+       */
+      regulations?: string;
+    };
     BroadcastTour: {
       id: string;
       name: string;
@@ -6025,34 +6063,7 @@ export interface components {
        *     ]
        */
       dates?: number[];
-      /** @description Additional display information about the tournament */
-      info?: {
-        /**
-         * Format: uri
-         * @description Official website. External website URL
-         */
-        website?: string;
-        /** @description Featured players */
-        players?: string;
-        /** @description Tournament location */
-        location?: string;
-        /** @description Time control */
-        tc?: string;
-        /** @description FIDE rating category */
-        fideTC?: components["schemas"]["FideTimeControl"];
-        /**
-         * @description Timezone of the tournament. Example: `America/New_York`.
-         *     See [list of possible timezone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more.
-         */
-        timeZone?: string;
-        /**
-         * Format: uri
-         * @description Official standings website. External website URL
-         */
-        standings?: string;
-        /** @description Tournament format */
-        format?: string;
-      };
+      info?: components["schemas"]["BroadcastTourInfo"];
       /** @description Used to designate featured tournaments on Lichess */
       tier?: number;
       /** Format: uri */
@@ -6186,36 +6197,7 @@ export interface components {
        *     Example: `Sinquefield Cup`
        */
       name: string;
-      /**
-       * @description Tournament format.
-       *     Example: `"8-player round-robin" or "5-round Swiss"`
-       */
-      "info.format"?: string;
-      /** @description Tournament Location */
-      "info.location"?: string;
-      /**
-       * @description Time control.
-       *     Example: `"Classical" or "Rapid" or "Rapid & Blitz"`
-       */
-      "info.tc"?: string;
-      "info.fideTC"?: components["schemas"]["FideTimeControl"];
-      /**
-       * @description Timezone of the tournament. Example: `America/New_York`.
-       *     See [list of possible timezone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more.
-       */
-      "info.timeZone"?: string;
-      /** @description Mention up to 4 of the best players participating. */
-      "info.players"?: string;
-      /**
-       * Format: uri
-       * @description Official website. External website URL
-       */
-      "info.website"?: string;
-      /**
-       * Format: uri
-       * @description Official Standings. External website URL, e.g. chess-results.com, info64.org
-       */
-      "info.standings"?: string;
+      info?: components["schemas"]["BroadcastTourInfo"];
       /** @description Optional long description of the broadcast. Markdown is supported. */
       markdown?: string;
       /**
@@ -6304,7 +6286,23 @@ export interface components {
        * @enum {integer}
        */
       tier?: 3 | 4 | 5;
-      "tiebreaks[]"?: components["schemas"]["BroadcastTiebreakExtendedCode"][];
+      tiebreaks?: components["schemas"]["BroadcastTiebreakExtendedCode"][];
+      /** @description Group this broadcast along with others */
+      grouping?: {
+        info?: {
+          /**
+           * @description Name of the group
+           * @example Chess Olympiad | Open
+           */
+          name?: string;
+          /**
+           * @description A comma separated list of tournament IDs to group together.
+           * @example wYigbpXq,M5YHvpOX,q6ezoCXP
+           */
+          tours?: string;
+        };
+        scoreGroups?: string[];
+      };
     };
     BroadcastGroupTour: {
       id: string;
