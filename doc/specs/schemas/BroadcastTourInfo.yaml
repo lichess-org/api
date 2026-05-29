@@ -37,3 +37,8 @@ properties:
     format: uri
     description: |
       Official standings website. External website URL, e.g. chess-results.com, info64.org
+  regulations:
+    type: string
+    format: uri
+    description: |
+      External URL to the official tournament regulations.
