@@ -179,6 +179,10 @@ allOf:
         description: "Whether the round is used when calculating players' rating changes."
       customScoring:
         $ref: "./BroadcastCustomScoring.yaml"
+      teamCustomScoring:
+        description: |
+          Scoring overrides for a team match win or draw.
+        $ref: "./BroadcastCustomPointsPerColor.yaml"
       period:
         type: integer
         description: |
