@@ -6567,10 +6567,9 @@ export interface components {
        * @default true
        */
       rated?: boolean;
-      "customScoring.white.win"?: components["schemas"]["BroadcastCustomPoints"];
-      "customScoring.white.draw"?: components["schemas"]["BroadcastCustomPoints"];
-      "customScoring.black.win"?: components["schemas"]["BroadcastCustomPoints"];
-      "customScoring.black.draw"?: components["schemas"]["BroadcastCustomPoints"];
+      customScoring?: components["schemas"]["BroadcastCustomScoring"];
+      /** @description Scoring overrides for a team match win or draw. */
+      teamCustomScoring?: components["schemas"]["BroadcastCustomPointsPerColor"];
       /** @description (Only for Admins) Waiting time for each poll. */
       period?: number;
     };
