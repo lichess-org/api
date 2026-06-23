@@ -8963,6 +8963,9 @@ export interface operations {
         };
         content: {
           "application/json": {
+            /** @description Number of games where it is my turn to play */
+            nbMyTurn: number;
+            /** @description Games I'm currently playing */
             nowPlaying: {
               fullId: string;
               gameId: string;
