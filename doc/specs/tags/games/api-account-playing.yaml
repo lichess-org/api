@@ -32,9 +32,14 @@ get:
             type: object
             required:
               - nowPlaying
+              - nbMyTurn
             properties:
+              nbMyTurn:
+                type: integer
+                description: Number of games where it is my turn to play
               nowPlaying:
                 type: array
+                description: Games I'm currently playing
                 items:
                   type: object
                   required:
@@ -107,6 +112,7 @@ get:
                       type: integer
             example:
               {
+                "nbMyTurn": 1,
                 "nowPlaying":
                   [
                     {
@@ -117,7 +123,12 @@ get:
                       "hasMoved": true,
                       "isMyTurn": false,
                       "lastMove": "b8c6",
-                      "opponent": { "id": "philippe", "rating": 1790, "username": "Philippe" },
+                      "opponent":
+                        {
+                          "id": "philippe",
+                          "rating": 1790,
+                          "username": "Philippe",
+                        },
                       "perf": "correspondence",
                       "rated": false,
                       "secondsLeft": 1209600,
