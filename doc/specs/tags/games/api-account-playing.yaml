@@ -123,12 +123,7 @@ get:
                       "hasMoved": true,
                       "isMyTurn": false,
                       "lastMove": "b8c6",
-                      "opponent":
-                        {
-                          "id": "philippe",
-                          "rating": 1790,
-                          "username": "Philippe",
-                        },
+                      "opponent": { "id": "philippe", "rating": 1790, "username": "Philippe" },
                       "perf": "correspondence",
                       "rated": false,
                       "secondsLeft": 1209600,
