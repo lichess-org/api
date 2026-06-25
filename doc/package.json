@@ -5,14 +5,14 @@
   "type": "module",
   "packageManager": "pnpm@10.33.4+sha512.1c67b3b359b2d408119ba1ed289f34b8fc3c6873412bec6fd264fbdc82489e510fcbecb9ce9d22dae7f3b76269d8441046014bdca53b9979cd7a561ad631b800",
   "devDependencies": {
-    "@redocly/cli": "^2.32.2",
-    "@scalar/api-reference": "^1.59.3",
+    "@redocly/cli": "^2.34.0",
+    "@scalar/api-reference": "^1.61.0",
     "@scalar/cli": "^2.0.0",
     "@stoplight/spectral-cli": "^6.16.0",
     "@stoplight/spectral-rulesets": "1.22.2",
     "prettier": "^3.8.4",
     "typescript": "^6.0.3",
-    "vite": "^7.3.5",
+    "vite": "^7.3.6",
     "vite-plugin-restart": "^2.0.0"
   },
   "scripts": {
