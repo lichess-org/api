@@ -537,6 +537,9 @@ paths:
   /api/stream/broadcast/round/{broadcastRoundId}.pgn:
     $ref: "./tags/broadcasts/api-stream-broadcast-round-broadcastRoundId-pgn.yaml"
 
+  /api/stream/broadcast/group/{broadcastGroupId}.pgn:
+    $ref: "./tags/broadcasts/api-stream-broadcast-group-broadcastGroupId-pgn.yaml"
+
   /api/broadcast/round/{broadcastRoundId}.pgn:
     $ref: "./tags/broadcasts/api-broadcast-round-broadcastRoundId-pgn.yaml"
 
