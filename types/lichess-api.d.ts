@@ -1959,6 +1959,31 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/api/stream/broadcast/group/{broadcastGroupId}.pgn": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Stream ongoing broadcast rounds of a group as PGN
+     * @description For a given broadcast group ([example](https://lichess.org/broadcast/fide-world-cadets-cup-2026/albQx5zq)),
+     *     selects all the ongoing and recently finished rounds, and sends all games of these rounds in PGN format.
+     *     Then, it waits for new moves to be played. As soon as it happens, the entire PGN of the game is sent to the stream.
+     *     The stream will also send PGNs when games are added to the rounds.
+     *     This is the best way to get updates about an ongoing broadcast with multiple concurrent rounds.
+     *     To stream a single round, use [this endpoint instead](#tag/broadcasts/GET/api/stream/broadcast/round/{broadcastRoundId}.pgn).
+     */
+    get: operations["broadcastStreamRoundPgn"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/api/broadcast/round/{broadcastRoundId}.pgn": {
     parameters: {
       query?: never;
@@ -11932,6 +11957,45 @@ export interface operations {
     requestBody?: never;
     responses: {
       /** @description The PGN representation of the round games, then the PGNs of games as they are updated. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": components["schemas"]["StudyPgn"];
+        };
+      };
+    };
+  };
+  broadcastStreamRoundPgn: {
+    parameters: {
+      query?: {
+        /**
+         * @description Include clock comments in the PGN moves, when available.
+         *     Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         */
+        clocks?: boolean;
+        /**
+         * @description Include analysis comments in the PGN moves, when available.
+         *     Example: `12. Bxf6 { [%eval 0.23] }`
+         */
+        comments?: boolean;
+      };
+      header?: never;
+      path: {
+        /**
+         * @description The broadcast group ID. It's the last past of the group URL, which can be found on the broadcast page overview section.
+         *     [Example](https://lichess.org/broadcast/fide-world-cadets-cup-2026-o12/round-9/FUQFT39K) the group URL is
+         *     https://lichess.org/broadcast/fide-world-cadets-cup-2026/albQx5zq and therefore the group ID is `albQx5zq`.
+         */
+        broadcastGroupId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The PGN representation of the rounds games, then the PGNs of games as they are updated. */
       200: {
         headers: {
           "Access-Control-Allow-Origin"?: string;
