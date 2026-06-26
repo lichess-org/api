@@ -1,5 +1,5 @@
 get:
-  operationId: broadcastStreamRoundPgn
+  operationId: broadcastStreamGroupPgn
   summary: Stream ongoing broadcast rounds of a group as PGN
   description: |
     For a given broadcast group ([example](https://lichess.org/broadcast/fide-world-cadets-cup-2026/albQx5zq)),
