@@ -1975,7 +1975,7 @@ export interface paths {
      *     This is the best way to get updates about an ongoing broadcast with multiple concurrent rounds.
      *     To stream a single round, use [this endpoint instead](#tag/broadcasts/GET/api/stream/broadcast/round/{broadcastRoundId}.pgn).
      */
-    get: operations["broadcastStreamRoundPgn"];
+    get: operations["broadcastStreamGroupPgn"];
     put?: never;
     post?: never;
     delete?: never;
@@ -11968,7 +11968,7 @@ export interface operations {
       };
     };
   };
-  broadcastStreamRoundPgn: {
+  broadcastStreamGroupPgn: {
     parameters: {
       query?: {
         /**
