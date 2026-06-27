@@ -38,10 +38,20 @@ properties:
     type: array
     items:
       $ref: "./GameMoveAnalysis.yaml"
-  tournament:
-    type: string
-  swiss:
-    type: string
+  arenaTour:
+    description: The arena tournament the game is from
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+  swissTour:
+    description: The swiss tournament the game is from
+    type: object
+    properties:
+      id:
+        type: string
   clock:
     type: object
     properties:
