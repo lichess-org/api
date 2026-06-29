@@ -533,7 +533,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/game/{gameId}/chat": {
+  "/api/game/{gameId}/chat": {
     parameters: {
       query?: never;
       header?: never;
