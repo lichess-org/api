@@ -5296,8 +5296,15 @@ export interface components {
       pgn?: string;
       daysPerTurn?: number;
       analysis?: components["schemas"]["GameMoveAnalysis"][];
-      tournament?: string;
-      swiss?: string;
+      /** @description The arena tournament the game is from */
+      arenaTour?: {
+        id?: string;
+        name?: string;
+      };
+      /** @description The swiss tournament the game is from */
+      swissTour?: {
+        id?: string;
+      };
       clock?: {
         initial: number;
         increment: number;
