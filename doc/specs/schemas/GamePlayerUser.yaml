@@ -1,10 +1,16 @@
 type: object
 
+description: |
+  One side of a game. `user` and `rating` are only present for registered
+  players: games against the computer have `aiLevel` instead, and fully
+  anonymous players have neither.
+
 properties:
   user:
     $ref: "./LightUser.yaml"
   rating:
     type: integer
+    description: Absent when the player is Stockfish or anonymous
   ratingDiff:
     type: integer
   name:
@@ -13,6 +19,7 @@ properties:
     type: boolean
   aiLevel:
     type: integer
+    description: Present instead of `user` and `rating` when the player is Stockfish
   analysis:
     type: object
     properties:
@@ -29,7 +36,3 @@ properties:
     required: [inaccuracy, mistake, blunder, acpl]
   team:
     type: string
-
-required:
-  - user
-  - rating
