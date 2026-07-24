@@ -19,6 +19,7 @@ post:
   security: []
   description: |
     **Endpoint: `https://engine.lichess.ovh/api/external-engine/work/{id}`**
+
     Submit a stream of analysis as [UCI output](https://backscattering.de/chess/uci/#engine-info).
     * The engine should always be in `UCI_Chess960` mode.
     * `UCI_AnalyseMode` enabled if available.

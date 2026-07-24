@@ -12,8 +12,9 @@ post:
   security: []
   description: |
     **Endpoint: `https://engine.lichess.ovh/api/external-engine/work`**
+
     Wait for an analysis requests to any of the external engines that
-    have been registered with the given `secret`.
+    have been registered with the given `providerSecret`.
     Uses long polling.
     After acquiring a request, the provider should immediately
     [start streaming the results](#tag/external-engine/POST/api/external-engine/work/{id}).
