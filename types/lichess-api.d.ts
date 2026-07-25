@@ -3642,6 +3642,7 @@ export interface paths {
     /**
      * Analyse with external engine
      * @description **Endpoint: `https://engine.lichess.ovh/api/external-engine/{id}/analyse`**
+     *
      *     Request analysis from an external engine.
      *     Response content is streamed as [newline delimited JSON](#description/streaming-with-nd-json).
      *     The properties are based on the [UCI specification](https://backscattering.de/chess/uci/#engine).
@@ -3667,8 +3668,9 @@ export interface paths {
     /**
      * Acquire analysis request
      * @description **Endpoint: `https://engine.lichess.ovh/api/external-engine/work`**
+     *
      *     Wait for an analysis requests to any of the external engines that
-     *     have been registered with the given `secret`.
+     *     have been registered with the given `providerSecret`.
      *     Uses long polling.
      *     After acquiring a request, the provider should immediately
      *     [start streaming the results](#tag/external-engine/POST/api/external-engine/work/{id}).
@@ -3694,6 +3696,7 @@ export interface paths {
     /**
      * Answer analysis request
      * @description **Endpoint: `https://engine.lichess.ovh/api/external-engine/work/{id}`**
+     *
      *     Submit a stream of analysis as [UCI output](https://backscattering.de/chess/uci/#engine-info).
      *     * The engine should always be in `UCI_Chess960` mode.
      *     * `UCI_AnalyseMode` enabled if available.
