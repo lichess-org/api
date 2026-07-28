@@ -48,10 +48,9 @@ post:
               default: "true"
               description: Keep everyone on the same chapter and position
             description:
-              type: string
-              enum: ["true", "false"]
-              default: "false"
-              description: Add pinned study comment right under the board
+              type: boolean
+              default: false
+              description: Add pinned study comment right under the board.
           required:
             - name
             - visibility
