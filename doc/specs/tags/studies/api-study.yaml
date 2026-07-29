@@ -30,6 +30,8 @@ post:
                 * `public`: Default. Anyone can view the study, it appears on public listings
                 * `unlisted`: Only people with the link can view the study, it doesn't appear on public listings
                 * `private`: Only the study members can view the study
+            flair:
+              $ref: "../../schemas/Flair.yaml"
             computer:
               $ref: "../../schemas/StudyUserSelection.yaml"
             explorer:
@@ -41,10 +43,13 @@ post:
             chat:
               $ref: "../../schemas/StudyUserSelection.yaml"
             sticky:
-              type: string
-              enum: ["true", "false"]
-              default: "true"
-              description: Keep everyone on the same chapter and position
+              type: boolean
+              default: true
+              description: Keep everyone on the same chapter and position.
+            description:
+              type: boolean
+              default: false
+              description: Add pinned study comment right under the board.
           required:
             - name
             - visibility
