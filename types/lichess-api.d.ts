@@ -11228,17 +11228,22 @@ export interface operations {
            * @enum {string}
            */
           visibility: "public" | "unlisted" | "private";
+          flair?: components["schemas"]["Flair"];
           computer: components["schemas"]["StudyUserSelection"];
           explorer: components["schemas"]["StudyUserSelection"];
           cloneable: components["schemas"]["StudyUserSelection"];
           shareable: components["schemas"]["StudyUserSelection"];
           chat: components["schemas"]["StudyUserSelection"];
           /**
-           * @description Keep everyone on the same chapter and position
+           * @description Keep everyone on the same chapter and position.
            * @default true
-           * @enum {string}
            */
-          sticky?: "true" | "false";
+          sticky?: boolean;
+          /**
+           * @description Add pinned study comment right under the board.
+           * @default false
+           */
+          description?: boolean;
         };
       };
     };
