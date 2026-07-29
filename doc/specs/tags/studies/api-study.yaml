@@ -43,10 +43,9 @@ post:
             chat:
               $ref: "../../schemas/StudyUserSelection.yaml"
             sticky:
-              type: string
-              enum: ["true", "false"]
-              default: "true"
-              description: Keep everyone on the same chapter and position
+              type: boolean
+              default: true
+              description: Keep everyone on the same chapter and position.
             description:
               type: boolean
               default: false
