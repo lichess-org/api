@@ -58,6 +58,9 @@ GamePlayerUser:
 GameJson:
   $ref: "./GameJson.yaml"
 
+BroadcastPgn:
+  $ref: "./BroadcastPgn.yaml"
+
 GamePgn:
   $ref: "./GamePgn.yaml"
 
