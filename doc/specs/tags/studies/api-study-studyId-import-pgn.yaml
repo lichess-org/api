@@ -38,11 +38,12 @@ post:
               maxLength: 100
             orientation:
               type: string
-              description: Default board orientation.
+              description: |
+                Board orientation.
+                If not specified, the orientation is automatically determined.
               enum:
                 - white
                 - black
-              default: white
             variant:
               $ref: "../../schemas/VariantKey.yaml"
             mode:
