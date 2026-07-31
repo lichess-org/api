@@ -50,7 +50,7 @@ get:
       content:
         application/x-chess-pgn:
           schema:
-            $ref: "../../schemas/StudyPgn.yaml"
+            $ref: "../../schemas/BroadcastPgn.yaml"
           examples:
             pgn:
               $ref: "../../examples/broadcasts-exportAllRoundsAsPgn.pgn.yaml"
