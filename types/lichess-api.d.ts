@@ -6358,11 +6358,14 @@ export interface components {
            */
           name?: string;
           /**
-           * @description A comma separated list of tournament IDs to group together.
-           * @example wYigbpXq,M5YHvpOX,q6ezoCXP
+           * @description A linebreak separated list of tournament IDs to group together.
+           * @example wYigbpXq
+           *     M5YHvpOX
+           *     q6ezoCXP
            */
           tours?: string;
         };
+        /** @description This parameter is repeated with an index for each score group, like 'grouping.scoreGroups[0]=wYigbpXq,M5YHvpOX' */
         scoreGroups?: string[];
       };
     };
@@ -11293,8 +11296,8 @@ export interface operations {
            */
           name?: string;
           /**
-           * @description Default board orientation.
-           * @default white
+           * @description Board orientation.
+           *     If not specified, the orientation is automatically determined.
            * @enum {string}
            */
           orientation?: "white" | "black";
