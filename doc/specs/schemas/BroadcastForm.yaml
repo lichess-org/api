@@ -121,10 +121,14 @@ properties:
           tours:
             type: string
             description: |
-              A comma separated list of tournament IDs to group together.
-            example: wYigbpXq,M5YHvpOX,q6ezoCXP
+              A linebreak separated list of tournament IDs to group together.
+            example: |
+              wYigbpXq
+              M5YHvpOX
+              q6ezoCXP
       scoreGroups:
         type: array
+        description: This parameter is repeated with an index for each score group, like 'grouping.scoreGroups[0]=wYigbpXq,M5YHvpOX'
         maxItems: 10
         items:
           type: string
