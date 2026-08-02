@@ -6732,7 +6732,7 @@ export interface components {
       photo?: components["schemas"]["FIDEPlayerPhoto"];
     };
     /**
-     * @description Data points are encoded. Each number contains a year, a month, and an ELO rating.
+     * @description Data points are encoded. Each number contains a year, a month, and an elo rating.
      *
      *     `2015081568` -> `August 2015: 1568`
      *
@@ -6748,7 +6748,7 @@ export interface components {
      *       };
      *     ```
      *
-     *     Consecutive months with same ELO are omitted. For a given ELO, only the first and last month are provided.
+     *     Consecutive months with same elo are omitted. For a given elo, only the first and last month are provided.
      */
     FIDEPlayerRatings: {
       standard: number[];
