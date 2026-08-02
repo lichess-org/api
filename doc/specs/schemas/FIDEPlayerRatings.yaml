@@ -1,6 +1,6 @@
 type: object
 description: |
-  Data points are encoded. Each number contains a year, a month, and an ELO rating.
+  Data points are encoded. Each number contains a year, a month, and an elo rating.
 
   `2015081568` -> `August 2015: 1568`
 
@@ -16,7 +16,7 @@ description: |
     };
   ```
 
-  Consecutive months with same ELO are omitted. For a given ELO, only the first and last month are provided.
+  Consecutive months with same elo are omitted. For a given elo, only the first and last month are provided.
 
 properties:
   standard:
