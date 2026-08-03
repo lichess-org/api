@@ -2416,6 +2416,46 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/team/updates": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get updates from your teams
+     * @description Paginator of the most recent updates posted by team leaders of teams you have joined.
+     */
+    get: operations["teamUpdates"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/team/updates/{teamId}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get updates from one of your teams
+     * @description Paginator of the most recent updates posted by team leaders of a team you have joined.
+     */
+    get: operations["teamUpdatesByTeamId"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/team/{teamId}/pm-all": {
     parameters: {
       query?: never;
@@ -2426,9 +2466,9 @@ export interface paths {
     get?: never;
     put?: never;
     /**
-     * Message all members
-     * @description Send a private message to all members of a team.
-     *     You must be a team leader with the "Messages" permission.
+     * Send a team update
+     * @description Send a team update to all members of a team.
+     *     You must be a team leader with the "Updates" permission.
      */
     post: operations["teamIdPmAll"];
     delete?: never;
@@ -6823,6 +6863,30 @@ export interface components {
     TeamRequestWithUser: {
       request: components["schemas"]["TeamRequest"];
       user: components["schemas"]["User"];
+    };
+    TeamUpdatesPager: {
+      updates: components["schemas"]["TeamUpdatesPager"];
+      byTeam: components["schemas"]["TeamUpdatesByTeam"];
+    };
+    LightTeam: {
+      id: string;
+      name: string;
+      flair?: components["schemas"]["Flair"];
+    };
+    TeamUpdatesByTeam: {
+      team: components["schemas"]["LightTeam"];
+      last: number;
+      unread: number;
+    }[];
+    TeamUpdates: {
+      updates: components["schemas"]["TeamUpdatesPager"];
+      byTeam: components["schemas"]["TeamUpdatesByTeam"];
+    };
+    TeamUpdatesOfTeam: {
+      team: components["schemas"]["LightTeam"];
+      subscribed: boolean;
+      updates: components["schemas"]["TeamUpdatesPager"];
+      byTeam: components["schemas"]["TeamUpdatesByTeam"];
     };
     /**
      * @example {
@@ -12587,6 +12651,54 @@ export interface operations {
       };
     };
   };
+  teamUpdates: {
+    parameters: {
+      query?: {
+        page?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description A paginated list of team updates */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TeamUpdates"];
+        };
+      };
+    };
+  };
+  teamUpdatesByTeamId: {
+    parameters: {
+      query?: {
+        page?: number;
+      };
+      header?: never;
+      path: {
+        teamId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description A paginated list of team updates */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TeamUpdatesOfTeam"];
+        };
+      };
+    };
+  };
   teamIdPmAll: {
     parameters: {
       query?: never;
@@ -12605,7 +12717,7 @@ export interface operations {
       };
     };
     responses: {
-      /** @description The message has successfully been sent to all team members. */
+      /** @description The update has been posted successfully. */
       200: {
         headers: {
           "Access-Control-Allow-Origin"?: string;
@@ -12615,7 +12727,7 @@ export interface operations {
           "application/json": components["schemas"]["Ok"];
         };
       };
-      /** @description The sending of message to all team members has failed. */
+      /** @description The update could not be posted. */
       400: {
         headers: {
           [name: string]: unknown;
