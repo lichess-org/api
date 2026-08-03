@@ -13,6 +13,7 @@ get:
       schema:
         type: string
         example: coders
+      required: true
     - in: query
       name: page
       schema:

@@ -28,7 +28,14 @@ value:
                 {
                   "date": 1785681992878,
                   "id": "3gJtsRcB",
-                  "senderId": "thibault",
+                  "sender":
+                    {
+                      "name": "thibault",
+                      "flair": "nature.seedling",
+                      "patron": true,
+                      "patronColor": 10,
+                      "id": "thibault",
+                    },
                   "team":
                     { "id": "lichess-chess960", "name": "Lichess Chess960" },
                   "text": "New regulations for the 2022 FIDE World Fischer Random Chess Championship",
@@ -40,7 +47,14 @@ value:
                 {
                   "date": 1785594732863,
                   "id": "CjLyCrW9",
-                  "senderId": "thibault",
+                  "sender":
+                    {
+                      "name": "thibault",
+                      "flair": "nature.seedling",
+                      "patron": true,
+                      "patronColor": 10,
+                      "id": "thibault",
+                    },
                   "team":
                     {
                       "flair": "objects.hammer-and-wrench",
