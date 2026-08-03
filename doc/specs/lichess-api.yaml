@@ -603,6 +603,9 @@ paths:
   /team/updates:
     $ref: "./tags/teams/team-updates.yaml"
 
+  /team/updates/{teamId}:
+    $ref: "./tags/teams/team-updates-teamId.yaml"
+
   /team/{teamId}/pm-all:
     $ref: "./tags/teams/team-teamId-pm-all.yaml"
 
