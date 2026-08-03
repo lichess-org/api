@@ -1,9 +1,9 @@
 post:
   operationId: teamIdPmAll
-  summary: Message all members
+  summary: Send a team update
   description: |
-    Send a private message to all members of a team.
-    You must be a team leader with the "Messages" permission.
+    Send a team update to all members of a team.
+    You must be a team leader with the "Updates" permission.
   tags:
     - Teams
   security:
@@ -27,7 +27,7 @@ post:
               description: The message to send to all your team members.
   responses:
     "200":
-      description: The message has successfully been sent to all team members.
+      description: The update has been posted successfully.
       headers:
         Access-Control-Allow-Origin:
           schema:
@@ -38,7 +38,7 @@ post:
           schema:
             $ref: "../../schemas/Ok.yaml"
     "400":
-      description: The sending of message to all team members has failed.
+      description: The update could not be posted.
       content:
         application/json:
           schema:
