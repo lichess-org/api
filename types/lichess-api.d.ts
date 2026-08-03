@@ -6864,14 +6864,33 @@ export interface components {
       request: components["schemas"]["TeamRequest"];
       user: components["schemas"]["User"];
     };
-    TeamUpdatesPager: {
-      updates: components["schemas"]["TeamUpdatesPager"];
-      byTeam: components["schemas"]["TeamUpdatesByTeam"];
-    };
     LightTeam: {
       id: string;
       name: string;
       flair?: components["schemas"]["Flair"];
+    };
+    TeamUpdate: {
+      msg: {
+        id: string;
+        date: number;
+        sender: components["schemas"]["LightUser"];
+        team?: components["schemas"]["LightTeam"];
+        text: string;
+      };
+      seen: boolean;
+    };
+    TeamUpdatesPager: {
+      /** @example 4 */
+      currentPage: number;
+      /** @example 15 */
+      maxPerPage: number;
+      currentPageResults: components["schemas"]["TeamUpdate"][];
+      /** @example 3 */
+      previousPage: number | null;
+      /** @example 5 */
+      nextPage: number | null;
+      nbResults: number;
+      nbPages: number;
     };
     TeamUpdatesByTeam: {
       team: components["schemas"]["LightTeam"];
