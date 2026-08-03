@@ -1,0 +1,14 @@
+type: array
+items:
+  type: object
+  properties:
+    team:
+      $ref: "./LightTeam.yaml"
+    last:
+      type: number
+    unread:
+      type: integer
+  required:
+    - team
+    - last
+    - unread

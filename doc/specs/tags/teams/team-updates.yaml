@@ -1,0 +1,31 @@
+get:
+  operationId: teamUpdates
+  summary: Get updates from your teams
+  description: |
+    Paginator of the most recent updates posted by team leaders of teams you have joined.
+  tags:
+    - Teams
+  security:
+    - OAuth2: ["team:read"]
+  parameters:
+    - in: query
+      name: page
+      schema:
+        type: integer
+        example: 1
+        default: 1
+  responses:
+    "200":
+      description: A paginated list of team updates
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/TeamUpdates.yaml"
+          examples:
+            default:
+              $ref: "../../examples/teams-updates.json.yaml"

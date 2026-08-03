@@ -1,0 +1,26 @@
+type: object
+
+properties:
+  msg:
+    type: object
+    properties:
+      id:
+        type: string
+      date:
+        type: integer
+      sender:
+        $ref: "./LightUser.yaml"
+      team:
+        $ref: "./LightTeam.yaml"
+      text:
+        type: string
+    required:
+      - id
+      - date
+      - sender
+      - text
+  seen:
+    type: boolean
+required:
+  - msg
+  - seen

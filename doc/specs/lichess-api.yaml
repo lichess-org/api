@@ -600,6 +600,9 @@ paths:
   /api/team/{teamId}/kick/{userId}:
     $ref: "./tags/teams/api-team-teamId-kick-userId.yaml"
 
+  /team/updates:
+    $ref: "./tags/teams/team-updates.yaml"
+
   /team/{teamId}/pm-all:
     $ref: "./tags/teams/team-teamId-pm-all.yaml"
 
