@@ -5431,20 +5431,7 @@ export interface components {
     }[];
     /** @enum {integer} */
     GameStatusId:
-      | 10
-      | 20
-      | 25
-      | 30
-      | 31
-      | 32
-      | 33
-      | 34
-      | 35
-      | 36
-      | 37
-      | 38
-      | 39
-      | 60;
+      10 | 20 | 25 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 60;
     /**
      * @example {
      *       "id": "A5fcMO3k",
@@ -6070,11 +6057,7 @@ export interface components {
     StudyPgn: string;
     /** @enum {string} */
     StudyUserSelection:
-      | "nobody"
-      | "owner"
-      | "contributor"
-      | "member"
-      | "everyone";
+      "nobody" | "owner" | "contributor" | "member" | "everyone";
     /**
      * @example {
      *       "chapters": [
@@ -7015,11 +6998,7 @@ export interface components {
     };
     /** @enum {string} */
     ChallengeStatus:
-      | "created"
-      | "offline"
-      | "canceled"
-      | "declined"
-      | "accepted";
+      "created" | "offline" | "canceled" | "declined" | "accepted";
     ChallengeUser: {
       id: string;
       name: string;
@@ -9726,18 +9705,7 @@ export interface operations {
            * @enum {integer}
            */
           "conditions.nbRatedGame.nb"?:
-            | 0
-            | 5
-            | 10
-            | 15
-            | 20
-            | 30
-            | 40
-            | 50
-            | 75
-            | 100
-            | 150
-            | 200;
+            0 | 5 | 10 | 15 | 20 | 30 | 40 | 50 | 75 | 100 | 150 | 200;
           /**
            * @description Predefined list of usernames that are allowed to join, separated by commas.
            *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
@@ -9755,17 +9723,7 @@ export interface operations {
            * @enum {integer}
            */
           "conditions.accountAge"?:
-            | 1
-            | 3
-            | 7
-            | 14
-            | 30
-            | 60
-            | 90
-            | 180
-            | 365
-            | 730
-            | 1095;
+            1 | 3 | 7 | 14 | 30 | 60 | 90 | 180 | 365 | 730 | 1095;
         };
       };
     };
@@ -10001,18 +9959,7 @@ export interface operations {
            * @enum {integer}
            */
           "conditions.nbRatedGame.nb"?:
-            | 0
-            | 5
-            | 10
-            | 15
-            | 20
-            | 30
-            | 40
-            | 50
-            | 75
-            | 100
-            | 150
-            | 200;
+            0 | 5 | 10 | 15 | 20 | 30 | 40 | 50 | 75 | 100 | 150 | 200;
           /**
            * @description Predefined list of usernames that are allowed to join, separated by commas.
            *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
@@ -10030,17 +9977,7 @@ export interface operations {
            * @enum {integer}
            */
           "conditions.accountAge"?:
-            | 1
-            | 3
-            | 7
-            | 14
-            | 30
-            | 60
-            | 90
-            | 180
-            | 365
-            | 730
-            | 1095;
+            1 | 3 | 7 | 14 | 30 | 60 | 90 | 180 | 365 | 730 | 1095;
         };
       };
     };
