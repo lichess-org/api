@@ -2,9 +2,13 @@ type: object
 
 properties:
   white:
-    $ref: "./GamePlayerUser.yaml"
+    oneOf:
+      - $ref: "./GamePlayerUser.yaml"
+      - $ref: "./GamePlayerAi.yaml"
   black:
-    $ref: "./GamePlayerUser.yaml"
+    oneOf:
+      - $ref: "./GamePlayerUser.yaml"
+      - $ref: "./GamePlayerAi.yaml"
 
 required:
   - white

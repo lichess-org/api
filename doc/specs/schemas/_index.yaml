@@ -55,6 +55,9 @@ BulkPairing:
 GamePlayerUser:
   $ref: "./GamePlayerUser.yaml"
 
+GamePlayerAi:
+  $ref: "./GamePlayerAi.yaml"
+
 GameJson:
   $ref: "./GameJson.yaml"
 
