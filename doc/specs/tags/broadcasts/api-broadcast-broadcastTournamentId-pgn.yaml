@@ -9,6 +9,7 @@ get:
 
     To get real-time updates about an ongoing tournament, please use the 
     [round PGN stream](#tag/broadcasts/GET/api/stream/broadcast/round/{broadcastRoundId}.pgn) or
+    [tournament PGN stream](#tag/broadcasts/GET/api/stream/broadcast/tournament/{broadcastTournamentId}.pgn) or
     [group PGN stream](#tag/broadcasts/GET/api/stream/broadcast/group/{broadcastGroupId}.pgn) endpoints instead.
   tags:
     - Broadcasts

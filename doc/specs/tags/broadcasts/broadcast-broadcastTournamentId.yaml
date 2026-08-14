@@ -6,7 +6,6 @@ get:
   tags:
     - Broadcasts
   security:
-    - {}
     - OAuth2: ["study:read"]
   parameters:
     - in: path

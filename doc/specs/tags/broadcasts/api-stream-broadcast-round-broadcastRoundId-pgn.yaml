@@ -9,7 +9,8 @@ get:
     and no pollings means no latency, and minimum impact on the server.
   tags:
     - Broadcasts
-  security: []
+  security:
+    - OAuth2: ["study:read"]
   parameters:
     - in: path
       name: broadcastRoundId

@@ -10,7 +10,8 @@ get:
     To stream a single round, use [this endpoint instead](#tag/broadcasts/GET/api/stream/broadcast/round/{broadcastRoundId}.pgn).
   tags:
     - Broadcasts
-  security: []
+  security:
+    - OAuth2: ["study:read"]
   parameters:
     - in: path
       name: broadcastGroupId
