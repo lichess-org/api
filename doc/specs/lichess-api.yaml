@@ -182,6 +182,10 @@ tags:
 
       Broadcasts are organized in tournaments, which have several rounds, which have several games.
       You must first create a tournament, then you can add rounds to them.
+      Tournaments can be linked together in a group.
+
+      All tournament endpoint requests must be authenticated with (at least) a `study:read` token.
+      Unauthenticated endpoints are [heavily rate-limited and might stop functioning](https://github.com/lichess-org/lila/pull/21283).
   - name: Bulk pairings
     description: |
       Create many games for other players.
