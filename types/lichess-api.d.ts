@@ -6207,7 +6207,7 @@ export interface components {
       /** Format: int64 */
       createdAt: number;
       /** @description Whether the round is used for rating calculations */
-      rated: boolean;
+      rated?: boolean;
       ongoing?: boolean;
       /** Format: int64 */
       startsAt?: number;
@@ -6215,6 +6215,7 @@ export interface components {
       startsAfterPrevious?: boolean;
       /** Format: int64 */
       finishedAt?: number;
+      /** @deprecated */
       finished?: boolean;
       /** Format: uri */
       url: string;
