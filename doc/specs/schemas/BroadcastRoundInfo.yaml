@@ -26,6 +26,7 @@ properties:
     format: int64
   finished:
     type: boolean
+    deprecated: true
   url:
     type: string
     format: uri
@@ -41,4 +42,3 @@ required:
   - slug
   - url
   - createdAt
-  - rated
