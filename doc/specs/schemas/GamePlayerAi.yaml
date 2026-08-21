@@ -1,16 +1,12 @@
 type: object
 
+description: |
+  One side of a game played by the Stockfish AI. AI sides carry the
+  strength level instead of `user` and `rating`.
+
 properties:
-  user:
-    $ref: "./LightUser.yaml"
-  rating:
+  aiLevel:
     type: integer
-  ratingDiff:
-    type: integer
-  name:
-    type: string
-  provisional:
-    type: boolean
   analysis:
     type: object
     properties:
@@ -25,9 +21,6 @@ properties:
       accuracy:
         type: integer
     required: [inaccuracy, mistake, blunder, acpl]
-  team:
-    type: string
 
 required:
-  - user
-  - rating
+  - aiLevel
