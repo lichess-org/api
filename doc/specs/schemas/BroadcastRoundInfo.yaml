@@ -7,12 +7,6 @@ properties:
     type: string
   slug:
     type: string
-  createdAt:
-    type: integer
-    format: int64
-  rated:
-    type: boolean
-    description: "Whether the round is used for rating calculations"
   ongoing:
     type: boolean
   startsAt:
@@ -27,12 +21,13 @@ properties:
   finished:
     type: boolean
     deprecated: true
+    description: "Use finishedAt instead"
   url:
     type: string
     format: uri
-  delay:
-    type: integer
-    format: int64
+  rated:
+    type: boolean
+    description: "Whether the round is used for rating calculations"
   customScoring:
     $ref: "./BroadcastCustomScoring.yaml"
 
@@ -41,4 +36,3 @@ required:
   - name
   - slug
   - url
-  - createdAt
