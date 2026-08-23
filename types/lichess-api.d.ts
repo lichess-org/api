@@ -103,6 +103,9 @@ export interface paths {
      *     There is at most one entry per day.
      *     Format of an entry is `[year, month, day, rating]`.
      *     `month` starts at zero (January).
+     *
+     *     Note: Rating history is generated on demand by [Authenticated OAuth requests](#description/authentication).
+     *     Unauthenticated requests will return a cached version of the rating history if present, otherwise an empty array.
      */
     get: operations["apiUserRatingHistory"];
     put?: never;
@@ -4811,8 +4814,6 @@ export interface components {
       error: string;
     };
     UserPreferences: {
-      dark?: boolean;
-      transp?: boolean;
       /** Format: uri */
       bgImg?: string;
       is3d?: boolean;
@@ -6204,10 +6205,6 @@ export interface components {
       id: string;
       name: string;
       slug: string;
-      /** Format: int64 */
-      createdAt: number;
-      /** @description Whether the round is used for rating calculations */
-      rated?: boolean;
       ongoing?: boolean;
       /** Format: int64 */
       startsAt?: number;
@@ -6215,12 +6212,15 @@ export interface components {
       startsAfterPrevious?: boolean;
       /** Format: int64 */
       finishedAt?: number;
-      /** @deprecated */
+      /**
+       * @deprecated
+       * @description Use finishedAt instead
+       */
       finished?: boolean;
       /** Format: uri */
       url: string;
-      /** Format: int64 */
-      delay?: number;
+      /** @description Whether the round is used for rating calculations */
+      rated?: boolean;
       customScoring?: components["schemas"]["BroadcastCustomScoring"];
     };
     /** @description Photos of players, when available. The object keys are FIDE IDs */
