@@ -5331,7 +5331,6 @@ export interface components {
       ratingDiff?: number;
       name?: string;
       provisional?: boolean;
-      aiLevel?: number;
       analysis?: {
         inaccuracy: number;
         mistake: number;
@@ -5346,9 +5345,27 @@ export interface components {
       };
       team?: string;
     };
+    /**
+     * @description One side of a game played by the Stockfish AI. AI sides carry the
+     *     strength level instead of `user` and `rating`.
+     */
+    GamePlayerAi: {
+      aiLevel: number;
+      analysis?: {
+        inaccuracy: number;
+        mistake: number;
+        blunder: number;
+        acpl: number;
+        accuracy?: number;
+      };
+    };
     GamePlayers: {
-      white: components["schemas"]["GamePlayerUser"];
-      black: components["schemas"]["GamePlayerUser"];
+      white:
+        | components["schemas"]["GamePlayerUser"]
+        | components["schemas"]["GamePlayerAi"];
+      black:
+        | components["schemas"]["GamePlayerUser"]
+        | components["schemas"]["GamePlayerAi"];
     };
     GameOpening: {
       eco: string;
