@@ -5,9 +5,9 @@
   "type": "module",
   "packageManager": "pnpm@10.33.4+sha512.1c67b3b359b2d408119ba1ed289f34b8fc3c6873412bec6fd264fbdc82489e510fcbecb9ce9d22dae7f3b76269d8441046014bdca53b9979cd7a561ad631b800",
   "devDependencies": {
-    "@redocly/cli": "^2.43.3",
-    "@scalar/api-reference": "^1.64.0",
-    "@scalar/cli": "^2.0.1",
+    "@redocly/cli": "^2.49.1",
+    "@scalar/api-reference": "^1.67.0",
+    "@scalar/cli": "^2.1.0",
     "@stoplight/spectral-cli": "^6.16.3",
     "@stoplight/spectral-rulesets": "^1.22.7",
     "prettier": "^3.9.6",
