@@ -1,22 +1,24 @@
 value:
   {
-    "id": "uGK4MHaQ",
-    "url": "https://lichess.org/uGK4MHaQ",
+    "id": "HuJoo3Hq",
+    "url": "https://lichess.org/HuJoo3Hq",
     "status": "created",
     "challenger":
       {
         "name": "Bobby",
-        "flair": "people.person-in-motorized-wheelchair-facing-right-light-skin-tone",
+        "flair": "nature.spiral-shell",
+        "patron": true,
+        "patronColor": 1,
         "id": "bobby",
-        "rating": 1630,
+        "rating": 1839,
       },
-    "destUser": { "name": "Mary", "flair": "people.person-taking-bath-medium-skin-tone", "id": "mary", "rating": 1054 },
+    "destUser": { "name": "Mary", "flair": "travel-places.classical-building", "id": "mary", "rating": 1137 },
     "variant": { "key": "standard", "name": "Standard", "short": "Std" },
     "rated": false,
     "speed": "correspondence",
     "timeControl": { "type": "unlimited" },
     "color": "random",
     "finalColor": "white",
-    "perf": { "icon": "", "name": "Correspondence" },
+    "perf": { "icon": "paper-airplane", "name": "Correspondence" },
     "direction": "in",
   }

@@ -1,9 +1,9 @@
 value:
   {
     "user": { "name": "thibault" },
-    "perf": { "glicko": { "rating": 1740.57, "deviation": 45.63 }, "nb": 11638, "progress": -35 },
-    "rank": 164980,
-    "percentile": 72.8,
+    "perf": { "glicko": { "rating": 1752.17, "deviation": 52.06 }, "nb": 11727, "progress": 22 },
+    "rank": 163727,
+    "percentile": 72.9,
     "stat":
       {
         "highest": { "int": 1970, "at": "2022-02-23T13:44:54.633Z", "gameId": "Blpjmhnf" },
@@ -82,15 +82,15 @@ value:
           },
         "count":
           {
-            "all": 12125,
-            "rated": 11516,
-            "win": 5733,
-            "loss": 5818,
-            "draw": 574,
+            "all": 12214,
+            "rated": 11605,
+            "win": 5775,
+            "loss": 5860,
+            "draw": 579,
             "tour": 1601,
             "berserk": 52,
-            "opAvg": 1706.81,
-            "seconds": 3779336,
+            "opAvg": 1707,
+            "seconds": 3827225,
             "disconnects": 9,
           },
         "resultStreak":
@@ -99,9 +99,9 @@ value:
               {
                 "cur":
                   {
-                    "v": 1,
-                    "from": { "at": "2026-07-06T20:08:38.94Z", "gameId": "REOSodzS" },
-                    "to": { "at": "2026-07-06T20:20:49.055Z", "gameId": "REOSodzS" },
+                    "v": 2,
+                    "from": { "at": "2026-08-23T12:50:08.235Z", "gameId": "tiEUjZaE" },
+                    "to": { "at": "2026-08-27T12:01:49.148Z", "gameId": "3pDSF4pR" },
                   },
                 "max":
                   {
@@ -143,7 +143,7 @@ value:
                     "to": { "at": "2024-10-18T20:54:30.256Z", "gameId": "1HeDeGbe" },
                   },
               },
-            "lastDate": "2026-07-06T20:20:49.055Z",
+            "lastDate": "2026-08-27T12:01:49.148Z",
           },
       },
   }

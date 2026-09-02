@@ -25,8 +25,8 @@ value:
     "puzzle":
       {
         "id": "PSjmf",
-        "rating": 2716,
-        "plays": 837,
+        "rating": 2782,
+        "plays": 859,
         "solution": ["g8g7", "d5e5", "f6e5"],
         "themes": ["endgame", "master", "short", "masterVsMaster", "crushing"],
         "fen": "5rk1/p4p2/5qpR/1R1Q4/3PK3/4P1P1/P1r2PP1/8 b - - 1 1",

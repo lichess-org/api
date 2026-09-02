@@ -5,70 +5,64 @@ value:
         {
           "game":
             {
-              "id": "P1M5pws5",
+              "id": "bgVqZHXJ",
               "perf": { "key": "rapid", "name": "Rapid" },
               "rated": true,
               "players":
                 [
                   {
-                    "name": "Ivan",
-                    "title": "GM",
-                    "flair": "people.woman-tipping-hand-light-skin-tone",
-                    "id": "ivan",
+                    "name": "Svetlana",
+                    "patron": true,
+                    "patronColor": 1,
+                    "id": "svetlana",
                     "color": "white",
-                    "rating": 2059,
+                    "rating": 1925,
                   },
-                  { "name": "Rudra", "id": "rudra", "color": "black", "rating": 1992 },
+                  {
+                    "name": "Benjamin",
+                    "flair": "people.pregnant-person",
+                    "id": "benjamin",
+                    "color": "black",
+                    "rating": 1911,
+                  },
                 ],
-              "pgn": "d4 Nf6 Nf3 g6 Nc3 Bg7 e4 d6 Be3 Nc6 d5 Nb8 Qd2 O-O O-O-O c5 Bh6 a6 a4 b5 axb5 axb5 Bxb5 Ra1+ Nb1 Nxe4 Qe3 Nxf2",
+              "pgn": "c4 Nf6 Nc3 d6 e4 Bg4 f3 Bh5 h4 e6 g4 Be7 gxh5 Nxh5 d4 Bxh4+ Kd2 Bg5+ Kc2 Nf4 Nge2 Nxe2 Qxe2 Nc6 Qd3",
               "clock": "10+0",
             },
           "puzzle":
             {
-              "id": "8KtG9",
-              "rating": 1512,
-              "plays": 5171,
-              "solution": ["h6g7", "g8g7", "e3f2"],
-              "themes": ["middlegame", "intermezzo", "short", "advantage"],
-              "initialPly": 27,
+              "id": "94Rds",
+              "rating": 1069,
+              "plays": 15199,
+              "solution": ["c6b4", "c2b3", "b4d3"],
+              "themes": ["opening", "fork", "short", "crushing"],
+              "initialPly": 24,
             },
         },
         {
           "game":
             {
-              "id": "512nNhh9",
-              "perf": { "key": "rapid", "name": "Rapid" },
+              "id": "17EOwob2",
+              "perf": { "key": "classical", "name": "Classical" },
               "rated": true,
               "players":
                 [
-                  {
-                    "name": "Aaron",
-                    "flair": "people.person-playing-handball",
-                    "id": "aaron",
-                    "color": "white",
-                    "rating": 1755,
-                  },
-                  {
-                    "name": "Abubakar",
-                    "flair": "people.sign-of-the-horns-medium-skin-tone",
-                    "id": "abubakar",
-                    "color": "black",
-                    "rating": 2157,
-                  },
+                  { "name": "Qing", "id": "qing", "color": "white", "rating": 1766 },
+                  { "name": "Hans", "flair": "symbols.up-arrow", "id": "hans", "color": "black", "rating": 1752 },
                 ],
-              "pgn": "f4 d5 Nf3 c5 e3 Nc6 Be2 Qc7 c3 e5 fxe5 Nxe5 O-O Nf6 Nxe5 Qxe5 d4 Qc7 Nd2 Bd6 Nf3 Bg4 h3 Be6 Ng5 O-O Bd3 h6 Nxe6 fxe6 Bd2 c4 Bg6 e5 Qe2 e4 Bf5 Qe7 b4 b5 a4 a6 axb5 axb5 Rfb1 Nd7 Qg4 Rxa1 Rxa1 Qf6 Bxd7",
-              "clock": "20+5",
+              "pgn": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nc6 Bb5 Bd7 c4 Nxd4 Bxd7+ Qxd7 Qxd4 e5 Qd3 Nf6 Nc3 Be7 Bg5 O-O Nd5",
+              "clock": "40+0",
             },
           "puzzle":
             {
-              "id": "5u2uS",
-              "rating": 1495,
-              "plays": 9124,
-              "solution": ["f6f2", "g1h1", "f2f1", "a1f1", "f8f1"],
-              "themes": ["middlegame", "fork", "long", "mateIn3", "sacrifice"],
-              "initialPly": 50,
+              "id": "A4v8U",
+              "rating": 1058,
+              "plays": 18586,
+              "solution": ["f6d5", "d3d5", "e7g5"],
+              "themes": ["middlegame", "discoveredAttack", "short", "advantage"],
+              "initialPly": 22,
             },
         },
       ],
-    "glicko": { "rating": 1649, "deviation": 93.66 },
+    "glicko": { "rating": 1788, "deviation": 80.01 },
   }

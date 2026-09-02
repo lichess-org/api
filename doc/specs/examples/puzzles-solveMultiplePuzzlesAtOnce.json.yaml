@@ -5,65 +5,65 @@ value:
         {
           "game":
             {
-              "id": "j1fb41pT",
-              "perf": { "key": "classical", "name": "Classical" },
-              "rated": true,
-              "players":
-                [
-                  {
-                    "name": "Boris",
-                    "patron": true,
-                    "patronColor": 1,
-                    "id": "boris",
-                    "color": "white",
-                    "rating": 1651,
-                  },
-                  { "name": "Benjamin", "id": "benjamin", "color": "black", "rating": 1703 },
-                ],
-              "pgn": "e4 e6 Nf3 c5 d4 cxd4 Qxd4 Nc6 Qc4 Bb4+ c3 Ba5 b4 Bb6 b5 Na5 Qb4 Ne7 Ba3 a6 Qxe7+ Qxe7 Bxe7 Kxe7 bxa6 bxa6 Bd3 Rd8 O-O g6 Nbd2 d5 Rab1 Bc7 h3 Rb8 c4 dxc4 Bxc4 Rxb1 Rxb1 Bf4 Rd1 Bxd2 Nxd2 Rxd2",
-              "clock": "15+15",
-            },
-          "puzzle":
-            {
-              "id": "BlU5t",
-              "rating": 1677,
-              "plays": 19418,
-              "solution": ["d1d2", "a5c4", "d2c2", "c4d6", "e4e5", "c8d7", "e5d6"],
-              "themes": ["endgame", "veryLong", "advantage"],
-              "initialPly": 45,
-            },
-        },
-        {
-          "game":
-            {
-              "id": "xAetwjh1",
+              "id": "iR3dMKR2",
               "perf": { "key": "rapid", "name": "Rapid" },
               "rated": true,
               "players":
                 [
                   {
-                    "name": "Marcel",
-                    "flair": "people.couple-with-heart-person-person-medium-skin-tone-medium-light-skin-tone",
-                    "id": "marcel",
+                    "name": "Yulia",
+                    "title": "IM",
+                    "flair": "people.man-cartwheeling-medium-light-skin-tone",
+                    "id": "yulia",
                     "color": "white",
-                    "rating": 1708,
+                    "rating": 1910,
                   },
-                  { "name": "Ikem", "id": "ikem", "color": "black", "rating": 1621 },
+                  { "name": "Fatima", "id": "fatima", "color": "black", "rating": 1787 },
                 ],
-              "pgn": "e4 e5 Nf3 Nf6 Nxe5 d6 Nf3 Nxe4 Qe2 Qe7 d3 Nf6 Nc3 Bg4 Be3 Nc6 h3 Bh5 O-O-O O-O-O g4 Bg6 Bg2 Re8 d4 Qd7 d5 Ne5 Rd4 Nxf3 Bxf3 Be7 Ra4 a6 Rd1 h5 g5 Nh7 h4 f6 Rdd4 fxg5 hxg5 Nxg5 Ra5 Nxf3 Qxf3 Qf5 Qe2 Bg5 Nb5 Bxe3+ fxe3 Rxe3 Qc4 Re7",
+              "pgn": "e4 e5 Nf3 Nc6 Bc4 f5 d4 fxe4 Ng5 d5 Bb3 Nf6 dxe5 Nxe5 O-O Qd7 Nc3 c6 f4 Ng6 f5 Ne5 a3 Qd6 Kh1 h6 Nh3 g5 Be3 Nfg4 Bd4 Nf6 Ba2 Rg8 b4 g4 Nf2 g3",
               "clock": "10+0",
             },
           "puzzle":
             {
-              "id": "A5w9m",
-              "rating": 1624,
-              "plays": 5838,
-              "solution": ["b5d6", "c8b8", "d6f5"],
-              "themes": ["middlegame", "short", "crushing", "pin"],
-              "initialPly": 55,
+              "id": "D6Zsx",
+              "rating": 2279,
+              "plays": 20501,
+              "solution": ["f2e4", "d5e4", "a2g8"],
+              "themes": ["middlegame", "advantage", "short"],
+              "initialPly": 37,
+            },
+        },
+        {
+          "game":
+            {
+              "id": "hesRUJua",
+              "perf": { "key": "rapid", "name": "Rapid" },
+              "rated": true,
+              "players":
+                [
+                  { "name": "Pedro", "id": "pedro", "color": "white", "rating": 1915 },
+                  {
+                    "name": "Marcel",
+                    "flair": "food-drink.tumbler-glass",
+                    "id": "marcel",
+                    "color": "black",
+                    "rating": 1918,
+                  },
+                ],
+              "pgn": "e4 c5 d4 cxd4 c3 dxc3 Nxc3 a6 Nf3 d6 Qb3 Nf6 Be3 e6 Bb6 Qd7 Rd1 Qc6",
+              "clock": "10+0",
+            },
+          "puzzle":
+            {
+              "id": "8zpmW",
+              "rating": 2328,
+              "plays": 25349,
+              "solution": ["f3e5", "b8d7", "e5c6"],
+              "themes": ["opening", "trappedPiece", "short", "crushing"],
+              "initialPly": 17,
             },
         },
       ],
-    "glicko": { "rating": 1663.73, "deviation": 91.04 },
-    "rounds": [{ "id": "8KtG9", "win": true, "ratingDiff": 14 }],
+    "glicko": { "rating": 1788.63, "deviation": 80.1 },
+    "rounds": [{ "id": "94Rds", "win": true, "ratingDiff": 0 }],
   }

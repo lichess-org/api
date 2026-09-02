@@ -1,11 +1,2 @@
 value:
-  {
-    "result":
-      [
-        {
-          "name": "Bobby",
-          "flair": "people.person-in-motorized-wheelchair-facing-right-light-skin-tone",
-          "id": "bobby",
-        },
-      ],
-  }
+  { "result": [{ "name": "Bobby", "flair": "nature.spiral-shell", "patron": true, "patronColor": 1, "id": "bobby" }] }

@@ -1,14 +1,9 @@
 value:
   [
     {
-      "from":
-        {
-          "name": "Bobby",
-          "flair": "people.person-in-motorized-wheelchair-facing-right-light-skin-tone",
-          "id": "bobby",
-        },
-      "to": { "name": "Mary", "flair": "people.person-taking-bath-medium-skin-tone", "id": "mary" },
+      "from": { "name": "Bobby", "flair": "nature.spiral-shell", "patron": true, "patronColor": 1, "id": "bobby" },
+      "to": { "name": "Mary", "flair": "travel-places.classical-building", "id": "mary" },
       "text": "this is a private note",
-      "date": 1783389374546,
+      "date": 1788313368833,
     },
   ]

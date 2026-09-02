@@ -1,204 +1,171 @@
 value:
   [
     {
-      "interval": { "start": 1783296000000, "end": 1783382400000 },
-      "games": { "blitz": { "win": 4, "loss": 9, "draw": 0, "rp": { "before": 1760, "after": 1740 } } },
-      "puzzles": { "score": { "win": 1, "loss": 0, "draw": 0, "rp": { "before": 1998, "after": 2012 } } },
+      "interval": { "start": 1788220800000, "end": 1788307200000 },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "emilito335",
-                  "vihariuppalapati",
-                  "arel3333",
-                  "hpkin",
-                  "ivaanchess",
-                  "krish_2018",
-                  "alirezathegoat",
-                  "ansh_kurukwar",
-                  "sisi5i",
-                  "minhquang_2017",
-                  "hamdii1453",
-                  "kaz_player12",
-                  "hokuspokusdiplodokus",
-                  "dharmendra_2016",
-                  "ini_bas",
-                ],
-              "nb": 18,
-            },
-        },
-    },
-    {
-      "interval": { "start": 1783209600000, "end": 1783296000000 },
-      "puzzles": { "score": { "win": 1, "loss": 0, "draw": 0, "rp": { "before": 1990, "after": 1998 } } },
-      "follows":
-        {
-          "in":
-            {
-              "ids":
-                [
-                  "krishnavyshnavi",
-                  "ten_steps_ahead",
-                  "kunekticut",
-                  "a16108",
-                  "keshav-kumar-gautam",
-                  "philipgryg",
-                  "np23b_spotlesstrout",
-                  "david_martyniuk2016",
-                  "reyansh_singh071",
-                  "jordanmj1996",
-                  "kalagangs",
+                  "ikjetenkpadet",
+                  "linux1snice",
+                  "georgewdev",
+                  "the_dragon_player",
+                  "josh_meyer",
+                  "kujucuk2015",
+                  "santraforvet",
+                  "nightmare313",
+                  "cutie2019",
+                  "sheun",
                 ],
             },
         },
-      "posts":
-        [
-          {
-            "topicUrl": "https://lichess.org/forum/community-blog-discussions/ublog-lk1VC2s5",
-            "topicName": "Play Lichess on Any Chessboard — No DGT Required",
-            "posts": [{ "url": "https://lichess.org/forum/redirect/post/JKR2eFVI", "text": "Very cool, well done :)" }],
-          },
-        ],
+      "stream": true,
     },
     {
-      "interval": { "start": 1783123200000, "end": 1783209600000 },
-      "games":
-        {
-          "blitz": { "win": 2, "loss": 7, "draw": 0, "rp": { "before": 1798, "after": 1760 } },
-          "rapid": { "win": 1, "loss": 4, "draw": 0, "rp": { "before": 1843, "after": 1814 } },
-        },
+      "interval": { "start": 1788134400000, "end": 1788220800000 },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "superdanya",
-                  "thundercode",
-                  "chess6c",
-                  "tmca_jerrin_antony",
-                  "kourosh139411",
-                  "richard_chess2014",
-                  "saikriishrb",
-                  "karaaslan_hasan",
-                  "arihaan24",
-                  "throne33",
+                  "randomwilz",
+                  "meczubi",
+                  "newbeguy",
+                  "leshoes001",
+                  "demontoe",
+                  "just4for4fun",
+                  "cs2k25",
+                  "thequietmove76",
+                  "drlesna",
+                  "ngocthu",
+                  "maikov_svet",
                 ],
             },
         },
     },
     {
-      "interval": { "start": 1783036800000, "end": 1783123200000 },
-      "games": { "rapid": { "win": 3, "loss": 7, "draw": 1, "rp": { "before": 1889, "after": 1843 } } },
-      "follows":
-        {
-          "in":
-            { "ids": ["bluelego3", "marksun111", "simon_lindstrom", "dstepanb", "stepan2013bk", "ivaankrishnatrey"] },
-        },
-    },
-    {
-      "interval": { "start": 1782950400000, "end": 1783036800000 },
-      "games":
-        {
-          "rapid": { "win": 0, "loss": 1, "draw": 1, "rp": { "before": 1907, "after": 1889 } },
-          "blitz": { "win": 0, "loss": 0, "draw": 1, "rp": { "before": 1799, "after": 1798 } },
-        },
-      "puzzles": { "score": { "win": 1, "loss": 0, "draw": 0, "rp": { "before": 1972, "after": 1990 } } },
+      "interval": { "start": 1788048000000, "end": 1788134400000 },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "thisnamewasunclaimed",
-                  "soli-darbandi",
-                  "damirfaizullin",
-                  "abazovismail_2014",
-                  "supersam2011",
-                  "unknownera",
-                  "sisi5i",
-                  "s64pawn",
-                  "dxyhcdiaoli",
-                  "ekanshkhandelwal15",
-                  "mahan1393919",
-                  "turkishwolf01",
-                  "fixikator",
-                  "prithvibetha",
-                  "yuvaan2611",
+                  "ayansh_yad",
+                  "jrchesskid_official",
+                  "rahul_pal2694",
+                  "torreliam",
+                  "chessmate_d",
+                  "masalambasi27",
+                  "w123567ejgfj",
+                  "shreyanshpandey",
+                  "bunbuncoco",
+                  "chesswizard2722",
+                  "yutaokkots",
                 ],
-              "nb": 21,
             },
         },
-      "posts":
-        [
-          {
-            "topicUrl": "https://lichess.org/forum/lichess-feedback/suggestion-allow-us-to-report-a-blog-for-other-and-ai-generated-sections",
-            "topicName": "Suggestion: Allow us to report a blog for 'Other' and 'AI Generated' sections",
-            "posts":
-              [
-                {
-                  "url": "https://lichess.org/forum/redirect/post/KAUe7qBO",
-                  "text": "@TotalNoob69 said [^](/forum/redirect/post/NK5zFNIz)\n> And a bit off topic, but the [Timeline](/timeline) shows when your friends post in a forum, but it never shows when they post a blog. How is that for quality content discovery?\n\nno, it does show",
-                },
-              ],
-          },
-        ],
+      "stream": true,
     },
     {
-      "interval": { "start": 1782864000000, "end": 1782950400000 },
-      "puzzles": { "score": { "win": 5, "loss": 1, "draw": 0, "rp": { "before": 1937, "after": 1972 } } },
+      "interval": { "start": 1787961600000, "end": 1788048000000 },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "chess-practice1",
-                  "raalfe",
-                  "mrityunjay15",
-                  "sdrf_tajik",
-                  "alphameow",
-                  "jason_oneho",
-                  "samaira2017",
-                  "gehehss",
-                  "avyan_gupta",
-                  "ertfokpro",
-                  "sisi5i",
-                  "drcipher",
-                  "balashov_2017",
-                  "shreyaskh",
+                  "ada_ada09",
+                  "sentihnela",
+                  "whatupbrother",
+                  "polymerstrike",
+                  "saturnnn_92",
+                  "mysterious_past",
+                  "tv37",
+                  "perfilius",
+                  "officialxbot1",
                 ],
-              "nb": 18,
+            },
+        },
+      "stream": true,
+    },
+    {
+      "interval": { "start": 1787875200000, "end": 1787961600000 },
+      "follows":
+        {
+          "in":
+            {
+              "ids":
+                [
+                  "l0k0m0l0",
+                  "malithma2014",
+                  "kagurazakanana",
+                  "el_primo3",
+                  "raaed1234",
+                  "sanumi_a",
+                  "bogdandetkov",
+                  "goldenchess10",
+                  "avik04",
+                ],
+            },
+        },
+      "stream": true,
+    },
+    {
+      "interval": { "start": 1787788800000, "end": 1787875200000 },
+      "games": { "blitz": { "win": 1, "loss": 0, "draw": 0, "rp": { "before": 1744, "after": 1752 } } },
+      "follows":
+        {
+          "in":
+            {
+              "ids":
+                [
+                  "phlp-c",
+                  "alpha_phoenix2016",
+                  "amynatania",
+                  "klementina16",
+                  "thomaskwood",
+                  "malithma2014",
+                  "khlwmp",
+                  "shouni",
+                  "new_life14",
+                  "queensilentking",
+                  "samu168",
+                  "ivaankrishnatrey",
+                  "heuygbj6",
+                  "aahirsr",
+                  "chinmayrajeshkunnath",
+                ],
+              "nb": 19,
             },
         },
     },
     {
-      "interval": { "start": 1782777600000, "end": 1782864000000 },
-      "puzzles": { "score": { "win": 2, "loss": 0, "draw": 0, "rp": { "before": 1916, "after": 1937 } } },
+      "interval": { "start": 1787702400000, "end": 1787788800000 },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "overlordrunt13",
-                  "hamfam6",
-                  "dizzyturtle33",
-                  "eclipsebot",
-                  "harryan2016",
-                  "afiyyyyyy",
-                  "ipekayza23",
-                  "aariv-shaha",
-                  "applewormmonster",
-                  "alphazero9000",
-                  "sisi5i",
-                  "kaan_burak",
-                  "arianplayschess16",
-                  "butter-fly-100",
+                  "mykthkyk",
+                  "louis_raymond",
+                  "kotea",
+                  "gojira5340",
+                  "knighttime2015",
+                  "mind-destroyer98",
+                  "trandangkhoi2014",
+                  "chessdragoness",
+                  "queentrisha",
+                  "aaravmondkar",
+                  "drhashimismailkunju",
+                  "parth_nikhil",
+                  "ivansen13",
+                  "realitycheck3986",
                 ],
-              "nb": 17,
             },
         },
     },

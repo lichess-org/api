@@ -3,17 +3,18 @@ value:
     "type": "challengeCanceled",
     "challenge":
       {
-        "id": "BO2kXa9v",
-        "url": "https://lichess.org/BO2kXa9v",
+        "id": "d2boOu9C",
+        "url": "https://lichess.org/d2boOu9C",
         "status": "canceled",
-        "challenger": { "name": "Elena", "title": "WNM", "id": "elena", "rating": 2307 },
-        "destUser": { "name": "Diego", "id": "diego", "rating": 1939, "online": true },
+        "challenger":
+          { "name": "Elena", "title": "WGM", "flair": "travel-places.police-car", "id": "elena", "rating": 2343 },
+        "destUser": { "name": "Diego", "id": "diego", "rating": 1843, "online": true },
         "variant": { "key": "standard", "name": "Standard", "short": "Std" },
         "rated": false,
         "speed": "correspondence",
         "timeControl": { "type": "unlimited" },
         "color": "random",
         "finalColor": "black",
-        "perf": { "icon": "", "name": "Correspondence" },
+        "perf": { "icon": "paper-airplane", "name": "Correspondence" },
       },
   }
