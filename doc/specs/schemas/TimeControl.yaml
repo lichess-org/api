@@ -12,6 +12,8 @@ oneOf:
       show:
         example: "5+2"
         type: string
+    required:
+      - type
     additionalProperties: false
   - type: object
     title: Correspondence
@@ -21,6 +23,8 @@ oneOf:
         const: correspondence
       daysPerTurn:
         type: integer
+    required:
+      - type
     additionalProperties: false
   - type: object
     title: Unlimited
@@ -28,4 +32,6 @@ oneOf:
       type:
         type: string
         const: unlimited
+    required:
+      - type
     additionalProperties: false
