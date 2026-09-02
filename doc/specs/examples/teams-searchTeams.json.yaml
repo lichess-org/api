@@ -11,7 +11,7 @@ value:
           "open": false,
           "leader":
             { "name": "thibault", "flair": "nature.seedling", "patron": true, "patronColor": 10, "id": "thibault" },
-          "nbMembers": 492,
+          "nbMembers": 498,
           "flair": "objects.hammer-and-wrench",
           "leaders":
             [{ "name": "thibault", "flair": "nature.seedling", "patron": true, "patronColor": 10, "id": "thibault" }],
@@ -31,7 +31,7 @@ value:
           "description": "We're the rising coders we make bugs and fix them yeah!!",
           "open": false,
           "leader": { "name": "GovinD_2017", "flair": "people.man-scientist", "id": "govind_2017" },
-          "nbMembers": 11,
+          "nbMembers": 10,
           "flair": "objects.laptop",
           "leaders":
             [
@@ -115,6 +115,15 @@ value:
           "leaders": [{ "name": "statmatt", "id": "statmatt" }],
         },
         {
+          "id": "methil",
+          "name": "Methil",
+          "description": "Équipe officielle de Methil, un collectif de développeurs passionnés par la création de jeux et de projets techniques pour le plaisir.\r\n\r\nCette équipe héberge notre bot d'échecs : un projet où l'on explore l'IA de jeu, les algorithmes de recherche et le plaisir de coder autour des échecs.\r\n\r\nVenez défier notre bot, suivre son évolution et échanger avec nous !\r\n\r\nGitHub : github.com/methil-group",
+          "open": false,
+          "leader": { "name": "Kibishi47", "id": "kibishi47" },
+          "nbMembers": 3,
+          "leaders": [{ "name": "Kibishi47", "id": "kibishi47" }],
+        },
+        {
           "id": "hang-coder",
           "name": "Hang coder",
           "description": "skibidi toilet co cot truyen dinh cao vl",
@@ -159,18 +168,9 @@ value:
           "nbMembers": 1,
           "leaders": [{ "name": "the010100110master", "id": "the010100110master" }],
         },
-        {
-          "id": "coders-start-here",
-          "name": "coders... start here!",
-          "description": "Coding is a lot like chess... it dosen't start ti'll the first move",
-          "open": false,
-          "leader": { "name": "hiima1234134", "flair": "objects.desktop-computer", "id": "hiima1234134" },
-          "nbMembers": 1,
-          "leaders": [{ "name": "hiima1234134", "flair": "objects.desktop-computer", "id": "hiima1234134" }],
-        },
       ],
     "previousPage": null,
     "nextPage": 2,
-    "nbResults": 18,
+    "nbResults": 21,
     "nbPages": 2,
   }

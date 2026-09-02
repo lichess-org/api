@@ -6,6 +6,9 @@ get:
     There is at most one entry per day.
     Format of an entry is `[year, month, day, rating]`.
     `month` starts at zero (January).
+
+    Note: Rating history is generated on demand by [Authenticated OAuth requests](#description/authentication).
+    Unauthenticated requests will return a cached version of the rating history if present, otherwise an empty array.
   tags:
     - Users
   security: []

@@ -1,0 +1,10 @@
+type: object
+
+properties:
+  updates:
+    $ref: "./TeamUpdatesPager.yaml"
+  byTeam:
+    $ref: "./TeamUpdatesByTeam.yaml"
+required:
+  - updates
+  - byTeam

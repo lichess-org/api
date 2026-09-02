@@ -1,23 +1,25 @@
 value:
   {
-    "id": "bernstein-2ply",
-    "username": "bernstein-2ply",
+    "id": "turkjs",
+    "username": "turkjs",
     "perfs":
       {
-        "bullet": { "games": 8453, "rating": 1355, "rd": 45, "prog": 8 },
-        "blitz": { "games": 12688, "rating": 1121, "rd": 45, "prog": -15 },
-        "rapid": { "games": 15238, "rating": 1262, "rd": 45, "prog": -14 },
-        "classical": { "games": 2366, "rating": 1279, "rd": 45, "prog": 1 },
-        "correspondence": { "games": 0, "rating": 2000, "rd": 500, "prog": 0, "prov": true },
+        "bullet": { "games": 31344, "rating": 1785, "rd": 45, "prog": 5 },
+        "blitz": { "games": 30915, "rating": 1679, "rd": 45, "prog": 10 },
+        "rapid": { "games": 15150, "rating": 1817, "rd": 45, "prog": -9 },
+        "classical": { "games": 3127, "rating": 1873, "rd": 45, "prog": -3 },
+        "correspondence": { "games": 0, "rating": 1500, "rd": 500, "prog": 0, "prov": true },
       },
     "title": "BOT",
-    "createdAt": 1700984288502,
+    "patron": true,
+    "patronColor": 10,
+    "createdAt": 1541353118189,
     "profile":
       {
-        "flag": "US",
-        "bio": 'bernstein-2ply is a re-implementation of the first complete chess engine: Alex Bernstein et al''s 1957 chess program on the IBM 704. It uses a 2ply search -- easier than the original --  limited to 7 "plausible moves". Try also @bernstein-4ply, @sargon-1ply or @turochamp-2ply. Author: @herohde.',
-        "links": "https://github.com/herohde/morlock\r\nhttps://www.chessprogramming.org/The_Bernstein_Chess_Program",
+        "flag": "CH",
+        "location": "Zurich",
+        "bio": "https://imgur.com/dAsjCS9\r\n\r\nHi! I'm a simple chess engine written in JavaScript. I'm not very good, this was a just for fun project. I accept standard games in casual or rated mode. I play bullet, blitz, rapid and classical.\r\n\r\nMy name is a reference to The Turk: https://en.wikipedia.org/wiki/Mechanical_Turk",
       },
-    "seenAt": 1783389105650,
-    "playTime": { "total": 13394561, "tv": 1174, "human": 9886740 },
+    "seenAt": 1788313142724,
+    "playTime": { "total": 56753444, "tv": 2232219, "human": 20993311 },
   }

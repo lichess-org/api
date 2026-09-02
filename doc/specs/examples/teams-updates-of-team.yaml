@@ -1,0 +1,44 @@
+value:
+  {
+    "team": { "id": "lichess-chess960", "name": "Lichess Chess960" },
+    "subscribed": true,
+    "byTeam":
+      [
+        { "last": 1785681992878, "team": { "id": "lichess-chess960", "name": "Lichess Chess960" }, "unread": 0 },
+        {
+          "last": 1785594732863,
+          "team": { "flair": "objects.hammer-and-wrench", "id": "coders", "name": "Coders" },
+          "unread": 6,
+        },
+      ],
+    "updates":
+      {
+        "currentPage": 1,
+        "currentPageResults":
+          [
+            {
+              "msg":
+                {
+                  "date": 1785681992878,
+                  "id": "3gJtsRcB",
+                  "sender":
+                    {
+                      "name": "thibault",
+                      "flair": "nature.seedling",
+                      "patron": true,
+                      "patronColor": 10,
+                      "id": "thibault",
+                    },
+                  "team": { "id": "lichess-chess960", "name": "Lichess Chess960" },
+                  "text": "New regulations for the 2022 FIDE World Fischer Random Chess Championship",
+                },
+              "seen": true,
+            },
+          ],
+        "maxPerPage": 6,
+        "nbPages": 1,
+        "nbResults": 1,
+        "nextPage": null,
+        "previousPage": null,
+      },
+  }

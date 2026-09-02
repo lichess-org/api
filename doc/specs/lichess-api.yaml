@@ -1,6 +1,6 @@
 openapi: "3.1.0"
 info:
-  version: 2.0.153
+  version: 2.0.166
   title: Lichess.org API reference
   contact:
     name: "Lichess.org API"
@@ -182,6 +182,10 @@ tags:
 
       Broadcasts are organized in tournaments, which have several rounds, which have several games.
       You must first create a tournament, then you can add rounds to them.
+      Tournaments can be linked together in a group.
+
+      All tournament endpoint requests must be authenticated with (at least) a `study:read` token.
+      Unauthenticated endpoints are [heavily rate-limited and might stop functioning](https://github.com/lichess-org/lila/pull/21283).
   - name: Bulk pairings
     description: |
       Create many games for other players.
@@ -540,6 +544,9 @@ paths:
   /api/stream/broadcast/round/{broadcastRoundId}.pgn:
     $ref: "./tags/broadcasts/api-stream-broadcast-round-broadcastRoundId-pgn.yaml"
 
+  /api/stream/broadcast/tour/{broadcastTourId}.pgn:
+    $ref: "./tags/broadcasts/api-stream-broadcast-tour-broadcastTourId-pgn.yaml"
+
   /api/stream/broadcast/group/{broadcastGroupId}.pgn:
     $ref: "./tags/broadcasts/api-stream-broadcast-group-broadcastGroupId-pgn.yaml"
 
@@ -599,6 +606,12 @@ paths:
 
   /api/team/{teamId}/kick/{userId}:
     $ref: "./tags/teams/api-team-teamId-kick-userId.yaml"
+
+  /team/updates:
+    $ref: "./tags/teams/team-updates.yaml"
+
+  /team/updates/{teamId}:
+    $ref: "./tags/teams/team-updates-teamId.yaml"
 
   /team/{teamId}/pm-all:
     $ref: "./tags/teams/team-teamId-pm-all.yaml"

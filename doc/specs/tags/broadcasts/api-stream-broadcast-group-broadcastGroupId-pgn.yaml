@@ -10,7 +10,8 @@ get:
     To stream a single round, use [this endpoint instead](#tag/broadcasts/GET/api/stream/broadcast/round/{broadcastRoundId}.pgn).
   tags:
     - Broadcasts
-  security: []
+  security:
+    - OAuth2: ["study:read"]
   parameters:
     - in: path
       name: broadcastGroupId
@@ -50,7 +51,7 @@ get:
       content:
         application/x-chess-pgn:
           schema:
-            $ref: "../../schemas/StudyPgn.yaml"
+            $ref: "../../schemas/BroadcastPgn.yaml"
           examples:
             pgn:
               $ref: "../../examples/broadcasts-streamOngoingBroadcastRoundAsPgn.pgn.yaml"

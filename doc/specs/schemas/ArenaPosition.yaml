@@ -20,6 +20,7 @@ oneOf:
       - name
       - fen
       - url
+    additionalProperties: false
   - type: object
     title: Custom position
     properties:
@@ -32,3 +33,4 @@ oneOf:
     required:
       - name
       - fen
+    additionalProperties: false

@@ -1,0 +1,16 @@
+type: object
+
+properties:
+  team:
+    $ref: "./LightTeam.yaml"
+  subscribed:
+    type: boolean
+  updates:
+    $ref: "./TeamUpdatesPager.yaml"
+  byTeam:
+    $ref: "./TeamUpdatesByTeam.yaml"
+required:
+  - team
+  - subscribed
+  - updates
+  - byTeam

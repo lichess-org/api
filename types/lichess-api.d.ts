@@ -59,7 +59,7 @@ export interface paths {
      * Get one leaderboard
      * @description Get the leaderboard for a single speed or variant (a.k.a. `perfType`).
      *     There is no leaderboard for correspondence or puzzles.
-     *     See <https://lichess.org/player/top/100/bullet>.
+     *     See <https://lichess.org/player/top/bullet>.
      */
     get: operations["playerTopNbPerfType"];
     put?: never;
@@ -103,6 +103,9 @@ export interface paths {
      *     There is at most one entry per day.
      *     Format of an entry is `[year, month, day, rating]`.
      *     `month` starts at zero (January).
+     *
+     *     Note: Rating history is generated on demand by [Authenticated OAuth requests](#description/authentication).
+     *     Unauthenticated requests will return a cached version of the rating history if present, otherwise an empty array.
      */
     get: operations["apiUserRatingHistory"];
     put?: never;
@@ -1982,6 +1985,31 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/api/stream/broadcast/tour/{broadcastTourId}.pgn": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Stream ongoing broadcast rounds of a tournament as PGN
+     * @description For a given broadcast tournament ([example](https://lichess.org/broadcast/sparkassen-chess-trophy-2026-open-a/jfEpUuzg)),
+     *     selects all the ongoing and recently finished rounds, and sends all games of these rounds in PGN format.
+     *     Then, it waits for new moves to be played. As soon as it happens, the entire PGN of the game is sent to the stream.
+     *     The stream will also send PGNs when games are added to the rounds.
+     *     This is the best way to get updates about an ongoing broadcast tournament across all its rounds.
+     *     To stream a single round, use [this endpoint instead](#tag/broadcasts/GET/api/stream/broadcast/round/{broadcastRoundId}.pgn).
+     */
+    get: operations["broadcastStreamTourPgn"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/api/stream/broadcast/group/{broadcastGroupId}.pgn": {
     parameters: {
       query?: never;
@@ -2019,7 +2047,7 @@ export interface paths {
      * @description Download all games of a single round of a broadcast tournament in PGN format.
      *     You *could* poll this endpoint to get updates about a tournament, but it would be slow,
      *     and very inefficient.
-     *     Instead, consider [streaming the tournament](#tag/broadcasts/GET/api/stream/broadcast/round/{broadcastRoundId}.pgn) to get
+     *     Instead, consider [streaming the round](#tag/broadcasts/GET/api/stream/broadcast/round/{broadcastRoundId}.pgn) to get
      *     a new PGN every time a game is updated, in real-time.
      */
     get: operations["broadcastRoundPgn"];
@@ -2047,6 +2075,7 @@ export interface paths {
      *
      *     To get real-time updates about an ongoing tournament, please use the
      *     [round PGN stream](#tag/broadcasts/GET/api/stream/broadcast/round/{broadcastRoundId}.pgn) or
+     *     [tournament PGN stream](#tag/broadcasts/GET/api/stream/broadcast/tournament/{broadcastTournamentId}.pgn) or
      *     [group PGN stream](#tag/broadcasts/GET/api/stream/broadcast/group/{broadcastGroupId}.pgn) endpoints instead.
      */
     get: operations["broadcastAllRoundsPgn"];
@@ -2416,6 +2445,46 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/team/updates": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get updates from your teams
+     * @description Paginator of the most recent updates posted by team leaders of teams you have joined.
+     */
+    get: operations["teamUpdates"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/team/updates/{teamId}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get updates from one of your teams
+     * @description Paginator of the most recent updates posted by team leaders of a team you have joined.
+     */
+    get: operations["teamUpdatesByTeamId"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/team/{teamId}/pm-all": {
     parameters: {
       query?: never;
@@ -2426,9 +2495,9 @@ export interface paths {
     get?: never;
     put?: never;
     /**
-     * Message all members
-     * @description Send a private message to all members of a team.
-     *     You must be a team leader with the "Messages" permission.
+     * Send a team update
+     * @description Send a team update to all members of a team.
+     *     You must be a team leader with the "Updates" permission.
      */
     post: operations["teamIdPmAll"];
     delete?: never;
@@ -3642,6 +3711,7 @@ export interface paths {
     /**
      * Analyse with external engine
      * @description **Endpoint: `https://engine.lichess.ovh/api/external-engine/{id}/analyse`**
+     *
      *     Request analysis from an external engine.
      *     Response content is streamed as [newline delimited JSON](#description/streaming-with-nd-json).
      *     The properties are based on the [UCI specification](https://backscattering.de/chess/uci/#engine).
@@ -3667,8 +3737,9 @@ export interface paths {
     /**
      * Acquire analysis request
      * @description **Endpoint: `https://engine.lichess.ovh/api/external-engine/work`**
+     *
      *     Wait for an analysis requests to any of the external engines that
-     *     have been registered with the given `secret`.
+     *     have been registered with the given `providerSecret`.
      *     Uses long polling.
      *     After acquiring a request, the provider should immediately
      *     [start streaming the results](#tag/external-engine/POST/api/external-engine/work/{id}).
@@ -3694,6 +3765,7 @@ export interface paths {
     /**
      * Answer analysis request
      * @description **Endpoint: `https://engine.lichess.ovh/api/external-engine/work/{id}`**
+     *
      *     Submit a stream of analysis as [UCI output](https://backscattering.de/chess/uci/#engine-info).
      *     * The engine should always be in `UCI_Chess960` mode.
      *     * `UCI_AnalyseMode` enabled if available.
@@ -4742,8 +4814,6 @@ export interface components {
       error: string;
     };
     UserPreferences: {
-      dark?: boolean;
-      transp?: boolean;
       /** Format: uri */
       bgImg?: string;
       is3d?: boolean;
@@ -5363,20 +5433,7 @@ export interface components {
     }[];
     /** @enum {integer} */
     GameStatusId:
-      | 10
-      | 20
-      | 25
-      | 30
-      | 31
-      | 32
-      | 33
-      | 34
-      | 35
-      | 36
-      | 37
-      | 38
-      | 39
-      | 60;
+      10 | 20 | 25 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 60;
     /**
      * @example {
      *       "id": "A5fcMO3k",
@@ -5983,27 +6040,26 @@ export interface components {
       error?: string;
     };
     /**
-     * @example [Event "All about the Sicilian Defense: Dragon Variation"]
-     *     [Site "https://lichess.org/study/8c8bmUfy/qwnXMwVC"]
+     * @example [Event "♦ All about the Sicilian Defense ♦: Dragon Variation"]
+     *     [Date "2017.06.25"]
      *     [Result "*"]
-     *     [UTCDate "2017.06.25"]
-     *     [UTCTime "10:12:04"]
      *     [Variant "Standard"]
      *     [ECO "B76"]
      *     [Opening "Sicilian Defense: Dragon Variation, Yugoslav Attack, Panov Variation"]
-     *     [Annotator "https://lichess.org/@/Francesco_Super"]
+     *     [StudyName "♦ All about the Sicilian Defense ♦"]
+     *     [ChapterName "Dragon Variation"]
+     *     [ChapterURL "https://lichess.org/study/8c8bmUfy/qwnXMwVC"]
+     *     [Annotator "https://lichess.org/@/francesco_super"]
+     *     [UTCDate "2017.06.25"]
+     *     [UTCTime "10:12:04"]
      *
      *     { This chapter will go over the Dragon Variation, a very common variation used by Black and it is the most aggressive variation in the Sicilian defense. }
-     *     1. e4 c5 2. Nf3 { Simple developing move to control the d4 square } { [%csl Gd4,Gc5][%cal Gf3d4,Gc5d4] } 2... d6 { [%cal Gd6e5] } (2... e6 3. d4 cxd4 4. Nxd4 Nf6 5. e5 (5. Nc3 { [%cal Ge4e5] }) 5... Qa5+) 3. d4 { Whites want the exchange of pawns } { [%cal Gc5d4] } 3... cxd4 { [%cal Gf3d4] } 4. Nxd4 { Whites are now ahead in development but blacks still have the two central pawns whereas whites only one. } { [%csl Ge7,Gd6,Ge4] } 4... Nf6 { Blacks are now developing their knight and threatening the e4 pawn } { [%csl Ge4][%cal Gf6e4] } 5. Nc3 { The e4 pawn is now protected by the c3 knight } { [%csl Ge4,Bc3][%cal Rf6e4,Bc3e4] } 5... g6 { This is the DRAGON VARIATION. g6 allows the dark-squared bishop to develop and move to g7, controlling the long dark-squared diagonal } { [%csl Gd4] } 6. Be3 { [%cal Gd1d2,Gf2f3,Ge1c1,Gg2g4,Gh2h4,Gg4g5] } (6. Be2 Bg7 7. O-O Nc6 8. Be3 { [%cal Ge3d4] } (8. f3 Nxe4 { [%cal Gg7d4,Gc6d4] } 9. Nxc6 Qb6+ { [%cal Gb6c6,Gb6g1] } 10. Kh1 Nxc3 { [%cal Gc3d1,Gc3e2] } 11. bxc3 bxc6 { [%cal Gc8a6] }) 8... O-O 9. Nb3 a6 { [%cal Gb7b5,Gb5b4,Ge2c4] }) 6... Bg7 (6... Ng4 { [%cal Gg4e3] } 7. Bb5+ { [%cal Gb5e8,Gb8d7,Gc8d7,Gd1g4] } 7... Nc6 8. Nxc6 bxc6 9. Bxc6+ { [%cal Gc6a8] }) 7. f3 { The key opening moves for White, who attempt to castle queenside , whereas f3 strengthens the pawn structure, connecting e4 to the h2 and g2, while White also plan pushing to g4 and possibly h4. } { [%csl Bf3,Be3][%cal Rg2g4,Rh2h4,Rg4g5] } 7... O-O (7... h5 { Is operating against g4. }) 8. Qd2 { [%csl Gh6,Gg7][%cal Ge1c1,Ga1d1,Re3h6,Rd2h6] } 8... Nc6 { [%csl Gc6,Gh6][%cal Gb8c6,Ge1c1,Ga7a6,Ge3h6] } 9. g4 (9. Bh6 { [%cal Ge3d4] } 9... Bxh6 10. Qxh6 Nxd4) 9... Be6 10. Nxe6 fxe6 { [%cal Gf8f1] } 11. O-O-O Ne5 12. Be2 { [%csl Gf3][%cal Re5f3,Bd1h1,Bg1d1] } 12... Qc7 { [%csl Gc4][%cal Ge5c4,Gc4e3,Gc4d2,Bf8c8,Yc7c3] } 13. h4 Nc4 *
+     *     1. e4 c5 2. Nf3 { Simple developing move to control the d4 square } { [%csl Gd4,Gc5][%cal Gf3d4,Gc5d4] } 2... d6 { [%cal Gd6e5] } (2... e6 3. d4 cxd4 4. Nxd4 Nf6 5. e5 (5. Nc3 { [%cal Ge4e5] }) 5... Qa5+) 3. d4 { Whites want the exchange of pawns } { [%cal Gc5d4] } 3... cxd4 { [%cal Gf3d4] } 4. Nxd4 { Whites are now ahead in development but blacks still have the two central pawns whereas whites only one. } { [%csl Ge7,Gd6,Ge4] } 4... Nf6 { Blacks are now developing their knight and threatening the e4 pawn } { [%csl Ge4][%cal Gf6e4] } 5. Nc3 { The e4 pawn is now protected by the c3 knight } { [%csl Ge4,Bc3][%cal Rf6e4,Bc3e4] } 5... g6 { This is the DRAGON VARIATION. g6 allows the dark-squared bishop to develop and move to g7, controlling the long dark-squared diagonal } { [%csl Gd4] } 6. Be3 { [%cal Gd1d2,Gf2f3,Ge1c1,Gg2g4,Gh2h4,Gg4g5] } (6. Be2 Bg7 7. O-O Nc6 8. Be3 { [%cal Ge3d4] } (8. f3 Nxe4 { [%cal Gg7d4,Gc6d4] } 9. Nxc6 Qb6+ { [%cal Gb6c6,Gb6g1] } 10. Kh1 Nxc3 { [%cal Gc3d1,Gc3e2] } 11. bxc3 bxc6 { [%cal Gc8a6] }) 8... O-O 9. Nb3 a6 { [%cal Gb7b5,Gb5b4,Ge2c4] }) 6... Bg7 (6... Ng4 { [%cal Gg4e3] } 7. Bb5+ { [%cal Gb5e8,Gb8d7,Gc8d7,Gd1g4] } 7... Nc6 8. Nxc6 bxc6 9. Bxc6+ { [%cal Gc6a8] }) 7. f3 { The key opening moves for White, who attempt to castle queenside , whereas f3 strengthens the pawn structure, connecting e4 to the h2 and g2, while White also plan pushing to g4 and possibly h4. } { [%csl Bf3,Be3][%cal Rg2g4,Rh2h4,Rg4g5] } 7... O-O (7... h5 { Is operating against g4. }) 8. Qd2 { [%csl Gh6,Gg7][%cal Ge1c1,Ga1d1,Re3h6,Rd2h6] } 8... Nc6 { [%csl Gc6,Gh6][%cal Gb8c6,Ge1c1,Ga7a6,Ge3h6] } 9. g4 (9. Bh6 { [%cal Ge3d4] } 9... Bxh6 10. Qxh6 Nxd4) 9... Be6 (9... Nxd4 10. Bxd4 Be6 { [%cal Rf1c4] }) 10. Nxe6 fxe6 { The rook has a powerful open file! } { [%cal Gf8f1] } 11. O-O-O Ne5 { [%csl Gf3][%cal Ge5f3] } 12. Be2 { [%csl Gf3][%cal Re5f3,Bd1h1,Bg1d1,Ge2f3] } 12... Qc8 { [%cal Gc8c1] } 13. h4 { [%cal Ge5c4] } *
      */
     StudyPgn: string;
     /** @enum {string} */
     StudyUserSelection:
-      | "nobody"
-      | "owner"
-      | "contributor"
-      | "member"
-      | "everyone";
+      "nobody" | "owner" | "contributor" | "member" | "everyone";
     /**
      * @example {
      *       "chapters": [
@@ -6149,10 +6205,6 @@ export interface components {
       id: string;
       name: string;
       slug: string;
-      /** Format: int64 */
-      createdAt: number;
-      /** @description Whether the round is used for rating calculations */
-      rated: boolean;
       ongoing?: boolean;
       /** Format: int64 */
       startsAt?: number;
@@ -6160,11 +6212,15 @@ export interface components {
       startsAfterPrevious?: boolean;
       /** Format: int64 */
       finishedAt?: number;
+      /**
+       * @deprecated
+       * @description Use finishedAt instead
+       */
       finished?: boolean;
       /** Format: uri */
       url: string;
-      /** Format: int64 */
-      delay?: number;
+      /** @description Whether the round is used for rating calculations */
+      rated?: boolean;
       customScoring?: components["schemas"]["BroadcastCustomScoring"];
     };
     /** @description Photos of players, when available. The object keys are FIDE IDs */
@@ -6355,11 +6411,14 @@ export interface components {
            */
           name?: string;
           /**
-           * @description A comma separated list of tournament IDs to group together.
-           * @example wYigbpXq,M5YHvpOX,q6ezoCXP
+           * @description A linebreak separated list of tournament IDs to group together.
+           * @example wYigbpXq
+           *     M5YHvpOX
+           *     q6ezoCXP
            */
           tours?: string;
         };
+        /** @description This parameter is repeated with an index for each score group, like 'grouping.scoreGroups[0]=wYigbpXq,M5YHvpOX' */
         scoreGroups?: string[];
       };
     };
@@ -6691,6 +6750,7 @@ export interface components {
         error?: string;
       }[];
     };
+    BroadcastPgn: string;
     BroadcastMyRound: {
       round: components["schemas"]["BroadcastRoundInfo"];
       tour: components["schemas"]["BroadcastTour"];
@@ -6722,7 +6782,7 @@ export interface components {
       photo?: components["schemas"]["FIDEPlayerPhoto"];
     };
     /**
-     * @description Data points are encoded. Each number contains a year, a month, and an ELO rating.
+     * @description Data points are encoded. Each number contains a year, a month, and an elo rating.
      *
      *     `2015081568` -> `August 2015: 1568`
      *
@@ -6738,7 +6798,7 @@ export interface components {
      *       };
      *     ```
      *
-     *     Consecutive months with same ELO are omitted. For a given ELO, only the first and last month are provided.
+     *     Consecutive months with same elo are omitted. For a given elo, only the first and last month are provided.
      */
     FIDEPlayerRatings: {
       standard: number[];
@@ -6813,6 +6873,49 @@ export interface components {
     TeamRequestWithUser: {
       request: components["schemas"]["TeamRequest"];
       user: components["schemas"]["User"];
+    };
+    LightTeam: {
+      id: string;
+      name: string;
+      flair?: components["schemas"]["Flair"];
+    };
+    TeamUpdate: {
+      msg: {
+        id: string;
+        date: number;
+        sender: components["schemas"]["LightUser"];
+        team?: components["schemas"]["LightTeam"];
+        text: string;
+      };
+      seen: boolean;
+    };
+    TeamUpdatesPager: {
+      /** @example 4 */
+      currentPage: number;
+      /** @example 15 */
+      maxPerPage: number;
+      currentPageResults: components["schemas"]["TeamUpdate"][];
+      /** @example 3 */
+      previousPage: number | null;
+      /** @example 5 */
+      nextPage: number | null;
+      nbResults: number;
+      nbPages: number;
+    };
+    TeamUpdatesByTeam: {
+      team: components["schemas"]["LightTeam"];
+      last: number;
+      unread: number;
+    }[];
+    TeamUpdates: {
+      updates: components["schemas"]["TeamUpdatesPager"];
+      byTeam: components["schemas"]["TeamUpdatesByTeam"];
+    };
+    TeamUpdatesOfTeam: {
+      team: components["schemas"]["LightTeam"];
+      subscribed: boolean;
+      updates: components["schemas"]["TeamUpdatesPager"];
+      byTeam: components["schemas"]["TeamUpdatesByTeam"];
     };
     /**
      * @example {
@@ -6897,11 +7000,7 @@ export interface components {
     };
     /** @enum {string} */
     ChallengeStatus:
-      | "created"
-      | "offline"
-      | "canceled"
-      | "declined"
-      | "accepted";
+      "created" | "offline" | "canceled" | "declined" | "accepted";
     ChallengeUser: {
       id: string;
       name: string;
@@ -9608,18 +9707,7 @@ export interface operations {
            * @enum {integer}
            */
           "conditions.nbRatedGame.nb"?:
-            | 0
-            | 5
-            | 10
-            | 15
-            | 20
-            | 30
-            | 40
-            | 50
-            | 75
-            | 100
-            | 150
-            | 200;
+            0 | 5 | 10 | 15 | 20 | 30 | 40 | 50 | 75 | 100 | 150 | 200;
           /**
            * @description Predefined list of usernames that are allowed to join, separated by commas.
            *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
@@ -9637,17 +9725,7 @@ export interface operations {
            * @enum {integer}
            */
           "conditions.accountAge"?:
-            | 1
-            | 3
-            | 7
-            | 14
-            | 30
-            | 60
-            | 90
-            | 180
-            | 365
-            | 730
-            | 1095;
+            1 | 3 | 7 | 14 | 30 | 60 | 90 | 180 | 365 | 730 | 1095;
         };
       };
     };
@@ -9883,18 +9961,7 @@ export interface operations {
            * @enum {integer}
            */
           "conditions.nbRatedGame.nb"?:
-            | 0
-            | 5
-            | 10
-            | 15
-            | 20
-            | 30
-            | 40
-            | 50
-            | 75
-            | 100
-            | 150
-            | 200;
+            0 | 5 | 10 | 15 | 20 | 30 | 40 | 50 | 75 | 100 | 150 | 200;
           /**
            * @description Predefined list of usernames that are allowed to join, separated by commas.
            *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
@@ -9912,17 +9979,7 @@ export interface operations {
            * @enum {integer}
            */
           "conditions.accountAge"?:
-            | 1
-            | 3
-            | 7
-            | 14
-            | 30
-            | 60
-            | 90
-            | 180
-            | 365
-            | 730
-            | 1095;
+            1 | 3 | 7 | 14 | 30 | 60 | 90 | 180 | 365 | 730 | 1095;
         };
       };
     };
@@ -11225,17 +11282,22 @@ export interface operations {
            * @enum {string}
            */
           visibility: "public" | "unlisted" | "private";
+          flair?: components["schemas"]["Flair"];
           computer: components["schemas"]["StudyUserSelection"];
           explorer: components["schemas"]["StudyUserSelection"];
           cloneable: components["schemas"]["StudyUserSelection"];
           shareable: components["schemas"]["StudyUserSelection"];
           chat: components["schemas"]["StudyUserSelection"];
           /**
-           * @description Keep everyone on the same chapter and position
+           * @description Keep everyone on the same chapter and position.
            * @default true
-           * @enum {string}
            */
-          sticky?: "true" | "false";
+          sticky?: boolean;
+          /**
+           * @description Add pinned study comment right under the board.
+           * @default false
+           */
+          description?: boolean;
         };
       };
     };
@@ -11285,8 +11347,8 @@ export interface operations {
            */
           name?: string;
           /**
-           * @description Default board orientation.
-           * @default white
+           * @description Board orientation.
+           *     If not specified, the orientation is automatically determined.
            * @enum {string}
            */
           orientation?: "white" | "black";
@@ -12025,7 +12087,46 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/x-chess-pgn": components["schemas"]["StudyPgn"];
+          "application/x-chess-pgn": components["schemas"]["BroadcastPgn"];
+        };
+      };
+    };
+  };
+  broadcastStreamTourPgn: {
+    parameters: {
+      query?: {
+        /**
+         * @description Include clock comments in the PGN moves, when available.
+         *     Example: `2. exd5 { [%clk 1:01:27] } e5 { [%clk 1:01:28] }`
+         */
+        clocks?: boolean;
+        /**
+         * @description Include analysis comments in the PGN moves, when available.
+         *     Example: `12. Bxf6 { [%eval 0.23] }`
+         */
+        comments?: boolean;
+      };
+      header?: never;
+      path: {
+        /**
+         * @description The broadcast tournament ID. It's the last past of the tournament URL, which can be found on the broadcast page overview section.
+         *     [Example](https://lichess.org/broadcast/sparkassen-chess-trophy-2026-open-a/jfEpUuzg) the tournament URL is
+         *     https://lichess.org/broadcast/sparkassen-chess-trophy-2026-open-a/jfEpUuzg and therefore the tournament ID is `jfEpUuzg `.
+         */
+        broadcastTourId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The PGN representation of the rounds games, then the PGNs of games as they are updated. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/x-chess-pgn": components["schemas"]["BroadcastPgn"];
         };
       };
     };
@@ -12064,7 +12165,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/x-chess-pgn": components["schemas"]["StudyPgn"];
+          "application/x-chess-pgn": components["schemas"]["BroadcastPgn"];
         };
       };
     };
@@ -12099,7 +12200,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/x-chess-pgn": components["schemas"]["StudyPgn"];
+          "application/x-chess-pgn": components["schemas"]["BroadcastPgn"];
         };
       };
     };
@@ -12134,7 +12235,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/x-chess-pgn": components["schemas"]["StudyPgn"];
+          "application/x-chess-pgn": components["schemas"]["BroadcastPgn"];
         };
       };
     };
@@ -12572,6 +12673,54 @@ export interface operations {
       };
     };
   };
+  teamUpdates: {
+    parameters: {
+      query?: {
+        page?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description A paginated list of team updates */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TeamUpdates"];
+        };
+      };
+    };
+  };
+  teamUpdatesByTeamId: {
+    parameters: {
+      query?: {
+        page?: number;
+      };
+      header?: never;
+      path: {
+        teamId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description A paginated list of team updates */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TeamUpdatesOfTeam"];
+        };
+      };
+    };
+  };
   teamIdPmAll: {
     parameters: {
       query?: never;
@@ -12590,7 +12739,7 @@ export interface operations {
       };
     };
     responses: {
-      /** @description The message has successfully been sent to all team members. */
+      /** @description The update has been posted successfully. */
       200: {
         headers: {
           "Access-Control-Allow-Origin"?: string;
@@ -12600,7 +12749,7 @@ export interface operations {
           "application/json": components["schemas"]["Ok"];
         };
       };
-      /** @description The sending of message to all team members has failed. */
+      /** @description The update could not be posted. */
       400: {
         headers: {
           [name: string]: unknown;

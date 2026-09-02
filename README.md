@@ -27,6 +27,7 @@ Make modifications to any of the schema yaml files, and the page will rebuild an
 pnpm spectral
 pnpm lint
 pnpm scalar-lint
+pnpm format
 ```
 
 or with `devenv`

@@ -24,6 +24,15 @@ properties:
         type: integer
       accuracy:
         type: integer
+      phases:
+        type: object
+        properties:
+          opening:
+            type: integer
+          middlegame:
+            type: integer
+          endgame:
+            type: integer
     required: [inaccuracy, mistake, blunder, acpl]
   team:
     type: string

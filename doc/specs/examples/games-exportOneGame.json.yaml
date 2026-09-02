@@ -16,14 +16,30 @@ value:
             "user": { "name": "Lance5500", "title": "LM", "id": "lance5500" },
             "rating": 2389,
             "ratingDiff": 4,
-            "analysis": { "inaccuracy": 5, "mistake": 2, "blunder": 1, "acpl": 26, "accuracy": 90 },
+            "analysis":
+              {
+                "inaccuracy": 5,
+                "mistake": 2,
+                "blunder": 1,
+                "acpl": 26,
+                "accuracy": 90,
+                "phases": { "opening": 98, "middlegame": 82, "endgame": 92 },
+              },
           },
         "black":
           {
             "user": { "name": "TryingHard87", "id": "tryinghard87" },
             "rating": 2498,
             "ratingDiff": -4,
-            "analysis": { "inaccuracy": 3, "mistake": 3, "blunder": 1, "acpl": 26, "accuracy": 90 },
+            "analysis":
+              {
+                "inaccuracy": 3,
+                "mistake": 3,
+                "blunder": 1,
+                "acpl": 26,
+                "accuracy": 90,
+                "phases": { "opening": 88, "middlegame": 77, "endgame": 94 },
+              },
           },
       },
     "opening": { "eco": "D31", "name": "Semi-Slav Defense: Marshall Gambit", "ply": 7 },

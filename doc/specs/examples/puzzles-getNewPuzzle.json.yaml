@@ -2,24 +2,24 @@ value:
   {
     "game":
       {
-        "id": "50ZuAmiN",
+        "id": "GRbCPfxs",
         "perf": { "key": "blitz", "name": "Blitz" },
         "rated": true,
         "players":
           [
-            { "name": "mjadidi", "id": "mjadidi", "color": "white", "rating": 1707 },
-            { "name": "B-A-L", "id": "b-a-l", "color": "black", "rating": 1679 },
+            { "name": "Advbaba", "id": "advbaba", "color": "white", "rating": 1785 },
+            { "name": "BobbyOne", "id": "bobbyone", "color": "black", "rating": 1736 },
           ],
-        "pgn": "e4 e6 Nf3 d5 e5 c5 c3 Qb6 d4 cxd4 cxd4 Nc6 Be2 Bb4+ Nc3 Nge7 O-O O-O a3 Bxc3 bxc3 Na5 Be3 Qb2 Qa4 Qxe2 Qxa5 b6 Qb4 Nc6 Qd6 Na5 a4 Nc4 Qc6 Nxe3 fxe3 Qxe3+ Kh1 Ba6 Rfe1 Qf2 a5 Rac8 Qd6 Rfd8 Qe7 bxa5 Qxa7 Be2 Ng5 Ra8 Qe7 Re8 Qc7 Rec8 Qb7 Ba6 Qe7 Rxc3 Reb1 Rc2 Rg1 Rb2 Rxa5 Rc8 Rxa6",
-        "clock": "5+1",
+        "pgn": "d4 Nf6 c4 c5 Nf3 g6 Nc3 Bg7 e4 O-O d5 d6 Be2 a6 O-O e6 Bg5 h6 Bh4 g5 Bg3 Nh5 dxe6 Nxg3 exf7+ Rxf7 hxg3 Nc6 Qd2 Nd4 Rad1 Be5 Na4 b5 cxb5 axb5 Nxe5 dxe5 Nxc5 Rxa2 Nb3 Nxe2+ Qxe2 Qb6 Rd5 Bd7 Rfd1 Bc6 Rxe5 Ra4 Qh5 Qxf2+ Kh1 Bxe4 Rd8+ Kh7",
+        "clock": "5+3",
       },
     "puzzle":
       {
-        "id": "QBX2O",
-        "rating": 1632,
-        "plays": 3889,
-        "solution": ["f2g1", "h1g1", "c8c1"],
-        "themes": ["mateIn2", "middlegame", "short", "attraction", "sacrifice"],
-        "initialPly": 66,
+        "id": "iSz4O",
+        "rating": 1790,
+        "plays": 1696,
+        "solution": ["d8h8", "h7h8", "h5h6", "e4h7", "e5e8", "f7f8", "e8f8", "f2f8", "h6f8"],
+        "themes": ["middlegame", "crushing", "attraction", "fork", "sacrifice", "deflection", "veryLong"],
+        "initialPly": 55,
       },
   }

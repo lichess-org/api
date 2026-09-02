@@ -1,9 +1,5 @@
 type: object
 properties:
-  dark:
-    type: boolean
-  transp:
-    type: boolean
   bgImg:
     type: string
     format: uri

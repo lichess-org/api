@@ -2,8 +2,6 @@ value:
   {
     "prefs":
       {
-        "dark": true,
-        "transp": false,
         "bgImg": "https://lichess1.org/assets/lifat/background/gallery/bg10.webp",
         "is3d": false,
         "theme": "brown",

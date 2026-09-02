@@ -1,7 +1,7 @@
 value:
   {
-    "id": "Ceofnzd3",
-    "url": "https://lichess.org/Ceofnzd3",
+    "id": "7BEDbDr1",
+    "url": "https://lichess.org/7BEDbDr1",
     "status": "created",
     "challenger": null,
     "destUser": null,
@@ -11,8 +11,8 @@ value:
     "timeControl": { "type": "unlimited" },
     "color": "random",
     "finalColor": "black",
-    "perf": { "icon": "", "name": "Correspondence" },
+    "perf": { "icon": "paper-airplane", "name": "Correspondence" },
     "open": {},
-    "urlWhite": "https://lichess.org/Ceofnzd3?color=white",
-    "urlBlack": "https://lichess.org/Ceofnzd3?color=black",
+    "urlWhite": "https://lichess.org/7BEDbDr1?color=white",
+    "urlBlack": "https://lichess.org/7BEDbDr1?color=black",
   }

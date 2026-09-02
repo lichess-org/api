@@ -2,26 +2,32 @@ value:
   {
     "game":
       {
-        "id": "bcZBqQrZ",
+        "id": "HxbFI25U",
         "perf": { "key": "rapid", "name": "Rapid" },
         "rated": true,
         "players":
           [
-            { "name": "StourKwn", "id": "stourkwn", "color": "white", "rating": 1898 },
-            { "name": "Jaraxis", "id": "jaraxis", "color": "black", "rating": 1837 },
+            {
+              "name": "Varjim",
+              "flair": "activity.lichess-horsey-yin-yang",
+              "id": "varjim",
+              "color": "white",
+              "rating": 1977,
+            },
+            { "name": "rish3", "id": "rish3", "color": "black", "rating": 2179 },
           ],
-        "pgn": "g3 e5 Bg2 d5 d3 Nc6 c4 Be6 Nc3 Nf6 Nf3 Qd7 Bg5 Be7 cxd5 Nxd5 Bxe7 Qxe7 O-O O-O-O Qc2 g5 Nxd5 Bxd5 e4 Be6 a3 f5 Rac1 Nd4 Nxd4 Rxd4 exf5 Bxf5 Rfd1 Rhd8 Qb3 c6 Rc3 h5 Rdc1 R8d6 Qg8+ Rd8 Qb3 R8d6 a4 Rxd3 Rxd3 Rxd3 Qc4 e4 a5 a6 Re1 Qe5 Bxe4 Bxe4",
+        "pgn": "c4 Nf6 Nc3 g6 Nf3 Bg7 g3 d6 Bg2 O-O O-O e5 d3 Nbd7 Rb1 c6 e4 a5 a3 Nh5 Bg5 f6 Be3 Nc5 b4 Ne6 b5 Bd7 a4 Qe8 Qd2 f5 exf5 gxf5 Bh6 Rf7 Nh4 f4 Bxg7 Rxg7 Nf5 Rg5 Nxd6 Qg6 Nce4 fxg3 fxg3 Nef4 gxf4 Nxf4 Rxf4 exf4 Nxg5 Qxg5 Rf1 Qc5+ Kh1 Qxd6 bxc6 Bxc6 Rxf4 Qe5 Rg4+ Kh8 d4 Bxg2+ Rxg2 Qe4 Kg1 Qb1+ Kf2 Rf8+ Ke3",
         "clock": "10+0",
       },
     "puzzle":
       {
-        "id": "IFy4T",
-        "rating": 1869,
-        "plays": 42035,
-        "solution": ["c4d3", "e4d3", "e1e5"],
-        "themes": ["endgame", "crushing", "short"],
-        "fen": "2k5/1p6/p1p5/P3q1pp/2Q1b3/3r2P1/1P3P1P/4R1K1 w - - 0 1",
-        "lastMove": "f5e4",
-        "initialPly": 57,
+        "id": "1Sqyb",
+        "rating": 1857,
+        "plays": 60048,
+        "solution": ["b1b3", "d2d3", "f8f3", "e3f3", "b3d3"],
+        "themes": ["deflection", "endgame", "crushing", "attraction", "long"],
+        "fen": "5r1k/1p5p/8/p7/P1PP4/4K3/3Q2RP/1q6 b - - 1 1",
+        "lastMove": "f2e3",
+        "initialPly": 72,
       },
   }

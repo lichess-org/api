@@ -1,31 +1,37 @@
 value:
   [
     {
-      "name": "batOnchikeat",
-      "id": "batonchikeat",
-      "stream": { "service": "twitch", "status": "шахматы онлайн lichess.org", "lang": "ru" },
+      "name": "ZefCat",
+      "flair": "nature.rat",
+      "patron": true,
+      "patronColor": 8,
+      "id": "zefcat",
+      "stream": { "service": "twitch", "status": "short silent strem lichess.org", "lang": "en" },
       "streamer":
         {
-          "name": "batOnchikeat",
-          "headline": "шахматы онлайн",
-          "twitch": "https://www.twitch.tv/batonchikeat",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=dvuFBLfSE9KG.webp&w=350&sig=0bba24783561b8085623b97148ba56e8d8d5e81c",
+          "name": "Sara Herman",
+          "headline": "I like to make chess",
+          "description": "watch my ratings and mental state deteriorate live!",
+          "twitch": "https://www.twitch.tv/zefcatt",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=zefcat:streamer:zefcat:8epgxHI4.jpg&w=350&sig=b811fe8652a7ed7a7093c7c984e24c76a775268f",
         },
     },
     {
-      "name": "RishadanPort",
-      "flair": "travel-places.wooden-ship",
-      "patron": true,
-      "patronColor": 10,
-      "id": "rishadanport",
+      "name": "Dmitry_Voronin",
+      "id": "dmitry_voronin",
       "stream":
-        { "service": "twitch", "status": "2200 rapid -- Playing 7+2 Swiss tournament @  lichess.org", "lang": "en" },
+        {
+          "service": "youtube",
+          "status": "[RU] 02.09.2026.Попытка вернуть 1800 в блиц,после неудачного турнира,на lichess.org",
+          "lang": "en-US",
+        },
       "streamer":
         {
-          "name": "RishadanPort",
-          "headline": "Rapid road to 2300 lichess.org",
-          "twitch": "https://www.twitch.tv/rishadanport",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=rishadanport:streamer:rishadanport:OK6eW3Es.jpg&w=350&sig=3b9f903e8bb8918d521ca592da89ec2627f7341e",
+          "name": " ВЛ Дмитрий Воронин",
+          "headline": "Шахматные и иногда прогулочные стримы со смартфона, для души, эмоций и спортивного интереса, музыка, общение с адекватными зрителямм. P.S. Музыку можно заказывать на стримах, практически любую и бесплатно.",
+          "description": "Воронин Дмитрий Сергеевич. \r\n Дата рождения: 11.10.1980г. Постоянное место проживания: Россия, город Санкт-Петербург. Просто Вечный Любитель (ВЛ) .",
+          "youtube": "https://www.youtube.com/channel/UC4QUjHH7bWXu6qm8dFosTwQ/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=kjXgkl2bXe52.webp&w=350&sig=46a63cb47ebdd62105e55a158a6617ef5c54c152",
         },
     },
   ]

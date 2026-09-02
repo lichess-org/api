@@ -3,23 +3,19 @@ value:
     "t": "featured",
     "d":
       {
-        "id": "3hkEI6VI",
+        "id": "LcjEEYDA",
         "orientation": "white",
         "players":
           [
-            {
-              "color": "white",
-              "user": { "name": "TheMarsisback2015", "id": "themarsisback2015" },
-              "rating": 3180,
-              "seconds": 30,
-            },
+            { "color": "white", "user": { "name": "Shprot86", "id": "shprot86" }, "rating": 3061, "seconds": 60 },
             {
               "color": "black",
-              "user": { "name": "Kurse-Aura1", "flair": "smileys.loudly-crying-face", "id": "kurse-aura1" },
-              "rating": 2969,
-              "seconds": 30,
+              "user":
+                { "name": "GraysonRorrer", "title": "IM", "flair": "activity.lichess-berserk", "id": "graysonrorrer" },
+              "rating": 3058,
+              "seconds": 60,
             },
           ],
-        "fen": "3r1rk1/pp2p1b1/4P2p/3NP1p1/4qp2/5Q2/PP4K1/3R3R b - - 5 31",
+        "fen": "rn1q1rk1/p1n1bppp/1p1pp3/1P6/2PP4/5NBP/1P3PP1/RN1Q1RK1 b - - 0 13",
       },
   }
