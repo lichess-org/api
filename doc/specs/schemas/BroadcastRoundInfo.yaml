@@ -7,6 +7,9 @@ properties:
     type: string
   slug:
     type: string
+  createdAt:
+    type: integer
+    format: int64
   ongoing:
     type: boolean
   startsAt:
