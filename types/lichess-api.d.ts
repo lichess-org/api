@@ -5338,6 +5338,11 @@ export interface components {
         blunder: number;
         acpl: number;
         accuracy?: number;
+        phases?: {
+          opening?: number;
+          middlegame?: number;
+          endgame?: number;
+        };
       };
       team?: string;
     };
@@ -5907,6 +5912,7 @@ export interface components {
           rating?: number;
           score?: number;
           sheet?: components["schemas"]["ArenaSheet"];
+          realName?: string;
         }[];
       };
       featured?: {
@@ -6205,6 +6211,8 @@ export interface components {
       id: string;
       name: string;
       slug: string;
+      /** Format: int64 */
+      createdAt?: number;
       ongoing?: boolean;
       /** Format: int64 */
       startsAt?: number;
@@ -7016,7 +7024,7 @@ export interface components {
     TimeControl:
       | {
           /** @constant */
-          type?: "clock";
+          type: "clock";
           limit?: number;
           increment?: number;
           /** @example 5+2 */
@@ -7024,12 +7032,12 @@ export interface components {
         }
       | {
           /** @constant */
-          type?: "correspondence";
+          type: "correspondence";
           daysPerTurn?: number;
         }
       | {
           /** @constant */
-          type?: "unlimited";
+          type: "unlimited";
         };
     /** @enum {string} */
     ChallengeColor: "white" | "black" | "random";
