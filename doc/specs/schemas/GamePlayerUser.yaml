@@ -11,8 +11,6 @@ properties:
     type: string
   provisional:
     type: boolean
-  aiLevel:
-    type: integer
   analysis:
     type: object
     properties:

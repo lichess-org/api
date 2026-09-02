@@ -1,0 +1,26 @@
+type: object
+
+description: |
+  One side of a game played by the Stockfish AI. AI sides carry the
+  strength level instead of `user` and `rating`.
+
+properties:
+  aiLevel:
+    type: integer
+  analysis:
+    type: object
+    properties:
+      inaccuracy:
+        type: integer
+      mistake:
+        type: integer
+      blunder:
+        type: integer
+      acpl:
+        type: integer
+      accuracy:
+        type: integer
+    required: [inaccuracy, mistake, blunder, acpl]
+
+required:
+  - aiLevel
