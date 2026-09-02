@@ -152,6 +152,8 @@ properties:
               type: integer
             sheet:
               $ref: "./ArenaSheet.yaml"
+            realName:
+              type: string
   featured:
     type: object
     properties:
