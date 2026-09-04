@@ -346,9 +346,6 @@ paths:
   /api/account/kid:
     $ref: "./tags/account/api-account-kid.yaml"
 
-  /api/timeline:
-    $ref: "./tags/account/api-timeline.yaml"
-
   /game/export/{gameId}:
     $ref: "./tags/games/game-export-gameId.yaml"
 

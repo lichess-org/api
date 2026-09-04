@@ -289,9 +289,6 @@ ExternalEngine:
 ExternalEngineWork:
   $ref: "./ExternalEngineWork.yaml"
 
-Timeline:
-  $ref: "./Timeline.yaml"
-
 BroadcastPgnPush:
   $ref: "./BroadcastPgnPush.yaml"
 
