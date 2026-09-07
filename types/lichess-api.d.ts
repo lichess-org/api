@@ -3749,14 +3749,18 @@ export interface paths {
      *     Submit a stream of analysis as [UCI output](https://backscattering.de/chess/uci/#engine-info).
      *     * The engine should always be in `UCI_Chess960` mode.
      *     * `UCI_AnalyseMode` enabled if available.
-     *     * It produces `info` with at least:
+     *     * Engine produces `info` with at least:
      *       - `depth`
      *       - `multipv` (between 1 and 5)
      *       - `score`
      *       - `nodes`
      *       - `time`
      *       - `pv`
-     *     The server may close the connection at any time, indicating that
+     *     * Engine finally sends `bestmove`:
+     *       - with a move or `(none)`
+     *       - optionally, with `ponder` move
+     *
+     *     The endpoint may close the connection at any time, indicating that
      *     the requester has gone away and analysis should be stopped.
      */
     post: operations["apiExternalEngineSubmit"];
