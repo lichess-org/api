@@ -838,6 +838,7 @@ components:
             "follow:read": Read followed players
             "follow:write": Follow and unfollow other players
             "msg:write": Send private messages to other players
+            "note:write": Write notes on other players
             "board:play": Play with the Board API
             "bot:play": Play with the Bot API. Only for [Bot accounts](#tag/bot/POST/api/bot/account/upgrade)
             "web:mod": Use moderator tools (within the bounds of your permissions)
