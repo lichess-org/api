@@ -5250,14 +5250,14 @@ export interface components {
       | "pool"
       | "arena"
       | "swiss";
+    GameStatus: {
+      id: components["schemas"]["GameStatusId"];
+      name: components["schemas"]["GameStatusName"];
+    };
     Variant: {
       key: components["schemas"]["VariantKey"];
       name: string;
       short?: string;
-    };
-    GameStatus: {
-      id: components["schemas"]["GameStatusId"];
-      name: components["schemas"]["GameStatusName"];
     };
     MoveStreamEntry:
       | {
@@ -8800,19 +8800,30 @@ export interface operations {
               color: components["schemas"]["GameColor"];
               lastMove: string;
               source: components["schemas"]["GameSource"];
-              status?: components["schemas"]["GameStatusName"];
+              status?: components["schemas"]["GameStatus"];
               variant: components["schemas"]["Variant"];
               speed: components["schemas"]["Speed"];
               perf: components["schemas"]["PerfType"];
               rated: boolean;
+              rating: number;
               hasMoved: boolean;
-              opponent: {
-                id: string;
-                username: string;
-                rating?: number;
-                ratingDiff?: number;
-                ai?: number;
-              };
+              opponent:
+                | {
+                    id: string;
+                    username: string;
+                    rating?: number;
+                    ratingDiff?: number;
+                  }
+                | {
+                    id: null;
+                    username: string;
+                  }
+                | {
+                    id: null;
+                    username: string;
+                    /** @description AI level, from 1 to 8. */
+                    ai: number;
+                  };
               isMyTurn: boolean;
               secondsLeft: number;
               tournamentId?: string;
