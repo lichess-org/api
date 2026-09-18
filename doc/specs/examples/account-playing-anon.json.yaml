@@ -1,0 +1,25 @@
+value:
+  {
+    "nbMyTurn": 1,
+    "nowPlaying":
+      [
+        {
+          "color": "white",
+          "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+          "fullId": "ilsNdWVf6NpQ",
+          "gameId": "ilsNdWVf",
+          "hasMoved": true,
+          "isMyTurn": true,
+          "lastMove": "e7e5",
+          "opponent": { "id": null, "username": "Anon." },
+          "perf": "blitz",
+          "rated": false,
+          "rating": 1700,
+          "secondsLeft": 298,
+          "source": "friend",
+          "speed": "blitz",
+          "status": { "id": 20, "name": "started" },
+          "variant": { "key": "standard", "name": "Standard" },
+        },
+      ],
+  }
