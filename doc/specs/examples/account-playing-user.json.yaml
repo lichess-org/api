@@ -1,0 +1,25 @@
+value:
+  {
+    "nbMyTurn": 0,
+    "nowPlaying":
+      [
+        {
+          "color": "black",
+          "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+          "fullId": "8NaxZT0YAMgv",
+          "gameId": "8NaxZT0Y",
+          "hasMoved": true,
+          "isMyTurn": false,
+          "lastMove": "e7e5",
+          "opponent": { "id": "mary", "rating": 1007, "username": "Mary" },
+          "perf": "blitz",
+          "rated": false,
+          "rating": 1700,
+          "secondsLeft": 300,
+          "source": "friend",
+          "speed": "blitz",
+          "status": { "id": 20, "name": "started" },
+          "variant": { "key": "standard", "name": "Standard" },
+        },
+      ],
+  }

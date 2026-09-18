@@ -1,0 +1,25 @@
+value:
+  {
+    "nbMyTurn": 0,
+    "nowPlaying":
+      [
+        {
+          "color": "white",
+          "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+          "fullId": "Qw8FX7qveVKJ",
+          "gameId": "Qw8FX7qv",
+          "hasMoved": true,
+          "isMyTurn": false,
+          "lastMove": "e2e4",
+          "opponent": { "ai": 1, "id": null, "username": "Stockfish level 1" },
+          "perf": "blitz",
+          "rated": false,
+          "rating": 1700,
+          "secondsLeft": 300,
+          "source": "ai",
+          "speed": "blitz",
+          "status": { "id": 20, "name": "started" },
+          "variant": { "key": "standard", "name": "Standard" },
+        },
+      ],
+  }

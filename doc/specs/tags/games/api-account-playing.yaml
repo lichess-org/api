@@ -53,6 +53,7 @@ get:
                     - opponent
                     - perf
                     - rated
+                    - rating
                     - secondsLeft
                     - source
                     - speed
@@ -80,24 +81,53 @@ get:
                       $ref: "../../schemas/PerfType.yaml"
                     rated:
                       type: boolean
+                    rating:
+                      type: integer
                     hasMoved:
                       type: boolean
                     opponent:
-                      required:
-                        - id
-                        - username
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        username:
-                          type: string
-                        rating:
-                          type: integer
-                        ratingDiff:
-                          type: integer
-                        ai:
-                          type: integer
+                      oneOf:
+                        - type: object
+                          title: Player
+                          required:
+                            - id
+                            - username
+                          properties:
+                            id:
+                              type: string
+                            username:
+                              type: string
+                            rating:
+                              type: integer
+                            ratingDiff:
+                              type: integer
+                          additionalProperties: false
+                        - type: object
+                          title: Anonymous opponent
+                          required:
+                            - id
+                            - username
+                          properties:
+                            id:
+                              type: "null"
+                            username:
+                              type: string
+                          additionalProperties: false
+                        - type: object
+                          title: AI opponent
+                          required:
+                            - id
+                            - username
+                            - ai
+                          properties:
+                            id:
+                              type: "null"
+                            username:
+                              type: string
+                            ai:
+                              type: integer
+                              description: AI level, from 1 to 8.
+                          additionalProperties: false
                     isMyTurn:
                       type: boolean
                     secondsLeft:
@@ -110,26 +140,10 @@ get:
                       $ref: "../../schemas/GameColor.yaml"
                     ratingDiff:
                       type: integer
-            example:
-              {
-                "nbMyTurn": 1,
-                "nowPlaying":
-                  [
-                    {
-                      "gameId": "rCRw1AuO",
-                      "fullId": "rCRw1AuOvonq",
-                      "color": "black",
-                      "fen": "r1bqkbnr/pppp2pp/2n1pp2/8/8/3PP3/PPPB1PPP/RN1QKBNR w KQkq - 2 4",
-                      "hasMoved": true,
-                      "isMyTurn": false,
-                      "lastMove": "b8c6",
-                      "opponent": { "id": "philippe", "rating": 1790, "username": "Philippe" },
-                      "perf": "correspondence",
-                      "rated": false,
-                      "secondsLeft": 1209600,
-                      "source": "friend",
-                      "speed": "correspondence",
-                      "variant": { "key": "standard", "name": "Standard" },
-                    },
-                  ],
-              }
+          examples:
+            player:
+              $ref: "../../examples/account-playing-user.json.yaml"
+            ai:
+              $ref: "../../examples/account-playing-ai.json.yaml"
+            anon:
+              $ref: "../../examples/account-playing-anon.json.yaml"
