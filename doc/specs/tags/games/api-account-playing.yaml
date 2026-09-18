@@ -53,6 +53,7 @@ get:
                     - opponent
                     - perf
                     - rated
+                    - rating
                     - secondsLeft
                     - source
                     - speed
@@ -80,6 +81,8 @@ get:
                       $ref: "../../schemas/PerfType.yaml"
                     rated:
                       type: boolean
+                    rating:
+                      type: integer
                     hasMoved:
                       type: boolean
                     opponent:
@@ -112,23 +115,25 @@ get:
                       type: integer
             example:
               {
-                "nbMyTurn": 1,
+                "nbMyTurn": 0,
                 "nowPlaying":
                   [
                     {
-                      "gameId": "rCRw1AuO",
-                      "fullId": "rCRw1AuOvonq",
                       "color": "black",
-                      "fen": "r1bqkbnr/pppp2pp/2n1pp2/8/8/3PP3/PPPB1PPP/RN1QKBNR w KQkq - 2 4",
+                      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+                      "fullId": "8NaxZT0YAMgv",
+                      "gameId": "8NaxZT0Y",
                       "hasMoved": true,
                       "isMyTurn": false,
-                      "lastMove": "b8c6",
-                      "opponent": { "id": "philippe", "rating": 1790, "username": "Philippe" },
-                      "perf": "correspondence",
+                      "lastMove": "e7e5",
+                      "opponent": { "id": "mary", "rating": 1007, "username": "Mary" },
+                      "perf": "blitz",
                       "rated": false,
-                      "secondsLeft": 1209600,
+                      "rating": 1700,
+                      "secondsLeft": 300,
                       "source": "friend",
-                      "speed": "correspondence",
+                      "speed": "blitz",
+                      "status": { "id": 20, "name": "started" },
                       "variant": { "key": "standard", "name": "Standard" },
                     },
                   ],
