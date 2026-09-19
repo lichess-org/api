@@ -10,4 +10,8 @@ createApiReference("#app", {
   agent: {
     disabled: true,
   },
+  hideClientButton: true,
+  mcp: {
+    disabled: true,
+  },
 });
