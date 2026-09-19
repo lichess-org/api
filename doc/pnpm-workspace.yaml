@@ -1,6 +1,6 @@
 allowBuilds:
-  '@quobix/vacuum': true
-  '@scarf/scarf': true
+  "@quobix/vacuum": true
+  "@scarf/scarf": true
   esbuild: true
   vue-demi: true
 minimumReleaseAge: 0

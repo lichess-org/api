@@ -9,6 +9,10 @@
       package = pkgs.nodejs-slim_26;
       pnpm = {
         enable = true;
+        package = pkgs.pnpm_12;
+      };
+      bun = {
+        enable = true;
       };
     };
   };
