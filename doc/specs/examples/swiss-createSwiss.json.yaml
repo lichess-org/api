@@ -1,0 +1,17 @@
+value:
+  {
+    "id": "Vz0jivPg",
+    "createdBy": "benjamin",
+    "startsAt": "2026-09-19T16:44:27.218944361Z",
+    "name": "Weekly Swiss",
+    "clock": { "limit": 300, "increment": 0 },
+    "variant": "standard",
+    "round": 0,
+    "nbRounds": 5,
+    "nbPlayers": 0,
+    "nbOngoing": 0,
+    "status": "created",
+    "nextRound": { "at": "2026-09-19T16:44:27.218936858Z", "in": 600 },
+    "verdicts": { "list": [], "accepted": true },
+    "rated": true,
+  }

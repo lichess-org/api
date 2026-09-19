@@ -1,0 +1,18 @@
+value: |
+  [Event "casual blitz game"]
+  [Site "https://lichess.org/u8TyjiRg"]
+  [Date "2026.09.19"]
+  [Round "-"]
+  [White "Fatima"]
+  [Black "Iryna"]
+  [Result "0-1"]
+  [GameId "u8TyjiRg"]
+  [UTCDate "2026.09.19"]
+  [UTCTime "16:33:33"]
+  [WhiteElo "1017"]
+  [BlackElo "1706"]
+  [Variant "Standard"]
+  [TimeControl "300+0"]
+  [Termination "Normal"]
+
+  1. e4 e5 0-1

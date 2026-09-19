@@ -192,6 +192,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/SwissTournament.yaml"
+          examples:
+            default:
+              $ref: "../../examples/swiss-updateSwiss.json.yaml"
     "400":
       description: Updating the swiss failed.
       content:

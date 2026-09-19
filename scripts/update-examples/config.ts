@@ -153,6 +153,112 @@ export async function firstNdJson<T = any>(result: Streamed): Promise<T> {
 }
 
 /**
+ * A casual 5+0 game between two local players: the challenger creates the challenge and the
+ * challengee accepts it. Resolves to the game ID.
+ */
+export async function startGame(challenger: string, challengee: string) {
+  const challenge = ok(
+    await localClient(challenger).POST("/api/challenge/{username}", {
+      params: {
+        path: {
+          username: challengee,
+        },
+      },
+      body: {
+        rated: false,
+        "clock.limit": 300,
+        "clock.increment": 0,
+        color: "white",
+      },
+    }),
+  );
+  ok(
+    await localClient(challengee).POST("/api/challenge/{challengeId}/accept", {
+      params: {
+        path: {
+          challengeId: challenge.id,
+        },
+      },
+    }),
+  );
+  return challenge.id;
+}
+
+/** Play a move in a game, through the Board API or, for a bot account, the Bot API. */
+export function makeMove(
+  as: string,
+  gameId: string,
+  move: string,
+  api: "board" | "bot" = "board",
+) {
+  const params = { path: { gameId, move } };
+  return api === "board"
+    ? localClient(as).POST("/api/board/game/{gameId}/move/{move}", { params })
+    : localClient(as).POST("/api/bot/game/{gameId}/move/{move}", { params });
+}
+
+/**
+ * Follows a game through its Board or Bot API stream, in the background while the caller plays it,
+ * and keeps the events it receives. The stream is closed with `close`, or after three minutes.
+ */
+export function followGame(
+  as: string,
+  gameId: string,
+  api: "board" | "bot" = "board",
+) {
+  const events: any[] = [];
+  const controller = new AbortController();
+  const signal = AbortSignal.any([
+    controller.signal,
+    AbortSignal.timeout(180_000),
+  ]);
+  const options = {
+    params: { path: { gameId } },
+    headers: { Accept: "application/x-ndjson" },
+    parseAs: "stream",
+    signal,
+  } as const;
+  (async () => {
+    const stream =
+      api === "board"
+        ? await localClient(as).GET("/api/board/game/stream/{gameId}", options)
+        : await localClient(as).GET("/api/bot/game/stream/{gameId}", options);
+    for await (const event of readNdJson(stream)) events.push(event);
+  })().catch(() => {
+    // The stream was closed on purpose, or `next` reports that what it waits for never arrived
+  });
+
+  return {
+    /** The first event that satisfies `match`, whether it has arrived already or is yet to. */
+    async next(match: (event: any) => boolean, waitSeconds = 30) {
+      for (let i = 0; i < waitSeconds * 10; i++) {
+        const event = events.find(match);
+        if (event) return event;
+        await Bun.sleep(100);
+      }
+      throw new Error(
+        `${as} did not see the expected event of ${gameId} within ${waitSeconds}s. Events: ${JSON.stringify(events).slice(0, 300)}`,
+      );
+    },
+    close: () => controller.abort(),
+  };
+}
+
+/** The first `count` games of a PGN stream, after which the stream is closed. */
+export async function firstPgnGames(
+  result: Streamed,
+  count = 1,
+): Promise<string> {
+  const lines: string[] = [];
+  let games = 0;
+  for await (const line of readLines(result)) {
+    if (line.startsWith("[Event ") && ++games > count) break;
+    lines.push(line);
+  }
+  return lines.join("\n").trimEnd();
+}
+
+/**
  * Listens to a local user's event stream in the background while the caller drives the API, and
  * await the result once done. `onEvent` returns true when it has seen what it needs, which closes
  * the stream. Rejects if the stream fails, times out, or ends first.

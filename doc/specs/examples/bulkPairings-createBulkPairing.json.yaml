@@ -1,0 +1,12 @@
+value:
+  {
+    "id": "xU959ebY",
+    "games": [{ "id": "04tBWeea", "white": "sai", "black": "nushi" }],
+    "variant": "standard",
+    "rated": false,
+    "pairAt": 1789835613937,
+    "startClocksAt": 1789839213932,
+    "scheduledAt": 1789835613937,
+    "pairedAt": null,
+    "clock": { "limit": 300, "increment": 0 },
+  }

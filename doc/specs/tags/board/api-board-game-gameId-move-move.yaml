@@ -39,6 +39,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+          examples:
+            default:
+              $ref: "../../examples/board-makeBoardMove.json.yaml"
     "400":
       description: The move failed.
       content:

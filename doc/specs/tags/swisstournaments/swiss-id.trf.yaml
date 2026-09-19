@@ -27,3 +27,7 @@ get:
         text/plain:
           schema:
             type: string
+
+          examples:
+            default:
+              $ref: "../../examples/swiss-exportTrfOfSwiss.txt.yaml"

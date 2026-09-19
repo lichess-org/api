@@ -22,3 +22,7 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+
+          examples:
+            default:
+              $ref: "../../examples/teams-quitTeam.json.yaml"

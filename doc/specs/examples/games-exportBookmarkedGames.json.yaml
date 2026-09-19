@@ -1,0 +1,20 @@
+value:
+  {
+    "id": "u8TyjiRg",
+    "rated": false,
+    "variant": "standard",
+    "speed": "blitz",
+    "perf": "blitz",
+    "createdAt": 1789835613631,
+    "lastMoveAt": 1789835613888,
+    "status": "resign",
+    "source": "friend",
+    "players":
+      {
+        "white": { "user": { "name": "Fatima", "flair": "people.man-biking", "id": "fatima" }, "rating": 1017 },
+        "black": { "user": { "name": "Iryna", "id": "iryna" }, "rating": 1706 },
+      },
+    "winner": "black",
+    "moves": "e4 e5",
+    "clock": { "initial": 300, "increment": 0, "totalTime": 300 },
+  }

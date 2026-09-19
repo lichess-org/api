@@ -1,4 +1,12 @@
-import { example, firstNdJson, localClient, ok, prodClient } from "./config";
+import {
+  example,
+  firstNdJson,
+  firstPgnGames,
+  localClient,
+  ok,
+  prodClient,
+  streamTimeout,
+} from "./config";
 
 export default async function arenas() {
   await example(
@@ -51,6 +59,42 @@ export default async function arenas() {
 
   await example(
     "arenas",
+    "joinArena",
+    localClient("mary").POST("/api/tournament/{id}/join", {
+      params: {
+        path: {
+          id: newArena.id,
+        },
+      },
+    }),
+  );
+
+  await example(
+    "arenas",
+    "withdrawFromArena",
+    localClient("mary").POST("/api/tournament/{id}/withdraw", {
+      params: {
+        path: {
+          id: newArena.id,
+        },
+      },
+    }),
+  );
+
+  await example(
+    "arenas",
+    "terminateArena",
+    localClient().POST("/api/tournament/{id}/terminate", {
+      params: {
+        path: {
+          id: newArena.id,
+        },
+      },
+    }),
+  );
+
+  await example(
+    "arenas",
     "getResultsOfArena",
     firstNdJson(
       await prodClient().GET("/api/tournament/{id}/results", {
@@ -69,6 +113,50 @@ export default async function arenas() {
         parseAs: "stream",
       }),
     ),
+  );
+
+  await example(
+    "arenas",
+    "exportGamesOfArena",
+    firstNdJson(
+      await prodClient().GET("/api/tournament/{id}/games", {
+        params: {
+          path: {
+            id: "may25bta",
+          },
+          query: {
+            clocks: false,
+            opening: true,
+            division: true,
+          },
+        },
+        headers: {
+          Accept: "application/x-ndjson",
+        },
+        parseAs: "stream",
+        signal: streamTimeout(),
+      }),
+    ),
+  );
+
+  await example(
+    "arenas",
+    "exportGamesOfArena",
+    firstPgnGames(
+      await prodClient().GET("/api/tournament/{id}/games", {
+        params: {
+          path: {
+            id: "may25bta",
+          },
+        },
+        headers: {
+          Accept: "application/x-chess-pgn",
+        },
+        parseAs: "stream",
+        signal: streamTimeout(),
+      }),
+    ),
+    "pgn",
   );
 
   await example(

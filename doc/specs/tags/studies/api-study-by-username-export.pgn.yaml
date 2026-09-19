@@ -55,3 +55,7 @@ get:
         application/x-chess-pgn:
           schema:
             $ref: "../../schemas/StudyPgn.yaml"
+
+          examples:
+            pgn:
+              $ref: "../../examples/studies-exportAllStudiesOfUser.pgn.yaml"

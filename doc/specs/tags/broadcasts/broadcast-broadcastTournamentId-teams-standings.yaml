@@ -24,5 +24,8 @@ get:
             type: array
             items:
               $ref: "../../schemas/BroadcastTeamLeaderboardEntry.yaml"
+          examples:
+            default:
+              $ref: "../../examples/broadcasts-getTeamLeaderboardOfBroadcastTournament.json.yaml"
     "404":
       description: Broadcast tournament not found

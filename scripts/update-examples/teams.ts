@@ -1,4 +1,12 @@
-import { example, localClient, prodClient } from "./config";
+import {
+  example,
+  firstNdJson,
+  localClient,
+  ok,
+  prodClient,
+  readNdJson,
+  streamTimeout,
+} from "./config";
 
 export default async function teams() {
   await example(
@@ -52,5 +60,205 @@ export default async function teams() {
         },
       },
     }),
+  );
+
+  await example(
+    "teams",
+    "getMembersOfTeam",
+    firstNdJson(
+      await localClient().GET("/api/team/{teamId}/users", {
+        params: {
+          path: {
+            teamId: "this-team-name-has-been-purchased-by-chesscom",
+          },
+        },
+        headers: {
+          Accept: "application/x-ndjson",
+        },
+        parseAs: "stream",
+        signal: streamTimeout(),
+      }),
+    ),
+  );
+
+  await example("teams", "updates", localClient().GET("/team/updates"));
+
+  await example(
+    "teams",
+    "updates-of-team",
+    localClient().GET("/team/updates/{teamId}", {
+      params: {
+        path: {
+          teamId: "stalemate-declined",
+        },
+      },
+    }),
+  );
+
+  await joinAndQuitOpenTeam();
+  await handleJoinRequests();
+}
+
+/** An open team accepts anyone immediately, so this leaves the team as it was. */
+async function joinAndQuitOpenTeam() {
+  const team = "stalemate-declined";
+  const player = "gabriela";
+
+  await example(
+    "teams",
+    "joinTeam",
+    localClient(player).POST("/team/{teamId}/join", {
+      params: {
+        path: {
+          teamId: team,
+        },
+      },
+    }),
+  );
+
+  await example(
+    "teams",
+    "quitTeam",
+    localClient(player).POST("/team/{teamId}/quit", {
+      params: {
+        path: {
+          teamId: team,
+        },
+      },
+    }),
+  );
+}
+
+/**
+ * A team that reviews its join requests: players ask to join, and the leader accepts, declines or
+ * kicks them.
+ *
+ * A player the team has declined or kicked can never ask again (the request is dropped without an
+ * error), so every run needs players that have no history with the team yet.
+ */
+async function handleJoinRequests() {
+  const team = "knights-to-meet-you";
+  const leader = "benjamin";
+
+  const [accepted, declined] = await requestToJoin(team, leader, 2);
+
+  await example(
+    "teams",
+    "getJoinRequests",
+    localClient(leader).GET("/api/team/{teamId}/requests", {
+      params: {
+        path: {
+          teamId: team,
+        },
+      },
+    }),
+  );
+
+  await example(
+    "teams",
+    "acceptJoinRequest",
+    localClient(leader).POST("/api/team/{teamId}/request/{userId}/accept", {
+      params: {
+        path: {
+          teamId: team,
+          userId: accepted!,
+        },
+      },
+    }),
+  );
+
+  await example(
+    "teams",
+    "declineJoinRequest",
+    localClient(leader).POST("/api/team/{teamId}/request/{userId}/decline", {
+      params: {
+        path: {
+          teamId: team,
+          userId: declined!,
+        },
+      },
+    }),
+  );
+
+  await example(
+    "teams",
+    "kickFromTeam",
+    localClient(leader).POST("/api/team/{teamId}/kick/{userId}", {
+      params: {
+        path: {
+          teamId: team,
+          userId: accepted!,
+        },
+      },
+    }),
+  );
+
+  await example(
+    "teams",
+    "sendTeamUpdate",
+    localClient(leader).POST("/team/{teamId}/pm-all", {
+      params: {
+        path: {
+          teamId: team,
+        },
+      },
+      body: {
+        // Sending the same message again soon is rejected, so make each run's message different
+        message: `Welcome to the team! Our next tournament starts on Friday. (${new Date().toISOString()})`,
+      },
+    }),
+  );
+}
+
+/** Ask `team` to join on behalf of players until `count` of them have a pending request. */
+async function requestToJoin(team: string, leader: string, count: number) {
+  const candidates: string[] = [];
+  for await (const member of readNdJson(
+    await localClient().GET("/api/team/{teamId}/users", {
+      params: {
+        path: {
+          teamId: "lichess-swiss",
+        },
+      },
+      headers: {
+        Accept: "application/x-ndjson",
+      },
+      parseAs: "stream",
+      signal: streamTimeout(),
+    }),
+  )) {
+    candidates.push(member.id);
+  }
+
+  const pending: string[] = [];
+  for (const candidate of candidates) {
+    ok(
+      await localClient(candidate).POST("/team/{teamId}/join", {
+        params: {
+          path: {
+            teamId: team,
+          },
+        },
+        body: {
+          message: "I would like to join your team, please let me in!",
+        },
+      }),
+    );
+    const requests = ok(
+      await localClient(leader).GET("/api/team/{teamId}/requests", {
+        params: {
+          path: {
+            teamId: team,
+          },
+        },
+      }),
+    );
+    if (requests.some((r) => r.request.userId === candidate)) {
+      pending.push(candidate);
+      if (pending.length === count) return pending;
+    }
+  }
+  throw new Error(
+    `Only ${pending.length} of ${count} players could ask to join ${team}. Everyone has been declined or kicked already; reset the database.`,
   );
 }

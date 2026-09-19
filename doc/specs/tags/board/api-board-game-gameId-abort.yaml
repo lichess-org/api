@@ -26,6 +26,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+          examples:
+            default:
+              $ref: "../../examples/board-abortGame.json.yaml"
     "400":
       description: The abortion of the game failed.
       content:

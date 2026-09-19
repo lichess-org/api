@@ -29,3 +29,7 @@ get:
         application/x-ndjson:
           schema:
             $ref: "../../schemas/StudyMetadata.yaml"
+
+          examples:
+            default:
+              $ref: "../../examples/studies-listStudiesOfUser.json.yaml"

@@ -30,6 +30,11 @@ properties:
         status:
           type: string
           description: The chapter status
+  error:
+    type:
+      - string
+      - "null"
+    description: An error message, if some of the games could not be imported.
 
 example:
   {

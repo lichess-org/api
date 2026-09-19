@@ -128,3 +128,9 @@ get:
             oneOf:
               - $ref: "../../schemas/GamePgn.yaml"
               - $ref: "../../schemas/GameJson.yaml"
+
+          examples:
+            application/x-chess-pgn:
+              $ref: "../../examples/games-exportBookmarkedGames.pgn.yaml"
+            application/x-ndjson:
+              $ref: "../../examples/games-exportBookmarkedGames.json.yaml"

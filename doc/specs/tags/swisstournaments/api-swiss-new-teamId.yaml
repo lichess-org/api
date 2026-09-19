@@ -199,6 +199,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/SwissTournament.yaml"
+          examples:
+            default:
+              $ref: "../../examples/swiss-createSwiss.json.yaml"
     "400":
       description: The creation of the Swiss tournament failed.
       content:

@@ -28,3 +28,7 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+
+          examples:
+            default:
+              $ref: "../../examples/swiss-withdrawFromSwiss.json.yaml"

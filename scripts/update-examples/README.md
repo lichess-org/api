@@ -18,7 +18,9 @@ Or only some of them, by name:
 bun index.ts account tv
 ```
 
-Each script is a file in this directory: `account`, `arenas`, `bot`, `broadcasts`, `challenges`, `external-engine`, `fide`, `games`, `oauth`, `opening-explorer`, `puzzles`, `relations`, `simuls`, `tablebase`, `teams`, `tv`, `users`.
+Each script is a file in this directory: `account`, `analysis`, `arenas`, `board`, `bot`, `broadcasts`, `bulk-pairings`, `challenges`, `external-engine`, `fide`, `games`, `messaging`, `oauth`, `opening-explorer`, `puzzles`, `relations`, `simuls`, `studies`, `swiss`, `tablebase`, `teams`, `tv`, `users`.
+
+`board` and `bot` take about a minute: a victory or a draw can only be claimed once the opponent has been gone for that long.
 
 A script that fails doesn't stop the others. The failures are listed at the end and the exit code is 1.
 

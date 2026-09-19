@@ -41,6 +41,9 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/CloudEval.yaml"
+          examples:
+            default:
+              $ref: "../../examples/analysis-getCloudEvaluation.json.yaml"
     "404":
       description: The position was not found in the cloud evaluation database.
       content:

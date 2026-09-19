@@ -1,0 +1,27 @@
+value:
+  [
+    {
+      "id": "u8TyjiRg",
+      "rated": false,
+      "variant": "standard",
+      "speed": "blitz",
+      "perf": "blitz",
+      "createdAt": 1789835613631,
+      "status": 20,
+      "statusName": "started",
+      "players": { "white": { "userId": "fatima", "rating": 1017 }, "black": { "userId": "iryna", "rating": 1706 } },
+      "clock": { "initial": 300, "increment": 0 },
+    },
+    {
+      "id": "vu51z7YV",
+      "rated": false,
+      "variant": "standard",
+      "speed": "blitz",
+      "perf": "blitz",
+      "createdAt": 1789835613649,
+      "status": 20,
+      "statusName": "started",
+      "players": { "white": { "userId": "dae", "rating": 1832 }, "black": { "userId": "suresh", "rating": 873 } },
+      "clock": { "initial": 300, "increment": 0 },
+    },
+  ]

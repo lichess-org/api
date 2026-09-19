@@ -145,6 +145,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/BulkPairing.yaml"
+          examples:
+            default:
+              $ref: "../../examples/bulkPairings-createBulkPairing.json.yaml"
     "400":
       description: The creation of the bulk pairings failed.
       content:

@@ -26,6 +26,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+          examples:
+            default:
+              $ref: "../../examples/board-claimDraw.json.yaml"
     "400":
       description: The draw claim has failed.
       content:

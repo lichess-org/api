@@ -47,10 +47,20 @@ get:
               name:
                 type: string
                 example: "Chess-Network"
+              flair:
+                $ref: "../../schemas/Flair.yaml"
               title:
                 $ref: "../../schemas/Title.yaml"
               patronColor:
                 $ref: "../../schemas/PatronColor.yaml"
+              url:
+                type: string
+                format: uri
+                example: "https://lichess.org/@/Chess-Network"
             required:
               - id
               - name
+
+          examples:
+            default:
+              $ref: "../../examples/teams-getMembersOfTeam.json.yaml"

@@ -1,0 +1,70 @@
+value:
+  [
+    {
+      "request":
+        {
+          "userId": "mohammed",
+          "teamId": "knights-to-meet-you",
+          "message": "I would like to join your team, please let me in!",
+          "date": 1789835481742,
+        },
+      "user":
+        {
+          "id": "mohammed",
+          "username": "Mohammed",
+          "perfs":
+            {
+              "bullet": { "games": 50, "rating": 1003, "rd": 45, "prog": -46 },
+              "blitz": { "games": 14, "rating": 1176, "rd": 62, "prog": 26 },
+              "rapid": { "games": 20, "rating": 1085, "rd": 85, "prog": -42 },
+              "classical": { "games": 50, "rating": 1170, "rd": 95, "prog": 27 },
+              "correspondence": { "games": 90, "rating": 1205, "rd": 63, "prog": -26 },
+              "chess960": { "games": 959, "rating": 1221, "rd": 117, "prog": 12, "prov": true },
+              "kingOfTheHill": { "games": 193, "rating": 1186, "rd": 112, "prog": -31, "prov": true },
+              "threeCheck": { "games": 47, "rating": 1173, "rd": 76, "prog": -50 },
+              "antichess": { "games": 26, "rating": 1153, "rd": 49, "prog": 27 },
+              "atomic": { "games": 62, "rating": 1008, "rd": 105, "prog": -25 },
+              "horde": { "games": 518, "rating": 1058, "rd": 49, "prog": -15 },
+              "crazyhouse": { "games": 68, "rating": 1019, "rd": 82, "prog": -34 },
+              "puzzle": { "games": 18, "rating": 1190, "rd": 45, "prog": -10 },
+            },
+          "flair": "people.raised-hand-medium-skin-tone",
+          "createdAt": 1782272506122,
+          "seenAt": 1782861539489,
+          "playTime": { "total": 10290, "tv": 0 },
+        },
+    },
+    {
+      "request":
+        {
+          "userId": "emmanuel",
+          "teamId": "knights-to-meet-you",
+          "message": "I would like to join your team, please let me in!",
+          "date": 1789835481759,
+        },
+      "user":
+        {
+          "id": "emmanuel",
+          "username": "Emmanuel",
+          "perfs":
+            {
+              "bullet": { "games": 117, "rating": 1452, "rd": 84, "prog": 23 },
+              "blitz": { "games": 1370, "rating": 1368, "rd": 45, "prog": -38 },
+              "rapid": { "games": 139, "rating": 1300, "rd": 51, "prog": 20 },
+              "classical": { "games": 135, "rating": 1470, "rd": 53, "prog": -22 },
+              "correspondence": { "games": 148, "rating": 1323, "rd": 90, "prog": -2 },
+              "chess960": { "games": 533, "rating": 1449, "rd": 83, "prog": 36 },
+              "kingOfTheHill": { "games": 476, "rating": 1413, "rd": 51, "prog": -13 },
+              "threeCheck": { "games": 583, "rating": 1333, "rd": 45, "prog": 46 },
+              "antichess": { "games": 289, "rating": 1383, "rd": 75, "prog": -24 },
+              "atomic": { "games": 48, "rating": 1283, "rd": 45, "prog": -18 },
+              "horde": { "games": 7, "rating": 1419, "rd": 100, "prog": -5 },
+              "crazyhouse": { "games": 142, "rating": 1266, "rd": 118, "prog": -48, "prov": true },
+              "puzzle": { "games": 122, "rating": 1246, "rd": 45, "prog": 19 },
+            },
+          "createdAt": 1781182125001,
+          "seenAt": 1783738726906,
+          "playTime": { "total": 11439, "tv": 0 },
+        },
+    },
+  ]

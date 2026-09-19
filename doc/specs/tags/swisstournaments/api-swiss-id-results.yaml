@@ -50,7 +50,7 @@ get:
               points:
                 type: number
               tieBreak:
-                type: integer
+                type: number
               rating:
                 type: integer
               username:
@@ -69,3 +69,7 @@ get:
                 "title": "IM",
                 "performance": 2423,
               }
+
+          examples:
+            default:
+              $ref: "../../examples/swiss-getResultsOfSwiss.json.yaml"

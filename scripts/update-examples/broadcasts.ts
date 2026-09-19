@@ -332,4 +332,23 @@ export default async function broadcasts() {
       },
     }),
   );
+
+  // Every team has an entry with all of its matches, which is more than an example needs
+  const teamLeaderboard = ok(
+    await prodClient().GET(
+      "/broadcast/{broadcastTournamentId}/teams/standings",
+      {
+        params: {
+          path: {
+            broadcastTournamentId: "Y9YjcDKG",
+          },
+        },
+      },
+    ),
+  );
+  await example(
+    "broadcasts",
+    "getTeamLeaderboardOfBroadcastTournament",
+    teamLeaderboard.slice(0, 2),
+  );
 }

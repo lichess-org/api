@@ -1,0 +1,24 @@
+value:
+  {
+    "id": "04tBWeea",
+    "rated": false,
+    "variant": "standard",
+    "speed": "blitz",
+    "perf": "blitz",
+    "createdAt": 1789835613940,
+    "lastMoveAt": 1789835613940,
+    "status": "started",
+    "source": "api",
+    "players":
+      {
+        "white":
+          {
+            "user": { "name": "Sai", "flair": "people.man-kneeling-medium-light-skin-tone", "id": "sai" },
+            "rating": 1647,
+            "provisional": true,
+          },
+        "black": { "user": { "name": "Nushi", "id": "nushi" }, "rating": 1207 },
+      },
+    "moves": "",
+    "clock": { "initial": 300, "increment": 0, "totalTime": 300 },
+  }

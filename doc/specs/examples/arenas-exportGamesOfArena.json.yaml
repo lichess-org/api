@@ -1,0 +1,35 @@
+value:
+  {
+    "id": "9qJGj3E6",
+    "rated": true,
+    "variant": "standard",
+    "speed": "blitz",
+    "perf": "blitz",
+    "createdAt": 1746914274364,
+    "lastMoveAt": 1746914279745,
+    "status": "resign",
+    "source": "arena",
+    "players":
+      {
+        "white":
+          {
+            "user": { "name": "GeNer4tion_KiLL", "title": "FM", "flair": "people.ok-hand", "id": "gener4tion_kill" },
+            "rating": 2703,
+            "ratingDiff": -6,
+            "berserk": true,
+          },
+        "black":
+          {
+            "user": { "name": "Moro182", "title": "GM", "id": "moro182" },
+            "rating": 2672,
+            "ratingDiff": 6,
+            "berserk": true,
+          },
+      },
+    "winner": "black",
+    "opening": { "eco": "B01", "name": "Scandinavian Defense", "ply": 2 },
+    "moves": "e4 d5 exd5 Bg4 Nc3 Bxd1",
+    "arenaTour": { "id": "may25bta", "name": "Blitz Titled Arena May '25" },
+    "clock": { "initial": 180, "increment": 0, "totalTime": 180 },
+    "division": {},
+  }

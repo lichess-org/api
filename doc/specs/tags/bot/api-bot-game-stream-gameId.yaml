@@ -37,6 +37,15 @@ get:
               - $ref: "../../schemas/GameStateEvent.yaml"
               - $ref: "../../schemas/ChatLineEvent.yaml"
               - $ref: "../../schemas/OpponentGoneEvent.yaml"
+          examples:
+            game full:
+              $ref: "../../examples/bot-streamBotGameState-gameFull.json.yaml"
+            game state:
+              $ref: "../../examples/bot-streamBotGameState-gameState.json.yaml"
+            chat line:
+              $ref: "../../examples/bot-streamBotGameState-chatLine.json.yaml"
+            opponent gone:
+              $ref: "../../examples/bot-streamBotGameState-opponentGone.json.yaml"
     "404":
       description: The bot game was not found.
       content:

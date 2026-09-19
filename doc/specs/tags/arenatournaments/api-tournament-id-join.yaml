@@ -52,6 +52,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+          examples:
+            default:
+              $ref: "../../examples/arenas-joinArena.json.yaml"
     "400":
       description: Joining the tournament failed.
       content:

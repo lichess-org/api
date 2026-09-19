@@ -1,0 +1,28 @@
+value:
+  {
+    "id": "OsGgJSyo",
+    "rated": true,
+    "variant": "standard",
+    "speed": "classical",
+    "perf": "classical",
+    "createdAt": 1789806600828,
+    "lastMoveAt": 1789806631913,
+    "status": "resign",
+    "source": "swiss",
+    "players":
+      {
+        "white":
+          {
+            "user": { "name": "aslanliosman10", "flair": "travel-places.world-map", "id": "aslanliosman10" },
+            "rating": 1884,
+            "ratingDiff": 0,
+          },
+        "black": { "user": { "name": "AahirRotha_2017", "id": "aahirrotha_2017" }, "rating": 1073, "ratingDiff": -1 },
+      },
+    "winner": "white",
+    "opening": { "eco": "A40", "name": "Englund Gambit", "ply": 2 },
+    "moves": "d4 e5 dxe5 Nc6 Nf3 d5 exd6 cxd6",
+    "swissTour": { "id": "YxwjQGYu" },
+    "clock": { "initial": 1500, "increment": 3, "totalTime": 1620 },
+    "division": {},
+  }

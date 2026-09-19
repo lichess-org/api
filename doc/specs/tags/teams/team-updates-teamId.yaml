@@ -34,4 +34,4 @@ get:
             $ref: "../../schemas/TeamUpdatesOfTeam.yaml"
           examples:
             default:
-              $ref: "../../examples/teams-updates-of-team.yaml"
+              $ref: "../../examples/teams-updates-of-team.json.yaml"

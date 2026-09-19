@@ -1,0 +1,20 @@
+value: |
+  [Event "Classical Increment"]
+  [Site "https://lichess.org/TvkH7cGM"]
+  [Date "2026.09.19"]
+  [Round "-"]
+  [White "DREAMSPEOPLE"]
+  [Black "FritzVonStein"]
+  [Result "0-1"]
+  [GameId "TvkH7cGM"]
+  [UTCDate "2026.09.19"]
+  [UTCTime "08:30:00"]
+  [WhiteElo "1698"]
+  [BlackElo "2080"]
+  [WhiteRatingDiff "-3"]
+  [BlackRatingDiff "+9"]
+  [Variant "Standard"]
+  [TimeControl "1500+3"]
+  [Termination "Normal"]
+
+  1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 g6 5. Nxc6 bxc6 6. Qd4 Nf6 7. e5 Nh5 8. g4 Ng7 9. e6 dxe6 10. Qxd8+ Kxd8 11. Bg2 Bb7 12. Nc3 Ne8 13. Bf4 Kc8 14. O-O-O Nf6 15. h3 Bg7 16. Be5 c5 17. Bxb7+ Kxb7 18. Rd3 Rhd8 19. Rhd1 Rxd3 20. Rxd3 Kc6 21. f4 Ne8 22. Bxg7 Nxg7 23. Ne4 Rb8 24. Rc3 Rb5 25. Ng5 Rb4 26. Rf3 f6 27. Nxh7 Rb8 28. g5 f5 29. Nf6 exf6 30. gxf6 Nh5 0-1

@@ -66,6 +66,9 @@ get:
         application/x-chess-pgn:
           schema:
             $ref: "../../schemas/StudyPgn.yaml"
+          examples:
+            pgn:
+              $ref: "../../examples/studies-exportAllChaptersOfStudy.pgn.yaml"
 head:
   operationId: studyAllChaptersHead
   summary: Study metadata

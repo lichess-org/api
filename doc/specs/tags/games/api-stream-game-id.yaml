@@ -25,6 +25,9 @@ get:
         application/x-ndjson:
           schema:
             $ref: "../../schemas/MoveStream.yaml"
+          examples:
+            default:
+              $ref: "../../examples/games-streamGameMoves.json.yaml"
     "429":
       description: Too many streams opened at the same time from this IP.
       content:

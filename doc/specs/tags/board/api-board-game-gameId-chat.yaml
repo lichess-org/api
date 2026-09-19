@@ -44,6 +44,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+          examples:
+            default:
+              $ref: "../../examples/board-writeInChat.json.yaml"
     "400":
       description: The posting of the message in the chat failed.
       content:
@@ -73,3 +76,7 @@ get:
         application/x-ndjson:
           schema:
             $ref: "../../schemas/PlayerGameChat.yaml"
+
+          examples:
+            default:
+              $ref: "../../examples/board-fetchPlayerChat.json.yaml"

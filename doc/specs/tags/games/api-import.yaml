@@ -44,3 +44,7 @@ post:
                 format: uri
                 description: The game URL
             example: { "id": "R6iLjwz5", "url": "https://lichess.org/R6iLjwz5" }
+
+          examples:
+            default:
+              $ref: "../../examples/games-importGame.json.yaml"

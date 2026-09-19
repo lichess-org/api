@@ -42,6 +42,15 @@ get:
               - $ref: "../../schemas/GameStateEvent.yaml"
               - $ref: "../../schemas/ChatLineEvent.yaml"
               - $ref: "../../schemas/OpponentGoneEvent.yaml"
+          examples:
+            game full:
+              $ref: "../../examples/board-streamBoardGameState-gameFull.json.yaml"
+            game state:
+              $ref: "../../examples/board-streamBoardGameState-gameState.json.yaml"
+            chat line:
+              $ref: "../../examples/board-streamBoardGameState-chatLine.json.yaml"
+            opponent gone:
+              $ref: "../../examples/board-streamBoardGameState-opponentGone.json.yaml"
     "404":
       description: The game was not found.
       content:

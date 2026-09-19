@@ -95,6 +95,13 @@ get:
         application/x-chess-pgn:
           schema:
             $ref: "../../schemas/GamePgn.yaml"
+          examples:
+            pgn:
+              $ref: "../../examples/bulkPairings-exportGamesOfBulkPairing.pgn.yaml"
         application/x-ndjson:
           schema:
             $ref: "../../schemas/GameJson.yaml"
+
+          examples:
+            default:
+              $ref: "../../examples/bulkPairings-exportGamesOfBulkPairing.json.yaml"
