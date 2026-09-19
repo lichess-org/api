@@ -1,7 +1,6 @@
 # Lichess API Docs & Examples
 
-- [Example code](https://github.com/lichess-org/api/tree/master/example/)
-- [Which authentication is right for me](https://github.com/lichess-org/api/tree/master/example/README.md)
+View this documentation online here: https://lichess.org/api
 
 ## Run locally
 
