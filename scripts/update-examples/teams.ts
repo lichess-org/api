@@ -6,6 +6,7 @@ import {
   ok,
   prodClient,
   readNdJson,
+  seededTeams,
   streamTimeout,
 } from "./config";
 
@@ -70,7 +71,7 @@ export default async function teams() {
       await localClient().GET("/api/team/{teamId}/users", {
         params: {
           path: {
-            teamId: "this-team-name-has-been-purchased-by-chesscom",
+            teamId: seededTeams.open,
           },
         },
         headers: {
@@ -90,7 +91,7 @@ export default async function teams() {
     localClient().GET("/team/updates/{teamId}", {
       params: {
         path: {
-          teamId: "stalemate-declined",
+          teamId: seededTeams.open,
         },
       },
     }),
@@ -102,8 +103,8 @@ export default async function teams() {
 
 /** An open team accepts anyone immediately, so this leaves the team as it was. */
 async function joinAndQuitOpenTeam() {
-  const team = "stalemate-declined";
-  const player = "gabriela";
+  const team = seededTeams.open;
+  const player = seededTeams.outsider;
   const quit = () =>
     localClient(player).POST("/team/{teamId}/quit", {
       params: {
@@ -141,8 +142,8 @@ async function joinAndQuitOpenTeam() {
  * error), so every run needs players that have no history with the team yet.
  */
 async function handleJoinRequests() {
-  const team = "knights-to-meet-you";
-  const leader = "benjamin";
+  const team = seededTeams.closed;
+  const leader = seededTeams.leader;
 
   const [accepted, declined] = await requestToJoin(team, leader, 2);
   const kickAccepted = () =>

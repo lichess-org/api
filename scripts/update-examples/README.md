@@ -28,6 +28,7 @@ A script that fails doesn't stop the others. The failures are listed at the end 
 
 - Most scripts use a local lila at `http://localhost:8080` (lila-docker) as well as lichess.org.
 - `external-engine` also needs the external engine running at `http://localhost:9666`.
+- `teams` and `swiss` use the teams that [lila-db-seed](https://github.com/lichess-org/lila-db-seed#fixed-teams) always creates the same way (`open-chess-club` and `private-chess-club`, led by `bobby` and `mary`). Re-seed the database if they are missing or different, for instance with `./lila-docker db` in lila-docker.
 - `opening-explorer` needs a lichess.org API token, which needs no scopes. Set `LICHESS_API_TOKEN`; Bun loads it from a `.env` file.
 
 ### Afterwards

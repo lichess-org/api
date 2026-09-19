@@ -29,6 +29,24 @@ export const localClient = (as?: string) =>
           },
   });
 
+/**
+ * The teams that lila-db-seed creates the same way every time, unlike the other teams that have
+ * random leaders and members. Everyone but the ones named here is not a member of them.
+ */
+export const seededTeams = {
+  /** Anyone can join. */
+  open: "open-chess-club",
+  /** Requests to join have to be accepted by a leader. */
+  closed: "private-chess-club",
+  /** Created both teams, and leads them with `coLeader`. A leader can do everything with a team. */
+  leader: "bobby",
+  coLeader: "mary",
+  /** A member of both teams, who is not a leader. */
+  member: "jiang",
+  /** A member of neither. */
+  outsider: "gabriela",
+} as const;
+
 export const localExternalEngineUrl = "http://localhost:9666";
 
 export const localExternalEngineClient = () =>

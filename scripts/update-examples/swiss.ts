@@ -6,6 +6,7 @@ import {
   localClient,
   ok,
   prodClient,
+  seededTeams,
   streamTimeout,
 } from "./config";
 
@@ -112,14 +113,14 @@ export default async function swiss() {
  * Create, update, join, leave and then terminate a Swiss, so that nothing is left behind.
  *
  * Each player can create tournaments with a daily allowance of 240 credits, of which an arena
- * costs 20 and a Swiss 5. The arenas script spends the allowance of bobby, so another team leader
- * creates the Swiss.
+ * costs 20 and a Swiss 5. The arenas script spends the allowance of bobby, so the other leader of
+ * the team creates the Swiss.
  */
 async function localSwiss() {
-  const team = "knights-to-meet-you";
-  const leader = "benjamin";
+  const team = seededTeams.closed;
+  const leader = seededTeams.coLeader;
   // Only members of the team can join
-  const member = "jiang";
+  const member = seededTeams.member;
 
   const newSwiss = ok(
     await localClient(leader).POST("/api/swiss/new/{teamId}", {

@@ -251,14 +251,20 @@ async function importGame() {
   );
   await example("games", "importGame", imported);
 
+  // Exports are read from a secondary database, which is a moment behind what was just written
   await example(
     "games",
     "exportImportedGames",
-    firstPgnGames(
-      await localClient().GET("/api/games/export/imports", {
-        parseAs: "stream",
-        signal: streamTimeout(),
-      }),
+    await waitFor(
+      "the imported game to be exported",
+      async () =>
+        firstPgnGames(
+          await localClient().GET("/api/games/export/imports", {
+            parseAs: "stream",
+            signal: streamTimeout(),
+          }),
+        ),
+      (pgn) => pgn !== "",
     ),
     "pgn",
   );
@@ -278,22 +284,28 @@ async function exportBookmarkedGame(gameId: string) {
   ok(await toggleBookmark());
   let bookmarked = true;
   try {
+    // The export is read from a secondary database, which is a moment behind what was just written
     await example(
       "games",
       "exportBookmarkedGames",
-      firstNdJson(
-        await localClient().GET("/api/games/export/bookmarks", {
-          params: {
-            query: {
-              max: 1,
-            },
-          },
-          headers: {
-            Accept: "application/x-ndjson",
-          },
-          parseAs: "stream",
-          signal: streamTimeout(),
-        }),
+      await waitFor(
+        "the bookmarked game to be exported",
+        async () =>
+          firstNdJson(
+            await localClient().GET("/api/games/export/bookmarks", {
+              params: {
+                query: {
+                  max: 1,
+                },
+              },
+              headers: {
+                Accept: "application/x-ndjson",
+              },
+              parseAs: "stream",
+              signal: streamTimeout(),
+            }),
+          ),
+        (game) => game.id === gameId,
       ),
     );
 
