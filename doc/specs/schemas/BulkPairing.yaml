@@ -25,7 +25,7 @@ properties:
   rated:
     type: boolean
   startClocksAt:
-    type: integer
+    type: ["integer", "null"]
   scheduledAt:
     type: integer
 

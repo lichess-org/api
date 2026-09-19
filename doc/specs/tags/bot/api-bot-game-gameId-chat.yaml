@@ -78,7 +78,7 @@ get:
             type: string
             default: "'*'"
       content:
-        application/x-ndjson:
+        application/json:
           schema:
             $ref: "../../schemas/PlayerGameChat.yaml"
 

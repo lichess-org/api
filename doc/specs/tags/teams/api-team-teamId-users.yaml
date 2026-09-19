@@ -48,6 +48,8 @@ get:
                 $ref: "../../schemas/Flair.yaml"
               title:
                 $ref: "../../schemas/Title.yaml"
+              patron:
+                $ref: "../../schemas/Patron.yaml"
               patronColor:
                 $ref: "../../schemas/PatronColor.yaml"
               url:
