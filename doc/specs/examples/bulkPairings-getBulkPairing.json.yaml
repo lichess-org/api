@@ -1,12 +1,12 @@
 value:
   {
-    "id": "xU959ebY",
-    "games": [{ "id": "04tBWeea", "white": "sai", "black": "nushi" }],
+    "id": "Sv0fJJe8",
+    "games": [{ "id": "FKi6atdW", "white": "sai", "black": "nushi" }],
     "variant": "standard",
     "rated": false,
-    "pairAt": 1789835613937,
-    "startClocksAt": 1789839213932,
-    "scheduledAt": 1789835613937,
-    "pairedAt": 1789835613947,
+    "pairAt": 1789836257700,
+    "startClocksAt": 1789839857682,
+    "scheduledAt": 1789836257700,
+    "pairedAt": 1789836257730,
     "clock": { "limit": 300, "increment": 0 },
   }

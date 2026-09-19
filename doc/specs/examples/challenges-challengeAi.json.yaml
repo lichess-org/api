@@ -1,15 +1,15 @@
 value:
   {
-    "id": "zPTOqLhI",
+    "id": "NQRLRs95",
     "variant": { "key": "standard", "name": "Standard", "short": "Std" },
     "speed": "correspondence",
     "perf": "correspondence",
     "rated": false,
     "source": "ai",
-    "createdAt": 1789829552812,
+    "createdAt": 1789836261211,
     "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
     "turns": 0,
     "status": { "id": 20, "name": "started" },
     "player": "white",
-    "fullId": "zPTOqLhI6MpH",
+    "fullId": "NQRLRs95QhSy",
   }

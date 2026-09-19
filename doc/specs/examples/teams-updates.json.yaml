@@ -9,171 +9,147 @@ value:
             {
               "msg":
                 {
-                  "id": "AAAAAAB+",
-                  "team":
-                    {
-                      "id": "captain-james-t-pirc",
-                      "name": "Captain James T. Pirc",
-                      "flair": "people.breast-feeding-medium-skin-tone",
-                    },
-                  "text": "Let's get everyone to at least one classical game this week.",
-                  "sender": { "name": "Ana", "title": "NM", "id": "ana" },
-                  "date": 1789825753711,
+                  "id": "AAAAAABr",
+                  "team": { "id": "stalemate-declined", "name": "Stalemate Declined", "flair": "nature.sunflower" },
+                  "text": "Welcome to all our new members, glad to have you on the team!",
+                  "sender": { "name": "Adriana", "flair": "objects.closed-mailbox-with-raised-flag", "id": "adriana" },
+                  "date": 1789814535648,
                 },
               "seen": false,
             },
             {
               "msg":
                 {
-                  "id": "AAAAAABu",
-                  "team":
-                    {
-                      "id": "chesster-speaks-for-itself",
-                      "name": "Chesster Speaks For Itself",
-                      "flair": "people.man-fairy",
-                    },
-                  "text": "Let's get everyone to at least one classical game this week.",
-                  "sender":
-                    {
-                      "name": "Mateo",
-                      "flair": "people.vampire-medium-dark-skin-tone",
-                      "patron": true,
-                      "patronColor": 1,
-                      "id": "mateo",
-                    },
-                  "date": 1789818926643,
+                  "id": "AAAAAAAV",
+                  "team": { "id": "sacsacoops", "name": "Sac-sac-oops" },
+                  "text": "Team tournament tomorrow night! Looking forward to playing everyone!",
+                  "sender": { "name": "Angel", "title": "NM", "id": "angel" },
+                  "date": 1789790168121,
                 },
               "seen": false,
             },
             {
               "msg":
                 {
-                  "id": "AAAAAAB7",
-                  "team":
-                    {
-                      "id": "captain-james-t-pirc",
-                      "name": "Captain James T. Pirc",
-                      "flair": "people.breast-feeding-medium-skin-tone",
-                    },
-                  "text": "Thanks for being patient while we sort out the tournament schedule.",
-                  "sender": { "name": "Ana", "title": "NM", "id": "ana" },
-                  "date": 1789814384026,
+                  "id": "AAAAAAAR",
+                  "team": { "id": "sacsacoops", "name": "Sac-sac-oops" },
+                  "text": "Great turnout in last night's match, thanks to everyone who showed up!",
+                  "sender": { "name": "Angel", "title": "NM", "id": "angel" },
+                  "date": 1789643510926,
                 },
               "seen": false,
             },
             {
               "msg":
                 {
-                  "id": "AAAAAAB4",
+                  "id": "AAAAAACO",
                   "team":
                     {
-                      "id": "captain-james-t-pirc",
-                      "name": "Captain James T. Pirc",
-                      "flair": "people.breast-feeding-medium-skin-tone",
+                      "id": "the-nonspecific-allegation-gambit",
+                      "name": "The Non-Specific Allegation Gambit",
+                      "flair": "people.backhand-index-pointing-left-medium-skin-tone",
                     },
-                  "text": "Practice session tonight at 8pm, all levels welcome.",
-                  "sender": { "name": "Salma", "flair": "objects.funeral-urn", "id": "salma" },
-                  "date": 1789813783517,
+                  "text": "Shoutout to everyone who helped recruit new members this month.",
+                  "sender": { "name": "Ekaterina", "title": "WGM", "id": "ekaterina" },
+                  "date": 1789518429670,
                 },
               "seen": false,
             },
             {
               "msg":
                 {
-                  "id": "AAAAAACA",
-                  "team":
-                    {
-                      "id": "captain-james-t-pirc",
-                      "name": "Captain James T. Pirc",
-                      "flair": "people.breast-feeding-medium-skin-tone",
-                    },
-                  "text": "Quiet week ahead, use it to study some endgames!",
-                  "sender": { "name": "Ana", "title": "NM", "id": "ana" },
-                  "date": 1789812746800,
+                  "id": "AAAAAABC",
+                  "team": { "id": "we-shall-fight-on-the-lichess", "name": "We Shall Fight on the Lichess" },
+                  "text": "Our next simul with a titled player is scheduled for next weekend.",
+                  "sender": { "name": "Aaron", "flair": "nature.jellyfish", "id": "aaron" },
+                  "date": 1789478446145,
                 },
               "seen": false,
             },
             {
               "msg":
                 {
-                  "id": "AAAAAAB/",
+                  "id": "AAAAAACN",
                   "team":
                     {
-                      "id": "captain-james-t-pirc",
-                      "name": "Captain James T. Pirc",
-                      "flair": "people.breast-feeding-medium-skin-tone",
+                      "id": "the-nonspecific-allegation-gambit",
+                      "name": "The Non-Specific Allegation Gambit",
+                      "flair": "people.backhand-index-pointing-left-medium-skin-tone",
                     },
-                  "text": "Congrats to our top scorer this week, keep up the great play!",
-                  "sender": { "name": "Salma", "flair": "objects.funeral-urn", "id": "salma" },
-                  "date": 1789790148497,
+                  "text": "We're looking for a co-leader to help manage the forum, message me if interested.",
+                  "sender": { "name": "Ekaterina", "title": "WGM", "id": "ekaterina" },
+                  "date": 1789372010930,
                 },
               "seen": false,
             },
           ],
         "previousPage": null,
         "nextPage": 2,
-        "nbResults": 41,
-        "nbPages": 7,
+        "nbResults": 53,
+        "nbPages": 9,
       },
     "byTeam":
       [
         {
-          "team":
-            {
-              "id": "captain-james-t-pirc",
-              "name": "Captain James T. Pirc",
-              "flair": "people.breast-feeding-medium-skin-tone",
-            },
-          "unread": 9,
-          "last": 1789825753711,
+          "team": { "id": "stalemate-declined", "name": "Stalemate Declined", "flair": "nature.sunflower" },
+          "unread": 1,
+          "last": 1789814535648,
         },
+        { "team": { "id": "sacsacoops", "name": "Sac-sac-oops" }, "unread": 8, "last": 1789790168121 },
         {
           "team":
-            { "id": "chesster-speaks-for-itself", "name": "Chesster Speaks For Itself", "flair": "people.man-fairy" },
-          "unread": 1,
-          "last": 1789818926643,
+            {
+              "id": "the-nonspecific-allegation-gambit",
+              "name": "The Non-Specific Allegation Gambit",
+              "flair": "people.backhand-index-pointing-left-medium-skin-tone",
+            },
+          "unread": 6,
+          "last": 1789518429670,
+        },
+        {
+          "team": { "id": "we-shall-fight-on-the-lichess", "name": "We Shall Fight on the Lichess" },
+          "unread": 4,
+          "last": 1789478446145,
         },
         {
           "team":
             {
               "id": "boogie-knights",
               "name": "Boogie Knights",
-              "flair": "people.woman-construction-worker-dark-skin-tone",
+              "flair": "people.clapping-hands-medium-dark-skin-tone",
             },
-          "unread": 8,
-          "last": 1789768224753,
-        },
-        {
-          "team": { "id": "thor-love-and-blunder", "name": "Thor - Love and Blunder" },
-          "unread": 7,
-          "last": 1789748735183,
+          "unread": 3,
+          "last": 1789139460027,
         },
         {
           "team":
             {
-              "id": "the-nonspecific-allegation-gambit",
-              "name": "The Non-Specific Allegation Gambit",
-              "flair": "people.man-kneeling-medium-skin-tone",
-            },
-          "unread": 2,
-          "last": 1789618503255,
-        },
-        {
-          "team":
-            {
-              "id": "we-shall-fight-on-the-lichess",
-              "name": "We Shall Fight on the Lichess",
+              "id": "the-fischermen",
+              "name": "The Fischermen",
               "flair": "people.couple-with-heart-woman-man-medium-skin-tone-medium-dark-skin-tone",
             },
-          "unread": 1,
-          "last": 1789543038623,
+          "unread": 2,
+          "last": 1789065337426,
         },
         {
           "team":
-            { "id": "sacsacoops", "name": "Sac-sac-oops", "flair": "people.man-cartwheeling-medium-light-skin-tone" },
-          "unread": 2,
-          "last": 1788389702724,
+            {
+              "id": "captain-james-t-pirc",
+              "name": "Captain James T. Pirc",
+              "flair": "people.woman-feeding-baby-medium-dark-skin-tone",
+            },
+          "unread": 3,
+          "last": 1788447720550,
         },
-        { "team": { "id": "stalemate-declined", "name": "Stalemate Declined" }, "unread": 0, "last": 1787557895541 },
+        {
+          "team":
+            {
+              "id": "lucena-in-the-sky-with-diamonds",
+              "name": "Lucena in the Sky With Diamonds",
+              "flair": "objects.eleven-oclock",
+            },
+          "unread": 1,
+          "last": 1788172352262,
+        },
       ],
   }

@@ -1,6 +1,6 @@
 value:
   {
-    "team": { "id": "stalemate-declined", "name": "Stalemate Declined" },
+    "team": { "id": "stalemate-declined", "name": "Stalemate Declined", "flair": "nature.sunflower" },
     "subscribed": true,
     "updates":
       {
@@ -11,134 +11,104 @@ value:
             {
               "msg":
                 {
-                  "id": "AAAAAABS",
-                  "team": { "id": "stalemate-declined", "name": "Stalemate Declined" },
-                  "text": "Anyone free to captain a match this weekend? Reply here.",
-                  "sender": { "name": "Bobby", "flair": "people.woman-feeding-baby", "id": "bobby" },
-                  "date": 1787557895541,
+                  "id": "AAAAAABr",
+                  "team": { "id": "stalemate-declined", "name": "Stalemate Declined", "flair": "nature.sunflower" },
+                  "text": "Welcome to all our new members, glad to have you on the team!",
+                  "sender": { "name": "Adriana", "flair": "objects.closed-mailbox-with-raised-flag", "id": "adriana" },
+                  "date": 1789814535648,
                 },
-              "seen": true,
+              "seen": false,
             },
             {
               "msg":
                 {
-                  "id": "AAAAAABR",
-                  "team": { "id": "stalemate-declined", "name": "Stalemate Declined" },
+                  "id": "AAAAAABt",
+                  "team": { "id": "stalemate-declined", "name": "Stalemate Declined", "flair": "nature.sunflower" },
                   "text": "Let's get everyone to at least one classical game this week.",
-                  "sender": { "name": "Luis", "flair": "people.handshake-medium-dark-skin-tone", "id": "luis" },
-                  "date": 1787540698718,
+                  "sender": { "name": "Adriana", "flair": "objects.closed-mailbox-with-raised-flag", "id": "adriana" },
+                  "date": 1784360006051,
                 },
-              "seen": true,
+              "seen": false,
             },
             {
               "msg":
                 {
-                  "id": "AAAAAABP",
-                  "team": { "id": "stalemate-declined", "name": "Stalemate Declined" },
-                  "text": "Practice session tonight at 8pm, all levels welcome.",
-                  "sender": { "name": "Bobby", "flair": "people.woman-feeding-baby", "id": "bobby" },
-                  "date": 1786973910078,
+                  "id": "AAAAAABs",
+                  "team": { "id": "stalemate-declined", "name": "Stalemate Declined", "flair": "nature.sunflower" },
+                  "text": "Welcome to all our new members, glad to have you on the team!",
+                  "sender": { "name": "Adriana", "flair": "objects.closed-mailbox-with-raised-flag", "id": "adriana" },
+                  "date": 1782980043215,
                 },
-              "seen": true,
-            },
-            {
-              "msg":
-                {
-                  "id": "AAAAAABN",
-                  "team": { "id": "stalemate-declined", "name": "Stalemate Declined" },
-                  "text": "Shoutout to everyone who helped recruit new members this month.",
-                  "sender": { "name": "Luis", "flair": "people.handshake-medium-dark-skin-tone", "id": "luis" },
-                  "date": 1786191547555,
-                },
-              "seen": true,
-            },
-            {
-              "msg":
-                {
-                  "id": "AAAAAABQ",
-                  "team": { "id": "stalemate-declined", "name": "Stalemate Declined" },
-                  "text": "Thanks for being patient while we sort out the tournament schedule.",
-                  "sender": { "name": "Bobby", "flair": "people.woman-feeding-baby", "id": "bobby" },
-                  "date": 1786072403415,
-                },
-              "seen": true,
-            },
-            {
-              "msg":
-                {
-                  "id": "AAAAAABT",
-                  "team": { "id": "stalemate-declined", "name": "Stalemate Declined" },
-                  "text": "We're looking for a co-leader to help manage the forum, message me if interested.",
-                  "sender": { "name": "Abubakar", "id": "abubakar" },
-                  "date": 1784991905986,
-                },
-              "seen": true,
+              "seen": false,
             },
           ],
         "previousPage": null,
-        "nextPage": 2,
-        "nbResults": 7,
-        "nbPages": 2,
+        "nextPage": null,
+        "nbResults": 3,
+        "nbPages": 1,
       },
     "byTeam":
       [
         {
-          "team":
-            {
-              "id": "captain-james-t-pirc",
-              "name": "Captain James T. Pirc",
-              "flair": "people.breast-feeding-medium-skin-tone",
-            },
-          "unread": 9,
-          "last": 1789825753711,
+          "team": { "id": "stalemate-declined", "name": "Stalemate Declined", "flair": "nature.sunflower" },
+          "unread": 1,
+          "last": 1789814535648,
         },
+        { "team": { "id": "sacsacoops", "name": "Sac-sac-oops" }, "unread": 8, "last": 1789790168121 },
         {
           "team":
-            { "id": "chesster-speaks-for-itself", "name": "Chesster Speaks For Itself", "flair": "people.man-fairy" },
-          "unread": 1,
-          "last": 1789818926643,
+            {
+              "id": "the-nonspecific-allegation-gambit",
+              "name": "The Non-Specific Allegation Gambit",
+              "flair": "people.backhand-index-pointing-left-medium-skin-tone",
+            },
+          "unread": 6,
+          "last": 1789518429670,
+        },
+        {
+          "team": { "id": "we-shall-fight-on-the-lichess", "name": "We Shall Fight on the Lichess" },
+          "unread": 4,
+          "last": 1789478446145,
         },
         {
           "team":
             {
               "id": "boogie-knights",
               "name": "Boogie Knights",
-              "flair": "people.woman-construction-worker-dark-skin-tone",
+              "flair": "people.clapping-hands-medium-dark-skin-tone",
             },
-          "unread": 8,
-          "last": 1789768224753,
-        },
-        {
-          "team": { "id": "thor-love-and-blunder", "name": "Thor - Love and Blunder" },
-          "unread": 7,
-          "last": 1789748735183,
+          "unread": 3,
+          "last": 1789139460027,
         },
         {
           "team":
             {
-              "id": "the-nonspecific-allegation-gambit",
-              "name": "The Non-Specific Allegation Gambit",
-              "flair": "people.man-kneeling-medium-skin-tone",
-            },
-          "unread": 2,
-          "last": 1789618503255,
-        },
-        {
-          "team":
-            {
-              "id": "we-shall-fight-on-the-lichess",
-              "name": "We Shall Fight on the Lichess",
+              "id": "the-fischermen",
+              "name": "The Fischermen",
               "flair": "people.couple-with-heart-woman-man-medium-skin-tone-medium-dark-skin-tone",
             },
-          "unread": 1,
-          "last": 1789543038623,
+          "unread": 2,
+          "last": 1789065337426,
         },
         {
           "team":
-            { "id": "sacsacoops", "name": "Sac-sac-oops", "flair": "people.man-cartwheeling-medium-light-skin-tone" },
-          "unread": 2,
-          "last": 1788389702724,
+            {
+              "id": "captain-james-t-pirc",
+              "name": "Captain James T. Pirc",
+              "flair": "people.woman-feeding-baby-medium-dark-skin-tone",
+            },
+          "unread": 3,
+          "last": 1788447720550,
         },
-        { "team": { "id": "stalemate-declined", "name": "Stalemate Declined" }, "unread": 0, "last": 1787557895541 },
+        {
+          "team":
+            {
+              "id": "lucena-in-the-sky-with-diamonds",
+              "name": "Lucena in the Sky With Diamonds",
+              "flair": "objects.eleven-oclock",
+            },
+          "unread": 1,
+          "last": 1788172352262,
+        },
       ],
   }

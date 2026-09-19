@@ -1,18 +1,23 @@
 value:
   {
-    "id": "u8TyjiRg",
+    "id": "al8md5ab",
     "rated": false,
     "variant": "standard",
     "speed": "blitz",
     "perf": "blitz",
-    "createdAt": 1789835613631,
-    "lastMoveAt": 1789835613888,
+    "createdAt": 1789836263117,
+    "lastMoveAt": 1789836263365,
     "status": "resign",
     "source": "friend",
     "players":
       {
-        "white": { "user": { "name": "Fatima", "flair": "people.man-biking", "id": "fatima" }, "rating": 1017 },
-        "black": { "user": { "name": "Iryna", "id": "iryna" }, "rating": 1706 },
+        "white":
+          {
+            "user": { "name": "Fatima", "flair": "people.biting-lip", "id": "fatima" },
+            "rating": 1006,
+            "provisional": true,
+          },
+        "black": { "user": { "name": "Iryna", "id": "iryna" }, "rating": 1684 },
       },
     "winner": "black",
     "moves": "e4 e5",

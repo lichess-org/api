@@ -3,17 +3,11 @@ value:
     "type": "challengeDeclined",
     "challenge":
       {
-        "id": "8Pjhyi1M",
-        "url": "https://lichess.org/8Pjhyi1M",
+        "id": "QjXHbF8I",
+        "url": "https://lichess.org/QjXHbF8I",
         "status": "declined",
         "challenger":
-          {
-            "name": "Adriana",
-            "flair": "objects.closed-mailbox-with-raised-flag",
-            "id": "adriana",
-            "rating": 735,
-            "provisional": true,
-          },
+          { "name": "Adriana", "flair": "objects.closed-mailbox-with-raised-flag", "id": "adriana", "rating": 670 },
         "destUser":
           {
             "name": "Gabriela",
@@ -21,7 +15,7 @@ value:
             "patron": true,
             "patronColor": 1,
             "id": "gabriela",
-            "rating": 1472,
+            "rating": 1383,
             "online": true,
           },
         "variant": { "key": "standard", "name": "Standard", "short": "Std" },

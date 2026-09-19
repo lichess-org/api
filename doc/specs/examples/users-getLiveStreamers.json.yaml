@@ -1,83 +1,23 @@
 value:
   [
     {
-      "name": "Sissa-Chess",
-      "flair": "objects.stopwatch",
-      "patron": true,
-      "patronColor": 3,
-      "id": "sissa-chess",
+      "name": "SergeyVoronChess",
+      "flair": "objects.thong-sandal",
+      "id": "sergeyvoronchess",
       "stream":
         {
           "service": "youtube",
-          "status": "💥OLIMPIADA MUNDIAL DE AJEDREZ - 2026  - RONDA 4💥/ LICHESS.ORG",
-          "lang": "es",
+          "status": "⚽ ЛИГА ЧЕМПИОНОВ SVC — ГРУППА 3! МЮ, АРСЕНАЛ, ЧЕЛСИ, ТОТТЕНХЭМ, АТЛЕТИКО lichess.org",
+          "lang": "ru",
         },
       "streamer":
         {
-          "name": "Sissa Chess",
-          "headline": "Disfrutando siempre de la magia del ajedrez",
-          "description": "Disfruta con Sissa Chess de las mejores partidas de la historia y la actualidad",
-          "twitch": "https://www.twitch.tv/sissachess",
-          "youtube": "https://www.youtube.com/channel/UChYUSBLmIMhRpujm4rsvN9g/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=sissa-chess:streamer:sissa-chess:do5mUgfL.jpg&w=350&sig=a08eebb3ac8c928068c8b87a659d444e9050751a",
-        },
-    },
-    {
-      "name": "affections",
-      "id": "affections",
-      "stream": { "service": "twitch", "status": "Solo Bullet League Arena @ lichess.org", "lang": "en" },
-      "streamer":
-        {
-          "name": "affections",
-          "headline": "Team Battles @ Lichess.org",
-          "twitch": "https://www.twitch.tv/iyhslither",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=5-I9DYWoGChz.webp&w=350&sig=a1eaa7d7af655064eaddd2de744b41c708fe808b",
-        },
-    },
-    {
-      "name": "ChefsHouse96",
-      "flair": "smileys.clown-face",
-      "id": "chefshouse96",
-      "stream": { "service": "youtube", "status": "ТУРНИР КЛУБА!! 3+0!! На lichess.org", "lang": "en" },
-      "streamer":
-        {
-          "name": "ChefsHouse96",
-          "headline": "chessaholik",
-          "description": "тг https://t.me/vladchess777 ",
-          "twitch": "https://www.twitch.tv/vlad_chess1",
-          "youtube": "https://www.youtube.com/channel/UCO-dnv3EII4Uukzg97PHl8A/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=kfCVm_f8QHiL.webp&w=350&sig=f3339e12a9ef4b4b866ffc7f909b1e3351ab34c6",
-        },
-    },
-    {
-      "name": "Lee_Pai_Long",
-      "flair": "food-drink.pizza",
-      "id": "lee_pai_long",
-      "stream": { "service": "twitch", "status": "вечерний блиц| lichess.org | [ru]", "lang": "ru" },
-      "streamer":
-        {
-          "name": "Lee_Pai_Long",
-          "headline": "Играю в блиц",
-          "twitch": "https://www.twitch.tv/bator_tv",
-          "youtube": "https://www.youtube.com/channel/UCCySuxn7u3DC9FBPMhpum_Q/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:lee_pai_long:fok3PnCL.webp&w=350&sig=038316c0021ffe881ee7c9f86507ce94306f0683",
-        },
-    },
-    {
-      "name": "ElyneLee",
-      "patron": true,
-      "patronColor": 8,
-      "id": "elynelee",
-      "stream":
-        { "service": "twitch", "status": "Fami-Lee Weekly Thematic !simul on lichess.org |  !cover", "lang": "en" },
-      "streamer":
-        {
-          "name": "ElyneLee",
-          "headline": "CHESS + MUSIC STREAM EVERYDAY ",
-          "description": "hi there! i do chess + music(metal) stream everyday on Twitch. Come hangout with me in chat and have fun together ",
-          "twitch": "https://www.twitch.tv/elynelee",
-          "youtube": "https://www.youtube.com/channel/UCxigACw3ehZU2UTrfK-FYtA/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=elynelee:streamer:elynelee:2aAvyqcR.jpg&w=350&sig=5b90229c9f61d8bcb2f2f35648314d94618d33be",
+          "name": "Sergey Gayvorontsev",
+          "headline": "Готовы к чему-то интересному и динамичному?",
+          "description": "SergeyVoronChess NEW - №1 Молодёжный Шахматный YouTube Канал!\r\nНаше сообщество собрало всех самых перспективных шахматистов СНГ и не только!\r\nЕсли ты попал сюда - здесь ты не увидишь никакие скучные лекции, только живой и динамичный контент! \r\nПрисоединяйся к нам, чтобы ощутить шахматы по новому! ඞ\r\n\r\nПолезные ссылки:\r\n- Мой Личесс акк: @SergeyVoronChess\r\n- Моя Личесс команда: https://lichess.org/team/sergeyvoronchess-new\r\n- Мой Дискорд сервер: https://discord.gg/QZFbGrZdcW\r\n- Мой Тик Ток: https://tiktok.com/@sergeyvoronchess\r\n- Мой Телеграмм Канал: https://t.me/sergeyvoronchessnew",
+          "twitch": "https://www.twitch.tv/sergeyvoronchess",
+          "youtube": "https://www.youtube.com/channel/UCHvsTfk__dRTIBrxMxrRrmA/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=sergeyvoronchess:streamer:sergeyvoronchess:Gi1l5119.jpg&w=350&sig=07b7619fd97bf1a6cfa74761e933e8f0c8ca6392",
         },
     },
     {
@@ -102,38 +42,49 @@ value:
         },
     },
     {
-      "name": "Matviy2009",
+      "name": "NightOFzero",
       "title": "FM",
-      "flair": "nature.penguin",
-      "id": "matviy2009",
-      "stream":
-        { "service": "twitch", "status": "Fide Master | Playing viewers for FREE! on lichess.org", "lang": "en" },
+      "flair": "nature.dove",
+      "id": "nightofzero",
+      "stream": { "service": "twitch", "status": "Guess The Elo on lichess.org", "lang": "en" },
       "streamer":
         {
-          "name": "Matviy2009",
-          "headline": "Just some streams playing chess and chatting,puzzle racer and some titled tournaments at lichess.org!",
-          "description": "Hey!\r\nI´m Fide Master Matviy Faryma,who will stream sometimes here on lichess.Subscribe!\r\nI will stream in multiple lagnuages,in English (US), Portuguese (PRT) and Ukranian (UA).",
-          "twitch": "https://www.twitch.tv/matviy2009_",
-          "youtube": "https://www.youtube.com/channel/UCHwnId75qhyksCpweUIjVsQ/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:matviy2009:eXsrrctc.webp&w=350&sig=4525f3806adbf27e2814c00062ba944862df3633",
+          "name": "NightOFzero",
+          "headline": "funny chess on lichess ",
+          "description": "With commentary, games with spectators, tournaments, team: https://lichess.org/team/ratedbelow600",
+          "twitch": "https://www.twitch.tv/ratedbelow600_twitch",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=nightofzero:streamer:nightofzero:cmcr63YN.webp&w=350&sig=80af12f2e8267525c557b4f84fd8077a40c200c9",
         },
     },
     {
-      "name": "DarkOnCrack",
-      "flair": "objects.old-key",
-      "patron": true,
-      "patronColor": 6,
-      "id": "darkoncrack",
+      "name": "Knight-Crimson",
+      "id": "knight-crimson",
       "stream":
-        { "service": "twitch", "status": "Playing the solo leagues all day! on Lichess.org (muted)", "lang": "en" },
+        {
+          "service": "youtube",
+          "status": "Играю рапид в прямом эфире 🚀| 10+5, 15+10 на Lichess.org [RU]. (#35, H)",
+          "lang": "ru",
+        },
       "streamer":
         {
-          "name": "DarkOnCrack",
-          "headline": "Ultrabullet on Lichess.org",
-          "description": "Hi!\r\nI will mostly play ultrabullet, but sometimes i might stream some blitz. \r\nHave fun! ",
-          "twitch": "https://www.twitch.tv/darkoncrack_",
-          "youtube": "https://www.youtube.com/channel/UC6B_y_MxbcCX8Tsd1KgbE-w/live",
-          "image": "https://image.lichess1.org/display?fmt=png&h=350&op=thumbnail&path=streamer:darkoncrack:QDVBzQbI.png&w=350&sig=bbb36de30fd11b908de2445554579e28b9e0a94c",
+          "name": "Knight-Crimson",
+          "headline": "Стримы: тактика, блиц, рапид...",
+          "youtube": "https://www.youtube.com/channel/UC2JSzLBZPuf-l0d1vIRx4Sg/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:knight-crimson:tsvgpFWX.webp&w=350&sig=5fd076962f4e8d12f1222ed5a326d881a95ac259",
+        },
+    },
+    {
+      "name": "LenaChess02",
+      "flair": "symbols.collision",
+      "id": "lenachess02",
+      "stream": { "service": "twitch", "status": "Let's solve puzzles!! lichess.org", "lang": "en" },
+      "streamer":
+        {
+          "name": "LenaChess02",
+          "headline": "Training and playing viewers :)",
+          "description": "Hi everyone, I solve advanced chess puzzles, train endgames and occasionaly play viewers :)\r\nFeel free to follow me on twitch: https://www.twitch.tv/lenaweingraber",
+          "twitch": "https://www.twitch.tv/lenaweingraber",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=vIPyHGIBIO0X.webp&w=350&sig=fbcf4a4a9e016303d4ca7ea444e5963e8f1372f6",
         },
     },
   ]

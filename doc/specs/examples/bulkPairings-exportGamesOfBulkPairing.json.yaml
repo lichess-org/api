@@ -1,23 +1,34 @@
 value:
   {
-    "id": "04tBWeea",
+    "id": "FKi6atdW",
     "rated": false,
     "variant": "standard",
     "speed": "blitz",
     "perf": "blitz",
-    "createdAt": 1789835613940,
-    "lastMoveAt": 1789835613940,
+    "createdAt": 1789836257708,
+    "lastMoveAt": 1789836257708,
     "status": "started",
     "source": "api",
     "players":
       {
         "white":
           {
-            "user": { "name": "Sai", "flair": "people.man-kneeling-medium-light-skin-tone", "id": "sai" },
-            "rating": 1647,
+            "user": { "name": "Sai", "flair": "objects.roll-of-paper", "id": "sai" },
+            "rating": 1463,
             "provisional": true,
           },
-        "black": { "user": { "name": "Nushi", "id": "nushi" }, "rating": 1207 },
+        "black":
+          {
+            "user":
+              {
+                "name": "Nushi",
+                "flair": "people.men-with-bunny-ears-medium-dark-skin-tone-medium-skin-tone",
+                "patron": true,
+                "patronColor": 1,
+                "id": "nushi",
+              },
+            "rating": 1104,
+          },
       },
     "moves": "",
     "clock": { "initial": 300, "increment": 0, "totalTime": 300 },

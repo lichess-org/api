@@ -1,8 +1,8 @@
 value:
   {
     "user": { "name": "thibault" },
-    "perf": { "glicko": { "rating": 1698.93, "deviation": 45.01 }, "nb": 11843, "progress": -18 },
-    "rank": 190977,
+    "perf": { "glicko": { "rating": 1698.93, "deviation": 45.02 }, "nb": 11843, "progress": -18 },
+    "rank": 191107,
     "percentile": 69,
     "stat":
       {

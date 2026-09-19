@@ -1,12 +1,12 @@
 value:
   {
-    "id": "Nrk9mpC1",
+    "id": "48pL5UNn",
     "variant": { "key": "standard", "name": "Standard", "short": "Std" },
     "speed": "blitz",
     "perf": { "name": "Blitz" },
     "rated": false,
-    "createdAt": 1789835547224,
-    "white": { "id": "akeem", "name": "Akeem", "title": null, "rating": 1641 },
+    "createdAt": 1789836191914,
+    "white": { "id": "akeem", "name": "Akeem", "title": null, "rating": 1541 },
     "black": { "id": "bot0", "name": "Bot0", "title": "BOT", "rating": 1500, "provisional": true },
     "initialFen": "startpos",
     "clock": { "initial": 300000, "increment": 0 },

@@ -1,54 +1,54 @@
 value: |
   [Event "Round 1: Chapter 1"]
-  [Site "https://lichess.org/broadcast/knight-invitational-2/round-1/rl6364Tv/DXQMbEcA"]
+  [Site "https://lichess.org/broadcast/knight-invitational-2/round-1/vfKhJ34t/Ah3FYyli"]
   [Date "2026.09.19"]
   [Result "*"]
   [Variant "Standard"]
   [ECO "?"]
   [Opening "?"]
   [UTCDate "2026.09.19"]
-  [UTCTime "14:52:28"]
+  [UTCTime "16:44:16"]
   [BroadcastName "Knight Invitational 2"]
-  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/round-1/rl6364Tv"]
-  [GameURL "https://lichess.org/broadcast/knight-invitational-2/round-1/rl6364Tv/DXQMbEcA"]
+  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/round-1/vfKhJ34t"]
+  [GameURL "https://lichess.org/broadcast/knight-invitational-2/round-1/vfKhJ34t/Ah3FYyli"]
 
    *
 
 
   [Event "Round 2: Chapter 1"]
-  [Site "https://lichess.org/broadcast/knight-invitational-2/round-2/8tl663nb/9vNQN6qJ"]
+  [Site "https://lichess.org/broadcast/knight-invitational-2/round-2/tllbGrhu/LkqY45SK"]
   [Date "2026.09.19"]
   [Result "*"]
   [Variant "Standard"]
   [ECO "?"]
   [Opening "?"]
   [UTCDate "2026.09.19"]
-  [UTCTime "14:52:28"]
+  [UTCTime "16:44:16"]
   [BroadcastName "Knight Invitational 2"]
-  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/round-2/8tl663nb"]
-  [GameURL "https://lichess.org/broadcast/knight-invitational-2/round-2/8tl663nb/9vNQN6qJ"]
+  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/round-2/tllbGrhu"]
+  [GameURL "https://lichess.org/broadcast/knight-invitational-2/round-2/tllbGrhu/LkqY45SK"]
 
    *
 
 
   [Event "Round 3: Chapter 1"]
-  [Site "https://lichess.org/broadcast/knight-invitational-2/round-3/037RTYwi/bJtkTaEA"]
+  [Site "https://lichess.org/broadcast/knight-invitational-2/round-3/2TyajoK9/CcZhGOks"]
   [Date "2026.09.19"]
   [Result "*"]
   [Variant "Standard"]
   [ECO "?"]
   [Opening "?"]
   [UTCDate "2026.09.19"]
-  [UTCTime "14:52:28"]
+  [UTCTime "16:44:16"]
   [BroadcastName "Knight Invitational 2"]
-  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/round-3/037RTYwi"]
-  [GameURL "https://lichess.org/broadcast/knight-invitational-2/round-3/037RTYwi/bJtkTaEA"]
+  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/round-3/2TyajoK9"]
+  [GameURL "https://lichess.org/broadcast/knight-invitational-2/round-3/2TyajoK9/CcZhGOks"]
 
    *
 
 
   [Event "Knight Invitational"]
-  [Site "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ro6fm7Aj/7GqJmuBl"]
+  [Site "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ZOU4LKKQ/31oJnP6g"]
   [Date "2026.09.19"]
   [White "Player 1"]
   [Black "Player 2"]
@@ -59,16 +59,16 @@ value: |
   [ECO "C20"]
   [Opening "King's Pawn Game"]
   [UTCDate "2026.09.19"]
-  [UTCTime "14:52:28"]
+  [UTCTime "16:44:16"]
   [BroadcastName "Knight Invitational 2"]
-  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ro6fm7Aj"]
-  [GameURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ro6fm7Aj/7GqJmuBl"]
+  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ZOU4LKKQ"]
+  [GameURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ZOU4LKKQ/31oJnP6g"]
 
   1. e4 e5 *
 
 
   [Event "Knight Invitational"]
-  [Site "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ro6fm7Aj/x24dsTlH"]
+  [Site "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ZOU4LKKQ/Y7FliKnB"]
   [Date "2026.09.19"]
   [White "Player 3"]
   [Black "Player 4"]
@@ -77,9 +77,9 @@ value: |
   [ECO "D00"]
   [Opening "Queen's Pawn Game"]
   [UTCDate "2026.09.19"]
-  [UTCTime "14:52:28"]
+  [UTCTime "16:44:16"]
   [BroadcastName "Knight Invitational 2"]
-  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ro6fm7Aj"]
-  [GameURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ro6fm7Aj/x24dsTlH"]
+  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ZOU4LKKQ"]
+  [GameURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ZOU4LKKQ/Y7FliKnB"]
 
   1. d4 d5 *

@@ -2,30 +2,24 @@ value:
   {
     "game":
       {
-        "id": "FQYw8BhY",
+        "id": "qpK9GtKu",
         "perf": { "key": "blitz", "name": "Blitz" },
         "rated": true,
         "players":
           [
-            { "name": "Fidesty", "id": "fidesty", "color": "white", "rating": 1791 },
-            {
-              "name": "cachopaliza",
-              "flair": "smileys.cowboy-hat-face",
-              "id": "cachopaliza",
-              "color": "black",
-              "rating": 1750,
-            },
+            { "name": "Mauricio-Dx", "id": "mauricio-dx", "color": "white", "rating": 1983 },
+            { "name": "Romulo1954", "id": "romulo1954", "color": "black", "rating": 1976 },
           ],
-        "pgn": "e4 c5 Nc3 d6 d4 cxd4 Qxd4 Nf6 e5 Nc6 Bb5 dxe5 Qxd8+ Kxd8 Bxc6 bxc6 Bg5 h6 Bxf6 exf6 O-O-O+ Kc7 Nf3 Be6 Ne4 Bb4 a3 Ba5 Nc5 Bf5 Nh4 Bh7 f3 Rhd8 g3 Rxd1+ Rxd1 Rd8",
-        "clock": "3+0",
+        "pgn": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 d3 Bc5 c3 d6 O-O Bg4 h3 h5 hxg4 hxg4 Ng5 g3 d4 Nxe4 Nxe4",
+        "clock": "5+0",
       },
     "puzzle":
       {
-        "id": "l4l6n",
-        "rating": 1625,
-        "plays": 4068,
-        "solution": ["d1d8", "c7d8", "c5b7", "d8c7", "b7a5"],
-        "themes": ["endgame", "advantage", "attraction", "fork", "long"],
-        "initialPly": 37,
+        "id": "R6Tbo",
+        "rating": 1844,
+        "plays": 20020,
+        "solution": ["h8h1", "g1h1", "d8h4", "h1g1", "h4h2"],
+        "themes": ["attraction", "fork", "long", "mateIn3", "sacrifice", "opening"],
+        "initialPly": 22,
       },
   }

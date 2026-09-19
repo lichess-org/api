@@ -3,21 +3,12 @@ value:
     "in":
       [
         {
-          "id": "EsHDGufQ",
-          "url": "https://lichess.org/EsHDGufQ",
+          "id": "aRBydWmB",
+          "url": "https://lichess.org/aRBydWmB",
           "status": "created",
-          "challenger":
-            {
-              "name": "Bobby",
-              "patron": true,
-              "patronColor": 1,
-              "id": "bobby",
-              "rating": 1802,
-              "online": true,
-              "lag": 4,
-            },
+          "challenger": { "name": "Bobby", "id": "bobby", "rating": 1619, "lag": 4 },
           "destUser":
-            { "name": "Mary", "flair": "symbols.helix-logo", "id": "mary", "rating": 1074, "provisional": true },
+            { "name": "Mary", "flair": "symbols.helix-logo", "id": "mary", "rating": 1055, "provisional": true },
           "variant": { "key": "standard", "name": "Standard", "short": "Std" },
           "rated": false,
           "speed": "correspondence",

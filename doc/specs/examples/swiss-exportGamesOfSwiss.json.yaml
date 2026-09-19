@@ -1,28 +1,29 @@
 value:
   {
-    "id": "OsGgJSyo",
+    "id": "TvkH7cGM",
     "rated": true,
     "variant": "standard",
     "speed": "classical",
     "perf": "classical",
     "createdAt": 1789806600828,
-    "lastMoveAt": 1789806631913,
+    "lastMoveAt": 1789807858396,
     "status": "resign",
     "source": "swiss",
     "players":
       {
-        "white":
+        "white": { "user": { "name": "DREAMSPEOPLE", "id": "dreamspeople" }, "rating": 1698, "ratingDiff": -3 },
+        "black":
           {
-            "user": { "name": "aslanliosman10", "flair": "travel-places.world-map", "id": "aslanliosman10" },
-            "rating": 1884,
-            "ratingDiff": 0,
+            "user": { "name": "FritzVonStein", "flair": "activity.chess", "id": "fritzvonstein" },
+            "rating": 2080,
+            "ratingDiff": 9,
+            "provisional": true,
           },
-        "black": { "user": { "name": "AahirRotha_2017", "id": "aahirrotha_2017" }, "rating": 1073, "ratingDiff": -1 },
       },
-    "winner": "white",
-    "opening": { "eco": "A40", "name": "Englund Gambit", "ply": 2 },
-    "moves": "d4 e5 dxe5 Nc6 Nf3 d5 exd6 cxd6",
+    "winner": "black",
+    "opening": { "eco": "B32", "name": "Sicilian Defense: Accelerated Dragon", "ply": 8 },
+    "moves": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 g6 Nxc6 bxc6 Qd4 Nf6 e5 Nh5 g4 Ng7 e6 dxe6 Qxd8+ Kxd8 Bg2 Bb7 Nc3 Ne8 Bf4 Kc8 O-O-O Nf6 h3 Bg7 Be5 c5 Bxb7+ Kxb7 Rd3 Rhd8 Rhd1 Rxd3 Rxd3 Kc6 f4 Ne8 Bxg7 Nxg7 Ne4 Rb8 Rc3 Rb5 Ng5 Rb4 Rf3 f6 Nxh7 Rb8 g5 f5 Nf6 exf6 gxf6 Nh5",
     "swissTour": { "id": "YxwjQGYu" },
     "clock": { "initial": 1500, "increment": 3, "totalTime": 1620 },
-    "division": {},
+    "division": { "middle": 17, "end": 39 },
   }

@@ -4,6 +4,12 @@ value:
       [
         { "id": "lola", "username": "Lola", "perfs": { "blitz": { "rating": 2484, "progress": 0 } }, "title": "WGM" },
         { "id": "ana", "username": "Ana", "perfs": { "blitz": { "rating": 2384, "progress": 0 } }, "title": "CM" },
-        { "id": "yulia", "username": "Yulia", "perfs": { "blitz": { "rating": 2382, "progress": 0 } }, "title": "CM" },
+        {
+          "id": "yulia",
+          "username": "Yulia",
+          "perfs": { "blitz": { "rating": 2382, "progress": 0 } },
+          "title": "CM",
+          "online": true,
+        },
       ],
   }

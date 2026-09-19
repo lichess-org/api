@@ -1,15 +1,19 @@
 value:
   [
     {
-      "id": "u8TyjiRg",
+      "id": "al8md5ab",
       "rated": false,
       "variant": "standard",
       "speed": "blitz",
       "perf": "blitz",
-      "createdAt": 1789835613631,
+      "createdAt": 1789836263117,
       "status": 20,
       "statusName": "started",
-      "players": { "white": { "userId": "fatima", "rating": 1017 }, "black": { "userId": "iryna", "rating": 1706 } },
+      "players":
+        {
+          "white": { "userId": "fatima", "rating": 1006, "provisional": true },
+          "black": { "userId": "iryna", "rating": 1684 },
+        },
       "clock": { "initial": 300, "increment": 0 },
     },
   ]
