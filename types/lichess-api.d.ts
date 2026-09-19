@@ -4136,47 +4136,22 @@ export interface components {
       streak?: components["schemas"]["PuzzleModePerf"];
     };
     Profile: {
-      /** @example EC */
       flag?: string;
       location?: string;
-      /** @example Free bugs! */
       bio?: string;
-      /** @example Thibault Duplessis */
       realName?: string;
-      /**
-       * @description only appears if a user has set them
-       * @example 1500
-       */
+      /** @description only appears if a user has set them */
       fideRating?: number;
-      /**
-       * @description only appears if a user has set them
-       * @example 1500
-       */
+      /** @description only appears if a user has set them */
       uscfRating?: number;
-      /**
-       * @description only appears if a user has set them
-       * @example 1500
-       */
+      /** @description only appears if a user has set them */
       ecfRating?: number;
-      /**
-       * @description only appears if a user has set them
-       * @example 1500
-       */
+      /** @description only appears if a user has set them */
       cfcRating?: number;
-      /**
-       * @description only appears if a user has set them
-       * @example 1500
-       */
+      /** @description only appears if a user has set them */
       rcfRating?: number;
-      /**
-       * @description only appears if a user has set them
-       * @example 1500
-       */
+      /** @description only appears if a user has set them */
       dsbRating?: number;
-      /**
-       * @example github.com/ornicar
-       *     mas.to/@thibault
-       */
       links?: string;
     };
     PlayTime: {
@@ -4221,17 +4196,11 @@ export interface components {
     };
     UserStreamer: {
       twitch?: {
-        /**
-         * Format: uri
-         * @example https://www.twitch.tv/lichessdotorg
-         */
+        /** Format: uri */
         channel?: string;
       };
       youtube?: {
-        /**
-         * Format: uri
-         * @example https://www.youtube.com/c/LichessDotOrg
-         */
+        /** Format: uri */
         channel?: string;
       };
     };
@@ -4251,73 +4220,10 @@ export interface components {
       blocking?: boolean;
       fideId?: number;
     };
-    /**
-     * @example {
-     *       "name": "Bullet",
-     *       "points": [
-     *         [
-     *           2011,
-     *           0,
-     *           8,
-     *           1472
-     *         ],
-     *         [
-     *           2011,
-     *           0,
-     *           9,
-     *           1332
-     *         ],
-     *         [
-     *           2011,
-     *           8,
-     *           12,
-     *           1314
-     *         ]
-     *       ]
-     *     }
-     */
     RatingHistoryEntry: {
       name?: string;
       points?: number[][];
     };
-    /**
-     * @example [
-     *       {
-     *         "name": "Bullet",
-     *         "points": [
-     *           [
-     *             2011,
-     *             0,
-     *             8,
-     *             1472
-     *           ],
-     *           [
-     *             2011,
-     *             0,
-     *             9,
-     *             1332
-     *           ],
-     *           [
-     *             2011,
-     *             8,
-     *             12,
-     *             1314
-     *           ]
-     *         ]
-     *       },
-     *       {
-     *         "name": "Blitz",
-     *         "points": [
-     *           [
-     *             2011,
-     *             7,
-     *             29,
-     *             1332
-     *           ]
-     *         ]
-     *       }
-     *     ]
-     */
     RatingHistory: components["schemas"]["RatingHistoryEntry"][];
     /** @enum {string} */
     PerfType:
@@ -4461,6 +4367,16 @@ export interface components {
           nb: {
             cur: {
               v: number;
+              from?: {
+                /** Format: date-time */
+                at: string;
+                gameId: string;
+              };
+              to?: {
+                /** Format: date-time */
+                at: string;
+                gameId: string;
+              };
             };
             max: {
               v: number;
@@ -4479,6 +4395,16 @@ export interface components {
           time: {
             cur: {
               v: number;
+              from?: {
+                /** Format: date-time */
+                at: string;
+                gameId: string;
+              };
+              to?: {
+                /** Format: date-time */
+                at: string;
+                gameId: string;
+              };
             };
             max: {
               v: number;
@@ -4512,7 +4438,6 @@ export interface components {
     GameColor: "white" | "black";
     /**
      * @default standard
-     * @example standard
      * @enum {string}
      */
     VariantKey:
@@ -4789,11 +4714,6 @@ export interface components {
       /** @description Timestamp in milliseconds when the race started */
       startsAt: number;
     };
-    /**
-     * @example {
-     *       "error": "Not found."
-     *     }
-     */
     NotFound: {
       error: string;
     };
@@ -4948,28 +4868,6 @@ export interface components {
     Ok: {
       ok: boolean;
     };
-    /**
-     * @example [Event "Rated Blitz game"]
-     *     [Site "https://lichess.org/fY44h4OY"]
-     *     [Date "2018.03.29"]
-     *     [Round "-"]
-     *     [White "pveldman"]
-     *     [Black "thibault"]
-     *     [Result "1-0"]
-     *     [UTCDate "2018.03.29"]
-     *     [UTCTime "01:38:15"]
-     *     [WhiteElo "1610"]
-     *     [BlackElo "1601"]
-     *     [WhiteRatingDiff "+10"]
-     *     [BlackRatingDiff "-10"]
-     *     [Variant "Standard"]
-     *     [TimeControl "180+0"]
-     *     [ECO "C62"]
-     *     [Opening "Ruy Lopez: Steinitz Defense"]
-     *     [Termination "Normal"]
-     *
-     *     1. e4 { [%clk 0:03:00] } e5 { [%clk 0:03:00] } 2. Nf3 { [%clk 0:02:59] } Nc6 { [%clk 0:02:58] } 3. Bb5 { [%clk 0:02:57] } d6 { [%clk 0:02:55] } 4. h3 { [%clk 0:02:54] } Nf6 { [%clk 0:02:52] } 5. Bxc6+ { [%clk 0:02:52] } bxc6 { [%clk 0:02:49] } 6. d3 { [%clk 0:02:51] } Be7 { [%clk 0:02:46] } 7. O-O { [%clk 0:02:47] } O-O { [%clk 0:02:45] } 8. b3 { [%clk 0:02:45] } d5 { [%clk 0:02:45] } 9. exd5 { [%clk 0:02:33] } cxd5 { [%clk 0:02:40] } 10. Nxe5 { [%clk 0:02:31] } Qd6 { [%clk 0:02:38] } 1-0
-     */
     GamePgn: string;
     /** @enum {string} */
     Speed:
@@ -5014,6 +4912,8 @@ export interface components {
         };
       };
       team?: string;
+      /** @description Whether the player berserked. Only present in Arena tournament games. */
+      berserk?: boolean;
     };
     /**
      * @description One side of a game played by the Stockfish AI. AI sides carry the
@@ -5047,21 +4947,14 @@ export interface components {
       eval?: number;
       /** @description Number of moves until forced mate */
       mate?: number;
-      /**
-       * @description Best move in UCI notation (only if played move was inaccurate)
-       * @example c2c3
-       */
+      /** @description Best move in UCI notation (only if played move was inaccurate) */
       best?: string;
-      /**
-       * @description Best variation in SAN notation (only if played move was inaccurate)
-       * @example c3 Nc6 d4 Qb6 Be2 Nge7 Na3 cxd4 cxd4 Nf5
-       */
+      /** @description Best variation in SAN notation (only if played move was inaccurate) */
       variation?: string;
       /** @description Judgment annotation (only if played move was inaccurate) */
       judgment?: {
         /** @enum {string} */
         name?: "Inaccuracy" | "Mistake" | "Blunder";
-        /** @example Blunder. Nxg6 was best. */
         comment?: string;
       };
     };
@@ -5107,52 +5000,15 @@ export interface components {
         end?: number;
       };
     };
-    /**
-     * @example [
-     *       {
-     *         "text": "e4 here we go",
-     *         "user": "Toby"
-     *       },
-     *       {
-     *         "text": "Woof!",
-     *         "user": "AnnoyingDog"
-     *       }
-     *     ]
-     */
     SpectatorGameChat: {
-      text: string;
-      user: string;
-    }[];
+      lines: {
+        text: string;
+        user: string;
+      }[];
+    };
     /** @enum {integer} */
     GameStatusId:
       10 | 20 | 25 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 60;
-    /**
-     * @example {
-     *       "id": "A5fcMO3k",
-     *       "rated": true,
-     *       "variant": "standard",
-     *       "speed": "bullet",
-     *       "perf": "bullet",
-     *       "createdAt": 1525789431889,
-     *       "status": 20,
-     *       "statusName": "started",
-     *       "clock": {
-     *         "initial": 60,
-     *         "increment": 0,
-     *         "totalTime": 60
-     *       },
-     *       "players": {
-     *         "white": {
-     *           "userId": "kastorcito",
-     *           "rating": 2617
-     *         },
-     *         "black": {
-     *           "userId": "er_or",
-     *           "rating": 2288
-     *         }
-     *       }
-     *     }
-     */
     GameStreamGame: {
       id: string;
       rated?: boolean;
@@ -5171,69 +5027,16 @@ export interface components {
         white?: {
           userId?: string;
           rating?: number;
+          provisional?: boolean;
         };
         black?: {
           userId?: string;
           rating?: number;
+          provisional?: boolean;
         };
       };
       winner?: components["schemas"]["GameColor"];
     };
-    /**
-     * @example [
-     *       {
-     *         "id": "A5fcMO3k",
-     *         "rated": true,
-     *         "variant": "standard",
-     *         "speed": "bullet",
-     *         "perf": "bullet",
-     *         "createdAt": 1525789431889,
-     *         "status": 20,
-     *         "statusName": "started",
-     *         "clock": {
-     *           "initial": 60,
-     *           "increment": 0,
-     *           "totalTime": 60
-     *         },
-     *         "players": {
-     *           "white": {
-     *             "userId": "kastorcito",
-     *             "rating": 2617
-     *           },
-     *           "black": {
-     *             "userId": "er_or",
-     *             "rating": 2288
-     *           }
-     *         }
-     *       },
-     *       {
-     *         "id": "A5fcMO3k",
-     *         "rated": true,
-     *         "variant": "standard",
-     *         "speed": "bullet",
-     *         "perf": "bullet",
-     *         "createdAt": 1525789431889,
-     *         "status": 31,
-     *         "statusName": "resign",
-     *         "clock": {
-     *           "initial": 60,
-     *           "increment": 0,
-     *           "totalTime": 60
-     *         },
-     *         "players": {
-     *           "white": {
-     *             "userId": "kastorcito",
-     *             "rating": 2617
-     *           },
-     *           "black": {
-     *             "userId": "er_or",
-     *             "rating": 2288
-     *           }
-     *         },
-     *         "winner": "white"
-     *       }
-     *     ]
-     */
     GameStream: components["schemas"]["GameStreamGame"][];
     /** @enum {string} */
     GameSource:
@@ -5283,79 +5086,6 @@ export interface components {
           wc: number;
           bc: number;
         };
-    /**
-     * @example [
-     *       {
-     *         "id": "LuGQwhBb",
-     *         "variant": {
-     *           "key": "standard",
-     *           "name": "Standard",
-     *           "short": "Std"
-     *         },
-     *         "speed": "blitz",
-     *         "perf": "blitz",
-     *         "rated": true,
-     *         "initialFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-     *         "fen": "rnbqkb1r/1p1ppppp/p6n/2p4Q/8/1P2P3/P1PP1PPP/RNB1KBNR w KQkq - 0 4",
-     *         "player": "white",
-     *         "turns": 6,
-     *         "startedAtTurn": 0,
-     *         "source": "pool",
-     *         "status": {
-     *           "id": 20,
-     *           "name": "started"
-     *         },
-     *         "createdAt": 1620029815106,
-     *         "lastMove": "c7c5",
-     *         "players": {
-     *           "white": {
-     *             "user": {
-     *               "name": "ARM-777777",
-     *               "title": "GM",
-     *               "id": "arm-777777"
-     *             },
-     *             "rating": 3120
-     *           },
-     *           "black": {
-     *             "user": {
-     *               "name": "Flash_Marafon",
-     *               "id": "flash_marafon"
-     *             },
-     *             "rating": 3015
-     *           }
-     *         }
-     *       },
-     *       {
-     *         "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w",
-     *         "wc": 180,
-     *         "bc": 180
-     *       },
-     *       {
-     *         "fen": "rnbqkbnr/pppppppp/8/8/8/4P3/PPPP1PPP/RNBQKBNR b",
-     *         "lm": "e2e3",
-     *         "wc": 180,
-     *         "bc": 180
-     *       },
-     *       {
-     *         "fen": "rnbqkb1r/pppppppp/7n/8/8/4P3/PPPP1PPP/RNBQKBNR w",
-     *         "lm": "g8h6",
-     *         "wc": 180,
-     *         "bc": 180
-     *       },
-     *       {
-     *         "fen": "rnbqkb1r/pppppppp/7n/8/8/1P2P3/P1PP1PPP/RNBQKBNR b",
-     *         "lm": "b2b3",
-     *         "wc": 177,
-     *         "bc": 180
-     *       },
-     *       {
-     *         "fen": "rnbqkb1r/1ppppppp/p6n/8/8/1P2P3/P1PP1PPP/RNBQKBNR w",
-     *         "lm": "a7a6",
-     *         "wc": 177,
-     *         "bc": 177
-     *       }
-     *     ]
-     */
     MoveStream: components["schemas"]["MoveStreamEntry"][];
     TvGame: {
       user: components["schemas"]["LightUser"];
@@ -5432,36 +5162,25 @@ export interface components {
     ArenaStatus: 10 | 20 | 30;
     ArenaPerf: {
       key: components["schemas"]["PerfType"];
-      /** @example Blitz */
       name: string;
-      /** @example 1 */
       position: number;
-      /** @example ) */
       icon?: string;
     };
     ArenaRatingObj: {
       perf?: components["schemas"]["PerfType"];
-      /** @example 1700 */
       rating: number;
     };
     ArenaPosition:
       | {
-          /** @example C41 */
           eco: string;
-          /** @example Philidor Defense */
           name: string;
-          /** @example rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - */
           fen: string;
-          /**
-           * Format: uri
-           * @example https://lichess.org/opening/Philidor_Defense
-           */
+          /** Format: uri */
           url: string;
         }
       | {
           /** @constant */
           name: "Custom position";
-          /** @example rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 2 3 */
           fen: string;
         };
     ArenaTournament: {
@@ -5654,23 +5373,10 @@ export interface components {
       };
       myUsername?: string;
     };
-    /**
-     * @example {
-     *       "error": "This request is invalid because [...]"
-     *     }
-     */
     Error: {
       /** @description The cause of the error. */
       error: string;
     };
-    /**
-     * @example {
-     *       "games": 10,
-     *       "score": 14,
-     *       "rank": 30,
-     *       "performance": 1935
-     *     }
-     */
     ArenaTournamentPlayer: {
       games: number;
       score: number;
@@ -5724,56 +5430,13 @@ export interface components {
         in?: number;
       };
     };
-    /**
-     * @example {
-     *       "error": "This user cannot edit this swiss"
-     *     }
-     */
     SwissUnauthorisedEdit: {
       error?: string;
     };
-    /**
-     * @example [Event "♦ All about the Sicilian Defense ♦: Dragon Variation"]
-     *     [Date "2017.06.25"]
-     *     [Result "*"]
-     *     [Variant "Standard"]
-     *     [ECO "B76"]
-     *     [Opening "Sicilian Defense: Dragon Variation, Yugoslav Attack, Panov Variation"]
-     *     [StudyName "♦ All about the Sicilian Defense ♦"]
-     *     [ChapterName "Dragon Variation"]
-     *     [ChapterURL "https://lichess.org/study/8c8bmUfy/qwnXMwVC"]
-     *     [Annotator "https://lichess.org/@/francesco_super"]
-     *     [UTCDate "2017.06.25"]
-     *     [UTCTime "10:12:04"]
-     *
-     *     { This chapter will go over the Dragon Variation, a very common variation used by Black and it is the most aggressive variation in the Sicilian defense. }
-     *     1. e4 c5 2. Nf3 { Simple developing move to control the d4 square } { [%csl Gd4,Gc5][%cal Gf3d4,Gc5d4] } 2... d6 { [%cal Gd6e5] } (2... e6 3. d4 cxd4 4. Nxd4 Nf6 5. e5 (5. Nc3 { [%cal Ge4e5] }) 5... Qa5+) 3. d4 { Whites want the exchange of pawns } { [%cal Gc5d4] } 3... cxd4 { [%cal Gf3d4] } 4. Nxd4 { Whites are now ahead in development but blacks still have the two central pawns whereas whites only one. } { [%csl Ge7,Gd6,Ge4] } 4... Nf6 { Blacks are now developing their knight and threatening the e4 pawn } { [%csl Ge4][%cal Gf6e4] } 5. Nc3 { The e4 pawn is now protected by the c3 knight } { [%csl Ge4,Bc3][%cal Rf6e4,Bc3e4] } 5... g6 { This is the DRAGON VARIATION. g6 allows the dark-squared bishop to develop and move to g7, controlling the long dark-squared diagonal } { [%csl Gd4] } 6. Be3 { [%cal Gd1d2,Gf2f3,Ge1c1,Gg2g4,Gh2h4,Gg4g5] } (6. Be2 Bg7 7. O-O Nc6 8. Be3 { [%cal Ge3d4] } (8. f3 Nxe4 { [%cal Gg7d4,Gc6d4] } 9. Nxc6 Qb6+ { [%cal Gb6c6,Gb6g1] } 10. Kh1 Nxc3 { [%cal Gc3d1,Gc3e2] } 11. bxc3 bxc6 { [%cal Gc8a6] }) 8... O-O 9. Nb3 a6 { [%cal Gb7b5,Gb5b4,Ge2c4] }) 6... Bg7 (6... Ng4 { [%cal Gg4e3] } 7. Bb5+ { [%cal Gb5e8,Gb8d7,Gc8d7,Gd1g4] } 7... Nc6 8. Nxc6 bxc6 9. Bxc6+ { [%cal Gc6a8] }) 7. f3 { The key opening moves for White, who attempt to castle queenside , whereas f3 strengthens the pawn structure, connecting e4 to the h2 and g2, while White also plan pushing to g4 and possibly h4. } { [%csl Bf3,Be3][%cal Rg2g4,Rh2h4,Rg4g5] } 7... O-O (7... h5 { Is operating against g4. }) 8. Qd2 { [%csl Gh6,Gg7][%cal Ge1c1,Ga1d1,Re3h6,Rd2h6] } 8... Nc6 { [%csl Gc6,Gh6][%cal Gb8c6,Ge1c1,Ga7a6,Ge3h6] } 9. g4 (9. Bh6 { [%cal Ge3d4] } 9... Bxh6 10. Qxh6 Nxd4) 9... Be6 (9... Nxd4 10. Bxd4 Be6 { [%cal Rf1c4] }) 10. Nxe6 fxe6 { The rook has a powerful open file! } { [%cal Gf8f1] } 11. O-O-O Ne5 { [%csl Gf3][%cal Ge5f3] } 12. Be2 { [%csl Gf3][%cal Re5f3,Bd1h1,Bg1d1,Ge2f3] } 12... Qc8 { [%cal Gc8c1] } 13. h4 { [%cal Ge5c4] } *
-     */
     StudyPgn: string;
     /** @enum {string} */
     StudyUserSelection:
       "nobody" | "owner" | "contributor" | "member" | "everyone";
-    /**
-     * @example {
-     *       "chapters": [
-     *         {
-     *           "id": "iBjmYBya",
-     *           "name": "test 2",
-     *           "players": [
-     *             {
-     *               "name": "Carlsen, Magnus",
-     *               "rating": 2837
-     *             },
-     *             {
-     *               "name": "Chadaev, Nikolay",
-     *               "rating": 2580
-     *             }
-     *           ],
-     *           "status": "1-0"
-     *         }
-     *       ]
-     *     }
-     */
     StudyImportPgnChapters: {
       chapters?: {
         /** @description The chapter ID */
@@ -5789,15 +5452,9 @@ export interface components {
         /** @description The chapter status */
         status?: string;
       }[];
+      /** @description An error message, if some of the games could not be imported. */
+      error?: string | null;
     };
-    /**
-     * @example {
-     *       "id": "WTvnkWAL",
-     *       "name": "Guess the move",
-     *       "createdAt": 1463756350225,
-     *       "updatedAt": 1469965025205
-     *     }
-     */
     StudyMetadata: {
       /** @description The study ID */
       id: string;
@@ -5861,15 +5518,8 @@ export interface components {
       id: string;
       name: string;
       slug: string;
-      /** @example 1722169800000 */
       createdAt: number;
-      /**
-       * @description Start and end dates of the tournament, as Unix timestamps in milliseconds
-       * @example [
-       *       1722169800000,
-       *       1722666600000
-       *     ]
-       */
+      /** @description Start and end dates of the tournament, as Unix timestamps in milliseconds */
       dates?: number[];
       info?: components["schemas"]["BroadcastTourInfo"];
       /** @description Used to designate featured tournaments on Lichess */
@@ -5946,14 +5596,10 @@ export interface components {
       /** @deprecated */
       upcoming?: components["schemas"]["BroadcastWithLastRound"][];
       past?: {
-        /** @example 4 */
         currentPage?: number;
-        /** @example 20 */
         maxPerPage?: number;
         currentPageResults?: components["schemas"]["BroadcastWithLastRound"][];
-        /** @example 3 */
         previousPage?: number | null;
-        /** @example 5 */
         nextPage?: number | null;
       };
     };
@@ -6137,15 +5783,11 @@ export interface components {
       photos?: components["schemas"]["BroadcastPhotos"];
     };
     BroadcastPlayerWithFed: {
-      /** @example Hernandez Riera, Jose */
       name: string;
       title?: components["schemas"]["Title"];
-      /** @example 2149 */
       rating?: number;
-      /** @example 3408230 */
       fideId?: number;
       team?: string;
-      /** @example CHI */
       fed?: string;
     };
     StatByFideTC: {
@@ -6155,41 +5797,19 @@ export interface components {
     };
     BroadcastPlayerTiebreak: {
       extendedCode: components["schemas"]["BroadcastTiebreakExtendedCode"];
-      /** @example Buchholz Cut 1 */
       description: string;
-      /** @example 45.5 */
       points: number;
     };
     BroadcastPlayerEntry: components["schemas"]["BroadcastPlayerWithFed"] & {
-      /** @example 2.5 */
       score?: number;
-      /** @example 7 */
       played?: number;
-      /**
-       * @description Rating differences by FIDE time control.
-       * @example {
-       *       "rapid": -5,
-       *       "blitz": 10
-       *     }
-       */
+      /** @description Rating differences by FIDE time control. */
       ratingDiffs?: components["schemas"]["StatByFideTC"];
-      /**
-       * @description Player's ratings at the time of the tournament.
-       * @example {
-       *       "rapid": 2500,
-       *       "blitz": 2450
-       *     }
-       */
+      /** @description Player's ratings at the time of the tournament. */
       ratingsMap?: components["schemas"]["StatByFideTC"];
-      /**
-       * @description Performance ratings by FIDE time control.
-       * @example {
-       *       "standard": 2138
-       *     }
-       */
+      /** @description Performance ratings by FIDE time control. */
       performances?: components["schemas"]["StatByFideTC"];
       tiebreaks?: components["schemas"]["BroadcastPlayerTiebreak"][];
-      /** @example 1 */
       rank?: number;
     };
     /** @enum {string} */
@@ -6538,14 +6158,10 @@ export interface components {
       requested?: boolean;
     };
     TeamPaginatorJson: {
-      /** @example 4 */
       currentPage: number;
-      /** @example 15 */
       maxPerPage: number;
       currentPageResults: components["schemas"]["Team"][];
-      /** @example 3 */
       previousPage: number | null;
-      /** @example 5 */
       nextPage: number | null;
       nbResults: number;
       nbPages: number;
@@ -6556,13 +6172,9 @@ export interface components {
      */
     ArenaStatusName: "created" | "started" | "finished";
     TeamRequest: {
-      /** @example coders */
       teamId: string;
-      /** @example thibault */
       userId: string;
-      /** @example 1514505150384 */
       date: number;
-      /** @example Hello, I would like to join the team! */
       message?: string;
     };
     TeamRequestWithUser: {
@@ -6585,14 +6197,10 @@ export interface components {
       seen: boolean;
     };
     TeamUpdatesPager: {
-      /** @example 4 */
       currentPage: number;
-      /** @example 15 */
       maxPerPage: number;
       currentPageResults: components["schemas"]["TeamUpdate"][];
-      /** @example 3 */
       previousPage: number | null;
-      /** @example 5 */
       nextPage: number | null;
       nbResults: number;
       nbPages: number;
@@ -6612,15 +6220,6 @@ export interface components {
       updates: components["schemas"]["TeamUpdatesPager"];
       byTeam: components["schemas"]["TeamUpdatesByTeam"];
     };
-    /**
-     * @example {
-     *       "users": {
-     *         "neio": 201.5,
-     *         "thibault": 144.5
-     *       },
-     *       "nbGames": 346
-     *     }
-     */
     Crosstable: {
       users: {
         [key: string]: number;
@@ -6633,12 +6232,8 @@ export interface components {
     UserNote: {
       from?: components["schemas"]["LightUser"];
       to?: components["schemas"]["LightUser"];
-      /** @example This is a note */
       text?: string;
-      /**
-       * Format: int64
-       * @example 1290415680000
-       */
+      /** Format: int64 */
       date?: number;
     };
     GameEventOpponent:
@@ -6714,7 +6309,6 @@ export interface components {
           type: "clock";
           limit?: number;
           increment?: number;
-          /** @example 5+2 */
           show?: string;
         }
       | {
@@ -6728,51 +6322,6 @@ export interface components {
         };
     /** @enum {string} */
     ChallengeColor: "white" | "black" | "random";
-    /**
-     * @example {
-     *       "id": "H9fIRZUk",
-     *       "url": "https://lichess.org/H9fIRZUk",
-     *       "status": "created",
-     *       "challenger": {
-     *         "id": "bot1",
-     *         "name": "Bot1",
-     *         "rating": 1500,
-     *         "title": "BOT",
-     *         "provisional": true,
-     *         "online": true,
-     *         "lag": 4
-     *       },
-     *       "destUser": {
-     *         "id": "bobby",
-     *         "name": "Bobby",
-     *         "rating": 1635,
-     *         "title": "GM",
-     *         "provisional": true,
-     *         "online": true,
-     *         "lag": 4
-     *       },
-     *       "variant": {
-     *         "key": "standard",
-     *         "name": "Standard",
-     *         "short": "Std"
-     *       },
-     *       "rated": true,
-     *       "speed": "rapid",
-     *       "timeControl": {
-     *         "type": "clock",
-     *         "limit": 600,
-     *         "increment": 0,
-     *         "show": "10+0"
-     *       },
-     *       "color": "random",
-     *       "finalColor": "black",
-     *       "perf": {
-     *         "icon": "",
-     *         "name": "Rapid"
-     *       },
-     *       "direction": "out"
-     *     }
-     */
     ChallengeJson: {
       id: string;
       /** Format: uri */
@@ -6839,21 +6388,6 @@ export interface components {
       rating?: number;
       provisional?: boolean;
     };
-    /**
-     * @example {
-     *       "type": "gameState",
-     *       "moves": "e2e4 c7c5 f2f4 d7d6 g1f3 b8c6 f1c4 g8f6 d2d3 g7g6 e1g1 f8g7 b1c3",
-     *       "wtime": 7598040,
-     *       "btime": 8395220,
-     *       "winc": 10000,
-     *       "binc": 10000,
-     *       "wdraw": false,
-     *       "bdraw": false,
-     *       "wtakeback": false,
-     *       "btakeback": false,
-     *       "status": "started"
-     *     }
-     */
     GameStateEvent: {
       /** @constant */
       type: "gameState";
@@ -6889,49 +6423,6 @@ export interface components {
         millisToMove: number;
       };
     };
-    /**
-     * @example {
-     *       "id": "BEOucQJo",
-     *       "variant": {
-     *         "key": "standard",
-     *         "name": "Standard",
-     *         "short": "Std"
-     *       },
-     *       "speed": "rapid",
-     *       "perf": {
-     *         "name": "Rapid"
-     *       },
-     *       "rated": false,
-     *       "createdAt": 1745112707998,
-     *       "white": {
-     *         "id": "bobby",
-     *         "name": "Bobby",
-     *         "title": null,
-     *         "rating": 1751
-     *       },
-     *       "black": {
-     *         "id": "mary",
-     *         "name": "Mary",
-     *         "title": null,
-     *         "rating": 1021
-     *       },
-     *       "initialFen": "startpos",
-     *       "clock": {
-     *         "initial": 900000,
-     *         "increment": 0
-     *       },
-     *       "type": "gameFull",
-     *       "state": {
-     *         "type": "gameState",
-     *         "moves": "d2d3",
-     *         "wtime": 900000,
-     *         "btime": 900000,
-     *         "winc": 0,
-     *         "binc": 0,
-     *         "status": "started"
-     *       }
-     *     }
-     */
     GameFullEvent: {
       /** @constant */
       type: "gameFull";
@@ -6966,14 +6457,6 @@ export interface components {
       daysPerTurn?: number;
       tournamentId?: string;
     };
-    /**
-     * @example {
-     *       "type": "chatLine",
-     *       "username": "thibault",
-     *       "text": "Good luck, have fun",
-     *       "room": "player"
-     *     }
-     */
     ChatLineEvent: {
       /** @constant */
       type: "chatLine";
@@ -6982,35 +6465,12 @@ export interface components {
       username: string;
       text: string;
     };
-    /**
-     * @example {
-     *       "type": "opponentGone",
-     *       "gone": true,
-     *       "claimWinInSeconds": 8
-     *     }
-     */
     OpponentGoneEvent: {
       /** @constant */
       type: "opponentGone";
       gone: boolean;
       claimWinInSeconds?: number;
     };
-    /**
-     * @example [
-     *       {
-     *         "text": "Takeback sent",
-     *         "user": "lichess"
-     *       },
-     *       {
-     *         "text": "Takeback accepted",
-     *         "user": "lichess"
-     *       },
-     *       {
-     *         "text": "Good game, well played",
-     *         "user": "thibault"
-     *       }
-     *     ]
-     */
     PlayerGameChat: {
       text: string;
       user: string;
@@ -7042,38 +6502,6 @@ export interface components {
         userIds?: string[];
       };
     };
-    /**
-     * @example {
-     *       "id": "RVAcwgg7",
-     *       "games": [
-     *         {
-     *           "id": "NKop9IyD",
-     *           "black": "lizen1",
-     *           "white": "thibault"
-     *         },
-     *         {
-     *           "id": "KT8374ut",
-     *           "black": "lizen3",
-     *           "white": "lizen2"
-     *         },
-     *         {
-     *           "id": "wInQr8Sk",
-     *           "black": "lizen5",
-     *           "white": "lizen4"
-     *         }
-     *       ],
-     *       "variant": "standard",
-     *       "clock": {
-     *         "increment": 0,
-     *         "limit": 300
-     *       },
-     *       "pairAt": 1612289869919,
-     *       "pairedAt": null,
-     *       "rated": false,
-     *       "startClocksAt": 1612200422971,
-     *       "scheduledAt": 1612203514628
-     *     }
-     */
     BulkPairing: {
       id: string;
       games: {
@@ -7086,30 +6514,9 @@ export interface components {
       pairAt: number;
       pairedAt: number | null;
       rated: boolean;
-      startClocksAt: number;
+      startClocksAt: number | null;
       scheduledAt: number;
     };
-    /**
-     * @example {
-     *       "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R",
-     *       "knodes": 106325,
-     *       "depth": 29,
-     *       "pvs": [
-     *         {
-     *           "moves": "d1e2 d8e7 a2a4 a7a6 b5c4 d7d6 d2d3 g8f6 c1e3 c6a5",
-     *           "cp": 41
-     *         },
-     *         {
-     *           "moves": "c2c3 a7a6 b5a4 g8f6 d2d3 b7b5 a4b3 h7h6 a2a4 c8b7",
-     *           "cp": 39
-     *         },
-     *         {
-     *           "moves": "d2d3 d8f6 c2c3 a7a6 b5a4 f8c5 d3d4 c5a7 c1e3 g8e7",
-     *           "cp": 37
-     *         }
-     *       ]
-     *     }
-     */
     CloudEval: {
       depth: number;
       fen: string;
@@ -7137,7 +6544,6 @@ export interface components {
     };
     /**
      * @default chess
-     * @example chess
      * @enum {string}
      */
     UciVariant:
@@ -7251,12 +6657,6 @@ export interface components {
           /** @description Number of nodes to analyse in the position */
           nodes: number;
         } & components["schemas"]["ExternalEngineWorkCommon"]);
-    /**
-     * @example {
-     *       "error": "invalid_grant",
-     *       "error_description": "hash of code_verifier does not match code_challenge"
-     *     }
-     */
     OAuthError: {
       /** @description The cause of the error. */
       error: string;
@@ -7346,118 +6746,6 @@ export interface components {
       year: number;
       month: string;
     };
-    /**
-     * @example {
-     *       "opening": {
-     *         "eco": "D00",
-     *         "name": "Queen's Pawn Game"
-     *       },
-     *       "queuePosition": 25,
-     *       "white": 366,
-     *       "draws": 23,
-     *       "black": 279,
-     *       "moves": [
-     *         {
-     *           "uci": "c2c4",
-     *           "san": "c4",
-     *           "averageOpponentRating": 1695,
-     *           "performance": 1744,
-     *           "white": 361,
-     *           "draws": 23,
-     *           "black": 272,
-     *           "game": null,
-     *           "opening": {
-     *             "eco": "D06",
-     *             "name": "Queen's Gambit"
-     *           }
-     *         },
-     *         {
-     *           "uci": "c2c3",
-     *           "san": "c3",
-     *           "averageOpponentRating": 1797,
-     *           "performance": 1797,
-     *           "white": 2,
-     *           "draws": 0,
-     *           "black": 2,
-     *           "game": null,
-     *           "opening": null
-     *         },
-     *         {
-     *           "uci": "e2e4",
-     *           "san": "e4",
-     *           "averageOpponentRating": 1762,
-     *           "performance": 1640,
-     *           "white": 1,
-     *           "draws": 0,
-     *           "black": 2,
-     *           "game": null,
-     *           "opening": {
-     *             "eco": "D00",
-     *             "name": "Blackmar-Diemer Gambit"
-     *           }
-     *         },
-     *         {
-     *           "uci": "g1f3",
-     *           "san": "Nf3",
-     *           "averageOpponentRating": 1497,
-     *           "performance": 1374,
-     *           "white": 1,
-     *           "draws": 0,
-     *           "black": 2,
-     *           "game": null,
-     *           "opening": {
-     *             "eco": "D02",
-     *             "name": "Queen's Pawn Game: Zukertort Variation"
-     *           }
-     *         },
-     *         {
-     *           "uci": "h2h4",
-     *           "san": "h4",
-     *           "averageOpponentRating": 1674,
-     *           "performance": 874,
-     *           "white": 0,
-     *           "draws": 0,
-     *           "black": 1,
-     *           "game": {
-     *             "id": "9vA24xBn",
-     *             "winner": "black",
-     *             "speed": "bullet",
-     *             "mode": "rated",
-     *             "black": {
-     *               "name": "MentalBlood",
-     *               "rating": 1674
-     *             },
-     *             "white": {
-     *               "name": "revoof",
-     *               "rating": 1657
-     *             },
-     *             "year": 2020,
-     *             "month": "2020-06"
-     *           },
-     *           "opening": null
-     *         }
-     *       ],
-     *       "recentGames": [
-     *         {
-     *           "uci": "c2c4",
-     *           "id": "ycZbWQZO",
-     *           "winner": "white",
-     *           "speed": "bullet",
-     *           "mode": "rated",
-     *           "black": {
-     *             "name": "Winavesh",
-     *             "rating": 1700
-     *           },
-     *           "white": {
-     *             "name": "revoof",
-     *             "rating": 1700
-     *           },
-     *           "year": 2024,
-     *           "month": "2024-11"
-     *         }
-     *       ]
-     *     }
-     */
     OpeningExplorerPlayer: {
       opening: components["schemas"]["OpeningExplorerOpening"] | null;
       /** @description Waiting for other players to be indexed first */
@@ -7481,9 +6769,7 @@ export interface components {
       } & components["schemas"]["OpeningExplorerPlayerGame"])[];
     };
     TablebaseMove: {
-      /** @example h7h8q */
       uci: string;
-      /** @example h8=Q+ */
       san: string;
       /** @enum {string} */
       category:
@@ -7510,39 +6796,6 @@ export interface components {
       variant_loss?: boolean;
       insufficient_material?: boolean;
     };
-    /**
-     * @example {
-     *       "dtz": 1,
-     *       "precise_dtz": 1,
-     *       "dtc": null,
-     *       "dtm": 17,
-     *       "dtw": null,
-     *       "checkmate": false,
-     *       "stalemate": false,
-     *       "variant_win": false,
-     *       "variant_loss": false,
-     *       "insufficient_material": false,
-     *       "category": "win",
-     *       "moves": [
-     *         {
-     *           "uci": "h7h8q",
-     *           "san": "h8=Q+",
-     *           "dtz": -2,
-     *           "precise_dtz": -2,
-     *           "dtc": null,
-     *           "dtm": -16,
-     *           "dtw": null,
-     *           "zeroing": true,
-     *           "checkmate": false,
-     *           "stalemate": false,
-     *           "variant_win": false,
-     *           "variant_loss": false,
-     *           "insufficient_material": false,
-     *           "category": "loss"
-     *         }
-     *       ]
-     *     }
-     */
     TablebaseJson: {
       /**
        * @description `cursed-win` and `blessed-loss` means the 50-move rule prevents
@@ -8068,7 +7321,6 @@ export interface operations {
         };
         content: {
           "application/json": {
-            /** @example No puzzles to replay */
             error?: string;
           };
         };
@@ -8274,7 +7526,6 @@ export interface operations {
         content: {
           "application/json": {
             prefs?: components["schemas"]["UserPreferences"];
-            /** @example en-GB */
             language?: string;
           };
         };
@@ -8423,7 +7674,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/x-ndjson": components["schemas"]["SpectatorGameChat"];
+          "application/json": components["schemas"]["SpectatorGameChat"];
         };
       };
     };
@@ -8863,7 +8114,6 @@ export interface operations {
         };
         content: {
           "application/json": {
-            /** @example Please only run 8 request(s) at a time */
             error?: string;
           };
         };
@@ -8895,10 +8145,7 @@ export interface operations {
         };
         content: {
           "application/json": {
-            /**
-             * @description The game ID
-             * @example R6iLjwz5
-             */
+            /** @description The game ID */
             id?: string;
             /**
              * Format: uri
@@ -11331,18 +10578,12 @@ export interface operations {
         };
         content: {
           "application/json": {
-            /** @example 4 */
             currentPage: number;
-            /** @example 15 */
             maxPerPage: number;
             currentPageResults: components["schemas"]["BroadcastByUser"][];
-            /** @example 205194 */
             nbResults: number;
-            /** @example 3 */
             previousPage: number | null;
-            /** @example 5 */
             nextPage: number | null;
-            /** @example 13680 */
             nbPages: number;
           };
         };
@@ -12157,17 +11398,16 @@ export interface operations {
         };
         content: {
           "application/x-ndjson": {
-            /**
-             * Format: int64
-             * @example 1716930043067
-             */
+            /** Format: int64 */
             joinedTeamAt?: number;
-            /** @example chess-network */
             id: string;
-            /** @example Chess-Network */
             name: string;
+            flair?: components["schemas"]["Flair"];
             title?: components["schemas"]["Title"];
+            patron?: components["schemas"]["Patron"];
             patronColor?: components["schemas"]["PatronColor"];
+            /** Format: uri */
+            url?: string;
           };
         };
       };
@@ -12917,7 +12157,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/x-ndjson": components["schemas"]["PlayerGameChat"];
+          "application/json": components["schemas"]["PlayerGameChat"];
         };
       };
     };
@@ -13334,7 +12574,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/x-ndjson": components["schemas"]["PlayerGameChat"];
+          "application/json": components["schemas"]["PlayerGameChat"];
         };
       };
     };
@@ -14040,7 +13280,9 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["BulkPairing"][];
+          "application/json": {
+            bulks: components["schemas"]["BulkPairing"][];
+          };
         };
       };
     };
@@ -14450,7 +13692,6 @@ export interface operations {
         };
         content: {
           "application/json": {
-            /** @example No cloud evaluation available for that position */
             error?: string;
           };
         };
@@ -14668,7 +13909,6 @@ export interface operations {
         };
         content: {
           "application/json": {
-            /** @example aingoohiJee2sius */
             id: string;
             work: components["schemas"]["ExternalEngineWork"];
             engine: components["schemas"]["ExternalEngine"];
@@ -14797,11 +14037,8 @@ export interface operations {
         };
         content: {
           "application/json": {
-            /** @example Bearer */
             token_type: string;
-            /** @example lio_pLwAbN7lFPklzY2m8lTOI1DGApS84u57 */
             access_token: string;
-            /** @example 31536000 */
             expires_in: number;
           };
         };
