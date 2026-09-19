@@ -1,13 +1,13 @@
 value:
   {
-    "id": "pg3qeRrR",
+    "id": "xcoxhDvh",
     "variant": { "key": "standard", "name": "Standard", "short": "Std" },
     "speed": "blitz",
     "perf": { "name": "Blitz" },
     "rated": false,
-    "createdAt": 1789836127243,
-    "white": { "id": "kenneth", "name": "Kenneth", "title": null, "rating": 675 },
-    "black": { "id": "salma", "name": "Salma", "title": null, "rating": 802 },
+    "createdAt": 1789845859939,
+    "white": { "id": "kenneth", "name": "Kenneth", "title": null, "rating": 804 },
+    "black": { "id": "salma", "name": "Salma", "title": null, "rating": 714 },
     "initialFen": "startpos",
     "clock": { "initial": 300000, "increment": 0 },
     "type": "gameFull",

@@ -1,15 +1,15 @@
 value:
   {
-    "date": 1789836264190,
+    "date": 1789845997743,
     "win": true,
     "puzzle":
       {
-        "id": "8gxTq",
-        "rating": 1783,
-        "plays": 6641,
-        "solution": ["h8g8", "e6g8", "f3f2", "h1g2", "e2e1", "g2f2", "e1b1"],
-        "themes": ["endgame", "crushing", "advancedPawn", "veryLong"],
-        "fen": "1k4Rr/1p6/p1p1B3/8/P1P4p/5p2/1P2r2P/1R5K b - - 1 1",
-        "lastMove": "g1g8",
+        "id": "DG7B9",
+        "rating": 1847,
+        "plays": 5722,
+        "solution": ["f3f6", "h5f6", "h1h6"],
+        "themes": ["middlegame", "short", "advantage"],
+        "fen": "2r2rk1/1pp2p1p/p2p1npq/3Pp2n/4P3/5QN1/PPP2P2/R2NK2R w KQ - 1 1",
+        "lastMove": "e8f6",
       },
   }

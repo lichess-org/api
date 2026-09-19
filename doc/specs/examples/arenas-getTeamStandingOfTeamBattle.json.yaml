@@ -757,7 +757,10 @@ value:
                 "score": 7,
               },
               { "user": { "name": "venkat22", "id": "venkat22" }, "score": 7 },
-              { "user": { "name": "Whoatemylunch", "flair": "activity.bowling", "id": "whoatemylunch" }, "score": 6 },
+              {
+                "user": { "name": "Whoatemylunch", "flair": "activity.direct-hit", "id": "whoatemylunch" },
+                "score": 6,
+              },
               { "user": { "name": "winordraw4566", "id": "winordraw4566" }, "score": 4 },
               { "user": { "name": "TheOne_Kuba", "id": "theone_kuba" }, "score": 3 },
               { "user": { "name": "buratinocchio", "id": "buratinocchio" }, "score": 2 },
@@ -3059,7 +3062,7 @@ value:
                 "user":
                   {
                     "name": "Nikitosik1708",
-                    "flair": "symbols.no-mobile-phones",
+                    "flair": "activity.lichess-berserk",
                     "patron": true,
                     "patronColor": 3,
                     "id": "nikitosik1708",

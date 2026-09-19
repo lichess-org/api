@@ -3,12 +3,12 @@ value:
     "in":
       [
         {
-          "id": "aRBydWmB",
-          "url": "https://lichess.org/aRBydWmB",
+          "id": "C8fNpisS",
+          "url": "https://lichess.org/C8fNpisS",
           "status": "created",
-          "challenger": { "name": "Bobby", "id": "bobby", "rating": 1619, "lag": 4 },
-          "destUser":
-            { "name": "Mary", "flair": "symbols.helix-logo", "id": "mary", "rating": 1055, "provisional": true },
+          "challenger":
+            { "name": "Bobby", "flair": "people.ballet-dancer-medium-skin-tone", "id": "bobby", "rating": 1657 },
+          "destUser": { "name": "Mary", "flair": "nature.crab", "id": "mary", "rating": 1079 },
           "variant": { "key": "standard", "name": "Standard", "short": "Std" },
           "rated": false,
           "speed": "correspondence",

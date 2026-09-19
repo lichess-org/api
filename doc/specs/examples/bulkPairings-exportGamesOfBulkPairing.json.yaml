@@ -1,33 +1,29 @@
 value:
   {
-    "id": "FKi6atdW",
+    "id": "XVfy5rp3",
     "rated": false,
     "variant": "standard",
     "speed": "blitz",
     "perf": "blitz",
-    "createdAt": 1789836257708,
-    "lastMoveAt": 1789836257708,
+    "createdAt": 1789845990622,
+    "lastMoveAt": 1789845990622,
     "status": "started",
     "source": "api",
     "players":
       {
         "white":
-          {
-            "user": { "name": "Sai", "flair": "objects.roll-of-paper", "id": "sai" },
-            "rating": 1463,
-            "provisional": true,
-          },
+          { "user": { "name": "Sai", "flair": "people.woman-construction-worker", "id": "sai" }, "rating": 1673 },
         "black":
           {
             "user":
               {
                 "name": "Nushi",
-                "flair": "people.men-with-bunny-ears-medium-dark-skin-tone-medium-skin-tone",
+                "flair": "people.person-medium-light-skin-tone-beard",
                 "patron": true,
                 "patronColor": 1,
                 "id": "nushi",
               },
-            "rating": 1104,
+            "rating": 1248,
           },
       },
     "moves": "",

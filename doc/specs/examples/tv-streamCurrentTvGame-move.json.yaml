@@ -1,2 +1,11 @@
 value:
-  { "t": "fen", "d": { "fen": "3N4/3k2pp/8/Bp1pp3/1P6/3p4/5PPP/4K3 w - - 0 37", "lm": "d6d5", "wc": 14, "bc": 25 } }
+  {
+    "t": "fen",
+    "d":
+      {
+        "fen": "r1b1r1k1/1pp2pp1/1pn2n1p/3qp3/8/P1PP1N1P/1P3PP1/RN1QRBK1 b - - 0 13",
+        "lm": "a2a3",
+        "wc": 27,
+        "bc": 28,
+      },
+  }

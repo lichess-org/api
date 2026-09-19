@@ -1,19 +1,19 @@
 value: |
   [Event "Coach LM Lance5500 simul"]
-  [Site "https://lichess.org/GW0QLmje"]
+  [Site "https://lichess.org/WFZ8aZWA"]
   [Date "2026.09.19"]
   [Round "-"]
-  [White "tejaspandey2015"]
+  [White "Furo951"]
   [Black "Lance5500"]
   [Result "0-1"]
-  [GameId "GW0QLmje"]
+  [GameId "WFZ8aZWA"]
   [UTCDate "2026.09.19"]
-  [UTCTime "16:39:00"]
-  [WhiteElo "1269"]
+  [UTCTime "17:58:27"]
+  [WhiteElo "1775"]
   [BlackElo "2552"]
   [BlackTitle "LM"]
   [Variant "Standard"]
-  [TimeControl "300+0"]
-  [Termination "Time forfeit"]
+  [TimeControl "300+3"]
+  [Termination "Normal"]
 
-   0-1
+  1. d4 d5 2. c4 e6 3. Nc3 Be7 4. Nf3 Nf6 5. Bg5 O-O 6. e3 c5 7. cxd5 Nxd5 8. Bxe7 Qxe7 9. Bd3 Rd8 10. Rc1 cxd4 11. exd4 Nc6 12. O-O Nxc3 13. bxc3 b6 14. Qc2 h6 15. Rfe1 Bb7 16. Be4 Rac8 17. Ne5 Nxe5 18. Bxb7 Qxb7 19. Rxe5 Rc4 20. Qb3 Rdc8 21. Re2 Rxd4 22. Rec2 Rdc4 23. a4 Qc6 24. Qb5 Rxa4 25. Qxc6 Rxc6 26. Kf1 Rac4 27. Ke2 b5 28. Kd3 Kf8 29. Rb1 a6 30. Rb4 Rxb4 31. cxb4 Rxc2 32. Kxc2 Ke7 33. Kc3 Kd6 34. f4 Kd5 35. Kd3 f6 36. g3 e5 37. fxe5 fxe5 38. h4 g6 39. g4 e4+ 40. Ke3 g5 41. h5 Ke5 0-1

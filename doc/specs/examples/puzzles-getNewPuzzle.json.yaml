@@ -2,24 +2,24 @@ value:
   {
     "game":
       {
-        "id": "qpK9GtKu",
+        "id": "DLK5gsJj",
         "perf": { "key": "blitz", "name": "Blitz" },
         "rated": true,
         "players":
           [
-            { "name": "Mauricio-Dx", "id": "mauricio-dx", "color": "white", "rating": 1983 },
-            { "name": "Romulo1954", "id": "romulo1954", "color": "black", "rating": 1976 },
+            { "name": "Deernes6", "id": "deernes6", "color": "white", "rating": 1858 },
+            { "name": "Marcenko", "id": "marcenko", "color": "black", "rating": 1827 },
           ],
-        "pgn": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 d3 Bc5 c3 d6 O-O Bg4 h3 h5 hxg4 hxg4 Ng5 g3 d4 Nxe4 Nxe4",
-        "clock": "5+0",
+        "pgn": "d4 d5 Nf3 e5 dxe5 f6 exf6 Nxf6 g3 Bd6 Bg2 Bg4 O-O Nc6 c4 Qd7 Qc2 dxc4 Rd1 O-O-O Bf4 Bh3 Bxd6 cxd6 Qxc4 Bxg2 Kxg2 Kb8 Nc3 Qf5 e4",
+        "clock": "3+0",
       },
     "puzzle":
       {
-        "id": "R6Tbo",
-        "rating": 1844,
-        "plays": 20020,
-        "solution": ["h8h1", "g1h1", "d8h4", "h1g1", "h4h2"],
-        "themes": ["attraction", "fork", "long", "mateIn3", "sacrifice", "opening"],
-        "initialPly": 22,
+        "id": "QYQYF",
+        "rating": 1703,
+        "plays": 3062,
+        "solution": ["f5f3", "g2f3", "c6e5", "f3g2", "e5c4"],
+        "themes": ["middlegame", "advantage", "attraction", "fork", "long", "sacrifice"],
+        "initialPly": 30,
       },
   }

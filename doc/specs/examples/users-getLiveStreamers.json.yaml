@@ -1,90 +1,59 @@
 value:
   [
     {
-      "name": "SergeyVoronChess",
-      "flair": "objects.thong-sandal",
-      "id": "sergeyvoronchess",
-      "stream":
-        {
-          "service": "youtube",
-          "status": "⚽ ЛИГА ЧЕМПИОНОВ SVC — ГРУППА 3! МЮ, АРСЕНАЛ, ЧЕЛСИ, ТОТТЕНХЭМ, АТЛЕТИКО lichess.org",
-          "lang": "ru",
-        },
+      "name": "stat3l9rd",
+      "flair": "symbols.purple-heart",
+      "id": "stat3l9rd",
+      "stream": { "service": "twitch", "status": "Играем в арену под подкастики умные на lichess.org", "lang": "ru" },
       "streamer":
         {
-          "name": "Sergey Gayvorontsev",
-          "headline": "Готовы к чему-то интересному и динамичному?",
-          "description": "SergeyVoronChess NEW - №1 Молодёжный Шахматный YouTube Канал!\r\nНаше сообщество собрало всех самых перспективных шахматистов СНГ и не только!\r\nЕсли ты попал сюда - здесь ты не увидишь никакие скучные лекции, только живой и динамичный контент! \r\nПрисоединяйся к нам, чтобы ощутить шахматы по новому! ඞ\r\n\r\nПолезные ссылки:\r\n- Мой Личесс акк: @SergeyVoronChess\r\n- Моя Личесс команда: https://lichess.org/team/sergeyvoronchess-new\r\n- Мой Дискорд сервер: https://discord.gg/QZFbGrZdcW\r\n- Мой Тик Ток: https://tiktok.com/@sergeyvoronchess\r\n- Мой Телеграмм Канал: https://t.me/sergeyvoronchessnew",
-          "twitch": "https://www.twitch.tv/sergeyvoronchess",
-          "youtube": "https://www.youtube.com/channel/UCHvsTfk__dRTIBrxMxrRrmA/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=sergeyvoronchess:streamer:sergeyvoronchess:Gi1l5119.jpg&w=350&sig=07b7619fd97bf1a6cfa74761e933e8f0c8ca6392",
+          "name": "stat3l9rd",
+          "headline": "Показываю на своем харизматичном потоке блиц и рапид. В основном, дневные турниры.",
+          "description": "Показываю на своем харизматичном потоке блиц и рапид. Пуля - редковато. В основном, это дневные блиц-турниры. Стримы почти каждый день. Каждая игра отличается манерой игры и подачи. Кирилл (так зовут стримера) играет агрессивно, будь готов к этому. Люблю сицилианку и Ферзевый гамбит. Лучшим изобретением человечеством считаю фианкеттирование. Заходи ко мне!",
+          "twitch": "https://www.twitch.tv/stat3l9rd",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=stat3l9rd:streamer:stat3l9rd:krousUDH.jpg&w=350&sig=63f9d9f24a83200dc0f018851958276c902b582b",
         },
     },
     {
-      "name": "Malan77",
-      "flair": "smileys.cowboy-hat-face",
+      "name": "PashokKotov",
+      "id": "pashokkotov",
+      "stream": { "service": "youtube", "status": "Элитная Superblitz lichess.org", "lang": "en-US" },
+      "streamer":
+        {
+          "name": "Pashok Kotov",
+          "headline": "Стримлю турниры личесса и общаюсь с чатом.",
+          "description": "Стримлю основные турниры личесса. Стрим проходит на позитиве.",
+          "youtube": "https://www.youtube.com/channel/UCHCQgBhosQ3HQDYILZs3gmQ/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=m2gyOQtlFyQB.webp&w=350&sig=63c078a509c33670569995ceedbf849d0b15d37b",
+        },
+    },
+    {
+      "name": "Ruth29",
+      "flair": "people.waving-hand",
       "patron": true,
-      "patronColor": 10,
-      "id": "malan77",
-      "stream":
-        {
-          "service": "youtube",
-          "status": "SOUTH AFRICA at the Chess Olympiad 2026 | ROUND 4 LIVE | Sweden & Belgium | lichess.org",
-          "lang": "en",
-        },
+      "patronColor": 5,
+      "id": "ruth29",
+      "stream": { "service": "twitch", "status": '"No comprendo" el ajedrez lichess.org', "lang": "fr" },
       "streamer":
         {
-          "name": "Malan77",
-          "headline": "Chess Cave South Africa",
-          "description": "Chess Cave South Africa\r\nMostly having fun - Playing and Streaming some Arena games.",
-          "youtube": "https://www.youtube.com/channel/UCZyAk3YGi4g32bVJNL2G4QA/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=82RRSwambEDY.webp&w=350&sig=73e89dd10c4d5f8cae33516a3cef9ffcec00c553",
+          "name": "Ruth2929",
+          "headline": "Stream échecs Francophone joueur echec amateur",
+          "description": "Stream joueur amateur d'échecs, on essaie de progresser en parties rapides, parties contre les viewers, arena entre les viewers, participation aux compétiitions d'équipes telle la Liga. J'apprécie l'engagement communautaire et non lucratif de Lichess .Bonne humeur et simplicité, ",
+          "twitch": "https://www.twitch.tv/ruth2929",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=ruth29:streamer:ruth29:PTyX0OGV.webp&w=350&sig=9581898305bea1da725b61254bf724b49a53606a",
         },
     },
     {
-      "name": "NightOFzero",
-      "title": "FM",
-      "flair": "nature.dove",
-      "id": "nightofzero",
-      "stream": { "service": "twitch", "status": "Guess The Elo on lichess.org", "lang": "en" },
+      "name": "Ferstep",
+      "patron": true,
+      "patronColor": 3,
+      "id": "ferstep",
+      "stream": { "service": "twitch", "status": "Играем со зрителями на Lichess.org", "lang": "ru" },
       "streamer":
         {
-          "name": "NightOFzero",
-          "headline": "funny chess on lichess ",
-          "description": "With commentary, games with spectators, tournaments, team: https://lichess.org/team/ratedbelow600",
-          "twitch": "https://www.twitch.tv/ratedbelow600_twitch",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=nightofzero:streamer:nightofzero:cmcr63YN.webp&w=350&sig=80af12f2e8267525c557b4f84fd8077a40c200c9",
-        },
-    },
-    {
-      "name": "Knight-Crimson",
-      "id": "knight-crimson",
-      "stream":
-        {
-          "service": "youtube",
-          "status": "Играю рапид в прямом эфире 🚀| 10+5, 15+10 на Lichess.org [RU]. (#35, H)",
-          "lang": "ru",
-        },
-      "streamer":
-        {
-          "name": "Knight-Crimson",
-          "headline": "Стримы: тактика, блиц, рапид...",
-          "youtube": "https://www.youtube.com/channel/UC2JSzLBZPuf-l0d1vIRx4Sg/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:knight-crimson:tsvgpFWX.webp&w=350&sig=5fd076962f4e8d12f1222ed5a326d881a95ac259",
-        },
-    },
-    {
-      "name": "LenaChess02",
-      "flair": "symbols.collision",
-      "id": "lenachess02",
-      "stream": { "service": "twitch", "status": "Let's solve puzzles!! lichess.org", "lang": "en" },
-      "streamer":
-        {
-          "name": "LenaChess02",
-          "headline": "Training and playing viewers :)",
-          "description": "Hi everyone, I solve advanced chess puzzles, train endgames and occasionaly play viewers :)\r\nFeel free to follow me on twitch: https://www.twitch.tv/lenaweingraber",
-          "twitch": "https://www.twitch.tv/lenaweingraber",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=vIPyHGIBIO0X.webp&w=350&sig=fbcf4a4a9e016303d4ca7ea444e5963e8f1372f6",
+          "name": "Ferstep",
+          "twitch": "https://www.twitch.tv/ferstep_",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:ferstep:JzOkP1dl.webp&w=350&sig=381e2ab2bc059a8f6bdf8da6e859ae1ff840fd2e",
         },
     },
   ]

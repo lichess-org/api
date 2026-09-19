@@ -1,8 +1,8 @@
 value:
   {
-    "id": "Vz0jivPg",
-    "createdBy": "benjamin",
-    "startsAt": "2026-09-19T16:44:27.218Z",
+    "id": "PKLsb7MA",
+    "createdBy": "mary",
+    "startsAt": "2026-09-19T19:36:39.788Z",
     "name": "Weekly Swiss 2",
     "clock": { "limit": 300, "increment": 0 },
     "variant": "standard",
@@ -11,7 +11,7 @@ value:
     "nbPlayers": 0,
     "nbOngoing": 0,
     "status": "created",
-    "nextRound": { "at": "2026-09-19T16:44:27.218Z", "in": 600 },
+    "nextRound": { "at": "2026-09-19T19:36:39.788Z", "in": 600 },
     "verdicts": { "list": [], "accepted": true },
     "rated": true,
   }

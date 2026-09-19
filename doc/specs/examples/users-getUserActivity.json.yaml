@@ -2,7 +2,7 @@ value:
   [
     {
       "interval": { "start": 1789776000000, "end": 1789862400000 },
-      "games": { "blitz": { "win": 4, "loss": 7, "draw": 0, "rp": { "before": 1716, "after": 1698 } } },
+      "games": { "blitz": { "win": 6, "loss": 7, "draw": 0, "rp": { "before": 1716, "after": 1711 } } },
       "puzzles": { "score": { "win": 0, "loss": 1, "draw": 0, "rp": { "before": 1937, "after": 1917 } } },
       "follows":
         {

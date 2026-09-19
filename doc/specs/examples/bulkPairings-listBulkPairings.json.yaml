@@ -3,14 +3,14 @@ value:
     "bulks":
       [
         {
-          "id": "QrV5ZJE2",
-          "games": [{ "id": "dDLv1bwZ", "white": "sai", "black": "nushi" }],
+          "id": "QO9p9lUM",
+          "games": [{ "id": "XVfy5rp3", "white": "sai", "black": "nushi" }],
           "variant": "standard",
           "rated": false,
-          "pairAt": 1789842616209,
+          "pairAt": 1789845990610,
           "startClocksAt": null,
-          "scheduledAt": 1789842616209,
-          "pairedAt": 1789842616217,
+          "scheduledAt": 1789845990610,
+          "pairedAt": 1789845990642,
           "clock": { "limit": 300, "increment": 0 },
         },
       ],

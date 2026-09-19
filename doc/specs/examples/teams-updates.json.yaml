@@ -9,147 +9,154 @@ value:
             {
               "msg":
                 {
-                  "id": "AAAAAABr",
-                  "team": { "id": "stalemate-declined", "name": "Stalemate Declined", "flair": "nature.sunflower" },
-                  "text": "Welcome to all our new members, glad to have you on the team!",
-                  "sender": { "name": "Adriana", "flair": "objects.closed-mailbox-with-raised-flag", "id": "adriana" },
-                  "date": 1789814535648,
+                  "id": "AAAAAAAI",
+                  "team":
+                    {
+                      "id": "the-fischermen",
+                      "name": "The Fischermen",
+                      "flair": "people.older-person-medium-skin-tone",
+                    },
+                  "text": "Let's get everyone to at least one classical game this week.",
+                  "sender": { "name": "Guang", "id": "guang" },
+                  "date": 1789801389222,
                 },
               "seen": false,
             },
             {
               "msg":
                 {
-                  "id": "AAAAAAAV",
-                  "team": { "id": "sacsacoops", "name": "Sac-sac-oops" },
-                  "text": "Team tournament tomorrow night! Looking forward to playing everyone!",
-                  "sender": { "name": "Angel", "title": "NM", "id": "angel" },
-                  "date": 1789790168121,
+                  "id": "AAAAAAA/",
+                  "team":
+                    {
+                      "id": "i-dont-think-he-knows-about-second-piece-sac-pip",
+                      "name": "I don't think he knows about second piece sac, Pip",
+                      "flair": "people.person-with-headscarf-light-skin-tone",
+                    },
+                  "text": "Reminder to keep games friendly, no berserking on your teammates!",
+                  "sender": { "name": "Abubakar", "flair": "people.woman-playing-water-polo", "id": "abubakar" },
+                  "date": 1789761198748,
                 },
               "seen": false,
             },
             {
               "msg":
                 {
-                  "id": "AAAAAAAR",
-                  "team": { "id": "sacsacoops", "name": "Sac-sac-oops" },
+                  "id": "AAAAAAA8",
+                  "team":
+                    {
+                      "id": "i-dont-think-he-knows-about-second-piece-sac-pip",
+                      "name": "I don't think he knows about second piece sac, Pip",
+                      "flair": "people.person-with-headscarf-light-skin-tone",
+                    },
+                  "text": "Thanks for being patient while we sort out the tournament schedule.",
+                  "sender": { "name": "Rudra", "id": "rudra" },
+                  "date": 1789725062874,
+                },
+              "seen": false,
+            },
+            {
+              "msg":
+                {
+                  "id": "AAAAAAA6",
+                  "team":
+                    {
+                      "id": "i-dont-think-he-knows-about-second-piece-sac-pip",
+                      "name": "I don't think he knows about second piece sac, Pip",
+                      "flair": "people.person-with-headscarf-light-skin-tone",
+                    },
                   "text": "Great turnout in last night's match, thanks to everyone who showed up!",
-                  "sender": { "name": "Angel", "title": "NM", "id": "angel" },
-                  "date": 1789643510926,
+                  "sender": { "name": "Abubakar", "flair": "people.woman-playing-water-polo", "id": "abubakar" },
+                  "date": 1789707064909,
                 },
               "seen": false,
             },
             {
               "msg":
                 {
-                  "id": "AAAAAACO",
-                  "team":
-                    {
-                      "id": "the-nonspecific-allegation-gambit",
-                      "name": "The Non-Specific Allegation Gambit",
-                      "flair": "people.backhand-index-pointing-left-medium-skin-tone",
-                    },
-                  "text": "Shoutout to everyone who helped recruit new members this month.",
-                  "sender": { "name": "Ekaterina", "title": "WGM", "id": "ekaterina" },
-                  "date": 1789518429670,
+                  "id": "AAAAAAC4",
+                  "team": { "id": "open-chess-club", "name": "Open Chess Club" },
+                  "text": "Nice work in the last league match, on to the next round!",
+                  "sender": { "name": "Mary", "flair": "nature.crab", "id": "mary" },
+                  "date": 1789662367160,
                 },
               "seen": false,
             },
             {
               "msg":
                 {
-                  "id": "AAAAAABC",
-                  "team": { "id": "we-shall-fight-on-the-lichess", "name": "We Shall Fight on the Lichess" },
-                  "text": "Our next simul with a titled player is scheduled for next weekend.",
-                  "sender": { "name": "Aaron", "flair": "nature.jellyfish", "id": "aaron" },
-                  "date": 1789478446145,
-                },
-              "seen": false,
-            },
-            {
-              "msg":
-                {
-                  "id": "AAAAAACN",
-                  "team":
-                    {
-                      "id": "the-nonspecific-allegation-gambit",
-                      "name": "The Non-Specific Allegation Gambit",
-                      "flair": "people.backhand-index-pointing-left-medium-skin-tone",
-                    },
-                  "text": "We're looking for a co-leader to help manage the forum, message me if interested.",
-                  "sender": { "name": "Ekaterina", "title": "WGM", "id": "ekaterina" },
-                  "date": 1789372010930,
+                  "id": "AAAAAAAq",
+                  "team": { "id": "the-prep-leaks-for-itself", "name": "The prep leaks for itself" },
+                  "text": "Quiet week ahead, use it to study some endgames!",
+                  "sender": { "name": "Marcel", "patron": true, "patronColor": 1, "id": "marcel" },
+                  "date": 1789637365558,
                 },
               "seen": false,
             },
           ],
         "previousPage": null,
         "nextPage": 2,
-        "nbResults": 53,
-        "nbPages": 9,
+        "nbResults": 66,
+        "nbPages": 11,
       },
     "byTeam":
       [
         {
-          "team": { "id": "stalemate-declined", "name": "Stalemate Declined", "flair": "nature.sunflower" },
-          "unread": 1,
-          "last": 1789814535648,
+          "team": { "id": "the-fischermen", "name": "The Fischermen", "flair": "people.older-person-medium-skin-tone" },
+          "unread": 2,
+          "last": 1789801389222,
         },
-        { "team": { "id": "sacsacoops", "name": "Sac-sac-oops" }, "unread": 8, "last": 1789790168121 },
+        {
+          "team":
+            {
+              "id": "i-dont-think-he-knows-about-second-piece-sac-pip",
+              "name": "I don't think he knows about second piece sac, Pip",
+              "flair": "people.person-with-headscarf-light-skin-tone",
+            },
+          "unread": 7,
+          "last": 1789761198748,
+        },
+        { "team": { "id": "open-chess-club", "name": "Open Chess Club" }, "unread": 2, "last": 1789662367160 },
+        {
+          "team": { "id": "the-prep-leaks-for-itself", "name": "The prep leaks for itself" },
+          "unread": 9,
+          "last": 1789637365558,
+        },
+        {
+          "team":
+            {
+              "id": "stockfishing-for-compliments",
+              "name": "Stockfishing for compliments",
+              "flair": "people.man-kneeling-facing-right-medium-skin-tone",
+            },
+          "unread": 1,
+          "last": 1789615092731,
+        },
+        { "team": { "id": "ignorance-is-blitz", "name": "Ignorance is Blitz" }, "unread": 9, "last": 1789475563924 },
+        {
+          "team": { "id": "captain-james-t-pirc", "name": "Captain James T. Pirc", "flair": "objects.knot" },
+          "unread": 10,
+          "last": 1789412973532,
+        },
+        {
+          "team":
+            {
+              "id": "the-neal-bruce-experience",
+              "name": "The Neal Bruce Experience",
+              "flair": "objects.pound-banknote",
+            },
+          "unread": 2,
+          "last": 1789405669058,
+        },
         {
           "team":
             {
               "id": "the-nonspecific-allegation-gambit",
               "name": "The Non-Specific Allegation Gambit",
-              "flair": "people.backhand-index-pointing-left-medium-skin-tone",
+              "flair": "people.couple-with-heart-person-person-medium-dark-skin-tone-dark-skin-tone",
             },
-          "unread": 6,
-          "last": 1789518429670,
+          "unread": 9,
+          "last": 1789167681569,
         },
-        {
-          "team": { "id": "we-shall-fight-on-the-lichess", "name": "We Shall Fight on the Lichess" },
-          "unread": 4,
-          "last": 1789478446145,
-        },
-        {
-          "team":
-            {
-              "id": "boogie-knights",
-              "name": "Boogie Knights",
-              "flair": "people.clapping-hands-medium-dark-skin-tone",
-            },
-          "unread": 3,
-          "last": 1789139460027,
-        },
-        {
-          "team":
-            {
-              "id": "the-fischermen",
-              "name": "The Fischermen",
-              "flair": "people.couple-with-heart-woman-man-medium-skin-tone-medium-dark-skin-tone",
-            },
-          "unread": 2,
-          "last": 1789065337426,
-        },
-        {
-          "team":
-            {
-              "id": "captain-james-t-pirc",
-              "name": "Captain James T. Pirc",
-              "flair": "people.woman-feeding-baby-medium-dark-skin-tone",
-            },
-          "unread": 3,
-          "last": 1788447720550,
-        },
-        {
-          "team":
-            {
-              "id": "lucena-in-the-sky-with-diamonds",
-              "name": "Lucena in the Sky With Diamonds",
-              "flair": "objects.eleven-oclock",
-            },
-          "unread": 1,
-          "last": 1788172352262,
-        },
+        { "team": { "id": "private-chess-club", "name": "Private Chess Club" }, "unread": 2, "last": 1788119328606 },
       ],
   }

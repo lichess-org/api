@@ -16,8 +16,8 @@ value:
     "puzzle":
       {
         "id": "jNMwk",
-        "rating": 1907,
-        "plays": 54316,
+        "rating": 2042,
+        "plays": 70001,
         "solution": ["e2e8", "g6g5", "h3h4", "g5f4", "e8e4"],
         "themes": ["endgame", "long", "mateIn3"],
         "fen": "8/6pp/3q1pk1/pp6/b5P1/5P1P/4Q1K1/8 w - - 0 1",
