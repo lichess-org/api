@@ -1,11 +1,16 @@
-type: array
-items:
-  type: object
-  properties:
-    text:
-      type: string
-    user:
-      type: string
-  required:
-    - text
-    - user
+type: object
+properties:
+  lines:
+    type: array
+    items:
+      type: object
+      properties:
+        text:
+          type: string
+        user:
+          type: string
+      required:
+        - text
+        - user
+required:
+  - lines

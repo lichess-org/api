@@ -16,9 +16,11 @@ export const prodClient = () =>
     baseUrl: "https://lichess.org",
   });
 
+export const localUrl = "http://localhost:8080";
+
 export const localClient = (as?: string) =>
   createClient<paths>({
-    baseUrl: "http://localhost:8080",
+    baseUrl: localUrl,
     headers:
       as === "anon"
         ? {}
@@ -109,7 +111,7 @@ export async function example(
 
   await Bun.write(
     filename,
-    contents.replaceAll("http://localhost:8080", "https://lichess.org") + "\n",
+    contents.replaceAll(localUrl, "https://lichess.org") + "\n",
   );
 }
 

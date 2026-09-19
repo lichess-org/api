@@ -18,9 +18,17 @@ get:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              $ref: "../../schemas/BulkPairing.yaml"
+            type: object
+            properties:
+              bulks:
+                type: array
+                items:
+                  $ref: "../../schemas/BulkPairing.yaml"
+            required:
+              - bulks
+          examples:
+            default:
+              $ref: "../../examples/bulkPairings-listBulkPairings.json.yaml"
 post:
   operationId: bulkPairingCreate
   summary: Create a bulk pairing

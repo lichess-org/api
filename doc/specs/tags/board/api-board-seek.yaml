@@ -102,6 +102,9 @@ post:
             properties:
               id:
                 type: string
+          examples:
+            default:
+              $ref: "../../examples/board-createCorrespondenceSeek.json.yaml"
         application/x-ndjson:
           schema:
             description: |
@@ -111,6 +114,9 @@ post:
               at which point the connection closes and no data is sent.
             type: string
             const: ""
+          examples:
+            default:
+              $ref: "../../examples/board-createRealTimeSeek.json.yaml"
     "400":
       description: The creation of the seek failed.
       content:

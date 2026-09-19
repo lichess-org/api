@@ -45,6 +45,12 @@ export default async function bulkPairings() {
 
   await example(
     "bulkPairings",
+    "listBulkPairings",
+    localClient().GET("/api/bulk-pairing"),
+  );
+
+  await example(
+    "bulkPairings",
     "exportGamesOfBulkPairing",
     firstNdJson(
       await localClient().GET("/api/bulk-pairing/{id}/games", {

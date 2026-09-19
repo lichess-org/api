@@ -1,0 +1,17 @@
+value:
+  {
+    "bulks":
+      [
+        {
+          "id": "xLsU3FGH",
+          "games": [{ "id": "Nxi88y2P", "white": "sai", "black": "nushi" }],
+          "variant": "standard",
+          "rated": false,
+          "pairAt": 1789838217738,
+          "startClocksAt": 1789841817719,
+          "scheduledAt": 1789838217738,
+          "pairedAt": 1789838217779,
+          "clock": { "limit": 300, "increment": 0 },
+        },
+      ],
+  }

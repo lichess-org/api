@@ -4,7 +4,9 @@ import {
   localClient,
   makeMove,
   ok,
+  readLines,
   startGame,
+  streamTimeout,
 } from "./config";
 
 const isGameFull = (event: any) => event.type === "gameFull";
@@ -18,6 +20,7 @@ export default async function board() {
 
   await playGame();
   await abortGame();
+  await createSeeks();
 
   await claims;
 }
@@ -139,6 +142,42 @@ async function playGame() {
     }),
   );
   stream.close();
+}
+
+/**
+ * A real-time seek is a stream that only sends empty lines until another player accepts it.
+ * Closing the stream cancels the seek. A correspondence seek stays in the lobby instead, where
+ * Lila keeps the 5 most recent seeks of a player and drops the older ones.
+ */
+async function createSeeks() {
+  const player = "hui";
+
+  const realTimeSeek = new AbortController();
+  const stream = await localClient(player).POST("/api/board/seek", {
+    body: {
+      rated: false,
+      time: 10,
+      increment: 0,
+    },
+    parseAs: "stream",
+    signal: AbortSignal.any([realTimeSeek.signal, streamTimeout()]),
+  });
+  for await (const line of readLines(stream)) {
+    await example("board", "createRealTimeSeek", line);
+    break;
+  }
+  realTimeSeek.abort();
+
+  await example(
+    "board",
+    "createCorrespondenceSeek",
+    localClient(player).POST("/api/board/seek", {
+      body: {
+        rated: false,
+        days: 3,
+      },
+    }),
+  );
 }
 
 /** A game can only be aborted before both players have moved. */

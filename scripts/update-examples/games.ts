@@ -406,6 +406,39 @@ async function streamLiveGames() {
   // The first game is played a little, so that it can be exported like any other game
   ok(await makeMove(first.white, firstGame, "e2e4"));
   ok(await makeMove(first.black, firstGame, "e7e5"));
+
+  // The players can write in the chat that spectators see. A message is saved a moment later.
+  for (const [player, text] of [
+    [first.white, "Good luck!"],
+    [first.black, "Have fun!"],
+  ] as const) {
+    ok(
+      await localClient(player).POST("/api/board/game/{gameId}/chat", {
+        params: {
+          path: {
+            gameId: firstGame,
+          },
+        },
+        body: {
+          room: "spectator",
+          text,
+        },
+      }),
+    );
+  }
+  await Bun.sleep(1000);
+  await example(
+    "games",
+    "fetchSpectatorChat",
+    localClient("anon").GET("/api/game/{gameId}/chat", {
+      params: {
+        path: {
+          gameId: firstGame,
+        },
+      },
+    }),
+  );
+
   ok(
     await localClient(first.white).POST("/api/board/game/{gameId}/resign", {
       params: {
