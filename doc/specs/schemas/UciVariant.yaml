@@ -8,5 +8,4 @@ enum:
   - kingofthehill
   - racingkings
   - 3check
-example: chess
 default: chess

@@ -35,16 +35,3 @@ properties:
       - string
       - "null"
     description: An error message, if some of the games could not be imported.
-
-example:
-  {
-    "chapters":
-      [
-        {
-          "id": "iBjmYBya",
-          "name": "test 2",
-          "players": [{ "name": "Carlsen, Magnus", "rating": 2837 }, { "name": "Chadaev, Nikolay", "rating": 2580 }],
-          "status": "1-0",
-        },
-      ],
-  }

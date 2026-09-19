@@ -43,26 +43,20 @@ get:
             properties:
               currentPage:
                 type: integer
-                example: 4
               maxPerPage:
                 type: integer
-                example: 15
               currentPageResults:
                 type: array
                 items:
                   $ref: "../../schemas/BroadcastByUser.yaml"
               nbResults:
                 type: integer
-                example: 205194
               previousPage:
                 type: [integer, "null"]
-                example: 3
               nextPage:
                 type: [integer, "null"]
-                example: 5
               nbPages:
                 type: integer
-                example: 13680
             required:
               - currentPage
               - maxPerPage

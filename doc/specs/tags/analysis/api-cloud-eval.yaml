@@ -52,4 +52,3 @@ get:
             properties:
               error:
                 type: string
-                example: "No cloud evaluation available for that position"

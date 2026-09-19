@@ -9,7 +9,6 @@ properties:
     type: string
   createdAt:
     type: integer
-    example: 1722169800000
   dates:
     type: array
     items:
@@ -18,7 +17,6 @@ properties:
     description: "Start and end dates of the tournament, as Unix timestamps in milliseconds"
     minItems: 1
     maxItems: 2
-    example: [1722169800000, 1722666600000]
   info:
     $ref: "./BroadcastTourInfo.yaml"
   tier:

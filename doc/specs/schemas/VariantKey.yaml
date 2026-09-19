@@ -10,5 +10,4 @@ enum:
   - racingKings
   - threeCheck
   - fromPosition
-example: standard
 default: standard

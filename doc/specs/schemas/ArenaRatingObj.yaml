@@ -4,7 +4,6 @@ properties:
     $ref: "./PerfType.yaml"
   rating:
     type: integer
-    example: 1700
 
 required:
   - rating

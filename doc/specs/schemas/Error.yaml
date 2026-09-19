@@ -7,6 +7,3 @@ properties:
 
 required:
   - error
-
-example:
-  error: "This request is invalid because [...]"

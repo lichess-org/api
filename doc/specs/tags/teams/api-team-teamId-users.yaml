@@ -40,13 +40,10 @@ get:
               joinedTeamAt:
                 type: integer
                 format: int64
-                example: 1716930043067
               id:
                 type: string
-                example: "chess-network"
               name:
                 type: string
-                example: "Chess-Network"
               flair:
                 $ref: "../../schemas/Flair.yaml"
               title:
@@ -56,7 +53,6 @@ get:
               url:
                 type: string
                 format: uri
-                example: "https://lichess.org/@/Chess-Network"
             required:
               - id
               - name

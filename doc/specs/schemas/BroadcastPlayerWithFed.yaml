@@ -2,20 +2,16 @@ type: object
 properties:
   name:
     type: string
-    example: Hernandez Riera, Jose
   title:
     $ref: "./Title.yaml"
   rating:
     type: integer
-    example: 2149
   fideId:
     type: integer
-    example: 3408230
   team:
     type: string
   fed:
     type: string
-    example: CHI
 
 required:
   - name

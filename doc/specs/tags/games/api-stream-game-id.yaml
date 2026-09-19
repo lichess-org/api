@@ -36,4 +36,3 @@ get:
             properties:
               error:
                 type: string
-                example: "Please only run 8 request(s) at a time"

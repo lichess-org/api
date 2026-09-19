@@ -61,7 +61,6 @@ get:
         Last-Modified:
           schema:
             type: string
-            example: "Tue, 25 Apr 2023 13:23:09 GMT"
       content:
         application/x-chess-pgn:
           schema:
@@ -97,4 +96,3 @@ head:
         Last-Modified:
           schema:
             type: string
-            example: "Tue, 25 Apr 2023 13:23:09 GMT"

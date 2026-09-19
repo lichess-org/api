@@ -25,7 +25,6 @@ get:
                 $ref: "../../schemas/UserPreferences.yaml"
               language:
                 type: string
-                example: en-GB
           examples:
             default:
               $ref: "../../examples/account-getMyPreferences.json.yaml"

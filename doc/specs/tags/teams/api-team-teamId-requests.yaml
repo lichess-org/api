@@ -27,43 +27,6 @@ get:
             type: array
             items:
               $ref: "../../schemas/TeamRequestWithUser.yaml"
-            example:
-              [
-                {
-                  "request":
-                    {
-                      "userId": "mary",
-                      "teamId": "my-private-team",
-                      "message": "Hello, I would like to join the team!",
-                      "date": 1745112259637,
-                    },
-                  "user":
-                    {
-                      "id": "mary",
-                      "username": "Mary",
-                      "perfs":
-                        {
-                          "bullet": { "games": 119, "rating": 1066, "rd": 101, "prog": -1 },
-                          "blitz": { "games": 34, "rating": 1007, "rd": 55, "prog": -59 },
-                          "rapid": { "games": 134, "rating": 1021, "rd": 70, "prog": 26 },
-                          "classical": { "games": 451, "rating": 1136, "rd": 78, "prog": -1 },
-                          "correspondence": { "games": 35, "rating": 1049, "rd": 45, "prog": 15 },
-                          "chess960": { "games": 52, "rating": 996, "rd": 72, "prog": -9 },
-                          "kingOfTheHill": { "games": 1998, "rating": 1169, "rd": 79, "prog": -13 },
-                          "threeCheck": { "games": 6, "rating": 946, "rd": 52, "prog": 32 },
-                          "antichess": { "games": 79, "rating": 1143, "rd": 48, "prog": 61 },
-                          "atomic": { "games": 239, "rating": 978, "rd": 76, "prog": 22 },
-                          "horde": { "games": 246, "rating": 1031, "rd": 108, "prog": -28 },
-                          "crazyhouse": { "games": 473, "rating": 1063, "rd": 88, "prog": 2 },
-                          "puzzle": { "games": 37, "rating": 977, "rd": 86, "prog": 26 },
-                        },
-                      "flair": "food-drink.coconut",
-                      "createdAt": 1744526339498,
-                      "seenAt": 1745112249912,
-                      "playTime": { "total": 14336, "tv": 0 },
-                    },
-                },
-              ]
 
           examples:
             default:

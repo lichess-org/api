@@ -11,5 +11,3 @@ properties:
 required:
   - type
   - gone
-
-example: { "type": "opponentGone", "gone": true, "claimWinInSeconds": 8 }

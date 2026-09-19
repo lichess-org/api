@@ -46,7 +46,6 @@ post:
             properties:
               id:
                 type: string
-                example: aingoohiJee2sius
               work:
                 $ref: "../../schemas/ExternalEngineWork.yaml"
               engine:

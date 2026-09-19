@@ -6,11 +6,9 @@ properties:
       channel:
         type: string
         format: uri
-        example: https://www.twitch.tv/lichessdotorg
   youtube:
     type: object
     properties:
       channel:
         type: string
         format: uri
-        example: https://www.youtube.com/c/LichessDotOrg
