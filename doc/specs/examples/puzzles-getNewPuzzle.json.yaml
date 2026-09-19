@@ -2,24 +2,30 @@ value:
   {
     "game":
       {
-        "id": "GRbCPfxs",
+        "id": "FQYw8BhY",
         "perf": { "key": "blitz", "name": "Blitz" },
         "rated": true,
         "players":
           [
-            { "name": "Advbaba", "id": "advbaba", "color": "white", "rating": 1785 },
-            { "name": "BobbyOne", "id": "bobbyone", "color": "black", "rating": 1736 },
+            { "name": "Fidesty", "id": "fidesty", "color": "white", "rating": 1791 },
+            {
+              "name": "cachopaliza",
+              "flair": "smileys.cowboy-hat-face",
+              "id": "cachopaliza",
+              "color": "black",
+              "rating": 1750,
+            },
           ],
-        "pgn": "d4 Nf6 c4 c5 Nf3 g6 Nc3 Bg7 e4 O-O d5 d6 Be2 a6 O-O e6 Bg5 h6 Bh4 g5 Bg3 Nh5 dxe6 Nxg3 exf7+ Rxf7 hxg3 Nc6 Qd2 Nd4 Rad1 Be5 Na4 b5 cxb5 axb5 Nxe5 dxe5 Nxc5 Rxa2 Nb3 Nxe2+ Qxe2 Qb6 Rd5 Bd7 Rfd1 Bc6 Rxe5 Ra4 Qh5 Qxf2+ Kh1 Bxe4 Rd8+ Kh7",
-        "clock": "5+3",
+        "pgn": "e4 c5 Nc3 d6 d4 cxd4 Qxd4 Nf6 e5 Nc6 Bb5 dxe5 Qxd8+ Kxd8 Bxc6 bxc6 Bg5 h6 Bxf6 exf6 O-O-O+ Kc7 Nf3 Be6 Ne4 Bb4 a3 Ba5 Nc5 Bf5 Nh4 Bh7 f3 Rhd8 g3 Rxd1+ Rxd1 Rd8",
+        "clock": "3+0",
       },
     "puzzle":
       {
-        "id": "iSz4O",
-        "rating": 1790,
-        "plays": 1696,
-        "solution": ["d8h8", "h7h8", "h5h6", "e4h7", "e5e8", "f7f8", "e8f8", "f2f8", "h6f8"],
-        "themes": ["middlegame", "crushing", "attraction", "fork", "sacrifice", "deflection", "veryLong"],
-        "initialPly": 55,
+        "id": "l4l6n",
+        "rating": 1625,
+        "plays": 4068,
+        "solution": ["d1d8", "c7d8", "c5b7", "d8c7", "b7a5"],
+        "themes": ["endgame", "advantage", "attraction", "fork", "long"],
+        "initialPly": 37,
       },
   }

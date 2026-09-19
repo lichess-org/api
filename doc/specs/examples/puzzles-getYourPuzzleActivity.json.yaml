@@ -1,15 +1,15 @@
 value:
   {
-    "date": 1788313360253,
+    "date": 1789829555323,
     "win": true,
     "puzzle":
       {
-        "id": "94Rds",
-        "rating": 1069,
-        "plays": 15200,
-        "solution": ["c6b4", "c2b3", "b4d3"],
-        "themes": ["opening", "fork", "short", "crushing"],
-        "fen": "r2qk2r/ppp2ppp/2npp3/6b1/2PPP3/2NQ1P2/PPK5/R1B2B1R b kq - 1 1",
-        "lastMove": "e2d3",
+        "id": "5SzXp",
+        "rating": 1633,
+        "plays": 26718,
+        "solution": ["f6f5", "e4e5", "d6e5"],
+        "themes": ["endgame", "short", "advantage"],
+        "fen": "r5r1/pp1k1p1p/3b1p2/8/3PRB2/7P/PP3PP1/2R3K1 b - - 1 1",
+        "lastMove": "d2f4",
       },
   }

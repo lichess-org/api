@@ -2,11 +2,11 @@ value:
   {
     "nbPlayers": 0,
     "duels": [],
-    "secondsToStart": 300,
+    "secondsToStart": 299,
     "standing": { "page": 1, "players": [] },
-    "id": "Mi3kQBMB",
+    "id": "lIwjcVl6",
     "createdBy": "bobby",
-    "startsAt": "2026-09-02T01:47:24.078Z",
+    "startsAt": "2026-09-19T14:57:26.893Z",
     "system": "arena",
     "fullName": "Updated Arena Arena",
     "minutes": 60,
@@ -18,8 +18,8 @@ value:
     "verdicts": { "list": [{ "condition": "Bot players are not allowed", "verdict": "ok" }], "accepted": true },
     "quote":
       {
-        "text": "Though most people love to look at the games of the great attacking masters, some of the most successful players in history have been the quiet positional players. They slowly grind you down by taking away your space, tying up your pieces, and leaving you with virtually nothing to do!",
-        "author": "Yasser Seirawan",
+        "text": "White lost because he failed to remember the right continuation and had to think up the moves himself.",
+        "author": "Siegbert Tarrasch",
       },
     "myUsername": "Bobby",
   }

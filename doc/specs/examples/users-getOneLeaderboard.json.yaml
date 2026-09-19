@@ -2,8 +2,8 @@ value:
   {
     "users":
       [
-        { "id": "lola", "username": "Lola", "perfs": { "blitz": { "rating": 2464, "progress": 0 } }, "title": "NM" },
-        { "id": "ana", "username": "Ana", "perfs": { "blitz": { "rating": 2442, "progress": 0 } }, "title": "CM" },
-        { "id": "elena", "username": "Elena", "perfs": { "blitz": { "rating": 2363, "progress": 0 } }, "title": "WGM" },
+        { "id": "lola", "username": "Lola", "perfs": { "blitz": { "rating": 2484, "progress": 0 } }, "title": "WGM" },
+        { "id": "ana", "username": "Ana", "perfs": { "blitz": { "rating": 2384, "progress": 0 } }, "title": "CM" },
+        { "id": "yulia", "username": "Yulia", "perfs": { "blitz": { "rating": 2382, "progress": 0 } }, "title": "CM" },
       ],
   }

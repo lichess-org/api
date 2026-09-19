@@ -1,6 +1,7 @@
 value:
   {
-    "replay": { "days": 90, "theme": "mix", "nb": 5, "remaining": ["6lrZF", "94bpn", "3549O", "6JKsh", "0ZBda"] },
+    "replay":
+      { "days": 90, "theme": "mix", "nb": 6, "remaining": ["3JBp0", "5OiGM", "6pFDS", "D4n9P", "2yqFR", "8gxTq"] },
     "angle":
       {
         "key": "mix",

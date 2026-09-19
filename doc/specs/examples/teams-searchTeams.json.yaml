@@ -11,10 +11,25 @@ value:
           "open": false,
           "leader":
             { "name": "thibault", "flair": "nature.seedling", "patron": true, "patronColor": 10, "id": "thibault" },
-          "nbMembers": 498,
+          "nbMembers": 500,
           "flair": "objects.hammer-and-wrench",
           "leaders":
             [{ "name": "thibault", "flair": "nature.seedling", "patron": true, "patronColor": 10, "id": "thibault" }],
+        },
+        {
+          "id": "bots-games",
+          "name": "Bots Games",
+          "description": "### WARNING: ACCESS IS LIMITED | CLUB: Bots Games\n\n- SYSTEM ERROR: YOU ARE NOT LOGGED IN TO THE SYSTEM\n+ STATUS: GUEST [UNIDENTIFIED OBJECT]\n\n\n---\n\n### WHAT ARE YOU MISSING RIGHT NOW?\n\n\n- [BLOCKED] Closed tournaments and hackathons\n- [BLOCKED] Top-tier teamplay and skill leveling\n- [BLOCKED] Chat with the best players / coders\n- [BLOCKED] Access to secret databases and guides\n\n---\n**ENO NEED TO BE ON THE BENCH OF THE REPLACED**\nWhile you’re reading this text, the **Bots Games** system is generating new victories without you. We’re removing weak code, fixing bugs, and taking top spots. Are you with us, or are you just a background process?\n\n***\n\n### WHY DO YOU NEED TO PRESS THE BUTTON?\n\n| IF YOU’RE ON THE OUTSIDE | IF YOU’RE ON THE INSIDE |\n| :--- | :--- |\n| An ordinary bot in someone else’s game | **Gamer bot** with wild skills |\n| Boring solo gaming / coding | A powerful and well‐oiled team |\n| Slow progress by touch | Lightning‐fast results boost |\n\n***\n\n### ENTRY INSTRUCTIONS\n\n1. **Fasten your seat belts** — it will get hot inside.\n2. **Press the button**\n\n\n\n### ВНИМАНИЕ: ДОСТУП ОГРАНИЧЕН | КЛУБ: Bots Games\n\n- SYSTEM ERROR: ВЫ НЕ ЗАЛОГИНЕНЫ В СИСТЕМЕ\n+ СТАТУС: ГОСТЬ [НЕИДЕНТИФИЦИРОВАННЫЙ ОБЪЕКТ]\n\n\n---\n\n###  ЧТО ТЫ ПРОПУСКАЕШЬ ПРЯМО СЕЙЧАС?\n\n\n- [ЗАБЛОКИРОВАНО] Закрытые турниры и хакатоны\n- [ЗАБЛОКИРОВАНО] Топовый тимплей и прокачка скиллов\n- [ЗАБЛОКИРОВАНО] Чат с лучшими игроками / кодерами\n- [ЗАБЛОКИРОВАНО] Доступ к секретным базам данных и гайдам\n\n---\n**ХВАТИТ БЫТЬ НА СКАМЬЕ ЗАПАСНЫХ**\nПока ты читаешь этот текст, система **Bots Games** генерирует новые победы без тебя. Мы удаляем слабый код, фиксим баги и забираем топы. Ты с нами или остаешься фоновым процессом?\n\n***\n\n###  ПОЧЕМУ ТЕБЕ НУЖНО НАЖАТЬ КНОПКУ?\n\n| ЕСЛИ ТЫ СНАРУЖИ | ЕСЛИ ТЫ ВНУТРИ |\n| :--- | :--- |\n| Обычный бот в чужой игре | **Геймер-бот** с диким скиллом |\n| Скучный соло-гейминг / кодинг | Мощная и сыгранная команда |\n| Медленный прогресс наощупь | Молниеносный буст результатов |\n\n***\n\n###  ИНСТРУКЦИЯ ПО ВСТУПЛЕНИЮ\n\n1. **Пристегни ремни** — внутри будет жарко.\n2. **Нажми кнопку «ВСТУПИТЬ»** прямо сейчас.\n3. **Пройди проверку** антиспам-системы и стань частью ядра.",
+          "open": true,
+          "leader": { "name": "F55555", "flair": "activity.lichess-variant-atomic", "id": "f55555" },
+          "nbMembers": 58,
+          "flair": "symbols.move-brilliant",
+          "leaders":
+            [
+              { "name": "F55555", "flair": "activity.lichess-variant-atomic", "id": "f55555" },
+              { "name": "Vladislav-S2018", "flair": "activity.lichess-variant-atomic", "id": "vladislav-s2018" },
+              { "name": "shahmati_23", "flair": "nature.high-voltage", "id": "shahmati_23" },
+            ],
         },
         {
           "id": "f5-coders",
@@ -159,18 +174,9 @@ value:
           "nbMembers": 1,
           "leaders": [{ "name": "SiyahGiyenGencYT", "id": "siyahgiyengencyt" }],
         },
-        {
-          "id": "the-coders-team",
-          "name": "The coders team",
-          "description": "Like scratch or python or mac and chess then join the coders team we do king of the hill chess930 and many more with a personality for fun coding and chess join the coders team! meet you on the battlefield!",
-          "open": false,
-          "leader": { "name": "the010100110master", "id": "the010100110master" },
-          "nbMembers": 1,
-          "leaders": [{ "name": "the010100110master", "id": "the010100110master" }],
-        },
       ],
     "previousPage": null,
     "nextPage": 2,
-    "nbResults": 21,
+    "nbResults": 22,
     "nbPages": 2,
   }

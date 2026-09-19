@@ -1,31 +1,39 @@
-import { example, prodClient, readNdJson, readTextStream } from "./config";
+import {
+  example,
+  firstNdJson,
+  prodClient,
+  readLines,
+  readNdJson,
+  streamTimeout,
+} from "./config";
 
-example("tv", "getCurrentTvGames", await prodClient().GET("/api/tv/channels"));
+export default async function tv() {
+  await example(
+    "tv",
+    "getCurrentTvGames",
+    prodClient().GET("/api/tv/channels"),
+  );
 
-(async () => {
-  const abortController = new AbortController();
-  const signal = abortController.signal;
-  await prodClient()
-    .GET("/api/tv/feed", {
+  // The feed never ends: a new game is announced, then each move follows.
+  for await (const line of readNdJson(
+    await prodClient().GET("/api/tv/feed", {
       parseAs: "stream",
-      signal,
-    })
-    .then((response) =>
-      readNdJson(response.response, (line: any) => {
-        if (line.t === "featured") {
-          example("tv", "streamCurrentTvGame-newGame", line, "json");
-        } else if (line.t === "fen") {
-          example("tv", "streamCurrentTvGame-move", line, "json");
-          abortController.abort();
-        }
-      }),
-    );
-})();
+      signal: streamTimeout(),
+    }),
+  )) {
+    if (line.t === "featured") {
+      await example("tv", "streamCurrentTvGame-newGame", line);
+    } else if (line.t === "fen") {
+      await example("tv", "streamCurrentTvGame-move", line);
+      break;
+    }
+  }
 
-(async () => {
+  // Three games are enough for the example
   const pgnLines: string[] = [];
-  await prodClient()
-    .GET("/api/tv/{channel}", {
+  let games = 0;
+  for await (const line of readLines(
+    await prodClient().GET("/api/tv/{channel}", {
       params: {
         path: {
           channel: "bullet",
@@ -35,47 +43,41 @@ example("tv", "getCurrentTvGames", await prodClient().GET("/api/tv/channels"));
         Accept: "application/x-chess-pgn",
       },
       parseAs: "stream",
-    })
-    .then((response) => {
-      readTextStream(response.response, (text: string) => {
-        pgnLines.push(text);
-        if (
-          pgnLines.at(-1)?.startsWith("1.") &&
-          pgnLines.filter((line) => line.startsWith("1.")).length === 3
-        ) {
-          example(
-            "tv",
-            "getBestOngoingGamesOfTvChannel",
-            pgnLines.join("\n"),
-            "pgn",
-          );
-        }
-      });
-    });
-})();
+    }),
+  )) {
+    pgnLines.push(line);
+    if (line.startsWith("1.") && ++games === 3) {
+      await example(
+        "tv",
+        "getBestOngoingGamesOfTvChannel",
+        pgnLines.join("\n"),
+        "pgn",
+      );
+      break;
+    }
+  }
 
-(async () => {
-  await prodClient()
-    .GET("/api/tv/{channel}", {
-      params: {
-        path: {
-          channel: "bullet",
+  await example(
+    "tv",
+    "getBestOngoingGamesOfTvChannel",
+    firstNdJson(
+      await prodClient().GET("/api/tv/{channel}", {
+        params: {
+          path: {
+            channel: "bullet",
+          },
+          query: {
+            nb: 1,
+            pgnInJson: true,
+            clocks: true,
+            opening: true,
+          },
         },
-        query: {
-          nb: 1,
-          pgnInJson: true,
-          clocks: true,
-          opening: true,
+        headers: {
+          Accept: "application/x-ndjson",
         },
-      },
-      headers: {
-        Accept: "application/x-ndjson",
-      },
-      parseAs: "stream",
-    })
-    .then((response) => {
-      readNdJson(response.response, (line: any) => {
-        example("tv", "getBestOngoingGamesOfTvChannel", line);
-      });
-    });
-})();
+        parseAs: "stream",
+      }),
+    ),
+  );
+}

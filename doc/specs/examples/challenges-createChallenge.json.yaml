@@ -1,24 +1,17 @@
 value:
   {
-    "id": "HuJoo3Hq",
-    "url": "https://lichess.org/HuJoo3Hq",
+    "id": "EsHDGufQ",
+    "url": "https://lichess.org/EsHDGufQ",
     "status": "created",
     "challenger":
-      {
-        "name": "Bobby",
-        "flair": "nature.spiral-shell",
-        "patron": true,
-        "patronColor": 1,
-        "id": "bobby",
-        "rating": 1839,
-      },
-    "destUser": { "name": "Mary", "flair": "travel-places.classical-building", "id": "mary", "rating": 1137 },
+      { "name": "Bobby", "patron": true, "patronColor": 1, "id": "bobby", "rating": 1802, "online": true, "lag": 4 },
+    "destUser": { "name": "Mary", "flair": "symbols.helix-logo", "id": "mary", "rating": 1074, "provisional": true },
     "variant": { "key": "standard", "name": "Standard", "short": "Std" },
     "rated": false,
     "speed": "correspondence",
     "timeControl": { "type": "unlimited" },
     "color": "random",
-    "finalColor": "white",
-    "perf": { "icon": "paper-airplane", "name": "Correspondence" },
+    "finalColor": "black",
+    "perf": { "icon": "", "name": "Correspondence" },
     "direction": "out",
   }

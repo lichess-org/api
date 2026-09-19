@@ -1,3 +1,5 @@
 import { example, prodClient } from "./config";
 
-example("simuls", "getCurrentSimuls", await prodClient().GET("/api/simul"));
+export default async function simuls() {
+  await example("simuls", "getCurrentSimuls", prodClient().GET("/api/simul"));
+}

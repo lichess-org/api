@@ -3,19 +3,25 @@ value:
     "type": "challenge",
     "challenge":
       {
-        "id": "JzJNN8d9",
-        "url": "https://lichess.org/JzJNN8d9",
+        "id": "8Pjhyi1M",
+        "url": "https://lichess.org/8Pjhyi1M",
         "status": "created",
         "challenger":
-          { "name": "Adriana", "flair": "symbols.emacs-logo", "id": "adriana", "rating": 633, "provisional": true },
+          {
+            "name": "Adriana",
+            "flair": "objects.closed-mailbox-with-raised-flag",
+            "id": "adriana",
+            "rating": 735,
+            "provisional": true,
+          },
         "destUser":
           {
             "name": "Gabriela",
-            "flair": "nature.rhinoceros",
+            "flair": "people.woman-and-man-holding-hands-light-skin-tone-medium-skin-tone",
             "patron": true,
             "patronColor": 1,
             "id": "gabriela",
-            "rating": 1530,
+            "rating": 1472,
             "online": true,
           },
         "variant": { "key": "standard", "name": "Standard", "short": "Std" },
@@ -24,7 +30,7 @@ value:
         "timeControl": { "type": "unlimited" },
         "color": "random",
         "finalColor": "white",
-        "perf": { "icon": "paper-airplane", "name": "Correspondence" },
+        "perf": { "icon": "", "name": "Correspondence" },
       },
     "compat": { "bot": false, "board": true },
   }

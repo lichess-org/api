@@ -1,13 +1,21 @@
 {
+  "name": "update-examples",
+  "module": "index.ts",
   "type": "module",
-  "dependencies": {
-    "@lichess-org/types": "link:../../types",
-    "@types/node": "^22.19.19",
-    "openapi-fetch": "^0.13.8",
-    "prettier": "^3.8.3"
-  },
+  "private": true,
   "scripts": {
+    "start": "bun index.ts",
+    "typecheck": "tsc",
     "format": "prettier --write ."
   },
-  "packageManager": "pnpm@10.26.1+sha512.664074abc367d2c9324fdc18037097ce0a8f126034160f709928e9e9f95d98714347044e5c3164d65bd5da6c59c6be362b107546292a8eecb7999196e5ce58fa"
+  "dependencies": {
+    "openapi-fetch": "^0.13.8"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "^3.9.8"
+  },
+  "peerDependencies": {
+    "typescript": "^7.0.2"
+  }
 }

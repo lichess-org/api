@@ -1,37 +1,139 @@
 value:
   [
     {
-      "name": "ZefCat",
-      "flair": "nature.rat",
+      "name": "Sissa-Chess",
+      "flair": "objects.stopwatch",
       "patron": true,
-      "patronColor": 8,
-      "id": "zefcat",
-      "stream": { "service": "twitch", "status": "short silent strem lichess.org", "lang": "en" },
-      "streamer":
-        {
-          "name": "Sara Herman",
-          "headline": "I like to make chess",
-          "description": "watch my ratings and mental state deteriorate live!",
-          "twitch": "https://www.twitch.tv/zefcatt",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=zefcat:streamer:zefcat:8epgxHI4.jpg&w=350&sig=b811fe8652a7ed7a7093c7c984e24c76a775268f",
-        },
-    },
-    {
-      "name": "Dmitry_Voronin",
-      "id": "dmitry_voronin",
+      "patronColor": 3,
+      "id": "sissa-chess",
       "stream":
         {
           "service": "youtube",
-          "status": "[RU] 02.09.2026.Попытка вернуть 1800 в блиц,после неудачного турнира,на lichess.org",
-          "lang": "en-US",
+          "status": "💥OLIMPIADA MUNDIAL DE AJEDREZ - 2026  - RONDA 4💥/ LICHESS.ORG",
+          "lang": "es",
         },
       "streamer":
         {
-          "name": " ВЛ Дмитрий Воронин",
-          "headline": "Шахматные и иногда прогулочные стримы со смартфона, для души, эмоций и спортивного интереса, музыка, общение с адекватными зрителямм. P.S. Музыку можно заказывать на стримах, практически любую и бесплатно.",
-          "description": "Воронин Дмитрий Сергеевич. \r\n Дата рождения: 11.10.1980г. Постоянное место проживания: Россия, город Санкт-Петербург. Просто Вечный Любитель (ВЛ) .",
-          "youtube": "https://www.youtube.com/channel/UC4QUjHH7bWXu6qm8dFosTwQ/live",
-          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=kjXgkl2bXe52.webp&w=350&sig=46a63cb47ebdd62105e55a158a6617ef5c54c152",
+          "name": "Sissa Chess",
+          "headline": "Disfrutando siempre de la magia del ajedrez",
+          "description": "Disfruta con Sissa Chess de las mejores partidas de la historia y la actualidad",
+          "twitch": "https://www.twitch.tv/sissachess",
+          "youtube": "https://www.youtube.com/channel/UChYUSBLmIMhRpujm4rsvN9g/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=sissa-chess:streamer:sissa-chess:do5mUgfL.jpg&w=350&sig=a08eebb3ac8c928068c8b87a659d444e9050751a",
+        },
+    },
+    {
+      "name": "affections",
+      "id": "affections",
+      "stream": { "service": "twitch", "status": "Solo Bullet League Arena @ lichess.org", "lang": "en" },
+      "streamer":
+        {
+          "name": "affections",
+          "headline": "Team Battles @ Lichess.org",
+          "twitch": "https://www.twitch.tv/iyhslither",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=5-I9DYWoGChz.webp&w=350&sig=a1eaa7d7af655064eaddd2de744b41c708fe808b",
+        },
+    },
+    {
+      "name": "ChefsHouse96",
+      "flair": "smileys.clown-face",
+      "id": "chefshouse96",
+      "stream": { "service": "youtube", "status": "ТУРНИР КЛУБА!! 3+0!! На lichess.org", "lang": "en" },
+      "streamer":
+        {
+          "name": "ChefsHouse96",
+          "headline": "chessaholik",
+          "description": "тг https://t.me/vladchess777 ",
+          "twitch": "https://www.twitch.tv/vlad_chess1",
+          "youtube": "https://www.youtube.com/channel/UCO-dnv3EII4Uukzg97PHl8A/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=kfCVm_f8QHiL.webp&w=350&sig=f3339e12a9ef4b4b866ffc7f909b1e3351ab34c6",
+        },
+    },
+    {
+      "name": "Lee_Pai_Long",
+      "flair": "food-drink.pizza",
+      "id": "lee_pai_long",
+      "stream": { "service": "twitch", "status": "вечерний блиц| lichess.org | [ru]", "lang": "ru" },
+      "streamer":
+        {
+          "name": "Lee_Pai_Long",
+          "headline": "Играю в блиц",
+          "twitch": "https://www.twitch.tv/bator_tv",
+          "youtube": "https://www.youtube.com/channel/UCCySuxn7u3DC9FBPMhpum_Q/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:lee_pai_long:fok3PnCL.webp&w=350&sig=038316c0021ffe881ee7c9f86507ce94306f0683",
+        },
+    },
+    {
+      "name": "ElyneLee",
+      "patron": true,
+      "patronColor": 8,
+      "id": "elynelee",
+      "stream":
+        { "service": "twitch", "status": "Fami-Lee Weekly Thematic !simul on lichess.org |  !cover", "lang": "en" },
+      "streamer":
+        {
+          "name": "ElyneLee",
+          "headline": "CHESS + MUSIC STREAM EVERYDAY ",
+          "description": "hi there! i do chess + music(metal) stream everyday on Twitch. Come hangout with me in chat and have fun together ",
+          "twitch": "https://www.twitch.tv/elynelee",
+          "youtube": "https://www.youtube.com/channel/UCxigACw3ehZU2UTrfK-FYtA/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=elynelee:streamer:elynelee:2aAvyqcR.jpg&w=350&sig=5b90229c9f61d8bcb2f2f35648314d94618d33be",
+        },
+    },
+    {
+      "name": "Malan77",
+      "flair": "smileys.cowboy-hat-face",
+      "patron": true,
+      "patronColor": 10,
+      "id": "malan77",
+      "stream":
+        {
+          "service": "youtube",
+          "status": "SOUTH AFRICA at the Chess Olympiad 2026 | ROUND 4 LIVE | Sweden & Belgium | lichess.org",
+          "lang": "en",
+        },
+      "streamer":
+        {
+          "name": "Malan77",
+          "headline": "Chess Cave South Africa",
+          "description": "Chess Cave South Africa\r\nMostly having fun - Playing and Streaming some Arena games.",
+          "youtube": "https://www.youtube.com/channel/UCZyAk3YGi4g32bVJNL2G4QA/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=82RRSwambEDY.webp&w=350&sig=73e89dd10c4d5f8cae33516a3cef9ffcec00c553",
+        },
+    },
+    {
+      "name": "Matviy2009",
+      "title": "FM",
+      "flair": "nature.penguin",
+      "id": "matviy2009",
+      "stream":
+        { "service": "twitch", "status": "Fide Master | Playing viewers for FREE! on lichess.org", "lang": "en" },
+      "streamer":
+        {
+          "name": "Matviy2009",
+          "headline": "Just some streams playing chess and chatting,puzzle racer and some titled tournaments at lichess.org!",
+          "description": "Hey!\r\nI´m Fide Master Matviy Faryma,who will stream sometimes here on lichess.Subscribe!\r\nI will stream in multiple lagnuages,in English (US), Portuguese (PRT) and Ukranian (UA).",
+          "twitch": "https://www.twitch.tv/matviy2009_",
+          "youtube": "https://www.youtube.com/channel/UCHwnId75qhyksCpweUIjVsQ/live",
+          "image": "https://image.lichess1.org/display?fmt=webp&h=350&op=thumbnail&path=streamer:matviy2009:eXsrrctc.webp&w=350&sig=4525f3806adbf27e2814c00062ba944862df3633",
+        },
+    },
+    {
+      "name": "DarkOnCrack",
+      "flair": "objects.old-key",
+      "patron": true,
+      "patronColor": 6,
+      "id": "darkoncrack",
+      "stream":
+        { "service": "twitch", "status": "Playing the solo leagues all day! on Lichess.org (muted)", "lang": "en" },
+      "streamer":
+        {
+          "name": "DarkOnCrack",
+          "headline": "Ultrabullet on Lichess.org",
+          "description": "Hi!\r\nI will mostly play ultrabullet, but sometimes i might stream some blitz. \r\nHave fun! ",
+          "twitch": "https://www.twitch.tv/darkoncrack_",
+          "youtube": "https://www.youtube.com/channel/UC6B_y_MxbcCX8Tsd1KgbE-w/live",
+          "image": "https://image.lichess1.org/display?fmt=png&h=350&op=thumbnail&path=streamer:darkoncrack:QDVBzQbI.png&w=350&sig=bbb36de30fd11b908de2445554579e28b9e0a94c",
         },
     },
   ]

@@ -1,25 +1,24 @@
 value:
   {
-    "id": "turkjs",
-    "username": "turkjs",
+    "id": "maia1",
+    "username": "maia1",
     "perfs":
       {
-        "bullet": { "games": 31344, "rating": 1785, "rd": 45, "prog": 5 },
-        "blitz": { "games": 30915, "rating": 1679, "rd": 45, "prog": 10 },
-        "rapid": { "games": 15150, "rating": 1817, "rd": 45, "prog": -9 },
-        "classical": { "games": 3127, "rating": 1873, "rd": 45, "prog": -3 },
-        "correspondence": { "games": 0, "rating": 1500, "rd": 500, "prog": 0, "prov": true },
+        "bullet": { "games": 229666, "rating": 1596, "rd": 45, "prog": -5 },
+        "blitz": { "games": 437419, "rating": 1354, "rd": 45, "prog": -18 },
+        "rapid": { "games": 621952, "rating": 1534, "rd": 45, "prog": -4 },
+        "classical": { "games": 159919, "rating": 1631, "rd": 45, "prog": 2 },
+        "correspondence": { "games": 265, "rating": 1527, "rd": 225, "prog": -18, "prov": true },
       },
     "title": "BOT",
-    "patron": true,
-    "patronColor": 10,
-    "createdAt": 1541353118189,
+    "verified": true,
+    "createdAt": 1582579972726,
     "profile":
       {
-        "flag": "CH",
-        "location": "Zurich",
-        "bio": "https://imgur.com/dAsjCS9\r\n\r\nHi! I'm a simple chess engine written in JavaScript. I'm not very good, this was a just for fun project. I accept standard games in casual or rated mode. I play bullet, blitz, rapid and classical.\r\n\r\nMy name is a reference to The Turk: https://en.wikipedia.org/wiki/Mechanical_Turk",
+        "bio": "Maia is a human-like neural network chess engine. This version was trained by learning from over 10 million Lichess games between 1100s. \r\n\r\nMaia Chess is an ongoing research project aiming to make a more human-friendly, useful, and fun chess AI. For more information go to maiachess.com. You can also play against @maia5 and @maia9. Developed by @ashtonanderson, @sidsen and @reidmcy.",
+        "realName": "Maia Chess 1100",
+        "links": "https://maiachess.com\r\nhttps://github.com/CSSLab/maia-chess\r\nhttps://twitter.com/maiachess",
       },
-    "seenAt": 1788313142724,
-    "playTime": { "total": 56753444, "tv": 2232219, "human": 20993311 },
+    "seenAt": 1789829404590,
+    "playTime": { "total": 1353381977, "tv": 3032114, "human": 1084062761 },
   }

@@ -5,65 +5,64 @@ value:
         {
           "game":
             {
-              "id": "iR3dMKR2",
+              "id": "On38unc0",
               "perf": { "key": "rapid", "name": "Rapid" },
               "rated": true,
               "players":
                 [
-                  {
-                    "name": "Yulia",
-                    "title": "IM",
-                    "flair": "people.man-cartwheeling-medium-light-skin-tone",
-                    "id": "yulia",
-                    "color": "white",
-                    "rating": 1910,
-                  },
-                  { "name": "Fatima", "id": "fatima", "color": "black", "rating": 1787 },
+                  { "name": "Aaron", "flair": "nature.jellyfish", "id": "aaron", "color": "white", "rating": 1935 },
+                  { "name": "Dae", "id": "dae", "color": "black", "rating": 1933 },
                 ],
-              "pgn": "e4 e5 Nf3 Nc6 Bc4 f5 d4 fxe4 Ng5 d5 Bb3 Nf6 dxe5 Nxe5 O-O Qd7 Nc3 c6 f4 Ng6 f5 Ne5 a3 Qd6 Kh1 h6 Nh3 g5 Be3 Nfg4 Bd4 Nf6 Ba2 Rg8 b4 g4 Nf2 g3",
+              "pgn": "d4 c6 Nf3 d5 Bg5 h6 Bh4 g5 Bg3 Bg7 e3 e6 Nbd2 Nf6 Bd3 Qb6 Nb3 Nbd7 c3 c5 dxc5 Nxc5 Nxc5 Qxc5 Ne5 O-O h4 g4 Nxg4 Nxg4 Qxg4 e5 Bf5 Bxf5 Qxf5 f6 O-O-O Rad8 Kb1 a5 h5 a4 Rh4 a3 Rb4 axb2 Kxb2 Rc8 Rc1 b6 Qe6+ Kh8 Qxb6 Qe7 f4 Rfd8 f5 Qd7 Qe6 Qc7 Bf2",
               "clock": "10+0",
             },
           "puzzle":
             {
-              "id": "D6Zsx",
-              "rating": 2279,
-              "plays": 20501,
-              "solution": ["f2e4", "d5e4", "a2g8"],
-              "themes": ["middlegame", "advantage", "short"],
-              "initialPly": 37,
+              "id": "3mQlB",
+              "rating": 1826,
+              "plays": 15168,
+              "solution": ["d8d6", "e6c8", "c7c8"],
+              "themes": ["middlegame", "trappedPiece", "short", "crushing"],
+              "initialPly": 60,
             },
         },
         {
           "game":
             {
-              "id": "hesRUJua",
+              "id": "2yS69unN",
               "perf": { "key": "rapid", "name": "Rapid" },
               "rated": true,
               "players":
                 [
-                  { "name": "Pedro", "id": "pedro", "color": "white", "rating": 1915 },
                   {
-                    "name": "Marcel",
-                    "flair": "food-drink.tumbler-glass",
-                    "id": "marcel",
+                    "name": "Patricia",
+                    "flair": "people.ballet-dancer",
+                    "id": "patricia",
+                    "color": "white",
+                    "rating": 1689,
+                  },
+                  {
+                    "name": "Rudra",
+                    "flair": "people.woman-in-motorized-wheelchair-medium-skin-tone",
+                    "id": "rudra",
                     "color": "black",
-                    "rating": 1918,
+                    "rating": 1938,
                   },
                 ],
-              "pgn": "e4 c5 d4 cxd4 c3 dxc3 Nxc3 a6 Nf3 d6 Qb3 Nf6 Be3 e6 Bb6 Qd7 Rd1 Qc6",
+              "pgn": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 Nf6 Nc3 Nc6 Be3 Bb4 Nxc6 Bxc3+ bxc3 bxc6 Bd3 Qa5 Bd2 Qh5 Be2 Qg6 e5 Qxg2 Bf3 Qh3 exf6 Ba6 fxg7 Rg8 Be2 Qg2 Bf3 Qxg7 Qb1",
               "clock": "10+0",
             },
           "puzzle":
             {
-              "id": "8zpmW",
-              "rating": 2328,
-              "plays": 25349,
-              "solution": ["f3e5", "b8d7", "e5c6"],
-              "themes": ["opening", "trappedPiece", "short", "crushing"],
-              "initialPly": 17,
+              "id": "2j4vK",
+              "rating": 1795,
+              "plays": 21292,
+              "solution": ["g7g1", "h1g1", "g8g1"],
+              "themes": ["mateIn2", "middlegame", "short", "sacrifice"],
+              "initialPly": 34,
             },
         },
       ],
-    "glicko": { "rating": 1788.63, "deviation": 80.1 },
-    "rounds": [{ "id": "94Rds", "win": true, "ratingDiff": 0 }],
+    "glicko": { "rating": 1741.4, "deviation": 84.07 },
+    "rounds": [{ "id": "5SzXp", "win": true, "ratingDiff": 15 }],
   }

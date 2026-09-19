@@ -5,64 +5,69 @@ value:
         {
           "game":
             {
-              "id": "bgVqZHXJ",
+              "id": "KITvzgFD",
               "perf": { "key": "rapid", "name": "Rapid" },
               "rated": true,
               "players":
                 [
+                  { "name": "Diego", "id": "diego", "color": "white", "rating": 1860 },
                   {
-                    "name": "Svetlana",
-                    "patron": true,
-                    "patronColor": 1,
-                    "id": "svetlana",
-                    "color": "white",
-                    "rating": 1925,
-                  },
-                  {
-                    "name": "Benjamin",
-                    "flair": "people.pregnant-person",
-                    "id": "benjamin",
+                    "name": "Yun",
+                    "flair": "people.man-in-tuxedo-light-skin-tone",
+                    "id": "yun",
                     "color": "black",
-                    "rating": 1911,
+                    "rating": 1892,
                   },
                 ],
-              "pgn": "c4 Nf6 Nc3 d6 e4 Bg4 f3 Bh5 h4 e6 g4 Be7 gxh5 Nxh5 d4 Bxh4+ Kd2 Bg5+ Kc2 Nf4 Nge2 Nxe2 Qxe2 Nc6 Qd3",
+              "pgn": "d4 c6 c4 d5 Nc3 Nf6 Nf3 Bg4 cxd5 cxd5 Qb3 Qc8 Nxd5 Bxf3 Nxf6+ gxf6 Qxf3 Nc6 e3 Nb4 Bb5+ Kd8 O-O Nc2 Qd5+ Kc7 Qc4+ Kb8 Qxc8+ Kxc8 Rb1 Nb4 Bd2 Nd5 Rbc1+ Kd8 Bc4 e6 Bxd5 exd5 Rfe1 Bd6 h3 Rg8 e4 dxe4 Rxe4 Kd7 Bf4",
               "clock": "10+0",
             },
           "puzzle":
             {
-              "id": "94Rds",
-              "rating": 1069,
-              "plays": 15199,
-              "solution": ["c6b4", "c2b3", "b4d3"],
-              "themes": ["opening", "fork", "short", "crushing"],
-              "initialPly": 24,
+              "id": "5SzXp",
+              "rating": 1645,
+              "plays": 26717,
+              "solution": ["f6f5", "e4e5", "d6e5"],
+              "themes": ["endgame", "short", "advantage"],
+              "initialPly": 48,
             },
         },
         {
           "game":
             {
-              "id": "17EOwob2",
-              "perf": { "key": "classical", "name": "Classical" },
+              "id": "phY1mX7Q",
+              "perf": { "key": "rapid", "name": "Rapid" },
               "rated": true,
               "players":
                 [
-                  { "name": "Qing", "id": "qing", "color": "white", "rating": 1766 },
-                  { "name": "Hans", "flair": "symbols.up-arrow", "id": "hans", "color": "black", "rating": 1752 },
+                  {
+                    "name": "Akeem",
+                    "flair": "people.woman-medium-skin-tone-white-hair",
+                    "id": "akeem",
+                    "color": "white",
+                    "rating": 1895,
+                  },
+                  {
+                    "name": "Monica",
+                    "flair": "people.woman-kneeling-medium-skin-tone",
+                    "id": "monica",
+                    "color": "black",
+                    "rating": 1846,
+                  },
                 ],
-              "pgn": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nc6 Bb5 Bd7 c4 Nxd4 Bxd7+ Qxd7 Qxd4 e5 Qd3 Nf6 Nc3 Be7 Bg5 O-O Nd5",
-              "clock": "40+0",
+              "pgn": "e4 e6 Nf3 d5 exd5 exd5 d4 Bd6 Nc3 c6 Bd3 Qc7 a3 Bf4 Bxf4 Qxf4 O-O Ne7 Re1 Be6 Qe2 O-O Ne5 Qxd4 Qh5 g6 Qg5 f6 Nf3 fxg5",
+              "clock": "10+0",
             },
           "puzzle":
             {
-              "id": "A4v8U",
-              "rating": 1058,
-              "plays": 18586,
-              "solution": ["f6d5", "d3d5", "e7g5"],
-              "themes": ["middlegame", "discoveredAttack", "short", "advantage"],
-              "initialPly": 22,
+              "id": "34nq9",
+              "rating": 1661,
+              "plays": 12585,
+              "solution": ["f3d4", "e6d7", "e1e7"],
+              "themes": ["middlegame", "short", "crushing", "hangingPiece"],
+              "initialPly": 29,
             },
         },
       ],
-    "glicko": { "rating": 1788, "deviation": 80.01 },
+    "glicko": { "rating": 1726, "deviation": 86.33 },
   }

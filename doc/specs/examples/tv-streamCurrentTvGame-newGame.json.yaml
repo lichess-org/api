@@ -3,19 +3,18 @@ value:
     "t": "featured",
     "d":
       {
-        "id": "LcjEEYDA",
+        "id": "1sA8pXbf",
         "orientation": "white",
         "players":
           [
-            { "color": "white", "user": { "name": "Shprot86", "id": "shprot86" }, "rating": 3061, "seconds": 60 },
+            { "color": "white", "user": { "name": "DONOTREDEEM", "id": "donotredeem" }, "rating": 3038, "seconds": 60 },
             {
               "color": "black",
-              "user":
-                { "name": "GraysonRorrer", "title": "IM", "flair": "activity.lichess-berserk", "id": "graysonrorrer" },
-              "rating": 3058,
+              "user": { "name": "Lapinews", "title": "GM", "id": "lapinews" },
+              "rating": 2859,
               "seconds": 60,
             },
           ],
-        "fen": "rn1q1rk1/p1n1bppp/1p1pp3/1P6/2PP4/5NBP/1P3PP1/RN1Q1RK1 b - - 0 13",
+        "fen": "1r4k1/6P1/1q1p3p/3Pn2P/p2p1Q2/8/PPK5/5B1R w - - 1 28",
       },
   }
