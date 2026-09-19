@@ -1,4 +1,5 @@
 import {
+  cleanUp,
   example,
   firstNdJson,
   firstPgnGames,
@@ -110,8 +111,9 @@ export default async function swiss() {
 /**
  * Create, update, join, leave and then terminate a Swiss, so that nothing is left behind.
  *
- * Creating tournaments is limited to about 12 a day for each player, which the arenas script
- * already uses up for bobby. Another team leader has a limit of their own.
+ * Each player can create tournaments with a daily allowance of 240 credits, of which an arena
+ * costs 20 and a Swiss 5. The arenas script spends the allowance of bobby, so another team leader
+ * creates the Swiss.
  */
 async function localSwiss() {
   const team = "knights-to-meet-you";
@@ -135,59 +137,72 @@ async function localSwiss() {
     }),
   );
 
-  await example("swiss", "createSwiss", newSwiss);
+  try {
+    await example("swiss", "createSwiss", newSwiss);
 
-  await example(
-    "swiss",
-    "updateSwiss",
-    localClient(leader).POST("/api/swiss/{id}/edit", {
-      params: {
-        path: {
-          id: newSwiss.id,
+    await example(
+      "swiss",
+      "updateSwiss",
+      localClient(leader).POST("/api/swiss/{id}/edit", {
+        params: {
+          path: {
+            id: newSwiss.id,
+          },
         },
-      },
-      body: {
-        name: "Weekly Swiss 2",
-        "clock.limit": 300,
-        "clock.increment": 0,
-        nbRounds: 5,
-      },
-    }),
-  );
+        body: {
+          name: "Weekly Swiss 2",
+          "clock.limit": 300,
+          "clock.increment": 0,
+          nbRounds: 5,
+        },
+      }),
+    );
 
-  await example(
-    "swiss",
-    "joinSwiss",
-    localClient(member).POST("/api/swiss/{id}/join", {
-      params: {
-        path: {
-          id: newSwiss.id,
+    await example(
+      "swiss",
+      "joinSwiss",
+      localClient(member).POST("/api/swiss/{id}/join", {
+        params: {
+          path: {
+            id: newSwiss.id,
+          },
         },
-      },
-    }),
-  );
+      }),
+    );
 
-  await example(
-    "swiss",
-    "withdrawFromSwiss",
-    localClient(member).POST("/api/swiss/{id}/withdraw", {
-      params: {
-        path: {
-          id: newSwiss.id,
+    await example(
+      "swiss",
+      "withdrawFromSwiss",
+      localClient(member).POST("/api/swiss/{id}/withdraw", {
+        params: {
+          path: {
+            id: newSwiss.id,
+          },
         },
-      },
-    }),
-  );
+      }),
+    );
 
-  await example(
-    "swiss",
-    "terminateSwiss",
-    localClient(leader).POST("/api/swiss/{id}/terminate", {
-      params: {
-        path: {
-          id: newSwiss.id,
+    await example(
+      "swiss",
+      "terminateSwiss",
+      localClient(leader).POST("/api/swiss/{id}/terminate", {
+        params: {
+          path: {
+            id: newSwiss.id,
+          },
         },
-      },
-    }),
-  );
+      }),
+    );
+  } catch (error) {
+    await cleanUp(() =>
+      localClient(leader).POST("/api/swiss/{id}/terminate", {
+        params: {
+          path: {
+            id: newSwiss.id,
+          },
+        },
+      }),
+    );
+    throw error;
+  }
 }

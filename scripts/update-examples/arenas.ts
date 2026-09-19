@@ -1,4 +1,5 @@
 import {
+  cleanUp,
   example,
   firstNdJson,
   firstPgnGames,
@@ -39,59 +40,82 @@ export default async function arenas() {
     }),
   );
 
-  await example(
-    "arenas",
-    "updateArena",
-    localClient().POST("/api/tournament/{id}", {
-      params: {
-        path: {
-          id: newArena.id,
+  // The arena is terminated in the end, and also when something goes wrong before that
+  try {
+    await example(
+      "arenas",
+      "updateArena",
+      localClient().POST("/api/tournament/{id}", {
+        params: {
+          path: {
+            id: newArena.id,
+          },
         },
-      },
-      body: {
-        name: "Updated Arena",
-        clockTime: 5,
-        clockIncrement: 0,
-        minutes: 60,
-      },
-    }),
-  );
+        body: {
+          name: "Updated Arena",
+          clockTime: 5,
+          clockIncrement: 0,
+          minutes: 60,
+        },
+      }),
+    );
 
-  await example(
-    "arenas",
-    "joinArena",
-    localClient("mary").POST("/api/tournament/{id}/join", {
-      params: {
-        path: {
-          id: newArena.id,
+    await example(
+      "arenas",
+      "joinArena",
+      localClient("mary").POST("/api/tournament/{id}/join", {
+        params: {
+          path: {
+            id: newArena.id,
+          },
         },
-      },
-    }),
-  );
+      }),
+    );
 
-  await example(
-    "arenas",
-    "withdrawFromArena",
-    localClient("mary").POST("/api/tournament/{id}/withdraw", {
-      params: {
-        path: {
-          id: newArena.id,
+    await example(
+      "arenas",
+      "withdrawFromArena",
+      localClient("mary").POST("/api/tournament/{id}/withdraw", {
+        params: {
+          path: {
+            id: newArena.id,
+          },
         },
-      },
-    }),
-  );
+      }),
+    );
 
-  await example(
-    "arenas",
-    "terminateArena",
-    localClient().POST("/api/tournament/{id}/terminate", {
-      params: {
-        path: {
-          id: newArena.id,
+    await example(
+      "arenas",
+      "terminateArena",
+      localClient().POST("/api/tournament/{id}/terminate", {
+        params: {
+          path: {
+            id: newArena.id,
+          },
         },
-      },
-    }),
-  );
+      }),
+    );
+  } catch (error) {
+    await cleanUp(
+      () =>
+        localClient("mary").POST("/api/tournament/{id}/withdraw", {
+          params: {
+            path: {
+              id: newArena.id,
+            },
+          },
+        }),
+      () =>
+        localClient().POST("/api/tournament/{id}/terminate", {
+          params: {
+            path: {
+              id: newArena.id,
+            },
+          },
+        }),
+    );
+    throw error;
+  }
 
   await example(
     "arenas",

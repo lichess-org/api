@@ -220,30 +220,116 @@ export function followGame(
     parseAs: "stream",
     signal,
   } as const;
+
+  let failure: unknown;
+  let ended = false;
   (async () => {
     const stream =
       api === "board"
         ? await localClient(as).GET("/api/board/game/stream/{gameId}", options)
         : await localClient(as).GET("/api/bot/game/stream/{gameId}", options);
     for await (const event of readNdJson(stream)) events.push(event);
-  })().catch(() => {
-    // The stream was closed on purpose, or `next` reports that what it waits for never arrived
+    ended = true;
+  })().catch((error) => {
+    // Closing the stream on purpose is not a failure
+    if (!controller.signal.aborted) failure = error;
   });
 
   return {
     /** The first event that satisfies `match`, whether it has arrived already or is yet to. */
     async next(match: (event: any) => boolean, waitSeconds = 30) {
+      const seen = () => JSON.stringify(events).slice(0, 300);
       for (let i = 0; i < waitSeconds * 10; i++) {
         const event = events.find(match);
         if (event) return event;
+        // Waiting on would only end in the timeout below, without saying what went wrong
+        if (failure)
+          throw new Error(
+            `The stream of ${gameId} for ${as} failed: ${String(failure)}`,
+            { cause: failure },
+          );
+        if (ended)
+          throw new Error(
+            `The stream of ${gameId} for ${as} ended before the expected event. Events: ${seen()}`,
+          );
         await Bun.sleep(100);
       }
       throw new Error(
-        `${as} did not see the expected event of ${gameId} within ${waitSeconds}s. Events: ${JSON.stringify(events).slice(0, 300)}`,
+        `${as} did not see the expected event of ${gameId} within ${waitSeconds}s. Events: ${seen()}`,
       );
     },
     close: () => controller.abort(),
   };
+}
+
+/**
+ * Ends a game that a player is in, whatever state it is in: it is aborted as long as that is
+ * possible, and resigned after that. For cleaning up.
+ */
+export async function endGame(
+  as: string,
+  gameId: string,
+  api: "board" | "bot" = "board",
+) {
+  const client = localClient(as);
+  const params = { params: { path: { gameId } } };
+  const aborted =
+    api === "board"
+      ? await client.POST("/api/board/game/{gameId}/abort", params)
+      : await client.POST("/api/bot/game/{gameId}/abort", params);
+  if (aborted.response.ok) return;
+  if (api === "board")
+    await client.POST("/api/board/game/{gameId}/resign", params);
+  else await client.POST("/api/bot/game/{gameId}/resign", params);
+}
+
+/**
+ * Runs the steps that undo what a flow did before it failed. A step that fails as well is not
+ * worth reporting next to the failure that made it necessary, which the caller rethrows.
+ */
+export async function cleanUp(...steps: (() => Promise<unknown>)[]) {
+  for (const step of steps) {
+    try {
+      await step();
+    } catch {}
+  }
+}
+
+/**
+ * Chat messages that Lila lets through however often a player sends them. Any other message is
+ * dropped without an error when it is similar to one of the player's last two of the past minute,
+ * which is what a second run of a script soon after the first would send.
+ */
+export const presetChat = {
+  goodLuck: "Good luck",
+  haveFun: "Have fun!",
+};
+
+/**
+ * Fetches until `ready` accepts what came back. Some things are only saved a moment after they were
+ * requested, and fetching them too soon would give an empty example that is still valid.
+ */
+export async function waitFor<T>(
+  what: string,
+  get: () => Promise<T>,
+  ready: (value: T) => boolean,
+  seconds = 10,
+): Promise<T> {
+  let last = "nothing";
+  for (let i = 0; i < seconds * 5; i++) {
+    try {
+      const value = await get();
+      if (ready(value)) return value;
+      last = String(JSON.stringify(value));
+    } catch (error) {
+      // Something that is not there yet can be reported as an error, like a 404
+      last = String(error);
+    }
+    await Bun.sleep(200);
+  }
+  throw new Error(
+    `Gave up after ${seconds}s waiting for ${what}. Last response: ${last.slice(0, 300)}`,
+  );
 }
 
 /** The first `count` games of a PGN stream, after which the stream is closed. */

@@ -1,14 +1,18 @@
 import {
+  cleanUp,
+  endGame,
   example,
   firstNdJson,
   firstPgnGames,
   localClient,
   makeMove,
   ok,
+  presetChat,
   prodClient,
   readNdJson,
   startGame,
   streamTimeout,
+  waitFor,
 } from "./config";
 
 export default async function games() {
@@ -272,47 +276,52 @@ async function exportBookmarkedGame(gameId: string) {
     });
 
   ok(await toggleBookmark());
-
-  await example(
-    "games",
-    "exportBookmarkedGames",
-    firstNdJson(
-      await localClient().GET("/api/games/export/bookmarks", {
-        params: {
-          query: {
-            max: 1,
+  let bookmarked = true;
+  try {
+    await example(
+      "games",
+      "exportBookmarkedGames",
+      firstNdJson(
+        await localClient().GET("/api/games/export/bookmarks", {
+          params: {
+            query: {
+              max: 1,
+            },
           },
-        },
-        headers: {
-          Accept: "application/x-ndjson",
-        },
-        parseAs: "stream",
-        signal: streamTimeout(),
-      }),
-    ),
-  );
-
-  await example(
-    "games",
-    "exportBookmarkedGames",
-    firstPgnGames(
-      await localClient().GET("/api/games/export/bookmarks", {
-        params: {
-          query: {
-            max: 1,
+          headers: {
+            Accept: "application/x-ndjson",
           },
-        },
-        headers: {
-          Accept: "application/x-chess-pgn",
-        },
-        parseAs: "stream",
-        signal: streamTimeout(),
-      }),
-    ),
-    "pgn",
-  );
+          parseAs: "stream",
+          signal: streamTimeout(),
+        }),
+      ),
+    );
 
-  ok(await toggleBookmark());
+    await example(
+      "games",
+      "exportBookmarkedGames",
+      firstPgnGames(
+        await localClient().GET("/api/games/export/bookmarks", {
+          params: {
+            query: {
+              max: 1,
+            },
+          },
+          headers: {
+            Accept: "application/x-chess-pgn",
+          },
+          parseAs: "stream",
+          signal: streamTimeout(),
+        }),
+      ),
+      "pgn",
+    );
+
+    ok(await toggleBookmark());
+    bookmarked = false;
+  } finally {
+    if (bookmarked) await cleanUp(toggleBookmark);
+  }
 }
 
 /** Streams of games that are being played, which are all ended in the end. */
@@ -321,142 +330,161 @@ async function streamLiveGames() {
   const second = { white: "dae", black: "suresh" };
   const firstGame = await startGame(first.white, first.black);
   const secondGame = await startGame(second.white, second.black);
+  const stream = new AbortController();
+  try {
+    await example(
+      "games",
+      "streamGamesOfUsers",
+      await firstNdJsonLines(
+        await localClient().POST("/api/stream/games-by-users", {
+          params: {
+            query: {
+              withCurrentGames: true,
+            },
+          },
+          body: `${first.white},${first.black}`,
+          headers: {
+            "Content-Type": "text/plain",
+            Accept: "application/x-ndjson",
+          },
+          bodySerializer: (body) => body,
+          parseAs: "stream",
+          signal: streamTimeout(),
+        }),
+        1,
+      ),
+    );
 
-  await example(
-    "games",
-    "streamGamesOfUsers",
-    await firstNdJsonLines(
-      await localClient().POST("/api/stream/games-by-users", {
+    // The stream stays open while more games are added to it
+    const streamId = `example-${Date.now()}`;
+    const streamedGames: any[] = [];
+    const streaming = (async () => {
+      const result = await localClient().POST("/api/stream/games/{streamId}", {
         params: {
-          query: {
-            withCurrentGames: true,
+          path: {
+            streamId,
           },
         },
-        body: `${first.white},${first.black}`,
+        body: firstGame,
         headers: {
           "Content-Type": "text/plain",
           Accept: "application/x-ndjson",
         },
         bodySerializer: (body) => body,
         parseAs: "stream",
-        signal: streamTimeout(),
+        signal: AbortSignal.any([stream.signal, streamTimeout()]),
+      });
+      for await (const game of readNdJson(result)) streamedGames.push(game);
+    })();
+    streaming.catch(() => {});
+
+    const waitForGame = async (id: string) => {
+      for (let i = 0; i < 100; i++) {
+        const game = streamedGames.find((g) => g.id === id);
+        if (game) return game;
+        await Bun.sleep(100);
+      }
+      throw new Error(`Game ${id} never arrived on the stream ${streamId}`);
+    };
+
+    const streamedFirstGame = await waitForGame(firstGame);
+
+    await example(
+      "games",
+      "addGameIdsToStream",
+      localClient().POST("/api/stream/games/{streamId}/add", {
+        params: {
+          path: {
+            streamId,
+          },
+        },
+        body: secondGame,
+        headers: {
+          "Content-Type": "text/plain",
+        },
+        bodySerializer: (body) => body,
       }),
-      1,
-    ),
-  );
+    );
+    const streamedSecondGame = await waitForGame(secondGame);
+    stream.abort();
+    await example("games", "streamGamesOfIds", [
+      streamedFirstGame,
+      streamedSecondGame,
+    ]);
 
-  // The stream stays open while more games are added to it
-  const streamId = `example-${Date.now()}`;
-  const stream = new AbortController();
-  const streamedGames: any[] = [];
-  const streaming = (async () => {
-    const result = await localClient().POST("/api/stream/games/{streamId}", {
-      params: {
-        path: {
-          streamId,
-        },
-      },
-      body: firstGame,
-      headers: {
-        "Content-Type": "text/plain",
-        Accept: "application/x-ndjson",
-      },
-      bodySerializer: (body) => body,
-      parseAs: "stream",
-      signal: AbortSignal.any([stream.signal, streamTimeout()]),
-    });
-    for await (const game of readNdJson(result)) streamedGames.push(game);
-  })();
-  streaming.catch(() => {});
+    // The first game is played a little, so that it can be exported like any other game
+    ok(await makeMove(first.white, firstGame, "e2e4"));
+    ok(await makeMove(first.black, firstGame, "e7e5"));
 
-  const waitForGame = async (id: string) => {
-    for (let i = 0; i < 100; i++) {
-      const game = streamedGames.find((g) => g.id === id);
-      if (game) return game;
-      await Bun.sleep(100);
+    // The players can write in the chat that spectators see. A message is saved a moment later.
+    for (const [player, text] of [
+      [first.white, presetChat.goodLuck],
+      [first.black, presetChat.haveFun],
+    ] as const) {
+      ok(
+        await localClient(player).POST("/api/board/game/{gameId}/chat", {
+          params: {
+            path: {
+              gameId: firstGame,
+            },
+          },
+          body: {
+            room: "spectator",
+            text,
+          },
+        }),
+      );
     }
-    throw new Error(`Game ${id} never arrived on the stream ${streamId}`);
-  };
+    await example(
+      "games",
+      "fetchSpectatorChat",
+      await waitFor(
+        "the chat messages to be saved",
+        // Before the first message is saved there is no chat, which is a 404
+        async () =>
+          ok(
+            await localClient("anon").GET("/api/game/{gameId}/chat", {
+              params: {
+                path: {
+                  gameId: firstGame,
+                },
+              },
+            }),
+          ),
+        (chat: any) =>
+          [presetChat.goodLuck, presetChat.haveFun].every((text) =>
+            chat.lines.some((line: any) => line.text === text),
+          ),
+      ),
+    );
 
-  const streamedFirstGame = await waitForGame(firstGame);
-
-  await example(
-    "games",
-    "addGameIdsToStream",
-    localClient().POST("/api/stream/games/{streamId}/add", {
-      params: {
-        path: {
-          streamId,
-        },
-      },
-      body: secondGame,
-      headers: {
-        "Content-Type": "text/plain",
-      },
-      bodySerializer: (body) => body,
-    }),
-  );
-  const streamedSecondGame = await waitForGame(secondGame);
-  stream.abort();
-  await example("games", "streamGamesOfIds", [
-    streamedFirstGame,
-    streamedSecondGame,
-  ]);
-
-  // The first game is played a little, so that it can be exported like any other game
-  ok(await makeMove(first.white, firstGame, "e2e4"));
-  ok(await makeMove(first.black, firstGame, "e7e5"));
-
-  // The players can write in the chat that spectators see. A message is saved a moment later.
-  for (const [player, text] of [
-    [first.white, "Good luck!"],
-    [first.black, "Have fun!"],
-  ] as const) {
     ok(
-      await localClient(player).POST("/api/board/game/{gameId}/chat", {
+      await localClient(first.white).POST("/api/board/game/{gameId}/resign", {
         params: {
           path: {
             gameId: firstGame,
           },
         },
-        body: {
-          room: "spectator",
-          text,
+      }),
+    );
+    await exportBookmarkedGame(firstGame);
+
+    ok(
+      await localClient(second.white).POST("/api/board/game/{gameId}/abort", {
+        params: {
+          path: {
+            gameId: secondGame,
+          },
         },
       }),
     );
+  } catch (error) {
+    await cleanUp(
+      () => endGame(first.white, firstGame),
+      () => endGame(second.white, secondGame),
+    );
+    throw error;
+  } finally {
+    stream.abort();
   }
-  await Bun.sleep(1000);
-  await example(
-    "games",
-    "fetchSpectatorChat",
-    localClient("anon").GET("/api/game/{gameId}/chat", {
-      params: {
-        path: {
-          gameId: firstGame,
-        },
-      },
-    }),
-  );
-
-  ok(
-    await localClient(first.white).POST("/api/board/game/{gameId}/resign", {
-      params: {
-        path: {
-          gameId: firstGame,
-        },
-      },
-    }),
-  );
-  await exportBookmarkedGame(firstGame);
-
-  ok(
-    await localClient(second.white).POST("/api/board/game/{gameId}/abort", {
-      params: {
-        path: {
-          gameId: secondGame,
-        },
-      },
-    }),
-  );
 }

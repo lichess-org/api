@@ -1,4 +1,5 @@
 import {
+  cleanUp,
   example,
   firstNdJson,
   localClient,
@@ -103,30 +104,33 @@ export default async function teams() {
 async function joinAndQuitOpenTeam() {
   const team = "stalemate-declined";
   const player = "gabriela";
-
-  await example(
-    "teams",
-    "joinTeam",
-    localClient(player).POST("/team/{teamId}/join", {
-      params: {
-        path: {
-          teamId: team,
-        },
-      },
-    }),
-  );
-
-  await example(
-    "teams",
-    "quitTeam",
+  const quit = () =>
     localClient(player).POST("/team/{teamId}/quit", {
       params: {
         path: {
           teamId: team,
         },
       },
-    }),
-  );
+    });
+
+  try {
+    await example(
+      "teams",
+      "joinTeam",
+      localClient(player).POST("/team/{teamId}/join", {
+        params: {
+          path: {
+            teamId: team,
+          },
+        },
+      }),
+    );
+
+    await example("teams", "quitTeam", quit());
+  } catch (error) {
+    await cleanUp(quit);
+    throw error;
+  }
 }
 
 /**
@@ -141,48 +145,7 @@ async function handleJoinRequests() {
   const leader = "benjamin";
 
   const [accepted, declined] = await requestToJoin(team, leader, 2);
-
-  await example(
-    "teams",
-    "getJoinRequests",
-    localClient(leader).GET("/api/team/{teamId}/requests", {
-      params: {
-        path: {
-          teamId: team,
-        },
-      },
-    }),
-  );
-
-  await example(
-    "teams",
-    "acceptJoinRequest",
-    localClient(leader).POST("/api/team/{teamId}/request/{userId}/accept", {
-      params: {
-        path: {
-          teamId: team,
-          userId: accepted!,
-        },
-      },
-    }),
-  );
-
-  await example(
-    "teams",
-    "declineJoinRequest",
-    localClient(leader).POST("/api/team/{teamId}/request/{userId}/decline", {
-      params: {
-        path: {
-          teamId: team,
-          userId: declined!,
-        },
-      },
-    }),
-  );
-
-  await example(
-    "teams",
-    "kickFromTeam",
+  const kickAccepted = () =>
     localClient(leader).POST("/api/team/{teamId}/kick/{userId}", {
       params: {
         path: {
@@ -190,24 +153,72 @@ async function handleJoinRequests() {
           userId: accepted!,
         },
       },
-    }),
-  );
+    });
 
-  await example(
-    "teams",
-    "sendTeamUpdate",
-    localClient(leader).POST("/team/{teamId}/pm-all", {
-      params: {
-        path: {
-          teamId: team,
+  // A request that is left pending is picked up by the next run, but a member has to be kicked
+  let isMember = false;
+  try {
+    await example(
+      "teams",
+      "getJoinRequests",
+      localClient(leader).GET("/api/team/{teamId}/requests", {
+        params: {
+          path: {
+            teamId: team,
+          },
         },
-      },
-      body: {
-        // Sending the same message again soon is rejected, so make each run's message different
-        message: `Welcome to the team! Our next tournament starts on Friday. (${new Date().toISOString()})`,
-      },
-    }),
-  );
+      }),
+    );
+
+    await example(
+      "teams",
+      "acceptJoinRequest",
+      localClient(leader).POST("/api/team/{teamId}/request/{userId}/accept", {
+        params: {
+          path: {
+            teamId: team,
+            userId: accepted!,
+          },
+        },
+      }),
+    );
+    isMember = true;
+
+    await example(
+      "teams",
+      "declineJoinRequest",
+      localClient(leader).POST("/api/team/{teamId}/request/{userId}/decline", {
+        params: {
+          path: {
+            teamId: team,
+            userId: declined!,
+          },
+        },
+      }),
+    );
+
+    await example("teams", "kickFromTeam", kickAccepted());
+    isMember = false;
+
+    await example(
+      "teams",
+      "sendTeamUpdate",
+      localClient(leader).POST("/team/{teamId}/pm-all", {
+        params: {
+          path: {
+            teamId: team,
+          },
+        },
+        body: {
+          // Sending the same message again soon is rejected, so make each run's message different
+          message: `Welcome to the team! Our next tournament starts on Friday. (${new Date().toISOString()})`,
+        },
+      }),
+    );
+  } catch (error) {
+    if (isMember) await cleanUp(kickAccepted);
+    throw error;
+  }
 }
 
 /** Ask `team` to join on behalf of players until `count` of them have a pending request. */
