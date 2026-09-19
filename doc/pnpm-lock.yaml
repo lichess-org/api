@@ -13,10 +13,10 @@ importers:
         version: 2.53.3
       '@scalar/api-reference':
         specifier: ^1.69.2
-        version: 1.69.2(tailwindcss@4.1.18)(typescript@6.0.3)(zod@4.6.5)
+        version: 1.69.2(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)(zod@4.6.5)
       '@scalar/cli':
         specifier: ^2.5.1
-        version: 2.5.1(@types/node@26.6.2)(terser@5.51.2)(typescript@6.0.3)(yaml@2.9.1)
+        version: 2.5.1(@types/node@26.6.2)(supports-color@7.2.0)(terser@5.51.2)(typescript@6.0.3)(yaml@2.9.1)
       '@stoplight/spectral-cli':
         specifier: ^6.16.3
         version: 6.16.3
@@ -487,6 +487,9 @@ packages:
 
   '@floating-ui/utils@0.2.12':
     resolution: {integrity: sha512-HpCo8tmWzLVad5s2d19EhAz5zqrrQ6s69qd6moPMQvkOuSwDT1YgRfWSVuc4ennqrgv3OHppiOGMQ7oC13yIww==}
+
+  '@floating-ui/vue@1.1.11':
+    resolution: {integrity: sha512-HzHKCNVxnGS35r9fCHBc3+uCnjw9IWIlCPL683cGgM9Kgj2BiAl8x1mS7vtvP6F9S/e/q4O6MApwSHj8hNLGfw==}
 
   '@floating-ui/vue@1.1.9':
     resolution: {integrity: sha512-BfNqNW6KA83Nexspgb9DZuz578R7HT8MZw1CfK9I6Ah4QReNWEJsXWHN+SdmOVLNGmTPDi+fDT535Df5PzMLbQ==}
@@ -2947,6 +2950,11 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  semver@7.8.5:
+    resolution: {integrity: sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==}
+    engines: {node: '>=10'}
+    hasBin: true
+
   set-cookie-parser@2.7.2:
     resolution: {integrity: sha512-oeM1lpU/UvhTxw+g3cIfxXHyJRc/uidd3yK1P242gzHds0udQBYzs3y8j4gCCW+ZJ7ad0yctld8RYO+bdurlvw==}
 
@@ -3848,10 +3856,19 @@ snapshots:
 
   '@floating-ui/utils@0.2.12': {}
 
+  '@floating-ui/vue@1.1.11(vue@3.5.43(typescript@6.0.3))':
+    dependencies:
+      '@floating-ui/dom': 1.8.0
+      '@floating-ui/utils': 0.2.12
+      vue-demi: 0.14.10(vue@3.5.43(typescript@6.0.3))
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+
   '@floating-ui/vue@1.1.9(vue@3.5.43(typescript@6.0.3))':
     dependencies:
       '@floating-ui/dom': 1.8.0
-      '@floating-ui/utils': 0.2.10
+      '@floating-ui/utils': 0.2.12
       vue-demi: 0.14.10(vue@3.5.43(typescript@6.0.3))
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -4024,9 +4041,9 @@ snapshots:
 
   '@pinojs/redact@0.4.0': {}
 
-  '@quobix/vacuum@0.30.1':
+  '@quobix/vacuum@0.30.1(supports-color@7.2.0)':
     dependencies:
-      https-proxy-agent: 9.1.0
+      https-proxy-agent: 9.1.0(supports-color@7.2.0)
       tar: 7.5.22
     transitivePeerDependencies:
       - kerberos
@@ -4184,11 +4201,11 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.63.4':
     optional: true
 
-  '@scalar/agent-chat@0.12.33(tailwindcss@4.1.18)(typescript@6.0.3)(zod@4.6.5)':
+  '@scalar/agent-chat@0.12.33(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)(zod@4.6.5)':
     dependencies:
       '@ai-sdk/vue': 3.0.33(vue@3.5.43(typescript@6.0.3))(zod@4.6.5)
-      '@scalar/api-client': 3.19.2(tailwindcss@4.1.18)(typescript@6.0.3)
-      '@scalar/components': 0.29.3(tailwindcss@4.1.18)(typescript@6.0.3)
+      '@scalar/api-client': 3.19.2(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)
+      '@scalar/components': 0.29.3(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)
       '@scalar/helpers': 0.12.0
       '@scalar/icons': 0.7.6(typescript@6.0.3)
       '@scalar/json-magic': 0.14.0
@@ -4223,17 +4240,17 @@ snapshots:
       - universal-cookie
       - zod
 
-  '@scalar/api-client@3.19.2(tailwindcss@4.1.18)(typescript@6.0.3)':
+  '@scalar/api-client@3.19.2(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)':
     dependencies:
       '@headlessui/tailwindcss': 0.2.2(tailwindcss@4.1.18)
       '@headlessui/vue': 1.7.23(vue@3.5.43(typescript@6.0.3))
-      '@scalar/blocks': 0.1.19(tailwindcss@4.1.18)(typescript@6.0.3)
-      '@scalar/components': 0.29.3(tailwindcss@4.1.18)(typescript@6.0.3)
+      '@scalar/blocks': 0.1.19(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)
+      '@scalar/components': 0.29.3(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)
       '@scalar/helpers': 0.12.0
       '@scalar/icons': 0.7.6(typescript@6.0.3)
       '@scalar/oas-utils': 0.20.2(typescript@6.0.3)
       '@scalar/openapi-types': 0.9.6
-      '@scalar/sidebar': 0.11.4(tailwindcss@4.1.18)(typescript@6.0.3)
+      '@scalar/sidebar': 0.11.4(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)
       '@scalar/snippetz': 0.9.31
       '@scalar/themes': 0.18.0
       '@scalar/typebox': 0.1.3
@@ -4271,20 +4288,20 @@ snapshots:
       - typescript
       - universal-cookie
 
-  '@scalar/api-reference@1.69.2(tailwindcss@4.1.18)(typescript@6.0.3)(zod@4.6.5)':
+  '@scalar/api-reference@1.69.2(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)(zod@4.6.5)':
     dependencies:
       '@headlessui/vue': 1.7.23(vue@3.5.43(typescript@6.0.3))
-      '@scalar/agent-chat': 0.12.33(tailwindcss@4.1.18)(typescript@6.0.3)(zod@4.6.5)
-      '@scalar/api-client': 3.19.2(tailwindcss@4.1.18)(typescript@6.0.3)
-      '@scalar/blocks': 0.1.19(tailwindcss@4.1.18)(typescript@6.0.3)
-      '@scalar/code-highlight': 0.4.6
-      '@scalar/components': 0.29.3(tailwindcss@4.1.18)(typescript@6.0.3)
+      '@scalar/agent-chat': 0.12.33(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)(zod@4.6.5)
+      '@scalar/api-client': 3.19.2(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)
+      '@scalar/blocks': 0.1.19(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)
+      '@scalar/code-highlight': 0.4.6(supports-color@7.2.0)
+      '@scalar/components': 0.29.3(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)
       '@scalar/helpers': 0.12.0
       '@scalar/icons': 0.7.6(typescript@6.0.3)
       '@scalar/localization': 0.2.0(typescript@6.0.3)
       '@scalar/oas-utils': 0.20.2(typescript@6.0.3)
       '@scalar/schemas': 0.10.0
-      '@scalar/sidebar': 0.11.4(tailwindcss@4.1.18)(typescript@6.0.3)
+      '@scalar/sidebar': 0.11.4(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)
       '@scalar/snippetz': 0.9.31
       '@scalar/themes': 0.18.0
       '@scalar/types': 0.20.0
@@ -4333,9 +4350,9 @@ snapshots:
       '@scalar/types': 0.18.3
       yaml: 2.9.1
 
-  '@scalar/blocks@0.1.19(tailwindcss@4.1.18)(typescript@6.0.3)':
+  '@scalar/blocks@0.1.19(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)':
     dependencies:
-      '@scalar/components': 0.29.3(tailwindcss@4.1.18)(typescript@6.0.3)
+      '@scalar/components': 0.29.3(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)
       '@scalar/helpers': 0.12.0
       '@scalar/icons': 0.7.6(typescript@6.0.3)
       '@scalar/snippetz': 0.9.31
@@ -4351,19 +4368,19 @@ snapshots:
       - tailwindcss
       - typescript
 
-  '@scalar/cli@2.5.1(@types/node@26.6.2)(terser@5.51.2)(typescript@6.0.3)(yaml@2.9.1)':
+  '@scalar/cli@2.5.1(@types/node@26.6.2)(supports-color@7.2.0)(terser@5.51.2)(typescript@6.0.3)(yaml@2.9.1)':
     dependencies:
       '@clack/prompts': 0.7.0
       '@fastify/static': 9.1.3
       '@hono/node-server': 2.0.1(hono@4.13.8)
-      '@quobix/vacuum': 0.30.1
+      '@quobix/vacuum': 0.30.1(supports-color@7.2.0)
       '@scalar/asyncapi-upgrader': 0.1.9
       '@scalar/asyncapi-validator': 0.1.0
       '@scalar/json-magic': 0.13.4
       '@scalar/mock-server': 0.14.0(@hono/node-server@2.0.1(hono@4.13.8))(typescript@6.0.3)
       '@scalar/oas-utils': 0.19.16(typescript@6.0.3)
       '@scalar/openapi-parser': 0.29.1
-      '@scalar/openapi-to-markdown': 0.5.44(tailwindcss@4.1.18)(typescript@6.0.3)
+      '@scalar/openapi-to-markdown': 0.5.44(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)
       '@scalar/openapi-types': 0.9.5
       '@scalar/openapi-upgrader': 0.2.15
       '@scalar/openapi-validator': 0.1.0
@@ -4416,7 +4433,7 @@ snapshots:
       - utf-8-validate
       - yaml
 
-  '@scalar/code-highlight@0.4.5':
+  '@scalar/code-highlight@0.4.5(supports-color@7.2.0)':
     dependencies:
       hast-util-to-text: 4.0.2
       highlight.js: 11.12.0
@@ -4427,8 +4444,8 @@ snapshots:
       rehype-raw: 7.0.0
       rehype-sanitize: 6.0.0
       rehype-stringify: 10.0.1
-      remark-gfm: 4.0.1
-      remark-parse: 11.0.0
+      remark-gfm: 4.0.1(supports-color@7.2.0)
+      remark-parse: 11.0.0(supports-color@7.2.0)
       remark-rehype: 11.1.2
       remark-stringify: 11.0.0
       unified: 11.0.5
@@ -4436,7 +4453,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@scalar/code-highlight@0.4.6':
+  '@scalar/code-highlight@0.4.6(supports-color@7.2.0)':
     dependencies:
       hast-util-to-text: 4.0.2
       highlight.js: 11.12.0
@@ -4447,8 +4464,8 @@ snapshots:
       rehype-raw: 7.0.0
       rehype-sanitize: 6.0.0
       rehype-stringify: 10.0.1
-      remark-gfm: 4.0.1
-      remark-parse: 11.0.0
+      remark-gfm: 4.0.1(supports-color@7.2.0)
+      remark-parse: 11.0.0(supports-color@7.2.0)
       remark-rehype: 11.1.2
       remark-stringify: 11.0.0
       unified: 11.0.5
@@ -4456,13 +4473,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@scalar/components@0.29.1(tailwindcss@4.1.18)(typescript@6.0.3)':
+  '@scalar/components@0.29.1(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)':
     dependencies:
       '@floating-ui/utils': 0.2.10
       '@floating-ui/vue': 1.1.9(vue@3.5.43(typescript@6.0.3))
       '@headlessui/tailwindcss': 0.2.2(tailwindcss@4.1.18)
       '@headlessui/vue': 1.7.23(vue@3.5.43(typescript@6.0.3))
-      '@scalar/code-highlight': 0.4.5
+      '@scalar/code-highlight': 0.4.5(supports-color@7.2.0)
       '@scalar/helpers': 0.11.3
       '@scalar/icons': 0.7.6(typescript@6.0.3)
       '@scalar/themes': 0.17.4
@@ -4478,13 +4495,13 @@ snapshots:
       - tailwindcss
       - typescript
 
-  '@scalar/components@0.29.3(tailwindcss@4.1.18)(typescript@6.0.3)':
+  '@scalar/components@0.29.3(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)':
     dependencies:
       '@floating-ui/utils': 0.2.10
       '@floating-ui/vue': 1.1.9(vue@3.5.43(typescript@6.0.3))
       '@headlessui/tailwindcss': 0.2.2(tailwindcss@4.1.18)
       '@headlessui/vue': 1.7.23(vue@3.5.43(typescript@6.0.3))
-      '@scalar/code-highlight': 0.4.6
+      '@scalar/code-highlight': 0.4.6(supports-color@7.2.0)
       '@scalar/helpers': 0.12.0
       '@scalar/icons': 0.7.6(typescript@6.0.3)
       '@scalar/themes': 0.18.0
@@ -4609,9 +4626,9 @@ snapshots:
       '@scalar/types': 0.19.0
       yaml: 2.9.1
 
-  '@scalar/openapi-to-markdown@0.5.44(tailwindcss@4.1.18)(typescript@6.0.3)':
+  '@scalar/openapi-to-markdown@0.5.44(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)':
     dependencies:
-      '@scalar/components': 0.29.1(tailwindcss@4.1.18)(typescript@6.0.3)
+      '@scalar/components': 0.29.1(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)
       '@scalar/helpers': 0.11.3
       '@scalar/json-magic': 0.13.4
       '@scalar/workspace-store': 0.60.0(typescript@6.0.3)
@@ -4619,7 +4636,7 @@ snapshots:
       rehype-parse: 9.0.1
       rehype-remark: 10.0.1
       rehype-sanitize: 6.0.0
-      remark-gfm: 4.0.1
+      remark-gfm: 4.0.1(supports-color@7.2.0)
       remark-stringify: 11.0.0
       unified: 11.0.5
       vue: 3.5.43(typescript@6.0.3)
@@ -4671,9 +4688,9 @@ snapshots:
       '@scalar/helpers': 0.11.3
       '@scalar/validation': 0.6.3
 
-  '@scalar/sidebar@0.11.4(tailwindcss@4.1.18)(typescript@6.0.3)':
+  '@scalar/sidebar@0.11.4(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)':
     dependencies:
-      '@scalar/components': 0.29.3(tailwindcss@4.1.18)(typescript@6.0.3)
+      '@scalar/components': 0.29.3(supports-color@7.2.0)(tailwindcss@4.1.18)(typescript@6.0.3)
       '@scalar/helpers': 0.12.0
       '@scalar/icons': 0.7.6(typescript@6.0.3)
       '@scalar/themes': 0.18.0
@@ -5017,7 +5034,7 @@ snapshots:
     dependencies:
       '@rollup/plugin-commonjs': 22.0.2(rollup@2.80.0)
       '@stoplight/path': 1.3.2
-      '@stoplight/spectral-core': 1.22.0
+      '@stoplight/spectral-core': 1.23.1
       '@stoplight/spectral-formats': 1.8.5
       '@stoplight/spectral-functions': 1.10.5
       '@stoplight/spectral-parsers': 1.0.5
@@ -5058,7 +5075,7 @@ snapshots:
       '@asyncapi/specs': 6.11.1
       '@stoplight/better-ajv-errors': 1.0.3(ajv@8.20.0)
       '@stoplight/json': 3.21.7
-      '@stoplight/spectral-core': 1.22.0
+      '@stoplight/spectral-core': 1.23.1
       '@stoplight/spectral-formats': 1.8.5
       '@stoplight/spectral-functions': 1.10.5
       '@stoplight/spectral-runtime': 1.1.6
@@ -5573,9 +5590,11 @@ snapshots:
       es-errors: 1.3.0
       is-data-view: 1.0.2
 
-  debug@4.4.3:
+  debug@4.4.3(supports-color@7.2.0):
     dependencies:
       ms: 2.1.3
+    optionalDependencies:
+      supports-color: 7.2.0
 
   decode-named-character-reference@1.3.0:
     dependencies:
@@ -5870,7 +5889,7 @@ snapshots:
       process-warning: 5.1.0
       rfdc: 1.4.1
       secure-json-parse: 4.1.0
-      semver: 7.6.3
+      semver: 7.8.5
       toad-cache: 3.7.4
 
   fastq@1.20.3:
@@ -6204,10 +6223,10 @@ snapshots:
       statuses: 2.0.2
       toidentifier: 1.0.1
 
-  https-proxy-agent@9.1.0:
+  https-proxy-agent@9.1.0(supports-color@7.2.0):
     dependencies:
       agent-base: 9.0.0
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@7.2.0)
       proxy-agent-negotiate: 1.1.0
     transitivePeerDependencies:
       - kerberos
@@ -6503,14 +6522,14 @@ snapshots:
       unist-util-is: 6.0.1
       unist-util-visit-parents: 6.0.2
 
-  mdast-util-from-markdown@2.0.3:
+  mdast-util-from-markdown@2.0.3(supports-color@7.2.0):
     dependencies:
       '@types/mdast': 4.0.4
       '@types/unist': 3.0.3
       decode-named-character-reference: 1.3.0
       devlop: 1.1.0
       mdast-util-to-string: 4.0.0
-      micromark: 4.0.2
+      micromark: 4.0.2(supports-color@7.2.0)
       micromark-util-decode-numeric-character-reference: 2.0.2
       micromark-util-decode-string: 2.0.1
       micromark-util-normalize-identifier: 2.0.1
@@ -6528,51 +6547,51 @@ snapshots:
       mdast-util-find-and-replace: 3.0.2
       micromark-util-character: 2.1.1
 
-  mdast-util-gfm-footnote@2.1.0:
+  mdast-util-gfm-footnote@2.1.0(supports-color@7.2.0):
     dependencies:
       '@types/mdast': 4.0.4
       devlop: 1.1.0
-      mdast-util-from-markdown: 2.0.3
+      mdast-util-from-markdown: 2.0.3(supports-color@7.2.0)
       mdast-util-to-markdown: 2.1.2
       micromark-util-normalize-identifier: 2.0.1
     transitivePeerDependencies:
       - supports-color
 
-  mdast-util-gfm-strikethrough@2.0.0:
+  mdast-util-gfm-strikethrough@2.0.0(supports-color@7.2.0):
     dependencies:
       '@types/mdast': 4.0.4
-      mdast-util-from-markdown: 2.0.3
+      mdast-util-from-markdown: 2.0.3(supports-color@7.2.0)
       mdast-util-to-markdown: 2.1.2
     transitivePeerDependencies:
       - supports-color
 
-  mdast-util-gfm-table@2.0.0:
+  mdast-util-gfm-table@2.0.0(supports-color@7.2.0):
     dependencies:
       '@types/mdast': 4.0.4
       devlop: 1.1.0
       markdown-table: 3.0.4
-      mdast-util-from-markdown: 2.0.3
+      mdast-util-from-markdown: 2.0.3(supports-color@7.2.0)
       mdast-util-to-markdown: 2.1.2
     transitivePeerDependencies:
       - supports-color
 
-  mdast-util-gfm-task-list-item@2.0.0:
+  mdast-util-gfm-task-list-item@2.0.0(supports-color@7.2.0):
     dependencies:
       '@types/mdast': 4.0.4
       devlop: 1.1.0
-      mdast-util-from-markdown: 2.0.3
+      mdast-util-from-markdown: 2.0.3(supports-color@7.2.0)
       mdast-util-to-markdown: 2.1.2
     transitivePeerDependencies:
       - supports-color
 
-  mdast-util-gfm@3.1.0:
+  mdast-util-gfm@3.1.0(supports-color@7.2.0):
     dependencies:
-      mdast-util-from-markdown: 2.0.3
+      mdast-util-from-markdown: 2.0.3(supports-color@7.2.0)
       mdast-util-gfm-autolink-literal: 2.0.1
-      mdast-util-gfm-footnote: 2.1.0
-      mdast-util-gfm-strikethrough: 2.0.0
-      mdast-util-gfm-table: 2.0.0
-      mdast-util-gfm-task-list-item: 2.0.0
+      mdast-util-gfm-footnote: 2.1.0(supports-color@7.2.0)
+      mdast-util-gfm-strikethrough: 2.0.0(supports-color@7.2.0)
+      mdast-util-gfm-table: 2.0.0(supports-color@7.2.0)
+      mdast-util-gfm-task-list-item: 2.0.0(supports-color@7.2.0)
       mdast-util-to-markdown: 2.1.2
     transitivePeerDependencies:
       - supports-color
@@ -6783,10 +6802,10 @@ snapshots:
 
   micromark-util-types@2.0.2: {}
 
-  micromark@4.0.2:
+  micromark@4.0.2(supports-color@7.2.0):
     dependencies:
       '@types/debug': 4.1.13
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@7.2.0)
       decode-named-character-reference: 1.3.0
       devlop: 1.1.0
       micromark-core-commonmark: 2.0.3
@@ -7006,7 +7025,7 @@ snapshots:
   radix-vue@1.9.17(vue@3.5.43(typescript@6.0.3)):
     dependencies:
       '@floating-ui/dom': 1.8.0
-      '@floating-ui/vue': 1.1.9(vue@3.5.43(typescript@6.0.3))
+      '@floating-ui/vue': 1.1.11(vue@3.5.43(typescript@6.0.3))
       '@internationalized/date': 3.12.4
       '@internationalized/number': 3.6.8
       '@tanstack/vue-virtual': 3.13.39(vue@3.5.43(typescript@6.0.3))
@@ -7098,21 +7117,21 @@ snapshots:
 
   relateurl@0.2.7: {}
 
-  remark-gfm@4.0.1:
+  remark-gfm@4.0.1(supports-color@7.2.0):
     dependencies:
       '@types/mdast': 4.0.4
-      mdast-util-gfm: 3.1.0
+      mdast-util-gfm: 3.1.0(supports-color@7.2.0)
       micromark-extension-gfm: 3.0.0
-      remark-parse: 11.0.0
+      remark-parse: 11.0.0(supports-color@7.2.0)
       remark-stringify: 11.0.0
       unified: 11.0.5
     transitivePeerDependencies:
       - supports-color
 
-  remark-parse@11.0.0:
+  remark-parse@11.0.0(supports-color@7.2.0):
     dependencies:
       '@types/mdast': 4.0.4
-      mdast-util-from-markdown: 2.0.3
+      mdast-util-from-markdown: 2.0.3(supports-color@7.2.0)
       micromark-util-types: 2.0.2
       unified: 11.0.5
     transitivePeerDependencies:
@@ -7244,6 +7263,8 @@ snapshots:
   secure-json-parse@4.1.0: {}
 
   semver@7.6.3: {}
+
+  semver@7.8.5: {}
 
   set-cookie-parser@2.7.2: {}
 

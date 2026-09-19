@@ -6,12 +6,10 @@
   languages = {
     javascript = {
       enable = true;
-      package = pkgs.nodejs_24;
-      npm.enable = true;
+      package = pkgs.nodejs-slim_26;
       pnpm = {
         enable = true;
       };
-      corepack.enable = true;
     };
   };
 
@@ -19,11 +17,6 @@
     exec = "pnpm run dev";
     cwd = "doc";
   };
-
-  enterShell = ''
-    cd $DEVENV_ROOT/doc
-    pnpm install
-  '';
 
   tasks = {
     "api:check" = {
