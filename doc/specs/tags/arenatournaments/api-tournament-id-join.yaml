@@ -27,7 +27,7 @@ post:
               type: string
               description: |
                 The tournament password, if one is required.
-                Can also be a [user-specific entry code](https://github.com/lichess-org/api/tree/master/example/tournament-entry-code)
+                Can also be a [user-specific entry code](https://github.com/lichess-org/api-demo/tree/master/example/tournament-entry-code)
                 generated and shared by the organizer.
             team:
               type: string

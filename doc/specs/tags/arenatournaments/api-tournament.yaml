@@ -157,7 +157,7 @@ post:
               type: string
               description: |
                 Make the tournament private, and restrict access with a password.
-                You can also [generate user-specific entry codes](https://github.com/lichess-org/api/tree/master/example/tournament-entry-code)
+                You can also [generate user-specific entry codes](https://github.com/lichess-org/api-demo/tree/master/example/tournament-entry-code)
                 based on this password.
             teamBattleByTeam:
               type: string
