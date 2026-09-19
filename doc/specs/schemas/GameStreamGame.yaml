@@ -35,6 +35,8 @@ properties:
             type: string
           rating:
             type: integer
+          provisional:
+            type: boolean
       black:
         type: object
         properties:
@@ -42,6 +44,8 @@ properties:
             type: string
           rating:
             type: integer
+          provisional:
+            type: boolean
   winner:
     $ref: "./GameColor.yaml"
 
