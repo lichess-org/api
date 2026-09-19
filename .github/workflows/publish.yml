@@ -38,16 +38,19 @@ jobs:
           git status --porcelain
           echo "changed_files=$(git status --porcelain)" >> "$GITHUB_OUTPUT"
       - name: Publish to npm
+        id: publish
         if: steps.check_changes.outputs.changed_files != ''
         run: |
           git add .
           npm version patch --no-git-tag-version
-          sed -i 's/version: .*/version: '"$(node -p "require('./package.json').version")"'/' ../doc/specs/lichess-api.yaml
+          version="$(node -p "require('./package.json').version")"
+          sed -i 's/version: .*/version: '"$version"'/' ../doc/specs/lichess-api.yaml
+          echo "version=$version" >> "$GITHUB_OUTPUT"
           npm publish --provenance
       - uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d # v7.2.0
         if: steps.check_changes.outputs.changed_files != ''
         with:
-          commit_message: 'Update API version'
+          commit_message: 'Release v${{ steps.publish.outputs.version }}'
           commit_author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
   publish-to-github-pages:
     if: github.repository == 'lichess-org/api'
