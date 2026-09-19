@@ -9324,7 +9324,7 @@ export interface operations {
           description?: string;
           /**
            * @description Make the tournament private, and restrict access with a password.
-           *     You can also [generate user-specific entry codes](https://github.com/lichess-org/api/tree/master/example/tournament-entry-code)
+           *     You can also [generate user-specific entry codes](https://github.com/lichess-org/api-demo/tree/master/example/tournament-entry-code)
            *     based on this password.
            */
           password?: string;
@@ -9701,7 +9701,7 @@ export interface operations {
         "application/x-www-form-urlencoded": {
           /**
            * @description The tournament password, if one is required.
-           *     Can also be a [user-specific entry code](https://github.com/lichess-org/api/tree/master/example/tournament-entry-code)
+           *     Can also be a [user-specific entry code](https://github.com/lichess-org/api-demo/tree/master/example/tournament-entry-code)
            *     generated and shared by the organizer.
            */
           password?: string;
