@@ -1,2 +1,1 @@
-value:
-  { "result": [{ "name": "Bobby", "flair": "nature.spiral-shell", "patron": true, "patronColor": 1, "id": "bobby" }] }
+value: { "result": [{ "name": "Bobby", "patron": true, "patronColor": 1, "id": "bobby", "online": true }] }

@@ -1,8 +1,15 @@
 import createClient from "openapi-fetch";
 import type { paths } from "@lichess-org/types";
-import { writeFileSync } from "fs";
-import { dirname, join, resolve } from "path";
-import { fileURLToPath } from "url";
+import { join } from "node:path";
+
+const EXAMPLES_DIR = join(
+  import.meta.dir,
+  "..",
+  "..",
+  "doc",
+  "specs",
+  "examples",
+);
 
 export const prodClient = () =>
   createClient<paths>({
@@ -20,111 +27,154 @@ export const localClient = (as?: string) =>
           },
   });
 
+export const localExternalEngineUrl = "http://localhost:9666";
+
 export const localExternalEngineClient = () =>
   createClient<paths>({
-    baseUrl: "http://localhost:9666",
+    baseUrl: localExternalEngineUrl,
   });
 
-export function example(
-  category: string,
-  name: string,
-  response: any,
-  filetype: "json" | "pgn" | "txt" = "json",
-) {
-  const filename = join(
-    resolve(
-      dirname(fileURLToPath(import.meta.url)),
-      "..",
-      "..",
-      "doc",
-      "specs",
-      "examples",
-    ),
-    `${category}-${name}.${filetype}.yaml`,
-  );
-  console.log(`Writing ${filename}`);
+export const explorerClient = () => {
+  const token = process.env.LICHESS_API_TOKEN;
+  if (!token) {
+    throw new Error(
+      "The opening explorer requires a lichess.org API token (it needs no scopes). Set LICHESS_API_TOKEN, e.g. in a .env file.",
+    );
+  }
+  return createClient<paths>({
+    baseUrl: "https://explorer.lichess.ovh",
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
 
-  const data =
-    filetype === "json"
-      ? JSON.stringify(response.data ?? response, null, 2)
-      : (response.data ?? response);
+export const tablebaseClient = () =>
+  createClient<paths>({
+    baseUrl: "https://tablebase.lichess.ovh",
+  });
 
-  let contents = convertStringToYaml(data, filetype === "json");
-  contents = contents.replace(
-    /http:\/\/localhost:8080/g,
-    "https://lichess.org",
-  );
+/** What openapi-fetch resolves a request with. */
+type FetchResult<T = unknown> = {
+  data?: T;
+  error?: unknown;
+  response: Response;
+};
 
-  writeFileSync(filename, contents + "\n");
+const isFetchResult = (value: unknown): value is FetchResult =>
+  typeof value === "object" &&
+  value !== null &&
+  (value as FetchResult).response instanceof Response;
+
+/** The body of a successful response. Throws, naming the request, if the response was not a success. */
+export function ok<T>({ data, error, response }: FetchResult<T>): T {
+  if (!response.ok) {
+    const detail =
+      typeof error === "string" ? error : (JSON.stringify(error) ?? "");
+    throw new Error(
+      `${response.status} ${response.url} ${detail.slice(0, 200)}`.trim(),
+    );
+  }
+  return data as T;
 }
 
-const convertStringToYaml = (str: string, isJson: boolean) => {
-  let lines: string[] = [];
-  if (isJson) {
-    lines.push("value: " + str);
-  } else {
-    lines.push("value: |");
-    const indent = " ".repeat(2);
-    const strLines = str.split("\n");
-    for (const line of strLines) {
-      lines.push(`${indent}${line}`);
-    }
-  }
-  return lines.join("\n");
-};
+type Filetype = "json" | "pgn" | "txt";
 
-type ProcessLine<T> = (line: T) => void;
-export const readNdJson = async <T>(
-  response: Response,
-  processLine: ProcessLine<T>,
-): Promise<void> => {
-  try {
-    if (!response.ok) throw new Error(`Status ${response.status}`);
-    const stream = response.body!.getReader();
-    const matcher = /\r?\n/;
-    const decoder = new TextDecoder();
-    let buf = "";
-    let done, value;
-    do {
-      ({ done, value } = await stream.read());
-      buf += decoder.decode(value || new Uint8Array(), { stream: !done });
-      const parts = buf.split(matcher);
-      if (!done) buf = parts.pop()!;
-      for (const part of parts) if (part) processLine(JSON.parse(part));
-    } while (!done);
-  } catch (error) {
-    if (error instanceof DOMException && error.name === "AbortError") {
-      return;
-    }
-    throw error;
-  }
-};
+/**
+ * Save a response as `doc/specs/examples/<category>-<name>.<filetype>.yaml`.
+ *
+ * `response` is either a request (pending or resolved) or the value to write. A request must have
+ * succeeded and returned a body, so a failing endpoint never overwrites an example with junk.
+ */
+export async function example(
+  category: string,
+  name: string,
+  response: unknown,
+  filetype: Filetype = "json",
+) {
+  const resolved = await response;
+  const data = isFetchResult(resolved) ? ok(resolved) : resolved;
 
-export const readTextStream = async (
-  response: Response,
-  processLine: (line: string) => void,
-): Promise<void> => {
-  try {
-    if (!response.ok) throw new Error(`Status ${response.status}`);
-    const stream = response.body!.getReader();
-    const matcher = /\r?\n/;
-    const decoder = new TextDecoder();
-    let buf = "";
-    let done, value;
-    do {
-      ({ done, value } = await stream.read());
-      buf += decoder.decode(value || new Uint8Array(), { stream: !done });
-      const parts = buf.split(matcher);
-      if (!done) buf = parts.pop()!;
-      for (const part of parts) processLine(part);
-    } while (!done);
-  } catch (error) {
-    if (error instanceof DOMException && error.name === "AbortError") {
-      return;
-    }
-    throw error;
-  }
-};
+  const filename = join(EXAMPLES_DIR, `${category}-${name}.${filetype}.yaml`);
+  if (data === undefined) throw new Error(`Nothing to write to ${filename}`);
+  if (filetype !== "json" && typeof data !== "string")
+    throw new TypeError(`${filename} needs a string`);
+  console.log(`Writing ${filename}`);
 
-export const sleep = (ms: number) =>
-  new Promise((resolve) => setTimeout(resolve, ms));
+  const contents =
+    filetype === "json"
+      ? `value: ${JSON.stringify(data, null, 2)}`
+      : [
+          "value: |",
+          ...(data as string).split("\n").map((line) => `  ${line}`),
+        ].join("\n");
+
+  await Bun.write(
+    filename,
+    contents.replaceAll("http://localhost:8080", "https://lichess.org") + "\n",
+  );
+}
+
+/** Bounds how long a stream may take to produce what we are waiting for, so a stalled one can't hang the run. */
+export const streamTimeout = () => AbortSignal.timeout(30_000);
+
+/** A response requested with `parseAs: "stream"`. */
+type Streamed = FetchResult<AsyncIterable<Uint8Array> | null>;
+
+/**
+ * Yields each line of a streamed response as it arrives. The loop ends when the server closes the
+ * stream; `break` out of it to close the stream yourself.
+ */
+export async function* readLines(result: Streamed): AsyncGenerator<string> {
+  const body = ok(result);
+  if (!body) throw new Error(`${result.response.url} has no body`);
+  const decoder = new TextDecoder();
+  let buffer = "";
+  for await (const chunk of body) {
+    buffer += decoder.decode(chunk, { stream: true });
+    const lines = buffer.split(/\r?\n/);
+    buffer = lines.pop()!;
+    yield* lines;
+  }
+  buffer += decoder.decode();
+  if (buffer) yield buffer;
+}
+
+export async function* readNdJson<T = any>(
+  result: Streamed,
+): AsyncGenerator<T> {
+  for await (const line of readLines(result)) {
+    if (line) yield JSON.parse(line);
+  }
+}
+
+/** The first line of an NDJSON stream, after which the stream is closed. */
+export async function firstNdJson<T = any>(result: Streamed): Promise<T> {
+  for await (const line of readNdJson<T>(result)) return line;
+  throw new Error(`${result.response.url} closed without sending anything`);
+}
+
+/**
+ * Listens to a local user's event stream in the background while the caller drives the API, and
+ * await the result once done. `onEvent` returns true when it has seen what it needs, which closes
+ * the stream. Rejects if the stream fails, times out, or ends first.
+ */
+export function streamEvents(
+  as: string,
+  onEvent: (event: any) => boolean | void | Promise<boolean | void>,
+) {
+  const done = (async () => {
+    const stream = await localClient(as).GET("/api/stream/event", {
+      headers: { Accept: "application/x-ndjson" },
+      parseAs: "stream",
+      signal: streamTimeout(),
+    });
+    for await (const event of readNdJson(stream)) {
+      if (await onEvent(event)) return;
+    }
+    throw new Error(
+      `The event stream for ${as} ended before the expected events arrived`,
+    );
+  })();
+  // The caller may fail before awaiting this; that must not surface as a second, unhandled rejection.
+  done.catch(() => {});
+  return done;
+}

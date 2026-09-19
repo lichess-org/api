@@ -23,7 +23,7 @@ value:
                 "blunder": 1,
                 "acpl": 26,
                 "accuracy": 90,
-                "phases": { "opening": 98, "middlegame": 82, "endgame": 92 },
+                "phases": { "opening": 98, "middlegame": 81, "endgame": 91 },
               },
           },
         "black":
@@ -38,7 +38,7 @@ value:
                 "blunder": 1,
                 "acpl": 26,
                 "accuracy": 90,
-                "phases": { "opening": 88, "middlegame": 77, "endgame": 94 },
+                "phases": { "opening": 88, "middlegame": 80, "endgame": 94 },
               },
           },
       },

@@ -1,7 +1,7 @@
 value: |
   [Event "Knight Invitational"]
-  [Site "https://lichess.org/broadcast/knight-invitational-2/final-round-2/9NmyX1WL/9Bbaoe69"]
-  [Date "2026.09.02"]
+  [Site "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ro6fm7Aj/7GqJmuBl"]
+  [Date "2026.09.19"]
   [White "Player 1"]
   [Black "Player 2"]
   [Result "*"]
@@ -10,28 +10,28 @@ value: |
   [Variant "Standard"]
   [ECO "C20"]
   [Opening "King's Pawn Game"]
-  [UTCDate "2026.09.02"]
-  [UTCTime "01:42:27"]
+  [UTCDate "2026.09.19"]
+  [UTCTime "14:52:28"]
   [BroadcastName "Knight Invitational 2"]
-  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/9NmyX1WL"]
-  [GameURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/9NmyX1WL/9Bbaoe69"]
+  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ro6fm7Aj"]
+  [GameURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ro6fm7Aj/7GqJmuBl"]
 
   1. e4 e5 *
 
 
   [Event "Knight Invitational"]
-  [Site "https://lichess.org/broadcast/knight-invitational-2/final-round-2/9NmyX1WL/IgN9lLg2"]
-  [Date "2026.09.02"]
+  [Site "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ro6fm7Aj/x24dsTlH"]
+  [Date "2026.09.19"]
   [White "Player 3"]
   [Black "Player 4"]
   [Result "*"]
   [Variant "Standard"]
   [ECO "D00"]
   [Opening "Queen's Pawn Game"]
-  [UTCDate "2026.09.02"]
-  [UTCTime "01:42:27"]
+  [UTCDate "2026.09.19"]
+  [UTCTime "14:52:28"]
   [BroadcastName "Knight Invitational 2"]
-  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/9NmyX1WL"]
-  [GameURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/9NmyX1WL/IgN9lLg2"]
+  [BroadcastURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ro6fm7Aj"]
+  [GameURL "https://lichess.org/broadcast/knight-invitational-2/final-round-2/ro6fm7Aj/x24dsTlH"]
 
   1. d4 d5 *

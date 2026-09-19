@@ -1,166 +1,166 @@
 import { example, localClient, prodClient } from "./config";
 
-example(
-  "users",
-  "getRealTimeUsersStatus",
-  await localClient().GET("/api/users/status", {
-    params: {
-      query: {
-        ids: "mary,ana",
-        withSignal: true,
-        withGameIds: true,
-        withGameMetas: true,
+export default async function users() {
+  await example(
+    "users",
+    "getRealTimeUsersStatus",
+    localClient().GET("/api/users/status", {
+      params: {
+        query: {
+          ids: "mary,ana",
+          withSignal: true,
+          withGameIds: true,
+          withGameMetas: true,
+        },
       },
-    },
-  }),
-);
+    }),
+  );
 
-example("users", "getAllTop10", await prodClient().GET("/api/player"));
+  await example("users", "getAllTop10", prodClient().GET("/api/player"));
 
-example(
-  "users",
-  "getOneLeaderboard",
-  await localClient().GET("/api/player/top/{nb}/{perfType}", {
-    params: {
-      path: {
-        nb: 3,
-        perfType: "blitz",
+  await example(
+    "users",
+    "getOneLeaderboard",
+    localClient().GET("/api/player/top/{nb}/{perfType}", {
+      params: {
+        path: {
+          nb: 3,
+          perfType: "blitz",
+        },
       },
-    },
-  }),
-);
+    }),
+  );
 
-example(
-  "users",
-  "getUserPublicData",
-  await localClient().GET("/api/user/{username}", {
-    params: {
-      path: {
-        username: "mary",
+  await example(
+    "users",
+    "getUserPublicData",
+    localClient().GET("/api/user/{username}", {
+      params: {
+        path: {
+          username: "mary",
+        },
       },
-    },
-  }),
-);
+    }),
+  );
 
-example(
-  "users",
-  "getRatingHistoryOfAUser",
-  await localClient().GET("/api/user/{username}/rating-history", {
-    params: {
-      path: {
-        username: "mary",
+  await example(
+    "users",
+    "getRatingHistoryOfAUser",
+    localClient().GET("/api/user/{username}/rating-history", {
+      params: {
+        path: {
+          username: "mary",
+        },
       },
-    },
-  }),
-);
+    }),
+  );
 
-example(
-  "users",
-  "getPerformanceStatisticsOfAUser",
-  await prodClient().GET("/api/user/{username}/perf/{perf}", {
-    params: {
-      path: {
-        username: "thibault",
-        perf: "blitz",
+  await example(
+    "users",
+    "getPerformanceStatisticsOfAUser",
+    prodClient().GET("/api/user/{username}/perf/{perf}", {
+      params: {
+        path: {
+          username: "thibault",
+          perf: "blitz",
+        },
       },
-    },
-  }),
-);
+    }),
+  );
 
-example(
-  "users",
-  "getUserActivity",
-  await prodClient().GET("/api/user/{username}/activity", {
-    params: {
-      path: {
-        username: "thibault",
+  await example(
+    "users",
+    "getUserActivity",
+    prodClient().GET("/api/user/{username}/activity", {
+      params: {
+        path: {
+          username: "thibault",
+        },
       },
-    },
-  }),
-);
+    }),
+  );
 
-example(
-  "users",
-  "getUsersById",
-  await prodClient().POST("/api/users", {
-    body: "thibault,maia1,maia5",
-    headers: {
-      "Content-Type": "text/plain",
-    },
-    bodySerializer: (body) => body,
-  }),
-);
-
-example(
-  "users",
-  "getLiveStreamers",
-  await prodClient().GET("/api/streamer/live"),
-);
-
-example(
-  "users",
-  "getCrosstable",
-  await prodClient().GET("/api/crosstable/{user1}/{user2}", {
-    params: {
-      path: {
-        user1: "DrNykterstein",
-        user2: "RebeccaHarris",
+  await example(
+    "users",
+    "getUsersById",
+    prodClient().POST("/api/users", {
+      body: "thibault,maia1,maia5",
+      headers: {
+        "Content-Type": "text/plain",
       },
-    },
-  }),
-);
+      bodySerializer: (body) => body,
+    }),
+  );
 
-example(
-  "users",
-  "autocompleteUsernames-object",
-  await localClient().GET("/api/player/autocomplete", {
-    params: {
-      query: {
-        term: "bob",
-        object: true,
-      },
-    },
-  }),
-  "json",
-);
+  await example(
+    "users",
+    "getLiveStreamers",
+    prodClient().GET("/api/streamer/live"),
+  );
 
-example(
-  "users",
-  "autocompleteUsernames-list",
-  await localClient().GET("/api/player/autocomplete", {
-    params: {
-      query: {
-        term: "bob",
-        object: false,
+  await example(
+    "users",
+    "getCrosstable",
+    prodClient().GET("/api/crosstable/{user1}/{user2}", {
+      params: {
+        path: {
+          user1: "DrNykterstein",
+          user2: "RebeccaHarris",
+        },
       },
-    },
-  }),
-  "json",
-);
+    }),
+  );
 
-example(
-  "users",
-  "addNoteForUser",
-  await localClient().POST("/api/user/{username}/note", {
-    params: {
-      path: {
-        username: "mary",
+  await example(
+    "users",
+    "autocompleteUsernames-object",
+    localClient().GET("/api/player/autocomplete", {
+      params: {
+        query: {
+          term: "bob",
+          object: true,
+        },
       },
-    },
-    body: {
-      text: "this is a private note",
-    },
-  }),
-);
+    }),
+  );
 
-example(
-  "users",
-  "getNotesForUser",
-  await localClient().GET("/api/user/{username}/note", {
-    params: {
-      path: {
-        username: "mary",
+  await example(
+    "users",
+    "autocompleteUsernames-list",
+    localClient().GET("/api/player/autocomplete", {
+      params: {
+        query: {
+          term: "bob",
+          object: false,
+        },
       },
-    },
-  }),
-);
+    }),
+  );
+
+  await example(
+    "users",
+    "addNoteForUser",
+    localClient().POST("/api/user/{username}/note", {
+      params: {
+        path: {
+          username: "mary",
+        },
+      },
+      body: {
+        text: "this is a private note",
+      },
+    }),
+  );
+
+  await example(
+    "users",
+    "getNotesForUser",
+    localClient().GET("/api/user/{username}/note", {
+      params: {
+        path: {
+          username: "mary",
+        },
+      },
+    }),
+  );
+}

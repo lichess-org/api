@@ -1,68 +1,64 @@
-import createClient from "openapi-fetch";
-import { example, readNdJson } from "./config";
-import { paths } from "@lichess-org/types";
+import { example, explorerClient, firstNdJson, streamTimeout } from "./config";
 
-const client = createClient<paths>({
-  baseUrl: "https://explorer.lichess.ovh",
-});
+export default async function openingExplorer() {
+  const client = explorerClient();
 
-example(
-  "openingExplorer",
-  "masters",
-  await client.GET("/masters", {
-    params: {
-      query: {
-        play: "d2d4,d7d5,c2c4,c7c6,c4d5",
+  await example(
+    "openingExplorer",
+    "masters",
+    client.GET("/masters", {
+      params: {
+        query: {
+          play: "d2d4,d7d5,c2c4,c7c6,c4d5",
+        },
       },
-    },
-  }),
-);
+    }),
+  );
 
-example(
-  "openingExplorer",
-  "lichess",
-  await client.GET("/lichess", {
-    params: {
-      query: {
-        variant: "standard",
-        play: "d2d4,d7d5,c2c4,c7c6,c4d5",
+  await example(
+    "openingExplorer",
+    "lichess",
+    client.GET("/lichess", {
+      params: {
+        query: {
+          variant: "standard",
+          play: "d2d4,d7d5,c2c4,c7c6,c4d5",
+        },
       },
-    },
-  }),
-);
+    }),
+  );
 
-const abortController = new AbortController();
-const signal = abortController.signal;
-await client
-  .GET("/player", {
-    params: {
-      query: {
-        player: "revoof",
-        color: "white",
-        play: "d2d4,d7d5",
-        recentGames: 1,
-      },
-    },
-    signal,
-    parseAs: "stream",
-  })
-  .then((response) => {
-    readNdJson(response.response, (line: any) => {
-      example("openingExplorer", "player", line);
-      abortController.abort();
-    });
-  });
+  // Progress is streamed while the player's games are indexed. The first line is enough.
+  await example(
+    "openingExplorer",
+    "player",
+    firstNdJson(
+      await client.GET("/player", {
+        params: {
+          query: {
+            player: "revoof",
+            color: "white",
+            play: "d2d4,d7d5",
+            recentGames: 1,
+          },
+        },
+        parseAs: "stream",
+        signal: streamTimeout(),
+      }),
+    ),
+  );
 
-example(
-  "openingExplorer",
-  "otbMasterGame",
-  await client.GET("/master/pgn/{gameId}", {
-    params: {
-      path: {
-        gameId: "aAbqI4ey",
+  await example(
+    "openingExplorer",
+    "otbMasterGame",
+    client.GET("/masters/pgn/{gameId}", {
+      params: {
+        path: {
+          gameId: "aAbqI4ey",
+        },
       },
-    },
-    parseAs: "text",
-  }),
-  "pgn",
-);
+      parseAs: "text",
+    }),
+    "pgn",
+  );
+}

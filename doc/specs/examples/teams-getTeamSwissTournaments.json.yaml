@@ -1,8 +1,8 @@
 value:
   {
-    "id": "soCKSXzl",
+    "id": "u9Q9AWiF",
     "createdBy": "lichess",
-    "startsAt": "2026-09-05T23:30:00Z",
+    "startsAt": "2026-09-22T23:30:00Z",
     "name": "Rapid Increment",
     "clock": { "limit": 480, "increment": 2 },
     "variant": "standard",
@@ -11,7 +11,7 @@ value:
     "nbPlayers": 0,
     "nbOngoing": 0,
     "status": "created",
-    "nextRound": { "at": "2026-09-05T23:30:00Z", "in": 337636 },
+    "nextRound": { "at": "2026-09-22T23:30:00Z", "in": 290244 },
     "verdicts":
       {
         "list":

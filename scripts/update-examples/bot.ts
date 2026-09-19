@@ -1,19 +1,17 @@
-import { example, prodClient, readNdJson } from "./config";
+import { example, firstNdJson, prodClient, streamTimeout } from "./config";
 
-const abortController = new AbortController();
-const signal = abortController.signal;
-
-await prodClient()
-  .GET("/api/bot/online", {
-    headers: {
-      Accept: "application/x-ndjson",
-    },
-    signal,
-    parseAs: "stream",
-  })
-  .then((response) =>
-    readNdJson(response.response, (line: any) => {
-      example("bot", "getOnlineBots", line);
-      abortController.abort();
-    }),
+export default async function bot() {
+  await example(
+    "bot",
+    "getOnlineBots",
+    firstNdJson(
+      await prodClient().GET("/api/bot/online", {
+        headers: {
+          Accept: "application/x-ndjson",
+        },
+        parseAs: "stream",
+        signal: streamTimeout(),
+      }),
+    ),
   );
+}

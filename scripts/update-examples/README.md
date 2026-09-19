@@ -1,30 +1,39 @@
 ## Update endpoint example responses
 
-These scripts make API calls to the Lichess endpoints and save the responses to files.
+These scripts make API calls to the Lichess endpoints and save the responses to `doc/specs/examples`.
 
 ```bash
-pnpm install
+bun install
 ```
 
-Then you can run individual scripts like this:
+Run all of the scripts:
 
 ```bash
-pnpx tsx account.ts
-pnpx tsx arenas.ts
-pnpx tsx bot.ts
-pnpx tsx broadcasts.ts
-pnpx tsx challenges.ts
-pnpx tsx external-engine.ts
-pnpx tsx fide.ts
-pnpx tsx games.ts
-pnpx tsx oauth.ts
-pnpx tsx opening-explorer.ts
-pnpx tsx puzzles.ts
-pnpx tsx relations.ts
-pnpx tsx simuls.ts
-pnpx tsx tablebase.ts
-pnpx tsx teams.ts
-pnpx tsx tsconfig.json
-pnpx tsx tv.ts
-pnpx tsx users.ts
+bun index.ts
 ```
+
+Or only some of them, by name:
+
+```bash
+bun index.ts account tv
+```
+
+Each script is a file in this directory: `account`, `arenas`, `bot`, `broadcasts`, `challenges`, `external-engine`, `fide`, `games`, `oauth`, `opening-explorer`, `puzzles`, `relations`, `simuls`, `tablebase`, `teams`, `tv`, `users`.
+
+A script that fails doesn't stop the others. The failures are listed at the end and the exit code is 1.
+
+### Requirements
+
+- Most scripts use a local lila at `http://localhost:8080` (lila-docker) as well as lichess.org.
+- `external-engine` also needs the external engine running at `http://localhost:9666`.
+- `opening-explorer` needs a lichess.org API token, which needs no scopes. Set `LICHESS_API_TOKEN`; Bun loads it from a `.env` file.
+
+### Afterwards
+
+Format the generated examples:
+
+```bash
+cd ../../doc && pnpm format
+```
+
+`bun run typecheck` checks the requests against the API types in `../../types` (run `pnpm gen` there after changing the spec), which catches an endpoint that has been renamed or removed.

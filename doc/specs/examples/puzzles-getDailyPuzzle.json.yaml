@@ -2,32 +2,26 @@ value:
   {
     "game":
       {
-        "id": "HxbFI25U",
-        "perf": { "key": "rapid", "name": "Rapid" },
+        "id": "A6LzIdcM",
+        "perf": { "key": "blitz", "name": "Blitz" },
         "rated": true,
         "players":
           [
-            {
-              "name": "Varjim",
-              "flair": "activity.lichess-horsey-yin-yang",
-              "id": "varjim",
-              "color": "white",
-              "rating": 1977,
-            },
-            { "name": "rish3", "id": "rish3", "color": "black", "rating": 2179 },
+            { "name": "akatot93", "id": "akatot93", "color": "white", "rating": 1526 },
+            { "name": "plenad", "id": "plenad", "color": "black", "rating": 1501 },
           ],
-        "pgn": "c4 Nf6 Nc3 g6 Nf3 Bg7 g3 d6 Bg2 O-O O-O e5 d3 Nbd7 Rb1 c6 e4 a5 a3 Nh5 Bg5 f6 Be3 Nc5 b4 Ne6 b5 Bd7 a4 Qe8 Qd2 f5 exf5 gxf5 Bh6 Rf7 Nh4 f4 Bxg7 Rxg7 Nf5 Rg5 Nxd6 Qg6 Nce4 fxg3 fxg3 Nef4 gxf4 Nxf4 Rxf4 exf4 Nxg5 Qxg5 Rf1 Qc5+ Kh1 Qxd6 bxc6 Bxc6 Rxf4 Qe5 Rg4+ Kh8 d4 Bxg2+ Rxg2 Qe4 Kg1 Qb1+ Kf2 Rf8+ Ke3",
-        "clock": "10+0",
+        "pgn": "e4 e5 Nf3 d5 Bc4 dxc4 Nxe5 Qe7 Nxc4 Qxe4+ Ne3 Bc5 d3 Qb4+ Nc3 Bxe3 Bxe3 Qxb2 Nd5 Qe5 c4 c6 Nf4 Qc3+ Bd2 Qe5+ Be3 Nf6 O-O Bg4 Qb3 b6 Rfe1 O-O d4 Qc7 h3 Bd7 d5 cxd5 Nxd5 Nxd5 cxd5 Qd6 Bd4 Na6 Qc3 f6 Be3 Rac8 Qd2 Nb4 Red1 Nc2 Rab1 Nxe3 Qxe3 Qe5 Qf3 Qd6 g4 Rfe8 Kg2 Rc5 a4 Re5 Rbc1 Rexd5 Rxc5 Rxd1 Qa8+ Kf7 Rc2 Rd2 Rc3 a5 Qa7 Qd5+ Kg3 Rd3+ Rxd3 Qxd3+ Kg2 Qd5+ f3 Qc6 Kg3 Kg6 Qa6 Qd6+ Kg2 Bxa4 Qe2 b5",
+        "clock": "5+0",
       },
     "puzzle":
       {
-        "id": "1Sqyb",
-        "rating": 1857,
-        "plays": 60048,
-        "solution": ["b1b3", "d2d3", "f8f3", "e3f3", "b3d3"],
-        "themes": ["deflection", "endgame", "crushing", "attraction", "long"],
-        "fen": "5r1k/1p5p/8/p7/P1PP4/4K3/3Q2RP/1q6 b - - 1 1",
-        "lastMove": "f2e3",
-        "initialPly": 72,
+        "id": "jNMwk",
+        "rating": 1911,
+        "plays": 42507,
+        "solution": ["e2e8", "g6g5", "h3h4", "g5f4", "e8e4"],
+        "themes": ["endgame", "long", "mateIn3"],
+        "fen": "8/6pp/3q1pk1/pp6/b5P1/5P1P/4Q1K1/8 w - - 0 1",
+        "lastMove": "b6b5",
+        "initialPly": 93,
       },
   }

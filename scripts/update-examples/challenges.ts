@@ -1,63 +1,78 @@
-import { example, localClient, readNdJson, sleep } from "./config";
+import { example, localClient, ok, streamEvents } from "./config";
 
-const opponent = "mary";
+export default async function challenges() {
+  const opponent = "mary";
 
-const newChallenge = await localClient().POST("/api/challenge/{username}", {
-  params: {
-    path: {
-      username: opponent,
-    },
-  },
-});
-
-example(
-  "challenges",
-  "listYourChallenges",
-  await localClient(opponent).GET("/api/challenge"),
-);
-
-example("challenges", "createChallenge", newChallenge);
-
-example(
-  "challenges",
-  "showOneChallenge",
-  await localClient(opponent).GET("/api/challenge/{challengeId}/show", {
-    params: {
-      path: {
-        challengeId: newChallenge.data!.id,
+  const newChallenge = ok(
+    await localClient().POST("/api/challenge/{username}", {
+      params: {
+        path: {
+          username: opponent,
+        },
       },
-    },
-  }),
-);
+    }),
+  );
 
-await (async () => {
+  await example(
+    "challenges",
+    "listYourChallenges",
+    localClient(opponent).GET("/api/challenge"),
+  );
+
+  await example("challenges", "createChallenge", newChallenge);
+
+  await example(
+    "challenges",
+    "showOneChallenge",
+    localClient(opponent).GET("/api/challenge/{challengeId}/show", {
+      params: {
+        path: {
+          challengeId: newChallenge.id,
+        },
+      },
+    }),
+  );
+
+  await playAndResign();
+  await abortAiGame();
+  await declineChallenge();
+  await cancelChallenge();
+
+  await example(
+    "challenges",
+    "challengeAi",
+    localClient().POST("/api/challenge/ai", {
+      body: {
+        level: 1,
+      },
+    }),
+  );
+
+  await example(
+    "challenges",
+    "openEndedChallenge",
+    localClient().POST("/api/challenge/open"),
+  );
+
+  await startClocksAndAddTime();
+  await adminChallengeTokens();
+}
+
+async function playAndResign() {
   const challenger = "jacob";
   const challengee = "aaron";
 
-  const abortController = new AbortController();
-  const signal = abortController.signal;
-  localClient(challenger)
-    .GET("/api/stream/event", {
-      headers: {
-        Accept: "application/x-ndjson",
-      },
-      signal,
-      parseAs: "stream",
-    })
-    .then((response) => {
-      readNdJson(response.response, (line: any) => {
-        if (line.type === "gameStart") {
-          example("stream", "gameStart", line, "json");
-        } else if (line.type === "gameFinish") {
-          example("stream", "gameFinish", line, "json");
-          abortController.abort();
-        }
-      });
-    });
+  const events = streamEvents(challenger, async (event) => {
+    if (event.type === "gameStart") {
+      await example("stream", "gameStart", event);
+    } else if (event.type === "gameFinish") {
+      await example("stream", "gameFinish", event);
+      return true;
+    }
+  });
 
-  const challengeToAccept = await localClient(challenger).POST(
-    "/api/challenge/{username}",
-    {
+  const challengeToAccept = ok(
+    await localClient(challenger).POST("/api/challenge/{username}", {
       params: {
         path: {
           username: challengee,
@@ -69,20 +84,20 @@ await (async () => {
         "clock.limit": 300,
         "clock.increment": 0,
       },
-    },
+    }),
   );
-  example(
+  await example(
     "challenges",
     "acceptChallenge",
-    await localClient(challengee).POST("/api/challenge/{challengeId}/accept", {
+    localClient(challengee).POST("/api/challenge/{challengeId}/accept", {
       params: {
         path: {
-          challengeId: challengeToAccept.data!.id,
+          challengeId: challengeToAccept.id,
         },
       },
     }),
   );
-  await sleep(1000);
+  await Bun.sleep(1000);
   const moves = [
     {
       player: challenger,
@@ -94,179 +109,141 @@ await (async () => {
     },
   ];
   for (const move of moves) {
-    await localClient(move.player).POST(
-      "/api/board/game/{gameId}/move/{move}",
-      {
-        params: {
-          path: {
-            gameId: challengeToAccept.data!.id,
-            move: move.move,
+    ok(
+      await localClient(move.player).POST(
+        "/api/board/game/{gameId}/move/{move}",
+        {
+          params: {
+            path: {
+              gameId: challengeToAccept.id,
+              move: move.move,
+            },
           },
         },
-      },
+      ),
     );
   }
-  await localClient(challenger).POST("/api/board/game/{gameId}/resign", {
-    params: {
-      path: {
-        gameId: challengeToAccept.data!.id,
+  ok(
+    await localClient(challenger).POST("/api/board/game/{gameId}/resign", {
+      params: {
+        path: {
+          gameId: challengeToAccept.id,
+        },
       },
-    },
-  });
-})();
+    }),
+  );
 
-await (async () => {
+  await events;
+}
+
+async function abortAiGame() {
   const challenger = "yulia";
 
-  const abortController = new AbortController();
-  const signal = abortController.signal;
-  localClient(challenger)
-    .GET("/api/stream/event", {
-      headers: {
-        Accept: "application/x-ndjson",
-      },
-      signal,
-      parseAs: "stream",
-    })
-    .then((response) => {
-      readNdJson(response.response, (line: any) => {
-        if (line.type === "gameStart") {
-          example("stream", "gameStart-ai", line, "json");
-        } else if (line.type === "gameFinish") {
-          example("stream", "gameFinish-ai", line, "json");
-          abortController.abort();
-        }
-      });
-    });
-
-  const challenge = await localClient(challenger).POST("/api/challenge/ai", {
-    body: {
-      level: 1,
-    },
+  const events = streamEvents(challenger, async (event) => {
+    if (event.type === "gameStart") {
+      await example("stream", "gameStart-ai", event);
+    } else if (event.type === "gameFinish") {
+      await example("stream", "gameFinish-ai", event);
+      return true;
+    }
   });
-  await localClient(challenger).POST("/api/board/game/{gameId}/abort", {
-    params: {
-      path: {
-        gameId: challenge.data!.id!,
+
+  const challenge = ok(
+    await localClient(challenger).POST("/api/challenge/ai", {
+      body: {
+        level: 1,
       },
-    },
+    }),
+  );
+  ok(
+    await localClient(challenger).POST("/api/board/game/{gameId}/abort", {
+      params: {
+        path: {
+          gameId: challenge.id!,
+        },
+      },
+    }),
+  );
+
+  await events;
+}
+
+async function declineChallenge() {
+  const events = streamEvents("gabriela", async (event) => {
+    if (event.type === "challenge") {
+      await example("stream", "challenge", event);
+    } else if (event.type === "challengeDeclined") {
+      await example("stream", "challengeDeclined", event);
+      return true;
+    }
   });
-})();
 
-await (async () => {
-  const abortController = new AbortController();
-  const signal = abortController.signal;
-  localClient("gabriela")
-    .GET("/api/stream/event", {
-      headers: {
-        Accept: "application/x-ndjson",
-      },
-      signal,
-      parseAs: "stream",
-    })
-    .then((response) => {
-      readNdJson(response.response, (line: any) => {
-        if (line.type === "challenge") {
-          example("stream", "challenge", line, "json");
-        } else if (line.type === "challengeDeclined") {
-          example("stream", "challengeDeclined", line, "json");
-          abortController.abort();
-        }
-      });
-    });
+  await Bun.sleep(1000);
 
-  await sleep(1000);
-
-  const challengeToDecline = await localClient("adriana").POST(
-    "/api/challenge/{username}",
-    {
+  const challengeToDecline = ok(
+    await localClient("adriana").POST("/api/challenge/{username}", {
       params: {
         path: {
           username: "gabriela",
         },
       },
-    },
+    }),
   );
-  example(
+  await example(
     "challenges",
     "declineChallenge",
-    await localClient("gabriela").POST("/api/challenge/{challengeId}/decline", {
+    localClient("gabriela").POST("/api/challenge/{challengeId}/decline", {
       params: {
         path: {
-          challengeId: challengeToDecline.data!.id,
+          challengeId: challengeToDecline.id,
         },
       },
     }),
   );
-})();
 
-await (async () => {
+  await events;
+}
+
+async function cancelChallenge() {
   const challenger = "elena";
   const challengee = "diego";
 
-  const abortController = new AbortController();
-  const signal = abortController.signal;
-  localClient(challengee)
-    .GET("/api/stream/event", {
-      headers: {
-        Accept: "application/x-ndjson",
-      },
-      signal,
-      parseAs: "stream",
-    })
-    .then((response) => {
-      readNdJson(response.response, (line: any) => {
-        if (line.type === "challengeCanceled") {
-          example("stream", "challengeCanceled", line, "json");
-          abortController.abort();
-        }
-      });
-    });
+  const events = streamEvents(challengee, async (event) => {
+    if (event.type === "challengeCanceled") {
+      await example("stream", "challengeCanceled", event);
+      return true;
+    }
+  });
 
-  await sleep(1000);
-  const challengeToCancel = await localClient(challenger).POST(
-    "/api/challenge/{username}",
-    {
+  await Bun.sleep(1000);
+
+  const challengeToCancel = ok(
+    await localClient(challenger).POST("/api/challenge/{username}", {
       params: {
         path: {
           username: challengee,
         },
       },
-    },
+    }),
   );
-  example(
+  await example(
     "challenges",
     "cancelChallenge",
-    await localClient(challenger).POST("/api/challenge/{challengeId}/cancel", {
+    localClient(challenger).POST("/api/challenge/{challengeId}/cancel", {
       params: {
         path: {
-          challengeId: challengeToCancel.data!.id,
+          challengeId: challengeToCancel.id,
         },
       },
     }),
   );
-})();
 
-example(
-  "challenges",
-  "challengeAi",
-  await localClient().POST("/api/challenge/ai", {
-    body: {
-      level: 1,
-    },
-  }),
-);
+  await events;
+}
 
-example(
-  "challenges",
-  "openEndedChallenge",
-  await localClient().POST("/api/challenge/open"),
-);
-
-await (async () => {
-  const challenge = await localClient("david").POST(
-    "/api/challenge/{username}",
-    {
+async function startClocksAndAddTime() {
+  const challenge = ok(
+    await localClient("david").POST("/api/challenge/{username}", {
       params: {
         path: {
           username: "patricia",
@@ -277,23 +254,25 @@ await (async () => {
         "clock.limit": 300,
         "clock.increment": 0,
       },
-    },
+    }),
   );
-  await localClient("patricia").POST("/api/challenge/{challengeId}/accept", {
-    params: {
-      path: {
-        challengeId: challenge.data!.id,
-      },
-    },
-  });
-
-  example(
-    "challenges",
-    "startClocks",
-    await localClient().POST("/api/challenge/{gameId}/start-clocks", {
+  ok(
+    await localClient("patricia").POST("/api/challenge/{challengeId}/accept", {
       params: {
         path: {
-          gameId: challenge.data!.id,
+          challengeId: challenge.id,
+        },
+      },
+    }),
+  );
+
+  await example(
+    "challenges",
+    "startClocks",
+    localClient().POST("/api/challenge/{gameId}/start-clocks", {
+      params: {
+        path: {
+          gameId: challenge.id,
         },
         query: {
           token1: "lip_david",
@@ -303,30 +282,32 @@ await (async () => {
     }),
   );
 
-  example(
+  await example(
     "challenges",
     "addTimeToOpponent",
-    await localClient("david").POST("/api/round/{gameId}/add-time/{seconds}", {
+    localClient("david").POST("/api/round/{gameId}/add-time/{seconds}", {
       params: {
         path: {
-          gameId: challenge.data!.id,
+          gameId: challenge.id,
           seconds: 60,
         },
       },
     }),
   );
-})();
+}
 
-await (async () => {
-  const tokens = await localClient("admin").POST("/api/token/admin-challenge", {
-    body: {
-      users: "bobby,mary,boris",
-      description: "created by admin",
-    },
-  });
+async function adminChallengeTokens() {
+  const tokens = ok(
+    await localClient("admin").POST("/api/token/admin-challenge", {
+      body: {
+        users: "bobby,mary,boris",
+        description: "created by admin",
+      },
+    }),
+  );
   const redacted: Record<string, string> = {};
-  Object.keys(tokens.data!).forEach((k) => {
+  Object.keys(tokens).forEach((k) => {
     redacted[k] = `lip_${k}_secret`;
   });
-  example("challenges", "adminChallengeTokens", redacted);
-})();
+  await example("challenges", "adminChallengeTokens", redacted);
+}

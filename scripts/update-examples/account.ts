@@ -1,47 +1,47 @@
-import { example, localClient } from "./config";
+import { example, localClient, ok } from "./config";
 
-example("account", "getMyProfile", await localClient().GET("/api/account"));
+export default async function account() {
+  await example("account", "getMyProfile", localClient().GET("/api/account"));
 
-example(
-  "account",
-  "getMyEmailAddress",
-  await localClient().GET("/api/account/email"),
-);
+  await example(
+    "account",
+    "getMyEmailAddress",
+    localClient().GET("/api/account/email"),
+  );
 
-await (async () => {
-  const prefs = await localClient().GET("/api/account/preferences");
-  if (prefs.data?.prefs?.bgImg && !prefs.data.prefs.bgImg.includes("http")) {
-    prefs.data.prefs.bgImg = `https://lichess1.org${prefs.data.prefs.bgImg}`;
+  const prefs = ok(await localClient().GET("/api/account/preferences"));
+  if (prefs.prefs?.bgImg && !prefs.prefs.bgImg.includes("http")) {
+    prefs.prefs.bgImg = `https://lichess1.org${prefs.prefs.bgImg}`;
   }
-  example("account", "getMyPreferences", prefs);
-})();
+  await example("account", "getMyPreferences", prefs);
 
-example(
-  "account",
-  "getMyKidModeStatus",
-  await localClient().GET("/api/account/kid"),
-);
+  await example(
+    "account",
+    "getMyKidModeStatus",
+    localClient().GET("/api/account/kid"),
+  );
 
-example(
-  "account",
-  "setMyKidModeStatus",
-  await localClient().POST("/api/account/kid", {
-    params: {
-      query: {
-        v: true,
+  await example(
+    "account",
+    "setMyKidModeStatus",
+    localClient().POST("/api/account/kid", {
+      params: {
+        query: {
+          v: true,
+        },
       },
-    },
-  }),
-);
+    }),
+  );
 
-example(
-  "account",
-  "getMyTimeline",
-  await localClient().GET("/api/timeline", {
-    params: {
-      query: {
-        since: 0,
+  // Kid mode would otherwise stay on: it restricts bobby for the scripts that run after this one,
+  // and the next run would record getMyKidModeStatus as `true`.
+  ok(
+    await localClient().POST("/api/account/kid", {
+      params: {
+        query: {
+          v: false,
+        },
       },
-    },
-  }),
-);
+    }),
+  );
+}

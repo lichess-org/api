@@ -7,14 +7,13 @@ value:
         {
           "tour":
             {
-              "id": "dg5B2feY",
+              "id": "XYvM74ex",
               "name": "Bobby's Tournament",
               "slug": "bobbys-tournament",
               "info": { "format": "5-round Swiss", "location": "Chess Club" },
-              "createdAt": 1788313347527,
-              "url": "https://lichess.org/broadcast/bobbys-tournament/dg5B2feY",
-              "communityOwner":
-                { "name": "Bobby", "flair": "nature.spiral-shell", "patron": true, "patronColor": 1, "id": "bobby" },
+              "createdAt": 1789829548938,
+              "url": "https://lichess.org/broadcast/bobbys-tournament/XYvM74ex",
+              "communityOwner": { "name": "Bobby", "patron": true, "patronColor": 1, "id": "bobby" },
             },
         },
       ],

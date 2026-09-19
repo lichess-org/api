@@ -1,54 +1,56 @@
 import { example, localClient, prodClient } from "./config";
 
-example(
-  "teams",
-  "getTeamSwissTournaments",
-  await prodClient().GET("/api/team/{teamId}/swiss", {
-    params: {
-      path: {
-        teamId: "lichess-swiss",
+export default async function teams() {
+  await example(
+    "teams",
+    "getTeamSwissTournaments",
+    prodClient().GET("/api/team/{teamId}/swiss", {
+      params: {
+        path: {
+          teamId: "lichess-swiss",
+        },
+        query: {
+          max: 1,
+        },
       },
-      query: {
-        max: 1,
-      },
-    },
-  }),
-);
+    }),
+  );
 
-example(
-  "teams",
-  "getSingleTeam",
-  await prodClient().GET("/api/team/{teamId}", {
-    params: {
-      path: {
-        teamId: "lichess-swiss",
+  await example(
+    "teams",
+    "getSingleTeam",
+    prodClient().GET("/api/team/{teamId}", {
+      params: {
+        path: {
+          teamId: "lichess-swiss",
+        },
       },
-    },
-  }),
-);
+    }),
+  );
 
-example("teams", "getPopularTeams", await prodClient().GET("/api/team/all"));
+  await example("teams", "getPopularTeams", prodClient().GET("/api/team/all"));
 
-example(
-  "teams",
-  "teamsOfPlayer",
-  await localClient().GET("/api/team/of/{username}", {
-    params: {
-      path: {
-        username: "bobby",
+  await example(
+    "teams",
+    "teamsOfPlayer",
+    localClient().GET("/api/team/of/{username}", {
+      params: {
+        path: {
+          username: "bobby",
+        },
       },
-    },
-  }),
-);
+    }),
+  );
 
-example(
-  "teams",
-  "searchTeams",
-  await prodClient().GET("/api/team/search", {
-    params: {
-      query: {
-        text: "coders",
+  await example(
+    "teams",
+    "searchTeams",
+    prodClient().GET("/api/team/search", {
+      params: {
+        query: {
+          text: "coders",
+        },
       },
-    },
-  }),
-);
+    }),
+  );
+}
