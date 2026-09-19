@@ -3,8 +3,8 @@ value:
     "type": "gameStart",
     "game":
       {
-        "fullId": "qYusNjFYHcYH",
-        "gameId": "qYusNjFY",
+        "fullId": "YfjTIV43miXK",
+        "gameId": "YfjTIV43",
         "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
         "color": "white",
         "lastMove": "",
@@ -17,8 +17,8 @@ value:
         "hasMoved": false,
         "opponent": { "id": null, "username": "Stockfish level 1", "ai": 1 },
         "isMyTurn": true,
-        "rating": 2270,
+        "rating": 2419,
         "compat": { "bot": false, "board": true },
-        "id": "qYusNjFY",
+        "id": "YfjTIV43",
       },
   }

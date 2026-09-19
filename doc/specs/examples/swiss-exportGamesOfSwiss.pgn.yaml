@@ -1,0 +1,20 @@
+value: |
+  [Event "Classical Increment"]
+  [Site "https://lichess.org/OsGgJSyo"]
+  [Date "2026.09.19"]
+  [Round "-"]
+  [White "aslanliosman10"]
+  [Black "AahirRotha_2017"]
+  [Result "1-0"]
+  [GameId "OsGgJSyo"]
+  [UTCDate "2026.09.19"]
+  [UTCTime "08:30:00"]
+  [WhiteElo "1884"]
+  [BlackElo "1073"]
+  [WhiteRatingDiff "+0"]
+  [BlackRatingDiff "-1"]
+  [Variant "Standard"]
+  [TimeControl "1500+3"]
+  [Termination "Normal"]
+
+  1. d4 e5 2. dxe5 Nc6 3. Nf3 d5 4. exd6 cxd6 1-0

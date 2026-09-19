@@ -1,9 +1,9 @@
 value:
   [
     {
-      "from": { "name": "Bobby", "patron": true, "patronColor": 1, "id": "bobby" },
-      "to": { "name": "Mary", "flair": "symbols.helix-logo", "id": "mary" },
+      "from": { "name": "Bobby", "flair": "people.ballet-dancer-medium-skin-tone", "id": "bobby" },
+      "to": { "name": "Mary", "flair": "nature.crab", "id": "mary" },
       "text": "this is a private note",
-      "date": 1789829575289,
+      "date": 1789846005170,
     },
   ]

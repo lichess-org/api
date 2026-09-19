@@ -27,6 +27,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+          examples:
+            default:
+              $ref: "../../examples/arenas-terminateArena.json.yaml"
     "400":
       description: Terminating the tournament failed.
       content:

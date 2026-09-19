@@ -1,4 +1,13 @@
-import { example, firstNdJson, localClient, ok, prodClient } from "./config";
+import {
+  cleanUp,
+  example,
+  firstNdJson,
+  firstPgnGames,
+  localClient,
+  ok,
+  prodClient,
+  streamTimeout,
+} from "./config";
 
 export default async function arenas() {
   await example(
@@ -31,23 +40,82 @@ export default async function arenas() {
     }),
   );
 
-  await example(
-    "arenas",
-    "updateArena",
-    localClient().POST("/api/tournament/{id}", {
-      params: {
-        path: {
-          id: newArena.id,
+  // The arena is terminated in the end, and also when something goes wrong before that
+  try {
+    await example(
+      "arenas",
+      "updateArena",
+      localClient().POST("/api/tournament/{id}", {
+        params: {
+          path: {
+            id: newArena.id,
+          },
         },
-      },
-      body: {
-        name: "Updated Arena",
-        clockTime: 5,
-        clockIncrement: 0,
-        minutes: 60,
-      },
-    }),
-  );
+        body: {
+          name: "Updated Arena",
+          clockTime: 5,
+          clockIncrement: 0,
+          minutes: 60,
+        },
+      }),
+    );
+
+    await example(
+      "arenas",
+      "joinArena",
+      localClient("mary").POST("/api/tournament/{id}/join", {
+        params: {
+          path: {
+            id: newArena.id,
+          },
+        },
+      }),
+    );
+
+    await example(
+      "arenas",
+      "withdrawFromArena",
+      localClient("mary").POST("/api/tournament/{id}/withdraw", {
+        params: {
+          path: {
+            id: newArena.id,
+          },
+        },
+      }),
+    );
+
+    await example(
+      "arenas",
+      "terminateArena",
+      localClient().POST("/api/tournament/{id}/terminate", {
+        params: {
+          path: {
+            id: newArena.id,
+          },
+        },
+      }),
+    );
+  } catch (error) {
+    await cleanUp(
+      () =>
+        localClient("mary").POST("/api/tournament/{id}/withdraw", {
+          params: {
+            path: {
+              id: newArena.id,
+            },
+          },
+        }),
+      () =>
+        localClient().POST("/api/tournament/{id}/terminate", {
+          params: {
+            path: {
+              id: newArena.id,
+            },
+          },
+        }),
+    );
+    throw error;
+  }
 
   await example(
     "arenas",
@@ -69,6 +137,50 @@ export default async function arenas() {
         parseAs: "stream",
       }),
     ),
+  );
+
+  await example(
+    "arenas",
+    "exportGamesOfArena",
+    firstNdJson(
+      await prodClient().GET("/api/tournament/{id}/games", {
+        params: {
+          path: {
+            id: "may25bta",
+          },
+          query: {
+            clocks: false,
+            opening: true,
+            division: true,
+          },
+        },
+        headers: {
+          Accept: "application/x-ndjson",
+        },
+        parseAs: "stream",
+        signal: streamTimeout(),
+      }),
+    ),
+  );
+
+  await example(
+    "arenas",
+    "exportGamesOfArena",
+    firstPgnGames(
+      await prodClient().GET("/api/tournament/{id}/games", {
+        params: {
+          path: {
+            id: "may25bta",
+          },
+        },
+        headers: {
+          Accept: "application/x-chess-pgn",
+        },
+        parseAs: "stream",
+        signal: streamTimeout(),
+      }),
+    ),
+    "pgn",
   );
 
   await example(

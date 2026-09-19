@@ -72,6 +72,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/StudyImportPgnChapters.yaml"
+          examples:
+            default:
+              $ref: "../../examples/studies-importPgnIntoStudy.json.yaml"
     "400":
       description: The creation of the chapter(s) failed.
       content:

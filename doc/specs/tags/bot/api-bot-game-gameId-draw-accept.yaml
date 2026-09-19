@@ -37,6 +37,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+          examples:
+            default:
+              $ref: "../../examples/bot-handleDrawOffer.json.yaml"
     "400":
       description: The draw offering failed.
       content:

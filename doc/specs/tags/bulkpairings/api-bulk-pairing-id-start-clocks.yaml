@@ -30,6 +30,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+          examples:
+            default:
+              $ref: "../../examples/bulkPairings-startClocksOfBulkPairing.json.yaml"
     "404":
       description: The bulk pairing was not found.
       content:

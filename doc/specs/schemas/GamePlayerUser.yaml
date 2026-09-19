@@ -36,6 +36,9 @@ properties:
     required: [inaccuracy, mistake, blunder, acpl]
   team:
     type: string
+  berserk:
+    type: boolean
+    description: Whether the player berserked. Only present in Arena tournament games.
 
 required:
   - user

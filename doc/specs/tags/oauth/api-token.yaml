@@ -47,13 +47,10 @@ post:
             properties:
               token_type:
                 type: string
-                example: Bearer
               access_token:
                 type: string
-                example: lio_pLwAbN7lFPklzY2m8lTOI1DGApS84u57
               expires_in:
                 type: integer
-                example: 31536000
             required:
               - token_type
               - access_token

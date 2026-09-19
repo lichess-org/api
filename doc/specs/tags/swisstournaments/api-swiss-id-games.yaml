@@ -94,6 +94,13 @@ get:
         application/x-chess-pgn:
           schema:
             $ref: "../../schemas/GamePgn.yaml"
+          examples:
+            pgn:
+              $ref: "../../examples/swiss-exportGamesOfSwiss.pgn.yaml"
         application/x-ndjson:
           schema:
             $ref: "../../schemas/GameJson.yaml"
+
+          examples:
+            default:
+              $ref: "../../examples/swiss-exportGamesOfSwiss.json.yaml"

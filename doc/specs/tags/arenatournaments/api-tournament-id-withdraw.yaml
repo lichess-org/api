@@ -28,6 +28,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+          examples:
+            default:
+              $ref: "../../examples/arenas-withdrawFromArena.json.yaml"
     "400":
       description: Pausing/leaving the tournament failed.
       content:

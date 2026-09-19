@@ -17,17 +17,13 @@ properties:
     properties:
       currentPage:
         type: integer
-        example: 4
       maxPerPage:
         type: integer
-        example: 20
       currentPageResults:
         type: array
         items:
           $ref: "./BroadcastWithLastRound.yaml"
       previousPage:
         type: [integer, "null"]
-        example: 3
       nextPage:
         type: [integer, "null"]
-        example: 5

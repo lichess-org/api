@@ -1,0 +1,11 @@
+value:
+  {
+    "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+    "knodes": 203656,
+    "depth": 60,
+    "pvs":
+      [
+        { "moves": "g8f6 e1h1 f6e4 f1e1 e4d6 f3e5 c6e5 e1e5 f8e7 b5f1", "cp": 18 },
+        { "moves": "a7a6 b5a4 g8f6 e1h1 f8e7 f1e1 b7b5 a4b3 e8h8 a2a4", "cp": 19 },
+      ],
+  }

@@ -2,30 +2,24 @@ value:
   {
     "game":
       {
-        "id": "FQYw8BhY",
+        "id": "DLK5gsJj",
         "perf": { "key": "blitz", "name": "Blitz" },
         "rated": true,
         "players":
           [
-            { "name": "Fidesty", "id": "fidesty", "color": "white", "rating": 1791 },
-            {
-              "name": "cachopaliza",
-              "flair": "smileys.cowboy-hat-face",
-              "id": "cachopaliza",
-              "color": "black",
-              "rating": 1750,
-            },
+            { "name": "Deernes6", "id": "deernes6", "color": "white", "rating": 1858 },
+            { "name": "Marcenko", "id": "marcenko", "color": "black", "rating": 1827 },
           ],
-        "pgn": "e4 c5 Nc3 d6 d4 cxd4 Qxd4 Nf6 e5 Nc6 Bb5 dxe5 Qxd8+ Kxd8 Bxc6 bxc6 Bg5 h6 Bxf6 exf6 O-O-O+ Kc7 Nf3 Be6 Ne4 Bb4 a3 Ba5 Nc5 Bf5 Nh4 Bh7 f3 Rhd8 g3 Rxd1+ Rxd1 Rd8",
+        "pgn": "d4 d5 Nf3 e5 dxe5 f6 exf6 Nxf6 g3 Bd6 Bg2 Bg4 O-O Nc6 c4 Qd7 Qc2 dxc4 Rd1 O-O-O Bf4 Bh3 Bxd6 cxd6 Qxc4 Bxg2 Kxg2 Kb8 Nc3 Qf5 e4",
         "clock": "3+0",
       },
     "puzzle":
       {
-        "id": "l4l6n",
-        "rating": 1625,
-        "plays": 4068,
-        "solution": ["d1d8", "c7d8", "c5b7", "d8c7", "b7a5"],
-        "themes": ["endgame", "advantage", "attraction", "fork", "long"],
-        "initialPly": 37,
+        "id": "QYQYF",
+        "rating": 1703,
+        "plays": 3062,
+        "solution": ["f5f3", "g2f3", "c6e5", "f3g2", "e5c4"],
+        "themes": ["middlegame", "advantage", "attraction", "fork", "long", "sacrifice"],
+        "initialPly": 30,
       },
   }

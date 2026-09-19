@@ -1,48 +1,68 @@
 value:
   {
     "days": 30,
-    "global": { "nb": 11, "firstWins": 6, "replayWins": 0, "puzzleRatingAvg": 1403, "performance": 1448 },
+    "global": { "nb": 11, "firstWins": 5, "replayWins": 0, "puzzleRatingAvg": 1595, "performance": 1550 },
     "themes":
       {
-        "endgame":
-          {
-            "theme": "Endgame",
-            "results": { "nb": 6, "firstWins": 2, "replayWins": 0, "puzzleRatingAvg": 1522, "performance": 1355 },
-          },
         "middlegame":
           {
             "theme": "Middlegame",
-            "results": { "nb": 4, "firstWins": 4, "replayWins": 0, "puzzleRatingAvg": 1302, "performance": 1802 },
+            "results": { "nb": 5, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1778, "performance": 1478 },
           },
-        "fork":
+        "endgame":
           {
-            "theme": "Fork",
-            "results": { "nb": 3, "firstWins": 2, "replayWins": 0, "puzzleRatingAvg": 1121, "performance": 1288 },
+            "theme": "Endgame",
+            "results": { "nb": 4, "firstWins": 2, "replayWins": 0, "puzzleRatingAvg": 1408, "performance": 1408 },
           },
         "discoveredAttack":
           {
             "theme": "Discovered attack",
-            "results": { "nb": 2, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1667, "performance": 1167 },
-          },
-        "trappedPiece":
-          {
-            "theme": "Trapped piece",
-            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1500, "performance": 1000 },
+            "results": { "nb": 2, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1686, "performance": 1686 },
           },
         "opening":
           {
             "theme": "Opening",
-            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1089, "performance": 589 },
+            "results": { "nb": 2, "firstWins": 2, "replayWins": 0, "puzzleRatingAvg": 1513, "performance": 2013 },
+          },
+        "deflection":
+          {
+            "theme": "Deflection",
+            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1258, "performance": 758 },
+          },
+        "advancedPawn":
+          {
+            "theme": "Advanced pawn",
+            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 2035, "performance": 2535 },
+          },
+        "rookEndgame":
+          {
+            "theme": "Rook endgame",
+            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1530, "performance": 1030 },
+          },
+        "fork":
+          {
+            "theme": "Fork",
+            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 811, "performance": 1311 },
+          },
+        "trappedPiece":
+          {
+            "theme": "Trapped piece",
+            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1527, "performance": 2027 },
+          },
+        "pin":
+          {
+            "theme": "Pin",
+            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1568, "performance": 1068 },
           },
         "hangingPiece":
           {
             "theme": "Hanging piece",
-            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1228, "performance": 1728 },
+            "results": { "nb": 1, "firstWins": 0, "replayWins": 0, "puzzleRatingAvg": 1258, "performance": 758 },
           },
-        "defensiveMove":
+        "promotion":
           {
-            "theme": "Defensive move",
-            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 1785, "performance": 2285 },
+            "theme": "Promotion",
+            "results": { "nb": 1, "firstWins": 1, "replayWins": 0, "puzzleRatingAvg": 2035, "performance": 2535 },
           },
       },
   }

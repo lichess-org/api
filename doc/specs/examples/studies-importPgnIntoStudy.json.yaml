@@ -1,0 +1,19 @@
+value:
+  {
+    "chapters":
+      [
+        {
+          "id": "fkobApbY",
+          "name": "Paul Morphy - Duke Karl / Count Isouard",
+          "players": [{ "name": "Paul Morphy" }, { "name": "Duke Karl / Count Isouard" }],
+          "status": "1-0",
+        },
+        {
+          "id": "rZ7WFNfF",
+          "name": "Alice - Bob",
+          "players": [{ "name": "Alice" }, { "name": "Bob" }],
+          "status": "1-0",
+        },
+      ],
+    "error": null,
+  }

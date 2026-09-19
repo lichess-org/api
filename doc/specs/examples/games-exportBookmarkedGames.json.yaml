@@ -1,0 +1,20 @@
+value:
+  {
+    "id": "SKgfPsiL",
+    "rated": false,
+    "variant": "standard",
+    "speed": "blitz",
+    "perf": "blitz",
+    "createdAt": 1789845996343,
+    "lastMoveAt": 1789845996619,
+    "status": "resign",
+    "source": "friend",
+    "players":
+      {
+        "white": { "user": { "name": "Fatima", "flair": "objects.test-tube", "id": "fatima" }, "rating": 1109 },
+        "black": { "user": { "name": "Iryna", "patron": true, "patronColor": 1, "id": "iryna" }, "rating": 1744 },
+      },
+    "winner": "black",
+    "moves": "e4 e5",
+    "clock": { "initial": 300, "increment": 0, "totalTime": 300 },
+  }

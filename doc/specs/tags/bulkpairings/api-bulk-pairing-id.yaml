@@ -27,6 +27,9 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/BulkPairing.yaml"
+          examples:
+            default:
+              $ref: "../../examples/bulkPairings-getBulkPairing.json.yaml"
     "404":
       description: The bulk pairing was not found.
       content:
@@ -64,6 +67,9 @@ delete:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+          examples:
+            default:
+              $ref: "../../examples/bulkPairings-cancelBulkPairing.json.yaml"
     "404":
       description: The bulk pairing to delete was not found.
       content:

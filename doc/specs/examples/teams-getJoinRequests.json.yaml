@@ -1,0 +1,71 @@
+value:
+  [
+    {
+      "request":
+        {
+          "userId": "hui",
+          "teamId": "private-chess-club",
+          "message": "I would like to join your team, please let me in!",
+          "date": 1789846002419,
+        },
+      "user":
+        {
+          "id": "hui",
+          "username": "Hui",
+          "perfs":
+            {
+              "bullet": { "games": 25, "rating": 938, "rd": 49, "prog": 29 },
+              "blitz": { "games": 1463, "rating": 963, "rd": 58, "prog": -25 },
+              "rapid": { "games": 35, "rating": 1005, "rd": 87, "prog": 26 },
+              "classical": { "games": 988, "rating": 1014, "rd": 46, "prog": 24 },
+              "correspondence": { "games": 14, "rating": 1022, "rd": 52, "prog": 1 },
+              "chess960": { "games": 366, "rating": 961, "rd": 103, "prog": 4 },
+              "kingOfTheHill": { "games": 114, "rating": 948, "rd": 71, "prog": -48 },
+              "threeCheck": { "games": 1065, "rating": 1096, "rd": 112, "prog": 7, "prov": true },
+              "antichess": { "games": 388, "rating": 1070, "rd": 102, "prog": 28 },
+              "atomic": { "games": 37, "rating": 1015, "rd": 81, "prog": 42 },
+              "horde": { "games": 470, "rating": 1001, "rd": 53, "prog": 17 },
+              "crazyhouse": { "games": 423, "rating": 970, "rd": 48, "prog": -2 },
+              "puzzle": { "games": 111, "rating": 956, "rd": 64, "prog": 29 },
+            },
+          "flair": "people.nose-medium-light-skin-tone",
+          "createdAt": 1782714876137,
+          "seenAt": 1786633280477,
+          "playTime": { "total": 14666, "tv": 0 },
+        },
+    },
+    {
+      "request":
+        {
+          "userId": "gabriela",
+          "teamId": "private-chess-club",
+          "message": "I would like to join your team, please let me in!",
+          "date": 1789846002460,
+        },
+      "user":
+        {
+          "id": "gabriela",
+          "username": "Gabriela",
+          "perfs":
+            {
+              "bullet": { "games": 113, "rating": 1617, "rd": 59, "prog": 5 },
+              "blitz": { "games": 97, "rating": 1490, "rd": 60, "prog": 10 },
+              "rapid": { "games": 45, "rating": 1411, "rd": 59, "prog": -16 },
+              "classical": { "games": 5, "rating": 1472, "rd": 103, "prog": -5 },
+              "correspondence": { "games": 31, "rating": 1459, "rd": 47, "prog": 27 },
+              "chess960": { "games": 25, "rating": 1385, "rd": 85, "prog": -34 },
+              "kingOfTheHill": { "games": 24, "rating": 1550, "rd": 92, "prog": -50 },
+              "threeCheck": { "games": 22, "rating": 1604, "rd": 49, "prog": -6 },
+              "antichess": { "games": 285, "rating": 1407, "rd": 98, "prog": 7 },
+              "atomic": { "games": 1247, "rating": 1610, "rd": 53, "prog": -4 },
+              "horde": { "games": 388, "rating": 1443, "rd": 70, "prog": 20 },
+              "crazyhouse": { "games": 10, "rating": 1560, "rd": 58, "prog": 8 },
+              "puzzle": { "games": 56, "rating": 1486, "rd": 48, "prog": 5 },
+            },
+          "flair": "people.woman-dark-skin-tone-blond-hair",
+          "createdAt": 1788959801232,
+          "seenAt": 1789845992028,
+          "playTime": { "total": 10286, "tv": 0 },
+        },
+    },
+  ]

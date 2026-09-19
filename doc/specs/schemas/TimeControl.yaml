@@ -10,7 +10,6 @@ oneOf:
       increment:
         type: integer
       show:
-        example: "5+2"
         type: string
     required:
       - type

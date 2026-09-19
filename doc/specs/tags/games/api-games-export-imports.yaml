@@ -18,3 +18,7 @@ get:
         application/x-chess-pgn:
           schema:
             $ref: "../../schemas/GamePgn.yaml"
+
+          examples:
+            pgn:
+              $ref: "../../examples/games-exportImportedGames.pgn.yaml"

@@ -40,3 +40,7 @@ post:
         application/x-ndjson:
           schema:
             $ref: "../../schemas/GameStream.yaml"
+
+          examples:
+            default:
+              $ref: "../../examples/games-streamGamesOfUsers.json.yaml"

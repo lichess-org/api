@@ -1,1 +1,1 @@
-value: { "result": [{ "name": "Bobby", "patron": true, "patronColor": 1, "id": "bobby", "online": true }] }
+value: { "result": [{ "name": "Bobby", "flair": "people.ballet-dancer-medium-skin-tone", "id": "bobby" }] }

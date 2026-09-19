@@ -4,10 +4,10 @@ value:
     "username": "maia1",
     "perfs":
       {
-        "bullet": { "games": 229666, "rating": 1596, "rd": 45, "prog": -5 },
-        "blitz": { "games": 437419, "rating": 1354, "rd": 45, "prog": -18 },
-        "rapid": { "games": 621952, "rating": 1534, "rd": 45, "prog": -4 },
-        "classical": { "games": 159919, "rating": 1631, "rd": 45, "prog": 2 },
+        "bullet": { "games": 229689, "rating": 1603, "rd": 45, "prog": 2 },
+        "blitz": { "games": 437509, "rating": 1352, "rd": 45, "prog": -11 },
+        "rapid": { "games": 622117, "rating": 1517, "rd": 45, "prog": 5 },
+        "classical": { "games": 159958, "rating": 1648, "rd": 45, "prog": 2 },
         "correspondence": { "games": 265, "rating": 1527, "rd": 225, "prog": -18, "prov": true },
       },
     "title": "BOT",
@@ -19,6 +19,6 @@ value:
         "realName": "Maia Chess 1100",
         "links": "https://maiachess.com\r\nhttps://github.com/CSSLab/maia-chess\r\nhttps://twitter.com/maiachess",
       },
-    "seenAt": 1789829404590,
-    "playTime": { "total": 1353381977, "tv": 3032114, "human": 1084062761 },
+    "seenAt": 1789845689010,
+    "playTime": { "total": 1353611440, "tv": 3032114, "human": 1084283226 },
   }

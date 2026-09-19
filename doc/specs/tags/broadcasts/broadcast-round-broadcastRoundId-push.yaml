@@ -52,5 +52,3 @@ post:
             properties:
               error:
                 type: string
-            example:
-              error: "Cannot parse moves"

@@ -11,7 +11,7 @@ value:
     "nbPlayers": 0,
     "nbOngoing": 0,
     "status": "created",
-    "nextRound": { "at": "2026-09-22T23:30:00Z", "in": 290244 },
+    "nextRound": { "at": "2026-09-22T23:30:00Z", "in": 273800 },
     "verdicts":
       {
         "list":

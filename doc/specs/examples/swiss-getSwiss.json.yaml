@@ -1,0 +1,26 @@
+value:
+  {
+    "id": "YxwjQGYu",
+    "createdBy": "lichess",
+    "startsAt": "2026-09-19T08:30:00Z",
+    "name": "Classical Increment",
+    "clock": { "limit": 1500, "increment": 3 },
+    "variant": "standard",
+    "round": 5,
+    "nbRounds": 5,
+    "nbPlayers": 39,
+    "nbOngoing": 0,
+    "status": "finished",
+    "verdicts":
+      {
+        "list":
+          [
+            { "condition": "≥ 5 rated Classical games", "verdict": "ok" },
+            { "condition": "Play your games", "verdict": "ok" },
+          ],
+        "accepted": true,
+      },
+    "rated": true,
+    "stats":
+      { "games": 36, "whiteWins": 34, "blackWins": 32, "draws": 6, "byes": 3, "absences": 101, "averageRating": 1662 },
+  }

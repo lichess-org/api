@@ -2,11 +2,11 @@ value:
   {
     "nbPlayers": 0,
     "duels": [],
-    "secondsToStart": 299,
+    "secondsToStart": 300,
     "standing": { "page": 1, "players": [] },
-    "id": "lIwjcVl6",
+    "id": "aaFmhzut",
     "createdBy": "bobby",
-    "startsAt": "2026-09-19T14:57:26.893Z",
+    "startsAt": "2026-09-19T19:29:18.065Z",
     "system": "arena",
     "fullName": "Updated Arena Arena",
     "minutes": 60,
@@ -18,8 +18,8 @@ value:
     "verdicts": { "list": [{ "condition": "Bot players are not allowed", "verdict": "ok" }], "accepted": true },
     "quote":
       {
-        "text": "White lost because he failed to remember the right continuation and had to think up the moves himself.",
-        "author": "Siegbert Tarrasch",
+        "text": "Chess strategy as such today is still in its diapers, despite Tarrasch's statement 'We live today in a beautiful time of progress in all fields'. Not even the slightest attempt has been made to explore and formulate the laws of chess strategy.",
+        "author": "Aron Nimzowitsch",
       },
     "myUsername": "Bobby",
   }

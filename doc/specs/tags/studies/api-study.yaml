@@ -75,7 +75,7 @@ post:
                 type: string
           examples:
             default:
-              value: { "id": "9kze56XR" }
+              $ref: "../../examples/studies-createStudy.json.yaml"
     "400":
       description: The creation of the Study failed.
       content:

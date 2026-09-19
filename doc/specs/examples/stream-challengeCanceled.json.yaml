@@ -3,11 +3,11 @@ value:
     "type": "challengeCanceled",
     "challenge":
       {
-        "id": "4p6aFLQ0",
-        "url": "https://lichess.org/4p6aFLQ0",
+        "id": "GCluxyas",
+        "url": "https://lichess.org/GCluxyas",
         "status": "canceled",
-        "challenger": { "name": "Elena", "title": "GM", "flair": "nature.cloud", "id": "elena", "rating": 2328 },
-        "destUser": { "name": "Diego", "id": "diego", "rating": 1855, "online": true },
+        "challenger": { "name": "Elena", "title": "CM", "id": "elena", "rating": 2407 },
+        "destUser": { "name": "Diego", "id": "diego", "rating": 1858, "online": true },
         "variant": { "key": "standard", "name": "Standard", "short": "Std" },
         "rated": false,
         "speed": "correspondence",

@@ -1,60 +1,162 @@
 value:
   {
-    "byTeam":
-      [
-        { "last": 1785681992878, "team": { "id": "lichess-chess960", "name": "Lichess Chess960" }, "unread": 0 },
-        {
-          "last": 1785594732863,
-          "team": { "flair": "objects.hammer-and-wrench", "id": "coders", "name": "Coders" },
-          "unread": 6,
-        },
-      ],
     "updates":
       {
         "currentPage": 1,
+        "maxPerPage": 6,
         "currentPageResults":
           [
             {
               "msg":
                 {
-                  "date": 1785681992878,
-                  "id": "3gJtsRcB",
-                  "sender":
+                  "id": "AAAAAAAI",
+                  "team":
                     {
-                      "name": "thibault",
-                      "flair": "nature.seedling",
-                      "patron": true,
-                      "patronColor": 10,
-                      "id": "thibault",
+                      "id": "the-fischermen",
+                      "name": "The Fischermen",
+                      "flair": "people.older-person-medium-skin-tone",
                     },
-                  "team": { "id": "lichess-chess960", "name": "Lichess Chess960" },
-                  "text": "New regulations for the 2022 FIDE World Fischer Random Chess Championship",
+                  "text": "Let's get everyone to at least one classical game this week.",
+                  "sender": { "name": "Guang", "id": "guang" },
+                  "date": 1789801389222,
                 },
-              "seen": true,
+              "seen": false,
             },
             {
               "msg":
                 {
-                  "date": 1785594732863,
-                  "id": "CjLyCrW9",
-                  "sender":
+                  "id": "AAAAAAA/",
+                  "team":
                     {
-                      "name": "thibault",
-                      "flair": "nature.seedling",
-                      "patron": true,
-                      "patronColor": 10,
-                      "id": "thibault",
+                      "id": "i-dont-think-he-knows-about-second-piece-sac-pip",
+                      "name": "I don't think he knows about second piece sac, Pip",
+                      "flair": "people.person-with-headscarf-light-skin-tone",
                     },
-                  "team": { "flair": "objects.hammer-and-wrench", "id": "coders", "name": "Coders" },
-                  "text": "Some fascinating update about the coders team",
+                  "text": "Reminder to keep games friendly, no berserking on your teammates!",
+                  "sender": { "name": "Abubakar", "flair": "people.woman-playing-water-polo", "id": "abubakar" },
+                  "date": 1789761198748,
+                },
+              "seen": false,
+            },
+            {
+              "msg":
+                {
+                  "id": "AAAAAAA8",
+                  "team":
+                    {
+                      "id": "i-dont-think-he-knows-about-second-piece-sac-pip",
+                      "name": "I don't think he knows about second piece sac, Pip",
+                      "flair": "people.person-with-headscarf-light-skin-tone",
+                    },
+                  "text": "Thanks for being patient while we sort out the tournament schedule.",
+                  "sender": { "name": "Rudra", "id": "rudra" },
+                  "date": 1789725062874,
+                },
+              "seen": false,
+            },
+            {
+              "msg":
+                {
+                  "id": "AAAAAAA6",
+                  "team":
+                    {
+                      "id": "i-dont-think-he-knows-about-second-piece-sac-pip",
+                      "name": "I don't think he knows about second piece sac, Pip",
+                      "flair": "people.person-with-headscarf-light-skin-tone",
+                    },
+                  "text": "Great turnout in last night's match, thanks to everyone who showed up!",
+                  "sender": { "name": "Abubakar", "flair": "people.woman-playing-water-polo", "id": "abubakar" },
+                  "date": 1789707064909,
+                },
+              "seen": false,
+            },
+            {
+              "msg":
+                {
+                  "id": "AAAAAAC4",
+                  "team": { "id": "open-chess-club", "name": "Open Chess Club" },
+                  "text": "Nice work in the last league match, on to the next round!",
+                  "sender": { "name": "Mary", "flair": "nature.crab", "id": "mary" },
+                  "date": 1789662367160,
+                },
+              "seen": false,
+            },
+            {
+              "msg":
+                {
+                  "id": "AAAAAAAq",
+                  "team": { "id": "the-prep-leaks-for-itself", "name": "The prep leaks for itself" },
+                  "text": "Quiet week ahead, use it to study some endgames!",
+                  "sender": { "name": "Marcel", "patron": true, "patronColor": 1, "id": "marcel" },
+                  "date": 1789637365558,
                 },
               "seen": false,
             },
           ],
-        "maxPerPage": 6,
-        "nbPages": 8,
-        "nbResults": 46,
-        "nextPage": 2,
         "previousPage": null,
+        "nextPage": 2,
+        "nbResults": 66,
+        "nbPages": 11,
       },
+    "byTeam":
+      [
+        {
+          "team": { "id": "the-fischermen", "name": "The Fischermen", "flair": "people.older-person-medium-skin-tone" },
+          "unread": 2,
+          "last": 1789801389222,
+        },
+        {
+          "team":
+            {
+              "id": "i-dont-think-he-knows-about-second-piece-sac-pip",
+              "name": "I don't think he knows about second piece sac, Pip",
+              "flair": "people.person-with-headscarf-light-skin-tone",
+            },
+          "unread": 7,
+          "last": 1789761198748,
+        },
+        { "team": { "id": "open-chess-club", "name": "Open Chess Club" }, "unread": 2, "last": 1789662367160 },
+        {
+          "team": { "id": "the-prep-leaks-for-itself", "name": "The prep leaks for itself" },
+          "unread": 9,
+          "last": 1789637365558,
+        },
+        {
+          "team":
+            {
+              "id": "stockfishing-for-compliments",
+              "name": "Stockfishing for compliments",
+              "flair": "people.man-kneeling-facing-right-medium-skin-tone",
+            },
+          "unread": 1,
+          "last": 1789615092731,
+        },
+        { "team": { "id": "ignorance-is-blitz", "name": "Ignorance is Blitz" }, "unread": 9, "last": 1789475563924 },
+        {
+          "team": { "id": "captain-james-t-pirc", "name": "Captain James T. Pirc", "flair": "objects.knot" },
+          "unread": 10,
+          "last": 1789412973532,
+        },
+        {
+          "team":
+            {
+              "id": "the-neal-bruce-experience",
+              "name": "The Neal Bruce Experience",
+              "flair": "objects.pound-banknote",
+            },
+          "unread": 2,
+          "last": 1789405669058,
+        },
+        {
+          "team":
+            {
+              "id": "the-nonspecific-allegation-gambit",
+              "name": "The Non-Specific Allegation Gambit",
+              "flair": "people.couple-with-heart-person-person-medium-dark-skin-tone-dark-skin-tone",
+            },
+          "unread": 9,
+          "last": 1789167681569,
+        },
+        { "team": { "id": "private-chess-club", "name": "Private Chess Club" }, "unread": 2, "last": 1788119328606 },
+      ],
   }

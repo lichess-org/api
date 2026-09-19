@@ -25,3 +25,7 @@ get:
         application/json:
           schema:
             $ref: "../../schemas/SwissTournament.yaml"
+
+          examples:
+            default:
+              $ref: "../../examples/swiss-getSwiss.json.yaml"

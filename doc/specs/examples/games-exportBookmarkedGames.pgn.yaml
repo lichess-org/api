@@ -1,0 +1,18 @@
+value: |
+  [Event "casual blitz game"]
+  [Site "https://lichess.org/SKgfPsiL"]
+  [Date "2026.09.19"]
+  [Round "-"]
+  [White "Fatima"]
+  [Black "Iryna"]
+  [Result "0-1"]
+  [GameId "SKgfPsiL"]
+  [UTCDate "2026.09.19"]
+  [UTCTime "19:26:36"]
+  [WhiteElo "1109"]
+  [BlackElo "1744"]
+  [Variant "Standard"]
+  [TimeControl "300+0"]
+  [Termination "Normal"]
+
+  1. e4 e5 0-1

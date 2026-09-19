@@ -4,6 +4,3 @@ properties:
 
 required:
   - error
-
-example:
-  error: "Not found."

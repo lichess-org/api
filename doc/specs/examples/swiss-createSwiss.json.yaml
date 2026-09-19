@@ -1,0 +1,17 @@
+value:
+  {
+    "id": "PKLsb7MA",
+    "createdBy": "mary",
+    "startsAt": "2026-09-19T19:36:39.788405872Z",
+    "name": "Weekly Swiss",
+    "clock": { "limit": 300, "increment": 0 },
+    "variant": "standard",
+    "round": 0,
+    "nbRounds": 5,
+    "nbPlayers": 0,
+    "nbOngoing": 0,
+    "status": "created",
+    "nextRound": { "at": "2026-09-19T19:36:39.788389159Z", "in": 600 },
+    "verdicts": { "list": [], "accepted": true },
+    "rated": true,
+  }

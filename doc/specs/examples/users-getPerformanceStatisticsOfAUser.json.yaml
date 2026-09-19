@@ -1,8 +1,8 @@
 value:
   {
     "user": { "name": "thibault" },
-    "perf": { "glicko": { "rating": 1698.93, "deviation": 45.01 }, "nb": 11843, "progress": -18 },
-    "rank": 190977,
+    "perf": { "glicko": { "rating": 1711.14, "deviation": 45 }, "nb": 11845, "progress": -13 },
+    "rank": 183905,
     "percentile": 69,
     "stat":
       {
@@ -82,22 +82,27 @@ value:
           },
         "count":
           {
-            "all": 12330,
-            "rated": 11721,
-            "win": 5823,
+            "all": 12332,
+            "rated": 11723,
+            "win": 5825,
             "loss": 5919,
             "draw": 588,
             "tour": 1601,
             "berserk": 52,
             "opAvg": 1707.29,
-            "seconds": 3896499,
+            "seconds": 3897494,
             "disconnects": 9,
           },
         "resultStreak":
           {
             "win":
               {
-                "cur": { "v": 0 },
+                "cur":
+                  {
+                    "v": 2,
+                    "from": { "at": "2026-09-19T19:00:32.416Z", "gameId": "Shl1Ng1B" },
+                    "to": { "at": "2026-09-19T19:17:36.98Z", "gameId": "tyYImi2E" },
+                  },
                 "max":
                   {
                     "v": 11,
@@ -107,12 +112,7 @@ value:
               },
             "loss":
               {
-                "cur":
-                  {
-                    "v": 4,
-                    "from": { "at": "2026-09-19T12:58:59.865Z", "gameId": "4l74RiEH" },
-                    "to": { "at": "2026-09-19T13:44:32.482Z", "gameId": "9DIRPeZe" },
-                  },
+                "cur": { "v": 0 },
                 "max":
                   {
                     "v": 19,
@@ -125,7 +125,12 @@ value:
           {
             "nb":
               {
-                "cur": { "v": 0 },
+                "cur":
+                  {
+                    "v": 2,
+                    "from": { "at": "2026-09-19T19:00:32.416Z", "gameId": "Shl1Ng1B" },
+                    "to": { "at": "2026-09-19T19:17:36.98Z", "gameId": "tyYImi2E" },
+                  },
                 "max":
                   {
                     "v": 115,
@@ -135,7 +140,12 @@ value:
               },
             "time":
               {
-                "cur": { "v": 0 },
+                "cur":
+                  {
+                    "v": 995,
+                    "from": { "at": "2026-09-19T19:00:32.416Z", "gameId": "Shl1Ng1B" },
+                    "to": { "at": "2026-09-19T19:17:36.98Z", "gameId": "tyYImi2E" },
+                  },
                 "max":
                   {
                     "v": 23231,
@@ -143,7 +153,7 @@ value:
                     "to": { "at": "2024-10-18T20:54:30.256Z", "gameId": "1HeDeGbe" },
                   },
               },
-            "lastDate": "2026-09-19T13:44:32.482Z",
+            "lastDate": "2026-09-19T19:17:36.98Z",
           },
       },
   }

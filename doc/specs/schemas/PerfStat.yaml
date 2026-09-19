@@ -284,6 +284,28 @@ properties:
                 properties:
                   v:
                     type: integer
+                  from:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                  to:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
                 required:
                   - v
               max:
@@ -326,6 +348,28 @@ properties:
                 properties:
                   v:
                     type: integer
+                  from:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
+                  to:
+                    type: object
+                    properties:
+                      at:
+                        type: string
+                        format: date-time
+                      gameId:
+                        type: string
+                    required:
+                      - at
+                      - gameId
                 required:
                   - v
               max:

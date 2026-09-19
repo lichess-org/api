@@ -24,6 +24,10 @@ get:
             type: string
             default: "'*'"
       content:
-        application/x-ndjson:
+        application/json:
           schema:
             $ref: "../../schemas/SpectatorGameChat.yaml"
+
+          examples:
+            default:
+              $ref: "../../examples/games-fetchSpectatorChat.json.yaml"

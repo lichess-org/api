@@ -36,3 +36,7 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+
+          examples:
+            default:
+              $ref: "../../examples/games-addGameIdsToStream.json.yaml"

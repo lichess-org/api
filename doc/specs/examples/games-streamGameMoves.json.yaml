@@ -1,0 +1,23 @@
+value:
+  [
+    {
+      "id": "q7ZvsdUF",
+      "variant": { "key": "standard", "name": "Standard", "short": "Std" },
+      "speed": "blitz",
+      "perf": "blitz",
+      "rated": true,
+      "source": "arena",
+      "createdAt": 1514505150384,
+      "tournamentId": "winter17",
+      "players":
+        {
+          "white":
+            { "user": { "name": "Lance5500", "title": "LM", "id": "lance5500" }, "rating": 2389, "ratingDiff": 4 },
+          "black": { "user": { "name": "TryingHard87", "id": "tryinghard87" }, "rating": 2498, "ratingDiff": -4 },
+        },
+    },
+    { "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "wc": 300, "bc": 300 },
+    { "fen": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq - 0 1", "lm": "d2d4", "wc": 150, "bc": 300 },
+    { "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2", "lm": "d7d5", "wc": 150, "bc": 300 },
+    { "fen": "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 2", "lm": "c2c4", "wc": 149, "bc": 300 },
+  ]

@@ -1,0 +1,31 @@
+value:
+  {
+    "id": "XVfy5rp3",
+    "rated": false,
+    "variant": "standard",
+    "speed": "blitz",
+    "perf": "blitz",
+    "createdAt": 1789845990622,
+    "lastMoveAt": 1789845990622,
+    "status": "started",
+    "source": "api",
+    "players":
+      {
+        "white":
+          { "user": { "name": "Sai", "flair": "people.woman-construction-worker", "id": "sai" }, "rating": 1673 },
+        "black":
+          {
+            "user":
+              {
+                "name": "Nushi",
+                "flair": "people.person-medium-light-skin-tone-beard",
+                "patron": true,
+                "patronColor": 1,
+                "id": "nushi",
+              },
+            "rating": 1248,
+          },
+      },
+    "moves": "",
+    "clock": { "initial": 300, "increment": 0, "totalTime": 300 },
+  }

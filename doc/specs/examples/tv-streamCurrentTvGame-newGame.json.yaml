@@ -3,18 +3,30 @@ value:
     "t": "featured",
     "d":
       {
-        "id": "1sA8pXbf",
-        "orientation": "white",
+        "id": "dJ5VOmhf",
+        "orientation": "black",
         "players":
           [
-            { "color": "white", "user": { "name": "DONOTREDEEM", "id": "donotredeem" }, "rating": 3038, "seconds": 60 },
+            {
+              "color": "white",
+              "user":
+                { "name": "ArtemChesSRU", "title": "CM", "flair": "smileys.money-mouth-face", "id": "artemchessru" },
+              "rating": 3151,
+              "seconds": 30,
+            },
             {
               "color": "black",
-              "user": { "name": "Lapinews", "title": "GM", "id": "lapinews" },
-              "rating": 2859,
-              "seconds": 60,
+              "user":
+                {
+                  "name": "chess-art-us",
+                  "title": "GM",
+                  "flair": "people.deaf-man-light-skin-tone",
+                  "id": "chess-art-us",
+                },
+              "rating": 3254,
+              "seconds": 30,
             },
           ],
-        "fen": "1r4k1/6P1/1q1p3p/3Pn2P/p2p1Q2/8/PPK5/5B1R w - - 1 28",
+        "fen": "r1b1r1k1/1pp2pp1/1pn2n1p/3qp3/8/2PP1N1P/PP3PP1/RN1QRBK1 w - - 0 13",
       },
   }

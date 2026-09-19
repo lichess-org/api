@@ -33,6 +33,9 @@ post:
         application/json:
           schema:
             $ref: "../../schemas/Ok.yaml"
+          examples:
+            default:
+              $ref: "../../examples/messaging-sendPrivateMessage.json.yaml"
     "400":
       description: The sending of the private message has failed.
       content:

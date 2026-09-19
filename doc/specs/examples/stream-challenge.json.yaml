@@ -3,25 +3,16 @@ value:
     "type": "challenge",
     "challenge":
       {
-        "id": "8Pjhyi1M",
-        "url": "https://lichess.org/8Pjhyi1M",
+        "id": "iOskobMC",
+        "url": "https://lichess.org/iOskobMC",
         "status": "created",
-        "challenger":
-          {
-            "name": "Adriana",
-            "flair": "objects.closed-mailbox-with-raised-flag",
-            "id": "adriana",
-            "rating": 735,
-            "provisional": true,
-          },
+        "challenger": { "name": "Adriana", "patron": true, "patronColor": 1, "id": "adriana", "rating": 548 },
         "destUser":
           {
             "name": "Gabriela",
-            "flair": "people.woman-and-man-holding-hands-light-skin-tone-medium-skin-tone",
-            "patron": true,
-            "patronColor": 1,
+            "flair": "objects.mobile-phone-with-arrow",
             "id": "gabriela",
-            "rating": 1472,
+            "rating": 1459,
             "online": true,
           },
         "variant": { "key": "standard", "name": "Standard", "short": "Std" },
