@@ -4,12 +4,12 @@
   "license": "AGPL-3.0-or-later",
   "type": "module",
   "devDependencies": {
-    "@redocly/cli": "^2.53.3",
-    "@scalar/api-reference": "^1.69.2",
-    "@scalar/cli": "^2.5.1",
+    "@redocly/cli": "^2.54.3",
+    "@scalar/api-reference": "^1.72.1",
+    "@scalar/cli": "^2.5.2",
     "@stoplight/spectral-cli": "^6.16.3",
     "@stoplight/spectral-rulesets": "^1.22.7",
-    "prettier": "^3.9.8",
+    "prettier": "^3.9.9",
     "typescript": "^6.0.3",
     "vite": "^7.3.6",
     "vite-plugin-restart": "^2.0.0"

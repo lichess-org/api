@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "prettier": "^3.9.8"
+    "prettier": "^3.9.9"
   },
   "peerDependencies": {
     "typescript": "^7.0.2"
