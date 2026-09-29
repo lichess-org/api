@@ -6386,6 +6386,7 @@ export interface components {
       name: string;
       title?: components["schemas"]["Title"] | null;
       rating?: number;
+      ratingDiff?: number;
       provisional?: boolean;
     };
     GameStateEvent: {
