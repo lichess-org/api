@@ -12,6 +12,8 @@ properties:
       - type: "null"
   rating:
     type: integer
+  ratingDiff:
+    type: integer
   provisional:
     type: boolean
 
