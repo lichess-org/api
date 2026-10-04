@@ -1,7 +1,10 @@
 type: object
 properties:
   name:
-    type: string
+    oneOf:
+      - type: string
+        enum: [puzzle]
+      - $ref: "./PerfType.yaml"
   points:
     type: array
     items:

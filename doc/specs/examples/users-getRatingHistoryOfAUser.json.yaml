@@ -1,8 +1,8 @@
 value:
   [
-    { "name": "UltraBullet", "points": [] },
+    { "name": "ultraBullet", "points": [] },
     {
-      "name": "Bullet",
+      "name": "bullet",
       "points":
         [
           [2026, 5, 25, 1318],
@@ -18,7 +18,7 @@ value:
         ],
     },
     {
-      "name": "Blitz",
+      "name": "blitz",
       "points":
         [
           [2026, 5, 25, 569],
@@ -53,7 +53,7 @@ value:
         ],
     },
     {
-      "name": "Rapid",
+      "name": "rapid",
       "points":
         [
           [2026, 5, 25, 1371],
@@ -81,7 +81,7 @@ value:
         ],
     },
     {
-      "name": "Classical",
+      "name": "classical",
       "points":
         [
           [2026, 5, 25, 1461],
@@ -104,7 +104,7 @@ value:
         ],
     },
     {
-      "name": "Correspondence",
+      "name": "correspondence",
       "points":
         [
           [2026, 5, 25, 1099],
@@ -120,7 +120,7 @@ value:
         ],
     },
     {
-      "name": "Crazyhouse",
+      "name": "crazyhouse",
       "points":
         [
           [2026, 5, 25, 1024],
@@ -143,7 +143,7 @@ value:
         ],
     },
     {
-      "name": "Chess960",
+      "name": "chess960",
       "points":
         [
           [2026, 5, 25, 1280],
@@ -171,7 +171,7 @@ value:
         ],
     },
     {
-      "name": "King of the Hill",
+      "name": "kingOfTheHill",
       "points":
         [
           [2026, 5, 25, 1138],
@@ -190,7 +190,7 @@ value:
         ],
     },
     {
-      "name": "Three-Check",
+      "name": "threeCheck",
       "points":
         [
           [2026, 5, 25, 1086],
@@ -211,7 +211,7 @@ value:
         ],
     },
     {
-      "name": "Antichess",
+      "name": "antichess",
       "points":
         [
           [2026, 5, 25, 717],
@@ -232,7 +232,7 @@ value:
         ],
     },
     {
-      "name": "Atomic",
+      "name": "atomic",
       "points":
         [
           [2026, 5, 25, 511],
@@ -281,7 +281,7 @@ value:
         ],
     },
     {
-      "name": "Horde",
+      "name": "horde",
       "points":
         [
           [2026, 5, 25, 1087],
@@ -296,9 +296,9 @@ value:
           [2026, 8, 14, 1021],
         ],
     },
-    { "name": "Racing Kings", "points": [] },
+    { "name": "racingKings", "points": [] },
     {
-      "name": "Puzzles",
+      "name": "puzzle",
       "points":
         [
           [2026, 5, 25, 1072],
