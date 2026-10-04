@@ -4220,11 +4220,6 @@ export interface components {
       blocking?: boolean;
       fideId?: number;
     };
-    RatingHistoryEntry: {
-      name?: string;
-      points?: number[][];
-    };
-    RatingHistory: components["schemas"]["RatingHistoryEntry"][];
     /** @enum {string} */
     PerfType:
       | "ultraBullet"
@@ -4241,6 +4236,11 @@ export interface components {
       | "kingOfTheHill"
       | "racingKings"
       | "threeCheck";
+    RatingHistoryEntry: {
+      name?: "puzzle" | components["schemas"]["PerfType"];
+      points?: number[][];
+    };
+    RatingHistory: components["schemas"]["RatingHistoryEntry"][];
     LightUser: {
       id: string;
       name: string;
