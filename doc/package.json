@@ -11,7 +11,7 @@
     "@stoplight/spectral-rulesets": "^1.22.7",
     "prettier": "^3.9.9",
     "typescript": "^6.0.3",
-    "vite": "^7.3.6",
+    "vite": "^7.3.7",
     "vite-plugin-restart": "^2.0.0"
   },
   "scripts": {
