@@ -2043,8 +2043,8 @@ packages:
     resolution: {integrity: sha512-nbfWpyRMcMrPMmDwJB+dhX/eiaPKtc2RB+0QZskqJ3WjRA/FDS0e9hZrx8EC/lbEv8gXy98FcDbNa/dspAaJMg==}
     engines: {node: '>=12.0.0'}
 
-  hono@4.13.10:
-    resolution: {integrity: sha512-dQuLsa5oO+47QVMVMaaD9cIv8ctmVtK1iRvwWngkfloFJMeFeuoUFDswIqZGxmGX3hrRzREgEArjkK9OgsQEhA==}
+  hono@4.13.13:
+    resolution: {integrity: sha512-CQ46U0ZkAGmbT/4UxdzzGJpacP2IeKgY4a5/tOI9AABbpOMfK739wfDXmv1usCk+3RkKj1hQy4/fjhiwa2xlrA==}
     engines: {node: '>=16.9.0'}
 
   hookable@6.1.2:
@@ -3732,18 +3732,18 @@ snapshots:
       '@tanstack/vue-virtual': 3.13.39(vue@3.5.43(typescript@6.0.3))
       vue: 3.5.43(typescript@6.0.3)
 
-  '@hono/node-server@1.19.17(hono@4.13.10)':
+  '@hono/node-server@1.19.17(hono@4.13.13)':
     dependencies:
-      hono: 4.13.10
+      hono: 4.13.13
 
-  '@hono/node-server@2.0.1(hono@4.13.10)':
+  '@hono/node-server@2.0.1(hono@4.13.13)':
     dependencies:
-      hono: 4.13.10
+      hono: 4.13.13
 
-  '@hono/node-ws@1.3.1(@hono/node-server@2.0.1(hono@4.13.10))(hono@4.13.10)':
+  '@hono/node-ws@1.3.1(@hono/node-server@2.0.1(hono@4.13.13))(hono@4.13.13)':
     dependencies:
-      '@hono/node-server': 2.0.1(hono@4.13.10)
-      hono: 4.13.10
+      '@hono/node-server': 2.0.1(hono@4.13.13)
+      hono: 4.13.13
       ws: 8.22.0
     transitivePeerDependencies:
       - bufferutil
@@ -4206,12 +4206,12 @@ snapshots:
     dependencies:
       '@clack/prompts': 0.7.0
       '@fastify/static': 10.1.4
-      '@hono/node-server': 2.0.1(hono@4.13.10)
+      '@hono/node-server': 2.0.1(hono@4.13.13)
       '@quobix/vacuum': 0.30.1(supports-color@7.2.0)
       '@scalar/asyncapi-upgrader': 0.1.10
       '@scalar/asyncapi-validator': 0.1.2
       '@scalar/json-magic': 0.14.0
-      '@scalar/mock-server': 0.14.2(@hono/node-server@2.0.1(hono@4.13.10))(typescript@6.0.3)
+      '@scalar/mock-server': 0.14.2(@hono/node-server@2.0.1(hono@4.13.13))(typescript@6.0.3)
       '@scalar/oas-utils': 0.20.1(typescript@6.0.3)
       '@scalar/openapi-parser': 0.29.3
       '@scalar/openapi-to-markdown': 1.0.0(supports-color@7.2.0)(typescript@6.0.3)
@@ -4232,7 +4232,7 @@ snapshots:
       esbuild: 0.28.1
       fastify: 5.8.5
       get-port: 7.2.0
-      hono: 4.13.10
+      hono: 4.13.13
       ignore: 7.0.5
       jsonc-parser: 3.2.1
       nanoid: 6.0.1
@@ -4372,10 +4372,10 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@scalar/mock-server@0.14.2(@hono/node-server@2.0.1(hono@4.13.10))(typescript@6.0.3)':
+  '@scalar/mock-server@0.14.2(@hono/node-server@2.0.1(hono@4.13.13))(typescript@6.0.3)':
     dependencies:
       '@faker-js/faker': 10.4.0
-      '@hono/node-ws': 1.3.1(@hono/node-server@2.0.1(hono@4.13.10))(hono@4.13.10)
+      '@hono/node-ws': 1.3.1(@hono/node-server@2.0.1(hono@4.13.13))(hono@4.13.13)
       '@scalar/helpers': 0.12.0
       '@scalar/json-magic': 0.14.0
       '@scalar/openapi-types': 0.9.6
@@ -4384,7 +4384,7 @@ snapshots:
       '@scalar/workspace-store': 0.62.0(typescript@6.0.3)
       ajv: 8.20.0
       ajv-formats: 3.0.1(ajv@8.20.0)
-      hono: 4.13.10
+      hono: 4.13.13
       quickjs-emscripten: 0.32.0
       yaml: 2.9.1
     transitivePeerDependencies:
@@ -4593,9 +4593,9 @@ snapshots:
 
   '@scalar/void-server@2.5.10':
     dependencies:
-      '@hono/node-server': 1.19.17(hono@4.13.10)
+      '@hono/node-server': 1.19.17(hono@4.13.13)
       '@scalar/helpers': 0.12.0
-      hono: 4.13.10
+      hono: 4.13.13
       js-base64: 3.9.4
       ws: 8.22.0
     transitivePeerDependencies:
@@ -5956,7 +5956,7 @@ snapshots:
 
   highlight.js@11.12.0: {}
 
-  hono@4.13.10: {}
+  hono@4.13.13: {}
 
   hookable@6.1.2: {}
 
