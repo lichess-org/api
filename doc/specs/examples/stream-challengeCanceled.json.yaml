@@ -4,7 +4,7 @@ value:
     "challenge":
       {
         "id": "GCluxyas",
-        "url": "https://lichess.org/GCluxyas",
+        "url": "https://lichess.org/game/GCluxyas",
         "status": "canceled",
         "challenger": { "name": "Elena", "title": "CM", "id": "elena", "rating": 2407 },
         "destUser": { "name": "Diego", "id": "diego", "rating": 1858, "online": true },

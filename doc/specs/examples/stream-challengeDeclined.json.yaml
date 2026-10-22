@@ -4,7 +4,7 @@ value:
     "challenge":
       {
         "id": "iOskobMC",
-        "url": "https://lichess.org/iOskobMC",
+        "url": "https://lichess.org/game/iOskobMC",
         "status": "declined",
         "challenger": { "name": "Adriana", "patron": true, "patronColor": 1, "id": "adriana", "rating": 548 },
         "destUser":
