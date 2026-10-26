@@ -12,8 +12,8 @@ importers:
         specifier: ^7.13.0
         version: 7.13.0(typescript@6.0.3)
       prettier:
-        specifier: ^3.9.9
-        version: 3.9.9
+        specifier: ^3.9.10
+        version: 3.9.10
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -34,8 +34,8 @@ packages:
   '@redocly/config@0.22.0':
     resolution: {integrity: sha512-gAy93Ddo01Z3bHuVdPWfCwzgfaYgMdaZPcfL7JZ7hWJoK9V0lXDbigTWkhiPFAaLWzbOJ+kbUQG1+XwIm0KRGQ==}
 
-  '@redocly/openapi-core@1.34.20':
-    resolution: {integrity: sha512-ypeBZ/6BKXR9+7/TtbKhbl4UgD7raHhPS12oknlKno2A8+lnFkxIwiE/Aklu6L2cd/ioH+fCWuMxi9/p3EyAPw==}
+  '@redocly/openapi-core@1.34.22':
+    resolution: {integrity: sha512-dEyx4uHh6Pc6ZkdU9Xe8rA4h12Odq6QKU/fqseBn07xwVwskhHiF3KHhqmw5BR+jAiFTvKTmwCafFql/k1pSzA==}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
 
   agent-base@7.1.4:
@@ -119,8 +119,8 @@ packages:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
 
-  prettier@3.9.9:
-    resolution: {integrity: sha512-Z/CJHIkdujO/OtN7nXUii0Rf3VT5SRuhjBA82Xvu2XhBUgX3nhP67T0LHceBdQLex7OOFGTox+Q5Yg8Jk2Qivg==}
+  prettier@3.9.10:
+    resolution: {integrity: sha512-skGHTH1Yb9QvaTC4hWnRTzEYtCpApF0UMBPz+t/0ZPzP8ihefo/btKd+QA7pUE0fEwA1SbS/NmhyEcstdXOIdA==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -141,8 +141,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  uri-js-replace@1.0.1:
-    resolution: {integrity: sha512-W+C9NWNLFOoBI2QWDp4UT9pv65r2w5Cx+3sTYFvtMdDBxkKt1syCqsUdSFAChbEe1uK5TfS04wt/nGwmaeIQ0g==}
+  uri-js-replace@1.0.2:
+    resolution: {integrity: sha512-VeBBt/nMxedczht3KDL2yBBMJqIxpCQLMZp3UJ1otcWwUHdQW4IiyHpJivExzSK+FdxTowRfGL4FmwDqH9+S8Q==}
 
   yaml-ast-parser@0.0.43:
     resolution: {integrity: sha512-2PTINUwsRqSd+s8XxKaJWQlUuEMHJQyEuh2edBbW8KNJz0SJPwUSD2zRWqezFEdN7IzAgeuYHFUCF7o8zRdZ0A==}
@@ -166,11 +166,11 @@ snapshots:
       fast-deep-equal: 3.1.3
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
-      uri-js-replace: 1.0.1
+      uri-js-replace: 1.0.2
 
   '@redocly/config@0.22.0': {}
 
-  '@redocly/openapi-core@1.34.20(supports-color@10.2.2)':
+  '@redocly/openapi-core@1.34.22(supports-color@10.2.2)':
     dependencies:
       '@redocly/ajv': 8.11.2
       '@redocly/config': 0.22.0
@@ -235,7 +235,7 @@ snapshots:
 
   openapi-typescript@7.13.0(typescript@6.0.3):
     dependencies:
-      '@redocly/openapi-core': 1.34.20(supports-color@10.2.2)
+      '@redocly/openapi-core': 1.34.22(supports-color@10.2.2)
       ansi-colors: 4.1.3
       change-case: 5.4.4
       parse-json: 8.3.0
@@ -253,7 +253,7 @@ snapshots:
 
   pluralize@8.0.0: {}
 
-  prettier@3.9.9: {}
+  prettier@3.9.10: {}
 
   require-from-string@2.0.2: {}
 
@@ -263,7 +263,7 @@ snapshots:
 
   typescript@6.0.3: {}
 
-  uri-js-replace@1.0.1: {}
+  uri-js-replace@1.0.2: {}
 
   yaml-ast-parser@0.0.43: {}
 
