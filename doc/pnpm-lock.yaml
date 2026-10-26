@@ -30,11 +30,11 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3
       vite:
-        specifier: ^7.3.6
-        version: 7.3.6(@types/node@26.6.3)(lightningcss@1.33.0)(yaml@2.9.1)
+        specifier: ^7.3.7
+        version: 7.3.7(@types/node@26.6.3)(lightningcss@1.33.0)(yaml@2.9.1)
       vite-plugin-restart:
         specifier: ^2.0.0
-        version: 2.0.0(vite@7.3.6(@types/node@26.6.3)(lightningcss@1.33.0)(yaml@2.9.1))
+        version: 2.0.0(vite@7.3.7(@types/node@26.6.3)(lightningcss@1.33.0)(yaml@2.9.1))
 
 packages:
 
@@ -3141,8 +3141,8 @@ packages:
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
 
-  vite@7.3.6:
-    resolution: {integrity: sha512-4XP60spRGjSZFf1qYH+dJIkK2znL3zQfl9KkOV9MkkRR/3Dls0dxaBsQPTloEc5BLXWPL9vsOxopxyKoMmDueg==}
+  vite@7.3.7:
+    resolution: {integrity: sha512-AHEzTORMbi7/7aXp7w7KZ5+DCUdSeLsJz0grY8xHpc9DHdYb0vQu6DqJfm2tOw3gDExNgPgnJTXxM6syYFHaCA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -7353,12 +7353,12 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite-plugin-restart@2.0.0(vite@7.3.6(@types/node@26.6.3)(lightningcss@1.33.0)(yaml@2.9.1)):
+  vite-plugin-restart@2.0.0(vite@7.3.7(@types/node@26.6.3)(lightningcss@1.33.0)(yaml@2.9.1)):
     dependencies:
       micromatch: 4.0.8
-      vite: 7.3.6(@types/node@26.6.3)(lightningcss@1.33.0)(yaml@2.9.1)
+      vite: 7.3.7(@types/node@26.6.3)(lightningcss@1.33.0)(yaml@2.9.1)
 
-  vite@7.3.6(@types/node@26.6.3)(lightningcss@1.33.0)(yaml@2.9.1):
+  vite@7.3.7(@types/node@26.6.3)(lightningcss@1.33.0)(yaml@2.9.1):
     dependencies:
       esbuild: 0.28.2
       fdir: 6.5.0(picomatch@4.0.7)
