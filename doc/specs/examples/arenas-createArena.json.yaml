@@ -4,11 +4,11 @@ value:
     "duels": [],
     "secondsToStart": 300,
     "standing": { "page": 1, "players": [] },
-    "id": "aaFmhzut",
+    "id": "6Fu3I7Fe",
     "createdBy": "bobby",
-    "startsAt": "2026-09-19T19:29:18.065551163Z",
+    "startsAt": "2026-10-26T23:45:20.728078Z",
     "system": "arena",
-    "fullName": "Ujtelky Arena",
+    "fullName": "Rudenko Arena",
     "minutes": 60,
     "perf": { "key": "blitz", "name": "Blitz", "icon": ")" },
     "clock": { "limit": 300, "increment": 0 },
@@ -16,7 +16,11 @@ value:
     "rated": true,
     "berserkable": true,
     "verdicts": { "list": [{ "condition": "Bot players are not allowed", "verdict": "ok" }], "accepted": true },
-    "quote": { "text": "Chess is a test of wills.", "author": "Paul Keres" },
-    "greatPlayer": { "name": "Ujtelky", "url": "https://wikipedia.org/wiki/Maximilian_Ujtelky" },
+    "quote":
+      {
+        "text": "In Fischer's hands, a slight theoretical advantage is as good a being a queen ahead.",
+        "author": "Isaac Kashdan",
+      },
+    "greatPlayer": { "name": "Rudenko", "url": "https://wikipedia.org/wiki/Lyudmila_Rudenko" },
     "myUsername": "Bobby",
   }

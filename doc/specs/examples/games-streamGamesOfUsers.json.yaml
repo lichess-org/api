@@ -1,15 +1,15 @@
 value:
   [
     {
-      "id": "SKgfPsiL",
+      "id": "tNIsADH0",
       "rated": false,
       "variant": "standard",
       "speed": "blitz",
       "perf": "blitz",
-      "createdAt": 1789845996343,
+      "createdAt": 1793058158936,
       "status": 20,
       "statusName": "started",
-      "players": { "white": { "userId": "fatima", "rating": 1109 }, "black": { "userId": "iryna", "rating": 1744 } },
+      "players": { "white": { "userId": "fatima", "rating": 1089 }, "black": { "userId": "iryna", "rating": 1861 } },
       "clock": { "initial": 300, "increment": 0 },
     },
   ]

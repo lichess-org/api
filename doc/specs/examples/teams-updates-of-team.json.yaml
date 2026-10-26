@@ -11,33 +11,54 @@ value:
             {
               "msg":
                 {
-                  "id": "AAAAAAC4",
+                  "id": "AAAAAACq",
                   "team": { "id": "open-chess-club", "name": "Open Chess Club" },
-                  "text": "Nice work in the last league match, on to the next round!",
-                  "sender": { "name": "Mary", "flair": "nature.crab", "id": "mary" },
-                  "date": 1789662367160,
+                  "text": "Reminder to keep games friendly, no berserking on your teammates!",
+                  "sender":
+                    {
+                      "name": "Mary",
+                      "flair": "people.man-in-steamy-room-medium-skin-tone",
+                      "patron": true,
+                      "patronColor": 1,
+                      "id": "mary",
+                    },
+                  "date": 1791419260927,
                 },
               "seen": false,
             },
             {
               "msg":
                 {
-                  "id": "AAAAAAC5",
+                  "id": "AAAAAACp",
                   "team": { "id": "open-chess-club", "name": "Open Chess Club" },
-                  "text": "Reminder: team battle starts in 30 minutes, get in the queue!",
-                  "sender": { "name": "Bobby", "flair": "people.ballet-dancer-medium-skin-tone", "id": "bobby" },
-                  "date": 1789353881560,
+                  "text": "Welcome to all our new members, glad to have you on the team!",
+                  "sender":
+                    {
+                      "name": "Mary",
+                      "flair": "people.man-in-steamy-room-medium-skin-tone",
+                      "patron": true,
+                      "patronColor": 1,
+                      "id": "mary",
+                    },
+                  "date": 1791409862727,
                 },
               "seen": false,
             },
             {
               "msg":
                 {
-                  "id": "AAAAAAC6",
+                  "id": "AAAAAACr",
                   "team": { "id": "open-chess-club", "name": "Open Chess Club" },
-                  "text": "Don't forget to sign up for the weekly arena before Friday.",
-                  "sender": { "name": "Bobby", "flair": "people.ballet-dancer-medium-skin-tone", "id": "bobby" },
-                  "date": 1786891981113,
+                  "text": "Anyone free to captain a match this weekend? Reply here.",
+                  "sender":
+                    {
+                      "name": "Mary",
+                      "flair": "people.man-in-steamy-room-medium-skin-tone",
+                      "patron": true,
+                      "patronColor": 1,
+                      "id": "mary",
+                    },
+                  "date": 1788493676422,
                 },
               "seen": false,
             },
@@ -50,62 +71,88 @@ value:
     "byTeam":
       [
         {
-          "team": { "id": "the-fischermen", "name": "The Fischermen", "flair": "people.older-person-medium-skin-tone" },
-          "unread": 2,
-          "last": 1789801389222,
-        },
-        {
           "team":
             {
-              "id": "i-dont-think-he-knows-about-second-piece-sac-pip",
-              "name": "I don't think he knows about second piece sac, Pip",
-              "flair": "people.person-with-headscarf-light-skin-tone",
+              "id": "ignorance-is-blitz",
+              "name": "Ignorance is Blitz",
+              "flair": "people.woman-running-facing-right-medium-dark-skin-tone",
             },
-          "unread": 7,
-          "last": 1789761198748,
+          "unread": 3,
+          "last": 1793024034576,
         },
-        { "team": { "id": "open-chess-club", "name": "Open Chess Club" }, "unread": 2, "last": 1789662367160 },
-        {
-          "team": { "id": "the-prep-leaks-for-itself", "name": "The prep leaks for itself" },
-          "unread": 9,
-          "last": 1789637365558,
-        },
+        { "team": { "id": "knights-to-meet-you", "name": "Knights to Meet You" }, "unread": 4, "last": 1792963526359 },
         {
           "team":
             {
-              "id": "stockfishing-for-compliments",
-              "name": "Stockfishing for compliments",
-              "flair": "people.man-kneeling-facing-right-medium-skin-tone",
-            },
-          "unread": 1,
-          "last": 1789615092731,
-        },
-        { "team": { "id": "ignorance-is-blitz", "name": "Ignorance is Blitz" }, "unread": 9, "last": 1789475563924 },
-        {
-          "team": { "id": "captain-james-t-pirc", "name": "Captain James T. Pirc", "flair": "objects.knot" },
-          "unread": 10,
-          "last": 1789412973532,
-        },
-        {
-          "team":
-            {
-              "id": "the-neal-bruce-experience",
-              "name": "The Neal Bruce Experience",
-              "flair": "objects.pound-banknote",
+              "id": "we-shall-fight-on-the-lichess",
+              "name": "We Shall Fight on the Lichess",
+              "flair": "objects.nine-thirty",
             },
           "unread": 2,
-          "last": 1789405669058,
+          "last": 1792867453585,
         },
+        {
+          "team":
+            {
+              "id": "two-bishops-two-steeds-two-wellhidden-beads",
+              "name": "Two bishops, two steeds, two well-hidden beads",
+              "flair": "people.men-wrestling-light-skin-tone-medium-skin-tone",
+            },
+          "unread": 4,
+          "last": 1792840230211,
+        },
+        {
+          "team":
+            {
+              "id": "on-topalov-the-world",
+              "name": "On Topalov The World",
+              "flair": "people.office-worker-medium-dark-skin-tone",
+            },
+          "unread": 6,
+          "last": 1792776702283,
+        },
+        {
+          "team":
+            {
+              "id": "plugfish-and-the-ambiguity-of-engine-depth",
+              "name": "Plugfish and the Ambiguity of Engine Depth",
+              "flair": "people.person-facepalming-medium-light-skin-tone",
+            },
+          "unread": 2,
+          "last": 1792252844778,
+        },
+        { "team": { "id": "boogie-knights", "name": "Boogie Knights" }, "unread": 2, "last": 1792052237052 },
+        {
+          "team":
+            {
+              "id": "anyway-heres-blunderwall",
+              "name": "Anyway, Here’s Blunderwall",
+              "flair": "people.baby-dark-skin-tone",
+            },
+          "unread": 2,
+          "last": 1791808941848,
+        },
+        { "team": { "id": "private-chess-club", "name": "Private Chess Club" }, "unread": 3, "last": 1791757736897 },
         {
           "team":
             {
               "id": "the-nonspecific-allegation-gambit",
               "name": "The Non-Specific Allegation Gambit",
-              "flair": "people.couple-with-heart-person-person-medium-dark-skin-tone-dark-skin-tone",
+              "flair": "people.woman-and-man-holding-hands-dark-skin-tone",
             },
-          "unread": 9,
-          "last": 1789167681569,
+          "unread": 2,
+          "last": 1791504717034,
         },
-        { "team": { "id": "private-chess-club", "name": "Private Chess Club" }, "unread": 2, "last": 1788119328606 },
+        { "team": { "id": "open-chess-club", "name": "Open Chess Club" }, "unread": 2, "last": 1791419260927 },
+        {
+          "team":
+            {
+              "id": "magnus-would-be-embarrassed-to-lose-to-idiots-like-us",
+              "name": "Magnus would be embarrassed to lose to idiots like us",
+              "flair": "people.woman-medium-skin-tone-white-hair",
+            },
+          "unread": 1,
+          "last": 1791127657395,
+        },
       ],
   }

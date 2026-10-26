@@ -1,157 +1,269 @@
 value:
   [
     {
-      "interval": { "start": 1789776000000, "end": 1789862400000 },
-      "games": { "blitz": { "win": 6, "loss": 7, "draw": 0, "rp": { "before": 1716, "after": 1711 } } },
-      "puzzles": { "score": { "win": 0, "loss": 1, "draw": 0, "rp": { "before": 1937, "after": 1917 } } },
+      "interval": { "start": 1792972800000, "end": 1793059200000 },
       "follows":
         {
           "in":
             {
               "ids":
-                ["queen_lucky", "cszalnj", "zool_saket", "arryan1234", "big_bad_goose", "falconqueen", "packet432"],
+                [
+                  "adn_nf5",
+                  "cyber-void",
+                  "shaytan1994",
+                  "chandramoulibadal33",
+                  "ivannestratik67",
+                  "theata51",
+                  "karthik2003",
+                  "straussing",
+                  "piratesboy",
+                  "xaenthoni-narwes",
+                  "vidh_123",
+                  "julianyang19",
+                ],
             },
         },
       "posts":
         [
           {
-            "topicUrl": "https://lichess.org/forum/lichess-feedback/problem-with-opening-explorer",
-            "topicName": "Problem with Opening Explorer",
-            "posts": [{ "url": "https://lichess.org/forum/redirect/post/dlqeHQRB", "text": "It's fixed." }],
+            "topicUrl": "https://lichess.org/forum/lichess-feedback/the-rating-title-and-the-value-in-correspondence-chess-are-not-aligned",
+            "topicName": "The rating title and the value in correspondence chess are not aligned.",
+            "posts":
+              [
+                {
+                  "url": "https://lichess.org/forum/redirect/post/VEZRRjrl",
+                  "text": "https://github.com/lichess-org/lila/issues/22270",
+                },
+              ],
+          },
+          {
+            "topicUrl": "https://lichess.org/forum/lichess-feedback/too-many-black-pieces",
+            "topicName": "too many black pieces",
+            "posts":
+              [
+                {
+                  "url": "https://lichess.org/forum/redirect/post/07eOQbla",
+                  "text": "You have also played 3 out of 4 rapid games as white before.\n\nIf you throw a coin 4 times, you have 50% chances of getting the same result 3 times or more.",
+                },
+                {
+                  "url": "https://lichess.org/forum/redirect/post/YrHWwvrV",
+                  "text": "3 in a row would be 3 out of 3, but OP said 3 out of 4.\n\nAnd yes I think it's 50% chances of getting 3 out of 4, or 4 out of 4. Happy to see the reasoning behind 62.5% and admit I'm wrong.",
+                },
+                {
+                  "url": "https://lichess.org/forum/redirect/post/p7t0YmZf",
+                  "text": "Lichess random pairings are not actually random. They keep count of how many white/black games everyone plays, and tries to keep everyone at 50%.\nEvery time you play with one color, you increase your chances of getting the other color on next game.\n\nThis prevents the streaks that true random would naturally produce. People don't accept streaks can be random. So to make things feel more random, I had to make them less random. By counting and breaking streaks.\n\nSpotify does the same trick in \"rand",
+                },
+              ],
           },
         ],
       "stream": true,
     },
     {
-      "interval": { "start": 1789689600000, "end": 1789776000000 },
-      "games": { "blitz": { "win": 9, "loss": 9, "draw": 2, "rp": { "before": 1722, "after": 1716 } } },
-      "puzzles": { "score": { "win": 1, "loss": 0, "draw": 0, "rp": { "before": 1925, "after": 1937 } } },
+      "interval": { "start": 1792886400000, "end": 1792972800000 },
+      "puzzles": { "score": { "win": 1, "loss": 0, "draw": 0, "rp": { "before": 1916, "after": 1930 } } },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "doravad",
-                  "jacksongraham",
-                  "lanqri",
-                  "jiyajeet",
-                  "jtchen2k",
-                  "farukkarim",
-                  "divyanshsinghtiwari",
-                  "horse67",
-                  "queen_lucky",
-                  "sam_anyu",
-                  "kanhaan",
+                  "josuealexander221",
+                  "xxiamlelouchxx",
+                  "jaideeparun",
+                  "chhes123",
+                  "srinjoy_ribhu",
+                  "bulletking76fr",
+                  "eliezer_samjebaraj",
+                  "hangingfruitpiece",
+                  "consecutivehyphen",
+                  "sanjith_theindian",
+                  "ang001",
+                  "happy141",
+                  "clon5n9w95g7b",
+                  "briandabummm",
+                  "minadi2015gis",
                 ],
+              "nb": 17,
             },
         },
       "stream": true,
     },
     {
-      "interval": { "start": 1789603200000, "end": 1789689600000 },
-      "games": { "blitz": { "win": 4, "loss": 6, "draw": 1, "rp": { "before": 1729, "after": 1722 } } },
-      "puzzles": { "score": { "win": 1, "loss": 0, "draw": 0, "rp": { "before": 1922, "after": 1925 } } },
-      "follows": { "in": { "ids": ["gkb47", "kitsune9tails", "maxtomas", "hdmm6640", "chessplayer_5678"] } },
+      "interval": { "start": 1792800000000, "end": 1792886400000 },
+      "follows":
+        {
+          "in":
+            {
+              "ids":
+                [
+                  "grandstudent",
+                  "lismel",
+                  "mimiizmagazini",
+                  "oxytan",
+                  "wkonopacki",
+                  "pranithlakshman",
+                  "stock_sunfish",
+                  "yoda1210",
+                  "tactical_brilliance",
+                  "hoffmaal",
+                  "roshini2013",
+                ],
+            },
+        },
+    },
+    {
+      "interval": { "start": 1792713600000, "end": 1792800000000 },
+      "correspondenceMoves":
+        {
+          "nb": 2,
+          "games":
+            [
+              {
+                "id": "Zc4deC1n",
+                "color": "white",
+                "url": "https://lichess.org/game/Zc4deC1n",
+                "opponent": { "user": "neio4", "rating": 1500 },
+              },
+            ],
+        },
+      "follows":
+        {
+          "in":
+            {
+              "ids":
+                [
+                  "xsage420",
+                  "rafarel45",
+                  "dhananjay2106",
+                  "foyerr",
+                  "blckghost",
+                  "arya_iran",
+                  "tipee",
+                  "tactical_knockout",
+                  "simplechess_vn",
+                  "shivanshibaxi25",
+                  "yusacom",
+                  "weils",
+                  "flora-ascollcocteau",
+                  "boombox2000",
+                  "lmslyon",
+                ],
+              "nb": 19,
+            },
+        },
+      "posts":
+        [
+          {
+            "topicUrl": "https://lichess.org/forum/lichess-feedback/cannot-see-the-ongoing-games",
+            "topicName": "Cannot see the ongoing games",
+            "posts":
+              [
+                {
+                  "url": "https://lichess.org/forum/redirect/post/D3l2BVcj",
+                  "text": "It will be fixed next time lichess restart, in a day or 3.",
+                },
+              ],
+          },
+          {
+            "topicUrl": "https://lichess.org/forum/lichess-feedback/puzzle-hbhje",
+            "topicName": "Puzzle #hBHje",
+            "posts":
+              [
+                {
+                  "url": "https://lichess.org/forum/redirect/post/ZcT4PgVx",
+                  "text": "Indeed stockfish eventually changes its mind. I'm adding it to the list of bad puzzles so it's no longer selected: https://github.com/ornicar/lichess-puzzler/commit/7a0c78c1d1128378c91cccab1a28c084907aa156",
+                },
+              ],
+          },
+        ],
       "stream": true,
     },
     {
-      "interval": { "start": 1789516800000, "end": 1789603200000 },
-      "games": { "blitz": { "win": 7, "loss": 7, "draw": 2, "rp": { "before": 1731, "after": 1729 } } },
+      "interval": { "start": 1792627200000, "end": 1792713600000 },
+      "games": { "rapid": { "win": 1, "loss": 0, "draw": 0, "rp": { "before": 1823, "after": 1836 } } },
+      "puzzles": { "score": { "win": 0, "loss": 1, "draw": 0, "rp": { "before": 1929, "after": 1916 } } },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "xiaoyi2016",
-                  "lonewolflwb",
-                  "devarya23",
-                  "italiascacchi2016",
-                  "americancavelion",
-                  "casquan",
-                  "hectozar",
+                  "qx4827",
+                  "derauch",
+                  "mechaturk_1903",
+                  "dabash",
+                  "neio4",
+                  "yaandex",
+                  "changmao",
+                  "pfirsich_224",
+                  "compost83",
+                  "richie_peach",
+                  "cb_thiven",
+                  "jjedynak",
                 ],
             },
+          "out": { "ids": ["chess-art-us", "neio4"] },
+        },
+      "posts":
+        [
+          {
+            "topicUrl": "https://lichess.org/forum/lichess-feedback/user-report-stopped-working",
+            "topicName": "User report stopped working",
+            "posts":
+              [
+                { "url": "https://lichess.org/forum/redirect/post/uIeVnmDU", "text": "On it!" },
+                { "url": "https://lichess.org/forum/redirect/post/bpVZYylP", "text": "It's fixed" },
+              ],
+          },
+        ],
+      "stream": true,
+    },
+    {
+      "interval": { "start": 1792540800000, "end": 1792627200000 },
+      "games": { "rapid": { "win": 2, "loss": 0, "draw": 0, "rp": { "before": 1798, "after": 1823 } } },
+      "puzzles": { "score": { "win": 0, "loss": 1, "draw": 0, "rp": { "before": 1945, "after": 1929 } } },
+      "follows":
+        {
+          "in":
+            {
+              "ids":
+                [
+                  "nath1915",
+                  "bordels",
+                  "advaitunde",
+                  "mysticalbreeze",
+                  "cold_sewy12",
+                  "aziz55255",
+                  "aryannvind",
+                  "kqrm51789",
+                  "accidentalgenius_mp5",
+                  "ilikecheese65",
+                  "harshithsai",
+                ],
+            },
+          "out": { "ids": ["taketaketakeapp"] },
         },
       "stream": true,
     },
     {
-      "interval": { "start": 1789430400000, "end": 1789516800000 },
-      "games": { "blitz": { "win": 7, "loss": 7, "draw": 2, "rp": { "before": 1727, "after": 1731 } } },
-      "puzzles": { "score": { "win": 0, "loss": 1, "draw": 0, "rp": { "before": 1930, "after": 1922 } } },
+      "interval": { "start": 1792454400000, "end": 1792540800000 },
+      "games": { "rapid": { "win": 2, "loss": 0, "draw": 0, "rp": { "before": 1774, "after": 1798 } } },
+      "puzzles": { "score": { "win": 0, "loss": 1, "draw": 0, "rp": { "before": 1955, "after": 1945 } } },
       "follows":
         {
           "in":
             {
               "ids":
                 [
-                  "nilhunter",
-                  "akrambgh",
-                  "leonid_2017",
-                  "ochran",
-                  "mraldigamer",
-                  "delivermaxpizzas",
-                  "chess_90909090",
-                  "knightmare2800",
-                  "steady91",
-                  "dheu99",
-                ],
-            },
-        },
-    },
-    {
-      "interval": { "start": 1789344000000, "end": 1789430400000 },
-      "games": { "blitz": { "win": 0, "loss": 4, "draw": 0, "rp": { "before": 1749, "after": 1727 } } },
-      "puzzles": { "score": { "win": 1, "loss": 1, "draw": 0, "rp": { "before": 1952, "after": 1930 } } },
-      "follows":
-        {
-          "in":
-            {
-              "ids":
-                [
-                  "narechess2023",
-                  "nandankondal23",
-                  "kingsheni",
-                  "mammadrezajamshidi",
-                  "ivanvoelker_17",
-                  "mexicangrandmaster",
-                  "silence45",
-                  "official_user",
-                  "abhyudaypro123",
-                  "eudesspessoa",
-                  "joaobatista2904",
-                  "gcorbach",
-                ],
-            },
-        },
-    },
-    {
-      "interval": { "start": 1789257600000, "end": 1789344000000 },
-      "games":
-        {
-          "blitz": { "win": 10, "loss": 8, "draw": 0, "rp": { "before": 1737, "after": 1749 } },
-          "rapid": { "win": 0, "loss": 1, "draw": 0, "rp": { "before": 1802, "after": 1789 } },
-        },
-      "puzzles": { "score": { "win": 0, "loss": 1, "draw": 0, "rp": { "before": 1974, "after": 1952 } } },
-      "follows":
-        {
-          "in":
-            {
-              "ids":
-                [
-                  "chessnunra",
-                  "chaossapphire",
-                  "lego2029",
-                  "cinar2015fb",
-                  "gepard2014",
-                  "kysara",
-                  "direkto80",
-                  "orangeee2520",
-                  "jaskaransi232",
-                  "rinalds17",
-                  "manolodp",
-                  "ms_varshan",
+                  "grandslamdunk44",
+                  "kartikagr",
+                  "catnip77",
+                  "clappingqueens",
+                  "theimporentsmoves145",
+                  "silentbutdeadly1",
+                  "hu4rc2",
+                  "arnekrayer",
+                  "phamhuynhdangkhoa",
                 ],
             },
         },

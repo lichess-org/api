@@ -16,7 +16,7 @@ export const prodClient = () =>
     baseUrl: "https://lichess.org",
   });
 
-export const localUrl = "http://localhost:8080";
+export const localUrl = "http://localhost:9663";
 
 export const localClient = (as?: string) =>
   createClient<paths>({

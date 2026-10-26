@@ -1,16 +1,25 @@
 value:
   {
-    "id": "C8fNpisS",
-    "url": "https://lichess.org/game/C8fNpisS",
+    "id": "izWCR8aa",
+    "url": "https://lichess.org/game/izWCR8aa",
     "status": "created",
-    "challenger": { "name": "Bobby", "flair": "people.ballet-dancer-medium-skin-tone", "id": "bobby", "rating": 1657 },
-    "destUser": { "name": "Mary", "flair": "nature.crab", "id": "mary", "rating": 1079 },
+    "challenger": { "name": "Bobby", "flair": "symbols.left-luggage", "id": "bobby", "rating": 1648 },
+    "destUser":
+      {
+        "name": "Mary",
+        "flair": "people.man-in-steamy-room-medium-skin-tone",
+        "patron": true,
+        "patronColor": 1,
+        "id": "mary",
+        "rating": 987,
+        "provisional": true,
+      },
     "variant": { "key": "standard", "name": "Standard", "short": "Std" },
     "rated": false,
     "speed": "correspondence",
     "timeControl": { "type": "unlimited" },
     "color": "random",
-    "finalColor": "black",
+    "finalColor": "white",
     "perf": { "icon": "", "name": "Correspondence" },
     "direction": "in",
   }

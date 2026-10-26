@@ -3,11 +3,27 @@ value:
     "type": "challengeCanceled",
     "challenge":
       {
-        "id": "GCluxyas",
-        "url": "https://lichess.org/game/GCluxyas",
+        "id": "pWdpCP3w",
+        "url": "https://lichess.org/game/pWdpCP3w",
         "status": "canceled",
-        "challenger": { "name": "Elena", "title": "CM", "id": "elena", "rating": 2407 },
-        "destUser": { "name": "Diego", "id": "diego", "rating": 1858, "online": true },
+        "challenger":
+          {
+            "name": "Elena",
+            "title": "IM",
+            "flair": "people.woman-health-worker-medium-light-skin-tone",
+            "patron": true,
+            "patronColor": 1,
+            "id": "elena",
+            "rating": 2252,
+          },
+        "destUser":
+          {
+            "name": "Diego",
+            "flair": "people.man-standing-medium-skin-tone",
+            "id": "diego",
+            "rating": 1915,
+            "online": true,
+          },
         "variant": { "key": "standard", "name": "Standard", "short": "Std" },
         "rated": false,
         "speed": "correspondence",

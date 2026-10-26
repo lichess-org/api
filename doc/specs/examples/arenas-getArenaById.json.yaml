@@ -29,6 +29,7 @@ value:
         {
           "name": "msb2",
           "title": "GM",
+          "flair": "food-drink.pear",
           "patron": true,
           "patronColor": 10,
           "rank": 3,
@@ -76,6 +77,7 @@ value:
             {
               "name": "msb2",
               "title": "GM",
+              "flair": "food-drink.pear",
               "patron": true,
               "patronColor": 10,
               "rank": 3,

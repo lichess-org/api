@@ -13,7 +13,8 @@ value:
       {
         "white":
           {
-            "user": { "name": "aslanliosman10", "flair": "travel-places.world-map", "id": "aslanliosman10" },
+            "user":
+              { "name": "aslanliosman10", "flair": "smileys.smiling-face-with-sunglasses", "id": "aslanliosman10" },
             "rating": 1884,
             "ratingDiff": 0,
           },

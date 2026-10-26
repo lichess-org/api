@@ -14,5 +14,12 @@ value:
     "status": 30,
     "perf": { "key": "blitz", "name": "Blitz", "position": 1, "icon": ")" },
     "teamMember": "bradys-blunder-buddies",
-    "winner": { "name": "Mennonite", "flair": "objects.closed-mailbox-with-raised-flag", "id": "mennonite" },
+    "winner":
+      {
+        "name": "Mennonite",
+        "flair": "objects.closed-mailbox-with-raised-flag",
+        "patron": true,
+        "patronColor": 6,
+        "id": "mennonite",
+      },
   }
