@@ -13345,6 +13345,7 @@ export interface operations {
            *     `{opponent}` and `{game}` are placeholders that will be replaced with the opponent and the game URLs.
            *     You can omit this field to send the default message,
            *     but if you set your own message, it must at least contain the `{game}` placeholder.
+           *     You can also disable messages entirely, by setting the template to `{noMessage}`. You will then need to notify the players yourself about their games.
            * @default Your game with {opponent} is ready: {game}.
            */
           message?: string;
