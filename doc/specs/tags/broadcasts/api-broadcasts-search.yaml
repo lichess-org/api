@@ -5,7 +5,8 @@ get:
     Search across recent official broadcasts.
   tags:
     - Broadcasts
-  security: []
+  security:
+    - OAuth2: ["study:read"]
   parameters:
     - in: query
       name: page
