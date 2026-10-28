@@ -820,6 +820,27 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/api/version": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get server version
+     * @description Get the date and git commit of the server code currently deployed.
+     *     Source code: [github.com/lichess-org/lila](https://github.com/lichess-org/lila).
+     */
+    get: operations["apiVersion"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/api/tv/channels": {
     parameters: {
       query?: never;
@@ -8283,6 +8304,37 @@ export interface operations {
           [name: string]: unknown;
         };
         content?: never;
+      };
+    };
+  };
+  apiVersion: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The server version. */
+      200: {
+        headers: {
+          "Access-Control-Allow-Origin"?: string;
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            server: {
+              /**
+               * Format: date-time
+               * @description When the deployed server was built
+               */
+              date: string;
+              /** @description Git commit hash of the deployed lila version */
+              commit: string;
+            };
+          };
+        };
       };
     };
   };
