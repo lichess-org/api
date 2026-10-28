@@ -274,6 +274,9 @@ tags:
       - Each user blog exposes an atom (RSS) feed, like <https://lichess.org/@/thibault/blog.atom>
       - User blogs mashup feed: https://lichess.org/blog/community.atom
       - User blogs mashup feed for a language: https://lichess.org/blog/community/fr.atom
+  - name: Server
+    description: |
+      Information about Lichess
   - name: OAuth
     description: |
       Obtaining and revoking OAuth tokens.
@@ -387,6 +390,9 @@ paths:
 
   /bookmark/{gameId}:
     $ref: "./tags/games/bookmark-gameId.yaml"
+
+  /api/version:
+    $ref: "./tags/server/api-version.yaml"
 
   /api/tv/channels:
     $ref: "./tags/tv/api-tv-channels.yaml"

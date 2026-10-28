@@ -14,6 +14,7 @@ import oauth from "./oauth";
 import openingExplorer from "./opening-explorer";
 import puzzles from "./puzzles";
 import relations from "./relations";
+import server from "./server";
 import simuls from "./simuls";
 import studies from "./studies";
 import swiss from "./swiss";
@@ -39,6 +40,7 @@ const scripts: Record<string, () => Promise<void>> = {
   "opening-explorer": openingExplorer,
   puzzles,
   relations,
+  server,
   simuls,
   studies,
   swiss,
