@@ -1,0 +1,40 @@
+get:
+  operationId: apiVersion
+  summary: Get server version
+  description: |
+    Get the date and git commit of the server code currently deployed.
+    Source code: [github.com/lichess-org/lila](https://github.com/lichess-org/lila).
+  tags:
+    - Server
+  security: []
+  responses:
+    "200":
+      description: The server version.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - server
+            properties:
+              server:
+                type: object
+                required:
+                  - date
+                  - commit
+                properties:
+                  date:
+                    type: string
+                    format: date-time
+                    description: When the deployed server was built
+                  commit:
+                    type: string
+                    description: Git commit hash of the deployed lila version
+          examples:
+            default:
+              $ref: "../../examples/server-getServerVersion.json.yaml"
