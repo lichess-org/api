@@ -20,6 +20,8 @@ value:
         "plays": 313,
         "solution": ["h3g2", "h2g2", "h5h3", "g2g1", "g5f3", "f2f3", "h3f3"],
         "themes": ["middlegame", "crushing", "attraction", "sacrifice", "discoveredAttack", "deflection", "veryLong"],
+        "fen": "r1bqr1k1/pp3ppp/2p2n2/3p2B1/8/2P1P3/PP1N1PPb/1BRQ1RK1 w - - 0 1",
+        "lastMove": "e5h2",
         "initialPly": 74,
       },
   }
