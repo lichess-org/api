@@ -14,7 +14,7 @@ get:
       description: The beginning of a username
       schema:
         type: string
-        minLength: 3
+        minLength: 4
       required: true
     - in: query
       name: exists
