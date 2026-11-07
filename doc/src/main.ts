@@ -14,4 +14,14 @@ createApiReference("#app", {
   mcp: {
     disabled: true,
   },
+  telemetry: false,
+  orderSchemaPropertiesBy: "preserve",
+  showOperationId: true,
+  defaultHttpClient: {
+    targetKey: "shell",
+    clientKey: "curl",
+  },
+  featuredClients: ["shell/curl", "js/fetch", "python/requests"],
+  documentDownloadType: "yaml",
+  setPageTitle: ({ title }) => `${title} | Lichess.org API`,
 });
