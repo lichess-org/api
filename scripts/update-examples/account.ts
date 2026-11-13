@@ -11,7 +11,7 @@ export default async function account() {
 
   const prefs = ok(await localClient().GET("/api/account/preferences"));
   if (prefs.prefs?.bgImg && !prefs.prefs.bgImg.includes("http")) {
-    prefs.prefs.bgImg = `https://lichess1.org${prefs.prefs.bgImg}`;
+    prefs.prefs.bgImg = `https://lichess.org${prefs.prefs.bgImg}`;
   }
   await example("account", "getMyPreferences", prefs);
 
