@@ -39,6 +39,12 @@ info:
     - [LichessNET - C# API Wrapper](https://github.com/Rabergsel/LichessNET)
     - [.NET general API](https://github.com/Dblike/LichessSharp)
 
+    ## User-Agent header
+    All requests going to lichess.org MUST include a `User-Agent` header with your website URL, or the name of your application, or a contact email.
+    For example: `User-Agent: https://mychessapp.example.com/`.
+    We'll use it to contact you in case of a problem, and to let you know about breaking changes to the API.
+    Requests missing an appropriate `User-Agent` header may be rejected or rate limited.
+
     ## Rate limiting
     All requests are rate limited using various strategies,
     to ensure the API remains responsive for everyone.
