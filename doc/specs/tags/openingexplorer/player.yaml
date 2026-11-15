@@ -85,13 +85,17 @@ get:
             - rated
     - in: query
       name: since
-      description: Include only games from this month or later
+      description: |
+        Include only games from this month or later: `YYYY-MM`, or `YYYY`
+        for January of that year
       schema:
         type: string
         default: 1952-01
     - in: query
       name: until
-      description: Include only games from this month or earlier
+      description: |
+        Include only games from this month or earlier: `YYYY-MM`, or `YYYY`
+        for December of that year
       schema:
         type: string
         default: 3000-12
@@ -122,3 +126,16 @@ get:
           examples:
             default:
               $ref: "../../examples/openingExplorer-player.json.yaml"
+    "400":
+      description: Invalid parameters, position or moves.
+      content:
+        text/plain:
+          schema:
+            type: string
+          example: "bad request: illegal move e2e5: illegal uci move"
+    "503":
+      description: The indexing queue is full. Try again later.
+      content:
+        text/plain:
+          schema:
+            type: string

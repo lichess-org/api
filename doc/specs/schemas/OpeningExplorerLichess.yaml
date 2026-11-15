@@ -68,6 +68,7 @@ properties:
             - uci
         - $ref: "./OpeningExplorerLichessGame.yaml"
   history:
+    description: Only with `history=true`
     type: array
     items:
       type: object
@@ -93,3 +94,4 @@ required:
   - black
   - moves
   - topGames
+  - recentGames
