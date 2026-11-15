@@ -3,6 +3,9 @@ type: object
 properties:
   name:
     type: string
+  title:
+    type: string
+    description: Title of the player, if any
   rating:
     type: integer
 

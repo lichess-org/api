@@ -37,3 +37,9 @@ get:
           examples:
             pgn:
               $ref: "../../examples/openingExplorer-otbMasterGame.pgn.yaml"
+    "404":
+      description: There is no game with this id.
+      content:
+        text/plain:
+          schema:
+            type: string

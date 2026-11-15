@@ -14,7 +14,8 @@ properties:
   year:
     type: integer
   month:
-    type: string
+    type: [string, "null"]
+    description: Month of the game, if known
 
 required:
   - id
@@ -22,3 +23,4 @@ required:
   - white
   - black
   - year
+  - month
