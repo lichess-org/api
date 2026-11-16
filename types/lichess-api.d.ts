@@ -398,7 +398,8 @@ export interface paths {
      *     The method is `POST` to allow a longer list of IDs to be sent in the request body.
      *     Please do not try to download all the Lichess users with this endpoint, or any other endpoint.
      *     An API is not a way to fully export a website. We do not provide a full download of the Lichess users.
-     *     This endpoint is limited to 8,000 users every 10 minutes, and 120,000 every day.
+     *     This endpoint is limited to 10,000 users every 10 minutes, and 150,000 every day, when the request is authenticated.
+     *     Fewer when the request is anonymous.
      */
     post: operations["apiUsers"];
     delete?: never;
