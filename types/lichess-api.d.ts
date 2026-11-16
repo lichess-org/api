@@ -6691,6 +6691,8 @@ export interface components {
     };
     OpeningExplorerGamePlayer: {
       name: string;
+      /** @description Title of the player, if any */
+      title?: string;
       rating: number;
     };
     OpeningExplorerMastersGame: {
@@ -6699,7 +6701,8 @@ export interface components {
       white: components["schemas"]["OpeningExplorerGamePlayer"];
       black: components["schemas"]["OpeningExplorerGamePlayer"];
       year: number;
-      month?: string;
+      /** @description Month of the game, if known */
+      month: string | null;
     };
     OpeningExplorerMasters: {
       opening: components["schemas"]["OpeningExplorerOpening"] | null;
@@ -6724,10 +6727,12 @@ export interface components {
       id: string;
       winner: components["schemas"]["GameColor"] | null;
       speed?: components["schemas"]["Speed"];
+      /** @enum {string} */
+      mode: "rated" | "casual";
       white: components["schemas"]["OpeningExplorerGamePlayer"];
       black: components["schemas"]["OpeningExplorerGamePlayer"];
       year: number;
-      month: string | null;
+      month: string;
     };
     OpeningExplorerLichess: {
       opening: components["schemas"]["OpeningExplorerOpening"] | null;
@@ -6747,9 +6752,10 @@ export interface components {
       topGames: ({
         uci: string;
       } & components["schemas"]["OpeningExplorerLichessGame"])[];
-      recentGames?: ({
+      recentGames: ({
         uci: string;
       } & components["schemas"]["OpeningExplorerLichessGame"])[];
+      /** @description Only with `history=true` */
       history?: {
         month: string;
         white: number;
@@ -14177,10 +14183,16 @@ export interface operations {
          * @example d2d4,d7d5,c2c4,c7c6,c4d5
          */
         play?: string;
-        /** @description Include only games from this year or later */
-        since?: number;
-        /** @description Include only games from this year or earlier */
-        until?: number;
+        /**
+         * @description Include only games from this month or later: `YYYY-MM`, or `YYYY`
+         *     for January of that year
+         */
+        since?: string;
+        /**
+         * @description Include only games from this month or earlier: `YYYY-MM`, or `YYYY`
+         *     for December of that year
+         */
+        until?: string;
         /** @description Number of most common moves to display */
         moves?: number;
         /** @description Number of top games to display */
@@ -14200,6 +14212,16 @@ export interface operations {
         };
         content: {
           "application/json": components["schemas"]["OpeningExplorerMasters"];
+        };
+      };
+      /** @description Invalid parameters, position or moves. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          /** @example bad request: illegal move e2e5: illegal uci move */
+          "text/plain": string;
         };
       };
     };
@@ -14231,9 +14253,15 @@ export interface operations {
          *     ..., `2500` from 2500 to any rating above).
          */
         ratings?: (0 | 1000 | 1200 | 1400 | 1600 | 1800 | 2000 | 2200 | 2500)[];
-        /** @description Include only games from this month or later */
+        /**
+         * @description Include only games from this month or later: `YYYY-MM`, or `YYYY`
+         *     for January of that year
+         */
         since?: string;
-        /** @description Include only games from this month or earlier */
+        /**
+         * @description Include only games from this month or earlier: `YYYY-MM`, or `YYYY`
+         *     for December of that year
+         */
         until?: string;
         /** @description Number of most common moves to display */
         moves?: number;
@@ -14270,6 +14298,16 @@ export interface operations {
           "application/json": components["schemas"]["OpeningExplorerLichess"];
         };
       };
+      /** @description Invalid parameters, position or moves. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          /** @example bad request: illegal move e2e5: illegal uci move */
+          "text/plain": string;
+        };
+      };
     };
   };
   openingExplorerPlayer: {
@@ -14304,9 +14342,15 @@ export interface operations {
         speeds?: components["schemas"]["Speed"][];
         /** @description Comma separated list of modes */
         modes?: ("casual" | "rated")[];
-        /** @description Include only games from this month or later */
+        /**
+         * @description Include only games from this month or later: `YYYY-MM`, or `YYYY`
+         *     for January of that year
+         */
         since?: string;
-        /** @description Include only games from this month or earlier */
+        /**
+         * @description Include only games from this month or earlier: `YYYY-MM`, or `YYYY`
+         *     for December of that year
+         */
         until?: string;
         /** @description Number of most common moves to display */
         moves?: number;
@@ -14327,6 +14371,25 @@ export interface operations {
         };
         content: {
           "application/x-ndjson": components["schemas"]["OpeningExplorerPlayer"];
+        };
+      };
+      /** @description Invalid parameters, position or moves. */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          /** @example bad request: illegal move e2e5: illegal uci move */
+          "text/plain": string;
+        };
+      };
+      /** @description The indexing queue is full. Try again later. */
+      503: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "text/plain": string;
         };
       };
     };
@@ -14350,6 +14413,15 @@ export interface operations {
         };
         content: {
           "application/x-chess-pgn": string;
+        };
+      };
+      /** @description There is no game with this id. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "text/plain": string;
         };
       };
     };
