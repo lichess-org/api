@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "singleQuote": false,
+  "printWidth": 120,
+  "arrowParens": "avoid",
+  "endOfLine": "lf",
+  "ignorePatterns": [],
+  "bracketSameLine": true,
+  "sortPackageJson": false,
+  "sortImports": {
+    "groups": [["builtin", "external"], ["internal", "subpath"], ["parent", "sibling", "index"], "style", "unknown"]
+  }
+}

@@ -1,5 +1,5 @@
-import { defineConfig } from "vite";
 import { execSync } from "child_process";
+import { defineConfig } from "vite";
 import ViteRestart from "vite-plugin-restart";
 
 export default defineConfig({
