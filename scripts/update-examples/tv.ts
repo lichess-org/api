@@ -1,18 +1,7 @@
-import {
-  example,
-  firstNdJson,
-  prodClient,
-  readLines,
-  readNdJson,
-  streamTimeout,
-} from "./config";
+import { example, firstNdJson, prodClient, readLines, readNdJson, streamTimeout } from "./config";
 
 export default async function tv() {
-  await example(
-    "tv",
-    "getCurrentTvGames",
-    prodClient().GET("/api/tv/channels"),
-  );
+  await example("tv", "getCurrentTvGames", prodClient().GET("/api/tv/channels"));
 
   // The feed never ends: a new game is announced, then each move follows.
   for await (const line of readNdJson(
@@ -47,12 +36,7 @@ export default async function tv() {
   )) {
     pgnLines.push(line);
     if (line.startsWith("1.") && ++games === 3) {
-      await example(
-        "tv",
-        "getBestOngoingGamesOfTvChannel",
-        pgnLines.join("\n"),
-        "pgn",
-      );
+      await example("tv", "getBestOngoingGamesOfTvChannel", pgnLines.join("\n"), "pgn");
       break;
     }
   }

@@ -1,13 +1,4 @@
-import {
-  cleanUp,
-  endGame,
-  example,
-  firstNdJson,
-  firstPgnGames,
-  localClient,
-  ok,
-  streamTimeout,
-} from "./config";
+import { cleanUp, endGame, example, firstNdJson, firstPgnGames, localClient, ok, streamTimeout } from "./config";
 
 export default async function bulkPairings() {
   const white = "sai";
@@ -40,15 +31,10 @@ export default async function bulkPairings() {
         }),
       );
     }
-    if (!pairedBulkPairing.pairedAt)
-      throw new Error(`Bulk pairing ${bulkPairing.id} was never paired`);
+    if (!pairedBulkPairing.pairedAt) throw new Error(`Bulk pairing ${bulkPairing.id} was never paired`);
     await example("bulkPairings", "getBulkPairing", pairedBulkPairing);
 
-    await example(
-      "bulkPairings",
-      "listBulkPairings",
-      localClient().GET("/api/bulk-pairing"),
-    );
+    await example("bulkPairings", "listBulkPairings", localClient().GET("/api/bulk-pairing"));
 
     await example(
       "bulkPairings",
@@ -128,9 +114,7 @@ export default async function bulkPairings() {
   } catch (error) {
     await cleanUp(
       async () => {
-        await Promise.allSettled(
-          bulkPairing.games.map((game) => endGame(game.white!, game.id!)),
-        );
+        await Promise.allSettled(bulkPairing.games.map(game => endGame(game.white!, game.id!)));
       },
       () =>
         localClient().DELETE("/api/bulk-pairing/{id}", {

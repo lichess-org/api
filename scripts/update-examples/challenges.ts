@@ -13,11 +13,7 @@ export default async function challenges() {
     }),
   );
 
-  await example(
-    "challenges",
-    "listYourChallenges",
-    localClient(opponent).GET("/api/challenge"),
-  );
+  await example("challenges", "listYourChallenges", localClient(opponent).GET("/api/challenge"));
 
   await example("challenges", "createChallenge", newChallenge);
 
@@ -48,11 +44,7 @@ export default async function challenges() {
     }),
   );
 
-  await example(
-    "challenges",
-    "openEndedChallenge",
-    localClient().POST("/api/challenge/open"),
-  );
+  await example("challenges", "openEndedChallenge", localClient().POST("/api/challenge/open"));
 
   await startClocksAndAddTime();
   await adminChallengeTokens();
@@ -62,7 +54,7 @@ async function playAndResign() {
   const challenger = "jacob";
   const challengee = "aaron";
 
-  const events = streamEvents(challenger, async (event) => {
+  const events = streamEvents(challenger, async event => {
     if (event.type === "gameStart") {
       await example("stream", "gameStart", event);
     } else if (event.type === "gameFinish") {
@@ -110,17 +102,14 @@ async function playAndResign() {
   ];
   for (const move of moves) {
     ok(
-      await localClient(move.player).POST(
-        "/api/board/game/{gameId}/move/{move}",
-        {
-          params: {
-            path: {
-              gameId: challengeToAccept.id,
-              move: move.move,
-            },
+      await localClient(move.player).POST("/api/board/game/{gameId}/move/{move}", {
+        params: {
+          path: {
+            gameId: challengeToAccept.id,
+            move: move.move,
           },
         },
-      ),
+      }),
     );
   }
   ok(
@@ -139,7 +128,7 @@ async function playAndResign() {
 async function abortAiGame() {
   const challenger = "yulia";
 
-  const events = streamEvents(challenger, async (event) => {
+  const events = streamEvents(challenger, async event => {
     if (event.type === "gameStart") {
       await example("stream", "gameStart-ai", event);
     } else if (event.type === "gameFinish") {
@@ -169,7 +158,7 @@ async function abortAiGame() {
 }
 
 async function declineChallenge() {
-  const events = streamEvents("gabriela", async (event) => {
+  const events = streamEvents("gabriela", async event => {
     if (event.type === "challenge") {
       await example("stream", "challenge", event);
     } else if (event.type === "challengeDeclined") {
@@ -208,7 +197,7 @@ async function cancelChallenge() {
   const challenger = "elena";
   const challengee = "diego";
 
-  const events = streamEvents(challengee, async (event) => {
+  const events = streamEvents(challengee, async event => {
     if (event.type === "challengeCanceled") {
       await example("stream", "challengeCanceled", event);
       return true;
@@ -306,7 +295,7 @@ async function adminChallengeTokens() {
     }),
   );
   const redacted: Record<string, string> = {};
-  Object.keys(tokens).forEach((k) => {
+  Object.keys(tokens).forEach(k => {
     redacted[k] = `lip_${k}_secret`;
   });
   await example("challenges", "adminChallengeTokens", redacted);

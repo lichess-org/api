@@ -165,7 +165,7 @@ export default async function games() {
         "Content-Type": "text/plain",
         Accept: "application/x-ndjson",
       },
-      bodySerializer: (body) => body,
+      bodySerializer: body => body,
     }),
   );
 
@@ -189,7 +189,7 @@ export default async function games() {
         Accept: "application/x-chess-pgn",
       },
       parseAs: "text",
-      bodySerializer: (body) => body,
+      bodySerializer: body => body,
     }),
     "pgn",
   );
@@ -219,10 +219,7 @@ export default async function games() {
 }
 
 /** The first `count` lines of an NDJSON stream, after which the stream is closed. */
-async function firstNdJsonLines(
-  result: Parameters<typeof readNdJson>[0],
-  count: number,
-) {
+async function firstNdJsonLines(result: Parameters<typeof readNdJson>[0], count: number) {
   const lines: unknown[] = [];
   for await (const line of readNdJson(result)) {
     lines.push(line);
@@ -264,7 +261,7 @@ async function importGame() {
             signal: streamTimeout(),
           }),
         ),
-      (pgn) => pgn !== "",
+      pgn => pgn !== "",
     ),
     "pgn",
   );
@@ -305,7 +302,7 @@ async function exportBookmarkedGame(gameId: string) {
               signal: streamTimeout(),
             }),
           ),
-        (game) => game.id === gameId,
+        game => game.id === gameId,
       ),
     );
 
@@ -359,7 +356,7 @@ async function streamLiveGames() {
             "Content-Type": "text/plain",
             Accept: "application/x-ndjson",
           },
-          bodySerializer: (body) => body,
+          bodySerializer: body => body,
           parseAs: "stream",
           signal: streamTimeout(),
         }),
@@ -382,7 +379,7 @@ async function streamLiveGames() {
           "Content-Type": "text/plain",
           Accept: "application/x-ndjson",
         },
-        bodySerializer: (body) => body,
+        bodySerializer: body => body,
         parseAs: "stream",
         signal: AbortSignal.any([stream.signal, streamTimeout()]),
       });
@@ -392,7 +389,7 @@ async function streamLiveGames() {
 
     const waitForGame = async (id: string) => {
       for (let i = 0; i < 100; i++) {
-        const game = streamedGames.find((g) => g.id === id);
+        const game = streamedGames.find(g => g.id === id);
         if (game) return game;
         await Bun.sleep(100);
       }
@@ -414,15 +411,12 @@ async function streamLiveGames() {
         headers: {
           "Content-Type": "text/plain",
         },
-        bodySerializer: (body) => body,
+        bodySerializer: body => body,
       }),
     );
     const streamedSecondGame = await waitForGame(secondGame);
     stream.abort();
-    await example("games", "streamGamesOfIds", [
-      streamedFirstGame,
-      streamedSecondGame,
-    ]);
+    await example("games", "streamGamesOfIds", [streamedFirstGame, streamedSecondGame]);
 
     // The first game is played a little, so that it can be exported like any other game
     ok(await makeMove(first.white, firstGame, "e2e4"));
@@ -464,9 +458,7 @@ async function streamLiveGames() {
             }),
           ),
         (chat: any) =>
-          [presetChat.goodLuck, presetChat.haveFun].every((text) =>
-            chat.lines.some((line: any) => line.text === text),
-          ),
+          [presetChat.goodLuck, presetChat.haveFun].every(text => chat.lines.some((line: any) => line.text === text)),
       ),
     );
 
