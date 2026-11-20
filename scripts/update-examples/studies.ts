@@ -1,11 +1,4 @@
-import {
-  example,
-  firstNdJson,
-  firstPgnGames,
-  localClient,
-  ok,
-  streamTimeout,
-} from "./config";
+import { example, firstNdJson, firstPgnGames, localClient, ok, streamTimeout } from "./config";
 
 // Two short games, which are imported as two chapters.
 const pgn = `[Event "Opera game"]

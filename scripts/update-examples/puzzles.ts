@@ -1,11 +1,7 @@
 import { example, localClient, ok, prodClient } from "./config";
 
 export default async function puzzles() {
-  await example(
-    "puzzles",
-    "getDailyPuzzle",
-    prodClient().GET("/api/puzzle/daily"),
-  );
+  await example("puzzles", "getDailyPuzzle", prodClient().GET("/api/puzzle/daily"));
 
   await example(
     "puzzles",
@@ -123,11 +119,7 @@ export default async function puzzles() {
     }),
   );
 
-  await example(
-    "puzzles",
-    "createAndJoinPuzzleRace",
-    localClient().POST("/api/racer"),
-  );
+  await example("puzzles", "createAndJoinPuzzleRace", localClient().POST("/api/racer"));
 
   await example(
     "puzzles",

@@ -51,17 +51,13 @@ async function playGame() {
   const gameId = await startGame(human, bot);
   const stream = followGame(bot, gameId, "bot");
   try {
-    await example(
-      "bot",
-      "streamBotGameState-gameFull",
-      await stream.next(isGameFull),
-    );
+    await example("bot", "streamBotGameState-gameFull", await stream.next(isGameFull));
 
     ok(await makeMove(human, gameId, "e2e4"));
     await example(
       "bot",
       "streamBotGameState-gameState",
-      await stream.next((e) => e.type === "gameState" && e.moves === "e2e4"),
+      await stream.next(e => e.type === "gameState" && e.moves === "e2e4"),
     );
 
     await example("bot", "makeMove", makeMove(bot, gameId, "e7e5", "bot"));
@@ -84,9 +80,7 @@ async function playGame() {
     await example(
       "bot",
       "streamBotGameState-chatLine",
-      await stream.next(
-        (e) => e.type === "chatLine" && e.text === presetChat.goodLuck,
-      ),
+      await stream.next(e => e.type === "chatLine" && e.text === presetChat.goodLuck),
     );
 
     // A chat message is saved a moment after it is posted
@@ -105,7 +99,7 @@ async function playGame() {
               },
             }),
           ),
-        (lines) => lines.some((line) => line.text === presetChat.goodLuck),
+        lines => lines.some(line => line.text === presetChat.goodLuck),
       ),
     );
 
@@ -122,17 +116,14 @@ async function playGame() {
       }),
     );
     ok(
-      await localClient(human).POST(
-        "/api/board/game/{gameId}/takeback/{accept}",
-        {
-          params: {
-            path: {
-              gameId,
-              accept: false,
-            },
+      await localClient(human).POST("/api/board/game/{gameId}/takeback/{accept}", {
+        params: {
+          path: {
+            gameId,
+            accept: false,
           },
         },
-      ),
+      }),
     );
 
     await example(
@@ -209,16 +200,13 @@ async function abandonedGame(human: string, bot: string) {
   const humanStream = followGame(human, gameId);
   const botStream = followGame(bot, gameId, "bot");
   try {
-    await Promise.all([
-      humanStream.next(isGameFull),
-      botStream.next(isGameFull),
-    ]);
+    await Promise.all([humanStream.next(isGameFull), botStream.next(isGameFull)]);
 
     ok(await makeMove(human, gameId, "e2e4"));
     ok(await makeMove(bot, gameId, "e7e5", "bot"));
     humanStream.close();
 
-    const gone = await botStream.next((e) => e.type === "opponentGone", 60);
+    const gone = await botStream.next(e => e.type === "opponentGone", 60);
     return { gameId, gone, botStream };
   } catch (error) {
     humanStream.close();

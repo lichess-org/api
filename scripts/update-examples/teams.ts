@@ -265,7 +265,7 @@ async function requestToJoin(team: string, leader: string, count: number) {
         },
       }),
     );
-    if (requests.some((r) => r.request.userId === candidate)) {
+    if (requests.some(r => r.request.userId === candidate)) {
       pending.push(candidate);
       if (pending.length === count) return pending;
     }

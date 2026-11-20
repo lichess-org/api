@@ -10,12 +10,12 @@
   "main": "index.js",
   "types": "lichess-api.d.ts",
   "scripts": {
-    "format": "prettier --write .",
+    "format": "oxfmt",
     "gen": "openapi-typescript  ../doc/specs/lichess-api.yaml -o lichess-api.d.ts --default-non-nullable=false"
   },
   "devDependencies": {
     "openapi-typescript": "^7.13.0",
-    "prettier": "^3.9.10",
+    "oxfmt": "^0.79.0",
     "typescript": "^6.0.3"
   }
 }

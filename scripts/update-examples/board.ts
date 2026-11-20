@@ -36,17 +36,13 @@ async function playGame() {
   const gameId = await startGame(white, black);
   const stream = followGame(white, gameId);
   try {
-    await example(
-      "board",
-      "streamBoardGameState-gameFull",
-      await stream.next(isGameFull),
-    );
+    await example("board", "streamBoardGameState-gameFull", await stream.next(isGameFull));
 
     await example("board", "makeBoardMove", makeMove(white, gameId, "e2e4"));
     await example(
       "board",
       "streamBoardGameState-gameState",
-      await stream.next((e) => e.type === "gameState" && e.moves === "e2e4"),
+      await stream.next(e => e.type === "gameState" && e.moves === "e2e4"),
     );
     ok(await makeMove(black, gameId, "e7e5"));
 
@@ -68,9 +64,7 @@ async function playGame() {
     await example(
       "board",
       "streamBoardGameState-chatLine",
-      await stream.next(
-        (e) => e.type === "chatLine" && e.text === presetChat.goodLuck,
-      ),
+      await stream.next(e => e.type === "chatLine" && e.text === presetChat.goodLuck),
     );
 
     // A chat message is saved a moment after it is posted
@@ -89,7 +83,7 @@ async function playGame() {
               },
             }),
           ),
-        (lines) => lines.some((line) => line.text === presetChat.goodLuck),
+        lines => lines.some(line => line.text === presetChat.goodLuck),
       ),
     );
 
@@ -106,17 +100,14 @@ async function playGame() {
       }),
     );
     ok(
-      await localClient(black).POST(
-        "/api/board/game/{gameId}/takeback/{accept}",
-        {
-          params: {
-            path: {
-              gameId,
-              accept: false,
-            },
+      await localClient(black).POST("/api/board/game/{gameId}/takeback/{accept}", {
+        params: {
+          path: {
+            gameId,
+            accept: false,
           },
         },
-      ),
+      }),
     );
 
     await example(
@@ -232,17 +223,14 @@ async function abandonedGame(white: string, black: string) {
   const whiteStream = followGame(white, gameId);
   const blackStream = followGame(black, gameId);
   try {
-    await Promise.all([
-      whiteStream.next(isGameFull),
-      blackStream.next(isGameFull),
-    ]);
+    await Promise.all([whiteStream.next(isGameFull), blackStream.next(isGameFull)]);
 
     ok(await makeMove(white, gameId, "e2e4"));
     ok(await makeMove(black, gameId, "e7e5"));
     ok(await makeMove(white, gameId, "g1f3"));
     blackStream.close();
 
-    const gone = await whiteStream.next((e) => e.type === "opponentGone", 60);
+    const gone = await whiteStream.next(e => e.type === "opponentGone", 60);
     return { gameId, gone, whiteStream };
   } catch (error) {
     whiteStream.close();

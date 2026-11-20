@@ -1,15 +1,8 @@
-import createClient from "openapi-fetch";
 import type { paths } from "@lichess-org/types";
 import { join } from "node:path";
+import createClient from "openapi-fetch";
 
-const EXAMPLES_DIR = join(
-  import.meta.dir,
-  "..",
-  "..",
-  "doc",
-  "specs",
-  "examples",
-);
+const EXAMPLES_DIR = join(import.meta.dir, "..", "..", "doc", "specs", "examples");
 
 export const prodClient = () =>
   createClient<paths>({
@@ -80,18 +73,13 @@ type FetchResult<T = unknown> = {
 };
 
 const isFetchResult = (value: unknown): value is FetchResult =>
-  typeof value === "object" &&
-  value !== null &&
-  (value as FetchResult).response instanceof Response;
+  typeof value === "object" && value !== null && (value as FetchResult).response instanceof Response;
 
 /** The body of a successful response. Throws, naming the request, if the response was not a success. */
 export function ok<T>({ data, error, response }: FetchResult<T>): T {
   if (!response.ok) {
-    const detail =
-      typeof error === "string" ? error : (JSON.stringify(error) ?? "");
-    throw new Error(
-      `${response.status} ${response.url} ${detail.slice(0, 200)}`.trim(),
-    );
+    const detail = typeof error === "string" ? error : (JSON.stringify(error) ?? "");
+    throw new Error(`${response.status} ${response.url} ${detail.slice(0, 200)}`.trim());
   }
   return data as T;
 }
@@ -104,33 +92,21 @@ type Filetype = "json" | "pgn" | "txt";
  * `response` is either a request (pending or resolved) or the value to write. A request must have
  * succeeded and returned a body, so a failing endpoint never overwrites an example with junk.
  */
-export async function example(
-  category: string,
-  name: string,
-  response: unknown,
-  filetype: Filetype = "json",
-) {
+export async function example(category: string, name: string, response: unknown, filetype: Filetype = "json") {
   const resolved = await response;
   const data = isFetchResult(resolved) ? ok(resolved) : resolved;
 
   const filename = join(EXAMPLES_DIR, `${category}-${name}.${filetype}.yaml`);
   if (data === undefined) throw new Error(`Nothing to write to ${filename}`);
-  if (filetype !== "json" && typeof data !== "string")
-    throw new TypeError(`${filename} needs a string`);
+  if (filetype !== "json" && typeof data !== "string") throw new TypeError(`${filename} needs a string`);
   console.log(`Writing ${filename}`);
 
   const contents =
     filetype === "json"
       ? `value: ${JSON.stringify(data, null, 2)}`
-      : [
-          "value: |",
-          ...(data as string).split("\n").map((line) => `  ${line}`),
-        ].join("\n");
+      : ["value: |", ...(data as string).split("\n").map(line => `  ${line}`)].join("\n");
 
-  await Bun.write(
-    filename,
-    contents.replaceAll(localUrl, "https://lichess.org") + "\n",
-  );
+  await Bun.write(filename, contents.replaceAll(localUrl, "https://lichess.org") + "\n");
 }
 
 /** Bounds how long a stream may take to produce what we are waiting for, so a stalled one can't hang the run. */
@@ -158,9 +134,7 @@ export async function* readLines(result: Streamed): AsyncGenerator<string> {
   if (buffer) yield buffer;
 }
 
-export async function* readNdJson<T = any>(
-  result: Streamed,
-): AsyncGenerator<T> {
+export async function* readNdJson<T = any>(result: Streamed): AsyncGenerator<T> {
   for await (const line of readLines(result)) {
     if (line) yield JSON.parse(line);
   }
@@ -205,12 +179,7 @@ export async function startGame(challenger: string, challengee: string) {
 }
 
 /** Play a move in a game, through the Board API or, for a bot account, the Bot API. */
-export function makeMove(
-  as: string,
-  gameId: string,
-  move: string,
-  api: "board" | "bot" = "board",
-) {
+export function makeMove(as: string, gameId: string, move: string, api: "board" | "bot" = "board") {
   const params = { path: { gameId, move } };
   return api === "board"
     ? localClient(as).POST("/api/board/game/{gameId}/move/{move}", { params })
@@ -221,17 +190,10 @@ export function makeMove(
  * Follows a game through its Board or Bot API stream, in the background while the caller plays it,
  * and keeps the events it receives. The stream is closed with `close`, or after three minutes.
  */
-export function followGame(
-  as: string,
-  gameId: string,
-  api: "board" | "bot" = "board",
-) {
+export function followGame(as: string, gameId: string, api: "board" | "bot" = "board") {
   const events: any[] = [];
   const controller = new AbortController();
-  const signal = AbortSignal.any([
-    controller.signal,
-    AbortSignal.timeout(180_000),
-  ]);
+  const signal = AbortSignal.any([controller.signal, AbortSignal.timeout(180_000)]);
   const options = {
     params: { path: { gameId } },
     headers: { Accept: "application/x-ndjson" },
@@ -248,7 +210,7 @@ export function followGame(
         : await localClient(as).GET("/api/bot/game/stream/{gameId}", options);
     for await (const event of readNdJson(stream)) events.push(event);
     ended = true;
-  })().catch((error) => {
+  })().catch(error => {
     // Closing the stream on purpose is not a failure
     if (!controller.signal.aborted) failure = error;
   });
@@ -262,19 +224,12 @@ export function followGame(
         if (event) return event;
         // Waiting on would only end in the timeout below, without saying what went wrong
         if (failure)
-          throw new Error(
-            `The stream of ${gameId} for ${as} failed: ${String(failure)}`,
-            { cause: failure },
-          );
+          throw new Error(`The stream of ${gameId} for ${as} failed: ${String(failure)}`, { cause: failure });
         if (ended)
-          throw new Error(
-            `The stream of ${gameId} for ${as} ended before the expected event. Events: ${seen()}`,
-          );
+          throw new Error(`The stream of ${gameId} for ${as} ended before the expected event. Events: ${seen()}`);
         await Bun.sleep(100);
       }
-      throw new Error(
-        `${as} did not see the expected event of ${gameId} within ${waitSeconds}s. Events: ${seen()}`,
-      );
+      throw new Error(`${as} did not see the expected event of ${gameId} within ${waitSeconds}s. Events: ${seen()}`);
     },
     close: () => controller.abort(),
   };
@@ -284,11 +239,7 @@ export function followGame(
  * Ends a game that a player is in, whatever state it is in: it is aborted as long as that is
  * possible, and resigned after that. For cleaning up.
  */
-export async function endGame(
-  as: string,
-  gameId: string,
-  api: "board" | "bot" = "board",
-) {
+export async function endGame(as: string, gameId: string, api: "board" | "bot" = "board") {
   const client = localClient(as);
   const params = { params: { path: { gameId } } };
   const aborted =
@@ -296,8 +247,7 @@ export async function endGame(
       ? await client.POST("/api/board/game/{gameId}/abort", params)
       : await client.POST("/api/bot/game/{gameId}/abort", params);
   if (aborted.response.ok) return;
-  if (api === "board")
-    await client.POST("/api/board/game/{gameId}/resign", params);
+  if (api === "board") await client.POST("/api/board/game/{gameId}/resign", params);
   else await client.POST("/api/bot/game/{gameId}/resign", params);
 }
 
@@ -345,16 +295,11 @@ export async function waitFor<T>(
     }
     await Bun.sleep(200);
   }
-  throw new Error(
-    `Gave up after ${seconds}s waiting for ${what}. Last response: ${last.slice(0, 300)}`,
-  );
+  throw new Error(`Gave up after ${seconds}s waiting for ${what}. Last response: ${last.slice(0, 300)}`);
 }
 
 /** The first `count` games of a PGN stream, after which the stream is closed. */
-export async function firstPgnGames(
-  result: Streamed,
-  count = 1,
-): Promise<string> {
+export async function firstPgnGames(result: Streamed, count = 1): Promise<string> {
   const lines: string[] = [];
   let games = 0;
   for await (const line of readLines(result)) {
@@ -369,10 +314,7 @@ export async function firstPgnGames(
  * await the result once done. `onEvent` returns true when it has seen what it needs, which closes
  * the stream. Rejects if the stream fails, times out, or ends first.
  */
-export function streamEvents(
-  as: string,
-  onEvent: (event: any) => boolean | void | Promise<boolean | void>,
-) {
+export function streamEvents(as: string, onEvent: (event: any) => boolean | void | Promise<boolean | void>) {
   const done = (async () => {
     const stream = await localClient(as).GET("/api/stream/event", {
       headers: { Accept: "application/x-ndjson" },
@@ -382,9 +324,7 @@ export function streamEvents(
     for await (const event of readNdJson(stream)) {
       if (await onEvent(event)) return;
     }
-    throw new Error(
-      `The event stream for ${as} ended before the expected events arrived`,
-    );
+    throw new Error(`The event stream for ${as} ended before the expected events arrived`);
   })();
   // The caller may fail before awaiting this; that must not surface as a second, unhandled rejection.
   done.catch(() => {});

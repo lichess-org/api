@@ -51,7 +51,7 @@ const scripts: Record<string, () => Promise<void>> = {
 };
 
 const requested = Bun.argv.slice(2);
-const unknown = requested.filter((name) => !(name in scripts));
+const unknown = requested.filter(name => !(name in scripts));
 if (unknown.length > 0) {
   console.error(`Unknown script: ${unknown.join(", ")}`);
   console.error(`Available: ${Object.keys(scripts).join(", ")}`);

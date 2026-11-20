@@ -88,15 +88,11 @@ export default async function users() {
       headers: {
         "Content-Type": "text/plain",
       },
-      bodySerializer: (body) => body,
+      bodySerializer: body => body,
     }),
   );
 
-  await example(
-    "users",
-    "getLiveStreamers",
-    prodClient().GET("/api/streamer/live"),
-  );
+  await example("users", "getLiveStreamers", prodClient().GET("/api/streamer/live"));
 
   await example(
     "users",

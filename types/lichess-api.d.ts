@@ -4064,19 +4064,7 @@ export interface components {
      * @description only appears if the user is a titled player or a bot user
      * @enum {string}
      */
-    Title:
-      | "GM"
-      | "WGM"
-      | "IM"
-      | "WIM"
-      | "FM"
-      | "WFM"
-      | "NM"
-      | "CM"
-      | "WCM"
-      | "WNM"
-      | "LM"
-      | "BOT";
+    Title: "GM" | "WGM" | "IM" | "WIM" | "FM" | "WFM" | "NM" | "CM" | "WCM" | "WNM" | "LM" | "BOT";
     /**
      * @deprecated
      * @description Use patronColor value instead to determine if player is a patron.
@@ -4828,16 +4816,7 @@ export interface components {
         | "Staunton"
         | "CubesAndPi";
       /** @enum {string} */
-      soundSet?:
-        | "silent"
-        | "standard"
-        | "piano"
-        | "nes"
-        | "sfx"
-        | "futuristic"
-        | "robot"
-        | "music"
-        | "speech";
+      soundSet?: "silent" | "standard" | "piano" | "nes" | "sfx" | "futuristic" | "robot" | "music" | "speech";
       blindfold?: number;
       /** @description 1 = Never, 2 = When premoving, 3 = Always */
       autoQueen?: number;
@@ -4892,13 +4871,7 @@ export interface components {
     };
     GamePgn: string;
     /** @enum {string} */
-    Speed:
-      | "ultraBullet"
-      | "bullet"
-      | "blitz"
-      | "rapid"
-      | "classical"
-      | "correspondence";
+    Speed: "ultraBullet" | "bullet" | "blitz" | "rapid" | "classical" | "correspondence";
     /** @enum {string} */
     GameStatusName:
       | "created"
@@ -4952,12 +4925,8 @@ export interface components {
       };
     };
     GamePlayers: {
-      white:
-        | components["schemas"]["GamePlayerUser"]
-        | components["schemas"]["GamePlayerAi"];
-      black:
-        | components["schemas"]["GamePlayerUser"]
-        | components["schemas"]["GamePlayerAi"];
+      white: components["schemas"]["GamePlayerUser"] | components["schemas"]["GamePlayerAi"];
+      black: components["schemas"]["GamePlayerUser"] | components["schemas"]["GamePlayerAi"];
     };
     GameOpening: {
       eco: string;
@@ -5029,8 +4998,7 @@ export interface components {
       }[];
     };
     /** @enum {integer} */
-    GameStatusId:
-      10 | 20 | 25 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 60;
+    GameStatusId: 10 | 20 | 25 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 60;
     GameStreamGame: {
       id: string;
       rated?: boolean;
@@ -5170,9 +5138,7 @@ export interface components {
         bc: number;
       };
     };
-    TvFeed:
-      | components["schemas"]["TvFeedFeatured"]
-      | components["schemas"]["TvFeedFen"];
+    TvFeed: components["schemas"]["TvFeedFeatured"] | components["schemas"]["TvFeedFen"];
     Clock: {
       limit: number;
       increment: number;
@@ -5457,8 +5423,7 @@ export interface components {
     };
     StudyPgn: string;
     /** @enum {string} */
-    StudyUserSelection:
-      "nobody" | "owner" | "contributor" | "member" | "everyone";
+    StudyUserSelection: "nobody" | "owner" | "contributor" | "member" | "everyone";
     StudyImportPgnChapters: {
       chapters?: {
         /** @description The chapter ID */
@@ -6311,8 +6276,7 @@ export interface components {
       game: components["schemas"]["GameEventInfo"];
     };
     /** @enum {string} */
-    ChallengeStatus:
-      "created" | "offline" | "canceled" | "declined" | "accepted";
+    ChallengeStatus: "created" | "offline" | "canceled" | "declined" | "accepted";
     ChallengeUser: {
       id: string;
       name: string;
@@ -6569,15 +6533,7 @@ export interface components {
      * @default chess
      * @enum {string}
      */
-    UciVariant:
-      | "chess"
-      | "crazyhouse"
-      | "antichess"
-      | "atomic"
-      | "horde"
-      | "kingofthehill"
-      | "racingkings"
-      | "3check";
+    UciVariant: "chess" | "crazyhouse" | "antichess" | "atomic" | "horde" | "kingofthehill" | "racingkings" | "3check";
     ExternalEngine: {
       /** @description Unique engine registration ID. */
       id: string;
@@ -7678,9 +7634,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json":
-            | components["schemas"]["GamePgn"]
-            | components["schemas"]["GameJson"];
+          "application/json": components["schemas"]["GamePgn"] | components["schemas"]["GameJson"];
         };
       };
     };
@@ -7772,9 +7726,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json":
-            | components["schemas"]["GamePgn"]
-            | components["schemas"]["GameJson"];
+          "application/json": components["schemas"]["GamePgn"] | components["schemas"]["GameJson"];
         };
       };
     };
@@ -7877,9 +7829,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/x-ndjson":
-            | components["schemas"]["GamePgn"]
-            | components["schemas"]["GameJson"];
+          "application/x-ndjson": components["schemas"]["GamePgn"] | components["schemas"]["GameJson"];
         };
       };
     };
@@ -7949,9 +7899,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json":
-            | components["schemas"]["GamePgn"]
-            | components["schemas"]["GameJson"];
+          "application/json": components["schemas"]["GamePgn"] | components["schemas"]["GameJson"];
         };
       };
     };
@@ -8279,9 +8227,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json":
-            | components["schemas"]["GamePgn"]
-            | components["schemas"]["GameJson"];
+          "application/json": components["schemas"]["GamePgn"] | components["schemas"]["GameJson"];
         };
       };
     };
@@ -8543,23 +8489,7 @@ export interface operations {
            * @example 1
            * @enum {integer}
            */
-          clockIncrement:
-            | 0
-            | 1
-            | 2
-            | 3
-            | 4
-            | 5
-            | 6
-            | 7
-            | 10
-            | 15
-            | 20
-            | 25
-            | 30
-            | 40
-            | 50
-            | 60;
+          clockIncrement: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 10 | 15 | 20 | 25 | 30 | 40 | 50 | 60;
           /**
            * @description How long the tournament lasts, in minutes
            * @example 60
@@ -8693,8 +8623,7 @@ export interface operations {
            * @description Minimum number of rated games required to join.
            * @enum {integer}
            */
-          "conditions.nbRatedGame.nb"?:
-            0 | 5 | 10 | 15 | 20 | 30 | 40 | 50 | 75 | 100 | 150 | 200;
+          "conditions.nbRatedGame.nb"?: 0 | 5 | 10 | 15 | 20 | 30 | 40 | 50 | 75 | 100 | 150 | 200;
           /**
            * @description Predefined list of usernames that are allowed to join, separated by commas.
            *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
@@ -8711,8 +8640,7 @@ export interface operations {
            * @description Minium account age in days required to join.
            * @enum {integer}
            */
-          "conditions.accountAge"?:
-            1 | 3 | 7 | 14 | 30 | 60 | 90 | 180 | 365 | 730 | 1095;
+          "conditions.accountAge"?: 1 | 3 | 7 | 14 | 30 | 60 | 90 | 180 | 365 | 730 | 1095;
         };
       };
     };
@@ -8813,23 +8741,7 @@ export interface operations {
            * @example 1
            * @enum {integer}
            */
-          clockIncrement:
-            | 0
-            | 1
-            | 2
-            | 3
-            | 4
-            | 5
-            | 6
-            | 7
-            | 10
-            | 15
-            | 20
-            | 25
-            | 30
-            | 40
-            | 50
-            | 60;
+          clockIncrement: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 10 | 15 | 20 | 25 | 30 | 40 | 50 | 60;
           /**
            * @description How long the tournament lasts, in minutes
            * @example 60
@@ -8947,8 +8859,7 @@ export interface operations {
            * @description Minimum number of rated games required to join.
            * @enum {integer}
            */
-          "conditions.nbRatedGame.nb"?:
-            0 | 5 | 10 | 15 | 20 | 30 | 40 | 50 | 75 | 100 | 150 | 200;
+          "conditions.nbRatedGame.nb"?: 0 | 5 | 10 | 15 | 20 | 30 | 40 | 50 | 75 | 100 | 150 | 200;
           /**
            * @description Predefined list of usernames that are allowed to join, separated by commas.
            *     If this list is non-empty, then usernames absent from this list will be forbidden to join.
@@ -8965,8 +8876,7 @@ export interface operations {
            * @description Minium account age in days required to join.
            * @enum {integer}
            */
-          "conditions.accountAge"?:
-            1 | 3 | 7 | 14 | 30 | 60 | 90 | 180 | 365 | 730 | 1095;
+          "conditions.accountAge"?: 1 | 3 | 7 | 14 | 30 | 60 | 90 | 180 | 365 | 730 | 1095;
         };
       };
     };
@@ -12959,12 +12869,7 @@ export interface operations {
            *     Example: `noAbort,noRematch`
            * @enum {string}
            */
-          rules?:
-            | "noAbort"
-            | "noRematch"
-            | "noGiveTime"
-            | "noClaimWin"
-            | "noEarlyDraw";
+          rules?: "noAbort" | "noRematch" | "noGiveTime" | "noClaimWin" | "noEarlyDraw";
         };
       };
     };
@@ -13253,12 +13158,7 @@ export interface operations {
            *     The `noAbort` rule is available for Lichess admins only
            * @enum {string}
            */
-          rules?:
-            | "noRematch"
-            | "noGiveTime"
-            | "noClaimWin"
-            | "noEarlyDraw"
-            | "noAbort";
+          rules?: "noRematch" | "noGiveTime" | "noClaimWin" | "noEarlyDraw" | "noAbort";
           /**
            * @description Optional pair of usernames, separated by a comma.
            *     If set, only these users will be allowed to join the game.
@@ -13413,12 +13313,7 @@ export interface operations {
            *     Example: `noAbort,noRematch`
            * @enum {string}
            */
-          rules?:
-            | "noAbort"
-            | "noRematch"
-            | "noGiveTime"
-            | "noClaimWin"
-            | "noEarlyDraw";
+          rules?: "noAbort" | "noRematch" | "noGiveTime" | "noClaimWin" | "noEarlyDraw";
         };
       };
     };

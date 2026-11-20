@@ -1,11 +1,4 @@
-import {
-  example,
-  localClient,
-  ok,
-  prodClient,
-  readLines,
-  streamTimeout,
-} from "./config";
+import { example, localClient, ok, prodClient, readLines, streamTimeout } from "./config";
 
 export default async function broadcasts() {
   const newOfficialTournament = ok(
@@ -22,20 +15,17 @@ export default async function broadcasts() {
 
   for (let i = 1; i <= 3; i++) {
     const round = ok(
-      await localClient("admin").POST(
-        `/broadcast/{broadcastTournamentId}/new`,
-        {
-          params: {
-            path: {
-              broadcastTournamentId: newOfficialTournament.tour.id,
-            },
-          },
-          body: {
-            name: `Round ${i}`,
-            startsAt: nowMs + i * 1000 * 60 * 60,
+      await localClient("admin").POST(`/broadcast/{broadcastTournamentId}/new`, {
+        params: {
+          path: {
+            broadcastTournamentId: newOfficialTournament.tour.id,
           },
         },
-      ),
+        body: {
+          name: `Round ${i}`,
+          startsAt: nowMs + i * 1000 * 60 * 60,
+        },
+      }),
     );
     console.log(`Created round ${round.round.url}`);
   }
@@ -53,18 +43,16 @@ export default async function broadcasts() {
     }),
   );
 
-  const pushPgn = await localClient("admin").POST(
-    "/api/broadcast/round/{broadcastRoundId}/push",
-    {
-      headers: {
-        "Content-Type": "text/plain",
+  const pushPgn = await localClient("admin").POST("/api/broadcast/round/{broadcastRoundId}/push", {
+    headers: {
+      "Content-Type": "text/plain",
+    },
+    params: {
+      path: {
+        broadcastRoundId: finalRound.round.id,
       },
-      params: {
-        path: {
-          broadcastRoundId: finalRound.round.id,
-        },
-      },
-      body: `
+    },
+    body: `
 [Event "Knight Invitational"]
 [White "Player 1"]
 [WhiteFideId "123"]
@@ -82,9 +70,8 @@ export default async function broadcasts() {
 
 1. d4 d5
 `,
-      bodySerializer: (body) => body,
-    },
-  );
+    bodySerializer: body => body,
+  });
 
   await example(
     "broadcasts",
@@ -98,11 +85,7 @@ export default async function broadcasts() {
     }),
   );
 
-  await example(
-    "broadcasts",
-    "getPaginatedToBroadcastPreviews",
-    localClient().GET("/api/broadcast/top"),
-  );
+  await example("broadcasts", "getPaginatedToBroadcastPreviews", localClient().GET("/api/broadcast/top"));
 
   ok(
     await localClient().POST("/broadcast/new", {
@@ -138,11 +121,7 @@ export default async function broadcasts() {
     }),
   );
 
-  await example(
-    "broadcasts",
-    "createBroadcastTournament",
-    newOfficialTournament,
-  );
+  await example("broadcasts", "createBroadcastTournament", newOfficialTournament);
 
   await example(
     "broadcasts",
@@ -171,17 +150,14 @@ export default async function broadcasts() {
   await example(
     "broadcasts",
     "getPlayer",
-    localClient("anon").GET(
-      "/broadcast/{broadcastTournamentId}/players/{playerId}",
-      {
-        params: {
-          path: {
-            broadcastTournamentId: newOfficialTournament.tour.id,
-            playerId: "123",
-          },
+    localClient("anon").GET("/broadcast/{broadcastTournamentId}/players/{playerId}", {
+      params: {
+        path: {
+          broadcastTournamentId: newOfficialTournament.tour.id,
+          playerId: "123",
         },
       },
-    ),
+    }),
   );
 
   await example(
@@ -204,35 +180,29 @@ export default async function broadcasts() {
   await example(
     "broadcasts",
     "getBroadcastRound",
-    localClient().GET(
-      "/api/broadcast/{broadcastTournamentSlug}/{broadcastRoundSlug}/{broadcastRoundId}",
-      {
-        params: {
-          path: {
-            broadcastTournamentSlug: "-",
-            broadcastRoundSlug: "-",
-            broadcastRoundId: finalRound.round.id,
-          },
+    localClient().GET("/api/broadcast/{broadcastTournamentSlug}/{broadcastRoundSlug}/{broadcastRoundId}", {
+      params: {
+        path: {
+          broadcastTournamentSlug: "-",
+          broadcastRoundSlug: "-",
+          broadcastRoundId: finalRound.round.id,
         },
       },
-    ),
+    }),
   );
 
   await example(
     "broadcasts",
     "getBroadcastRoundWithCustomScoring",
-    prodClient().GET(
-      "/api/broadcast/{broadcastTournamentSlug}/{broadcastRoundSlug}/{broadcastRoundId}",
-      {
-        params: {
-          path: {
-            broadcastTournamentSlug: "-",
-            broadcastRoundSlug: "-",
-            broadcastRoundId: "ZpRw34eP",
-          },
+    prodClient().GET("/api/broadcast/{broadcastTournamentSlug}/{broadcastRoundSlug}/{broadcastRoundId}", {
+      params: {
+        path: {
+          broadcastTournamentSlug: "-",
+          broadcastRoundSlug: "-",
+          broadcastRoundId: "ZpRw34eP",
         },
       },
-    ),
+    }),
   );
 
   await example(
@@ -256,27 +226,19 @@ export default async function broadcasts() {
   const pgnLines: string[] = [];
   let blankLines = 0;
   for await (const line of readLines(
-    await localClient().GET(
-      "/api/stream/broadcast/round/{broadcastRoundId}.pgn",
-      {
-        params: {
-          path: {
-            broadcastRoundId: finalRound.round.id,
-          },
+    await localClient().GET("/api/stream/broadcast/round/{broadcastRoundId}.pgn", {
+      params: {
+        path: {
+          broadcastRoundId: finalRound.round.id,
         },
-        parseAs: "stream",
-        signal: streamTimeout(),
       },
-    ),
+      parseAs: "stream",
+      signal: streamTimeout(),
+    }),
   )) {
     pgnLines.push(line);
     if (line === "" && ++blankLines === 6) {
-      await example(
-        "broadcasts",
-        "streamOngoingBroadcastRoundAsPgn",
-        pgnLines.join("\n"),
-        "pgn",
-      );
+      await example("broadcasts", "streamOngoingBroadcastRoundAsPgn", pgnLines.join("\n"), "pgn");
       break;
     }
   }
@@ -335,20 +297,13 @@ export default async function broadcasts() {
 
   // Every team has an entry with all of its matches, which is more than an example needs
   const teamLeaderboard = ok(
-    await prodClient().GET(
-      "/broadcast/{broadcastTournamentId}/teams/standings",
-      {
-        params: {
-          path: {
-            broadcastTournamentId: "Y9YjcDKG",
-          },
+    await prodClient().GET("/broadcast/{broadcastTournamentId}/teams/standings", {
+      params: {
+        path: {
+          broadcastTournamentId: "Y9YjcDKG",
         },
       },
-    ),
+    }),
   );
-  await example(
-    "broadcasts",
-    "getTeamLeaderboardOfBroadcastTournament",
-    teamLeaderboard.slice(0, 2),
-  );
+  await example("broadcasts", "getTeamLeaderboardOfBroadcastTournament", teamLeaderboard.slice(0, 2));
 }

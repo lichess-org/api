@@ -3,11 +3,7 @@ import { example, localClient, ok } from "./config";
 export default async function account() {
   await example("account", "getMyProfile", localClient().GET("/api/account"));
 
-  await example(
-    "account",
-    "getMyEmailAddress",
-    localClient().GET("/api/account/email"),
-  );
+  await example("account", "getMyEmailAddress", localClient().GET("/api/account/email"));
 
   const prefs = ok(await localClient().GET("/api/account/preferences"));
   if (prefs.prefs?.bgImg && !prefs.prefs.bgImg.includes("http")) {
@@ -15,11 +11,7 @@ export default async function account() {
   }
   await example("account", "getMyPreferences", prefs);
 
-  await example(
-    "account",
-    "getMyKidModeStatus",
-    localClient().GET("/api/account/kid"),
-  );
+  await example("account", "getMyKidModeStatus", localClient().GET("/api/account/kid"));
 
   await example(
     "account",

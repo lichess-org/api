@@ -1,20 +1,7 @@
-import {
-  cleanUp,
-  example,
-  firstNdJson,
-  firstPgnGames,
-  localClient,
-  ok,
-  prodClient,
-  streamTimeout,
-} from "./config";
+import { cleanUp, example, firstNdJson, firstPgnGames, localClient, ok, prodClient, streamTimeout } from "./config";
 
 export default async function arenas() {
-  await example(
-    "arenas",
-    "getCurrentTournaments",
-    prodClient().GET("/api/tournament"),
-  );
+  await example("arenas", "getCurrentTournaments", prodClient().GET("/api/tournament"));
 
   const newArena = ok(
     await localClient().POST("/api/tournament", {

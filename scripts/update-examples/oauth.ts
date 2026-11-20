@@ -3,12 +3,7 @@ import { example, localClient } from "./config";
 export default async function oauth() {
   const tokensToTest = "lip_jose,lip_badToken";
 
-  await example(
-    "oauth",
-    "testMultipleOauthTokens-request",
-    tokensToTest,
-    "txt",
-  );
+  await example("oauth", "testMultipleOauthTokens-request", tokensToTest, "txt");
 
   await example(
     "oauth",
@@ -18,7 +13,7 @@ export default async function oauth() {
         "Content-Type": "text/plain",
       },
       body: tokensToTest,
-      bodySerializer: (body) => body,
+      bodySerializer: body => body,
     }),
   );
 }
