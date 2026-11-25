@@ -17,6 +17,12 @@ get:
       required: true
       schema:
         type: string
+    - in: query
+      name: topics
+      description: Include the list of topics for each study
+      default: false
+      schema:
+        type: boolean
   responses:
     "200":
       description: The list of studies.

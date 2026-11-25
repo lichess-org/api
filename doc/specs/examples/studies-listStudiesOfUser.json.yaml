@@ -1,1 +1,8 @@
-value: { "id": "keq5vaIF", "name": "Example study", "createdAt": 1793058160478, "updatedAt": 1793058160499 }
+value:
+  {
+    "id": "keq5vaIF",
+    "name": "Example study",
+    "createdAt": 1793058160478,
+    "updatedAt": 1793058160499,
+    "topics": ["Broadcast"],
+  }

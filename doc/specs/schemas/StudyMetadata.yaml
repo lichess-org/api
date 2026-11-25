@@ -15,6 +15,11 @@ properties:
     type: integer
     format: int64
     description: The study last update date
+  topics:
+    type: array
+    description: The list of topics for the study
+    items:
+      type: string
 
 required:
   - id
