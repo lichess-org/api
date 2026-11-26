@@ -20,9 +20,9 @@ get:
     - in: query
       name: topics
       description: Include the list of topics for each study
-      default: false
       schema:
         type: boolean
+        default: false
   responses:
     "200":
       description: The list of studies.
