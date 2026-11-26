@@ -5457,6 +5457,8 @@ export interface components {
        * @description The study last update date
        */
       updatedAt: number;
+      /** @description The list of topics for the study */
+      topics?: string[];
     };
     /**
      * @description FIDE rating category
@@ -10413,7 +10415,13 @@ export interface operations {
   };
   studyListMetadata: {
     parameters: {
-      query?: never;
+      query?: {
+        /**
+         * @description Include the list of topics for each study
+         * @default false
+         */
+        topics?: boolean;
+      };
       header?: never;
       path: {
         /** @description The user whose studies we list */
