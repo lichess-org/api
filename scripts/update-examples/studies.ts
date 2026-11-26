@@ -87,6 +87,9 @@ export default async function studies() {
           path: {
             username: owner,
           },
+          query: {
+            topics: true,
+          },
         },
         headers: {
           Accept: "application/x-ndjson",
