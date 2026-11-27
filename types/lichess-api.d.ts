@@ -10416,10 +10416,7 @@ export interface operations {
   studyListMetadata: {
     parameters: {
       query?: {
-        /**
-         * @description Include the list of topics for each study
-         * @default false
-         */
+        /** @description Include the list of topics for each study */
         topics?: boolean;
       };
       header?: never;
