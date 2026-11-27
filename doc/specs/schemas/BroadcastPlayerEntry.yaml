@@ -20,7 +20,7 @@ allOf:
         description: |
           Performance ratings by FIDE time control.
         allOf:
-          - $ref: "./StatByFideTC.yaml"
+          - $ref: "./BroadcastPlayerPerformance.yaml"
       tiebreaks:
         type: array
         maxItems: 5
