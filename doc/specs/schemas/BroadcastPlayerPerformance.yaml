@@ -1,0 +1,13 @@
+type: object
+propertyNames:
+  $ref: "./FideTimeControl.yaml"
+additionalProperties:
+  type: object
+  properties:
+    rating:
+      type: integer
+    isUncertain:
+      type: boolean
+  required:
+    - rating
+    - isUncertain
